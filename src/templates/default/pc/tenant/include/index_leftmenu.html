@@ -1,0 +1,61 @@
+<!-- leftMenu//start -->
+<div id="leftMenu">
+{% if 'ADMIN' in login.access_authority: %}
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_TENANTO_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl}}">{{lang.VMSG_TENANTO_CONFIG}}</a></li>
+{#<li class="close"><a href="{{vurl}}#BASIC" >{{lang.VMSG_BASIC_CONFIG}}</a></li>#}
+<li class="close"><a href="{{vurl}}#BOTCONFIG" >{{lang.VMSG_BOT_CONFIG}}</a></li>
+<li class="close"><a href="{{vurl}}#FILESERVERCONFIG" >{{lang.VMSG_FILE_SERVER_CONFIG}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+{% endif %}
+
+<!-- leftMenu//end -->
+{% if 'ADMIN' in login.access_authority or 'OPERATOR' in login.delegate_function: %}
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_OPERATOR_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="close"><a href="{{vurl}}#OPERATOR" >{{lang.VMSG_OPERATOR_LIST}}</a></li>
+<li class="close"><a href="{{vurl}}operator/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_OPERATOR_ADD}}</a></li>
+{% if 'ADMIN' in login.access_authority or 'OPERATOR' in login.delegate_function: %}
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl}}acs/log" >{{lang.VMSG_LOGINHISTORY}}</a></li>
+{% endif %}
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+</div>

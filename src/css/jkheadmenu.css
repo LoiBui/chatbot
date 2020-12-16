@@ -1,0 +1,154 @@
+.megamenu{
+position: absolute;
+display: none;
+left: 0;
+top: 0;
+background: white;
+filter: alpha(opacity=93);/*”¼“§–¾*/
+-moz-opacity: 0.93;/*”¼“§–¾*/
+opacity: 0.93;/*”¼“§–¾*/
+border: 1px solid #084;
+border-width: 5px 1px;
+padding: 10px;
+font-size:small;
+z-index: 100;
+-webkit-box-shadow: 4px 4px 4px #999999;
+-moz-box-shadow: 4px 4px 4px #999999;
+}
+
+
+.megamenu .column{
+float: left;
+width: 150px; /*width of each menu column*/
+margin-right: 5px;
+margin-bottom:5px;
+}
+
+.megamenu .column ul{
+margin: 0 0 0 20px;
+padding: 0;
+list-style-type: none;
+line-height:130%;
+}
+
+.megamenu .column ul li{
+padding-bottom: 5px;
+padding-left:0;
+font-size:12px;
+list-style:square;
+list-style-position:outside;
+color:#FF9900;
+}
+
+.megamenu .column h3{
+background: #e0e0e0;
+font-size:small;
+font-weight:bold;
+margin: 0 0 5px 0;
+padding:2px;
+}
+.megamenu .column h3 a{
+text-decoration:none;
+}
+.h3dummy{
+font-size:12px;
+font-weight:bold;
+margin: 0 0 5px 0;
+}
+
+.megamenu .column h2{
+background: #e0e0e0;
+font-size:small;
+font-weight:bold;
+margin: 0 0 5px 0;
+padding:2px;
+}
+.megamenu .column h2 a{
+text-decoration:none;
+}
+
+.h2dummy{
+font-size:12px;
+font-weight:bold;
+margin: 0 0 5px 0;
+}
+
+.megamenu .column ul li a{
+	white-space:nowrap;
+	display:block;
+	float: none;
+	background-color:#F9F9F9;
+	background-image:none;
+	padding:4px 1em 2px 0.6em;
+	margin:0;
+	height:1.4em;
+	text-decoration:none;
+	color:#333;
+}
+
+.megamenu .column ul li a:hover{
+	white-space:nowrap;
+	display:block;
+	float: none;
+	background-image:none;
+	padding:4px 1em 2px 0.6em;
+	margin:0;
+	height:1.4em;
+	text-decoration:none;
+	color:#FFF;
+	background-color:#0050ce;
+}
+.megamenu-push{
+color: #B3B3B3;
+font-weight:bold;
+}
+.megamenu-title{
+color: #B3B3B3;
+font-weight:bold;
+margin:7px 0;
+}
+
+.megamenu .mega-topics{
+float: left;
+width: 300px; /*width of each menu column*/
+margin-right: 10px;
+margin-bottom:5px;
+}
+
+.megamenu .mega-topics ul{
+margin: 0 0 0 20px;
+padding: 0;
+list-style-type: none;
+}
+
+.megamenu .mega-topics ul li{
+padding-bottom: 5px;
+padding-left:0px;
+font-size:12px;
+list-style:square;
+list-style-position:outside;
+color:#FF9900;
+}
+.megamenu .mega-topics ul li a{
+text-decoration: none;
+}
+
+.megamenu .mega-topics ul li a:hover{
+color: red;
+}
+
+.megamenu .mega-prd{
+float: left;
+width: 300px; /*width of each menu column*/
+margin-right: 10px;
+margin-bottom:5px;
+}
+.megamenu .mega-prd-text {
+font-size:11px;
+line-height:130%;
+color:#666666;
+}
+.megamenu .mega-prd-text a{
+text-decoration:none;
+font-weight:bold;
+}

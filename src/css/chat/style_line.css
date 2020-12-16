@@ -1,0 +1,1664 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #c9c9c9;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+    border: 0;
+    border-radius: 8px;
+}
+
+
+
+/*body {*/
+    /*background-color: #fff;*/
+    /*line-height: 1.308;*/
+    /*color: #333;*/
+    /*font-family: Arimo, Tahoma, '나눔고딕', NanumGothic, \B098\B214\ACE0\B515, '맑은 고딕', 'Malgun Gothic', \B9D1\C740\0020\ACE0\B515, '돋움', Dotum, \B3CB\C6C0, sans-serif;*/
+    /*font-size: 13px;*/
+    /*-webkit-appearance: none;*/
+/*}*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, textarea, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+}
+
+body {
+    min-width: 379px;
+}
+
+.MdLFT01Tab, .LyHead .lyHeadInner2, .LyContents, .LyKeep, .LyLFT, .LyLFT .lyLFTInner, .typeLogin, .typeLogin .LyWrap, .MdGHD03Global, .MdTxtCaution01, .MdInputTxt01, .MdInputTxt02, .MdInputTxt03, .MdSelectBox01, .MdBtn03D01, .MdBtn03D02, .MdBtn03D03, .MdBtn03D04, .MdBtn03P01, .MdBtn03P02, .MdIcoBadge01, .MdIcoBadge02, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardType, .MdBoxCard .MdBoxCardType li img, .MdBoxCard .MdBoxCardType li.selected:before, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardViewSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage .enterTxt, .MdBoxCard .MdBoxCardEdit .cardSection .cardView:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .palette, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .palette li, .MdCMN01Login.mdCMN01Verify, .MdCMN01LoginNew .MdFormTabs button, .MdCMN01LoginNew .MdFormTabs div, .MdCMN01LoginNew .MdFormTabs li, .MdCMN01LoginNew.mdCMN01Verify, .MdCMN03List>li, .MdCMN03List.mdCMN03Nodata>li, .MdCMN04Item .mdCMN04ImgInner, .MdCMN07Caution, .MdCMN09ImgEdit .mdCMN09ImgInner, .MdLFT01Search .mdLFT01Inner, .MdLFT01Search .mdLFT01Input, .MdLFT03Notice, .MdLFT05Item, .MdRGT02Set .mdRGT02Input, .MdBox02 .MdRGT02Set, .MdRGT04Head, .MdRGT04Head .mdRGT04ImgInner, .MdRGT05Body, .MdRGT06Form, .MdRGT06Form .mdRGT06Input, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .mdRGT07MsgText, .MdRGT08Head, .MdRGT09Sticker .mdRGT09Resize, .MdRGT09Sticker .mdRGT09Ul>li:hover>button:after, .MdRGT10Notice, .MdLYR01Box, .MdLYR02Viewer, .MdLYR02Viewer .mdLYR02ListBox, .MdLYR02Viewer .mdLYR02ImgBox, .MdLYR02Viewer .mdLYR02Img, .MdLYR02Viewer .mdLYR02Img img, .MdLYR02Viewer .mdLYR02Img video, .MdLYR02Viewer .mdLYR02Img webview, .MdLYR02Viewer .mdLYR02Head, .MdLYR03Box .mdLYR03Ol li, .MdLYR04Skin .mdLYR04Ul {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.LyContents {
+    /*display: table\0/;*/
+    /*display: -webkit-box;*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /* height: 100%; */
+    border-right: 1px solid #f0f1f4;
+    border-bottom: 1px solid #f0f1f4;
+    -webkit-box-shadow: inset 1px 0 0 #f0f1f4;
+    box-shadow: inset 1px 0 0 #f0f1f4;
+    width: 96%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.LyRGT, .MdGHD01Head, .MdInputTxt02 input, .MdBoxCard .MdBoxCardEdit .cardSection .cardViewSection, .MdCMN04Item .mdCMN04Txt, .MdCMN05Item .mdCMN05Txt, .MdLFT01Search .mdLFT01Inner, .MdLFT01Search .mdLFT01Input, .MdRGT02Set .mdRGT02Txt .mdRGT02Desc, .MdRGT02Set .mdRGT02Input input, .MdRGT02Set .mdRGT02Input [contenteditable=true], .MdRGT02Set .mdRGT02Input [contenteditable=false], .MdBox02 .MdRGT02Set, .MdRGT02Set.mdRGT02Info .MdBox04, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoCp .textView .detail, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView .detail, .MdRGT10Notice.mdRGT10Invite .mdRGT10Txt, .MdRGT11Head input.mdRGT11Ttl, .MdRGT11Head [contenteditable=true], .MdRGT11Head [contenteditable=false], .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .detail {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.LyRGT {
+    /*overflow: hidden;*/
+    /*position: relative;*/
+}
+.MdBox02 {
+    z-index: 0;
+    position: relative;
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.MdRGT02Set.mdRGT02Chat {
+    overflow: hidden;
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.MdRGT02Set {
+    position: relative;
+}
+.MdRGT04Head.mdRGT04Link {
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+}
+.MdRGT04Head {
+    z-index: 9;
+    width: 100%;
+    height: 51px;
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, .95);
+}
+.LyHead .lyHeadInner2, .MdGHD01Head, .MdInputTxt02, .standardHeight .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control, .MdCMN04Item, .MdCMN04Item .mdCMN04Head, .MdCMN05Item, .MdLFT01Search, .MdLFT01Search .mdLFT01Inner, .MdRGT02Set .mdRGT02Txt li, .MdRGT02Set .mdRGT02Input, .MdRGT04Head, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb, .MdRGT10Notice.mdRGT10Invite, .MdRGT11Head.ExEdit, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT04Head .mdRGT04Img {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin: 0 8px 0 12px;
+}
+.LyHead .lyHeadInner2>*, .MdGHD01Head>*, .MdInputTxt02>*, .standardHeight .MdBoxCard .MdBoxCardEdit>*, .MdBoxCard .MdBoxCardHead>*, .MdBoxCard .MdBoxCardEdit>*, .MdBoxCard .MdBoxCardEdit .cardSection>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control>*, .MdCMN04Item>*, .MdCMN04Item .mdCMN04Head>*, .MdCMN05Item>*, .MdLFT01Search>*, .MdLFT01Search .mdLFT01Inner>*, .MdRGT02Set .mdRGT02Txt li>*, .MdRGT02Set .mdRGT02Input>*, .MdRGT04Head>*, .MdRGT04Head .mdRGT04Txt>*, .MdRGT06Form .mdRGT06Unblock>*, .MdRGT07Cont .infoBb .textView .detail>*, .MdRGT07Cont .mdRGT07LinkType .linkView>*, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb>*, .MdRGT10Notice.mdRGT10Invite>*, .MdRGT11Head.ExEdit>*, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView>*, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb>* {
+    vertical-align: middle;
+}
+.MdRGT04Head.mdRGT04Link {
+    cursor: pointer;
+}
+.MdRGT04Head .mdRGT04Txt {
+    overflow: hidden;
+}
+.LyHead .lyHeadInner2, .MdGHD01Head, .MdInputTxt02, .standardHeight .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control, .MdCMN04Item, .MdCMN04Item .mdCMN04Head, .MdCMN05Item, .MdLFT01Search, .MdLFT01Search .mdLFT01Inner, .MdRGT02Set .mdRGT02Txt li, .MdRGT02Set .mdRGT02Input, .MdRGT04Head, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb, .MdRGT10Notice.mdRGT10Invite, .MdRGT11Head.ExEdit, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT04Head .MdCMN10BtnSet {
+    margin: 0 15px;
+}
+
+.MdRGT04Head .MdIcoSubmenu01 {
+    margin: 0 1px 0 8px;
+}
+.MdBtn01More {
+    position: relative;
+    width: 34px;
+    height: 38px;
+}
+
+.MdGHD01Head.mdGHD01Back .mdGHD01Ttl:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File, .MdBtn01Image, .MdBtn01More, .MdBtn01Note, .MdBtn01Option, .MdBtn01Skin, .MdBtn01Card, .MdBtn01Card.MdNew:after, .MdBtn01Sticker, .MdBtn01Sync, .MdIcoMute01, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .boldType, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control .reduce:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control .raising:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color:after, .MdBoxCard.typeLi .MdBoxCardHead .back:before, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    text-indent: -9999px;
+}
+input, button, textarea {
+    font-family: inherit;
+}
+button {
+    background-color: transparent;
+    padding: 0;
+}
+input, button, textarea {
+    border: 0;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+}
+button, input {
+    line-height: normal;
+}
+select, input, button {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+.MdBtn01More:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 18px;
+    background-position: -3754px 0;
+    margin-left: -2px;
+    margin-top: -9px;
+}
+
+.imgList li.clip:before, .imgList li.error:before, .imgList li.loading:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01Add, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture:before, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File:before, .MdBtn01Help, .MdBtn01Image:before, .MdBtn01More:after, .MdBtn01Note:after, .MdBtn01Option:before, .MdBtn01Reload, .MdBtn01Skin, .MdBtn01Card:before, .MdBtn01Sticker:before, .MdBtn01Sync:before, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdIcoMute01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdCMN04Item .pin, .MdCMN05Item.typeClip .mdCMN05Img:before, .MdCMN05Item.typeError .mdCMN05Img:before, .MdCMN05Item.typeLoading .mdCMN05Img:before, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdLFT07Nav .mdLFT07Ul button:after, .MdRGT02Set .mdRGT02Txt .mdRGT02Link:before, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn:after, .MdRGT09Sticker .mdRGT09Ul>li.ani:after, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01Ver:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ImageLi .mdLYR02toImage .mdLYR02Extention, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .mdLYR02toMovie:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button:after, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR03Box .tab button.on:before, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    /* background-image: url(chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/res/img/sprite/common.png); */
+    background-image: url(img/sprite/common.png);
+}
+.MdNonDisp {
+    display: none !important;
+}
+.fadeInNormal {
+    -webkit-animation: fadein .4s;
+}
+.MdRGT05Body {
+    position: relative;
+    padding-top: 51px;
+}
+.MdRGT10Notice.mdRGT10Date {
+    text-align: center;
+    margin: 10px 0;
+}
+.MdRGT10Notice.mdRGT10Prev a {
+    display: block;
+    background-color: #f3f5f7;
+    border-bottom: 1px solid #f0f1f4;
+    font-size: 11px;
+    color: #8f939c;
+    text-align: center;
+    padding: 3px 0 5px;
+}
+.MdRGT10Notice.mdRGT10Date>time {
+    display: inline-block;
+    background-color: #f3f3f4;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #82878f;
+    text-align: center;
+    padding: 3px 14px;
+}
+.MdRGT07Cont {
+    position: relative;
+    margin: 20px 12px;
+}
+.typeSingle .MdRGT07Cont .mdRGT07Img, .typeSingle .MdRGT07Cont .mdRGT07Ttl {
+    display: none;
+}
+.MdRGT07Cont .mdRGT07Img {
+    float: left;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 9px;
+    cursor: pointer;
+}
+img {
+    border: 0;
+    vertical-align: top;
+}
+.MdRGT07Cont .mdRGT07Body {
+    overflow: hidden;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07Msg {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+.MdRGT07Cont .mdRGT07Msg {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    margin: 0 7px;
+}
+.fontType12 .MdRGT07Cont .mdRGT07Msg.mdRGT07Text .mdRGT07MsgText {
+    font-size: 12px;
+    line-height: 18px;
+}
+.fontType12 .MdRGT07Cont .mdRGT07MsgText {
+    font-size: 12px;
+    line-height: 18px;
+}
+.MdRGT07Cont .mdRGT07MsgText {
+    background-color: #f5f5f5;
+    color: #36393d;
+}
+.MdRGT07Cont .mdRGT07MsgText {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    /* word-wrap: break-word;
+    word-break: break-all; */
+    padding: 7px 11px 8px;
+    -webkit-user-select: text;
+    user-select: text;
+}
+.MdRGT07Cont .mdRGT07Msg>* {
+    vertical-align: bottom;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07MsgText:before {
+    left: -7px;
+    width: 8px;
+    height: 8px;
+    background-position: 0 0;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07MsgText:before {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+.imgList li.clip:before, .imgList li.error:before, .imgList li.loading:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01Add, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture:before, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File:before, .MdBtn01Help, .MdBtn01Image:before, .MdBtn01More:after, .MdBtn01Note:after, .MdBtn01Option:before, .MdBtn01Reload, .MdBtn01Skin, .MdBtn01Card:before, .MdBtn01Sticker:before, .MdBtn01Sync:before, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdIcoMute01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdCMN04Item .pin, .MdCMN05Item.typeClip .mdCMN05Img:before, .MdCMN05Item.typeError .mdCMN05Img:before, .MdCMN05Item.typeLoading .mdCMN05Img:before, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdLFT07Nav .mdLFT07Ul button:after, .MdRGT02Set .mdRGT02Txt .mdRGT02Link:before, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn:after, .MdRGT09Sticker .mdRGT09Ul>li.ani:after, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01Ver:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ImageLi .mdLYR02toImage .mdLYR02Extention, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .mdLYR02toMovie:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button:after, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR03Box .tab button.on:before, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    background-image: url(img/sprite/common.png);
+} 
+.MdGHD01Head .mdGHD01Line, .MdGHD01Head .mdGHD01Setting, .MdGHD02Util>button, .MdGHD03Global button, .MdBtn01Add, .MdBtn01Help, .MdBtn01Reload, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Line, .MdCMN01LoginNew .mdCMN01Line, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdLFT07Nav .mdLFT07Ul button, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button {
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    text-indent: -9999px;
+}
+.MdRGT07Cont .mdRGT07Text .mdRGT07MsgTextInner {
+    cursor: text;
+    min-height: 21px;
+    line-height: 21px;
+    word-break: break-word;
+}
+.MdRGT07Cont .mdRGT07Opt {
+    min-width: 50px;
+    font-size: 11px;
+    color: #adb0b7;
+    white-space: nowrap;
+    margin: 0 7px 1px;
+}
+.MdRGT07Cont .mdRGT07Msg>* {
+    vertical-align: bottom;
+}
+.MdRGT07Cont .mdRGT07Opt {
+    min-width: 60px;
+    font-size: 11px;
+    color: #adb0b7;
+    white-space: nowrap;
+    margin: 0 7px 1px;
+}
+.MdRGT07Cont .mdRGT07Image .mdRGT07MsgImg>img {
+    width: 100%;
+    border-radius: 15px;
+}
+.mdRGT07MsgImg2>img {
+    border-radius: 15px 15px 0 0 ;
+    width: 100%;
+}
+.MdRGT04Head .mdRGT04ImgT1 .mdRGT04ImgInner {
+    width: 35px;
+    height: 35px;
+    border-radius: 17.5px;
+}
+
+.MdRGT04Head .mdRGT04ImgInner {
+    width: 17.5px;
+    overflow: hidden;
+    position: absolute;
+}
+.MdRGT07Cont .infoBb .icon .icoView .icoPlay {
+    min-width: auto;
+    min-height: auto;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView img {
+    object-fit: cover;
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+}
+.MdRGT07Cont.mdRGT07Own .mdRGT07ClipMin .mdRGT07MsgText .icoView {
+    background-color: #aeeb94;
+}
+.MdRGT07Cont.mdRGT07Own {
+    text-align: right;
+    overflow: hidden;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView {
+    overflow: hidden;
+    position: relative;
+    width: 68px;
+    height: 68px;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .icon {
+    margin-left: 2px;
+    margin-right: 13px;
+}
+
+.MdRGT07Cont .infoBb .icon {
+    position: relative;
+}
+.MdRGT07Cont .infoBb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07ClipMin .mdRGT07MsgText .icoView {
+    background-color: #e0e4eb;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView {
+    overflow: hidden;
+    position: relative;
+    width: 68px;
+    height: 68px;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07File .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Contacts .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07ClipMin .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Location .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Music .mdRGT07MsgText {
+    background-image: url(img/common/ico_mdRGT07TextLink_other.png);
+    -webkit-background-size: 7px 11px;
+    background-size: 7px 11px;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .textView .detail .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.MdRGT07Cont.mdRGT07Other .infoBb .textView .text {
+    color: #3b4048;
+}
+.MdRGT07Cont .infoBb .textView .detail .text {
+    display: block;
+    width: 100%;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .textView {
+    min-width: 52px;
+    width: 100%;
+    margin-right: 24px;
+    padding-right: 0;
+}
+
+.MdRGT07Cont .infoBb .textView {
+    padding-right: 24px;
+}
+.MdRGT07Cont .infoBb>* {
+    vertical-align: middle;
+}
+.yScroll{
+    overflow-y: auto;
+}
+.mdRGT07MsgTlt{
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+}
+.mdRGT07MsgTlt2{
+    background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    height: 120px;
+}
+.mdRGT07MsgTlt .title{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 0 0px 10px;
+}
+.mdRGT07MsgTlt .description{
+    font-size: 13px;
+    padding: 0 0 5px 10px;
+}
+.mdRGT07MsgTlt2 .title{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 0 0px 10px;
+}
+.mdRGT07MsgTlt2 .description{
+    font-size: 13px;
+    padding: 0 0 5px 10px;
+}
+.mdRGT07MsgImg{
+    position: relative;
+}
+.w65pcent{
+    width: 65%!important;
+}
+.w100pcent{
+    width: 100%!important;
+}
+.btn-action{
+    font-size: 13px;
+    padding: 30 0 15px 10px;
+    text-align: center;
+}
+.swiper-container{
+ max-height: 280px;
+}
+.cfrm_btn {
+    padding: 10px 40px;
+    font-weight: 600;
+}
+.btn-confirm {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.MdRGT07Cont  .confirmText{
+    padding: 0;
+    background-color: #f5f5f5!important;
+}
+.MdRGT07Cont  .confirmText::before{
+    background-image: none;
+}
+.confirmText .mdRGT07MsgTextInner{
+    padding: 7px 11px 8px;
+}
+.swiper-scrollbar{
+    height: 2px!important;
+}
+.crop{
+    height: 150px;
+    overflow: hidden;
+}
+.img_cover{
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.flr{
+    float: right;
+}
+.ha{
+    height: auto;
+}
+.mess{
+    display: block;
+    overflow: hidden;
+    padding: 15px 10px ;
+}
+.header{
+    border-bottom: 1px solid #ccc;
+}
+.footer{
+    border-top: 1px solid #ccc;
+}
+.pd0{
+    padding: 0!important;
+}
+.nonequote::before{
+    background-image: none!important;
+}
+.MdRGT07Cont.mdRGT07Own .mdRGT07Body {
+    /*float: right;*/
+}
+.LyLFT {
+    /*overflow: hidden;*/
+    /*position: relative;*/
+    width: 240px;
+    /* min-width: 230px;*/
+    /*max-width: 280px;*/
+    border-right: 1px solid #f5f5f5;
+    background: #fff;
+    float: left;
+
+}
+.MdCMN03List>li {
+    position: relative;
+    padding: 13px 17px 13px 16px;
+    cursor: pointer;
+}
+
+.memoList .MdCMN03List>li {
+  padding: 5px 3px;
+}
+
+.MdCMN04Item .mdCMN04Img {
+    z-index: 9;
+    /* overflow: hidden; */
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
+    margin-right: 11px;
+}
+.MdCMN04Item .mdCMN04Img img{   
+    border-radius: 23px;
+}
+.MdCMN04Item .mdCMN04Txt {
+    overflow: hidden;
+    padding-right: 10px;
+    width: 100px;
+}
+.MdCMN04Item .mdCMN04Ttl {
+    padding-right: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #2e343d;
+    text-shadow: 0 0;
+    height: 20px;
+    line-height: 20px;
+}
+.MdCMN04Item .mdCMN04Count {
+    font-size: 12px;
+    color: #2e343d;
+    font-weight: 700;
+    margin-left: 4px;
+}
+.MdCMN04Item .MdIcoMute01 {
+    margin-left: 3px;
+}
+.MdCMN04Item .mdCMN04Desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #acb0bb;
+    height: 20px;
+    line-height: 20px;
+}
+.MdCMN04Item .mdCMN04Opt {
+    position: relative;
+    text-align: right;
+}
+.MdCMN04Item .pin {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    top: 43px;
+    left: 47px;
+    width: 20px;
+    height: 18px;
+    background-position: -4727px 0;
+    text-indent: -500px;
+}
+.MdCMN04Item .mdCMN04Opt {
+    position: relative;
+    text-align: right;
+}
+.MdCMN04Item .mdCMN04Date {
+    font-size: 11px;
+    color: #c5c7ce;
+    margin-bottom: 21px;
+    /* width:43px; */
+}
+.MdLFT01Search {
+    margin: 4px 2px 0 15px;
+}
+.MdLFT01Search .mdLFT01Inner {
+    height: 43px;
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 2px 18px;
+    margin-right: 11px;
+}
+.MdLFT01Search .mdLFT01Input {
+    overflow: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 13px;
+    color: #2e343d;
+    padding: 0;
+}
+input:focus {
+    outline: none;
+}
+.MdHide {
+    position: absolute;
+    left: -9999px;
+}
+.MdLFT01Search .mdLFT01Inner:before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background-position: -3291px 0;
+}
+.mdRGT07Own .mdRGT07MsgText:before {
+    right: -7px;
+    width: 8px;
+    height: 8px;
+    background-position: -12px 0;
+}
+.mdRGT07Own .mdRGT07MsgText:before {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+.MdRGT07Cont.mdRGT07Own .mdRGT07Msg {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+.MdRGT07Cont.mdRGT07Own .mdRGT07MsgText {
+    text-align: left;
+}
+.displayFlex{
+    display: flex;
+}
+.firstRight{
+    /* background-color: #f5f5f5; */
+    /* height: calc(100% - 120px); */
+    height: 400px;
+    width: 100%;
+}
+.secondRight{
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    border-left: 1px solid #f5f5f5;
+    margin-left: -2px;
+}
+.radiusNone{
+    border-radius: 0!important;
+}
+.txtChat{
+    line-height: 16px;
+    cursor: text;
+    min-height: 18px;
+    outline: 0;
+    padding:10px 20px;
+    position: relative;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    height: 50px;
+}
+.ExSelected{
+    background-color: #f5f5f5;
+}
+.chat-msg-input{
+    border: 1px solid #f5f5f5;
+    border-left: none;
+    border-bottom: none;
+}
+
+
+.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    padding: 15px 32px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: 16px 0 !important;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn2 {background-color: #008CBA;} /* Blue */
+.btn2:hover {background-color: #008CBA;}
+.round2 {
+  border-radius:4px;
+  padding:5px
+}
+
+.panel-button-more{
+  position: absolute;
+    bottom: -13px;
+    width: 97%;
+    margin: 4px;
+}
+
+.MdMN11ChatCnt{
+  width: 100%;
+}
+
+.text-bold{
+  font-weight: bold;
+}
+
+.text-bold div {
+    font-weight: 600!important;
+}
+
+.memoHeader{
+    text-align: center;
+    padding: 4px;
+    border-bottom: 1px solid #f5f5f5;
+}
+/* .memoHeader:after{
+    background-image: url(img/sprite/common.png);
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 18px;
+    background-position: -4012px 0;
+    right: 10px;
+    padding-top: 5px;
+    cursor: pointer;
+} */
+.action{
+    padding: 0 5px;
+    margin-top: 3px;
+    float: right;
+}
+.action button{
+    height: 28px;
+    margin-right: 1px;
+    padding: 0 12px;
+    border: 1px solid #cbcbcb;
+    background-color: #f8f8f8;
+    line-height: 28px;
+    color: #222;
+    font-weight: 700;
+    border-radius: 3px;
+}
+.contentArea{
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    width: -webkit-fill-available;
+    margin: 3px;
+    border-radius: 3px;
+    min-height: 80px;
+    resize: none;
+}
+.memoContent{
+    display: none;
+}
+
+.edit{
+    background-image: url(img/sprite/common.png);
+    content: "";
+    width: 16px;
+    height: 18px;
+    background-position: -1551px 0;
+    cursor: pointer;
+    float: left;
+    margin-top: 2px;
+    display: none;
+}
+/* ._memo_list_body{
+     height:450px;
+} */
+.mxh350{
+    max-height: 300px;
+    margin-bottom: 5px;
+}
+.delete{
+    background-image: url(img/sprite/common.png);
+    content: "";
+    width: 16px;
+    height: 18px;
+    background-position: -1311px 0;
+    cursor: pointer;
+    float: right;
+}
+.memoEachAction{
+    width: 40px;
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    opacity: 0.6;
+}
+.memoEachAction:hover{
+    opacity: 1;
+}
+.memoComponent{
+    height: 450px;
+}
+.memoItem{
+    position: relative;
+    padding: 13px 17px 13px 16px;
+    cursor: pointer;
+    border: 1px solid #dadce0;
+    border-radius: 7px;
+    margin: 5px;
+    margin-bottom: 16px;
+}
+.memoItem:hover{
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.memoAuthor{
+    display: none;
+}
+.memoAuthor .mdCMN04Img{
+    position: absolute;
+    top: -16px;
+    left: 0;
+}
+.memoAuthor img{
+    border-radius: 50%;
+}
+.memoItem:first-child{
+    margin-top: 20px;
+}
+.memoItem:last-child{
+    margin-bottom: 0!important;
+}
+.memoItem:hover .memo-act {
+    display: block;
+}
+.memoDescripton{
+    padding-right: 2px;
+    font-size: 12px;
+    color: #2e343d;
+    text-shadow: 0 0;
+    line-height: 20px;
+    overflow-wrap: break-word;
+}
+
+.txtChat {
+
+}
+
+.txtChat[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #555;
+}
+
+.txtChat[placeholder]:empty:focus:before {
+    content: "";
+}
+
+.mdRGT07MsgLocation{
+  width: 50%;
+  /*height: 200px;*/
+}
+
+.mdRGT07MsgLocationItem{
+  display: block;
+  width: 100%;
+  height: 130px;
+}
+
+.sticker {
+    float: left;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 5px;
+    opacity:0.6;
+}
+.act-sticker{
+    display: block;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+.sticker:hover{
+    opacity:1;
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 70px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: 70px;
+}
+
+.sticker-selected {
+    background-color: #7daae2;
+}
+
+.sticker_image{
+  width: 80px!important;
+}
+
+:root{
+    --clWhite:#fff;
+    --clGray: #f5f5f5;
+  }
+  ul#_memo_list_body {
+    border: 1px solid #eee;
+    margin: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+.memoItem {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 3px;
+  margin-bottom: 0;
+  border: 1px solid #fff;
+}
+.memoItem:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border-bottom: 1px solid #fff;
+}
+.memoItem:last-child {
+  margin-bottom: inherit!important;
+}
+.LyContents{
+  width: 80%;
+}
+.LyLFT{
+  border-right: none;;
+}
+#memoContent .content{
+  margin: 5px;
+}
+#memoContent  .contentArea{
+  margin: 0;
+}
+#memoContent .action {
+  float: right;
+  margin-right: 5px;
+  padding-right: 0;
+}
+.memo-row .mdCMN04Head{
+  display: contents;
+}
+.row-author {
+  margin-right: 5px;
+  float: left;
+  display: block;
+}
+.memoItem:first-child{
+  margin-top: 5px;
+}
+.secondRight{
+  background-color: #f5f5f5;
+  height: auto;
+}
+._memo_list_body {
+  background-color: #fff;
+}
+.memoItem:hover .row-author{
+  display: block;
+  transition: width 1s;
+}
+
+.delete {
+  background-image: url(https://chatmagazine.sateraito.jp/css/chat/img/sprite/common.png);
+}
+.memoEachAction {
+  width: 40px;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  opacity: 0.6;
+  top: 0;
+  display: none;
+}
+.memoItem:hover .memoEachAction{
+  display: block;
+  opacity: 1;
+}
+.memoComponent {
+  height: auto;
+}
+.LyRGT {
+  /* overflow: hidden; */
+  /* position: relative; */
+  display: block;
+  overflow: hidden;
+  border-left: 1px solid #d6d6d6;
+}
+.memoDescripton{
+  line-height: 22px;
+}
+
+.memoHeader {
+background-color: #fff;
+/* margin-top: 5px; */
+margin: 5px;
+border-radius: 3px;
+margin-bottom: 2px;
+/* font-weight: 700; */
+}
+
+/*=============2019-01-28===============*/
+
+ .secondRow {
+    border-top: 1px dotted #cccccc;
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+
+  .memoItem {
+    border: 1px solid #dadce0;
+  }
+
+  .done-status {
+    float: right;
+    margin: 0 0 5px 5px;
+  }
+
+  .button {
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 12px;
+    min-width: 26px;
+    min-height: 26px;
+    border: 1px solid #b3b3b3;
+    color: #34362f;
+    fill: #34362f;
+    background-color: #f5f5f4;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    line-height: 26px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+  }
+
+  .btn-done {
+    border-color: #0083ef;
+    color: #fff;
+    background-color: #0083ef;
+    min-width: 64px;
+  }
+
+  .act-done {
+    float: right;
+  }
+
+  .memo-second-row {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .memoTime {
+    margin-left: 8px;
+  }
+
+  .memo-act {
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .full-task .deadline-time {
+    padding: 3px 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    min-height: 1rem;
+    min-width: calc( 100% - 50px);
+  }
+  .memo-act-delete {
+    padding: 2px;
+  }
+
+  .memo-act-delete svg {
+    opacity: 0.6;
+    }
+
+  .memo-act-delete:hover {
+    background-color: #ccc;
+    border-radius: 3px;
+    padding: 2px;
+  }
+
+  .memo-act-delete:hover svg {
+    fill: #fe0000;
+  }
+
+  .memoItem:hover {
+    border: 1px solid #fff;
+  }
+
+  .contentArea {
+    transition-duration: 500ms;
+    min-height: 1rem;
+    padding: 0;
+  }
+
+
+  .normal-height.contentArea {
+    transition-duration: 300ms;
+    min-height:80px;
+    padding: 5px 10px;
+  }
+
+  div#memoContent {
+    margin: 5px;
+    border-radius: 3px;
+    padding: 11px;
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+  }
+
+  #memoContent .action {
+    padding-right: 0;
+    float: none;
+    transition-timing-function: cubic-bezier(1, -0.15, 1, 1);
+  }
+
+.no-task .secondRight{
+  display: none;
+}
+
+  .full-task .LyLFT,
+  .full-task #_chat_room_msg_list {
+    display: none;
+  }
+
+  .full-task .secondRight {
+    width: 100%;
+    display: block !important;
+  }
+
+  .full-task .memo-second-row {
+    display: flex;
+    width: 100%;
+    justify-content: unset;
+    padding: 0;
+  }
+
+  label.controlLabel {
+    display: block;
+    float: left;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 700;
+    width: 50px;
+    word-break: normal;
+    line-height: 1.2;
+    padding-right: 1%;
+  }
+
+  .full-task .memoTime {
+    margin-left: 0;
+    padding: 3px 7px;
+    min-height: 14px;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .full-task #memoContent {
+    display: none;
+  }
+
+  .control-group {
+    border-top: none;
+
+    padding: 3px 7px;
+    min-height: 14px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+
+  .checktask{
+    display: none;
+    background-image: url(https://www.gstatic.com/images/icons/material/system/1x/check_box_outline_blank_black_20dp.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    height: 20px;
+    margin: 0;
+    margin-left: 5px;
+    opacity: .54;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  .full-task .checktask{
+    display: block;
+  }
+
+  .checktask.checked{
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(1, 0.04, 0.1, 1.74);
+    opacity: 1;
+    background-image: url(https://www.gstatic.com/images/icons/material/system/1x/check_box_black_20dp.png);
+  }
+  .full-task{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    border-radius: 3px;
+  }
+
+  .full-task .memoItem {
+    margin: 10px;
+    padding: 10px 15px!important;
+  }
+
+  .full-task .memoItem {
+    margin: 10px;
+    padding: 5px 10px!important;
+    background-color: #fffefe;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+  }
+.full-task .control-group {
+    padding-left: 0;
+   min-width: 30%;
+}
+  .full-task .memoItem:last-child{
+    border-bottom: none;
+  }
+
+  .full-task .memoHeader {
+    margin: 0;
+    text-align: left;
+    padding-left: 10px;
+    display: none;
+  }
+
+  .full-task .mxh350 {
+    max-height: unset;
+  }
+
+  .full-task .group-user {
+    padding: 3px 5px;
+    /* border: 1px solid #ccc; */
+    border-radius: 15px;
+    /* margin-right: 5px; */
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+    /*margin-top: 5px;*/
+    min-width: 150  px;
+  }
+
+  .filter-group{
+    display: none;
+  }
+
+  .filter-group label{
+    line-height: 18px;
+    margin-left: 5px;
+  }
+
+  .full-task .filter-group {
+    padding: 5px 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    margin-top: 5px;
+  }
+.full-task .mdRGT04Img.mdRGT04ImgT1 {
+    margin-top: 8px;
+}
+  .full-task ul#_memo_list_body {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-bottom: 10px;
+  }
+.full-task .MdRGT05Body {
+    padding-top: 74px;
+}
+  .full-task .LyRGT{
+    border-left: none;
+    border-radius: 3px;
+    min-height: 500px;
+  }
+.action .control-group{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 4px 0px;
+  border-bottom: 1px dotted #999999;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.action .group-user {
+  flex-basis: calc( 100% - 80px);
+  flex-shrink: 0;
+}
+.action .controlLabel {
+  flex-basis: 50px;
+  flex-shrink: 0;
+}
+.action .memoTime {
+  margin-left: 0;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 5px;
+  padding: 4px 0px;
+}
+  .memo-row {
+    width: 100%;
+    padding: 8px 0;
+  }
+  .act-add svg {
+    fill:#0288D1;
+}
+.action{
+  display:none;
+}
+.secondRight {
+  background-color: #f5f5f5;
+  height: auto;
+  max-height: 500px;
+  overflow: auto;
+}
+.action-memo{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+li.user_display_name {
+  padding: 5px;
+}
+li.user_display_name:hover {
+  background-color: #f5f5f5;
+}
+
+.manager-user {
+  height: 20px;
+  display: block;
+  overflow: hidden;
+  margin-top: calc(46px - 20px);
+  margin-right: 0;
+}
+
+.manager-user .mdCMN04Img {
+  width: max-content;
+  height: auto;
+  margin-right: 0;
+}
+#memo_menu svg{
+  fill:#ccc;
+  transform: rotate(-45deg);
+}
+.full-task #memo_menu svg{
+  fill:#ccc;
+  transform: rotate(145deg);
+}
+.manager-user .item-image{
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+}
+.ExSelected .manager-user .item-image {
+  border: 2px solid #fff;
+}
+#memo_menu:active{
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  padding: 5px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+.action button {
+  height: 28px;
+  margin-right: 1px;
+  padding: 0 12px;
+  border: none;
+  color: #fff;
+  background-color: #0083ef;
+  border-color: #00bcd4;
+  line-height: 28px;
+  font-weight: 700;
+  border-radius: 3px;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
+  will-change: box-shadow,transform;
+  box-shadow: 0 2px 2px 0 rgba(0,188,212,.14), 0 3px 1px -2px rgba(0,188,212,.2), 0 1px 5px 0 rgba(0,188,212,.12);
+}
+.action button#closeMemo {
+  color: #292828;
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  box-shadow: 0 2px 2px 0 #ccc, 0 3px 1px -2px #ccc, 0 1px 5px 0 #ccc;
+}
+
+.memoTime .x-form-text {
+border: none;
+background-image: none;
+}
+
+.memoTime .x-form-trigger {
+background-image: url(/images/datetime2.png);
+background-position: center;
+border-bottom: none;
+right: -2px;
+width: 24px;
+}
+
+.deadline-time .x-form-field-wrap {
+width: auto!important;
+}
+
+.full-task .MdRGT04Head.mdRGT04Link {
+flex-wrap: wrap;
+height: fit-content;
+border: none;
+}
+
+/*update 2019-03-14*/
+
+.flexImpt {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   min-width: 200px;
+  }
+  .mdRGT07Img img{
+    opacity: 0.6;
+  }
+  .info-user {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 33px;
+    border-radius: 5px;
+    z-index: 99;
+    text-align: initial;
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    background: linear-gradient(87deg,#FFECB3 0,#fce59f 100%)!important;
+    /* color: #fff; */
+    color: #5f6264;
+    min-width: 260px;
+   }
+
+  .mdRGT07Other .info-user {
+    left: 0;
+    right: auto;
+  }
+
+  /*.img-user:hover+.info-user {*/
+    /*display: block;*/
+  /*}*/
+
+  .show-panel{
+    display: block;
+  }
+
+  .detail-user a {
+  color: #fff;
+  }
+
+  .MdRGT07Cont:last-child .info-user{
+    top:-94px;
+  }
+
+  .btn-primary {
+   color: #fff;
+   border-color: #5e72e4;
+   background:  #5e72e4;
+   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+.btn-secondary{
+   border-color: #f7fafc;
+    background-color: #d2e3ee;
+    color: #212529;
+}
+.btn-light{
+   background: linear-gradient(87deg,#89f7fe 0,#66a6ff 100%)!important;
+}
+.btn-success {
+   color: #fff;
+   border-color: #2dce89;
+   background-color: #2dce89;
+   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+}
+  .detail-user {
+    padding: 5px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
+  .title-user{
+     font-weight: 600;
+  }
+  .info-user:hover {
+    display: block;
+  }
+
+  .MdRGT07Cont.mdRGT07Own {
+    overflow: visible;
+  }
+
+  .user-image {
+    width: 30%;
+  }
+  .refresh-img {
+     display:none;
+   position: relative;
+   top: -20px;
+   right: 4px;
+   float: right;
+}
+.item-img:hover .refresh-img{
+   display: block;
+}
+.refresh-img svg{
+   fill: #fff;
+   background: #0091EA;
+   border-radius: 50%;
+   height: 16px;
+   width:16px;
+}
+.refresh-img:hover {
+   display: block;
+   transition: .1s all;
+   transform: scale(1.2);
+ }
+ .msg-body-action{
+   position: absolute;
+   z-index: 9;
+   bottom: -26px;
+   cursor: pointer;
+   background-color: #fff;
+   cursor: pointer;
+   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+   padding: 5px;
+   transition: .4s all;
+   border-radius: 3px;
+   transition: opacity 0.5s ease-out;
+   opacity: 0;
+ }
+ .msg-body-action svg{
+    fill: #444444;
+ }
+ .msg-body-action span{
+   margin-left: 3px;
+ }
+ .flx-ct{
+   display: flex;
+   align-items: center;
+}
+.mdRGT07Body:hover .msg-body-action{
+   opacity: 1;
+   display: block;
+}
+.re-task{
+   margin-right:10px;
+}
+.user-image img{
+   border-radius: 50%;
+}
+
+.wrapped-img:hover {
+background: #868f96;
+}
+.wrapped-img {
+border-radius: 50%;
+background: #b9c9db;
+}

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/lang/ja_ALL.xml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2360b51c-0875-471d-a0b4-34f90dbbb892" name="Default" comment="" />
+    <ignored path="sateraito-notification.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="sateraito-notification" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lang/ja_ALL.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10421">
+              <caret line="613" column="91" selection-start-line="613" selection-start-column="91" selection-end-line="613" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="138" column="85" selection-start-line="138" selection-start-column="85" selection-end-line="138" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>emailmagazine_leftmenu.html</find>
+      <find>businessrule_leftmenu.html</find>
+      <find>OrgUnitUtils</find>
+      <find>group</find>
+      <find>user/search</find>
+      <find>reminder_index.html</find>
+      <find>user_view.html</find>
+      <find>importOneRecordStore</find>
+      <find>importOneRecordMasterDataRecord</find>
+      <find>SendScheduleEmail</find>
+      <find>postMessageToUser</find>
+      <find>emailmagazinehandler</find>
+      <find>businessrulehandler</find>
+      <find>examin</find>
+      <find>sendschedulemail</find>
+      <find>GmailTriggerWatchPage</find>
+      <find>ucfext_emailmagazine.js</find>
+      <find>ucfext_emailtemplate.js</find>
+      <find>ucfext_template.js</find>
+      <find>ucfext_group.js</find>
+      <find>ucfext_chatbot.js</find>
+      <find>ucfext_chat_common.js</find>
+      <find>federateddomain.html</find>
+      <find>liff_profile.html</find>
+      <find>rend</find>
+      <find>line</find>
+      <find>EXP_TOP2</find>
+      <find>LINK_TP_CONTRACT_REQUEST</find>
+      <find>EXPLAIN_LOGINPAGE_DEFAULT</find>
+      <find>サテライトオフィス・チャットマガジン for LINE」へようこそ。様々なサービスとチャット、メール、プッシュ通知、SMSなどの連携ができるサービスです。ご不明点や改善要望点がありましたら、お気軽にご連絡頂ければと思います</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>category_major</replace>
+      <replace>category_minor</replace>
+      <replace>category_middle</replace>
+    </replaceStrings>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/tenant_lineworksbot_index.py" />
+        <option value="$PROJECT_DIR$/src/ucf/utils/helpers.py" />
+        <option value="$PROJECT_DIR$/src/tenant_lineworksbot_xtlist.py" />
+        <option value="$PROJECT_DIR$/src/tenant_businessrule_xtcallbusinessrule.py" />
+        <option value="$PROJECT_DIR$/src/tenant_faqmaster_delete.py" />
+        <option value="$PROJECT_DIR$/src/tenant_faqmaster_xtlist.py" />
+        <option value="$USER_HOME$/Downloads/janome-master/ipadic/sysdic/sysdic/__init__.py" />
+        <option value="$PROJECT_DIR$/src/queue_janome_process.py" />
+        <option value="$PROJECT_DIR$/src/queue.yaml" />
+        <option value="$PROJECT_DIR$/src/b2process.yaml" />
+        <option value="$USER_HOME$/AppData/Local/Temp/main.py" />
+        <option value="$PROJECT_DIR$/src/appengine_config.py" />
+        <option value="$PROJECT_DIR$/src/tenant_categorymaster_xtlist.py" />
+        <option value="$PROJECT_DIR$/src/tenant_categorymaster_index.py" />
+        <option value="$PROJECT_DIR$/src/tenant_faqmaster_index.py" />
+        <option value="$PROJECT_DIR$/src/tenant_dictionary_edit.py" />
+        <option value="$PROJECT_DIR$/src/tenant_dictionary_delete.py" />
+        <option value="$PROJECT_DIR$/src/tenant_dictionary_xtgetdetail.py" />
+        <option value="$PROJECT_DIR$/src/ucf/pages/category.py" />
+        <option value="$PROJECT_DIR$/src/index.py" />
+        <option value="$PROJECT_DIR$/src/tenant_api_setcontractinfo.py" />
+        <option value="$PROJECT_DIR$/src/tenant_config_xtpictureupload.py" />
+        <option value="$PROJECT_DIR$/src/tenant_businessrule_registapi.py" />
+        <option value="$PROJECT_DIR$/src/lineworks_func.py" />
+        <option value="$PROJECT_DIR$/src/ucf/pages/businessrule.py" />
+        <option value="$PROJECT_DIR$/src/tenant_faqbot_lineworksregist.py" />
+        <option value="$PROJECT_DIR$/src/tenant_lineworksbot_xtregist.py" />
+        <option value="$PROJECT_DIR$/src/tenant_lineworksbot_xtgetdetail.py" />
+        <option value="$PROJECT_DIR$/src/channels/nextsetaddonchannel.py" />
+        <option value="$PROJECT_DIR$/src/sateraito_inc.py" />
+        <option value="$PROJECT_DIR$/src/sateraito_mail.py" />
+        <option value="$PROJECT_DIR$/src/tenant_attach_attachfiletocomment.py" />
+        <option value="$PROJECT_DIR$/src/templates/default/pc/tenant/include/faqmaster_leftmenu.html" />
+        <option value="$PROJECT_DIR$/src/templates/default/pc/tenant/include/user_leftmenu.html" />
+        <option value="$PROJECT_DIR$/src/tenant_faqmaster_regist.py" />
+        <option value="$PROJECT_DIR$/src/tenant_dictionary_xtlist.py" />
+        <option value="$PROJECT_DIR$/src/channels/lineworksbotchannel.py" />
+        <option value="$PROJECT_DIR$/src/tenant_categorymaster_regist.py" />
+        <option value="$PROJECT_DIR$/src/lang/ja_ALL.xml" />
+        <option value="$PROJECT_DIR$/src/ucf/pages/user.py" />
+        <option value="$PROJECT_DIR$/src/ucf/utils/models.py" />
+        <option value="$PROJECT_DIR$/src/sateraito_db.py" />
+        <option value="$PROJECT_DIR$/src/tenant_queue_csv_import.py" />
+        <option value="$PROJECT_DIR$/src/postmessagehandler.py" />
+        <option value="$PROJECT_DIR$/src/googlevisionhandler.py" />
+        <option value="$PROJECT_DIR$/src/gmail_callback.py" />
+        <option value="$PROJECT_DIR$/src/webhook.py" />
+        <option value="$PROJECT_DIR$/src/chatmessagehandler.py" />
+        <option value="$PROJECT_DIR$/src/app.yaml" />
+        <option value="$PROJECT_DIR$/src/cron.py" />
+        <option value="$PROJECT_DIR$/src/tenant_index.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="954" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="default" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="tenant" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ucf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ucf" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sateraito-notification" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sateraito-chatmagazine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="Html" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sateraito-logging" />
+    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\lib" />
+      <recent name="D:\apps\sateraito-chatmagazine\sateraito-chatmagazine" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src" />
+      <recent name="C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="sateraito-notification" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="sateraito-notification" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="sateraito-notification" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2360b51c-0875-471d-a0b4-34f90dbbb892" name="Default" comment="" />
+      <created>1530088424230</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530088424230</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7702504" visible="true" weight="0.21654373" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.41061756" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Changes" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data Sources" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7702504" visible="true" weight="0.21654373" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.22968581" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298969" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Changes" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="11" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data Sources" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/tenant_faqmaster_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3493">
+          <caret line="223" column="8" lean-forward="true" selection-start-line="223" selection-start-column="8" selection-end-line="223" selection-end-column="8" />
+          <folding>
+            <element signature="e#17#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/config/ucfconfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="270" column="17" selection-start-line="270" selection-start-column="4" selection-end-line="270" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/channels/lineworksbotchannel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="240" column="12" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
+          <folding>
+            <element signature="e#17#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_categorymaster_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
+          <folding>
+            <element signature="e#17#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_faqmaster_xtlist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_getcolumns.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_asynccsvexport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="67" column="75" selection-start-line="67" selection-start-column="75" selection-end-line="67" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/utils/ucffunc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="252" column="4" selection-start-line="252" selection-start-column="4" selection-end-line="252" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/utils/validates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sateraito_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-949">
+          <caret line="1193" column="73" lean-forward="true" selection-start-line="1193" selection-start-column="73" selection-end-line="1193" selection-end-column="73" />
+          <folding>
+            <element signature="e#2097#7856#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/include/headparts2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/senderemail_index.html" />
+    <entry file="file://$PROJECT_DIR$/src/tenant_lineworksbot_index.py" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/lineworksbot_index.html" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/include/headparts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="19" column="77" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/pages/group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-474">
+          <caret line="278" column="8" selection-start-line="278" selection-start-column="8" selection-end-line="278" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="176" column="70" selection-start-line="176" selection-start-column="70" selection-end-line="176" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_regist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="88" column="88" selection-start-line="88" selection-start-column="83" selection-end-line="88" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/pages/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="572" column="33" selection-start-line="572" selection-start-column="33" selection-end-line="572" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ucf/utils/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="877" column="73" selection-start-line="877" selection-start-column="73" selection-end-line="877" selection-end-column="73" />
+          <folding>
+            <element signature="e#17#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/user_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="460" column="34" lean-forward="true" selection-start-line="460" selection-start-column="7" selection-end-line="460" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_searchchat.py" />
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_searchother.py" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/preview.html" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/preview_content.html" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/preview_content_flex.html" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/preview_flex_bubble.html" />
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="977">
+          <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_user_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="104" column="32" lean-forward="true" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_queue_csv_import.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="822" column="19" lean-forward="true" selection-start-line="822" selection-start-column="19" selection-end-line="822" selection-end-column="19" />
+          <folding>
+            <element signature="e#35#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/googlevisionhandler.py" />
+    <entry file="file://$PROJECT_DIR$/src/postmessagehandler.py" />
+    <entry file="file://$PROJECT_DIR$/src/gmail_callback.py" />
+    <entry file="file://$PROJECT_DIR$/src/webhook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#81#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chatmessagehandler.py" />
+    <entry file="file://$PROJECT_DIR$/src/businesslogichandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bot_storage_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1785" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="138" column="26" lean-forward="true" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
+          <folding>
+            <element signature="e#34#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cron.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="544" column="107" lean-forward="true" selection-start-line="544" selection-start-column="107" selection-end-line="544" selection-end-column="107" />
+          <folding>
+            <element signature="e#35#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_htmlbuilder.py" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/build_index.html" />
+    <entry file="file://$PROJECT_DIR$/src/script/debug/channels/facebookbotchannel.js" />
+    <entry file="file://$PROJECT_DIR$/src/script/debug/channels/facebookworkplacebotchannel.js" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/user_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/federateddomain.html" />
+    <entry file="file://$PROJECT_DIR$/src/templates/default/pc/tenant/reminder_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="48" column="54" lean-forward="true" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_reminder_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="163" column="39" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tenant_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
+          <folding>
+            <element signature="e#17#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dummy_user.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lang/ja_ALL.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10421">
+          <caret line="613" column="91" selection-start-line="613" selection-start-column="91" selection-end-line="613" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="138" column="85" selection-start-line="138" selection-start-column="85" selection-end-line="138" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

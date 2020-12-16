@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<table>
+<tr>
+  <td class="style3">{{lang.VMSG_TENANTO_NAME}}&nbsp;:</td>
+  <td class="style5"><p>{{tenant}}</p></td>
+</tr>
+<tr>
+  <td class="style3">{{lang.VMSG_LANGUAGE}}&nbsp;:</td>
+  <td class="style5"><p>{{language_disp}}</p></td>
+</tr>
+<tr>
+  <td class="style3">{{lang.VMSG_LOGIN_USERID}}&nbsp;:</td>
+  <td class="style5"><p>{{login.id}}{% if login.name and login.name != '' %}({{login.name}}){%endif%}</p></td>
+</tr>
+</table>
+<p><a href="{{vurl}}personal/" >{{lang.VMSG_TO_PERSONAL}}</a></p>
+<p><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></p>
+<br/>
+</div>
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

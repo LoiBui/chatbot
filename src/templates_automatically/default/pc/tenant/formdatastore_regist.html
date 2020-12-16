@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_form.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_form_data.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}attach_file_list.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_masterdata.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_formdata_common.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<!--
+<LINK href="/css/jqueryUcfTree.css" type="text/css" rel="stylesheet">
+-->
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<title>{{lang.VMSG_SITE_TITLE_FROM_DATA_NEW|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<title>{{lang.VMSG_SITE_TITLE_FROM_DATA_RENEW|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% else %}<title>{{lang.VMSG_SITE_TITLE_FORM_DATA|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% endif %}
+
+<script type="text/javascript" >
+<!--
+
+    var GADGET_START_TIME = -1;
+    var SATERAITO_TIMEZONE = 'Asia/Tokyo';
+    var SATERAITO_LANG = 'ja';
+    var TENANT = '{{tenant}}';
+    var SATERAITO_MY_SITE_URL  = '{{ my_site_url }}';
+    var IS_OPENID_MODE = true;
+    var IS_TOKEN_MODE = false;
+    var FORM_TEMPLATE_ID ='{{ucfp.voinfo.vo.template_id|escapejs}}';
+
+    var USER_ID = '{{ucfp.voinfo.vo.author_user_id|escapejs}}';
+    var STORE_ID = '{{ucfp.voinfo.vo.store_id|escapejs}}';
+
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+};
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+
+// 各フィールドを設定
+function createFields()
+{
+
+}
+
+function goCopyNewRegist()
+{
+	location.href = '{{vurl}}formdata/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}&{{config.QSTRING_TYPE2}}={{config.EDIT_TYPE_COPYNEWREGIST}}'
+}
+
+{% if ucfp.data.tp == config.EDIT_TYPE_RENEW %}
+function deleteData()
+{
+	Ext.Msg.show({
+		icon: Ext.MessageBox.QUESTION,
+		title: '{{lang.CONFIRM|safe|escapejs}}',
+		msg: '{{lang.VMSG_CONFIRM_DELETE_FROM_DATA|safe|escapejs}}',
+		buttons: Ext.Msg.YESNO,
+		fn:function(btn,text){
+	    if (btn == 'yes'){
+					location.href = '{{vurl|safe}}formdata/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_DELETE|safe}}&{{config.QSTRING_STATUS|safe}}={{config.VC_CHECK|safe}}&token={{ucfp.data.token}}'
+	    }
+		}
+	});
+}
+
+{% endif %}
+
+//-->
+</script>
+<script type="text/javascript" >
+var each_page_cnt = 20;
+var store;
+
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+    var templateId = FORM_TEMPLATE_ID;
+    var defaultValues = {};
+    var templateBody = null;
+    var areaId = 'contentsTemplate';
+    var templateVersion = '';
+
+{#    var doc_values = '{{ucfp.voinfo.vo.doc_values|escapejs}}';#}
+{#    var docValues = Ext.decode(doc_values);#}
+{#    console.log(docValues);#}
+
+    var option = {
+                is_copy_new: true,
+                showAsMax:true,
+                hideMaxButton:true,
+                hideHeader:true,
+                hideCloseButton:true
+            };
+
+    var formData = {
+        doc_id:'{{ucfp.voinfo.vo.doc_id|escapejs}}',
+        doc_values: '{{ucfp.voinfo.vo.doc_values|escapejs}}',
+        doc_title: '{{ucfp.voinfo.vo.doc_title|escapejs}}'
+    };
+
+    Ext.ucf.FormData.renderTemplate(templateId, defaultValues, templateBody, areaId,option,templateVersion,formData);
+
+	//Ext.ucf.initShowOrHideSections();
+
+});
+
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > 
+/***********************************************
+* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)
+* This notice must stay intact for usage
+* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
+***********************************************/
+</script> 
+<script type="text/javascript"> 
+jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");
+</script> 
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/chatmagazine" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraitooffice-manual-en/Home/notification" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'GROUP' %}current{% endif %} " ><a href="{{vurl}}group/" >{{lang.VMSG_GROUP_CONFIG}}</a></li>
+{#    <li class="panelOff {% if ucfp.data.gnaviid == 'BUSINESSRULE' %}current{% endif %} " ><a href="{{vurl}}businessrule/create" >{{lang.VMSG_BUSINESSRULE_CONFIG}}</a></li>#}
+    {#<li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template/" >{{lang.VMSG_TEMPLATE_CONFIG}}</a></li>#}
+    {#<li class="panelOff {% if ucfp.data.gnaviid == 'SEARCH' %}current{% endif %} " ><a href="{{vurl}}search/" >{{lang.VMSG_SEARCH_CONFIG}}</a></li>#}
+    {% if ucfp.data.gnaviid == 'POSTMESSAGE' or  ucfp.data.gnaviid == 'TEMPLATE' or ucfp.data.gnaviid == 'SEARCH':%}
+        <li class="panelOff current" ><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+    {% else %}
+        <li class="panelOff" ><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+    {% endif %}
+
+     {% if ucfp.data.gnaviid == 'FORM' or ucfp.data.gnaviid == 'FORM_DATA' or  ucfp.data.gnaviid == 'MASTERDATA':%}
+        <li class="panelOff current" ><a href="{{vurl}}form/" >{{lang.VMSG_FORM_CONFIG}}</a></li>
+    {% else %}
+        <li class="panelOff" ><a href="{{vurl}}form/" >{{lang.VMSG_FORM_CONFIG}}</a></li>
+    {% endif %}
+
+    {% if ucfp.data.gnaviid == 'CHATBOT'%}
+        <li class="panelOff current" ><a href="{{vurl}}chatbot/" >{{lang.VMSG_CHATBOT_CONFIG}}</a></li>
+    {% else %}
+        <li class="panelOff" ><a href="{{vurl}}chatbot/" >{{lang.VMSG_CHATBOT_CONFIG}}</a></li>
+    {% endif %}
+
+    {% if ucfp.data.gnaviid == 'STORE'  or  ucfp.data.gnaviid == 'STORE_TEMPLATE' or  ucfp.data.gnaviid == 'STORE_DATA' or  ucfp.data.gnaviid == 'FORM_DATA_STORE'%}
+        <li class="panelOff current" ><a href="{{vurl}}store/" >{{lang.VMSG_STORE_CONFIG}}</a></li>
+    {% else %}
+        <li class="panelOff" ><a href="{{vurl}}store/" >{{lang.VMSG_STORE_CONFIG}}</a></li>
+    {% endif %}
+
+{#    <li class="panelOff {% if ucfp.data.gnaviid == 'FORM' %}current{% endif %} " ><a href="{{vurl}}form/" >{{lang.VMSG_FORM_CONFIG}}</a></li>#}
+{#    <li class="panelOff {% if ucfp.data.gnaviid == 'MASTERDATA' %}current{% endif %} " ><a href="{{vurl}}masterdata/" >{{lang.VMSG_MASTERDATA_CONFIG}}</a></li>#}
+
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'GROUP' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'GROUP' %}current{% endif %} " ><a href="{{vurl}}group/" >{{lang.VMSG_GROUP_CONFIG}}</a></li>
+	{% endif %}
+{#	{% if 'BUSINESSRULE' in login.delegate_function: %}#}
+{#        <li class="panelOff {% if ucfp.data.gnaviid == 'BUSINESSRULE' %}current{% endif %} " ><a href="{{vurl}}businessrule/create" >{{lang.VMSG_BUSINESSRULE_CONFIG}}</a></li>#}
+{#	{% endif %}#}
+{#    {% if 'TEMPLATE' in login.delegate_function: %}#}
+{#<li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template/" >{{lang.VMSG_TEMPLATE_CONFIG}}</a></li>#}
+{#	{% endif %}#}
+{#    {% if 'SEARCH' in login.delegate_function: %}#}
+{#<li class="panelOff {% if ucfp.data.gnaviid == 'SEARCH' %}current{% endif %} " ><a href="{{vurl}}search/" >{{lang.VMSG_SEARCH_CONFIG}}</a></li>#}
+{#	{% endif %}#}
+    {% if 'POSTMESSAGE' in login.delegate_function or 'TEMPLATE' in login.delegate_function or 'SEARCH' in login.delegate_function: %}
+{#        <li class="panelOff {% if ucfp.data.gnaviid == 'POSTMESSAGE' %}current{% endif %} " ><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>#}
+        {% if ucfp.data.gnaviid == 'POSTMESSAGE' or  ucfp.data.gnaviid == 'TEMPLATE' or ucfp.data.gnaviid == 'SEARCH':%}
+            <li class="panelOff current" ><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+        {% else %}
+            <li class="panelOff" ><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+        {% endif %}
+	{% endif %}
+
+  {% if 'FORM' in login.delegate_function or 'FORM_DATA' in login.delegate_function or 'MASTERDATA' in login.delegate_function: %}
+    <li class="panelOff {% if ucfp.data.gnaviid in ['FORM','','FORM_DATA','MASTERDATA'] %}current{% endif %} " ><a href="{{vurl}}form/" >{{lang.VMSG_FORM_CONFIG}}</a></li>
+	{% endif %}
+
+  {% if 'CHATBOT' in login.delegate_function: %}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CHATBOT' %}current{% endif %} " ><a href="{{vurl}}chatbot/" >{{lang.VMSG_CHATBOT_CONFIG}}</a></li>
+	{% endif %}
+
+  {% if 'STORE' in login.delegate_function : %}
+     <li class="panelOff {% if ucfp.data.gnaviid in ['STORE','STORE_TEMPLATE','STORE_DATA','FORM_DATA_STORE'] %}current{% endif %} " ><a href="{{vurl}}store/" >{{lang.VMSG_STORE_CONFIG}}</a></li>
+	{% endif %}
+{#    {% if 'MASTERDATA' in login.delegate_function: %}#}
+{#<li class="panelOff {% if ucfp.data.gnaviid == 'MASTERDATA' %}current{% endif %} " ><a href="{{vurl}}masterdata/" >{{lang.VMSG_MASTERDATA_CONFIG}}</a></li>#}
+{#	{% endif %}#}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}store/" >{{lang.VMSG_STORE_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}store/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_STORE_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_TEMPLATE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if (ucfp.data.leftmenuid == 'INDEX' or ucfp.data.leftmenuid == 'REGIST') and ucfp.data.gnaviid == 'STORE_TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storetemplate/" >{{lang.VMSG_STORE_TEMPLATE_LIST}}</a></li>
+{#<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'STORE_TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storetemplate/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_STORE_TEMPLATE_ADD}}</a></li>#}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_DATA}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'STORE_DATA' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storedata/" >{{lang.VMSG_STORE_DATA_LIST}}</a></li>
+<li class="{% if (ucfp.data.leftmenuid == 'INDEX' or ucfp.data.leftmenuid == 'REGIST' or ucfp.data.leftmenuid == 'DETAIL') and ucfp.data.gnaviid == 'FORM_DATA_STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}formdatastore/" >{{lang.VMSG_FORM_DATA_LIST}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_FROM_DATA_NEW}}</p>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_FROM_DATA_RENEW}}</p>
+{% endif %}
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+        <table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+{#            <tr>#}
+{#                <td>#}
+{#                    {% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<p class="style1">{{lang.EXP_FROM_DATA_NEW|safe}}</p>#}
+{#                    {% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<p class="style1">{{lang.EXP_FROM_DATA_RENEW|safe}}</p>#}
+{#                    {% endif %}#}
+{#                </td>#}
+{#            </tr>#}
+            <tr>
+                <td>
+                    <div id="contentsTemplate" style="width: 742px;margin: auto;padding: 10px;margin-bottom: 40px;"></div>
+                </td>
+            </tr>
+        </table>
+    </td>
+  </tr>
+
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

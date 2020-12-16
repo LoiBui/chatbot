@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Training Report]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Training Report
+
+  @since 2013-12-18
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+	<td class="detail_name" width="20%">Course Name</td>
+	<td colspan="2" class="detail_value" width="30%"><input name="class_name" maxlength="100" style="width:100%"></td>
+	<td><font color="blue">&nbsp;i.e. Inside Sales Training</font></td>
+	</tr>
+
+	<tr>
+	<td class="detail_name" width="20%">Sponsor</td>
+	<td colspan="2" class="detail_value" width="30%"><input name="sponsor" maxlength="100" style="width:100%"></td>
+	</tr>
+
+	<tr>
+	<td class="detail_name" width="20%">Course Location</td>
+	<td colspan="2" class="detail_value" width="30%"><input name="class_of_place" maxlength="100" style="width:100%"></td>
+	</tr>
+
+	<tr>
+	<td class="detail_name" width="20%">Course Attendance Date</td>
+	<td colspan="3" class="detail_value" width="30%">
+		<input name="class_day_1" class="date today_date">　～　
+		<input name="class_day_2" class="date today_date">
+	</td>
+	</tr>
+
+	<tr>
+	<td class="detail_name" width="20%">Course Fee</td>
+	<td class="detail_value" width="30%"><input name="class_of_money" class="number">&nbsp;USD</td>
+	</tr>
+
+	<tr>
+	<td class="detail_name">Training Content</td>
+	<td class="detail_value" colspan="3"><textarea name="class_reason" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+	<tr>
+	<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+	<td class="detail_name">Remarks</td>
+	<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140527085456GoVR7OeOd5gDvunh\",\"name\":\"Training Report1\",\"sections\":[{\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\",\"secname\":\"Training Report1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401155705040iYA4E7hgE92bI97J\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401155705047M3bacf6K8ukXdihs\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"},{\"control_id\":\"ctr_id-14011557050407DBMczUEF4KCtoWM\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"},{\"control_id\":\"ctr_id-140115570504509xg7uL4MrxSBA6s\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401155859384ntFHhCORpf1xaziq\",\"controls\":[{\"control_id\":\"ctr_id-1401155868570XEwypE0DxwMYssS3\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\",\"controls\":[{\"control_id\":\"ctr_id-1401908601127a5d4Djip7sWugRKL\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Course Name\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. Inside Sales Training\",\"name\":\"class_name\",\"style\":\"width :73%\",\"class\":\"\",\"new_attrs\":\"maxlength=100\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\"},{\"control_id\":\"ctr_id-140115570504668AeTvOaRbBCRS0O\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Sponsor\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sponsor\",\"style\":\"width:73%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\"},{\"control_id\":\"ctr_id-1401155705046NHM3dLtKp4e2K6dL\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Course Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"class_of_place\",\"style\":\"width:73%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\"},{\"control_id\":\"ctr_id-1401156247095CbEJ5FSwHFHzYLUi\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"Course Attendance Date\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_class_day\",\"style\":\"width:250px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"class_day_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"class_day_1\",\"style\":\"width:100%\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"　～　\",\"style\":\"\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401908742538j46jRbXhbCtHtmXM\",\"map_type_control\":\"label\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/date.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Date (Date)\",\"config\":{\"attributes\":{\"lblname\":\"class_day_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"class_day_2\",\"style\":\"\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"date\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\"},{\"control_id\":\"ctr_id-1401155705046GoaJGqundTahykxM\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Course Fee\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" USD\",\"name\":\"class_of_money\",\"style\":\"width:30%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155885703qHVdw0H04ngxKp9u\"},{\"control_id\":\"ctr_id-14011557050469kr1bnwfi5XLZur3\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Training Content\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"class_reason\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401156405611yTgPYw951Oi8FJRq\",\"controls\":[{\"control_id\":\"ctr_id-1401156405611Sev2705cuTk1jAoH\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401156405611yTgPYw951Oi8FJRq\"}]},{\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401156419380S4WHtwSI1hpno9ry\",\"controls\":[{\"control_id\":\"ctr_id-1401155705046bCT73ujnOE1cTHnc\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140527085456GoVR7OeOd5gDvunh\",\"name\":\"Training Report1\",\"controls\":[{\"control_id\":\"ctr_id-14011557050457DTn5esF8SLXpMxy\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"class_name\",\"maxlength\":\"100\",\"new_attrs\":\"maxlength=100;\",\"style\":\"width:100%\",\"lblname\":\"class_name\",\"class\":\"\"}},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"},{\"control_id\":\"ctr_id-14011557050466AqHLLp6LF7htJ3e\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"class_day_1\",\"new_attrs\":\"\",\"lblname\":\"class_day_1\",\"class\":\"date today_date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401155705047ea4Uf66zoTJVRtft\"},{\"control_id\":\"ctr_id-1401155705046Ubs8DKy3cszJ8Sx0\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"class_day_2\",\"new_attrs\":\"\",\"lblname\":\"class_day_2\",\"class\":\"date today_date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"}]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Training Report
+
+  @since 2013-12-18
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Course Name</div>
+      <div class="detail_value"><input type="text" name="class_name" style="width:100%"></div>
+      <div><font color="blue">&nbsp;i.e. Inside Sales Training</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Sponsor</div>
+      <div class="detail_value"><input type="text" name="sponsor" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Course Location</div>
+      <div class="detail_value"><input type="text" name="class_of_place" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Course Attendance Date</div>
+      <div class="detail_value">
+        <input type="text" name="class_day_1" class="date today_date" style="width:40%">　～　
+        <input type="text" name="class_day_2" class="date today_date" style="width: 40%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Course Fee</div>
+      <div class="detail_value"><input type="text" name="class_of_money" class="number" style="width:90%">&nbsp;USD
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Training Content</div>
+      <div class="detail_value"><textarea name="class_reason" style="width:98%" rows="10"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

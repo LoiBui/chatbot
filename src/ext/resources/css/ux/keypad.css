@@ -1,0 +1,42 @@
+/**
+* KeyPad, Ext.js extensions.
+* Ext.ux.KeyPad
+* Ext.ux.menu.KeyPad
+* Ext.ux.form.KeyPad
+* version 1.0.0
+*
+* last updated 20010/03/13
+* copyright info@plasmasphere.net http://www.plasmasphere.net/
+*/
+
+.x-keypad {
+	text-align: center;
+}
+
+.x-keypad table {
+	border-collapse: collapse;
+	margin-bottom: 2px;
+}
+
+.x-keypad-item {
+	clear: left;
+}
+
+.x-keypad-btn {
+	width: 30px;
+	float: left;
+}
+
+.x-keypad-halfspace {
+	float: left;
+	width: 15px;
+}
+
+.x-keypad-space {
+	float: left;
+	width: 30px;
+}
+
+.x-keypad-disabled-field {
+	color: #000
+}

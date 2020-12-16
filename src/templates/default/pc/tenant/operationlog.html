@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_task.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_operationlog.js?{{version|safe}}" ></script>
+<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATIONLOG|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_OPERATIONLOG|safe}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+		var each_page_cnt = 20;
+		var store;
+		
+		// ログテキストの詳細を表示
+		function dispLogTextDetail(unique_id)
+		{
+			var record = store.getById(unique_id);
+			Ext.ucf.operationlog.dispLogTextDetail(record);
+		}
+
+		function getSearchBaseParam(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				Ext.getCmp('id_sk_operation').setValue(Ext.ucf.nvl(scond['sk_operation']));
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+							,sk_operation:Ext.ucf.getElementValue('sk_operation')
+						};
+			
+			return params;
+		}
+		
+		function search(psc)
+		{
+			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl|safe}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID|safe}}={{config.SESSIONKEY_SCOND_OPERATIONLOG|safe}}');
+		}
+		
+		function vh_basic(value, p, record)
+		{
+			return Ext.ucf.htmlEscape(value);
+		}
+
+		function vh_operation(value, p, record)
+		{
+			var vh_result = Ext.ucf.operationlog.viewHelper('operation', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+		var vh_operator_id = function(value, p, record)
+		{
+			var html = '';
+			if(record.get('operator_unique_id') && record.get('operator_unique_id') != '')
+			{
+				html += '<a href="{{vurl|safe}}operator/detail?unqid=' + escape(record.get('operator_unique_id')) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_REFER|safe}}" target="_blank" >' + Ext.ucf.htmlEscape(value) + '</a>';
+			}
+			else
+			{
+				html += Ext.ucf.htmlEscape(value);
+			}
+			return html;
+		};
+
+		var vh_target_data = function(value, p, record)
+		{
+			var html = '';
+			if(record.get('target_unique_id') && record.get('target_unique_id') != '')
+			{
+				var screen = record.get('screen');
+				var operation_type = record.get('operation_type');
+				if(screen == 'operator' && operation_type != 'remove'){
+					html += '<a href="{{vurl|safe}}operator/detail?unqid=' + escape(record.get('target_unique_id')) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_REFER|safe}}" target="_blank" >' + Ext.ucf.htmlEscape(value) + '</a>';
+				}else if(screen == 'user' && operation_type != 'remove'){
+					html += '<a href="{{vurl|safe}}user/regist?unqid=' + escape(record.get('target_unique_id')) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}" target="_blank" >' + Ext.ucf.htmlEscape(value) + '</a>';
+				}else if(screen == 'group' && operation_type != 'remove'){
+					html += '<a href="{{vurl|safe}}group/regist?unqid=' + escape(record.get('target_unique_id')) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}" target="_blank" >' + Ext.ucf.htmlEscape(value) + '</a>';
+				}else if(screen == 'businessrule' && operation_type != 'remove'){
+					html += '<a href="{{vurl|safe}}businessrule/regist?unqid=' + escape(record.get('target_unique_id')) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}" target="_blank" >' + Ext.ucf.htmlEscape(value) + '</a>';
+				}else{
+					html += Ext.ucf.htmlEscape(value);
+				}
+			}
+			else
+			{
+				html += Ext.ucf.htmlEscape(value);
+			}
+			return html;
+		};
+
+		function vh_log_text(value, p, record)
+		{
+			var html = '';
+			html += '<a href="JavaScript:dispLogTextDetail(\''+ escape(record.get('unique_id')) + '\')" >{{lang.DETAIL|safe}}</a>';
+			return html;
+		}
+
+
+function createSearchCondFields()
+{
+	var list_sk_operation = [];
+	list_sk_operation.push(['', '{{lang.VMSG_SKCOND_OPERATION_DEFAULT|safe|escapejs}}']);
+	for(var i = 0; i < Ext.ucf.operationlog.OperationList.length; i++){
+		list_sk_operation.push(Ext.ucf.operationlog.OperationList[i]);
+	}
+
+	var field_sk_operation = Ext.ucf.field.createComboBox('id_sk_operation', 'sk_operation', list_sk_operation, '', '{{lang.VMSG_SKCOND_OPERATION_DEFAULT|safe|escapejs}}', 300, null);
+	field_sk_operation.render('FIELD_sk_operation');
+}
+</script>
+<script type="text/javascript" >
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+	createSearchCondFields();
+
+  store = new Ext.data.Store({
+			reader: new Ext.data.JsonReader({
+						idProperty: 'unique_id'
+						,root: 'records'
+						,totalProperty: 'all_count'
+						}, Ext.ucf.operationlog.createOperationLogRecord()),
+	    url: '{{vurl|safe}}operationlog/xtlist',
+			autoDestroy:true
+  });
+	// Storeのロード後のイベントハンドラを追加
+	store.on('load', function(s, records, options) {
+		Ext.Ajax.request({url: '{{vurl|safe}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID|safe}}={{config.SESSIONKEY_SCOND_OPERATIONLOG|safe|escapejs}}',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+	});
+	
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+		
+	var sLimitCB = new Ext.ucf.searchLimitComboBox(
+				[each_page_cnt,50,100]
+				,{
+					'select':function(cb, record, index){
+						each_page_cnt = cb.value;
+						pagingBar.pageSize = each_page_cnt;
+						search();
+						}
+				});
+	each_page_cnt = sLimitCB.value;
+	
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: store,
+		displayInfo: true, 
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+				'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			,'-'
+				,{
+	          text: _msg.VMSG_EXPORT,
+	          handler: function(){
+							Ext.ucf.exportToCsv({data_kind:'exportoperationlogcsv'},'GridList');
+	          }
+				}
+      ,'-']
+		});
+	
+	var cm = new Ext.grid.ColumnModel({
+      columns: [
+			{
+          header: '{{lang.FLD_OPERATIONLOG_OPERATION_DATE|safe|escapejs}}',
+          dataIndex: 'operation_date',
+          width: 80,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_OPERATIONLOG_OPERATION|safe|escapejs}}',
+          dataIndex: 'operation',
+          width: 80,
+          sortable: false,
+					renderer: vh_operation
+      },{
+          header: '{{lang.FLD_OPERATIONLOG_TARGET_DATA|safe|escapejs}}',
+          dataIndex: 'target_data',
+          width: 100,
+          sortable: false,
+					renderer: vh_target_data
+      },{
+          header: '{{lang.FLD_OPERATIONLOG_OPERATORID|safe|escapejs}}',
+          dataIndex: 'operator_id',
+          width: 100,
+          sortable: false,
+					renderer: vh_operator_id
+      },{
+          header: '{{lang.FLD_OPERATIONLOG_CLIENT_IP|safe|escapejs}}',
+          dataIndex: 'client_ip',
+          width: 70,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_OPERATIONLOG_DETAIL|safe|escapejs}}',
+          dataIndex: 'log_text',
+          width: 25,
+          sortable: false,
+					renderer: vh_log_text
+      }
+		]
+	});
+	var grid = new Ext.grid.EditorGridPanel({
+
+    store: store,
+//      width: 600,
+    region:'center',
+		clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+    stripeRows: true,
+		bbar: pagingBar,
+		tbar: toolBar,
+//			sm: sm,
+		cm: cm
+  });
+	// パネルにユーザ一覧グリッドをセット
+  var layout = new Ext.Panel({
+    collapsible: true,
+    title: '{{lang.VMSG_OPERATIONLOG|safe|escapejs}}',
+    layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+    layoutConfig: {
+        columns: 1
+    },
+    height: 600,
+    items: [grid]
+  });
+  layout.render(Ext.get('GridList'));
+	
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'))
+
+	// 検索（ページ遷移初回は前回の条件を使用して検索）
+	search(true);		
+	
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+	
+});
+
+</script>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+{% include "./include/index_leftmenu.html" %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% include "./include/attention.html" %}
+{% include "./include/explain.html" %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_OPERATIONLOG|safe}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all2" >
+      <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH|safe}}</div>
+	  <form onsubmit="JavaScript:search();return false;" >
+      <div class="search_table">
+            <div class="filter-cmp">
+              <div class="text-feild item-filter">
+                <div class="form-group act-filter">
+                  <label for="">{{lang.FLD_OPERATIONLOG_OPERATION}} </label>
+                  <div id="FIELD_sk_operation" class="select-cmp input-cmp"></div>
+                  <div id="btnSearch"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{#      <table class="search_table" >#}
+{#        <tr>#}
+{#          <th>{{lang.FLD_OPERATIONLOG_OPERATION|safe}}：</th>#}
+{#          <td>#}
+{#					<div id="FIELD_sk_operation" class="field" ></div>#}
+{#					</td>#}
+{#          <th></th>#}
+{#          <td>&nbsp;&nbsp;</td>#}
+{#          <th></th>#}
+{#          <td>#}
+{#					</td>#}
+{#          <th></th>#}
+{#          #}
+{#          <td><div id="btnSearch" /></td>#}
+{#          #}
+{#        </tr>#}
+{#			</table>#}
+			
+			</form>
+			
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="GridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

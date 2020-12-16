@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<!-- <title>{% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.FILEUP_HTML_TITLE}}</title>
+{% include "./include/external_analysis_head.html" %}
+<script type="text/javascript">
+function goTenantTop(){
+	var tenant = $('#tenant').val();
+	if(tenant != '')
+	{
+		//location.href = '/a/' + escape(tenant.toLowerCase() + '.my.salesforce.com') + '/';
+		location.href = '/a/' + escape(tenant.toLowerCase()) + '/';
+	}
+}
+
+$(document).ready(function(){	
+	createLanguageSelectBox('languageselectbox', jQuery.parseJSON('{{language_list|escapejs}}'), '{{language|escape}}');
+});
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="loginbox">
+<h1><img src="/images/oem/{{oem_company_code}}/login_logo.png" ></h1>
+</div><!-- /#loginbox end -->
+
+<div id="contractpagebox" class="contractrequest">
+<!-- <h2><em><span class="ttl">{% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</span> -->
+<h2><em><span class="ttl">{{lang.FILEUP_HTML_TITLE}}</span>
+<br/>
+<!-- <span class="info">{% if sp_code == 'worksmobile': %}{{lang.EXPLAIN_LOGINPAGE_WORKSMOBILE|safe}}{%else:%}{{lang.EXPLAIN_LOGINPAGE_DEFAULT|safe}}{%endif%} -->
+<span class="info">{{lang.EXP_FILEUP_CONTRACT_REQUEST|safe}}
+<br/>
+
+</span></em></h2>
+
+<p class="attention2" >
+<font color="blue">
+{{lang.EXP_TOP1|safe}}
+</font>
+</p>
+
+<form name="frmEdit" onsubmit="goTenantTop();return false;" id="contractpage_form" >
+<fieldset>
+<label for="tenant">{{lang.EXP_TOP2|safe}}</label>
+<input type="text" value="" id="tenant" name="tenant" class="textfield tenant"><!-- &nbsp;.my.salesforce.com -->
+<input type="submit" value="{{lang.MOVE}}" class="btn_submit">
+</fieldset>
+
+</form>
+{# 「私のドメイン」の検証ができないので、自由に登録、利用できる入口はとりあえずふさぐ
+<a href="{{vurl}}sateraito/contract/request" class="btn_right" >{{lang.LINK_TP_CONTRACT_REQUEST}}</a>
+#}
+</div><!-- /#mypagebox end -->
+
+{% include "./include/righttopbar.html" %}
+
+{% include "./include/footer.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>
+

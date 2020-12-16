@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Congratulations/Condolences Notification]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+Congratulations/Condolences Notification
+
+@version 2014-02-21
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Marriage</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Spouse Fullname</td>
+		<td class="detail_value" width="30%">
+			<input name="haigusya_name">
+		</td>
+		<td class="detail_name" width="20%">Age</td>
+		<td class="detail_value" width="30%">
+			<input name="haigusya_age" size="3">&nbsp;year old
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Wedding Date</td>
+		<td class="detail_value" width="30%">
+			<input name="Wedding_day" class="date">&nbsp;&nbsp;&nbsp;<input name="Wedding_time" size="3">&nbsp;～
+		</td>
+		<td class="detail_name" width="20%">New Surname:</td>
+		<td class="detail_value" width="30%">
+			<input name="kaisei_name">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Wedding Location</td>
+		<td class="detail_value" colspan="3">
+			<input name="Wedding_place" style="width:100%">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Wedding (Son/Daughter)</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Son/Daughter's Name</td>
+		<td class="detail_value" width="30%">
+			<input name="shijyo_name">
+		</td>
+		<td class="detail_name" width="20%">Age</td>
+		<td class="detail_value" width="30%">
+			<input name="shijyo_age" size="3">&nbsp;year old
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Wedding Date</td>
+		<td class="detail_value" width="30%">
+			<input name="shijyo_Wedding_day" class="date">&nbsp;&nbsp;&nbsp;<input name="shijyo_Wedding_time" size="3">&nbsp;～
+		</td>
+		<td class="detail_name" width="20%">Relationship</td>
+		<td class="detail_value" width="30%">
+			<input name="shijyo_tudukigara" size="10">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Wedding Location</td>
+		<td class="detail_value" colspan="3">
+			<input name="shijyo_Wedding_place" style="width:100%">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Giving Birth (Herself/Spouse)</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Giving Birth Date</td>
+		<td class="detail_value" colspan="3">
+			<input name="baby_birthday" class="date">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Child's Name</td>
+		<td class="detail_value" width="30%">
+			<input name="baby_name">
+		</td>
+		<td class="detail_name" width="20%">Relationship</td>
+		<td class="detail_value" width="30%">
+			<input name="baby_tudukigara" size="10">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Condolence</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Deceased Person's Name</td>
+		<td class="detail_value" width="30%">
+			<input name="shibousya_name">
+		</td>
+		<td class="detail_name" width="20%">Age</td>
+		<td class="detail_value" width="30%">
+			<input name="shibousya_age" size="3">&nbsp;year old
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Deceased Date</td>
+		<td class="detail_value" width="30%">
+			<input name="death_date" class="date">
+		</td>
+		<td class="detail_name" width="20%">Relationship</td>
+		<td class="detail_value" width="30%">
+			<input name="shibousya_tudukigara" size="10">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Vigil</td>
+		<td class="detail_value" colspan="3">
+			<input name="tsuya_date" class="date">&nbsp;&nbsp;<input name="tsuya_place" style="width:79%">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Funeral</td>
+		<td class="detail_value" colspan="3">
+			<input name="sougi_date" class="date">&nbsp;&nbsp;<input name="sougi_place" style="width:79%">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Chief mourner</td>
+		<td class="detail_value" width="30%">
+			<input name="mosyu_name">
+		</td>
+		<td class="detail_name" width="20%">Living Together/Not Together</td>
+		<td class="detail_value" width="30%">
+			<select name="jyuukyo">
+				<option value="Inmate">Inmate</option>
+				<option value="Separation">Separation</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Injury</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Disease Name</td>
+		<td class="detail_value" width="30%">
+			<input name="disease_name" style="width:100%">
+		</td>
+		<td class="detail_name" width="15%">Hospital Days</td>
+		<td class="detail_value" width="35%">
+			<input name="nyuuin_date_start" class="date">&nbsp;～&nbsp;<input name="nyuuin_date_end" class="date">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Hospital's Name</td>
+		<td class="detail_value" colspan="2">
+			<input name="hospital_name" style="width:100%">
+		</td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e. Hospital</font></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">◆ Disaster</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Disaster Thing</td>
+		<td class="detail_value" width="50%">
+			<input name="saigaibutsu_name" style="width:100%">
+		</td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e. House　First Floor</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Disaster Reason</td>
+		<td class="detail_value" width="50%">
+			<input name="saigai_jiyuu" style="width:100%">
+		</td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e. gas</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Disaster Level</td>
+		<td class="detail_value">
+			<input name="saigai_teido" style="width:100%">
+		</td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e exploison based on gas leaking</font></td>
+	</tr>
+
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140530012417FiAu5rVpQPbw2Pa5\",\"name\":\"Congratulation/Condolence Notification1\",\"sections\":[{\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\",\"secname\":\"Congratulation/Condolence Notification1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-14013878693738RbchEL3cRPaZwd5\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401387869379DOOVSTydU70q5sNf\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401387869373OaKGr2qFSeaxEbCs\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401387869377GGX7okc2spkd5JO3\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"}]},{\"section_id\":\"sec_id-1401387974214H15koPxP55qx4JiY\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401387988470qkBGow4XkYer4Skh\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401388014869LiLtTS6A0tF0IAcv\",\"secname\":\"◆ Marriage\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401387869377j5KIpmwXerYT04Uh\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Spouse Fullname\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haigusya_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401388014869LiLtTS6A0tF0IAcv\"},{\"control_id\":\"ctr_id-1401388177358UwsUyqyea79wRgUd\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Wedding Date\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_wedding\",\"style\":\"width:80%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"Wedding_day\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"Wedding_day\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"Wedding_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" ～\",\"name\":\"Wedding_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=3\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401388014869LiLtTS6A0tF0IAcv\"},{\"control_id\":\"ctr_id-1401387869377YHtiq6WA9Fw7pxY2\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Age\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" year old\",\"name\":\"haigusya_age\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=3;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401388014869LiLtTS6A0tF0IAcv\"},{\"control_id\":\"ctr_id-1401387869377kWkHOTqwkTI7BWdN\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"New Surname:\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kaisei_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401388014869LiLtTS6A0tF0IAcv\"}]},{\"section_id\":\"sec_id-1401388473114I5MSF0SZXaMmmorc\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401387869377tbLbPWkOWNcmX61d\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Wedding Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"Wedding_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"}]},{\"section_id\":\"sec_id-1401388368546pttz3fD3LjIZiIgG\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-140138836854766NvT1iT9YZQm5Ym\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401388368546pttz3fD3LjIZiIgG\"}]},{\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\",\"secname\":\"◆ Wedding (Son/Daughter)\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401387869377S3o7Ktd9qqH79J9c\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Son/Daughter's Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shijyo_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401388777097yqnZ1tqm4CcdOMti\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Wedding Date\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_shijyo_Wedding\",\"style\":\"width:80%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"shijyo_Wedding_day\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shijyo_Wedding_day\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401388777097AERQpAhLr7r8ayOu\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"shijyo_Wedding_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" ～\",\"name\":\"shijyo_Wedding_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=3\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-14013887770973Gd4Os9c37EvSavW\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\"},{\"control_id\":\"ctr_id-1401387869377QMVIU1xeTIKFq0D0\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Age\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" year old\",\"name\":\"shijyo_age\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=3;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\"},{\"control_id\":\"ctr_id-1401387869377jy2OtsG4XZ5QTFIX\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Relationship\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"shijyo_tudukigara\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401388465739IHLH2C6UdxgmKTvM\"}]},{\"section_id\":\"sec_id-1401389132670XEJoo4ATBJYoxTPG\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401387869377jkaSZeFbWzBJqa9W\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Wedding Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shijyo_Wedding_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"}]},{\"section_id\":\"sec_id-1401389153253UEm80UVBudQFK1Ja\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401389153253UAuvGcIQrXiZHgS3\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401389153253UEm80UVBudQFK1Ja\"}]},{\"section_id\":\"sec_id-1401389221989FEnuer4BcDIdJXXQ\",\"secname\":\"◆ Giving Birth (Herself/Spouse)\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401387869377XJcnu5LrTMxGQjMA\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Giving Birth Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"baby_birthday\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401389221989FEnuer4BcDIdJXXQ\"}]},{\"section_id\":\"sec_id-1401389344044Bj4GjWoVw71CqKvC\",\"secname\":\"div3\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401387869377otnOXITN0uR3aQpn\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Child's Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"baby_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-14013878693771AQOAJtpZdqzGGT0\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Relationship\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"baby_tudukigara\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401389344044Bj4GjWoVw71CqKvC\"}]},{\"section_id\":\"sec_id-1401389393691zF1zNp1jFzAqZ3VY\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401389393691nycYAFRO2dAFKv65\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401389393691zF1zNp1jFzAqZ3VY\"}]},{\"section_id\":\"sec_id-1401389383643F7yhMOW5I9JVRbig\",\"secname\":\"◆ Condolence\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401387869377jkYDHqk99gaLh2z8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Deceased Person's Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shibousya_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401387869377B0gsfX4L5KFp71AV\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Deceased Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"death_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401387869377NI3kMhJDXmwWw6kp\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Age\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" year old\",\"name\":\"shibousya_age\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=3;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401389383643F7yhMOW5I9JVRbig\"},{\"control_id\":\"ctr_id-1401387869377dEKznxXjpp3Qd3Pw\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Relationship\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"shibousya_tudukigara\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401389383643F7yhMOW5I9JVRbig\"}]},{\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401389604825DAbucB96t3hzcbJU\",\"controls\":[{\"control_id\":\"ctr_id-1401389696322yEgdK7HjzHaDxw9r\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Vigil\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_tsuya\",\"style\":\"width:100%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"tsuya_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuya_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"tsuya_place\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuya_place\",\"style\":\"width:470px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401389604825DAbucB96t3hzcbJU\"},{\"control_id\":\"ctr_id-1401389754066i6spChH8OOEGgQ7k\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Funeral\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_sougi\",\"style\":\"width:100%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"sougi_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sougi_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"sougi_place\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sougi_place\",\"style\":\"width:470px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401389604825DAbucB96t3hzcbJU\"}]},{\"secname\":\"div5\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401389832865K6q5rFMRSemaWv9h\",\"controls\":[{\"control_id\":\"ctr_id-1401387869378QNkf3QitaECGGSQN\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Chief mourner\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mosyu_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401389832865K6q5rFMRSemaWv9h\"},{\"control_id\":\"ctr_id-1401387869378hDmxDob4ZPySiIYa\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Living Together/Not Together\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"jyuukyo\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"Inmate\",\"value\":\"Inmate\"},{\"text\":\"Separation\",\"value\":\"Separation\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401389832865K6q5rFMRSemaWv9h\"}]},{\"section_id\":\"sec_id-1401390692323tZwSV8mzFy1mNQan\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401390692323O62BiQmMkvr45gro\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401390692323tZwSV8mzFy1mNQan\"}]},{\"secname\":\"◆ Injury\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401391586311UK5KTZmnK5OW0Yqk\",\"controls\":[{\"control_id\":\"ctr_id-1401387869378SzzjmzNB893sJBA9\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Disease Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"disease_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"},{\"control_id\":\"ctr_id-1401391733271MRWsYitNFQ17ALZi\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Hospital Days\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_nyuuin_date\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"nyuuin_date_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" ～ \",\"name\":\"nyuuin_date_start\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\",\"control_id\":\"ctr_id-1401391733271LPbW6hdjwfeoj7yj\",\"section_id\":\"sec_id-1401391586311UK5KTZmnK5OW0Yqk\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"nyuuin_date_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nyuuin_date_end\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401391733271mM1GKINLrAwhpPQR\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401391586311UK5KTZmnK5OW0Yqk\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401391586311UK5KTZmnK5OW0Yqk\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-14013917594990szsYreOZmhMf1BH\",\"controls\":[{\"control_id\":\"ctr_id-1401387869378tWAhrS8hWq2Cra1v\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Hospital's Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. Hospital\",\"name\":\"hospital_name\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14013917594990szsYreOZmhMf1BH\"}]},{\"section_id\":\"sec_id-1401391849970dy8vcrSMdEJftg6k\",\"secname\":\"space6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-14013918499708i65GgYzAd1r5L94\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401391849970dy8vcrSMdEJftg6k\"}]},{\"secname\":\"◆ Disaster\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401391872873zUxFOmh4viD11mXF\",\"controls\":[{\"control_id\":\"ctr_id-1401387869378kVwAOTbIsejSqGMM\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Disaster Thing\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. House　First Floor\",\"name\":\"saigaibutsu_name\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401391872873zUxFOmh4viD11mXF\"},{\"control_id\":\"ctr_id-1401387869378qhw6gNngeFYpnWxF\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Disaster Reason\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. gas\",\"name\":\"saigai_jiyuu\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401391872873zUxFOmh4viD11mXF\"},{\"control_id\":\"ctr_id-1401387869378gtVghjC4Pe9BQ8cN\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Disaster Level\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e exploison based on gas leaking\",\"name\":\"saigai_teido\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401391872873zUxFOmh4viD11mXF\"}]},{\"section_id\":\"sec_id-14013920189777vgvRTmwcI8yaGyA\",\"secname\":\"space7\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401392018977Vroy8W1iGwg86QTu\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14013920189777vgvRTmwcI8yaGyA\"}]},{\"secname\":\"div7\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401392033393ggXcZWIbGqsNiguL\",\"controls\":[{\"control_id\":\"ctr_id-1401387869378hGnzdEkSVGBKsHTm\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401387869379jodYutpfVirGXbHY\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140530012417FiAu5rVpQPbw2Pa5\",\"name\":\"Congratulation/Condolence Notification1\",\"controls\":[]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+Congratulations/Condolences Notification
+
+@version 2014-02-21
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">◆ Marriage</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Spouse Fullname</div>
+      <div class="detail_value">
+        <input type="text" name="haigusya_name" style="width: 100%">
+      </div>
+      <div class="detail_name">Age</div>
+      <div class="detail_value">
+        <input type="text" name="haigusya_age" style="width: 90%">&nbsp;year old
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Wedding Date</div>
+      <div class="detail_value">
+        <input type="text" name="Wedding_day" class="date" style="width: 100%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="Wedding_time" style="width: 90%">&nbsp;～
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">New Surname:</div>
+      <div class="detail_value">
+        <input type="text" name="kaisei_name" style="width: 100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Wedding Location</div>
+      <div class="detail_value">
+        <input type="text" name="Wedding_place" style="width:100%">
+      </div>
+    </li>
+
+  </ul>
+
+</div>
+
+<div class="main_content_title2">◆ Wedding (Son/Daughter)</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Son/Daughter's Name</div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_name" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Age</div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_age" style="width: 90%">&nbsp;year old
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Wedding Date</div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_Wedding_day" class="date" style="width: 100%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_Wedding_time" style="width: 90%">&nbsp;～
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Relationship</div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_tudukigara" style="width: 100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Wedding Location</div>
+      <div class="detail_value">
+        <input type="text" name="shijyo_Wedding_place" style="width:100%">
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<div class="main_content_title2">◆ Giving Birth (Herself/Spouse)</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Giving Birth Date</div>
+      <div class="detail_value">
+        <input type="text" name="baby_birthday" class="date" style="width: 100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Child's Name</div>
+      <div class="detail_value">
+        <input type="text" name="baby_name" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Relationship</div>
+      <div class="detail_value">
+        <input type="text" name="baby_tudukigara" style="width: 100%">
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">◆ Condolence</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Deceased Person's Name</div>
+      <div class="detail_value">
+        <input type="text" name="shibousya_name" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Age</div>
+      <div class="detail_value">
+        <input type="text" name="shibousya_age" style="width: 90%">&nbsp;year old
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Deceased Date</div>
+      <div class="detail_value">
+        <input type="text" name="death_date" class="date" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Relationship</div>
+      <div class="detail_value">
+        <input type="text" name="shibousya_tudukigara" style="width: 100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Vigil</div>
+      <div class="detail_value">
+        <input type="text" name="tsuya_date" class="date" style="width: 100%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="tsuya_place" style="width:100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Funeral</div>
+      <div class="detail_value">
+        <input type="text" name="sougi_date" class="date" style="width: 100%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="sougi_place" style="width:100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Chief mourner</div>
+      <div class="detail_value">
+        <input type="text" name="mosyu_name" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Living Together/Not Together</div>
+      <div class="detail_value">
+        <select name="jyuukyo" style="width: 100%">
+          <option value="Inmate">Inmate</option>
+          <option value="Separation">Separation</option>
+        </select>
+      </div>
+    </li>
+
+  </ul>
+</div>
+<div class="main_content_title2">◆ Injury</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Disease Name</div>
+      <div class="detail_value">
+        <input type="text" name="disease_name" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Hospital Days</div>
+      <div class="detail_value">
+        <input type="text" name="nyuuin_date_start" class="date" style="width: 45%">&nbsp;～&nbsp;<input type="text"
+        name="nyuuin_date_end" style="width: 45%" class="date">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Hospital's Name</div>
+      <div class="detail_value">
+        <input type="text" name="hospital_name" style="width:100%">
+      </div>
+      <div class="detail_value"><font color="blue">i.e. Hospital</font></div>
+    </li>
+
+  </ul>
+</div>
+<div class="main_content_title2">◆ Disaster</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Disaster Thing</div>
+      <div class="detail_value">
+        <input type="text" name="saigaibutsu_name" style="width:100%">
+      </div>
+      <div class="detail_value"><font color="blue">i.e. House　First Floor</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Disaster Reason</div>
+      <div class="detail_value">
+        <input type="text" name="saigai_jiyuu" style="width:100%">
+      </div>
+      <div class="detail_value"><font color="blue">i.e. gas</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Disaster Level</div>
+      <div class="detail_value">
+        <input type="text" name="saigai_teido" style="width:100%">
+      </div>
+      <div class="detail_value"><font color="blue">i.e exploison based on gas leaking</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

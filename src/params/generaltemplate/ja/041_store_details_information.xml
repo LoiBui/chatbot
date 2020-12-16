@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[店舗情報詳細]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  店舗情報詳細
+
+  @since 2014-01-22
+-->
+
+<table class="detail" width="80%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td><div class="main_content_title2">店舗情報詳細</div></td>
+		<td colspan="3"> </td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">郵便番号</td>
+		<td class="detail_value" width="30%"><input name="tenpo_zip_code" maxlength="8"></td>
+		<td class="detail_name" width="20%">都道府県</td>
+		<td class="detail_value" width="30%">
+				<select name="tenpo_divisions_of_japan">
+					<option value="">選択して下さい</option>
+					<option value="北海道">北海道</option>
+					<option value="青森県">青森県</option>
+					<option value="岩手県">岩手県</option>
+					<option value="宮城県">宮城県</option>
+					<option value="秋田県">秋田県</option>
+					<option value="山形県">山形県</option>
+					<option value="福島県">福島県</option>
+					<option value="茨城県">茨城県</option>
+					<option value="栃木県">栃木県</option>
+					<option value="群馬県">群馬県</option>
+					<option value="埼玉県">埼玉県</option>
+					<option value="千葉県">千葉県</option>
+					<option value="東京都">東京都</option>
+					<option value="神奈川県">神奈川県</option>
+					<option value="新潟県">新潟県</option>
+					<option value="富山県">富山県</option>
+					<option value="石川県">石川県</option>
+					<option value="福井県">福井県</option>
+					<option value="山梨県">山梨県</option>
+					<option value="長野県">長野県</option>
+					<option value="岐阜県">岐阜県</option>
+					<option value="静岡県">静岡県</option>
+					<option value="愛知県">愛知県</option>
+					<option value="三重県">三重県</option>
+					<option value="滋賀県">滋賀県</option>
+					<option value="京都府">京都府</option>
+					<option value="大阪府">大阪府</option>
+					<option value="兵庫県">兵庫県</option>
+					<option value="奈良県">奈良県</option>
+					<option value="和歌山県">和歌山県</option>
+					<option value="鳥取県">鳥取県</option>
+					<option value="島根県">島根県</option>
+					<option value="岡山県">岡山県</option>
+					<option value="広島県">広島県</option>
+					<option value="山口県">山口県</option>
+					<option value="徳島県">徳島県</option>
+					<option value="香川県">香川県</option>
+					<option value="愛媛県">愛媛県</option>
+					<option value="高知県">高知県</option>
+					<option value="福岡県">福岡県</option>
+					<option value="佐賀県">佐賀県</option>
+					<option value="長崎県">長崎県</option>
+					<option value="熊本県">熊本県</option>
+					<option value="大分県">大分県</option>
+					<option value="宮崎県">宮崎県</option>
+					<option value="鹿児島県">鹿児島県</option>
+					<option value="沖縄県">沖縄県</option>
+				</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">住所</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_address" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">電話番号</td>
+		<td class="detail_value" width="30%"><input name="tenpo_tel_no" maxlength="15"></td>
+		<td class="detail_name" width="20%">FAX番号</td>
+		<td class="detail_value" width="30%"><input name="tenpo_fax_no"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">営業時間</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_eigyo_time" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">定休日</td>
+		<td class="detail_value"><input name="tenpo_teikyubi"></td>
+		<td class="detail_name">駐車場</td>
+		<td class="detail_value">
+			<input type="radio" name="tenpo_parking" value="有">有&nbsp;&nbsp;
+			<input type="radio" name="tenpo_parking" value="無">無
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">店舗情報</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_address" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">アクセス</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="tenpo_access" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+
+	<tr>
+	<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">
+			<input type="button" value="地図表示" onclick="
+
+			//// 地図表示ボタンクリック時の処理
+
+			var form = SateraitoWF.getForm(this);
+
+			var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+			var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+			// 住所を取得し、iframeのソースURLを作成します
+
+			var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+			src += tenpo_address_encoded;
+			src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+			// 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+			var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+			map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+			// iframeとGoogleMapsリンクに作成したURLをセットします
+
+			$(form).find('.google_maps_frame_sateraito').attr('src', src);
+			$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+			// GoogleMapsリンクに住所をセットします
+
+			$(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+			">
+
+			<br />
+			<br />
+
+			<iframe class="google_maps_frame_sateraito" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe><br />
+			<small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left" target="_blank"></a> を表示</small>
+
+			<br>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140604025218JIuDFKBsfINXPqzk\",\"name\":\"店舗情報詳細1\",\"sections\":[{\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\",\"secname\":\"店舗情報詳細1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401825159676xLqYQ5r6zRpcRwS8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401825159687ceKdrQcNFLfHKgYF\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159676nAZ5aEM5NDJ3h27R\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159682sSWFITuMyhKzz8pU\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825313045Za6UaKmPjSpgd1aX\",\"controls\":[{\"control_id\":\"ctr_id-1401825325133C7paOd7cNONFcFas\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"店舗情報詳細\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825347140EQv9NkDRyviDpnIz\",\"controls\":[{\"control_id\":\"ctr_id-1401825159682xC52p6msfedIDrQ1\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"郵便番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_zip_code\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=8;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159682Xbw1fHSm5U7IeCYL\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"都道府県\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_divisions_of_japan\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"選択して下さい\",\"value\":\"\"},{\"text\":\"北海道\",\"value\":\"北海道\"},{\"text\":\"青森県\",\"value\":\"青森県\"},{\"text\":\"岩手県\",\"value\":\"岩手県\"},{\"text\":\"宮城県\",\"value\":\"宮城県\"},{\"text\":\"秋田県\",\"value\":\"秋田県\"},{\"text\":\"山形県\",\"value\":\"山形県\"},{\"text\":\"福島県\",\"value\":\"福島県\"},{\"text\":\"茨城県\",\"value\":\"茨城県\"},{\"text\":\"栃木県\",\"value\":\"栃木県\"},{\"text\":\"群馬県\",\"value\":\"群馬県\"},{\"text\":\"埼玉県\",\"value\":\"埼玉県\"},{\"text\":\"千葉県\",\"value\":\"千葉県\"},{\"text\":\"東京都\",\"value\":\"東京都\"},{\"text\":\"神奈川県\",\"value\":\"神奈川県\"},{\"text\":\"新潟県\",\"value\":\"新潟県\"},{\"text\":\"富山県\",\"value\":\"富山県\"},{\"text\":\"石川県\",\"value\":\"石川県\"},{\"text\":\"福井県\",\"value\":\"福井県\"},{\"text\":\"山梨県\",\"value\":\"山梨県\"},{\"text\":\"長野県\",\"value\":\"長野県\"},{\"text\":\"岐阜県\",\"value\":\"岐阜県\"},{\"text\":\"静岡県\",\"value\":\"静岡県\"},{\"text\":\"愛知県\",\"value\":\"愛知県\"},{\"text\":\"三重県\",\"value\":\"三重県\"},{\"text\":\"滋賀県\",\"value\":\"滋賀県\"},{\"text\":\"京都府\",\"value\":\"京都府\"},{\"text\":\"大阪府\",\"value\":\"大阪府\"},{\"text\":\"兵庫県\",\"value\":\"兵庫県\"},{\"text\":\"奈良県\",\"value\":\"奈良県\"},{\"text\":\"和歌山県\",\"value\":\"和歌山県\"},{\"text\":\"鳥取県\",\"value\":\"鳥取県\"},{\"text\":\"島根県\",\"value\":\"島根県\"},{\"text\":\"岡山県\",\"value\":\"岡山県\"},{\"text\":\"広島県\",\"value\":\"広島県\"},{\"text\":\"山口県\",\"value\":\"山口県\"},{\"text\":\"徳島県\",\"value\":\"徳島県\"},{\"text\":\"香川県\",\"value\":\"香川県\"},{\"text\":\"愛媛県\",\"value\":\"愛媛県\"},{\"text\":\"高知県\",\"value\":\"高知県\"},{\"text\":\"福岡県\",\"value\":\"福岡県\"},{\"text\":\"佐賀県\",\"value\":\"佐賀県\"},{\"text\":\"長崎県\",\"value\":\"長崎県\"},{\"text\":\"熊本県\",\"value\":\"熊本県\"},{\"text\":\"大分県\",\"value\":\"大分県\"},{\"text\":\"宮崎県\",\"value\":\"宮崎県\"},{\"text\":\"鹿児島県\",\"value\":\"鹿児島県\"},{\"text\":\"沖縄県\",\"value\":\"沖縄県\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401825347140EQv9NkDRyviDpnIz\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825397308IAgqynAYO672WFAM\",\"controls\":[{\"control_id\":\"ctr_id-1401825159683ptrrI1qONv9evYWS\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"住所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_address_1\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825397308IAgqynAYO672WFAM\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825432859VjG99OpSpm8B6p1A\",\"controls\":[{\"control_id\":\"ctr_id-140182515968319yTJYw470ScHnAF\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"電話番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_tel_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=15;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159683qV21RYY3McXZ7TN5\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"FAX番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_fax_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825470468nrJiaH06xbAmiCCe\",\"controls\":[{\"control_id\":\"ctr_id-1401825159684rOSeFd9Xm28gRv4h\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"営業時間\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_eigyo_time\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"div4\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14018254907238wAZMRMKrMV2KqE3\",\"controls\":[{\"control_id\":\"ctr_id-1401825159684uhIZzOmoQ3wTptzv\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"定休日\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_teikyubi\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"有 \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"有\",\"name\":\"tenpo_parking\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"無\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"無\",\"name\":\"tenpo_parking\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"駐車場\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_parking\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401825159688aMdFqMJLEMF42tyN\",\"map_type_control\":\"radiogroup\",\"pos_row\":1,\"pos_col\":2,\"section_id\":\"sec_id-14018254907238wAZMRMKrMV2KqE3\"}]},{\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825553962mgMzaWz3w5g8UHQ5\",\"controls\":[{\"control_id\":\"ctr_id-1401825159685JfOBjAWNvLCnPMUC\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"店舗情報\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_address_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825553962mgMzaWz3w5g8UHQ5\"},{\"control_id\":\"ctr_id-1401825159685OBxO85Hq9BBg1uzu\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"アクセス\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_access\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825623939GEq8vDuOp2ZTWi60\",\"controls\":[{\"control_id\":\"ctr_id-1401825623939jUy4i2eGpeBp92hF\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401825623939GEq8vDuOp2ZTWi60\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825637707jIz7BBYt7EmtAdu8\",\"controls\":[{\"control_id\":\"ctr_id-1401825674382m5i2TOS39nehKhew\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"btn_Map\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"btn_Map\"},\"items\":{},\"html\":\"%3Cinput%20type%3D%22button%22%20value%3D%22%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%22%20onclick%3D%22%0A%0A%09%09%09%2F%2F%2F%2F%20%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E6%99%82%E3%81%AE%E5%87%A6%E7%90%86%0A%0A%09%09%09var%20form%20%3D%20SateraitoWF.getForm(this)%3B%0A%0A%09%09%09var%20tenpo_address%20%3D%20SateraitoWF.getFormValue(form%2C%20'tenpo_address')%3B%0A%09%09%09var%20tenpo_address_encoded%20%3D%20encodeURIComponent(tenpo_address)%3B%0A%0A%09%09%09%2F%2F%20%E4%BD%8F%E6%89%80%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81iframe%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9URL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20src%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Ds_q%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09src%20%2B%3D%20tenpo_address_encoded%3B%0A%09%09%09src%20%2B%3D%20'%26amp%3Bt%3Dm%26amp%3Bz%3D14%26amp%3Boutput%3Dembed'%3B%0A%0A%09%09%09%2F%2F%20%E5%88%A5%E7%94%BB%E9%9D%A2%E3%81%A7GoogleMaps%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AFURL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20map_link%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Dembed%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09map_link%20%2B%3D%20encodeURIComponent(SateraitoWF.getFormValue(form%2C%20'tenpo_address'))%3B%0A%0A%09%09%09%2F%2F%20iframe%E3%81%A8GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9FURL%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_frame_sateraito').attr('src'%2C%20src)%3B%0A%09%09%09%24(form).find('.google_maps_link_sateraito').attr('href'%2C%20map_link)%3B%0A%0A%09%09%09%2F%2F%20GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%8F%E6%89%80%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_link_sateraito').text(tenpo_address)%3B%0A%0A%09%09%09%22%3E%0A%0A%09%09%09%3Cbr%3E%0A%09%09%09%3Cbr%3E%0A%0A%09%09%09%3Ciframe%20class%3D%22google_maps_frame_sateraito%22%20width%3D%22425%22%20height%3D%22350%22%20frameborder%3D%220%22%20scrolling%3D%22no%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%20src%3D%22%22%3E%3C%2Fiframe%3E%3Cbr%3E%0A%09%09%09%3Csmall%3E%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%AA%E5%9C%B0%E5%9B%B3%E3%81%A7%20%3Ca%20class%3D%22google_maps_link_sateraito%22%20href%3D%22%22%20style%3D%22color%3A%230000FF%3Btext-align%3Aleft%22%20target%3D%22_blank%22%3E%3C%2Fa%3E%20%E3%82%92%E8%A1%A8%E7%A4%BA%3C%2Fsmall%3E%0A%0A%09%09%09%3Cbr%3E\"}}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825677249B7Ac1SE2NbpwmvoB\",\"controls\":[{\"control_id\":\"ctr_id-1401825677249C5FaWb4xPTCfhiCR\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401825677249B7Ac1SE2NbpwmvoB\"}]},{\"secname\":\"div7\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825690792Gznstp0okwMx9z0f\",\"controls\":[{\"control_id\":\"ctr_id-1401825159686zw23UqH7tbEHvu1m\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401825690792Gznstp0okwMx9z0f\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140604025218JIuDFKBsfINXPqzk\",\"name\":\"店舗情報詳細1\",\"controls\":[{\"control_id\":\"ctr_id-1401825159686TeCZNWnEVYxf8qLE\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"\",\"type\":\"button\",\"value\":\"地図表示\",\"onclick\":\"\\n\\n\\t\\t\\t//// 地図表示ボタンクリック時の処理\\n\\n\\t\\t\\tvar form = SateraitoWF.getForm(this);\\n\\n\\t\\t\\tvar tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');\\n\\t\\t\\tvar tenpo_address_encoded = encodeURIComponent(tenpo_address);\\n\\n\\t\\t\\t// 住所を取得し、iframeのソースURLを作成します\\n\\n\\t\\t\\tvar src = 'https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=';\\n\\t\\t\\tsrc += tenpo_address_encoded;\\n\\t\\t\\tsrc += '&t=m&z=14&output=embed';\\n\\n\\t\\t\\t// 別画面でGoogleMapsを表示するためのリンクURLを作成します\\n\\n\\t\\t\\tvar map_link = 'https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=';\\n\\t\\t\\tmap_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));\\n\\n\\t\\t\\t// iframeとGoogleMapsリンクに作成したURLをセットします\\n\\n\\t\\t\\t$(form).find('.google_maps_frame_sateraito').attr('src', src);\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').attr('href', map_link);\\n\\n\\t\\t\\t// GoogleMapsリンクに住所をセットします\\n\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').text(tenpo_address);\\n\\n\\t\\t\\t\",\"new_attrs\":\"onclick=\\n\\n\\t\\t\\t//// 地図表示ボタンクリック時の処理\\n\\n\\t\\t\\tvar form = SateraitoWF.getForm(this);\\n\\n\\t\\t\\tvar tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');\\n\\t\\t\\tvar tenpo_address_encoded = encodeURIComponent(tenpo_address);\\n\\n\\t\\t\\t// 住所を取得し、iframeのソースURLを作成します\\n\\n\\t\\t\\tvar src = 'https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=';\\n\\t\\t\\tsrc += tenpo_address_encoded;\\n\\t\\t\\tsrc += '&t=m&z=14&output=embed';\\n\\n\\t\\t\\t// 別画面でGoogleMapsを表示するためのリンクURLを作成します\\n\\n\\t\\t\\tvar map_link = 'https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=';\\n\\t\\t\\tmap_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));\\n\\n\\t\\t\\t// iframeとGoogleMapsリンクに作成したURLをセットします\\n\\n\\t\\t\\t$(form).find('.google_maps_frame_sateraito').attr('src', src);\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').attr('href', map_link);\\n\\n\\t\\t\\t// GoogleMapsリンクに住所をセットします\\n\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').text(tenpo_address);\\n\\n\\t\\t\\t;\",\"lblname\":\"\",\"class\":\"\",\"style\":\"width:100%\"}},\"map_type_control\":\"button\",\"tag\":\"input\"}]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  店舗情報詳細
+
+  @since 2014-01-22
+-->
+<div class="container">
+  <ul class="detail">
+
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">店舗情報詳細</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">郵便番号</div>
+      <div class="detail_value"><input type="text" name="tenpo_zip_code" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">都道府県</div>
+      <div class="detail_value">
+        <select name="tenpo_divisions_of_japan" style="width:100%">
+          <option value="">選択して下さい</option>
+          <option value="北海道">北海道</option>
+          <option value="青森県">青森県</option>
+          <option value="岩手県">岩手県</option>
+          <option value="宮城県">宮城県</option>
+          <option value="秋田県">秋田県</option>
+          <option value="山形県">山形県</option>
+          <option value="福島県">福島県</option>
+          <option value="茨城県">茨城県</option>
+          <option value="栃木県">栃木県</option>
+          <option value="群馬県">群馬県</option>
+          <option value="埼玉県">埼玉県</option>
+          <option value="千葉県">千葉県</option>
+          <option value="東京都">東京都</option>
+          <option value="神奈川県">神奈川県</option>
+          <option value="新潟県">新潟県</option>
+          <option value="富山県">富山県</option>
+          <option value="石川県">石川県</option>
+          <option value="福井県">福井県</option>
+          <option value="山梨県">山梨県</option>
+          <option value="長野県">長野県</option>
+          <option value="岐阜県">岐阜県</option>
+          <option value="静岡県">静岡県</option>
+          <option value="愛知県">愛知県</option>
+          <option value="三重県">三重県</option>
+          <option value="滋賀県">滋賀県</option>
+          <option value="京都府">京都府</option>
+          <option value="大阪府">大阪府</option>
+          <option value="兵庫県">兵庫県</option>
+          <option value="奈良県">奈良県</option>
+          <option value="和歌山県">和歌山県</option>
+          <option value="鳥取県">鳥取県</option>
+          <option value="島根県">島根県</option>
+          <option value="岡山県">岡山県</option>
+          <option value="広島県">広島県</option>
+          <option value="山口県">山口県</option>
+          <option value="徳島県">徳島県</option>
+          <option value="香川県">香川県</option>
+          <option value="愛媛県">愛媛県</option>
+          <option value="高知県">高知県</option>
+          <option value="福岡県">福岡県</option>
+          <option value="佐賀県">佐賀県</option>
+          <option value="長崎県">長崎県</option>
+          <option value="熊本県">熊本県</option>
+          <option value="大分県">大分県</option>
+          <option value="宮崎県">宮崎県</option>
+          <option value="鹿児島県">鹿児島県</option>
+          <option value="沖縄県">沖縄県</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">住所</div>
+      <div class="detail_value"><input type="text" name="tenpo_address" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">電話番号</div>
+      <div class="detail_value"><input type="text" name="tenpo_tel_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">FAX番号</div>
+      <div class="detail_value"><input type="text" name="tenpo_fax_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">営業時間</div>
+      <div class="detail_value"><input type="text" name="tenpo_eigyo_time" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">定休日</div>
+      <div class="detail_value"><input type="text" name="tenpo_teikyubi" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">駐車場</div>
+      <div class="detail_value">
+        <input type="radio" name="tenpo_parking" value="有">有&nbsp;&nbsp;
+        <input type="radio" name="tenpo_parking" value="無">無
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">店舗情報</div>
+      <div class="detail_value"><input type="text" name="tenpo_address"style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">アクセス</div>
+      <div class="detail_value">
+        <textarea name="tenpo_access" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value">
+        <input type="button" style="width: 100%"  value="地図表示" onclick="
+
+			//// 地図表示ボタンクリック時の処理
+
+			var form = SateraitoWF.getForm(this);
+
+			var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+			var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+			// 住所を取得し、iframeのソースURLを作成します
+
+			var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+			src += tenpo_address_encoded;
+			src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+			// 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+			var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+			map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+			// iframeとGoogleMapsリンクに作成したURLをセットします
+
+			$(form).find('.google_maps_frame_sateraito').attr('src', src);
+			$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+			// GoogleMapsリンクに住所をセットします
+
+			$(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+			">
+
+        <iframe class="google_maps_frame_sateraito" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src=""></iframe>
+        <br/>
+        <small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left"
+                           target="_blank"></a> を表示
+        </small>
+
+        <br>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

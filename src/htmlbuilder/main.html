@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <!--<script type="text/javascript" src="{{ my_site_url }}/static/jquery.js"></script>-->
+		{% if debug_mode == 'True': %}
+	  <script type="text/javascript" src="{{ my_site_url }}/static/jquery-1.9.1.js"></script>
+		{% else: %}
+	  <script type="text/javascript" src="{{ my_site_url }}/static/jquery-1.9.1.min.js"></script>
+		{% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ my_site_url }}/static/ext/resources/css/ext-all.css" />
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/jquery/ext-jquery-adapter.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/ext-all.js"></script>
+		<script type="text/javascript" src="{{ my_site_url }}/static/ext/src/locale/{{ extjs_locale_file }}"></script>
+		{% if debug_mode == 'True': %}
+    <script src="{{ my_site_url }}/static/jquery-ui-1.10.3.custom.js"></script>
+		{% else: %}
+    <script src="{{ my_site_url }}/static/jquery-ui-1.10.3.custom.min.js"></script>
+		{% endif %}
+		<!--<script src="{{ my_site_url }}/library/gadgets.js"></script>-->
+    <script src="{{ my_site_url }}{{vscripturl}}sateraito.js"></script>
+
+    <script type="text/javascript">
+
+      APP_ID = '{{ app_id }}';
+      Ext.BLANK_IMAGE_URL='{{ my_site_url }}/static/ext/resources/images/default/s.gif';
+
+      SATERAITO_MY_SITE_URL = '{{ my_site_url }}';
+      TENANT = '{{ tenant }}';
+      SATERAITO_GOOGLE_APPS_DOMAIN = '{{ google_apps_domain }}';
+      IS_GADGET_MODE = false;
+      IS_OPENID_MODE = true;
+      IS_TOKEN_MODE = false;
+      USER_TOKEN = '{{ user_token }}';
+      SATERAITO_LANG = '{{ lang }}';
+      // RELATED_SATERAITO_ADDRESS_DOMAIN = '{{ related_sateraito_address_domain }}';
+      TEMPLATE_TYPE = '{{template_type}}';
+      IS_SHAREPOINT_MODE = false;
+      BASE_URL = SATERAITO_MY_SITE_URL + '/htmlbuilder';
+
+      GADGET_START_TIME = {{gst}};
+    </script>
+
+    <link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/jquery.contextmenu.css">
+    <script src="{{ my_site_url }}{{html_builder_vscripturl}}jquery.ui.position.js" type="text/javascript"></script>
+    <script src="{{ my_site_url }}{{html_builder_vscripturl}}jquery.contextmenu.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}beautify.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}beautify-css.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}beautify-html.js"></script>
+
+    <script type="text/javascript" src="{{ my_site_url }}{{vscripturl}}sateraito_bbs_lang.js?{{version}}"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}sateraito_html_builder_lang.js?{{version}}"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}defined_extend.js?{{version}}"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}html_editor.js?{{version}}"></script>
+    <!--<script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}prettify.js?{{version}}"></script>-->
+    <link type="text/css" rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/shCoreDefault.css"/>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shCore.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushCss.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushJScript.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushXml.js"></script>
+
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}{{template_type}}/sateraito_common.js?{{version}}"></script>
+    <link rel="stylesheet" href="{{ my_site_url }}/css/sateraito.css">
+    <link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/html_editor.css">
+    <!--<link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/prettify.css">-->
+    <script type="text/javascript">
+      LoginMgr = {
+        viewerEmail: '{{ viewer_email }}',
+        appId: '{{ app_id }}',
+
+        /**
+         * getViewerEmail
+         *
+         * @return {string}
+         */
+        getViewerEmail: function()
+        {
+          return LoginMgr.viewerEmail;
+        }
+      }
+    </script>
+
+</head>
+<body>
+<!--added 2016-06-25: workflow template revision-->
+<input id="revision_id" type="hidden" value="{{ revision_id }}">
+
+<input id="template_id" type="hidden" value="{{ template_id }}">
+<input id="copy_template_id" type="hidden" value="{{ copy_template_id }}">
+<input id="copy_type" type="hidden" value="{{ copy_type }}">
+<input id="template_name" type="hidden" value="{{ template_name }}">
+<textarea id="template_body" style="display: none;">
+    {{ template_body }}
+</textarea>
+<textarea id="template_body_for_html_builder" style="display: none;">
+    {{ template_body_for_html_builder }}
+</textarea>
+<textarea id="default_template_list" style="display: none;">
+    {{ default_template_list }}
+</textarea>
+
+<div id="html_editor_render"></div>
+</body>
+</html>

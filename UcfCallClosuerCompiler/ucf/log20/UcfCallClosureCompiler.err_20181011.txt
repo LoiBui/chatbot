@@ -1,0 +1,260 @@
+﻿[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:50:41] System.IO.DirectoryNotFoundException: パス 'd:\gaeprojects\sateraito-meishi\src\templates' の一部が見つかりませんでした。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.Directory.InternalGetFileDirectoryNames(String path, String userPathOriginal, String searchPattern, Boolean includeFiles, Boolean includeDirs, SearchOption searchOption)
+   場所 System.IO.DirectoryInfo.GetFiles(String searchPattern, SearchOption searchOption)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneDirectory(DirectoryInfo d)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludes()
+   場所 Ucf.CallClosureCompiler.Program.executeMainProcess()
+   場所 Ucf.CallClosureCompiler.Program.Main(String[] args)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 15:52:22] System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   場所 System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   場所 Ucf.CallClosureCompiler.Program.callCompiler(String strFilePath)
+[2018/10/11 16:00:53] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:01:09] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:01:10] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:18:12] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:18:13] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:18:14] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:28:26] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:28:26] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:28:27] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:17] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:33] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:34] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:32:06] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:32:21] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:32:22] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:32] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:33] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:34] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+

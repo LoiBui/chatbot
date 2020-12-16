@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- <html lang="ja"> -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+<!-- <meta charset="shift_jis"> -->
+<title>{{lang.FILEUP_CONTRACT_PAGE_HEADER|safe}}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<link rel="stylesheet" type="text/css" href="/css/styles_sp.css?{{version}}" media="screen and (max-width:640px)">
+<link rel="stylesheet" type="text/css" href="/css/styles_pc.css?{{version}}" media="screen and (min-width:641px),print">
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+</script>
+<script type="text/javascript" >
+function reset()
+{
+	$("#contractpage_form").find("input").val("");
+}
+</script>
+</head>
+<body>
+
+<div id="header">
+<div class="cInner cf">
+<h1 id="logo"><img src="/images/x/logo.png" class="img100" alt="Sateraito Office"></h1>
+</div>
+</div>
+
+<div id="bggray">
+<div class="cInner cf">
+<h2 class="Title">{{lang.FILEUP_CONTRACT_PAGE_HEADER}}</h2><p>{{lang.EXP_FILEUP_CONTRACT_REQUEST}}</p>
+<div class="btn_clause"><a href="https://docs.google.com/document/d/1Pu8mbDiH-3MiUuXO-GeZTuaMlxXo54WDbM1SUg1LZRU" target="_blank" >{{lang.VMSG_POLICY}}</a></div>
+</div>
+</div>
+
+<div id="content">
+<div class="cInner">
+
+<div class="registerBlock">
+<form name="frmEdit" action="{{vurl}}{{oem_company_code}}{% if sp_code and sp_code != '': %}/{{sp_code}}{% endif %}/contract/request" method="POST" id="contractpage_form" >
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="pno" value="REQUEST">
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_COMPANY_NAME}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="company_name" name="company_name" value="{{ucfp.data.company_name}}" class="full">
+</dd>
+</dl>
+{% if vcmsg.company_name %}
+<script>$("#company_name").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_TANTO_NAME}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="tanto_name" name="tanto_name" value="{{ucfp.data.tanto_name}}" class="full">
+</dd>
+</dl>
+{% if vcmsg.tanto_name %}
+<script>$("#tanto_name").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_CONTACT_MAIL_ADDRESS}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="contact_mail_address" name="contact_mail_address" value="{{ucfp.data.contact_mail_address}}"class="full">
+<div class="att">{{lang.CONTRACT_PAGE_CONTACT_NOTE_ENTER}}</div>
+</dd>
+</dl>
+{% if vcmsg.contact_mail_address %}
+<script>$("#contact_mail_address").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_CONTACT_TEL_NO}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="tel" id="contact_tel_no1" name="contact_tel_no1" value="{{ucfp.data.contact_tel_no1}}" class="quarter">&nbsp;-&nbsp;<input type="tel" id="contact_tel_no2" name="contact_tel_no2" value="{{ucfp.data.contact_tel_no2}}" class="quarter">&nbsp;-&nbsp;<input type="tel" id="contact_tel_no3" name="contact_tel_no3" value="{{ucfp.data.contact_tel_no3}}" class="quarter">
+<div class="att">{{lang.CONTRACT_PAGE_CONTACT_NOTE_ENTER}}</div>
+</dd>
+</dl>
+{% if vcmsg.contact_tel_no1 %}
+<script>$("#contact_tel_no1").addClass("err");</script>
+{% endif %}
+{% if vcmsg.contact_tel_no2 %}
+<script>$("#contact_tel_no2").addClass("err");</script>
+{% endif %}
+{% if vcmsg.contact_tel_no3 %}
+<script>$("#contact_tel_no3").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTACT_PROSPECTIVE_ACCOUNT_NUM}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="contact_prospective_account_num" name="contact_prospective_account_num" value="{{ucfp.data.contact_prospective_account_num}}" class="quarter">
+<div class="att">{{lang.EXP_CONTACT_PROSPECTIVE_ACCOUNT_NUM}}</div>
+</dd>
+</dl>
+{% if vcmsg.contact_prospective_account_num %}
+<script>$("#contact_prospective_account_num").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_TENANT_NAME}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="tenant" name="tenant" class="textfield tenant" value="{{ucfp.data.tenant}}" placeholder="{{lang.FLD_CONTRACT_TENANT_NAME_PLACEHOLDER}}">
+<div class="att">{{lang.CONTRACT_PAGE_CONTACT_NOTE_ENTER}}<br>
+{{lang.EXP_CONTRACT_TENANT_NAME1}}<br>
+&nbsp;&nbsp;{{lang.EXP_CONTRACT_TENANT_NAME2}}
+</div>
+</dd>
+</dl>
+{% if vcmsg.tenant %}
+<script>$("#tenant").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_DEFAULT_OPERATOR_ID}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="text" id="default_operator_id" name="default_operator_id" value="{{ucfp.data.default_operator_id}}" class="full" placeholder="{{lang.FLD_CONTRACT_DEFAULT_OPERATOR_ID_PLACEHOLDER}}">
+<div class="att">{{lang.CONTRACT_PAGE_CONTACT_NOTE_ENTER}}<br>
+{{lang.EXP_CONTRACT_DEFAULT_OPERATOR_ID}}</div>
+</dd>
+</dl>
+{% if vcmsg.default_operator_id %}
+<script>$("#default_operator_id").addClass("err");</script>
+{% endif %}
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_DEFAULT_OPERATOR_PWD}}<span class="req">{{lang.CONTRACT_PAGE_REQUIRED_FIELD}}</span></dt>
+<dd>
+<input type="password" id="default_operator_pwd" name="default_operator_pwd" value="{{ucfp.data.default_operator_pwd}}" class="fullHalf">
+<div class="att">{{lang.CONTRACT_PAGE_CONTACT_NOTE_ENTER}}<br>
+{{lang.EXP_CONTRACT_DEFAULT_OPERATOR_PWD}}</div>
+</dd>
+</dl>
+{% if vcmsg.default_operator_pwd %}
+<script>$("#default_operator_pwd").addClass("err");</script>
+{% endif %}
+
+<div class="bigBtn">
+<ul class="cf">
+<li class="reset"><span onclick="JavaScript:reset();">{{lang.VMSG_RESET}}</span></li>
+<li class="confirm"><span onclick = 'document.frmEdit.submit();'>{{lang.MSG_CONFIRM}}</span></li></ul>
+</div>
+</div>
+</form>
+</div>
+</div><!-- //#content-->
+
+<div id="bggray">
+<div class="cInner cf">
+<p>{{lang.EXP_FILEUP_CONTRACT_REQUEST}}</p>
+</div>
+</div>
+<p id="footer">Copyright &copy; All rights reserved by Sateraito Office, Inc.</p>
+
+</body>
+</html>

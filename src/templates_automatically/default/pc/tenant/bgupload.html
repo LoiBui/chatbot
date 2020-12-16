@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_BGUPLOAD}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<script type="text/javascript" >
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+}
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+//-->
+</script>
+<script type="text/javascript" >
+//////////////////////////////////////////////////
+// 画面自体の編集をキャンセル
+//////////////////////////////////////////////////
+function cancel()
+{
+}
+
+function changeDispUploaded(picture_id, dtp, tp)
+{
+	var fld_area = document.getElementById('AreaUploadedDisp_' + dtp + '_' + picture_id);
+	if(fld_area)
+	{
+		if(tp && tp == true)
+		{
+			fld_area.innerHTML = '<a href="{{vurl}}config/xtpicturedelete?picture_id=' + picture_id + '&dtp=' + dtp + '" ><font color="red">{{lang.GOBACK_DEFAULT}}</font></a>';
+		}
+		else
+		{
+			fld_area.innerHTML = '<font color="orange">{{lang.NO_CUSTOMIZE_BG}}</font>';
+		}	
+	}	
+}
+
+// 各フィールドを設定
+function createFields()
+{
+}
+</script>
+<script type="text/javascript" >
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+    
+	createFields();
+
+	var btnClose = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			window.close();
+		}
+	});
+	btnClose.render(Ext.get('BtnClose'));
+
+	var cmpMainBg01 = Ext.ucf.file.createFileUpdateField('mainbg01', '{{vurl}}config/xtpictureupload?picture_id=mainbg01&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg01','pc',true);});
+	cmpMainBg01.render('AreaFormUploadMainBg01');
+	{% if ucfp.data.is_uploaded_mainbg01: %}changeDispUploaded('mainbg01','pc',true);{% else: %}changeDispUploaded('mainbg01','pc',false);{% endif %}
+	var cmpMainBg02 = Ext.ucf.file.createFileUpdateField('mainbg02', '{{vurl}}config/xtpictureupload?picture_id=mainbg02&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg02','pc',true);});
+	cmpMainBg02.render('AreaFormUploadMainBg02');
+	{% if ucfp.data.is_uploaded_mainbg02: %}changeDispUploaded('mainbg02','pc',true);{% else: %}changeDispUploaded('mainbg02','pc',false);{% endif %}
+	var cmpMainBg03 = Ext.ucf.file.createFileUpdateField('mainbg03', '{{vurl}}config/xtpictureupload?picture_id=mainbg03&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg03','pc',true);});
+	cmpMainBg03.render('AreaFormUploadMainBg03');
+	{% if ucfp.data.is_uploaded_mainbg03: %}changeDispUploaded('mainbg03','pc',true);{% else: %}changeDispUploaded('mainbg03','pc',false);{% endif %}
+	var cmpMainBg04 = Ext.ucf.file.createFileUpdateField('mainbg04', '{{vurl}}config/xtpictureupload?picture_id=mainbg04&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg04','pc',true);});
+	cmpMainBg04.render('AreaFormUploadMainBg04');
+	{% if ucfp.data.is_uploaded_mainbg04: %}changeDispUploaded('mainbg04','pc',true);{% else: %}changeDispUploaded('mainbg04','pc',false);{% endif %}
+	var cmpMainBg05 = Ext.ucf.file.createFileUpdateField('mainbg05', '{{vurl}}config/xtpictureupload?picture_id=mainbg05&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg05','pc',true);});
+	cmpMainBg05.render('AreaFormUploadMainBg05');
+	{% if ucfp.data.is_uploaded_mainbg05: %}changeDispUploaded('mainbg05','pc',true);{% else: %}changeDispUploaded('mainbg05','pc',false);{% endif %}
+	var cmpMainBg06 = Ext.ucf.file.createFileUpdateField('mainbg06', '{{vurl}}config/xtpictureupload?picture_id=mainbg06&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg06','pc',true);});
+	cmpMainBg06.render('AreaFormUploadMainBg06');
+	{% if ucfp.data.is_uploaded_mainbg06: %}changeDispUploaded('mainbg06','pc',true);{% else: %}changeDispUploaded('mainbg06','pc',false);{% endif %}
+	var cmpMainBg07 = Ext.ucf.file.createFileUpdateField('mainbg07', '{{vurl}}config/xtpictureupload?picture_id=mainbg07&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg07','pc',true);});
+	cmpMainBg07.render('AreaFormUploadMainBg07');
+	{% if ucfp.data.is_uploaded_mainbg07: %}changeDispUploaded('mainbg07','pc',true);{% else: %}changeDispUploaded('mainbg07','pc',false);{% endif %}
+	var cmpMainBg08 = Ext.ucf.file.createFileUpdateField('mainbg08', '{{vurl}}config/xtpictureupload?picture_id=mainbg08&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg08','pc',true);});
+	cmpMainBg08.render('AreaFormUploadMainBg08');
+	{% if ucfp.data.is_uploaded_mainbg08: %}changeDispUploaded('mainbg08','pc',true);{% else: %}changeDispUploaded('mainbg08','pc',false);{% endif %}
+	var cmpMainBg09 = Ext.ucf.file.createFileUpdateField('mainbg09', '{{vurl}}config/xtpictureupload?picture_id=mainbg09&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg09','pc',true);});
+	cmpMainBg09.render('AreaFormUploadMainBg09');
+	{% if ucfp.data.is_uploaded_mainbg09: %}changeDispUploaded('mainbg09','pc',true);{% else: %}changeDispUploaded('mainbg09','pc',false);{% endif %}
+	var cmpMainBg10 = Ext.ucf.file.createFileUpdateField('mainbg10', '{{vurl}}config/xtpictureupload?picture_id=mainbg10&dtp=pc',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg10','pc',true);});
+	cmpMainBg10.render('AreaFormUploadMainBg10');
+	{% if ucfp.data.is_uploaded_mainbg10: %}changeDispUploaded('mainbg10','pc',true);{% else: %}changeDispUploaded('mainbg10','pc',false);{% endif %}
+	var cmpMainBgSP01 = Ext.ucf.file.createFileUpdateField('mainbgsp01', '{{vurl}}config/xtpictureupload?picture_id=mainbg01&dtp=sp',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){changeDispUploaded('mainbg01','sp',true);});
+	cmpMainBgSP01.render('AreaFormUploadMainBgSP01');
+	{% if ucfp.data.is_uploaded_mainbgsp01: %}changeDispUploaded('mainbg01','sp',true);{% else: %}changeDispUploaded('mainbg01','sp',false);{% endif %}
+
+	var cmpTitleLogo = Ext.ucf.file.createFileUpdateField('titlelogo', '{{vurl}}config/xtpictureupload?picture_id=logo',{csrf_token:'{{ucfp.data.token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_FILE_SELECT_AND_UPLOAD}}&nbsp;&nbsp;&nbsp;&nbsp;',btn_only:false},function(){location.reload();});
+	cmpTitleLogo.render('AreaFormUploadTitleLogo');
+
+});
+
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{#-% include "./include/header.html" %-#}
+<!-- mainArea//start -->
+<div id="mainArea" class="off">
+{#-% include "./include/index_leftmenu.html" %-#}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_SITE_TITLE_BGUPLOAD}}</p>
+<table class="detail_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+      <div class="main_content_title"><a name="LOGO">{{lang.VMSG_LOGIN_BG_PC}}</a></div>
+      <table class="info_table" width="900" >
+				{% for i in ('01','02','03','04','05','06','07','08','09','10') %}
+        <tr>
+					<th>{{lang.VMSG_LOGIN_BG}}{{i}}：</th>
+					<td><div id="AreaFormUploadMainBg{{i}}" ></div></td>
+					<td>&nbsp;</td>
+					<td nowrap class="style3" ><span id="AreaUploadedDisp_pc_mainbg{{i}}" >&nbsp;</span></td>
+					<td>&nbsp;</td>
+					<td class="style3" ><a href="{{vurl}}picture/mainbg{{i}}?dtp=pc&uc=n" target="_blank" >{{lang.CURRENT_ACTIVE_BG}}</a></td>
+					<td>&nbsp;</td>
+					<td class="style3" >
+						<a href="/images/bg/{{ucfp.data.BgDefaultIdx[i]}}.jpg" target="_blank" >{{lang.VIEW_DEFAULT_BG}}</a>
+					</td>
+        </tr>
+				{% endfor %}
+        <tr>
+					<td colspan="8">
+						<p><font color="#696969">{{lang.EXP_ABOUT_BG_FOR_PC|safe}}</font></p>
+						<p><font color="#696969">{{lang.EXP_ABOUT_BG_FOR_PC2|safe}}</font></p>
+						<p><font color="#696969">{{lang.EXP_ABOUT_BG_FOR_PC3|safe}}</font></p>
+					</td>
+        </tr>
+        <tr>
+					<td colspan="8">
+						<img src="/images/spacer.gif" alt="" height="20" />
+					</td>
+        </tr>
+        <tr>
+					<td colspan="8">
+			      <div class="main_content_title"><a name="LOGO">{{lang.VMSG_LOGIN_BG_SP|safe}}</a></div>
+					</td>
+        </tr>
+        <tr>
+					<th>{{lang.VMSG_LOGIN_BG}}01：</th>
+					<td>
+						<div id="AreaFormUploadMainBgSP01" ></div>
+					</td>
+					<td>&nbsp;</td>
+					<td class="style3" nowrap><span id="AreaUploadedDisp_sp_mainbg01" >&nbsp;</span></td>
+					<td>&nbsp;</td>
+					<td class="style3" nowrap><a href="{{vurl}}picture/mainbg01?dtp=sp&uc=n" target="_blank" >{{lang.CURRENT_ACTIVE_BG}}</a></td>
+					<td>&nbsp;</td>
+					<td class="style3" nowrap>
+					<a href="/images/sp/01.jpg" target="_blank" >{{lang.VIEW_DEFAULT_BG}}</a>
+					</td>
+        </tr>
+        <tr>
+					<td colspan="8">
+						<p><font color="#696969">{{lang.EXP_ABOUT_BG_FOR_SP}}</font></p>
+					</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table class="detail_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div class="section_area_title main_content_title" section_show_hide_area_id="AREA_logo_config" style="cursor:pointer;" init_display="show" ><a name="LOGO">{{lang.VMSG_LOGO_CONFIG|safe}}</a><img class="section_arrow_img" /></div>
+			<p style="padding-left:15px;"><font color="#696969">{{lang.EXP_DASHBOARD_LOGO|safe}}</font></p>
+      <table class="info_table" id="AREA_logo_config">
+        <tr>
+					<th>{{lang.VMSG_UPLOAD}}：</th>
+					<td>
+						<div id="AreaFormUploadTitleLogo" />
+					</td>
+        </tr>
+        <tr>
+					<th></th>
+          <td>
+						<p><font color="#696969">{{lang.VMSG_MSG_CONFIG_ABOUT_LOGO|safe}}</font></p>
+					</td>
+        </tr>
+        <tr>
+					<th>{{lang.VMSG_CONFIG_CURRENT_LOGO}}：</th>
+          <td>
+						<img src="{{vurl}}picture/logo?uc=n" height="44px" border="0" />
+					</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<table class="detail_layout">
+        <tr>
+					<td colspan="8">
+						<img src="/images/spacer.gif" alt="" height="20" />
+					</td>
+        </tr>
+
+        <tr>
+					<td colspan="8" align="left">
+    				<div id="BtnClose" />
+					</td>
+        </tr>
+        <tr>
+					<td colspan="8">
+						<img src="/images/spacer.gif" alt="" height="20" />
+					</td>
+        </tr>
+</table>
+
+
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

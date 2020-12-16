@@ -1,0 +1,6 @@
+﻿[2019/03/15 11:12:13] c:/Users/chun/PycharmProjects/sateraito-logging/src/script/debug/ucfext_operationlog.js:28: WARNING - Suspicious code. Is there a missing '+' on the previous line?
+								['workplacechat_add', _msg.WORKPLACE_CHAT_ADD],
+								 ^^^^^^^^^^^^^^^^^^^
+
+0 error(s), 1 warning(s)
+

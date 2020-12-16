@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+	<template_id><![CDATA[]]></template_id>
+	<template_name><![CDATA[Letter of Attorney]]></template_name>
+	<template_disabled><![CDATA[false]]></template_disabled>
+	<show_as_max_window><![CDATA[true]]></show_as_max_window>
+	<doc_info_place><![CDATA[middle]]></doc_info_place>
+	<show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+	<created_date><![CDATA[]]></created_date>
+	<updated_date><![CDATA[]]></updated_date>
+	<template_body><![CDATA[<!--
+  Letter of Attorney
+
+  @since 2014-01-13
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">Applicant</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="shinseinin_busyo"></td>
+		<td class="detail_name" style="width:20%">Job Title</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="shinseinin_yakusyoku"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="shinseinin_name"></td>
+		<td class="detail_name" style="width:20%">Contact</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="shinseinin_tel"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Address</td>
+		<td class="detail_value" colspan="3"><input type="text" name="shinseinin_address" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" colspan="4" align="center"><font size="3" >I would like to delegate to the specified representative the authority of the folowing matters。</font></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" colspan="4" align="center"><font size="+2"><b>Sign</b></font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Delegating Matters:</td>
+		<td class="detail_value" colspan="3"><textarea name="inin_jikou" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Delegated Date</td>
+		<td class="detail_value" colspan="3">
+			<input name="inin_date" class="date today_date">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+</table>
+
+<div class="main_content_title2">Representative</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="dairinin_busyo"></td>
+		<td class="detail_name" style="width:20%">Job Title</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="dairinin_yakusyoku"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="dairinin_name"></td>
+		<td class="detail_name" style="width:20%">Contact</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="dairinin_tel"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Address</td>
+		<td class="detail_value" colspan="3"><input type="text" name="dairinin_address" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+
+]]></template_body>
+   <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140529092455EHiqvWo45eFbadgt\",\"name\":\"Letter of Attorney1\",\"sections\":[{\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\",\"secname\":\"Letter of Attorney1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401330670211iy6nDcGxZPK6x6r5\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401330670217fAeMCbrMC3YNVGib\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670212g7CajSDgoA6Y9hTy\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-14013306702159r6Honfe0G0O02FH\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330750099mYx02eUPQE2OZxm6\",\"controls\":[{\"control_id\":\"ctr_id-1401330761916TmbnjjNuMQntzhO4\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"Applicant\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330790770uiSWghwsW38J19Kg\",\"controls\":[{\"control_id\":\"ctr_id-14013306702163Uc95yOt75aYTtP7\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shinseinin_busyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216ZFwpaaCSRL9xJ37V\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shinseinin_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216915hft9W6T39ab5Y\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Job Title\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shinseinin_yakusyoku\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216NVZ6p6ySisM93J89\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Contact\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shinseinin_tel\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330866810gUTE79O84nTrdd47\",\"controls\":[{\"control_id\":\"ctr_id-1401330670216PnfVJ4U5Ry09jZHx\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Address\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shinseinin_address\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330900449zaECLCJLP8aTnnuI\",\"controls\":[{\"control_id\":\"ctr_id-1401330900449NfvkZGsedPis7DvJ\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401330900449zaECLCJLP8aTnnuI\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330911889zXPVmYhxHq0vHSJ8\",\"controls\":[{\"control_id\":\"ctr_id-1401330942753Uoe5RpR5PNUouJ2E\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"I would like to delegate to the specified representative the authority of the folowing matters。\",\"style\":\"margin-left:50px; font-size:15px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401330911889zXPVmYhxHq0vHSJ8\"}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401330974264GG1J0DNgq8L3Et3q\",\"controls\":[{\"control_id\":\"ctr_id-1401330974264BzINTKLsNyXvtxkP\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401330974264GG1J0DNgq8L3Et3q\"}]},{\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401331022897Kxuy6kPKaxrNS1T4\",\"controls\":[{\"control_id\":\"ctr_id-1401331010235XaZzNEBY63HY9UeS\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Sign\",\"style\":\"font-weight:bold; font-size:20px;margin-left:180px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401331022897Kxuy6kPKaxrNS1T4\"},{\"control_id\":\"ctr_id-1401330670216Hr2dVY9tE2LR6z0x\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Delegating Matters:\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"inin_jikou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216iTY70U0FraeGicQ3\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Delegated Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"inin_date\",\"style\":\"width:100%\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]},{\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-14013311401265z3P0TtD6tMmW2Tu\",\"controls\":[{\"control_id\":\"ctr_id-14013311401264JsE5beJx6YC6Wij\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14013311401265z3P0TtD6tMmW2Tu\"}]},{\"secname\":\"Representative\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401331153087vkKLHHLHuwriuEoj\",\"controls\":[{\"control_id\":\"ctr_id-1401330670216YIzJXY3DjPuapDZT\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"dairinin_busyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216Mu9fj03j6IfVIuc4\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"dairinin_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216HEtTYeyRh6v0uZ9p\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Job Title\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"dairinin_yakusyoku\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"},{\"control_id\":\"ctr_id-1401330670216Mq9oq98hJjFibQCJ\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Contact\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"dairinin_tel\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]},{\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401331244550PLzPDiQEi7kcHvVB\",\"controls\":[{\"control_id\":\"ctr_id-1401330670216fVo1MAUYy0rQ3oVj\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Address\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"dairinin_address\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]},{\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401331265597Aj0wKWHHjjDNHLj4\",\"controls\":[{\"control_id\":\"ctr_id-1401331265597DQyISROhdvHFpKEk\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401331265597Aj0wKWHHjjDNHLj4\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401331287302JOuLPYBqusjAjn6C\",\"controls\":[{\"control_id\":\"ctr_id-1401330670216QgVGDhc0DqMbuuTz\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401330670217tuhyDQ5UnI6zemtJ\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+    <template_body_for_mobile><![CDATA[<!--
+  Letter of Attorney
+
+  @since 2014-01-13
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Applicant</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="shinseinin_busyo" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Job Title</div>
+      <div class="detail_value"><input type="text" name="shinseinin_yakusyoku" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="shinseinin_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Contact</div>
+      <div class="detail_value"><input type="text" name="shinseinin_tel" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Address</div>
+      <div class="detail_value"><input type="text" name="shinseinin_address" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value" align="center"><font size="3">I would like to delegate to the specified representative the authority of the folowing matters。</font></div>
+
+      <div class="detail_value" align="center"><font size="+2"><b>Sign</b></font></div>
+      <div class="detail_name">Delegating Matters:</div>
+      <div class="detail_value"><textarea name="inin_jikou" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Delegated Date</div>
+      <div class="detail_value">
+        <input type="text" name="inin_date" class="date today_date" style="width:100%">
+      </div>
+    </li>
+
+  </ul>
+</div>
+<div class="main_content_title2">Representative</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="dairinin_busyo" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Job Title</div>
+      <div class="detail_value"><input type="text" name="dairinin_yakusyoku" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="dairinin_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Contact</div>
+      <div class="detail_value"><input type="text" name="dairinin_tel" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Address</div>
+      <div class="detail_value"><input type="text" name="dairinin_address" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea></div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

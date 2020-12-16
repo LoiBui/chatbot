@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_faqmaster.js?{{version|safe}}"  charset="utf-8"></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_FAQMASTER|safe}} - {{lang.FAQ_HTML_TITLE|safe}}</title>
+
+<style>
+    .x-grid3-cell{
+        vertical-align: middle !important;
+    }
+</style>
+
+<script type="text/javascript" >
+	var each_page_cnt = 20;
+	var store;
+
+	function getSearchBaseParam(scond)
+	{
+		var start = 0;
+		// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+		if(scond)
+		{
+			start = parseInt(scond['start'], 0);
+			document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+		}
+	
+		var params = {
+            start: start
+            ,limit: each_page_cnt
+            ,sk_keyword:Ext.ucf.getElementValue('sk_keyword').trim()
+        };
+		return params;
+	}
+
+	function handlerCreate(){
+        var siteUrl = window.location.hostname;
+        var requestUrl = 'https://' + siteUrl + _vurl + "faqmaster/regist?tp=n";
+        window.location = requestUrl.trim();
+	}
+
+	function handlerEdit(unique_id) {
+        var siteUrl = window.location.hostname;
+		var requestUrl = 'https://' + siteUrl + _vurl + "faqmaster/regist?tp=rn&unqid=" + unique_id;
+        window.location = requestUrl.trim();
+    }
+
+	function handlerDelete(unique_id){
+		var siteUrl = window.location.hostname;
+		var requestUrl = 'https://' + siteUrl + _vurl + "faqmaster/regist?tp=d&unqid=" + unique_id;
+
+		window.location = requestUrl.trim();
+	}
+
+	function search(psc)
+	{
+		Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}faqmaster/xtlist');
+	}
+
+	function createSearchCondFields()
+	{
+		var field_sk_keyword = Ext.ucf.field.createTextField2('sk_keyword', 'sk_keyword', '', '{{lang.SEARCH_CONDITION|safe|escapejs}}', 360, null);
+		field_sk_keyword.render('FIELD_sk_keyword');
+	}
+</script>
+<script type="text/javascript" >
+Ext.onReady(function(){
+	Ext.QuickTips.init();
+	Ext.ucf.init();
+
+	createSearchCondFields();
+
+	var FAQmasterStore = Ext.data.Record.create([
+		{name: 'unique_id', type: 'string', mapping: 'unique_id'},
+		{name: 'faq_question', type:'string'},
+		{name: 'faq_answer', type: 'string'},
+		{name: 'category_id', type:'string'},
+		{name: 'faq_open_date_from', type: 'string'},
+		{name: 'faq_open_date_to', type: 'string'},
+		{name: 'faq_relation_url', type: 'string'},
+		{name: 'faq_priority', type: 'string'},
+		{name: 'referred_faq_counts', type: 'string'},
+		{name: 'resolved_faq_counts', type: 'string'},
+		{name: 'admin_score', type: 'string'}
+	]);
+
+  	store = new Ext.data.Store({
+		reader: new Ext.data.JsonReader({
+			idProperty: 'unique_id',
+			root: 'records',
+			totalProperty: 'all_count',
+			fields: ['categories']
+			},
+			FAQmasterStore
+		),
+	    url: '{{vurl}}faqmaster/xtlist',
+		autoDestroy: true
+	});
+
+	// Storeのロード後のイベントハンドラを追加
+	store.on('load', function(s, records, options) {
+		Ext.Ajax.request({url:'{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_ACCOUNT_LIST}}', method:'POST', params:options.params, failure:function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+	});
+
+	var btnRefresh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+
+	var btnCreate = {
+		text: _msg.VMSG_GRID_FAQMASTER_BTN_CREATE,
+		handler: handlerCreate
+	};
+
+	var btnDelete = {
+		text: _msg.VMSG_GRID_FAQMASTER_BTN_DELETE,
+		handler: handlerDelete,
+		hidden: true
+	};
+
+	var sLimitCB = new Ext.ucf.searchLimitComboBox(
+		[each_page_cnt,50,100],
+		{
+			'select':function(cb, record, index){
+				each_page_cnt = cb.value;
+				pagingBar.pageSize = each_page_cnt;
+				search();
+			}
+		}
+	);
+
+	each_page_cnt = sLimitCB.value;
+
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: store,
+		displayInfo: true,
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+			'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+
+	var toolBar = new Ext.Toolbar({
+		items: [
+			btnRefresh,
+			'-',
+			btnCreate,
+			'-',
+			{
+				text: '{{lang.VMSG_GRID_FAQMASTER_BTN_DELETE}}',
+				handler: function(){
+					var selected = [];
+					var SelectedCheckbox = grid.getSelectionModel();
+					for(i=0; i<SelectedCheckbox.selections.length; i++){
+						selected.push(SelectedCheckbox.selections.items[i].data.unique_id);
+					}
+					if(selected.length > 0){
+						Ext.ucf.faqmaster.deleteFAQmaster(selected.join(), "md", "{{config.VC_CHECK|safe}}");
+					}
+				}
+			},
+			'-'
+		]
+	});
+
+	var renderBasic = function (value, p, record) {
+		var html = '';
+		html += Ext.ucf.htmlEscape(value);
+		return html;
+	};
+
+	var sm = new Ext.grid.CheckboxSelectionModel({
+	});	
+
+	var cm = new Ext.grid.ColumnModel({	
+		columns: [
+		sm,
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_QUESTION,
+			dataIndex: 'faq_question',
+			width: 26,
+			sortable: false,
+			renderer: renderBasic
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_ANSWER,
+			dataIndex: 'faq_answer',
+			width: 33,
+			sortable: false,
+			renderer: renderBasic
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_CATEGORY,
+			dataIndex: 'category_id',
+			width: 13,
+			sortable: false,
+			renderer: function (value, p, record) {
+				var list_category = JSON.parse('{{ucfp.voinfo.vo.list_category|escapejs}}');
+				var val = '';
+				for(var i=0; i<list_category.length; i++){
+					if(record.get('category_id') == list_category[i].category_id){
+						val = list_category[i].category_major;
+						val = (list_category[i].category_middle)?(val + ' - ' + list_category[i].category_middle):val;
+						val = (list_category[i].category_minor)?(val + ' - ' + list_category[i].category_minor):val;
+						return val;
+						break;
+					}
+				}
+			}
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_OPEN_DATE_FROM,
+			dataIndex: 'faq_open_date_from',
+			width: 7,
+			sortable: false
+			// renderer: renderBasic
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_OPEN_DATE_TO,
+			dataIndex: 'faq_open_date_to',
+			width: 7,
+			sortable: false
+			// renderer: renderBasic
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_PRIORITY,
+			dataIndex: 'faq_priority',
+			width: 4,
+			sortable: false,
+			renderer: renderBasic
+		},
+		{
+			header: _msg.GRID_HEADER_FAQMASTER_SCORE,
+			dataIndex: 'score',
+			width: 7,
+			sortable: false,
+			renderer: function (value, p, record) {
+				if(Number(record.get('referred_faq_counts')) == 0){
+					return '0 ' + _msg.POINTS;
+				}
+				else{
+					return Number(record.get('referred_faq_counts')) + record.get('resolved_faq_counts')*3 + Number(record.get('admin_score')) + ' ' + _msg.POINTS;
+				}
+			}
+		},
+		{
+			header: _msg.VMSG_EDIT_FIELD,
+			align: 'center',
+			width: 3,
+			sortable: false,
+			renderer: function(value, p, record){
+				return '<input type="button" value="" class="btnEdit" onclick="JavaScript:handlerEdit(\'' + record.get('unique_id') + '\');" />';
+			}
+		},
+		{
+			header: _msg.VMSG_DELETE_FIELD,
+			align: 'center',
+			width: 0,
+			sortable: false,
+			hidden: true,
+			renderer: function(value, p, record)
+			{
+				return '<input type="button" title="delete" class="btnTrash" onclick="JavaScript:handlerDelete(\'' + record.get('unique_id') + '\');" />';
+			}
+		}]
+	});
+	
+	var grid = new Ext.grid.EditorGridPanel({
+	  	store: store,
+		// width: 600,
+	  	region:'center',
+		clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+		// margins: '20 20 20 20',
+	  	stripeRows: true,
+		bbar: pagingBar,
+		tbar: toolBar,
+		sm: sm,
+		cm: cm
+	});
+
+	// パネルに辞書一覧グリッドをセット
+	var layout = new Ext.Panel({
+	  	collapsible: true,
+	  	title: '{{VMSG_GRID_FAQMASTER_TITLE}}',
+	  	layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+	  	layoutConfig: {
+	  		columns: 1
+	  	},
+	  	height: 600,
+	  	items: [grid]
+	});
+	
+	layout.render(Ext.get('grid_faqmaster_list'));
+
+	search();
+
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'))
+
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+	var export_history = Ext.ucf.file.createExportHistoryGridPanel('exportfaqmastercsv',{panel_title:'{{lang.FAQMASTERCSV_EXPORT_HISTORY}}',mask_area:'GridExportHistory'});
+	export_history.render('GridExportHistory');
+
+	var import_history = Ext.ucf.file.createImportHistoryGridPanel('importfaqmastercsv',{panel_title:'{{lang.FAQMASTERCSV_IMPORT_HISTORY}}', popup_panel_title:'{{lang.SELECT_FAQMASTERCSV}}',mask_area:'GridImportHistory'});
+	import_history.render('GridImportHistory');
+});
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_FAQMASTER_CONFIG|safe}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}faqmaster/" >{{lang.VMSG_FAQMASTER_LIST|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}faqmaster/regist?{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}" >{{lang.VMSG_FAQMASTER_ADD|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}faqmaster/#FAQMASTER_CSV_EXPORT" >{{lang.VMSG_FAQMASTER_CSV_EXPORT}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}faqmaster/#FAQMASTER_CSV_IMPORT" >{{lang.VMSG_FAQMASTER_CSV_IMPORT}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SHORTCUT|safe}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'DASHBOARD' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}" >{{lang.VMSG_DASHBOARD|safe}}</a></li>
+<!--<li class="{% if ucfp.data.leftmenuid == 'USER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}user/" >{{lang.VMSG_USER_CONFIG|safe}}</a></li>-->
+<li class="{% if ucfp.data.leftmenuid == 'CATEGORYMASTER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'DICTIONARY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/log" >{{lang.VMSG_LOGINHISTORY|safe}}</a></li>
+{% if is_available_ssoclient_access_log: %}
+<li class="{% if ucfp.data.leftmenuid == 'ACCESSPAGELOG' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/pagelog" >{{lang.VMSG_ACCESSPAGELOG|safe}}</a></li>
+{% endif %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+
+{% if 'OPERATOR' in login.access_authority: %}
+{% for operator in login.delegate_function %}
+<!--{% if operator == 'USER' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}user/" >{{lang.VMSG_USER_CONFIG|safe}}</a></li>{% endif %}-->
+{% if operator == 'CATEGORYMASTER' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG|safe}}</a></li>{% endif %}
+{% if operator == 'DICTIONARY' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG|safe}}</a></li>{% endif %}
+{% endfor %}
+{% endif %}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+    
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_FAQMASTER_LIST|safe}}</p>
+
+<table class="acs_layout">
+	<tr>
+		<td class="layout_td layout_td_all2" >
+			<div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+				<form onsubmit="JavaScript:search();return false;" >
+				<table class="search_table" >
+					<tr>
+						<td style="text-align:left;">
+							<div id="FIELD_sk_keyword" class="field" style="float:left;"></div>
+							<div id="btnSearch" style="float:left; margin-left:50px;"></div>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+	<tr>
+		<td class="layout_td layout_td_all" >
+			<div id="grid_faqmaster_list">
+		</div>
+		</td>
+	</tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+	<a name="FAQMASTER_CSV_EXPORT" ></a><p class="ttl">{{lang.VMSG_FAQMASTER_CSV_EXPORT}}</p>
+	<table class="acs_layout" >
+		<tr>
+			<td><p>{{lang.EXP_FAQMASTER_CSV_EXPORT|safe}}</p></td>
+		</tr>
+		<tr>
+			<td><div id="GridExportHistory" ></div></td>
+		</tr>
+		<tr class="space" >
+			<td><img src="/images/spacer.gif" alt="" /></td>
+		</tr>
+	</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+	<a name="FAQMASTER_CSV_IMPORT" ></a><p class="ttl">{{lang.VMSG_FAQMASTER_CSV_IMPORT}}</p>
+	<table class="acs_layout" >
+		<tr>
+			<td><p>{{lang.EXP_FAQMASTER_CSV_IMPORT|safe}}&nbsp;</p></td>
+		</tr>
+		<tr>
+			<td><div id="GridImportHistory" ></div></td>
+		</tr>
+		<tr class="space" >
+			<td><img src="/images/spacer.gif" alt="" /></td>
+		</tr>
+	</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FILEUP_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li style="margin-top:2px;"><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

@@ -1,0 +1,78 @@
+<STYLE type="text/css">
+<!--
+body{
+		color:{% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+		background-color:#ffffff;
+		margin-left:0px;
+		margin-top:0px;
+		margin-right:0px;
+		margin-bottom:0px;
+		font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+{% if not BgIsExistCustom:%}
+		background:url(/images/sp/01.jpg) no-repeat top left;
+{% else: %}
+		background:url({{vurl}}picture/mainbg01) no-repeat top left;
+{% endif %}
+
+}
+
+.style1 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 10px;
+	text-align:left;}
+
+.style2 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:center;}
+
+.style3 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	text-align:right;}
+
+.style4 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:left;}
+
+.text_validate {
+	color: {% if dept.login_vccolor_sp and dept.login_vccolor_sp != '': %}#{{dept.login_vccolor_sp}};{%else:%}#FF0000;{%endif%}
+	font-size: 10px;
+	font-weight: bold;
+	text-align:center;}
+
+.MainBox{
+	min-height:356px;
+	max-height:480px;
+	position:relative;
+	clear:both;
+}
+
+.area01{
+	color: #FFFFFF;
+	font-size: 10px;
+	position:absolute;
+	top:65px;
+	left:10px;}
+	
+.LoginBox{
+	min-height:356px;
+	max-height:480px;
+	position:relative;
+	clear:both;
+}
+
+.paging_area {
+	text-align:right;
+	font-size:11px;
+	font-family: 'メイリオ',Meiryo,tahoma, arial, verdana, sans-serif;
+ }
+
+a {
+	color:{% if dept.login_linkcolor_sp and dept.login_linkcolor_sp != '': %}#{{dept.login_linkcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+}
+-->
+</style>

@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+  <script type="text/javascript">
+<!--
+//-->
+</script>
+
+
+  <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script type="text/javascript" src="{{ vscripturl }}jquery-ui.min.js"></script>
+{#  <script type="text/javascript" src="{{ vscripturl }}moment.js"></script>#}
+{#  <script type="text/javascript" src="{{ vscripturl }}moment-timezone-with-data.js"></script>#}
+
+{#  <script type="text/javascript" src="{{ vscripturl }}ucfext_form.js?{{ version }}"></script>#}
+{#  <script type="text/javascript" src="{{ vscripturl }}ucfext_form_data.js?{{ version }}"></script>#}
+{#  <script type="text/javascript" src="{{ vscripturl }}ucfext_formdata_common.js?{{ version }}"></script>#}
+  <script type="text/javascript" src="{{ vscripturl }}ucfext_chat_common.js?{{ version }}"></script>
+  <script type="text/javascript" src="{{ vscripturl }}ucfext_chatbot.js?{{ version }}"></script>
+  <script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css"/>
+
+  {#<link rel="stylesheet" type="text/css" href="/css/chat/style.css" />#}
+  <link type="text/css" rel="stylesheet" href="/css/jquery-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/chat/style_line.css?{{ version }}"/>
+
+  <script type="text/javascript" src="{{ vscripturl }}ucfext.file.js?{{ version }}"></script>
+  <title>{{ lang.VMSG_SITE_TITLE_FORM_DATA }} -
+    {% if sp_code == 'worksmobile' %}{{ lang.HTML_TITLE_WORKSMOBILE }}{% else: %}
+      {{ lang.HTML_TITLE }}{% endif %}</title>
+
+  <script type="text/javascript">
+    <!--
+    var each_page_cnt = 20;
+    var each_page_cnt_200 = 200;
+    var _my_site_url = '{{my_site_url|escapejs}}';
+    var USER_ID_LOGIN = '{{ user_id|escapejs }}';
+    var USER_NAME_LOGIN = '{{ user_name_login|escapejs }}';
+    var SERVER_CHAT_SITE_URL = '{{server_chat_site_url|escapejs}}';
+    var DOMAIN_CHAT_SITE_URL = '{{domain_chat_site_url|escapejs}}';
+    var IMAGE_SIZE = {{ image_size|escapejs }};
+    var user_id_chat =  '{{user_id_chat|escapejs}}';
+    var LANGUAGE = '{{language|escapejs}}';
+
+    var client_latitude = -1;
+    var client_longitude = -1;
+
+    function showMenu() {
+      $('#default_content').toggleClass('full-task') ;
+        $('.secondRight').toggle();
+        if ($('#default_content').hasClass('full-task')){
+        }else{
+          //TODO
+        }
+    }
+
+    function initMap() {
+      console.log('init Map');
+    }
+
+    function showAction() {
+      $('.action').slideToggle();
+      $('#txtMemo').toggleClass('normal-height');
+    }
+
+    function addChecked(element){
+      if (!$(element).hasClass('checked')){
+        $(element).addClass('checked');
+      }
+    }
+
+    function removeChecked(element){
+      if ($(element).hasClass('checked')){
+        $(element).removeClass('checked');
+      }
+    }
+
+    function showTask(target,status) {
+        $(target).toggleClass('checked');
+
+        if (status=='ALL'){
+          if ($('.checktask.chkALL').hasClass('checked')) {
+            removeChecked('.checktask.chkDONE');
+            removeChecked('.checktask.chkNONE');
+          }else{
+             removeChecked('.checktask.chkDONE');
+             addChecked('.checktask.chkNONE');
+          }
+        }
+
+        if (status=='DONE'){
+           if ($('.checktask.chkDONE').hasClass('checked')) {
+              removeChecked('.checktask.chkALL');
+           }else{
+             if (!$('.checktask.chkNONE').hasClass('checked')) {
+               addChecked('.checktask.chkALL');
+               removeChecked('.checktask.chkNONE');
+             }
+           }
+        }
+
+         if (status=='NONE'){
+           if ($('.checktask.chkNONE').hasClass('checked')) {
+            removeChecked('.checktask.chkALL');
+           }else{
+             if (!$('.checktask.chkDONE').hasClass('checked')) {
+               addChecked('.checktask.chkALL');
+               removeChecked('.checktask.chkDONE');
+             }
+           }
+        }
+
+        //reuest data
+        //console.log(status);
+        //load memo
+        Ext.ucf.chatbot.loadMemoList();
+    }
+
+    function selectOperator(){
+      Ext.ucf.chatbot.showUserWindow('user_creater');
+    }
+
+    function renderButtonDate(){
+       //var now_date_val = new Date();
+       var field_due = Ext.ucf.field.createDateField('due_date', 'due_date', '', '{{lang.FLD_DATE_DUE|safe|escapejs}}', 150, null,true);
+	      field_due.render('FIELD_due');
+    }
+
+    //-->
+  </script>
+  <script type="text/javascript">
+    <!--
+    Ext.onReady(function () {
+      Ext.QuickTips.init();
+      Ext.ucf.init();
+
+      renderButtonDate();
+
+      Ext.ucf.chatbot.initData();
+      Ext.ucf.chatbot.loadUserList();
+      Ext.ucf.chatmessage.initChannel(function(socket){
+        Ext.ucf.chatbot.initHandlerSocket(socket);
+      });
+
+      $('.btn-done').on('click',function(){
+
+      });
+
+      //create
+      $('.LyLFT').resizable({
+          handles: 'e',
+          minWidth: 100,
+
+              resize: function (event, ui) {
+                  var $elm = ui.element;
+                  if (ui.size.width <= $elm.resizable("option", "minWidth"))
+                  {
+                     $('#_search_input').hide();
+                  }else{
+                       $('#_search_input').show();
+                  }
+
+              }
+        });
+
+      $(document).on("click","div.re-task", function(){
+        Ext.ucf.chatbot.addMessageToTask(this);
+     });
+
+     $(document).on("click","div.un-read", function(){
+        Ext.ucf.chatbot.UpdateMessageUnRead(this);
+     });
+
+     $(document).on("click","div.MdRGT07Cont", function(){
+        Ext.ucf.chatbot.callUpdateReadMessage(this)
+     });
+
+     $(document).on("click","div.img-user", function(){
+        Ext.ucf.chatbot.hoverImageUser(this)
+     });
+
+    $(document).on("mouseout","div.img-user", function(){
+        Ext.ucf.chatbot.mouseoutImageUser(this)
+     });
+
+    setInterval(function(){
+        //console.log($('#chat_message_list').prop("scrollHeight"));
+      if (Ext.ucf.chatbot.flagScrollBottom) {
+        var scrollHeight = $('#chat_message_list').prop("scrollHeight");
+{#        var clientHeight = $('#chat_message_list').prop("clientHeight");#}
+
+{#        console.log(scrollHeight-clientHeight);#}
+{#        console.log($('#chat_message_list').scrollTop());#}
+{#        console.log(Ext.ucf.chatbot.scrollBottomLoop);#}
+
+        $("#chat_message_list").animate({ scrollTop: scrollHeight}, 0, '', function () {
+          if (Ext.ucf.chatbot.scrollHeight==scrollHeight){
+            Ext.ucf.chatbot.scrollBottomLoop++;
+          }
+
+          if (Ext.ucf.chatbot.scrollHeight<scrollHeight){
+            Ext.ucf.chatbot.scrollHeight = scrollHeight;
+          }
+
+          if (Ext.ucf.chatbot.scrollBottomLoop>2){
+            Ext.ucf.chatbot.flagScrollBottom = false;
+            Ext.ucf.chatbot.scrollBottomLoop=0;
+          }
+
+        });
+      }
+    }, 1000);
+
+    });
+    //-->
+  </script>
+  {#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+  <!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+  <!-- mainArea//start -->
+  <div id="mainArea" class="on">
+    <div id="default_content" class="LyContents">
+      <!-- LEFT PANEL -->
+      <div id="leftSide" class="LyLFT ui-resizable">
+        <input type="hidden" id="user_page_index" value="0"/>
+        <div id="wrap_chat_list" class="lyLFTInner">
+          <!-- SEARCH USER -->
+          <div id="_searchh" class="MdLFT01Search">
+            <div class="mdLFT01Inner">
+              <input type="text" id="_search_input" class="mdLFT01Input" placeholder="{{ lang.VMSG_CHATBOT_SEARCH_LIST }}" value="">
+            </div>
+          </div>
+          <!-- LIST USER -->
+          <div id="_chat_list_scroll" class="MdScroll mdScroll01" style="height: 393px;">
+            <h1 class="MdHide">Chats List</h1>
+            <ul id="_chat_list_body" class="MdCMN03List ExHover yScroll"  style="height: 430px;">
+              <!-- TODO -->
+            </ul>
+          </div>
+          <!-- END LIST USER -->
+        </div>
+        <div id="wrap_contact_list" class="lyLFTInner panel-button-more">
+          <input type="button" id="chat_button_more" value="MORE" class="btn btn2 round2" style="width: 100%"/>
+        </div>
+
+      </div>
+      <!-- RIGHT PANEL -->
+      <div class="LyRGT" id="rightSide">
+        <div class="MdBox02">
+          <div id="_chat_main_area" class="MdRGT02Set mdRGT02Chat">
+            <div id="_chat_welcome_area"></div>
+            <div id="_chat_header_area">
+              <div class="MdRGT04Head mdRGT04Link">
+                <div class="mdRGT04Img mdRGT04ImgT1">
+                  <div class="mdRGT04ImgInner">
+                    <img id="img_user_selected" src="/images/person.png" width="35" height="35" alt="" onerror="Ext.ucf.chatbot.imgError(this);">
+                  </div>
+                </div>
+                <div class="mdRGT04Txt">
+                  <input type="hidden" id="id_user_selected" value=""/>
+                  <input type="hidden" id="session_user_selected" value=""/>
+                  <input type="hidden" id="page_index_user_selected" value="0"/>
+                  <h1 class="mdRGT04Ttl" id="name_user_selected"></h1>
+                </div>
+                <div id="_chat_header_contact_status_area" class="MdCMN10BtnSet mdCMN10TypeH01">
+                </div>
+                <div class="MdIcoSubmenu01">
+{#                  <button type="button" id="memo_menu" class="MdBtn01More" title="{{ lang.VMSG_CHATBOT_MEMO }}" onclick="showMenu();">{{ lang.VMSG_CHATBOT_MEMO }}#}
+{#                  </button>#}
+                    <button id="memo_menu" onclick="showMenu();">
+                      <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#ffffff" class="pTh3n" >
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+                      </svg>
+                    </button>
+                </div>
+                <!-- =============FILTER DEMO==================-->
+                <div class="filter-group">
+                    <span class="checktask chkALL" id="checkTask" onclick="showTask(this,'ALL');">
+                    </span>
+                    <label for="">{{ lang.VMSG_CHATBOT_ALL_MEMO }}</label>
+                    <span class="checktask chkDONE" id="checkTask" onclick="showTask(this,'DONE');">
+                    </span>
+                    <label for="">{{ lang.VMSG_CHATBOT_COMPLETED_MEMO }}</label>
+                    <span class="checktask checked chkNONE" id="checkTask" onclick="showTask(this,'NONE');">
+                    </span>
+                    <label for="">{{ lang.VMSG_CHATBOT_INCOMPLETED_MEMO }}</label>
+                </div>
+
+              </div>
+            </div>
+            <div id="_chat_dropzone" class="MdNonDisp" contenteditable="true"
+                 style="z-index:9999;position: absolute;top: 0;left: 0;width: 100%;height: 100%;font-size:0px;"></div>
+            <div class="mdRGT02Main MdScroll mdScroll02 " id="_chat_message_area" style="height:100%">
+              <div class="MdRGT05Body typeSingle unsendMark  fontType12 fadeInNormal displayFlex">
+
+                <!-- CENTER PANEL -->
+                <div id="_chat_room_msg_list" class="MdMN11ChatCnt">
+                  <div class="chat-msg-list  firstRight yScroll" id="chat_message_list">
+                    <p class="MdRGT10Notice mdRGT10Prev" id="_prev_msg_btn"><a href="javascript:void(0);">{{ lang.VMSG_CHATBOT_SHOW_PREVIOUS_CHAT }}</a></p>
+{#                    <div class="MdRGT10Notice mdRGT07Other mdRGT10Date"><time>9. 12 (Wed)</time></div>#}
+                    <div class="MdRGT07Cont" style="height: 5px;" id="item_last"></div>
+                    <!-- TODO -->
+                  </div>
+
+                  <div class="chat-msg-input yScroll">
+                    <div class="act-sticker">
+                      <div class="sticker image-send">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path>
+                        </svg>
+                      </div>
+                      <div class="sticker sticker-send">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path fill="none" d="M0 0h24v24H0V0z"></path>
+                          <circle cx="15.5" cy="9.5" r="1.5"></circle>
+                          <circle cx="8.5" cy="9.5" r="1.5"></circle>
+                          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-5-6c.78 2.34 2.72 4 5 4s4.22-1.66 5-4H7z"></path>
+                        </svg>
+                      </div>
+                      <div class="sticker location-send">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                    </div>
+
+                     <div placeholder="{{ lang.VMSG_CHATBOT_PLACEHOLDER_INPUT_CHAT }}"  role="textbox" contenteditable="true" aria-labeledby="txtboxLabel" class="txtChat" id="txtChat"></div>
+                  </div>
+                </div>
+                 <!-- END CENTER PANEL -->
+
+                <!-- RIGHT PANEL -->
+                <div class="memo-cls secondRight" style="display: block;">
+                  <div id="_chat_list_scroll" class="MdScroll mdScroll01">
+                    <h1 class="memoHeader">{{ lang.VMSG_CHATBOT_MEMO }}</h1>
+                    <div class="memoComponent ">
+                       <!-- =============ADD MEMO======================-->
+                       <div class="" id="memoContent">
+                          <div class="content">
+                              <textarea name="" class="contentArea yScroll" id="txtMemo" placeholder="{{ lang.VMSG_CHATBOT_MEMO_ADD }}" onclick="showAction();"></textarea>
+                          </div>
+                          <div class="action">
+                              <div class="control-group">
+                                  <label class="controlLabel">{{ lang.FLD_FROM_USER }}</label>
+                                  <div class="group-user">
+{#                                      <img src="./chatbot_files/image" width="20" height="20" alt="">#}
+                                      <input type="hidden" name="user_creater" value="{{ user_id }}"/>
+                                      <span class="control-name" name="user_creater_name_list">{{ user_name_login }}</span>
+                                  </div>
+                                  <div class="act-add flr">
+                                    <a href="javascript:void(0);" onclick="selectOperator();">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                    </a>
+                                  </div>
+                              </div>
+                              <div class="memoTime">
+                                  <label class="controlLabel">{{ lang.FLD_DATE_DUE }}</label>
+                                  <span class="deadline-time" id="FIELD_due"></span>
+                              </div>
+                              <div class="action-memo">
+                                  <button id="addMemo">{{ lang.VMSG_CHATBOT_MEMO_SAVE }}</button>
+                                  <button id="closeMemo" onclick="showAction();">{{ lang.VMSG_CANCEL }}</button>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- =============MEMO LIST======================-->
+                      <div class="memoList">
+                        <ul id="_memo_list_body" class="_memo_list_body MdCMN03List ExHover" >
+                            <!--TODO-->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END RIGHT PANEL -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="MdBoxCard MdNonDisp" id="_chat_card_area"></div>
+  </div>
+
+  <!-- rightArea innerArea//end -->
+  <div class="boxRound2"><img src="/images/spacer.gif" alt=""/></div>
+  <div class="boxRound1"><img src="/images/spacer.gif" alt=""/></div>
+  <div class="boxRound0"><img src="/images/spacer.gif" alt=""/></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+
+<!-- Script MAP -->
+  <script src="https://maps.googleapis.com/maps/api/js?key={{app_key}}&callback=initMap" async defer></script>
+</body>
+</html>

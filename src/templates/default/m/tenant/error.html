@@ -1,0 +1,29 @@
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<title>{{lang.VMSG_SITE_TITLE_ERROR}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+
+<div class="area01">
+{% if error_info %}
+<p class="style1"><font color="#FF0000">{{ error_info }}</font></p>
+{% endif %}
+<br />
+<script type="text/javascript" >
+<!--
+if(history.length > 1){
+	document.write('<a href="JavaScript:history.back(-1);" >{{lang.VMSG_BACK}}</a>');
+}
+//-->
+</script>
+
+</div>
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

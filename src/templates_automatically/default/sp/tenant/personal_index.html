@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta name = "viewport" content = "width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<!--
+<meta name = "viewport" content = "width = 320">
+-->
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+
+
+<STYLE type="text/css">
+<!--
+body{
+		color:{% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+		background-color:#ffffff;
+		margin-left:0px;
+		margin-top:0px;
+		margin-right:0px;
+		margin-bottom:0px;
+		font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+{% if not BgIsExistCustom:%}
+		background:url(/images/sp/01.jpg) no-repeat top left;
+{% else: %}
+		background:url({{vurl}}picture/mainbg01) no-repeat top left;
+{% endif %}
+}
+
+.style1 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 10px;
+	text-align:left;}
+
+.style2 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:center;}
+
+.style3 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	text-align:right;}
+
+.style4 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:left;}
+
+.style5 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	text-align:left;}
+
+.text_validate {
+	color: {% if dept.login_vccolor_sp and dept.login_vccolor_sp != '': %}#{{dept.login_vccolor_sp}};{%else:%}#FF0000;{%endif%}
+	font-size: 10px;
+	font-weight: bold;
+	text-align:center;}
+
+.Logo{
+/*	position:absolute;
+	top:0px;
+	left:0px;
+*/
+	padding:10px;
+	margin:0 auto;
+	min-height:44px;
+}
+
+.MainBox{
+	min-height:356px;
+	position:relative;
+	clear:both;
+}
+
+.area01{
+	color: #FFFFFF;
+	font-size: 10px;
+/*
+	position:absolute;
+	top:65px;
+	left:10px;
+*/
+	min-height:356px;
+	max-height:480px;
+	padding:10px;
+}
+	
+.LoginBox{
+	min-height:356px;
+	max-height:480px;
+	position:relative;
+	clear:both;
+}
+
+.LoginBoxTable{
+	margin:0 auto;
+	width:320px;
+	height:356px;
+}
+
+.mini_pr{
+	text-align:center;
+}
+	
+
+.paging_area {
+	text-align:right;
+	font-size:11px;
+	font-family: 'メイリオ',Meiryo,tahoma, arial, verdana, sans-serif;
+ }
+
+a {
+	color:{% if dept.login_linkcolor_sp and dept.login_linkcolor_sp != '': %}#{{dept.login_linkcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+}
+-->
+</style>
+
+<title>{{lang.VMSG_SITE_TITLE_PERSONAL}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<style type="text/css" >
+<!--
+.style_subtitle{
+	color:#FFFFFF;
+	font-weight:bold;
+	font-size:16px;
+	text-align:left;
+	font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+	padding-left:2px;
+	padding-bottom:2px;}
+
+.panel{
+	padding:2px 2px;
+	font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+	text-align:center;
+	position:relative;
+}
+.panel a{
+	text-decoration:none;
+	font-weight:bold;
+	font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+}
+
+ul.panel_container{
+	text-align:left;
+	font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+	padding:0px;
+}
+
+ul.panel_container li{
+	position:relative;
+	display:block;
+	float:left;
+	margin:2px 2px 2px 2px;
+}
+
+.bookmark_link 	{border:1px solid #CCC; font-size:12px; font-weight: bold; padding:5px 10px 5px; font-family:"Helvetica Neue",Arial,sans-serif;width:90%;}
+.bookmark_link2 {border:1px solid #CCC; font-size:12px; font-weight: bold; font-family:"Helvetica Neue",Arial,sans-serif;width:90%;height:80px;}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 2rem);
+	width: -webkit-fill-available;
+    border-radius: 13px;
+    height: 24px;
+    border: 1px solid #ccc;
+    padding: .375rem .75rem;
+}
+.Logo{
+	background-color: #09bd4f;
+
+	background-color: #2196f3;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 0px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+body{
+	background-color: none;
+	background-image: none;
+}
+
+.style2 {
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+	text-align: left;
+    margin: 10px 0;
+}
+.style1 {
+    color: #000;
+    font-size: 14px;
+    text-align: left;
+}
+tr, td {
+    display: block;
+    width: 100%;
+}
+button.btn.btn-login {
+    color: #fff;
+    background-color: #09bd4f;
+    width: 100%;
+	border-radius: 13px;
+	letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    background-color: #2196f3;
+}
+button.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#righttopbar #languageselectbox {
+    height: 28px;
+    margin: 0;
+    padding: 0 0px;
+    vertical-align: middle;
+    min-width: 50px;
+    max-width: 95px;
+    border-radius: 6px;
+}
+
+#righttopbar .languageboxarea {
+    display: flex;
+    padding: 10px;
+    margin: 0 auto;
+    min-height: 44px;
+    align-items: center;
+    border-radius: 3px;
+}
+.LoginBoxTable {
+    margin: 10px auto;
+    width: 95%;
+    height: 356px;
+}
+table {
+    width: 100%;
+}
+.text_validate {
+    color: #FF0000;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    display: block;
+    text-align: left;
+}
+
+.style3 {
+    color: #000;
+    font-size: 12px;
+    text-align: right;
+}
+
+input:focus {
+outline: none;
+}
+
+.btn.btn-default{
+background-color: #2196f3;
+width: calc(100% - 2rem);
+width: -webkit-fill-available;
+}
+
+//-->
+</style>
+</head>
+<body>
+<div class="Logo">
+{% if not BgIsExistCustom and (not BgIsExistCustomLogo or not BgIsDispCustomLogo): %}
+<img src="/images/oem/{{oem_company_code}}/login_logo.png" height="44px" border="0" />
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+{% else: %}
+{% endif %}
+</div>
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+{% if mypage_links.mypage_links_ck_mydomain: %}
+{% if not exist_custom_links: %}
+<span class="style_subtitle" >{{lang.MYPAGE_GW_TITLE|safe}}</span>
+{% endif %}
+{% endif %}
+
+<ul class="panel_container" >
+
+{% if mypage_links.mypage_links_ck_mydomain: %}
+<li class="panel">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<a href="{{mypage_links.mypage_links_lk_mydomain}}" ><img src="/images/x/ic_salesforce.png" alt="{{lang.FLD_MYPAGE_LINKS_MYDOMAIN}}" width="75px" ></img><br>{{lang.MYPAGE_GW_TITLE|safe}}</a>
+</td>
+</tr>
+</table>
+</li>
+{% endif %}
+
+{%if exist_custom_links: %}
+{% for link in custom_links: %}
+<li class="panel" >
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="text-align:center;">
+{% if link.icon and link.icon != '': %}
+<a href="{{link.url}}"><img src="{{vurl}}picture/icon/{{link.icon}}" border="0" alt="{{link.name}}" width="75px" height="75px" ></img></a>
+<br/>
+{% endif %}
+<a href="{{link.url}}">{{link.name}}</a>
+</td>
+</tr>
+</table>
+</li>
+{% endfor %}
+{% endif %}
+</ul>
+<br style="clear:left;" />
+
+{% if 'ADMIN' in login.access_authority: %}
+<a href="{{vurl}}" class="btn_right">{{lang.VMSG_TO_DASHBOARD}}</a>
+{% elif 'OPERATOR' in login.access_authority: %}
+<ul class="btn_right_list">
+	{% if 'OPERATOR' in login.delegate_function: %}
+<li><a href="{{vurl}}operator/">{{lang.VMSG_OPERATOR_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'USER' in login.delegate_function: %}
+<li><a href="{{vurl}}user/">{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'GROUP' in login.delegate_function: %}
+<li><a href="{{vurl}}group/">{{lang.VMSG_GROUP_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'BUSINESSRULE' in login.delegate_function: %}
+<li><a href="{{vurl}}businessrule/">{{lang.VMSG_BUSINESSRULE_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'ACSAPPLY' in login.delegate_function: %}
+<li><a href="{{vurl}}acs/">{{lang.VMSG_ACCESSAPPLY}}</a></li>
+	{% endif %}
+</ul>
+{% endif %}
+
+{% if ucfp.data.is_available_password_change: %}
+<p><a href="{{vurl}}personal/password/">{{lang.VMSG_PERSONAL_PASSWORDCHANGE}}</a></p>
+{% endif %}
+{% if ucfp.data.is_available_matrixauth: %}
+<p><a href="{{vurl}}personal/otp/">{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE}}</a></p>
+<span class="style3">{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE_EXP1|safe}}</span>
+{% endif %}
+{% if ucfp.data.is_available_sub_mailaddress_regist and dept.hide_regist_sub_mail_address_link_flag != 'HIDDEN': %}
+<p><a href="{{vurl}}personal/minfo/">{{lang.VMSG_PERSONAL_SUBMAILADDRESS}}</a></p>
+<span class="style3">{{lang.VMSG_PERSONAL_SUBMAILADDRESS_EXP1|safe}}</span>
+{% endif %}
+{% if ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN': %}
+<p><a href="{{vurl}}acs/apply">{{lang.VMSG_PERSONAL_ACCESSAPPLY}}</a></p>
+{% endif %}
+<br/>
+{% if ucfp.data.is_display_securitybrowser_link: %}
+<br/>
+<span class="style3">{{lang.ADD_POPUP_LINK_TITLE_SECURITY_BROWSER|safe}}</span><br/>
+<span class="style3">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ucfp.data.securitybrowser_link|safe}}" style="text-decoration: underline;" target="_blank">{{lang.ADD_POPUP_TITLE_SECURITY_BROWSER|safe}}</a></span>
+
+{% endif %}
+
+<p><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></p>
+</div>
+</div>
+<!-- MainBox//end -->
+
+</body>
+</html>

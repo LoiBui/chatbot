@@ -1,0 +1,40 @@
+.container{
+  padding: 5px 5px;
+}
+.container div.item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.pdl20{
+  padding-left: 20px;
+}
+.main_title{
+  /* color: blue; */
+}
+.group_box{
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+}
+
+ul.list {
+  display: block;
+}
+ul.list li {
+  padding: 2px 2px;
+  vertical-align: middle;
+}
+table.list{
+}
+table.list td{
+ padding: 5px 2px;
+}
+/*table.list tr:nth-child(even) {background: #f9f9f9}*/
+/*table.list tr:nth-child(odd) {background: #FFF}*/
+
+
+@media screen and (max-width:1140px) {
+  .update_c_t{
+    position: relative;
+    top: 8px;
+  }
+}

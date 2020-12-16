@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* uc-ext-all.css  */
+.x-btn-small .x-btn-text {font-size:12px;} /* Ext.Button {scope:'small'} */
+.x-btn-medium .x-btn-text {font-size:14px;} /* Ext.Button {scope:'medium'} */
+.x-btn-large .x-btn-text {font-size:18px;} /* Ext.Button {scope:'large'} */
+.x-link-small {font-size:12px;}
+
+
+/* 高さ調整 2020-06-18 */
+.x-grid3-cell {
+    vertical-align: middle !important;
+    padding: 4px 0px !important;
+}

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!--
+通知サーバー用難読化設定
+-->
+<Ucf>
+
+	<CompilerPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\compiler\compiler.jar]]></CompilerPath>
+	<!-- WHITESPACE_ONLY,SIMPLE_OPTIMIZATIONS -->
+	<CompilationLevel><![CDATA[SIMPLE_OPTIMIZATIONS]]></CompilationLevel>
+	<ScriptSourceFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\debug\]]></ScriptSourceFolderPath>
+	<ScriptOutputFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\]]></ScriptOutputFolderPath>
+
+	<DatFolderPath><![CDATA[dat_sateraitochatmagazine]]></DatFolderPath>
+	<UpdateTimeCheckOption><![CDATA[CHECK]]></UpdateTimeCheckOption>
+
+	<TargetFiles>
+		<FilePath><![CDATA[ajax.js]]></FilePath>
+		<FilePath><![CDATA[common.js]]></FilePath>
+		<FilePath><![CDATA[jkmegamenu.js]]></FilePath>
+		<FilePath><![CDATA[jquery.crossSelect.js]]></FilePath>
+		<FilePath><![CDATA[jquery.blockUI.js]]></FilePath>
+		<FilePath><![CDATA[json.js]]></FilePath>
+		<FilePath><![CDATA[ucfext.file.js]]></FilePath>
+		<FilePath><![CDATA[ucfext.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_operator.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_acs.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_acslog.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_operationlog.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_config.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_task.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_field.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_user.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_group.js]]></FilePath>
+		<FilePath><![CDATA[ucfext.strength.js]]></FilePath>
+		<FilePath><![CDATA[xmleditor.js]]></FilePath>
+		<FilePath><![CDATA[init_backstretch.js]]></FilePath>
+		<FilePath><![CDATA[ext\PasswordStrength.js]]></FilePath>
+		<FilePath><![CDATA[ext\PopupGroupList.js]]></FilePath>
+		<FilePath><![CDATA[ext\PopupOrgUnitList.js]]></FilePath>
+		<FilePath><![CDATA[ext\SecurityKeyboard.js]]></FilePath>
+		<FilePath><![CDATA[ext\ucf_element_selector.js]]></FilePath>
+		<FilePath><![CDATA[lang\default.js]]></FilePath>
+		<FilePath><![CDATA[lang\ja.js]]></FilePath>
+		<FilePath><![CDATA[lang\en.js]]></FilePath>
+		<FilePath><![CDATA[ucfext_lineworks.js]]></FilePath>
+	</TargetFiles>
+
+	<!-- 難読化に先だってメッセージ定義ファイルからJavaScriptファイルを作成 -->
+	<CreateLanguageJsFiles active="on" >
+		<LangDefineFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\lang]]></LangDefineFolderPath>
+		<JsOutputFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\debug\lang]]></JsOutputFolderPath>
+		<DefaultLanguage>ALL_ALL</DefaultLanguage>
+		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
+		<TargetLanguages>
+			<Language js_file_name="default"><![CDATA[ja_ALL]]></Language>
+			<Language js_file_name="en" ><![CDATA[ALL_ALL]]></Language>
+			<Language js_file_name="ja" ><![CDATA[ja_ALL]]></Language>
+		</TargetLanguages>
+	</CreateLanguageJsFiles>
+
+	<!-- メッセージ定義ファイルからメッセージ定義pyファイルを作成 -->
+	<CreateLanguagePyFile active="on" >
+		<LangDefineFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\lang]]></LangDefineFolderPath>
+		<PyOutputFilePath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\sateraito_message.py]]></PyOutputFilePath>
+		<DefaultLanguage>ALL_ALL</DefaultLanguage>
+		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
+		<TargetLanguages>
+			<Language lang="en"><![CDATA[ALL_ALL]]></Language>
+			<Language lang="ja"><![CDATA[ja_ALL]]></Language>
+		</TargetLanguages>
+		<PyHeader>
+			<![CDATA[
+#!/usr/bin/python
+# coding: utf-8
+
+
+'''
+sateraito_message.py
+@author: Takayuki ASAO
+'''
+	
+]]>
+		</PyHeader>
+		<PyFooter>
+			<![CDATA[
+		]]>
+		</PyFooter>		
+	</CreateLanguagePyFile>
+
+	<!-- Jinjaテンプレートの「include」を展開してコピー -->
+	<ExpandJinjaTemplateIncludes active="on" >
+		<SrcTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates]]></SrcTemplatesFolderPath>
+		<DstTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates_automatically]]></DstTemplatesFolderPath>
+	</ExpandJinjaTemplateIncludes>
+
+	<!-- 文字列の置換設定 -->
+	<ExchangeMessages>
+		<!-- 確認くん -->
+		<Item except_lang="ja,ja_ALL" >
+			<Src><![CDATA[http://www.ugtop.com/spill.shtml]]></Src>
+			<Dst><![CDATA[http://www.ugtop.com/spill.shtml]]></Dst>
+		</Item>
+		<!-- ホームページ -->
+		<Item except_lang="ja,ja_ALL" >
+			<Src><![CDATA[http://www.sateraito.jp]]></Src>
+			<Dst><![CDATA[http://www.sateraito-global.com]]></Dst>
+		</Item>
+		<Item except_lang="ja,ja_ALL" >
+			<Src><![CDATA[https://sites.google.com/a/sateraito.jp/sateraito-dounyuu]]></Src>
+			<Dst><![CDATA[https://sites.google.com/a/sateraito.jp/sateraitooffice-manual-en]]></Dst>
+		</Item>
+	</ExchangeMessages>
+
+	<!-- 各種メール送信設定 -->
+	<MailInfo>
+		<!-- 同期完了時管理者メール -->
+		<SyncManageMail active="off" template_path="" />
+	</MailInfo>
+
+	<!-- 各種オプション設定 -->
+	<Options>
+
+	</Options>
+
+
+
+</Ucf>

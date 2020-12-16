@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Quotation Document]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+  Quotation Document
+
+  @since 2013-12-12
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">Client Information</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Client Company Name</td>
+		<td class="detail_value" colspan="3"><input name="company_name" style="width:100%" maxlength="100"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Project Name</td>
+		<td class="detail_value" colspan="3"><input name="anken_nake" style="width:100%" maxlength="100"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">Quotation Document</div>
+
+<table class="detail" style="width:99%">
+
+	<tr>
+		<td class="detail_name" width="20%">Creation Date</td>
+		<td class="detail_value" width="30%">
+			<input name="sakusei_date" class="today_date date">
+		</td>
+		<td class="detail_name"  width="20%">Quotation Management Number</td>
+		<td class="detail_value" width="30%">
+			<input name="mitsumori_number">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Delivery Time</td>
+		<td class="detail_value">
+			<input name="nouki">
+		</td>
+		<td class="detail_name">Delivery Location</td>
+		<td class="detail_value">
+			<input name="nouhin_plase">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Payment Terms</td>
+		<td class="detail_value">
+			<input name="shiharai_jyoken">
+		</td>
+		<td class="detail_name">Quotation Expired Time</td>
+		<td class="detail_value">
+			<input name="mitsumori_expire">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td colspan="3">　</td>
+		<td colspan="3"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></td>
+	</tr>
+	<tr>
+		<th class="detail_head" style="width:5%;">No</th>
+		<th class="detail_head" style="width:40%;">Delivery Specification</th>
+		<th class="detail_head" style="width:8%;">Quantity</th>
+		<th class="detail_head" style="width:12%;">Unit Price</th>
+		<th class="detail_head" style="width:12%;">Amount</th>
+		<th class="detail_head" style="width:23%;">Remarks</th>
+	</tr>
+
+<!-- _01st Row -->
+	<tr>
+		<td class="detail_name">1</td>
+		<td class="detail_value"><input name="nouhin_meisai_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="amount_1" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="cost_1" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="kingaku_1" class="multi" fields="amount_1 cost_1" style="width:100%;"readonly></td>
+		<td class="detail_value"><input name="bikou_1" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02nd Row -->
+	<tr>
+		<td class="detail_name">2</td>
+		<td class="detail_value"><input name="nouhin_meisai_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="amount_2" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="cost_2" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="kingaku_2" class="multi" fields="amount_2 cost_2" style="width:100%;"readonly></td>
+		<td class="detail_value"><input name="bikou_2" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03rd Row -->
+	<tr>
+		<td class="detail_name">3</td>
+		<td class="detail_value"><input name="nouhin_meisai_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="amount_3" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="cost_3" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="kingaku_3" class="multi" fields="amount_3 cost_3" style="width:100%;"readonly></td>
+		<td class="detail_value"><input name="bikou_3" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _04th Row -->
+	<tr>
+		<td class="detail_name">4</td>
+		<td class="detail_value"><input name="nouhin_meisai_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="amount_4" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="cost_4" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="kingaku_4" class="multi" fields="amount_4 cost_4" style="width:100%;"readonly></td>
+		<td class="detail_value"><input name="bikou_4" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _05th Row -->
+	<tr>
+		<td class="detail_name">5</td>
+		<td class="detail_value"><input name="nouhin_meisai_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="amount_5" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="cost_5" class="number" style="width:80%;"></td>
+		<td class="detail_value"><input name="kingaku_5" class="multi" fields="amount_5 cost_5" style="width:100%;"readonly></td>
+		<td class="detail_value"><input name="bikou_5" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td colspan="3">　</td>
+		<td class="detail_name">Subtotal</td>
+		<td class="detail_value">
+			<input name="syokei" class="sum" fields="kingaku_1 kingaku_2 kingaku_3 kingaku_4 kingaku_5 kingaku_6 kingaku_7 kingaku_8 kingaku_9 kingaku_10" style="width:100%;" readonly>
+		</td>
+		<td class="detail_value">　</td>
+	</tr>
+	<tr>
+		<td colspan="3">　</td>
+		<td class="detail_name">Consumption Tax</td>
+		<td class="detail_value"><input name="consumption_tax" class="multi" fields="syokei" number="0.05" style="width:100%;" readonly></td>
+		<td class="detail_value">　</td>
+	</tr>
+	<tr>
+		<td colspan="3">　</td>
+		<td class="detail_name">Total</td>
+		<td class="detail_value"><input name="goukei" class="sum" fields="syokei consumption_tax" style="width:100%;" readonly></td>
+		<td class="detail_value">　</td>
+	</tr>
+</table>
+<table class="detail" style="width:99%">
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Company Information</td>
+		<td class="detail_value" >
+			<textarea name="my_company_information" style="width:100%" rows="10">Sateraito Office, Inc
+(SateraitoOffice, Inc)
+
+〒135-0016
+Tokyo, Koutou-ku, Touyou 2-2-4　ManuLife Place Touyou-Chou 3F
+TEL:03-5633-7001
+FAX:03-5633-7006
+URL:http://www.sateraito.jp
+			</textarea>
+		</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Remarks</td>
+		<td class="detail_value" ><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_print><![CDATA[
+    [{"layout_id":"1","title":"Quotation Document","body":"<html>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n\t<head>\n\t<title>Quotation Document (And　Individual Contract Form)</title>\n\n\t<style type=\"text/css\" >\n\t<!--\n\t.main_table {\n\t\twidth:650px;\n\t\tborder-style:none;\n\t\tborder-collapse:collapse;\n\t\tborder-width:1px;\n\t\tfont-size:14px;\n\t\tmargin-bottom:3px;}\n\n\t.main_table02 {\n\t\tborder-style:none;\n\t\tborder-collapse:collapse;\n\t\tborder-width:1px;\n\t\tfont-size:14px;\n\t\tmargin-bottom:15px;}\n\n\t.main_title {\n\t\ttext-align:left;\n\t\tborder-style:none;\n\t\tborder-width:0px;\n\t\tfont-weight:bold;\n\t\tfont-size:24px;\n\t\tpadding:5px 0px;\n\t\tborder-bottom:8px #000000 double;}\n\n\t.line01 {\n\t\tborder-bottom:2px #000000 solid;\n\t\tfont-weight:bold;\n\t\tfont-size:19px;\n\t\ttext-align:left;\n\t\tpadding-left:10px;\n\t\tpadding-bottom:5px;}\n\n\t.line02 {\n\t\tborder-bottom:1px #000000 solid;\n\t\tfont-weight:bold;\n\t\tfont-size:15px;\n\t\ttext-align:left;\n\t\tpadding-left:10px;\n\t\tpadding-bottom:5px;\n\t\tpadding-top:10px;}\n\n\t.line03 {\n\t\tborder-bottom:1px #000000 solid;\n\t\tfont-size:12px;\n\t\ttext-align:left;\n\t\tpadding-bottom:5px;\n\t\tpadding-top:15px;}\n\n\t.line04 {\n\t\tborder-bottom:2px #000000 solid;\n\t\tfont-size:15px;\n\t\ttext-align:left;\n\t\tpadding-left:10px;\n\t\tpadding-bottom:5px;\n\t\tpadding-top:10px;}\n\n\t.line05 {\n\t\tborder-bottom:2px #000000 solid;\n\t\tfont-weight:bold;\n\t\tfont-size:24px;\n\t\ttext-align:right;\n\t\tpadding-left:10px;\n\t\tpadding-top:10px;}\n\n\t.line06 {\n\t\tborder:1px #000000 solid;\n\t\tpadding:0px 15px;}\n\n\t.line07 {\n\t\twidth:250px;\n\t\tborder-bottom:1px #000000 solid;\n\t\tfont-size:17px;\n\t\ttext-align:right;\n\t\tmargin:0px;\n\t\tpadding-top:100px;}\n\n\t.line08 {\n\t\twidth:650px;\n\t\tborder:1px #000000 solid;\n\t\tpadding:5px;\n\t\tfont-size:12px;}\n\n\t.line09 {\n\t\tborder-bottom:1px #000000 solid;\n\t\tfont-size:12px;\n\t\ttext-align:right;\n\t\tpadding-bottom:5px;\n\t\tpadding-right:10px;\n\t\tpadding-top:15px;}\n\n\t.line10 {\n\t\tborder:1px #000000 solid;\n\t\tpadding:5px;}\n\n\t.title {\n\t\tborder:1px #000000 solid;\n\t\tpadding:3px 10px;\n\t\ttext-align:center;}\n\n\t.title02 {\n\t\tborder:1px #000000 solid;\n\t\tpadding:3px;\n\t\ttext-align:center;}\n\t\t\n\t.name {\n\t\tborder:1px #000000 solid;\n\t\tpadding:3px 10px;\n\t\ttext-align:left;}\n\n\t.money {\n\t\tborder:1px #000000 solid;\n\t\tpadding:3px 10px;\n\t\ttext-align:right;}\n\n\t.remarks {\n\t\tborder:1px #000000 solid;\n\t\ttext-align:left;\n\t\tpadding-left:5px;\n\t\tfont-size:12px;}\n\n\t.company {\n\t\tfont-size:11px;}\n\n\t.txt14 {\n\t\tfont-size:14px;}\n\n\t//-->\n\t</style>\n\n\t</head>\n\n\t<body>\n\n\t<table class=\"main_table\">\n\t\t<tr>\n\t\t\t<td class=\"main_title\">Quotation Form (And　Individual Contract Form)</td>\n\t\t</tr>\n\t</table>\n\n\t<table class=\"main_table\">\n\t\t<tr>\n\t\t\t<td class=\"line01\" width=\"350\" rowspan=\"2\">[$$ company_name $$]</td>\n\t\t\t<td class=\"line01\" width=\"50\" rowspan=\"2\">Dear</td>\n\t\t\t<td width=\"100\" align=\"right\">Order Date:</td>\n\t\t\t<td width=\"150\">[$$ sakusei_date $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td align=\"right\">Management No:</td>\n\t\t\t<td>[$$ mitsumori_number $$]</td>\n\t\t</tr>\n\t</table>\n\n\t<table class=\"main_table\">\n\t\t<tr>\n\t\t\t<td width=\"400\" valign=\"top\">\n\t\t\t\t<table width=\"400\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td colspan=\"4\" class=\"txt14\">We greatly appreciate your support for our products。<br>\n\t\t\t\t\t\We would like to share with you the quotation of your inquiried products<br>\n\t\t\t\t\t\tas below。</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"line02\" colspan=\"4\">Project Name: [$$ anken_nake $$]</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td width=\"20\" rowspan=\"4\">&nbsp;</td>\n\t\t\t\t\t\t<td width=\"120\" class=\"line09\">Delivery Date:</td>\n\t\t\t\t\t\t<td width=\"240\" class=\"line03\">[$$ nouki $$]</td>\n\t\t\t\t\t\t<td width=\"20\" rowspan=\"5\">&nbsp;</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"line09\">Delivery Location:</td>\n\t\t\t\t\t\t<td class=\"line03\">[$$ nouhin_plase $$]</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"line09\">Payment Terms:</td>\n\t\t\t\t\t\t<td class=\"line03\">[$$ shiharai_jyoken $$]</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"line09\">Quotation Expiration Date:</td>\n\t\t\t\t\t\t<td class=\"line03\">[$$ mitsumori_expire $$]</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td colspan=\"2\" class=\"line04\">Qutation Amount:</td>\n\t\t\t\t\t\t<td class=\"line05\">\\[$$ goukei $$].-</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td width=\"20\">&nbsp;</td>\n\t\t\t<td width=\"230\" valign=\"top\">\n\t\t\t\t<table width=\"100%\" class=\"company\">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td colspan=\"3\"><br><br><br><br>[$$ my_company_information $$]</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t\t<table width=\"100%\" class=\"main_table02\">\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"title02\">Approve</td>\n\t\t\t\t\t\t<td class=\"title02\">Verification</td>\n\t\t\t\t\t\t<td class=\"title02\">PIC</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class=\"title02\" height=\"40\">&nbsp;</td>\n\t\t\t\t\t\t<td class=\"title02\" height=\"40\">&nbsp;</td>\n\t\t\t\t\t\t<td class=\"title02\" height=\"40\">&nbsp;</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td colspan=\"3\" class=\"company\">※Previous Proposed Project<br>\n\t\t\t\t\t\If $1 USD is less than 100 Yen⇒configure 1 USD</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t</tr>\n\t</table>\n\n\t<table class=\"main_table\">\n\t\t<tr>\n\t\t\t<td class=\"title\" width=\"5%\">&nbsp;</td>\n\t\t\t<td class=\"title\" width=\"36%\">Delivery Specification</td>\n\t\t\t<td class=\"title\" width=\"9%\">Quantity</td>\n\t\t\t<td class=\"title\" width=\"15%\">Unit Price</td>\n\t\t\t<td class=\"title\" width=\"15%\">Amount</td>\n\t\t\t<td class=\"title\" width=\"20%\">Remarks</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\">1</td>\n\t\t\t<td class=\"name\">[$$ nouhin_meisai_1 $$]</td>\n\t\t\t<td class=\"title\">[$$ amount_1 $$]</td>\n\t\t\t<td class=\"money\">[$$ cost_1 $$]</td>\n\t\t\t<td class=\"money\">[$$ kingaku_1 $$]</td>\n\t\t\t<td class=\"remarks\">[$$ bikou_1 $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\">2</td>\n\t\t\t<td class=\"name\">[$$ nouhin_meisai_2 $$]</td>\n\t\t\t<td class=\"title\">[$$ amount_2 $$]</td>\n\t\t\t<td class=\"money\">[$$ cost_2 $$]</td>\n\t\t\t<td class=\"money\">[$$ kingaku_2 $$]</td>\n\t\t\t<td class=\"remarks\">[$$ bikou_2 $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\">3</td>\n\t\t\t<td class=\"name\">[$$ nouhin_meisai_3 $$]</td>\n\t\t\t<td class=\"title\">[$$ amount_3 $$]</td>\n\t\t\t<td class=\"money\">[$$ cost_3 $$]</td>\n\t\t\t<td class=\"money\">[$$ kingaku_3 $$]</td>\n\t\t\t<td class=\"remarks\">[$$ bikou_3 $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\">4</td>\n\t\t\t<td class=\"name\">[$$ nouhin_meisai_4 $$]</td>\n\t\t\t<td class=\"title\">[$$ amount_4 $$]</td>\n\t\t\t<td class=\"money\">[$$ cost_4 $$]</td>\n\t\t\t<td class=\"money\">[$$ kingaku_4 $$]</td>\n\t\t\t<td class=\"remarks\">[$$ bikou_4 $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\">5</td>\n\t\t\t<td class=\"name\">[$$ nouhin_meisai_5 $$]</td>\n\t\t\t<td class=\"title\">[$$ amount_5 $$]</td>\n\t\t\t<td class=\"money\">[$$ cost_5 $$]</td>\n\t\t\t<td class=\"money\">[$$ kingaku_5 $$]</td>\n\t\t\t<td class=\"remarks\">[$$ bikou_5 $$]</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"title\" colspan=\"3\" rowspan=\"3\">&nbsp;</td>\n\t\t\t<td class=\"money\">Subtotal</td>\n\t\t\t<td class=\"money\">\\[$$ syokei $$]</td>\n\t\t\t<td class=\"remarks\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"money\">Consumption Tax</td>\n\t\t\t<td class=\"money\">\\[$$ consumption_tax $$]</td>\n\t\t\t<td class=\"remarks\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td class=\"money\">Total</td>\n\t\t\t<td class=\"money\">\\[$$ goukei $$]</td>\n\t\t\t<td class=\"remarks\">&nbsp;</td>\n\t\t</tr>\n\t</table>\n\n\t<table class=\"line08\">\n\t\t<tr>\n\t\t\t<td>Remarks<br>\n\t\t\t\t\t[$$ comment $$]\n\t\t\t</td>\n\t\t</tr>\n\t</table>\n\n\t</body>\n</html>"},{"layout_id":"2","title":"Order Document","body":"<html>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<head>\n<title>Order Document</title>\n\n<style type=\"text/css\" >\n<!--\n.main_table {\n\twidth:650px;\n\tborder-style:none;\n\tborder-collapse:collapse;\n\tborder-width:1px;\n\tfont-size:14px;\n\tmargin-bottom:15px;}\n\n.main_title {\n\tborder-style:none;\n\tborder-width:0px;\n\tfont-weight:bold;\n\tfont-size:24px;\n\ttext-align:center;\n\tpadding:10px 0px;}\n\n.line01 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:19px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;}\n\n.line02 {\n\tborder-bottom:1px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:8px;}\n\n.line03 {\n\tborder-bottom:1px #000000 solid;\n\tfont-size:12px;\n\ttext-align:left;\n\tpadding-bottom:5px;\n\tpadding-top:5px;}\n\n.line04 {\n\tborder-bottom:2px #000000 solid;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:20px;}\n\n.line05 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:24px;\n\ttext-align:right;\n\tpadding-left:10px;\n\tpadding-top:20px;}\n\n.line06 {\n\tborder:1px #000000 solid;\n\tpadding:0px 15px;}\n\n.line07 {\n\twidth:250px;\n\tborder-bottom:1px #000000 solid;\n\tfont-size:17px;\n\ttext-align:right;\n\tmargin:0px;\n\tpadding-top:100px;}\n\n.line08 {\n\twidth:650px;\n\tborder:1px #000000 solid;\n\tpadding:15px;\n\tfont-size:14px;}\n\n.title {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:center;}\n\t\n.name {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:left;}\n\n.money {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:right;}\n\n//-->\n</style>\n\n</head>\n\n<body>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"main_title\">■■■■■■■■■　Issue　Order　　■■■■■■■■■■</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td colspan=\"2\">&nbsp;</td>\n<td width=\"250\" align=\"right\">Order Date: [$$ sakusei_date $$]</td>\n</tr>\n<tr>\n<td class=\"line01\" width=\"350\">[$$ company_name $$]</td>\n<td class=\"line01\" width=\"50\">Dear</td>\n<td>&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"3\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"3\">We would like to order as below。</td>\n</tr>\n<tr>\n<td class=\"line02\" colspan=\"2\">Project Name: [$$ anken_nake $$]</td>\n<td>&nbsp;</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td width=\"330\">\n<table width=\"330\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n<td width=\"20\" rowspan=\"4\">&nbsp;</td>\n<td width=\"90\" class=\"line03\">　　Date:</td>\n<td width=\"220\" class=\"line03\">Base on other meeting</td>\n</tr>\n<tr>\n<td class=\"line03\">Delivery Location:</td>\n<td class=\"line03\">[$$ nouhin_plase $$]</td>\n</tr>\n<tr>\n<td class=\"line03\">Payment Term:</td>\n<td class=\"line03\">[$$ shiharai_jyoken $$]</td>\n</tr>\n<tr>\n<td class=\"line03\">Order Number:</td>\n<td class=\"line03\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"2\" class=\"line04\">Order Amount:</td>\n<td class=\"line05\">\\[$$ goukei $$].-</td>\n</tr>\n</table>\n</td>\n<td width=\"20\">&nbsp;</td>\n<td rowspan=\"5\" class=\"line06\">\n<table class=\"line07\">\n<tr>\n<td>Stamp</td>\n</tr>\n</table>\n</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"title\" width=\"5%\">&nbsp;</td>\n<td class=\"title\" width=\"50%\">Order Details</td>\n<td class=\"title\" width=\"9%\">Quantity</td>\n<td class=\"title\" width=\"18%\">Unit Price</td>\n<td class=\"title\" width=\"18%\">Amount</td>\n</tr>\n<tr>\n<td class=\"title\">1</td>\n<td class=\"name\">[$$ nouhin_meisai_1 $$]</td>\n<td class=\"title\">[$$ amount_1 $$]</td>\n<td class=\"money\">[$$ cost_1 $$]</td>\n<td class=\"money\">[$$ kingaku_1 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">2</td>\n<td class=\"name\">[$$ nouhin_meisai_2 $$]</td>\n<td class=\"title\">[$$ amount_2 $$]</td>\n<td class=\"money\">[$$ cost_2 $$]</td>\n<td class=\"money\">[$$ kingaku_2 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">3</td>\n<td class=\"name\">[$$ nouhin_meisai_3 $$]</td>\n<td class=\"title\">[$$ amount_3 $$]</td>\n<td class=\"money\">[$$ cost_3 $$]</td>\n<td class=\"money\">[$$ kingaku_3 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">4</td>\n<td class=\"name\">[$$ nouhin_meisai_4 $$]</td>\n<td class=\"title\">[$$ amount_4 $$]</td>\n<td class=\"money\">[$$ cost_4 $$]</td>\n<td class=\"money\">[$$ kingaku_4 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">5</td>\n<td class=\"name\">[$$ nouhin_meisai_5 $$]</td>\n<td class=\"title\">[$$ amount_5 $$]</td>\n<td class=\"money\">[$$ cost_5 $$]</td>\n<td class=\"money\">[$$ kingaku_5 $$]</td>\n</tr>\n<tr>\n<td class=\"title\" colspan=\"3\" rowspan=\"3\">&nbsp;</td>\n<td class=\"money\">Subtotal</td>\n<td class=\"money\">\\[$$ syokei $$]</td>\n</tr>\n<tr>\n<td class=\"money\">Consumption Tax</td>\n<td class=\"money\">\\[$$ consumption_tax $$]</td>\n</tr>\n<tr>\n<td class=\"money\">Total</td>\n<td class=\"money\">\\[$$ goukei $$]</td>\n</tr>\n</table>\n\n<table class=\"line08\">\n<tr>\n<td>Remarks<br>\n[$$ comment $$]</td>\n</tr>\n</table>\n\n\n</body>\n</html>"},{"layout_id":"3","title":"Bill","body":"<html>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<head>\n<title>Bill</title>\n\n<style type=\"text/css\" >\n<!--\n.main_table {\n\twidth:650px;\n\tborder-style:none;\n\tborder-collapse:collapse;\n\tborder-width:1px;\n\tfont-size:14px;\n\tmargin-bottom:15px;}\n\n.main_title {\n\ttext-align:left;\n\tborder-style:none;\n\tborder-width:0px;\n\tfont-weight:bold;\n\tfont-size:24px;\n\tpadding:5px 0px;\n\tborder-bottom:8px #000000 double;}\n\n.line01 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:19px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;}\n\n.line02 {\n\tborder-bottom:1px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:8px;}\n\n.line03 {\n\tborder-bottom:1px #000000 solid;\n\tfont-size:12px;\n\ttext-align:left;\n\tpadding-bottom:5px;\n\tpadding-top:5px;}\n\n.line04 {\n\tborder-bottom:2px #000000 solid;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:20px;}\n\n.line05 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:24px;\n\ttext-align:right;\n\tpadding-left:10px;\n\tpadding-top:20px;}\n\n.line06 {\n\tborder:1px #000000 solid;\n\tpadding:0px 15px;}\n\n.line07 {\n\twidth:250px;\n\tborder-bottom:1px #000000 solid;\n\tfont-size:17px;\n\ttext-align:right;\n\tmargin:0px;\n\tpadding-top:100px;}\n\n.line08 {\n\twidth:650px;\n\tborder:1px #000000 solid;\n\tpadding:15px;\n\tfont-size:14px;}\n\n.line09 {\n\tborder-bottom:1px #000000 solid;\n\tfont-size:12px;\n\ttext-align:right;\n\tpadding-bottom:5px;\n\tpadding-right:10px;\n\tpadding-top:5px;}\n\n.line10 {\n\tborder:1px #000000 solid;\n\tpadding:5px;\n\tfont-size:14px;}\n\n.title {\n\tborder:1px #000000 solid;\n\tpadding:10px;\n\ttext-align:center;}\n\t\n.name {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:left;}\n\n.money {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:right;}\n\n.company {\n\tfont-size:12px;}\n\n//-->\n</style>\n\n</head>\n\n<body>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"main_title\">Bill</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td colspan=\"2\">&nbsp;</td>\n<td width=\"100\" align=\"right\">Order Date:</td>\n<td width=\"150\">[$$ sakusei_date $$]</td>\n</tr>\n<tr>\n<td colspan=\"2\">&nbsp;</td>\n<td align=\"right\">Management No:</td>\n<td>[$$ mitsumori_number $$]</td>\n</tr>\n<tr>\n<td class=\"line01\" width=\"350\">[$$ company_name $$]</td>\n<td class=\"line01\" width=\"50\">Dear</td>\n<td colspan=\"2\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"4\">We greatly appreciate your support for our products。<br>\We would like to bill you as below。</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td width=\"400\">\n<table width=\"400\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n<td class=\"line09\" colspan=\"2\">Project Name:</td>\n<td class=\"line02\" colspan=\"3\">[$$ anken_nake $$]</td>\n</tr>\n<tr>\n<td width=\"20\" rowspan=\"6\">&nbsp;</td>\n<td width=\"120\" colspan=\"2\" class=\"line09\">Order Number:</td>\n<td width=\"240\" class=\"line09\">&nbsp;</td>\n<td width=\"20\" rowspan=\"5\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"2\" class=\"line09\">Payment Method:</td>\n<td class=\"line09\">Close at end of month, cash payment at end of following month</td>\n</tr>\n<tr>\n<td colspan=\"2\" class=\"line09\">Payment Date:</td>\n<td class=\"line09\">Year　　Year　Month　Date</td>\n</tr>\n<tr>\n<td colspan=\"2\" class=\"line04\">Billing Amount:</td>\n<td class=\"line05\">\\[$$ goukei $$].-</td>\n</tr>\n<tr>\n<td colspan=\"3\" class=\"company\">Transfer Destination</td>\n</tr>\n<tr>\n<td colspan=\"2\" class=\"line10\">Transfer Bank<br>\Bank Account No:<br>\Account Name:</td>\n<td class=\"line10\" colspan=\"2\">Sateraito Bank<br>\Saving Account XXXX<br>\Sateraito Office Inc</td>\n</tr>\n</table>\n</td>\n<td width=\"20\">&nbsp;</td>\n<td width=\"230\">\n<table width=\"230\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n<td class=\"company\">\n<br><br><br><br>\n[$$ my_company_information $$]\n</td>\n</tr>\n</table>\n</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"title\" width=\"5%\">&nbsp;</td>\n<td class=\"title\" width=\"50%\">Delivery Specification</td>\n<td class=\"title\" width=\"9%\">Quantity</td>\n<td class=\"title\" width=\"18%\">Unit Price</td>\n<td class=\"title\" width=\"18%\">Amount</td>\n</tr>\n<tr>\n<td class=\"title\">1</td>\n<td class=\"name\">[$$ nouhin_meisai_1 $$]</td>\n<td class=\"title\">[$$ amount_1 $$]</td>\n<td class=\"money\">[$$ cost_1 $$]</td>\n<td class=\"money\">[$$ kingaku_1 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">2</td>\n<td class=\"name\">[$$ nouhin_meisai_2 $$]</td>\n<td class=\"title\">[$$ amount_2 $$]</td>\n<td class=\"money\">[$$ cost_2 $$]</td>\n<td class=\"money\">[$$ kingaku_2 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">3</td>\n<td class=\"name\">[$$ nouhin_meisai_3 $$]</td>\n<td class=\"title\">[$$ amount_3 $$]</td>\n<td class=\"money\">[$$ cost_3 $$]</td>\n<td class=\"money\">[$$ kingaku_3 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">4</td>\n<td class=\"name\">[$$ nouhin_meisai_4 $$]</td>\n<td class=\"title\">[$$ amount_4 $$]</td>\n<td class=\"money\">[$$ cost_4 $$]</td>\n<td class=\"money\">[$$ kingaku_4 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">5</td>\n<td class=\"name\">[$$ nouhin_meisai_5 $$]</td>\n<td class=\"title\">[$$ amount_5 $$]</td>\n<td class=\"money\">[$$ cost_5 $$]</td>\n<td class=\"money\">[$$ kingaku_5 $$]</td>\n</tr>\n<tr>\n<td class=\"title\" colspan=\"3\" rowspan=\"3\">&nbsp;</td>\n<td class=\"money\">Subtotal</td>\n<td class=\"money\">\\[$$ syokei $$]</td>\n</tr>\n<tr>\n<td class=\"money\">Consumption Tax</td>\n<td class=\"money\">\\[$$ consumption_tax $$]</td>\n</tr>\n<tr>\n<td class=\"money\">Total</td>\n<td class=\"money\">\\[$$ goukei $$]</td>\n</tr>\n</table>\n\n<table class=\"line08\">\n<tr>\n<td>Remarks<br>\n[$$ comment $$]<br>\n[$$ comment $$]<br></td>\n</tr>\n</table>\n\n</body>\n</html>"},{"layout_id":"4","title":"Delivery Document","body":"<html>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<head>\n<title>Delivery Document</title>\n\n<style type=\"text/css\" >\n<!--\n.main_table {\n\twidth:650px;\n\tborder-style:none;\n\tborder-collapse:collapse;\n\tborder-width:1px;\n\tfont-size:14px;\n\tmargin-bottom:15px;}\n\n.main_title {\n\ttext-align:left;\n\tborder-style:none;\n\tborder-width:0px;\n\tfont-weight:bold;\n\tfont-size:24px;\n\tpadding:5px 0px;\n\tborder-bottom:8px #000000 double;}\n\n.line01 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:19px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;}\n\n.line02 {\n\tborder-bottom:1px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:8px;}\n\n.line03 {\n\tborder-bottom:1px #000000 solid;\n\tfont-size:12px;\n\ttext-align:left;\n\tpadding-bottom:5px;\n\tpadding-top:25px;}\n\n.line04 {\n\tborder-bottom:2px #000000 solid;\n\tfont-size:15px;\n\ttext-align:left;\n\tpadding-left:10px;\n\tpadding-bottom:5px;\n\tpadding-top:20px;}\n\n.line05 {\n\tborder-bottom:2px #000000 solid;\n\tfont-weight:bold;\n\tfont-size:24px;\n\ttext-align:right;\n\tpadding-left:10px;\n\tpadding-top:20px;}\n\n.line06 {\n\tborder:1px #000000 solid;\n\tpadding:0px 15px;}\n\n.line07 {\n\twidth:250px;\n\tborder-bottom:1px #000000 solid;\n\tfont-size:17px;\n\ttext-align:right;\n\tmargin:0px;\n\tpadding-top:100px;}\n\n.line08 {\n\twidth:650px;\n\tborder:1px #000000 solid;\n\tpadding:15px;\n\tfont-size:14px;}\n\n.line09 {\n\tborder-bottom:1px #000000 solid;\n\tfont-size:12px;\n\ttext-align:right;\n\tpadding-bottom:5px;\n\tpadding-right:10px;\n\tpadding-top:25px;}\n\n.title {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:center;}\n\t\n.name {\n\tborder:1px #000000 solid;\n\tpadding:8px 10px;\n\ttext-align:left;}\n\n.money {\n\tborder:1px #000000 solid;\n\tpadding:10px;\n\ttext-align:right;}\n\n.company {\n\tfont-size:11px;}\n\n//-->\n</style>\n\n</head>\n\n<body>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"main_title\">Delivery Document</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td colspan=\"2\">&nbsp;</td>\n<td width=\"100\" align=\"right\">Order Date:</td>\n<td width=\"150\">[$$ sakusei_date $$]</td>\n</tr>\n<tr>\n<td colspan=\"2\">&nbsp;</td>\n<td align=\"right\">Management No:</td>\n<td>[$$ mitsumori_number $$]</td>\n</tr>\n<tr>\n<td class=\"line01\" width=\"350\">[$$ company_name $$]</td>\n<td class=\"line01\" width=\"50\">Dear</td>\n<td colspan=\"2\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"4\">&nbsp;</td>\n</tr>\n<tr>\n<td colspan=\"4\">We greatly appreciate your support for our products。<br>\We would like to deliver your order as below。.。</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td width=\"400\" valign=\"top\">\n<table width=\"400\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n<td width=\"80\" class=\"line09\">　sheet　Name:</td>\n<td width=\"320\" class=\"line02\">[$$ anken_nake $$]</td>\n</tr>\n<tr>\n<td class=\"line09\">Order Number:</td>\n<td class=\"line03\">&nbsp;</td>\n</tr>\n<tr>\n<td class=\"line09\">Delivery Location:</td>\n<td class=\"line03\">[$$ nouhin_plase $$]</td>\n</tr>\n</table>\n</td>\n<td width=\"20\">&nbsp;</td>\n<td width=\"230\">\n<table width=\"230\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n<tr>\n<td class=\"company\">\n<br><br><br><br>\n[$$ my_company_information $$]\n</tr>\n</table>\n</td>\n</tr>\n</table>\n\n<table class=\"main_table\">\n<tr>\n<td class=\"title\" width=\"5%\">&nbsp;</td>\n<td class=\"title\">Delivery Specification</td>\n<td class=\"title\" width=\"10%\">Quantity</td>\n</tr>\n<tr>\n<td class=\"title\">1</td>\n<td class=\"name\">[$$ nouhin_meisai_1 $$]</td>\n<td class=\"title\">[$$ amount_1 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">2</td>\n<td class=\"name\">[$$ nouhin_meisai_2 $$]</td>\n<td class=\"title\">[$$ amount_2 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">3</td>\n<td class=\"name\">[$$ nouhin_meisai_3 $$]</td>\n<td class=\"title\">[$$ amount_3 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">4</td>\n<td class=\"name\">[$$ nouhin_meisai_4 $$]</td>\n<td class=\"title\">[$$ amount_4 $$]</td>\n</tr>\n<tr>\n<td class=\"title\">5</td>\n<td class=\"name\">[$$ nouhin_meisai_5 $$]</td>\n<td class=\"title\">[$$ amount_5 $$]</td>\n</tr>\n</table>\n\n<table class=\"line08\">\n<tr>\n<td>Remarks<br>\n[$$ comment $$]\n</td>\n</tr>\n</table>\n\n</body>\n</html>"},{"layout_id":"5","title":"","body":""}]]]></template_body_for_print>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140527091637Sc5JOdZ3GBsWRkvj\",\"name\":\"Quotation Application\",\"sections\":[{\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\",\"secname\":\"Quotation Application\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157006456qT9U8Cfbwi28XutT\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401157006463igRcgsSJ0ys7pbZv\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006456Zoe4u94tdJCSBHkk\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006460DapeNft3Aik9aO1X\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"}]},{\"section_id\":\"sec_id-1401157245664DhP7qtwZyWN0vCk7\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157256905ef3c7smprUReOi3Q\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401157269078wQG1xDoROV4tZWtE\",\"secname\":\"Client Information\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157006460UrQV5hm22u6CZyzI\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Client Company Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461FKJqXUYDcsIRMEXH\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Project Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"anken_nake\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"}]},{\"section_id\":\"sec_id-14011573311255He5ST5Qw7nma0h6\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157331125FdhThuBtG0nhUL1J\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14011573311255He5ST5Qw7nma0h6\"}]},{\"section_id\":\"sec_id-1401157352941gTSK6x6hGyqXSv4R\",\"secname\":\"Quotation Document\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157006461NaIHxjtahj22Que9\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Creation Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sakusei_date\",\"style\":\"width:100%\",\"class\":\"today_date date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461WBGXenegtouIUBqb\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Delivery Time\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouki\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461ocmhDuHGJqwsRwKw\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Payment Terms\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"shiharai_jyoken\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461FfgrQb5ESsmmZJ3X\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Quotation Management Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mitsumori_number\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461ABDDmh6naNTukhLM\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Delivery Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_plase\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"},{\"control_id\":\"ctr_id-1401157006461mHEkQS9oDj2yky8X\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Quotation Expired Time\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mitsumori_expire\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"}]},{\"section_id\":\"sec_id-1401157526931LtGINiY3qxhKmGDi\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14011575269316u1TL1rVm3NfjUss\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401157526931LtGINiY3qxhKmGDi\"}]},{\"section_id\":\"sec_id-1401157548387gNhdrkSAfZ0mI0Ra\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157572348DwKSSNLTdih5DQBI\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD\",\"style\":\"color:red;margin-left:200px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\",\"secname\":\"div2\",\"column_cof\":6,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"Delivery Specification\",\"width\":\"40%\",\"align\":\"left\"},\"3\":{\"title\":\"Quantity\",\"width\":\"8%\",\"align\":\"left\"},\"4\":{\"title\":\"Unit Price\",\"width\":\"12%\",\"align\":\"left\"},\"5\":{\"title\":\"Amount\",\"width\":\"12%\",\"align\":\"left\"},\"6\":{\"title\":\"Remarks\",\"width\":\"23%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"\"}},\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"style\":\"\",\"class\":\"detail_name arrowRight\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{},\"html\":\"\"},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401157698244p0zk8xNeXiRejpnJ\",\"pos_col\":1,\"pos_row\":1,\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14011576982443rddUDkGsRQHfb8W\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401157698244smeRtJz2abQ4tyTI\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401157698245GGu4v8EoRUZ1FS3W\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401157698245GOriCEZcugYFFt65\",\"pos_col\":1,\"pos_row\":5},{\"control_id\":\"ctr_id-1401157006461ovG0MTknFwYoSeqh\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"nouhin_meisai_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_meisai_1\",\"style\":\"width:99%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461j3RCQmQIQa2Sn4iT\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"nouhin_meisai_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_meisai_2\",\"style\":\"width:99%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462VjGcqR9Zd9fgeAJc\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"nouhin_meisai_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_meisai_3\",\"style\":\"width:99%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462v5VejPm2yWswnFEZ\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"nouhin_meisai_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_meisai_4\",\"style\":\"width:99%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462tWFDwq4zv6j3CRjV\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"nouhin_meisai_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"nouhin_meisai_5\",\"style\":\"width:99%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064610FcuJ5rs8DH1GEhD\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"amount_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"amount_1\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461qCtUo4xotCMAdaga\",\"pos_row\":2,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"amount_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"amount_2\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462o6sjP2smxEgDez8N\",\"pos_row\":3,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"amount_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"amount_3\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462KvjoVE70iNVz4YX7\",\"pos_row\":4,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"amount_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"amount_4\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462bo3GLD9QcqVq3Abv\",\"pos_row\":5,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"amount_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"amount_5\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461mLdHy2oUgXwSSfCY\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"cost_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"cost_1\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064617ay2Dkxjb65KA25J\",\"pos_row\":2,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"cost_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"cost_2\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462RmknDppePR8Jukmf\",\"pos_row\":3,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"cost_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"cost_3\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462PB8MeaPauZEGzzii\",\"pos_row\":4,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"cost_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"cost_4\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064628y8WF0sEw0rSZ1Bv\",\"pos_row\":5,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"cost_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"cost_5\",\"style\":\"width:80%;\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401158536638wXVpUJ7VEd9H62iy\",\"map_type_control\":\"label\",\"pos_col\":4,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"Subtotal\",\"style\":\"width:80%\",\"class\":\"detail_name arrowRight\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011585366383Q2rLCjp9IVYThD5\",\"map_type_control\":\"label\",\"pos_col\":4,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"Consumption Tax\",\"style\":\"width:80%\",\"class\":\"detail_name arrowRight\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401158536639C3pc0fW5PF9K7ZCv\",\"map_type_control\":\"label\",\"pos_col\":4,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"Total\",\"style\":\"width:80%\",\"class\":\"detail_name arrowRight\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461SO97nXGv5vga3GFM\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"kingaku_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kingaku_1\",\"style\":\"width:90%\",\"class\":\"multi\",\"new_attrs\":\"fields=amount_1 cost_1;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461RGMuMCyuoYWBf59d\",\"pos_row\":2,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"kingaku_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kingaku_2\",\"style\":\"width:90%\",\"class\":\"multi\",\"new_attrs\":\"fields=amount_2 cost_2;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064624b9IjpbArgWfWMFH\",\"pos_row\":3,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"kingaku_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kingaku_3\",\"style\":\"width:90%\",\"class\":\"multi\",\"new_attrs\":\"fields=amount_3 cost_3;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462xUGByYxZVF3j2GLQ\",\"pos_row\":4,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"kingaku_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kingaku_4\",\"style\":\"width:90%\",\"class\":\"multi\",\"new_attrs\":\"fields=amount_4 cost_4;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462R5CcqNzB9ikJVtRg\",\"pos_row\":5,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"kingaku_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kingaku_5\",\"style\":\"width:90%\",\"class\":\"multi\",\"new_attrs\":\"fields=amount_5 cost_5;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462OVtjc2aLCNcY8gBD\",\"pos_row\":6,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"syokei\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syokei\",\"style\":\"width:90%;\",\"class\":\"sum\",\"new_attrs\":\"fields=kingaku_1 kingaku_2 kingaku_3 kingaku_4 kingaku_5 kingaku_6 kingaku_7 kingaku_8 kingaku_9 kingaku_10;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462RyLN3VB8CqDFFFmI\",\"pos_row\":7,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"consumption_tax\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"consumption_tax\",\"style\":\"width:90%;\",\"class\":\"multi\",\"new_attrs\":\"fields=syokei;number=0.05;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064622gzaSw7jJa5WMag4\",\"pos_row\":8,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"goukei\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"goukei\",\"style\":\"width:90%;\",\"class\":\"sum\",\"new_attrs\":\"fields=syokei consumption_tax;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461gCm111IwxkUF6KOp\",\"pos_row\":1,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"bikou_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_1\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006461szc5fI4GO24JYRap\",\"pos_row\":2,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"bikou_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_2\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-14011570064625ug2AViee4QUOdbs\",\"pos_row\":3,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"bikou_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_3\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462WVbM7w1WGsw0p6uT\",\"pos_row\":4,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"bikou_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_4\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"},{\"control_id\":\"ctr_id-1401157006462smUXNUdUcU3Lz2VJ\",\"pos_row\":5,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"bikou_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_5\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401157675876u6B4QqyR1N0feLXP\"}]},{\"section_id\":\"sec_id-1401158778210I9r797ot1TqZHMhy\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401158778210oc6zAZLYpS7zuXeI\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401158778210I9r797ot1TqZHMhy\"}]},{\"section_id\":\"sec_id-1401158804202nSvJrdhfEOLNY9fu\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401157006463WjepSckLVBrMQxqz\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Company Information\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"my_company_information\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"Sateraito Office, Inc\\n(SateraitoOffice, Inc)\\n\\n〒135-0016\\mTokyo Japan　ManuLife Place Touyou-Chou 3F\\nTEL:03-5633-7001\\nFAX:03-5633-7006\\nURL:http://www.sateraito.jp\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401158804202nSvJrdhfEOLNY9fu\"}]},{\"section_id\":\"sec_id-1401158936962AnDis600qiRpqS3c\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401158936963VLGh0A2JpKecfw15\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401158936962AnDis600qiRpqS3c\"}]},{\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401158953344q1Bo8xH4ddQspafA\",\"controls\":[{\"control_id\":\"ctr_id-1401157006463QLR9muPmmNsLaGPr\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401157006463zJ0TbwOJsHSMYq58\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+  Quotation Document
+
+  @since 2013-12-12
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Client Information</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Client Company Name</div>
+      <div class="detail_value"><input type="text" name="company_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Project Name</div>
+      <div class="detail_value"><input type="text" name="anken_nake" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">Quotation Document</div>
+<div class="container">
+  <ul class="detail">
+
+    <li class="row">
+      <div class="detail_name">Creation Date</div>
+      <div class="detail_value">
+        <input type="text" name="sakusei_date" class="today_date date" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Quotation Management Number</div>
+      <div class="detail_value">
+        <input type="text" name="mitsumori_number" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Delivery Time</div>
+      <div class="detail_value">
+        <input type="text" name="nouki" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Delivery Location</div>
+      <div class="detail_value">
+        <input type="text" name="nouhin_plase" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Payment Terms</div>
+      <div class="detail_value">
+        <input type="text" name="shiharai_jyoken" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Quotation Expired Time</div>
+      <div class="detail_value">
+        <input type="text" name="mitsumori_expire" style="width:100%">
+      </div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <!-- _01st Row -->
+    <li class="row">
+      <div class="detail_head">No1</div>
+      <div class="detail_head">Delivery Specification</div>
+      <div class="detail_value"><input type="text" name="nouhin_meisai_1" style="width:100%;"></div>
+      <div class="detail_head">Quantity</div>
+      <div class="detail_value"><input type="text" name="amount_1" class="number" style="width:100%;"></div>
+      <div style="margin-top: 15px;"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></div>
+      <div class="detail_head">Unit Price</div>
+      <div class="detail_value"><input type="text" name="cost_1" class="number" style="width:100%;"></div>
+      <div class="detail_head">Amount</div>
+      <div class="detail_value"><input type="text" name="kingaku_1" class="multi" fields="amount_1 cost_1"
+                                       style="width:100%;" readonly></div>
+      <div class="detail_head">Remarks</div>
+      <div class="detail_value"><input type="text" name="bikou_1" style="width:100%;"></div>
+    </li>
+
+    <!-- _02nd Row -->
+    <li class="row">
+      <div class="detail_head">No2</div>
+      <div class="detail_head">Delivery Specification</div>
+      <div class="detail_value"><input type="text" name="nouhin_meisai_2" style="width:100%;"></div>
+      <div class="detail_head">Quantity</div>
+      <div class="detail_value"><input type="text" name="amount_2" class="number" style="width:100%;"></div>
+      <div style="margin-top: 15px;"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></div>
+      <div class="detail_head">Unit Price</div>
+      <div class="detail_value"><input type="text" name="cost_2" class="number" style="width:100%;"></div>
+      <div class="detail_head">Amount</div>
+      <div class="detail_value"><input type="text" name="kingaku_2" class="multi" fields="amount_2 cost_2"
+                                       style="width:100%;" readonly></div>
+      <div class="detail_head">Remarks</div>
+      <div class="detail_value"><input type="text" name="bikou_2" style="width:100%;"></div>
+    </li>
+
+
+    <!-- _03rd Row -->
+    <li class="row">
+      <div class="detail_head">No3</div>
+      <div class="detail_head">Delivery Specification</div>
+      <div class="detail_value"><input type="text" name="nouhin_meisai_3" style="width:100%;"></div>
+      <div class="detail_head">Quantity</div>
+      <div class="detail_value"><input type="text" name="amount_3" class="number" style="width:100%;"></div>
+      <div style="margin-top: 15px;"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></div>
+      <div class="detail_head">Unit Price</div>
+      <div class="detail_value"><input type="text" name="cost_3" class="number" style="width:100%;"></div>
+      <div class="detail_head">Amount</div>
+      <div class="detail_value"><input type="text" name="kingaku_3" class="multi" fields="amount_3 cost_3"
+                                       style="width:100%;" readonly></div>
+      <div class="detail_head">Remarks</div>
+      <div class="detail_value"><input type="text" name="bikou_3" style="width:100%;"></div>
+    </li>
+
+
+    <!-- _04th Row -->
+    <li class="row">
+      <div class="detail_head">No4</div>
+      <div class="detail_head">Delivery Specification</div>
+      <div class="detail_value"><input type="text" name="nouhin_meisai_4" style="width:100%;"></div>
+      <div class="detail_head">Quantity</div>
+      <div class="detail_value"><input type="text" name="amount_4" class="number" style="width:100%;"></div>
+      <div style="margin-top: 15px;"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></div>
+      <div class="detail_head">Unit Price</div>
+      <div class="detail_value"><input type="text" name="cost_4" class="number" style="width:100%;"></div>
+      <div class="detail_head">Amount</div>
+      <div class="detail_value"><input type="text" name="kingaku_4" class="multi" fields="amount_4 cost_4"
+                                       style="width:100%;" readonly></div>
+      <div class="detail_head">Remarks</div>
+      <div class="detail_value"><input type="text" name="bikou_4" style="width:100%;"></div>
+    </li>
+
+
+    <!-- _05th Row -->
+    <li class="row">
+      <div class="detail_head">No5</div>
+      <div class="detail_head">Delivery Specification</div>
+      <div class="detail_value"><input type="text" name="nouhin_meisai_5" style="width:100%;"></div>
+      <div class="detail_head">Quantity</div>
+      <div class="detail_value"><input type="text" name="amount_5" class="number" style="width:100%;"></div>
+      <div style="margin-top: 15px;"><font color="red">※ Previous Proposed Project　If $1 USD is less than 100 Yen ⇒ configure 1 USD</font></div>
+      <div class="detail_head">Unit Price</div>
+      <div class="detail_value"><input type="text" name="cost_5" class="number" style="width:100%;"></div>
+      <div class="detail_head">Amount</div>
+      <div class="detail_value"><input type="text" name="kingaku_5" class="multi" fields="amount_5 cost_5"
+                                       style="width:100%;" readonly></div>
+      <div class="detail_head">Remarks</div>
+      <div class="detail_value"><input type="text" name="bikou_5" style="width:100%;"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Subtotal</div>
+      <div class="detail_value">
+        <input type="text" name="syokei" class="sum"
+               fields="kingaku_1 kingaku_2 kingaku_3 kingaku_4 kingaku_5 kingaku_6 kingaku_7 kingaku_8 kingaku_9 kingaku_10"
+               style="width:100%;" readonly>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Consumption Tax</div>
+      <div class="detail_value"><input type="text" name="consumption_tax" class="multi" fields="syokei" number="0.05"
+                                       style="width:100%;" readonly></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Total</div>
+      <div class="detail_value"><input type="text" name="goukei" class="sum" fields="syokei consumption_tax"
+                                       style="width:100%;" readonly></div>
+    </li>
+  </ul>
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Company Information</div>
+      <div class="detail_value">
+        <textarea name="my_company_information" style="width:98%" rows="10">Sateraito Office, Inc
+          (SateraitoOffice, Inc)
+
+          〒135-0016
+          Tokyo, Koutou-ku, Touyou 2-2-4　ManuLife Place Touyou-Chou 3F
+          TEL:03-5633-7001
+          FAX:03-5633-7006
+          URL:http://www.sateraito.jp
+        </textarea>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

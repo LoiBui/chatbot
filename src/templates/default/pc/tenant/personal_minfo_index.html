@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts_bing.html" %}
+<!-- <title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+{% include "./include/external_analysis_head.html" %}
+<script type="text/javascript">
+{% if is_hide_backstretch: %}
+	_is_hide_blind = true;
+{% endif %}
+	_is_fullscreen = true;
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+{% include "./include/header_bing.html" %}
+
+<div id="mypagebox" class="subaddress">
+<h2><span class="img"><img src="/images/mypage/ic_subaddress.png" alt=""></span><em><span class="ttl">{{lang.VMSG_PERSONAL_SUBMAILADDRESS}}</span>
+<span class="info" >{{lang.VMSG_DESCRIPTION1_SUBMAILADDRESS|safe}}</span></em></h2>
+
+<p class="validation_message" >
+{% if vcmsg.sub_mail_address %}
+{% for v in vcmsg.sub_mail_address %}
+<br>※{{v}}
+{% endfor %}
+{% endif %}
+</p>
+
+<form name="frmEdit" action="{{vurl}}personal/minfo/" method="POST" id="mypage_form" >
+<input type="hidden" name="token" value="{{ucfp.data.token}}">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="RURL" value="{{ucfp.data.RURL}}">
+<fieldset>
+<label for="mailaddress_now">{{lang.FLD_CURRENT_SUBMAILADDRESS}}</label>
+{% if not ucfp.data.sub_mail_address or ucfp.data.sub_mail_address == '': %}
+<input type="text" value="{{lang.VMSG_NOINDICATE_SUBMAILADDRESS}}" id="mailaddress_now" name="mailaddress_now" class="fix" disabled>
+{% else: %}
+<input type="text" value="{{ucfp.data.sub_mail_address}}" id="mailaddress_now" name="mailaddress_now" class="fix" disabled>
+{% endif %}
+
+<label for="mailaddress_new">{{lang.FLD_NEW_SUBMAILADDRESS}}</label><input type="text" id="mailaddress_new" name="sub_mail_address" class="newaddress" autocomplete="off">
+<input type="submit" value="{{lang.VMSG_UPDATE_SUBMAILADDRESS}}" class="btn_submit">
+
+</fieldset>
+</form>
+
+<a href="{{vurl}}personal/" class="btn_left" >{{lang.VMSG_TO_PERSONAL}}</a>
+{% if 'ADMIN' in login.access_authority: %}
+<a href="{{vurl}}" class="btn_right">{{lang.VMSG_TO_DASHBOARD}}</a>
+{% endif %}
+
+</div><!-- /#mypagebox end -->
+
+{% include "./include/footer_bing.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>

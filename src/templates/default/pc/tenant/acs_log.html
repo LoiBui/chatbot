@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<script type="text/javascript" src="{{vscripturl}}ucfext_operator.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_acslog.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_LOGINHISTORY}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+		var each_page_cnt = 20;
+		var store;
+		
+		// ログテキストの詳細を表示
+		function dispLogTextDetail(unique_id)
+		{
+			var record = store.getById(unique_id);
+			Ext.ucf.acslog.dispLogTextDetail(record);
+		}
+
+		function initSearchBoxDisp(){
+			var sk_search_type = Ext.getCmp('id_sk_search_type').getValue();
+//alert(sk_search_type);
+			if(sk_search_type == 'access_date'){
+				$(document).find('div.sk_access_date').show();
+				$(document).find('div.sk_login_id').hide();
+			}else{
+				$(document).find('div.sk_access_date').hide();
+				$(document).find('div.sk_login_id').show();
+			}
+		}
+
+		function getSearchBaseParam(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+				document.getElementsByName('sk_login_id')[0].value = Ext.ucf.nvl(scond['sk_login_id']);
+				document.getElementsByName('sk_access_date_date_from')[0].value = Ext.ucf.nvl(scond['sk_access_date_date_from']);
+				document.getElementsByName('sk_access_date_time_from')[0].value = Ext.ucf.nvl(scond['sk_access_date_time_from']);
+				document.getElementsByName('sk_access_date_date_to')[0].value = Ext.ucf.nvl(scond['sk_access_date_date_to']);
+				document.getElementsByName('sk_access_date_time_to')[0].value = Ext.ucf.nvl(scond['sk_access_date_time_to']);
+			}
+			initSearchBoxDisp();
+		
+			var params = {start:start, limit: each_page_cnt
+							,sk_search_type:Ext.ucf.getElementValue('sk_search_type')
+							,sk_login_id:Ext.ucf.getElementValue('sk_login_id')
+							,sk_access_date_date_from:Ext.ucf.getElementValue('sk_access_date_date_from')
+							,sk_access_date_time_from:Ext.ucf.getElementValue('sk_access_date_time_from')
+							,sk_access_date_date_to:Ext.ucf.getElementValue('sk_access_date_date_to')
+							,sk_access_date_time_to:Ext.ucf.getElementValue('sk_access_date_time_to')
+						};
+			
+			return params;
+		}
+		
+		function search(psc)
+		{
+			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_LOGIN_HISTORY}}');
+		}
+		
+		function vh_basic(value, p, record)
+		{
+			return Ext.ucf.htmlEscape(value);
+		}
+
+		function vh_use_profile_id(value, p, record)
+		{
+			return '<div id="FIELD_use_profile_id_' + record.get('unique_id') + '" class="field" ></div>';
+		}
+
+		var vh_login_id = function(value, p, record)
+		{
+			var html = '';
+			if(record.get('operator_unique_id') && record.get('operator_unique_id') != '')
+			{
+				html += '<a href="{{vurl}}operator/detail?unqid=' + escape(record.get('operator_unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
+			}
+			else
+			{
+				html += Ext.ucf.htmlEscape(value);
+			}
+			return html;
+		};
+
+
+		function vh_login_result(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('login_result', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+		function vh_log_code(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('log_code', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+		function vh_log_text(value, p, record)
+		{
+			var html = '';
+			html += '<a href="JavaScript:dispLogTextDetail(\''+ escape(record.get('unique_id')) + '\')" >{{lang.DETAIL}}</a>';
+			return html;
+		}
+		function vh_use_access_apply_unique_id(value, p, record)
+		{
+			var html = '';
+			if(value != ''){
+				html += '<a href="{{vurl}}acs/regist?unqid=' + escape(value) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}" >{{lang.APPLY}}</a>';
+			}
+			return html;
+		}
+
+		function vh_target_career(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('target_career', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+		function vh_target_env(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('target_env', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+function createSearchCondFields()
+{
+	var lst_sk_search_type = [];
+	lst_sk_search_type.push(['access_date','{{lang.VMSG_ACCESS_DATE|safe|escapejs}}']);
+	lst_sk_search_type.push(['login_id','{{lang.VMSG_LOGIN_USERID|safe|escapejs}}']);
+	//lst_sk_search_type.push(['fulltext','{{lang.FULLTEXT_SEARCH|safe|escapejs}}']);
+
+	var field_sk_search_type = Ext.ucf.field.createComboBox('id_sk_search_type', 'sk_search_type', lst_sk_search_type, 'access_date', '{{lang.SEARCH_CONDITION|safe|escapejs}}', 150, null);
+	field_sk_search_type.render('FIELD_sk_search_type');
+	field_sk_search_type.addListener('change', function(){
+		initSearchBoxDisp();
+	});
+	var field_sk_login_id = Ext.ucf.field.createTextField('sk_login_id', 'sk_login_id', '', '{{lang.VMSG_LOGIN_USERID}}', 180, null);
+	field_sk_login_id.render('FIELD_sk_login_id');
+
+	var field_sk_access_date_date_from = Ext.ucf.field.createDateField('id_sk_access_date_date_from', 'sk_access_date_date_from', '', '{{lang.VMSG_ACCESS_DATE}}', 108, null);
+	field_sk_access_date_date_from.render('FIELD_sk_access_date_date_from');
+	var field_sk_access_date_time_from = Ext.ucf.field.createTimeField('id_sk_access_date_time_from', 'sk_access_date_time_from', '', '{{lang.VMSG_ACCESS_DATE}}', 108, null);
+	field_sk_access_date_time_from.render('FIELD_sk_access_date_time_from');
+
+	var field_sk_access_date_date_to = Ext.ucf.field.createDateField('id_sk_access_date_date_to', 'sk_access_date_date_to', '', '{{lang.VMSG_ACCESS_DATE}}', 108, null);
+	field_sk_access_date_date_to.render('FIELD_sk_access_date_date_to');
+	var field_sk_access_date_time_to = Ext.ucf.field.createTimeField('id_sk_access_date_time_to', 'sk_access_date_time_to', '', '{{lang.VMSG_ACCESS_DATE}}', 108, null);
+	field_sk_access_date_time_to.render('FIELD_sk_access_date_time_to');
+
+}
+
+</script>
+<script type="text/javascript" >
+
+Ext.onReady(function(){
+  	Ext.QuickTips.init();
+  	Ext.ucf.init();
+
+	createSearchCondFields();
+
+  	store = new Ext.data.Store({
+		reader: new Ext.data.JsonReader({
+			idProperty: 'unique_id'
+			,root: 'records'
+			,totalProperty: 'all_count'
+			}, Ext.ucf.acslog.createLoginHistoryRecord()),
+	    url: '{{vurl}}acs/xtloglist',
+		autoDestroy:true
+  	});
+	// Storeのロード後のイベントハンドラを追加
+	// store.on('load', function(s, records, options) {
+	// 	// プロファイルの名称をAjaxで取得して表記をリンク化
+	// 	Ext.each(records, function(record){
+	// 		Ext.ucf.field.createPlaneText('use_profile_id_' + record.get('unique_id'), record.get('use_profile_id'), Ext.ucf.acnt.viewHelper, 'profile_infos').render('FIELD_use_profile_id_' + record.get('unique_id'));
+	// 	});
+	// 	Ext.Ajax.request({url: '{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_LOGIN_HISTORY}}',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+	// });
+	
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+		
+	var sLimitCB = new Ext.ucf.searchLimitComboBox(
+		[each_page_cnt,50,100]
+		,{
+			'select':function(cb, record, index){
+				each_page_cnt = cb.value;
+				pagingBar.pageSize = each_page_cnt;
+				search();
+				}
+		});
+	each_page_cnt = sLimitCB.value;
+	
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: store,
+		displayInfo: true, 
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+				'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			,'-'
+			,{
+				text: _msg.VMSG_EXPORT,
+				handler: function(){
+					Ext.ucf.exportToCsv({data_kind:'exportacslogcsv'},'GridList');
+				}
+			}
+			,'-'
+			,{
+				text: _msg.VMSG_EXPORT_WITH_SCOND,
+				handler: function(){
+					Ext.ucf.exportToCsv({data_kind:'exportacslogcsv', optional_scond:Ext.encode(getSearchBaseParam())},'GridList');
+          		}
+			}
+			,'-'
+		]
+	});
+	
+	var cm = new Ext.grid.ColumnModel({
+      columns: [
+			{
+          header: '{{lang.VMSG_LOGIN_USERID}}',
+          dataIndex: 'login_id',
+          width: 80,
+          sortable: false,
+					renderer: vh_login_id
+      },{
+          header: '{{lang.FLD_ACCESS_DATE}}',
+          dataIndex: 'access_date',
+          width: 100,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_CLIENT_IP}}',
+          dataIndex: 'client_ip',
+          width: 80,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_XFF_IP}}',
+          dataIndex: 'client_x_forwarded_for_ip',
+          width: 80,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_LOGIN_RESULT}}',
+          dataIndex: 'login_result',
+          width: 40,
+          sortable: false,
+					renderer: vh_login_result
+      },{
+          header: '{{lang.FLD_LOG_CODE}}',
+          dataIndex: 'log_code',
+          width: 120,
+          sortable: false,
+					renderer: vh_log_code
+      },{
+          header: '{{lang.FLD_TARGET_CAREER}}',
+          dataIndex: 'target_career',
+          width: 70,
+          sortable: false,
+					renderer: vh_target_career
+	  },
+	//   {
+    //       header: '{{lang.FLD_USE_PROFILE_ID}}',
+    //       dataIndex: 'use_profile_id',
+    //       width: 70,
+    //       sortable: false,
+	// 				renderer: vh_use_profile_id
+    //   },{
+    //       header: '{{lang.APPLY}}',
+    //       dataIndex: 'use_access_apply_unique_id',
+    //       width: 25,
+    //       sortable: false,
+	// 				renderer: vh_use_access_apply_unique_id
+	//   },
+	  {
+          header: '{{lang.FLD_TARGET_ENV}}',
+          dataIndex: 'target_env',
+          width: 70,
+          sortable: false,
+					renderer: vh_target_env
+      },{
+          header: '{{lang.DETAIL}}',
+          dataIndex: 'log_text',
+          width: 25,
+          sortable: false,
+					renderer: vh_log_text
+      }
+		]
+	});
+	var grid = new Ext.grid.EditorGridPanel({
+
+    store: store,
+//      width: 600,
+    region:'center',
+		clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+    stripeRows: true,
+		bbar: pagingBar,
+		tbar: toolBar,
+//			sm: sm,
+		cm: cm
+  });
+	// パネルにユーザ一覧グリッドをセット
+  var layout = new Ext.Panel({
+    collapsible: true,
+    title: '{{lang.VMSG_LOGINHISTORY}}',
+    layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+    	layoutConfig: {
+        columns: 1
+    },
+    height: 680,
+    items: [grid]
+  });
+  layout.render(Ext.get('GridList'));
+	
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'))
+
+	// 検索（ページ遷移初回は前回の条件を使用して検索）
+	search(true);		
+	
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+	
+});
+
+</script>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+{% include "./include/index_leftmenu.html" %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% include "./include/attention.html" %}
+{% include "./include/explain.html" %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_LOGINHISTORY}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all2" >
+      <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+	  <form onsubmit="JavaScript:search();return false;" >
+      <table class="search_table" >
+
+        <tr>
+          <th>{{lang.SEARCH_CONDITION|safe}}：</th>
+          <td>
+					<div id="FIELD_sk_search_type" class="field" ></div>
+					</td>
+          <th></th>
+          <td>&nbsp;&nbsp;</td>
+          <td>
+					<div class="sk_access_date" >
+					<table border="0" >
+					<tr>
+					<td>
+					<div id="FIELD_sk_access_date_date_from" class="field" ></div>
+					</td>
+					<td>&nbsp;</td>
+					<td>
+					<div id="FIELD_sk_access_date_time_from" class="field" ></div>
+					</td>
+					<td>&nbsp;～&nbsp;</td>
+					<td>
+					<div id="FIELD_sk_access_date_date_to" class="field" ></div>
+					</td>
+					<td>&nbsp;</td>
+					<td>
+					<div id="FIELD_sk_access_date_time_to" class="field" ></div>
+					</td>
+					</tr>
+					</table>
+					</div>
+					<div id="FIELD_sk_login_id" class="field sk_login_id" ></div>
+					</td>
+          <th></th>
+          <td>&nbsp;&nbsp;</td>
+          <th></th>
+          <td>
+					</td>
+          <th></th>
+          
+          <td><div id="btnSearch" /></td>
+          
+        </tr>
+			</table>
+			
+			</form>
+			
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="GridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

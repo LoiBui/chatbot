@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+	<template_id><![CDATA[]]></template_id>
+	<template_name><![CDATA[Standard Document]]></template_name>
+	<template_disabled><![CDATA[false]]></template_disabled>
+	<show_as_max_window><![CDATA[true]]></show_as_max_window>
+	<doc_info_place><![CDATA[middle]]></doc_info_place>
+	<show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+	<created_date><![CDATA[]]></created_date>
+	<updated_date><![CDATA[]]></updated_date>
+	<template_body><![CDATA[<!--
+  Standard Document
+
+  @since 2013-03-07
+
+-->
+
+<table class="detail">
+
+<tr>
+<td class="detail_name" style="width:20%">Name</td>
+<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+<td class="detail_name" style="width:20%">Department</td>
+<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+</tr>
+
+<tr>
+<td class="detail_name">Priority</td>
+<td class="detail_value">
+<label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label>
+</td>
+<td class="detail_name">Doc Type</td>
+<td class="detail_value"><input type="text" name="document_type"></td>
+</tr>
+
+</table>
+<br>
+
+<!-- richtext field is here -->
+<textarea name="honbun" class="richtext" style="width:100%; height:300px;"></textarea>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"__new_template\",\"name\":\"Standard Document\",\"sections\":[{\"section_id\":\"sec_id-1401039195728KyBVSTBKOFHytXwj\",\"secname\":\"Standard Document\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14010391957222bjc3u2tbxmyXf41\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401039195728KyBVSTBKOFHytXwj\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=normal;checked=;\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401039195728XGCmkT9XpmfC40px\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401039195728KyBVSTBKOFHytXwj\"},{\"control_id\":\"ctr_id-1401039195723gh7W5fO3h4jVZhUN\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401039195728KyBVSTBKOFHytXwj\"},{\"control_id\":\"ctr_id-1401039195727eNmsOCvqHGDHfvn2\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401039195728KyBVSTBKOFHytXwj\"}]},{\"section_id\":\"sec_id-1401040416174AIiQRys9jF0paGfN\",\"secname\":\"space\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401040446102Fh0O938TEr3NpaRq\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"width:100%;height:10px;\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401040416174AIiQRys9jF0paGfN\"}]},{\"section_id\":\"sec_id-1401040306063ZhDxJPeRCtI0d9LK\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401039195727ZuyH3By7wrAxkFiv\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"honbun\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"honbun\",\"style\":\"width:100%;height:300px;\",\"class\":\"richtext\",\"new_attrs\":\"\",\"value\":\"\",\"cols\":\"\",\"rows\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401040306063ZhDxJPeRCtI0d9LK\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Standard Document
+
+  @since 2013-03-07
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name"></div>
+      <div class="detail_value">
+        <!-- richtext field is here -->
+        <textarea name="honbun" class="richtext" style="width:98%; height:300px;"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

@@ -1,0 +1,3 @@
+set SrcDir=.\src
+CALL C:\Python27\python.exe "C:\Program Files\Google\google_appengine\dev_appserver.py" --log_level=debug --require_indexes --show_mail_body --enable_sendmail --smtp_host=smtp.gmail.com --smtp_port=587 --smtp_user=admin@satelaito.jp --smtp_password=satebaytech2000 --smtp_allow_tls --datastore_path="E:\gae_data\dev_appserver.datastore_sateraitonotification" --port=80  %SrcDir%\app.yaml %SrcDir%\b1process.yaml %SrcDir%\b2process.yaml %SrcDir%\b4process.yaml  --search_indexes_path="E:\gae_data\dev_appserver.search_indexes_sateraitonotification" 
+pause

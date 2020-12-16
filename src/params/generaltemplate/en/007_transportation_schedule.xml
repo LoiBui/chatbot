@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Delivery Schedule]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Delivery Schedule
+
+  @since 2014-01-06
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">Delivery Schedule Management Table</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%;">Management ID</th>
+		<th class="detail_head" style="width:17%;">Plate Number</th>
+		<th class="detail_head" style="width:20%;">Maker</th>
+		<th class="detail_head" style="width:18%;">Driver's Name</th>
+		<th class="detail_head" style="width:35%;">Dimensions</th>
+		<th class="detail_head" style="width:5%;">Terms of Loading</th>
+	</tr>
+	<tr>
+		<td><input name="kanri_id" style="width:60px"></td>
+		<td><input name="number_plate" style="width:135px"></td>
+		<td><input name="maker" style="width:135px"></td>
+		<td><input name="driver_name" style="width:135px"></td>
+		<td>Width:<input name="nidai_size_1" class="number" style="width:22px">&nbsp;
+				Length:<input name="nidai_size_2" class="number" style="width:22px">&nbsp;
+				Height:<input name="nidai_size_3" class="number" style="width:22px">
+		</td>
+		<td><input name="kansan_tsumikomi" size="5"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%;">No</th>
+		<th class="detail_head" style="width:9%;">Date</th>
+		<th class="detail_head" style="width:9%;">Departure Time</th>
+		<th class="detail_head" style="width:9%;">Arrival Rime</th>
+		<th class="detail_head" style="width:8%;">Loading Volume</th>
+		<th class="detail_head" style="width:30%;">Delivery Address</th>
+		<th class="detail_head" style="width:30%;">Company Name/Receiver</th>
+	</tr>
+
+<!-- _01st Row -->
+	<tr>
+		<td class="detail_name">1</td>
+		<td class="detail_value"><input name="unsou_date_1" class="date"></td>
+		<td class="detail_value"><input name="departure_time_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_1" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02nd Row -->
+	<tr>
+		<td class="detail_name">2</td>
+		<td class="detail_value"><input name="unsou_date_2" class="date"></td>
+		<td class="detail_value"><input name="departure_time_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_2" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03rd Row -->
+	<tr>
+		<td class="detail_name">3</td>
+		<td class="detail_value"><input name="unsou_date_3" class="date"></td>
+		<td class="detail_value"><input name="departure_time_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_3" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _04th Row -->
+	<tr>
+		<td class="detail_name">4</td>
+		<td class="detail_value"><input name="unsou_date_4" class="date"></td>
+		<td class="detail_value"><input name="departure_time_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_4" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _05th Row -->
+	<tr>
+		<td class="detail_name">5</td>
+		<td class="detail_value"><input name="unsou_date_5" class="date"></td>
+		<td class="detail_value"><input name="departure_time_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_5" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _06th Row -->
+	<tr>
+		<td class="detail_name">6</td>
+		<td class="detail_value"><input name="unsou_date_6" class="date"></td>
+		<td class="detail_value"><input name="departure_time_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_6" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _07th Row -->
+	<tr>
+		<td class="detail_name">7</td>
+		<td class="detail_value"><input name="unsou_date_7" class="date"></td>
+		<td class="detail_value"><input name="departure_time_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_7" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _08th Row -->
+	<tr>
+		<td class="detail_name">8</td>
+		<td class="detail_value"><input name="unsou_date_8" class="date"></td>
+		<td class="detail_value"><input name="departure_time_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_8" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _09th Row -->
+	<tr>
+		<td class="detail_name">9</td>
+		<td class="detail_value"><input name="unsou_date_9" class="date"></td>
+		<td class="detail_value"><input name="departure_time_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_9" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _10th Row -->
+	<tr>
+		<td class="detail_name">10</td>
+		<td class="detail_value"><input name="unsou_date_10" class="date"></td>
+		<td class="detail_value"><input name="departure_time_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="arrival_time_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="tsumikomiryo_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="haisousaki_address_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="company_name_10" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140527020622sY0HRLgA4uj4LH99\",\"name\":\"Delivery Schedule\",\"sections\":[{\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\",\"secname\":\"Delivery Schedule\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401131200842KkzQzfCchroO7yrz\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent   \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=normal;checked=checked;\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401131200848tmdEtE1HIq0Cqte1\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"},{\"control_id\":\"ctr_id-14011312008420IWkJkLKnIgITECp\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"},{\"control_id\":\"ctr_id-1401131200845wYbPhHoJ4KiVUd5D\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401131905762yTsrmUA8ZPqZf0zz\",\"controls\":[{\"control_id\":\"ctr_id-1401131917283v2Z9UpX3Iqn1jvUZ\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401131905762yTsrmUA8ZPqZf0zz\"}]},{\"secname\":\"Delivery Schedule Management Table\",\"column_cof\":6,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"Management ID\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"Plate Number\",\"width\":\"17%\",\"align\":\"left\"},\"3\":{\"title\":\"Maker\",\"width\":\"20%\",\"align\":\"left\"},\"4\":{\"title\":\"Driver's Name\",\"width\":\"18%\",\"align\":\"left\"},\"5\":{\"title\":\"Dimensions\",\"width\":\"25%\",\"align\":\"left\"},\"6\":{\"title\":\"Terms of Loading\",\"width\":\"15%\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\",\"controls\":[{\"control_id\":\"ctr_id-1401131200845XNNCC6ttkMSVcOwO\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"kanri_id\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kanri_id\",\"style\":\"width:60px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"},{\"control_id\":\"ctr_id-1401131200845GgbrSFingV7Obi8X\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"number_plate\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"number_plate\",\"style\":\"width:135px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"},{\"control_id\":\"ctr_id-1401131200845K69b4ouXQ2pN4vuA\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"maker\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"maker\",\"style\":\"width:135px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"},{\"control_id\":\"ctr_id-1401131200845U0867Ldtq24wweDE\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"driver_name\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"driver_name\",\"style\":\"width:135px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"},{\"control_id\":\"ctr_id-1401132425792SWQNLjNtxP3FKqbJ\",\"map_type_control\":\"boxgroup\",\"pos_col\":5,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"group_nidai_size\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_nidai_size\",\"style\":\"width:150px\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"nidai_size_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"Width:\",\"aftercontent\":\"\",\"name\":\"nidai_size_1\",\"style\":\"width:22px\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"nidai_size_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"Length:\",\"aftercontent\":\"\",\"name\":\"nidai_size_2\",\"style\":\"width:22px\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"nidai_size_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"Height:\",\"aftercontent\":\"\",\"name\":\"nidai_size_3\",\"style\":\"width:22px\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"},{\"control_id\":\"ctr_id-1401131200846TnppL0O4sb4Gq41j\",\"pos_row\":1,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"kansan_tsumikomi\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansan_tsumikomi\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"size=5;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401132910497OL2CzCezuouvt113\",\"controls\":[{\"control_id\":\"ctr_id-1401132910498qmW14D0ysIqJWBI7\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401132910497OL2CzCezuouvt113\"}]},{\"secname\":\"div1\",\"column_cof\":7,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"Date\",\"width\":\"9%\",\"align\":\"left\"},\"3\":{\"title\":\"Departure Time\",\"width\":\"9%\",\"align\":\"left\"},\"4\":{\"title\":\"Arrival Rime\",\"width\":\"9%\",\"align\":\"left\"},\"5\":{\"title\":\"Loading Volume\",\"width\":\"8%\",\"align\":\"left\"},\"6\":{\"title\":\"Delivery Address\",\"width\":\"30%\",\"align\":\"left\"},\"7\":{\"title\":\"Company Name/Receiver\",\"width\":\"30%\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\",\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515998FfInJ9M32ZFUAwxt\",\"pos_col\":1,\"pos_row\":1},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14011335159997IC9JG1679fnnAf4\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999j9yuYZhRJOyhpPt7\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999C7Qd4OCCKEuhUb1g\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999pfkdmHhNmnPCXw8I\",\"pos_col\":1,\"pos_row\":5},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"6\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999N7w0hIjPUGhZU23p\",\"pos_col\":1,\"pos_row\":6},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"7\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999IaGYu2g8sIVy1DAJ\",\"pos_col\":1,\"pos_row\":7},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"8\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999L4AF6WjXC8fexaaF\",\"pos_col\":1,\"pos_row\":8},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"9\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999F5ecyC7ebLmoVvUZ\",\"pos_col\":1,\"pos_row\":9},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"10\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401133515999WMCcX88rc4DJzsGu\",\"pos_col\":1,\"pos_row\":10},{\"control_id\":\"ctr_id-1401131200846NiX7bwI5fxqHvdd9\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_1\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008462MQR0fWfvUkwIt6K\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_2\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846XqG77GOrn94u6Fxz\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_3\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846WLnJbc19wsUFGxUV\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_4\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847aB4tZneFTwHE3SVB\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_5\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847aOHsEbNBKPNNksCe\",\"pos_row\":6,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_6\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847aLRs1BvysuRkSKGW\",\"pos_row\":7,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_7\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847NmONbizLeekTCteC\",\"pos_row\":8,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_8\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847dUiXQdxXkW9W4UzN\",\"pos_row\":9,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_9\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847UUn5bti5ZEANkRJm\",\"pos_row\":10,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"unsou_date_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"unsou_date_10\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008468yMEAJy8sO1nLnF0\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008469XjqWcxTEF6Xe9oR\",\"pos_row\":2,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846p109BQvcyooUxOOy\",\"pos_row\":3,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008470x5BV14KM8HKvfB7\",\"pos_row\":4,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847G3ABN1NpFxwOUSM1\",\"pos_row\":5,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847kN7ax3uxQ4pdDpLY\",\"pos_row\":6,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_6\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847WsDLT7kukLi2oahL\",\"pos_row\":7,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_7\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847OUMZ1aIaHouw3Fqp\",\"pos_row\":8,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_8\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847YwMna0zEAK1gKD6c\",\"pos_row\":9,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_9\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847XPFzwWaCuYwPwW6e\",\"pos_row\":10,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"departure_time_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"departure_time_10\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846A6y1UzZBtGUyJF9z\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846vAXTV1NZCKZooLXX\",\"pos_row\":2,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846Aa2hqnPJS7MI6i9g\",\"pos_row\":3,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847yFQVcshYFyeGuNy7\",\"pos_row\":4,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847xz5ahhk2zUR6tAHi\",\"pos_row\":5,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847hvhZMnYcopeHrWYf\",\"pos_row\":6,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_6\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008472SW6MP9KycEYdj8b\",\"pos_row\":7,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_7\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847brnSXo2S59w7SNfA\",\"pos_row\":8,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_8\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847EZQDVKfxdE47d4kW\",\"pos_row\":9,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_9\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847O5c8xtLmFFVN9Qsa\",\"pos_row\":10,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"arrival_time_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"arrival_time_10\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846p2rvn0exY0uCyI1O\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846IeFFhgv0KOOnOyZ0\",\"pos_row\":2,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846CX5twXxJoRgdyf6d\",\"pos_row\":3,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008470kdB69eAcBvfHZvj\",\"pos_row\":4,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008478VvkwkuhSkVRV2bP\",\"pos_row\":5,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847jKesdCe1QQFFnjag\",\"pos_row\":6,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_6\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847tbSvponvUh8WVDhF\",\"pos_row\":7,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_7\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008476NHKWgCQaiwkw6td\",\"pos_row\":8,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_8\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847fVHXuTJUfkGNDUbX\",\"pos_row\":9,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_9\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008479jTxDYyN5XBtTHDE\",\"pos_row\":10,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"tsumikomiryo_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsumikomiryo_10\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846x32eyFmKTTwimcnt\",\"pos_row\":1,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846JQLL1F4EyMVXfh9R\",\"pos_row\":2,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846CgjdL4dyrWkDUY0f\",\"pos_row\":3,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847Ls3VjT8dhRi69j6K\",\"pos_row\":4,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847XoLDLN6wCnU8YUJ6\",\"pos_row\":5,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847650uU5QAefmwvInc\",\"pos_row\":6,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_6\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847A3yNwGxpHIgt46TY\",\"pos_row\":7,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_7\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008473rdayAGnqBbV127m\",\"pos_row\":8,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_8\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008471dX2IKs8ngw77kYd\",\"pos_row\":9,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_9\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008471wpTYeEEEdLwbrJH\",\"pos_row\":10,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"haisousaki_address_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"haisousaki_address_10\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008461BHgg7ALJ7JZmuUL\",\"pos_row\":1,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_1\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846YQto86V5Iocp8M4Z\",\"pos_row\":2,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_2\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200846uqISv69E4e2CMSbP\",\"pos_row\":3,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_3\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-140113120084712PQX99XDLXTGH98\",\"pos_row\":4,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_4\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847e6O7kaZzMTmNsj1z\",\"pos_row\":5,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_5\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847uHaxmswDjNgweMRy\",\"pos_row\":6,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_6\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847omhRJajtLfkfZzdk\",\"pos_row\":7,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_7\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847Ao6roJIyXpqqv6rs\",\"pos_row\":8,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_8\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-1401131200847Fw56nYGRrVPCJjIs\",\"pos_row\":9,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_9\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"},{\"control_id\":\"ctr_id-14011312008473Wu3jmcZBEHGXxSW\",\"pos_row\":10,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"company_name_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"company_name_10\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401133165131g1SFJTi0ROEKK88i\"}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401134533486KgyrPBEdhVmyq305\",\"controls\":[{\"control_id\":\"ctr_id-1401134533487CrnEu4I5o3HNwUOZ\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401134533486KgyrPBEdhVmyq305\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401134567750TgrdTbq9PLCRsks6\",\"controls\":[{\"control_id\":\"ctr_id-1401131200847IjBKvV1sYjKj56bs\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140527020622sY0HRLgA4uj4LH99\",\"name\":\"Delivery Schedule\",\"controls\":[{\"control_id\":\"ctr_id-1401131200845SGtYHOCMxnXyZabN\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"nidai_size_3\",\"new_attrs\":\"\",\"style\":\"width:22px\",\"lblname\":\"nidai_size_3\",\"class\":\"number\"}},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401131200848sThgymjQw2EQoGLu\"},{\"control_id\":\"ctr_id-1401131200845WG1G3LsG0GYgS41i\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"nidai_size_2\",\"new_attrs\":\"\",\"style\":\"width:22px\",\"lblname\":\"nidai_size_2\",\"class\":\"number\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-14011312008455S3XzLLbGDPGeMMn\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"nidai_size_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"Width:\",\"aftercontent\":\"\",\"name\":\"nidai_size_1\",\"style\":\"width:22px\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401132036846CD0ro18HcZTt6e5X\"}]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+Delivery Schedule
+
+  @since 2014-01-06
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width: 100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width: 100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input
+        type="radio" name="priority" value="normal" checked>Normal</label></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value">
+        <input type="text" name="document_type" style="width: 100%">
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Delivery Schedule Management Table</div>
+
+<div class="container">
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_head">Management ID</div>
+      <div><input type="text" name="kanri_id" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_head">Plate Number</div>
+      <div><input type="text" name="number_plate" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_head">Maker</div>
+      <div><input type="text" name="maker" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_head">Driver's Name</div>
+      <div><input type="text" name="driver_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_head">Dimensions</div>
+      <div>Width:<input type="text" name="nidai_size_1" class="number" style="width:100%">
+      </div>
+      <div>
+        Length:<input type="text" name="nidai_size_2" class="number" style="width:100%">
+      </div>
+      <div>
+        Height:<input type="text" name="nidai_size_3" class="number" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_head">Terms of Loading</div>
+      <div><input type="text" name="kansan_tsumikomi" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <ul class="detail">
+    <!-- _01st Row -->
+    <li class="row">
+      <div class="detail_name">1.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_1" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_1" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_1" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_1" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_1" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_1" style="width:100%;"></div>
+    </li>
+
+    <!-- _02nd Row -->
+    <li class="row">
+      <div class="detail_name">2.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_2" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_2" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_2" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_2" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_2" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_2" style="width:100%;"></div>
+    </li>
+    <!-- _03rd Row -->
+    <li class="row">
+      <div class="detail_name">3.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_3" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_3" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_3" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_3" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_3" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_3" style="width:100%;"></div>
+    </li>
+
+    <!-- _04th Row -->
+    <li class="row">
+      <div class="detail_name">4.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_4" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_4" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_4" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_4" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_4" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_4" style="width:100%;"></div>
+    </li>
+    <!-- _05th Row -->
+    <li class="row">
+      <div class="detail_name">5.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_5" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_5" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_5" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_5" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_5" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_5" style="width:100%;"></div>
+    </li>
+
+    <!-- _06th Row -->
+    <li class="row">
+      <div class="detail_name">6.</div>
+      <div class="detail_value"><input type="text" name="unsou_date_6" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_6" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_6" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_6" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_6" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_6" style="width:100%;"></div>
+    </li>
+
+    <!-- _07th Row -->
+    <li class="row">
+      <div class="detail_name">7.</div>
+
+      <div class="detail_value"><input type="text" name="unsou_date7" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_7" style="width:100%;"></div>
+      <div class="detail_head"> Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_7" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_7" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_7" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_7" style="width:100%;"></div>
+    </li>
+
+    <!-- _08th Row -->
+    <li class="row">
+      <div class="detail_name">8.</div>
+
+      <div class="detail_value"><input type="text" name="unsou_date_8" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_8" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_8" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_8" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_8" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_8" style="width:100%;"></div>
+    </li>
+
+    <!-- _09th Row -->
+    <li class="row">
+      <div class="detail_name">9.</div>
+
+      <div class="detail_value"><input type="text" name="unsou_date_9" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_9" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_9" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_9" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_9" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_9" style="width:100%;"></div>
+    </li>
+    <!-- _10th Row -->
+    <li class="row">
+      <div class="detail_name">10.</div>
+
+      <div class="detail_value"><input type="text" name="unsou_date_10" class="date" style="width:100%;"></div>
+      <div class="detail_head">Departure Time</div>
+      <div class="detail_value"><input type="text" name="departure_time_10" style="width:100%;"></div>
+      <div class="detail_head">Arrival Rime</div>
+      <div class="detail_value"><input type="text" name="arrival_time_10" style="width:100%;"></div>
+      <div class="detail_head">Loading Volume</div>
+      <div class="detail_value"><input type="text" name="tsumikomiryo_10" style="width:100%;"></div>
+      <div class="detail_head">Delivery Address</div>
+      <div class="detail_value"><input type="text" name="haisousaki_address_10" style="width:100%;"></div>
+      <div class="detail_head">Company Name/Receiver</div>
+      <div class="detail_value"><input type="text" name="company_name_10" style="width:100%;"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

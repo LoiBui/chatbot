@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>サテライトオフィス Q&amp;A</title>
+<meta name="Description" content="サテライトオフィス Q&A" />
+<meta name="Keywords" content="サテライトオフィス,Q&A" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="/css/base4.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style_sp4.css?{{version}}" type="text/css" media="screen and (max-width:750px)">
+<link rel="stylesheet" href="/css/style_pc4.css?{{version}}" type="text/css" media="screen and (min-width:751px),print">
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+
+</head>
+
+<body id="top" class="home" style="background-color: white;">
+
+<div id="container">
+<div id="header">
+<div class="headerInner cf">
+<div id="logo">
+<h1><a href="{{my_site_url}}/{{unqid}}/faq/index"><img src="/images/faq_site/logo.png" class="fit" alt="サテライトオフィス"></a></h1>
+</div>
+</div>
+</div>
+
+<div id="main" class="section">
+<div class="main cf"><img src="/images/faq_site/main.jpg" class="fit" style="height:400px;"></div>
+<div class="topName">
+<h2 class="catch">サテライトオフィス Q&amp;A</h2>
+<div class="search">
+<input type="text" id="search_key" class="full" placeholder="知りたい内容をご入力してください">
+<input type="image" value="検索" src="/images/faq_site/btnSearch.png" style="height:40px; margin-top:3px; width:40px;" onclick="JavaScript:searchHandler();">
+</div>
+</div>
+</div>
+
+<div id="contents">
+<div class="cInner">
+
+<div class="accordion">
+</div>
+
+</div>
+</div><!-- //#content-->
+
+<footer id="footer">
+Copyright &copy; 2020 All rights reserved by Sateraito Office.<br>
+記載されている内容は予告なしに変更することがございます。<br class="sp">詳しくは弊社営業担当までお問い合せください。
+</footer>
+<div class="spCover"></div>
+</div><!-- //#container-->
+
+<script type="text/javascript">
+    var list_category = JSON.parse("{{ ucfp.voinfo.vo.list_category|escapejs }}");
+    var list_faq = JSON.parse("{{ ucfp.voinfo.vo.list_faq|escapejs }}");
+
+    var list_category_id = [];
+	for(let i=0; i<list_category.length; i++){
+		list_category_id.push(list_category[i].category_id);
+	}
+	list_category_id.sort();
+
+	// var list_data = [];
+	// for(let i=0; i<list_category_id.length; i++){
+	// 	for(let j=0; j<list_category.length; j++){
+	// 		let category = '';
+	// 		if(list_category_id[i] == list_category[j].category_id){
+	// 			category += list_category[j].category_major;
+	// 			category += (list_category[j].category_middle)?(' → ' + list_category[j].category_middle):'';
+	// 			category += (list_category[j].category_minor)?(' → ' + list_category[j].category_minor):'';
+	// 			category += ' (' + list_category_id[i] + ')';
+	// 			list_data.push([list_category_id[i], category]);
+	// 			break;
+	// 		}
+	// 	}
+	// }
+
+    var list_data = [];
+	var temp_data = '';
+	var data_disp = '';
+
+	var category_id_major = '';
+	var category_id_middle = '';
+	var fake_category_id = '';
+	for(var i=0; i<list_category_id.length; i++){
+		if(category_id_major != list_category_id[i].split('-')[0]){		// get category_major
+			category_id_major = list_category_id[i].split('-')[0];
+			category_id_middle = '';
+			for(var j=0; j<list_category.length; j++){
+				if(list_category_id[i] == list_category[j].category_id){
+					temp_data = list_category[j].category_major;
+					
+					// 001-001-001
+					// 002-000-000	major
+					// 002-001-000	major + middle
+					// 002-001-001	major + middle + minor
+
+					// if(i>0 && 002-001-000/002-001-001.split('-')[0] != 001-001-001.spli('-')[0])
+					// if(i>0 && 002 != 001)
+					if(list_category[j].minor == ''){
+						if(list_category[j].middle != ''){
+							if(i>0 && list_category_id[i].split('-')[0] != list_category_id[i-1].split('-')[0]){	// major 002 != major 001
+								// create fake category id 002-x-x
+								fake_category_id = category_id_major + '-000-000';
+								temp_data = temp_data + ' (fake)';
+								list_data.push([fake_category_id, temp_data, 1]);
+								break;
+							}
+							else{
+								// create ok 
+								list_data.push([list_category_id[i], temp_data, 1]);
+								break;
+							}
+						}
+						else{		// middle + minor none
+							// create ok 
+							list_data.push([list_category_id[i], temp_data, 1]);
+							break;
+						}
+					}
+					else{
+						if(i>0 && list_category_id[i].split('-')[0] == list_category_id[i-1].split('-')[0]){	// major 002 == major 002
+							if(list_category_id[i].split('-')[1] != list_category_id[i-1].split('-')[1]){	// middle 000 == middle 001
+								// create fake category id 002-001-x
+								fake_category_id = category_id_major + '-' + list_category_id[i].split('-')[1] + '-000';
+								temp_data = temp_data + ' (fake)';
+								list_data.push([fake_category_id, temp_data, 1]);
+								break;
+							}
+						}
+						else if(i>0 && list_category_id[i].split('-')[0] != list_category_id[i-1].split('-')[0]){	// major 002 != major 001
+							// major-middle 002-001 == major-middle 001-001
+							if(list_category_id[i].split('-').slice(0,2).join('-') != list_category_id[i-1].split('-').slice(0,2).join('-')){
+								// create fake category id 002-x-x
+								fake_category_id = category_id_major + '-000-000';
+								temp_data = temp_data + ' (fake)';
+								list_data.push([fake_category_id, temp_data, 1]);
+
+								fake_category_id = category_id_major + '-' + list_category_id[i].split('-')[1] + '-000';
+								temp_data = list_category[j].category_middle + ' (fake)';
+								list_data.push([fake_category_id, temp_data, 2]);
+								break;
+							}
+						}
+						else{
+							// create ok
+							list_data.push([list_category_id[i], temp_data, 1]);
+							break;
+						}
+					}
+					// if(i>0 && list_category_id[i].split('-')[0] != list_category_id[i-1].split('-')[0]){ // pass major
+					// 	if(i>0 && list_category_id[i].split('-')[0] != list_category_id[i-1].split('-')[0]){
+
+					// 	}
+					// 	list_data.push([list_category_id[i], temp_data, 2]);
+					// }
+					// temp_data = (list_category[j].category_middle)?(temp_data + ' - ' + list_category[j].category_middle):temp_data;
+					// temp_data = (list_category[j].category_minor)?(temp_data + ' - ' + list_category[j].category_minor):temp_data;
+					// list_data.push([list_category_id[i], temp_data, 1]);
+					// break;
+				}
+			}
+		}
+		else{
+			if(category_id_middle != list_category_id[i].split('-')[1]){		// get category_middle
+				category_id_middle = list_category_id[i].split('-')[1];
+				for(var j=0; j<list_category.length; j++){
+					if(list_category_id[i] == list_category[j].category_id){
+						temp_data = list_category[j].category_middle;
+						temp_data = (list_category[j].category_minor)?(temp_data + ' - ' + list_category[j].category_minor):temp_data;
+
+						// 001-000-000 - 001-002-0001 
+						if(i>0 && list_category_id[i].split('-')[0] != list_category_id[i-1].split('-')[0]){
+							list_data.push([list_category_id[i], temp_data, 2]);
+						}
+						list_data.push([list_category_id[i], temp_data, 2]);
+						break;
+					}
+				}
+			}
+			else{																		// get category_minor
+				for(var j=0; j<list_category.length; j++){
+					if(list_category_id[i] == list_category[j].category_id){
+						temp_data = list_category[j].category_minor;
+						list_data.push([list_category_id[i], temp_data, 3]);
+						break;
+					}
+				}
+			}
+		}
+	}
+
+    var html = '';
+    html += '<ul>';
+    for(let i=0; i<list_data.length; i++){
+        if(i==0 || list_data[i][0].split('-')[0] != list_data[i-1][0].split('-')[0]){
+			html += '<li>';
+			if(i>0 && list_data[i][0].split('-')[0] != list_data[i-1][0].split('-')[0]){
+				break;
+			}
+		}
+		if(list_data[i][2] == 1){
+			html += '<a class="toggle"><p class="accordion_icon"><span></span><span></span></p><h3>' + list_data[i][1] + '</h3></a>';
+			html += '<div class="div_accordion_icon">';
+			for(let j=0; j<list_faq.length; j++){
+				if(list_faq[j].category_id == list_data[i][0]){
+					var requestUrl = '{{my_site_url}}/{{unqid}}/faq/detail?faq_code=' + list_faq[j].unique_id;
+					html += '<div class="qaList"><a href="' + requestUrl.trim() + '">' + list_faq[j].faq_question+ '</a></div>';
+				}
+			}
+			if((i+1<list_data.length && list_data[i][0].split('-')[0] != list_data[i+1][0].split('-')[0]) || i+1>list_data.length){
+				html += '</div>';
+			}
+		}
+		else if(list_data[i][2] == 2){
+			// 001-001-000 vs 001-001-001
+			if(list_data[i][0].split('-')[0] != list_data[i-1][0].split('-')[0]){
+				html += '<ul>';
+			}
+			html += '<li style="padding-left:50px; width:99%;">';
+			html += '<a class="toggle2"><p class="accordion_icon2"><span></span><span></span></p><h3>' + list_data[i][1] + '</h3></a>';
+			// html += '<div class="div_accordion_icon2">';
+			// for(let j=0; j<list_faq.length; j++){
+			// 	if(list_faq[j].category_id == list_data[i][0]){
+			// 		var requestUrl = '{{my_site_url}}/{{unqid}}/faq/detail?faq_code=' + list_faq[j].unique_id;
+			// 		html += '<div class="qaList"><a href="' + requestUrl.trim() + '">' + list_faq[j].faq_question+ '</a></div>';
+			// 	}
+			// }
+			html += '</li>';
+
+			if((i+1<list_data.length && list_data[i][0].split('-')[0] != list_data[i+1][0].split('-')[0]) || i+1>list_data.length){
+				
+				html += '</ul>';
+				html += '</div>';
+				html += '</li>';
+			}
+		}
+    }
+    html += '</ul>';
+
+    $(".accordion").append(html);
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        $(".toggle").on("click", function() {
+            $(this).next().slideToggle();	
+            // activeが存在する場合
+            if ($(this).children(".accordion_icon").hasClass('active')) {			
+                // activeを削除
+                $(this).children(".accordion_icon").removeClass('active');				
+            }
+            else {
+                // activeを追加
+                $(this).children(".accordion_icon").addClass('active');			
+            }	
+			// if($(".div_accordion_icon").hasClass('active')){
+			// 	$(".div_accordion_icon").removeClass('active');
+			// }else{
+			// 	$(".div_accordion_icon").addClass('active');
+			// }
+        });
+    });
+
+	// $(function(){
+    //     $(".toggle2").on("click", function() {
+    //         $(this).next().slideToggle();	
+    //         // activeが存在する場合
+	// 		if ($(this).children(".accordion_icon2").hasClass('active')) {			
+    //             // activeを削除
+    //             $(this).children(".accordion_icon2").removeClass('active');				
+    //         }
+    //         else {
+    //             // activeを追加
+    //             $(this).children(".accordion_icon2").addClass('active');			
+    //         }	
+    //         // if($(".div_accordion_icon2").hasClass('active')){
+	// 		// 	$(".div_accordion_icon2").removeClass('active');
+	// 		// }else{
+	// 		// 	$(".div_accordion_icon2").addClass('active');
+	// 		// }		
+    //     });
+    // });
+
+    function searchHandler(){
+        var search_key = $("#search_key").val();
+        if(search_key.trim() == ''){
+            $("#search_key").css("border-color", "red");
+        }
+        else{
+            var siteUrl = window.location.hostname;
+            var requestUrl = '{{my_site_url|escapejs}}/{{unqid|escapejs}}/faq/search?keyword=' + search_key.trim()
+            window.location = requestUrl.trim();
+        }
+    }
+</script>
+
+</body>
+</html>

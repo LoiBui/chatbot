@@ -1,0 +1,141 @@
+@charset "utf-8";
+/*
+
+Copyright(C)2013 NextSet Inc.
+
+*/
+
+.wrapped-form {
+  border: none;
+}
+
+table.detail_layout {
+  margin-top: 5px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.document_form {
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#doc_title_new_doc {
+  width: -webkit-fill-available !important;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+
+table.detail input[type=text] {
+  /*width: -webkit-fill-available !important;*/
+  min-height: 22px;
+  border: 1px solid #ccc;
+}
+
+#rightArea .panel-padding{
+  padding:0 40px;
+}
+
+    #rightArea .header-doc{
+      display: none;
+    }
+  .header-doc{
+    height: 40px;
+    /*background-color: #15b467;
+     background-color: #0f9d58;*/
+     background-color: #4285f4;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .header-doc .img-header{
+    height: 40px;
+    height: -webkit-fill-available;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+  }
+  body{
+    background-color: #fff;
+  }
+
+  .time-list {
+    min-height: 25px;
+  }
+
+  .panel-padding{
+    padding: 10px 100px;
+  }
+  .title-header{
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  @media only screen and (orientation: portrait)
+{
+  .header-doc .img-header{
+    height: 40px;
+    height: -webkit-fill-available;
+    padding: 5px;
+  }
+  table.detail{
+    display: block;
+  }
+
+  .time-list {
+    min-height: 25px;
+  }
+
+  .panel-padding {
+    padding: 5px;
+  }
+  tr {
+    display: block;
+    overflow: hidden;
+}
+table.detail td.detail_name {
+  font-weight: bold;
+  background-color: #fff;
+  background-image: none;
+  padding: 0;
+  width: 100%!important;
+}
+table.detail td.detail_value {
+  padding: 0;
+  width: 100%!important;
+  display: block;
+}
+table.detail input[type=text] {
+  width: -webkit-fill-available!important;
+  min-height: 22px;
+  border: 1px solid #ccc;
+  display: block;
+  overflow: hidden;
+}
+tbody {
+  display: block;
+}
+#contentsArea {
+  padding: 0!important;
+}
+.checklist_with_attachment{
+  width: 100%;
+  overflow-x:scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cls-action-btm tbody {
+display: table-row;
+display: table-row-group;
+}
+.cls-action-btm tr {
+display: table-row;
+}
+
+}
+
+#contentsTemplate .panel-padding {
+padding: 0;
+}

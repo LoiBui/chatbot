@@ -1,0 +1,26 @@
+﻿[2018/10/11 18:41:31] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2018/10/11 18:41:31] Create message python file...:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\sateraito_message.py
+[2018/10/11 18:41:31] [Compile Start]ucfext_config.js
+[2018/10/11 18:41:32] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:32] [Compile Start]ext\SecurityKeyboard.js
+[2018/10/11 18:41:33] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:33] [Compile Start]ext\ucf_element_selector.js
+[2018/10/11 18:41:34] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 18:41:34] [Compile Start]lang\default.js
+[2018/10/11 18:41:35] [Compile Start]lang\ja.js
+[2018/10/11 18:41:36] [Compile Start]lang\en.js
+[2018/10/11 18:41:38] Expand Jinja Templates include files...
+[2018/10/11 18:41:38] Src:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\templates
+[2018/10/11 18:41:38] Dst:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\templates_automatically
+[2018/10/11 18:41:38] Expand Jinja Templates include files fin.

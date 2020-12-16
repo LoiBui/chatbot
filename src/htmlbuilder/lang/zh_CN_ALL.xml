@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+	<msg name="HTML_TEXT_BOX" js="on" ><![CDATA[文本框]]></msg>
+	<msg name="HTML_TEXT_AREA" js="on" ><![CDATA[文本区域]]></msg>
+	<msg name="HTML_TEXT_LABEL" js="on" ><![CDATA[标签]]></msg>
+	<msg name="HTML_TEXT_SERIAL_LABEL" js="on" ><![CDATA[序列号标签]]></msg>
+	<msg name="HTML_INPUT_DATE" js="on" ><![CDATA[Date（日期）]]></msg>
+	<msg name="HTML_INPUT_TIME" js="on" ><![CDATA[Time（时间）]]></msg>
+	<msg name="HTML_INPUT_COLOR" js="on" ><![CDATA[Color（颜色选择）]]></msg>
+	<msg name="HTML_INPUT_MAIL_ADDRESS" js="on" ><![CDATA[邮箱地址]]></msg>
+	<msg name="HTML_INPUT_UPLOAD_FILE" js="on" ><![CDATA[添加文件]]></msg>
+	<msg name="HTML_INPUT_BUTTON" js="on" ><![CDATA[Button（按钮）]]></msg>
+	<msg name="HTML_INPUT_BUTTON_SUBMIT" js="on" ><![CDATA[提交]]></msg>
+	<msg name="HTML_INPUT_PULLDOWN" js="on" ><![CDATA[下拉菜单]]></msg>
+	<msg name="HTML_INPUT_CHECKBOX" js="on" ><![CDATA[复选框]]></msg>
+	<msg name="HTML_INPUT_RADIO" js="on" ><![CDATA[单选按钮]]></msg>
+	<msg name="HTML_INPUT_RADIO_GROUP" js="on" ><![CDATA[单选按钮组]]></msg>
+	<msg name="HTML_INPUT_GROUP" js="on" ><![CDATA[项目组]]></msg>
+	<msg name="HTML_INPUT_BOX" js="on" ><![CDATA[HTML框]]></msg>
+	<msg name="HTML_INPUT_HIDDEN" js="on" ><![CDATA[Hidden（隐藏项目）]]></msg>
+	<msg name="HTML_GRID" js="on" ><![CDATA[Grid（格）]]></msg>
+	<msg name="HTML_CANVAS" js="on" ><![CDATA[キャンバス（图像）]]></msg>
+	<msg name="HTML_NOT_SUPPORT_TAG" js="on" ><![CDATA[不支持项目。]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION" js="on" ><![CDATA[用JavaScript表单控制的话请定义。]]></msg>
+	<msg name="MSG_DELETE_COMP" js="on" ><![CDATA[删除不显示项目吗？（不能复原。）]]></msg>
+	<msg name="MSG_MUST_CREATE_SECTION" js="on" ><![CDATA[请先早创建一个ACTION。]]></msg>
+	<msg name="MSG_COMP_COPY" js="on" ><![CDATA[ - 复制]]></msg>
+	<msg name="MSG_COMP_DROP_DRAG_ERR" js="on" ><![CDATA[拖放错误]]></msg>
+	<msg name="BTN_EDIT" js="on" ><![CDATA[修改]]></msg>
+	<msg name="BTN_MULTI_COPY" js="on" ><![CDATA[复制]]></msg>
+	<msg name="BTN_DELETE" js="on" ><![CDATA[删除]]></msg>
+	<msg name="BTN_MOVE_UP" js="on" ><![CDATA[向上]]></msg>
+	<msg name="BTN_MOVE_DOWN" js="on" ><![CDATA[向下]]></msg>
+	<msg name="MSG_SELECT_TEMPLATE" js="on" ><![CDATA[请选择一个布局]]></msg>
+	<msg name="MSG_DELETE_SECTION" js="on" ><![CDATA[删除该部分。你确定吗？]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION_1" js="on" ><![CDATA[ //用javascript控制表单的话在这里定义。]]></msg>
+	<msg name="MSG_SAVE_HTML_EDITOR" js="on" ><![CDATA[保存布局模版，关闭窗体布局工具。你确定吗？]]></msg>
+	<msg name="MSG_SAVE_HTML_ERROR" js="on" ><![CDATA[保存失败。]]></msg>
+	<msg name="MSG_SAVE_UNDEFINED_ERROR" js="on" ><![CDATA[未知错误]]></msg>
+	<msg name="MSG_SECTION_EDIT" js="on" ><![CDATA[修改部分]]></msg>
+	<msg name="BTN_SAVE" js="on" ><![CDATA[保存]]></msg>
+	<msg name="BTN_SECTION_ADD_NEW" js="on" ><![CDATA[新建部分]]></msg>
+	<msg name="BTN_ADD" js="on" ><![CDATA[添加]]></msg>
+	<msg name="BTN_CANCEL" js="on" ><![CDATA[取消]]></msg>
+	<msg name="LBL_HORIZONTAL_DISPLAY" js="on" ><![CDATA[ 横向显示标题]]></msg>
+	<msg name="LBL_HEADER_EXP" js="on" ><![CDATA[宽度(例：80px, 40%)]]></msg>
+	<msg name="LBL_HEADER_ARRANGE" js="on" ><![CDATA[对齐]]></msg>
+	<msg name="LBL_COL_ALIGN_LEFT" js="on" ><![CDATA[左]]></msg>
+	<msg name="LBL_COL_ALIGN_CENTER" js="on" ><![CDATA[中央]]></msg>
+	<msg name="LBL_COL_ALIGN_RIGHT" js="on" ><![CDATA[右]]></msg>
+	<msg name="LBL_VERTICAL_DISPLAY" js="on" ><![CDATA[纵向显示标题]]></msg>
+	<msg name="MSG_SECTION_NAME_REQUIRED" js="on" ><![CDATA[必须输入部分名。]]></msg>
+	<msg name="LBL_SECTION_NAME" js="on" ><![CDATA[部分名]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_NAME" js="on" ><![CDATA[显示部分名]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_TOGGLE" js="on" ><![CDATA[显示／不显示]]></msg>
+	<msg name="LBL_SECTION_COLUMN" js="on" ><![CDATA[列的布局]]></msg>
+	<msg name="LBL_COLUMN" js="on" ><![CDATA[列]]></msg>
+	<msg name="LBL_DISPLAY_COLUMN" js="on" ><![CDATA[想显示列名请选择。]]></msg>
+	<msg name="LBL_ITEM_EDIT" js="on" ><![CDATA[修改项目]]></msg>
+	<msg name="LBL_ITEM_ADD_NEW" js="on" ><![CDATA[新建项目]]></msg>
+	<msg name="MSG_ITEM_NAME" js="on" ><![CDATA[字段名称]]></msg>
+	<msg name="MSG_ITEM_NAME_REQUIRED" js="on" ><![CDATA[必须输入字段名称。]]></msg>
+	<msg name="MSG_ITEM_ADD_REQUIRED" js="on" ><![CDATA[请选择添加项目。]]></msg>
+	<msg name="MSG_ITEM_DELETE" js="on" ><![CDATA[可以删除吗？]]></msg>
+	<msg name="TITLE_ITEM_ADD" js="on" ><![CDATA[添加项目]]></msg>
+	<msg name="TITLE_ITEM_EDIT" js="on" ><![CDATA[修改项目]]></msg>
+	<msg name="MSG_RAIDO_ITEM_SELECT" js="on" ><![CDATA[请选择一个单选按钮。]]></msg>
+	<msg name="LBL_LIST_ITEM_DISPLAY_VALUE" js="on" ><![CDATA[列表项目的显示值]]></msg>
+	<msg name="LBL_LIST_ITEM_SUBMIT_VALUE" js="on" ><![CDATA[列表项目的发送值]]></msg>
+	<msg name="TITLE_LIST_ITEM" js="on" ><![CDATA[列表项目]]></msg>
+	<msg name="LBL_TITLE" js="on" ><![CDATA[标题]]></msg>
+	<msg name="LBL_SERIAL_TITLE" js="on" ><![CDATA[为输入的话，仅显示连续数字（1,2,3...）。]]></msg>
+	<msg name="LBL_DISPLAY_DIRECTION" js="on" ><![CDATA[显示方向]]></msg>
+	<msg name="LBL_HORIZONTAL_DIRECTION" js="on" ><![CDATA[横向]]></msg>
+	<msg name="LBL_VERTICAL_DIRECTION" js="on" ><![CDATA[纵向]]></msg>
+	<msg name="LBL_NUMBER_COPY" js="on" ><![CDATA[个数]]></msg>
+	<msg name="LBL_NUMBER_COPY_EXP" js="on" ><![CDATA[横向：列数、纵向：行数]]></msg>
+	<msg name="LBL_ITEM_STYLE" js="on" ><![CDATA[字段风格]]></msg>
+	<msg name="LBL_STYLE_SAMPLE_EXP" js="on" ><![CDATA[例：<br>width:100%; <br>height:300px;<br>margin: 5px 5px 5px 5px;<br>padding: 5px 5px 5px 5px;<br>background: #FFFFFF<br>text-align: right;<br>font-size: 12px;<br>border: 1px solid grey;<br>color: red;]]></msg>
+	<msg name="LBL_SATERAITO_CLASS" js="on" ><![CDATA[卫星办公室类]]></msg>
+	<msg name="LBL_SATERAITO_CLASS_EXP" js="on" ><![CDATA[例：<br>富文本: richtext<br>必须输入的项目: mandatory<br>日期输入项目：date<br>数值输入项目：number<br>当天日期自动输入：today_date<br>乘法自动计算：multi<br>　→标签属性：fields="field1 field2"<br>合计自动计算：sum<br>　→标签属性：fields="field1 field2"<br>动态减法计算：diff<br>　→标签属性：fields="field1 field2"<br>复数类：number mandatory]]></msg>
+	<msg name="LBL_SATERAITO_CLASS_EXP_2" js="on" ><![CDATA[※详细设置方法，请看<a target="_blank" href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/jie-shi-ban-hui-lan-ban-ji-nengmanyuaru#TOC--45">这里</a>。]]></msg>
+	<msg name="LBL_ITEM_WIDTH" js="on" ><![CDATA[宽度]]></msg>
+	<msg name="LBL_ITEM_NAME_DISPLAY" js="on" ><![CDATA[显示]]></msg>
+	<msg name="LBL_ITEM_SECTION" js="on" ><![CDATA[部分]]></msg>
+	<msg name="LBL_ITEM_SECTION_COLUMN" js="on" ><![CDATA[列项目]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS" js="on" ><![CDATA[标签属性]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS_EXP" js="on" ><![CDATA[例：<br>必须输入的项目: mandatory_msg="XXX是必须项目。" <br>自动计算字段: fields="kingaku1 kingaku2"<br>纳税金额计算：number=1.08<br>复数属性：fields="kingaku1 kingaku2" number=1.08]]></msg>
+	<msg name="LBL_HTML_CODE" js="on" ><![CDATA[HTML代码]]></msg>
+	<msg name="LBL_LIST_RADIO_BTN" js="on" ><![CDATA[单选按钮列表]]></msg>
+	<msg name="LBL_GROUP_HTML_ITEM" js="on" ><![CDATA[组项目]]></msg>
+	<msg name="LBL_ITEM_INIT_VALUE" js="on" ><![CDATA[初始值]]></msg>
+	<msg name="LBL_ITEM_LENGTH" js="on" ><![CDATA[可以输入的字符]]></msg>
+	<msg name="LBL_ITEM_LENGTH_EXP" js="on" ><![CDATA[例： 10]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS" js="on" ><![CDATA[纵向位数]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS_EXP" js="on" ><![CDATA[例： 50]]></msg>
+	<msg name="LBL_ITEM_NUMBER_LINES" js="on" ><![CDATA[横向位数]]></msg>
+	<msg name="LBL_ITEM_READONLY" js="on" ><![CDATA[只读]]></msg>
+	<msg name="LBL_ITEM_READONLY_EXP" js="on" ><![CDATA[※ReadOnly标签]]></msg>
+	<msg name="LBL_ITEM_DISABLE" js="on" ><![CDATA[不可用]]></msg>
+	<msg name="LBL_ITEM_DISABLE_EXP" js="on" ><![CDATA[※Disabledタ标签]]></msg>
+	<msg name="LBL_ITEM_CHEKED_ON" js="on" ><![CDATA[设置为ON]]></msg>
+	<msg name="LBL_ITEM_MULTI_SELECT" js="on" ><![CDATA[设置为可以复选]]></msg>
+	<msg name="LBL_ITEM_BEFORE_EXP" js="on" ><![CDATA[在输入项目之前显示]]></msg>
+	<msg name="LBL_ITEM_AFFTER_EXP" js="on" ><![CDATA[在输入项目之后显示]]></msg>
+	<msg name="LBL_ITEM_BOLDER_ON" js="on" ><![CDATA[粗体]]></msg>
+	<msg name="LBL_ITEM_MULTI_COPY" js="on" ><![CDATA[复制数]]></msg>
+	<msg name="MSG_ITEM_SET_ATTRS" js="on" ><![CDATA[请设置项目属性。]]></msg>
+	<msg name="MSG_ITEM_TYPE_SELECT" js="on" ><![CDATA[请选择项目种类。]]></msg>
+	<msg name="MSG_EDITOR_TAB_EXP" js="on" ><![CDATA[列和项目的顺序或部分修改后样式可以该改变。部分的标题可以拖放来改变顺序。<br>请用拖放移动到不显示项目列表。]]></msg>
+	<msg name="MSG_EDITOR_NOT_DISPLAY_LIST" js="on" ><![CDATA[不显示项目列表]]></msg>
+	<msg name="MSG_ITEM_DELETE_PERMANET" js="on" ><![CDATA[永久删除]]></msg>
+	<msg name="BTN_EDITOR_COMPLETE" js="on" ><![CDATA[完成]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW" js="on" ><![CDATA[预览]]></msg>
+	<msg name="BTN_EDITOR_HTML_CONFIRM" js="on" ><![CDATA[HTML代码确认]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP" js="on" ><![CDATA[※按完成按钮后，将覆盖表单样式HTML。]]></msg>
+	<msg name="MSG_TEMPLATE_TITLE" js="on" ><![CDATA[请输入标题。]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP" js="on" ><![CDATA[公告栏・文档管理・工作流程等的模版作成时，模版内容里下面的HTML源代码不能使用。]]></msg>
+	<msg name="MSG_HTML_EDITOR_TAB" js="on" ><![CDATA[新建、修改样式]]></msg>
+	<msg name="MSG_HTML_PREVIEW_TAB" js="on" ><![CDATA[样式预览]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB" js="on" ><![CDATA[HTML源代码]]></msg>
+	<msg name="MSG_HTML_EDITOR_TITLE" js="on" ><![CDATA[卫星办公室・窗体布局工具]]></msg>
+	<msg name="BTN_EDITOR_BACK" js="on" ><![CDATA[从修改样式返回]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW_BACK" js="on" ><![CDATA[返回到预览]]></msg>
+</messagebundle>

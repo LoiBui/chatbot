@@ -1,0 +1,24 @@
+﻿[2019/10/23 17:31:42] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/10/23 17:31:42] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/10/23 17:31:43] [Compile Start]lang\default.js
+[2019/10/23 17:31:45] [Compile Start]lang\ja.js
+[2019/10/23 17:31:47] [Compile Start]lang\en.js
+[2019/10/23 17:31:49] Expand Jinja Templates include files...
+[2019/10/23 17:31:49] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2019/10/23 17:31:49] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2019/10/23 17:31:50] System.IO.FileNotFoundException: ファイル 'C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates\default\pc\tenant\include\businessrule_leftmenu.html' が見つかりませんでした。
+ファイル名 'C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates\default\pc\tenant\include\businessrule_leftmenu.html' です。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   場所 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   場所 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   場所 System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   場所 System.IO.StreamReader..ctor(String path, Encoding encoding)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneFile(FileInfo fTemplate)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneDirectory(DirectoryInfo d)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneDirectory(DirectoryInfo d)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneDirectory(DirectoryInfo d)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludesOneDirectory(DirectoryInfo d)
+   場所 Ucf.CallClosureCompiler.Program.expandJinjaTemplateIncludes()
+   場所 Ucf.CallClosureCompiler.Program.executeMainProcess()
+   場所 Ucf.CallClosureCompiler.Program.Main(String[] args)

@@ -1,0 +1,1152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_group.js?{{version}}"></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all-red.css" />
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all-green.css" />
+<script type="text/javascript" src="{{vscripturl}}ext/PopupGroupList.js?{{version}}" ></script>
+<LINK href="/css/jqueryUcfTree2.css?{{version|safe}}" type="text/css" rel="stylesheet">
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<title>{{lang.VMSG_SITE_TITLE_GROUP_NEW}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<title>{{lang.VMSG_SITE_TITLE_GROUP_RENEW}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% else %}<title>{{lang.VMSG_SITE_TITLE_GROUP}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% endif %}
+<script type="text/javascript" >
+<!--
+
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+}
+
+// 所属組織（グループ）ストア 2011/02/02
+var createGroupIdStore = function(){
+	return new Ext.data.ArrayStore({
+    storeId: 'storGroupId',
+    idIndex: 0,
+    fields: [
+       {name: 'UniqueID'},
+       {name: 'Name'},
+       {name: 'MailAddress'},
+       {name: 'MailGroupID'}
+    ]
+	});
+};
+
+var storGroupId = createGroupIdStore();
+var GroupIdInit = createGroupIdStore();
+var lstStoreParentGroup = [storGroupId,GroupIdInit];
+
+{#
+// 所属組織（グループ）ストア
+var createBelongMemberStore = function(){
+	return new Ext.data.ArrayStore({
+    storeId: 'storBelongMember',
+    idIndex: 0,
+    fields: [
+       {name: 'Index'}
+      ,{name: 'UniqueID'}
+      ,{name: 'Name'}
+      ,{name: 'MailAddress'}
+      ,{name: 'Type'}
+      ,{name: 'OwnerFlag'}
+//      ,{name: 'DispPriority'}
+    ]
+	});
+};
+var storBelongMember = createBelongMemberStore();
+var storBelongMemberInit = createBelongMemberStore();
+var lstStore = [storBelongMember,storBelongMemberInit];
+#}
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+//	// リセット時に表示内容をクリア(初期値が空の場合の対策)
+//	var disp_box = Ext.get('GroupIdDispBox');
+//	if(disp_box)
+//	{
+//		disp_box.dom.innerHTML = '';
+//	}
+
+//	storGroupId.removeAll();
+
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+
+//	refleshGroupIdInfo();
+
+}
+
+//////////////////////////////////////////////////
+// 親グループの１つをメイングループにする
+//////////////////////////////////////////////////
+function setMainGroupId(value)
+{
+	var mask = new Ext.LoadMask(Ext.get('GroupIdArea'), {msg:"{{lang.VMSG_MSG_PROCESSING}}"});
+	mask.show();
+	document.getElementById('main_group_id').value = value;
+	refleshGroupIdDispBox();
+	mask.hide();
+}
+
+
+//////////////////////////////////////////////////
+// 親メイングループを解除する。 2011/02/02
+//////////////////////////////////////////////////
+function delMainGroupId()
+{
+	var mask = new Ext.LoadMask(Ext.get('GroupIdArea'), {msg:"{{lang.VMSG_MSG_PROCESSING}}"});
+	mask.show();
+	document.getElementById('main_group_id').value = '';
+	refleshGroupIdDispBox();
+	mask.hide();
+}
+
+// 親グループGroupIdDispBoxをレンダリング 2011/02/02
+var refleshGroupIdDispBox = function()
+{
+	
+	var disp_box = Ext.get('GroupIdDispBox');
+	if(!disp_box)
+	{
+		return;
+	}
+
+	disp_box.dom.innerHTML = '';
+
+
+//	var group_ids = '';
+	var stor_length = storGroupId.getCount();
+	var datJson = [];
+	
+	for(var i = 0; i < stor_length; i++)
+	{
+		var rec = storGroupId.getAt(i);
+
+		if(Ext.ucf.decodeUnicode(rec.get('Name')) == ""){
+			datJson.push({Index:i, UniqueID:rec.get('UniqueID'), Name:Ext.ucf.htmlEscape(rec.get('Name')), MailAddress:rec.get('MailAddress')});
+		}
+		else
+		{
+			datJson.push({Index:i, UniqueID:rec.get('UniqueID'), Name:rec.get('Name'), MailAddress:rec.get('MailAddress')});
+		}
+	}
+
+	for(var i = 0; i < datJson.length; i++)
+	{
+		var datItem = datJson[i];
+
+		var ul = document.createElement('ul');
+		disp_box.dom.appendChild(ul);
+		var li = document.createElement('li');
+		ul.appendChild(li);
+		var sub_div = document.createElement('div');
+		Ext.get(sub_div).addClass('mem_rec');
+
+		li.appendChild(sub_div);
+		sub_ul = document.createElement('ul');
+		Ext.get(sub_ul).addClass('sub');
+		sub_div.appendChild(sub_ul);
+		sub_li = document.createElement('li');
+		Ext.get(sub_li).addClass('content');
+		sub_ul.appendChild(sub_li);
+
+		var innerHtml = '';
+
+		if(datItem.Name != '')
+		{
+			innerHtml = datItem.Name + '&nbsp;&lt;' + Ext.ucf.htmlEscape(datItem.MailAddress) + '&gt;';
+		}
+		else
+		{
+			innerHtml = Ext.ucf.htmlEscape(datItem.MailAddress);
+		}
+
+		if(datItem.UniqueID != ''){
+			innerHtml = '<a href="{{vurl}}group/regist?unqid=' + escape(datItem.UniqueID) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}" target="_blank" >' + innerHtml + '</a>';
+		}
+		sub_li.innerHTML = innerHtml;
+
+		sub_li = document.createElement('li');
+		Ext.get(sub_li).addClass('main');
+		sub_ul.appendChild(sub_li);
+		// メイン所属組織であるか判定
+		var main_group_address = document.getElementById('main_group_id').value;
+		if(datItem.MailAddress == main_group_address)
+		{
+			sub_li.innerHTML = '<a href="JavaScript:delMainGroupId();"><span style="color: #ff0000">{{lang.MAIN_GROUP}}&nbsp;&nbsp;</span>{{lang.RELEASE_MAIN_GROUP}}</a>&nbsp;&nbsp;';
+		}
+		else
+		{
+			sub_li.innerHTML = '<a href="JavaScript:setMainGroupId(\'' + Ext.ucf.htmlEscape(datItem.MailAddress) + '\');">{{lang.BELONG_MAIN_GROUP}}</a>&nbsp;&nbsp;';
+		}
+
+	}
+
+	$('#ParentGroupInfo').val($.toJSON(datJson));
+	
+	// 表示内容のリセット
+	document.getElementById('GroupIdErrMessage').innerHTML = '';
+	// 空だったらメッセージ表示
+	if(datJson.length == 0)
+	{
+		document.getElementById('GroupIdErrMessage').innerHTML = '&nbsp;&nbsp;<span style="color: #ff0000" class="style3">{{lang.VMSG_MSG_NO_PARENT_GROUPS}}</span>';
+		return;
+	}
+
+};
+
+//////////////////////////////////////////////////
+// 親グループ情報を取得し画面に反映 2011/02/02
+//////////////////////////////////////////////////
+var refleshGroupIdInfo = function()
+{
+	Ext.each(lstStoreParentGroup, function(store){store.removeAll();});
+	var rec;
+	{% if ucfp.voinfo.vo.ParentGroupInfo and ucfp.voinfo.vo.ParentGroupInfo != '' %}
+	var datJson = $.secureEvalJSON('{{ucfp.voinfo.vo.ParentGroupInfo|escapejs}}');
+	for(var i = 0; i < datJson.length; i++)
+	{
+		var datItem = datJson[i];
+		rec = new Ext.data.Record(datItem);
+		storGroupId.add([rec]);
+		GroupIdInit.add([rec]);
+	}
+	{% endif %}
+	refleshGroupIdDispBox();
+};
+
+// 各フィールドを設定
+function createFields()
+{
+	{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}
+	// グループアカウント
+	var field_group_id = Ext.ucf.field.createTextField('group_id', 'group_id', '{{ucfp.voinfo.vo.group_id|escapejs}}', '{{lang.FLD_GROUPID}}', 250, Ext.ucf.delegateCheckValidation);
+	field_group_id.render('FIELD_group_id');
+	{% if vcmsg.group_id %}field_group_id.markInvalid('{% for v in vcmsg.group_id %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	lstCmpFrmEdit.push(field_group_id);
+	{% endif %}
+
+	// メールアドレス
+	var field_mail_address = Ext.ucf.field.createTextField('mail_address', 'mail_address', '{{ucfp.voinfo.vo.mail_address|escapejs}}', '{{lang.FLD_MAILADDRESS}}', 250, Ext.ucf.delegateCheckValidation, {autocomplete:'off'});
+	field_mail_address.render('FIELD_mail_address');
+	lstCmpFrmEdit.push(field_mail_address);
+	{% if vcmsg.mail_address %}field_mail_address.markInvalid('{% for v in vcmsg.mail_address %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	// 組織名称
+	var field_group_name = Ext.ucf.field.createTextField('group_name', 'group_name', '{{ucfp.voinfo.vo.group_name|escapejs}}', '{{lang.FLD_GROUPNAME}}', 400, Ext.ucf.delegateCheckValidation)
+	field_group_name.render('FIELD_group_name');
+	lstCmpFrmEdit.push(field_group_name);
+	{% if vcmsg.group_name %}field_group_name.markInvalid('{% for v in vcmsg.group_name %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 管理グループ
+	{% if 'ADMIN' in login.access_authority or not is_exist_delegate_management_groups: %}
+
+	var field_management_group = Ext.ucf.field.createTextField('management_group', 'management_group', '{{ucfp.voinfo.vo.management_group|escapejs}}', '{{lang.FLD_MANAGEMENT_GROUP|safe|escapejs}}', 150, Ext.ucf.delegateCheckValidation);
+	field_management_group.render('FIELD_management_group');
+	lstCmpFrmEdit.push(field_management_group);
+	{% if vcmsg.management_group %}field_management_group.markInvalid('{% for v in vcmsg.management_group %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+
+	{% else %}
+
+	var _lst_delegate_management_groups = [];
+	{% for item in login.delegate_management_groups: %}
+	_lst_delegate_management_groups.push(['{{item|escapejs}}','{{item|escapejs}}']);
+	{% endfor %}
+
+	var field_management_group = Ext.ucf.field.createComboBox('', 'management_group', _lst_delegate_management_groups, '{{ucfp.voinfo.vo.management_group|escapejs}}', '{{lang.FLD_MANAGEMENT_GROUP|safe|escapejs}}', 250, Ext.ucf.delegateCheckValidation);
+	field_management_group.render('FIELD_management_group');
+	lstCmpFrmEdit.push(field_management_group);
+	{% if vcmsg.management_group %}field_management_group.markInvalid('{% for v in vcmsg.management_group %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	{% endif %}
+
+	// 説明
+	var field_comment = Ext.ucf.field.createTextAreaField('comment', 'comment', '{{ucfp.voinfo.vo.comment|escapejs}}', '{{lang.FLD_COMMENT}}', '400px', '50px', Ext.ucf.delegateCheckValidation)
+	field_comment.render('FIELD_comment');
+	lstCmpFrmEdit.push(field_comment);
+	{% if vcmsg.comment %}field_comment.markInvalid('{% for v in vcmsg.comment %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	// 連絡先：会社名
+	var field_contact_company = Ext.ucf.field.createTextField('contact_company', 'contact_company', '{{ucfp.voinfo.vo.contact_company|escapejs}}', '{{lang.FLD_CONTACT_COMPANY}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_company.render('FIELD_contact_company');
+	lstCmpFrmEdit.push(field_contact_company);
+	{% if vcmsg.contact_company %}field_contact_company.markInvalid('{% for v in vcmsg.contact_company %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：事業所
+	var field_contact_company_office = Ext.ucf.field.createTextField('contact_company_office', 'contact_company_office', '{{ucfp.voinfo.vo.contact_company_office|escapejs}}', '{{lang.FLD_CONTACT_COMPANY_OFFICE}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_company_office.render('FIELD_contact_company_office');
+	lstCmpFrmEdit.push(field_contact_company_office);
+	{% if vcmsg.contact_company_office %}field_contact_company_office.markInvalid('{% for v in vcmsg.contact_company_office %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：部署
+	var field_contact_company_department = Ext.ucf.field.createTextField('contact_company_department', 'contact_company_department', '{{ucfp.voinfo.vo.contact_company_department|escapejs}}', '{{lang.FLD_CONTACT_COMPANY_DEPARTMENT}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_company_department.render('FIELD_contact_company_department');
+	lstCmpFrmEdit.push(field_contact_company_department);
+	{% if vcmsg.contact_company_department %}field_contact_company_department.markInvalid('{% for v in vcmsg.contact_company_department %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：課・グループ
+	var field_contact_company_department2 = Ext.ucf.field.createTextField('contact_company_department2', 'contact_company_department2', '{{ucfp.voinfo.vo.contact_company_department2|escapejs}}', '{{lang.FLD_CONTACT_COMPANY_DEPARTMENT2}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_company_department2.render('FIELD_contact_company_department2');
+	lstCmpFrmEdit.push(field_contact_company_department2);
+	{% if vcmsg.contact_company_department2 %}field_contact_company_department2.markInvalid('{% for v in vcmsg.contact_company_department2 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：役職
+	var field_contact_company_post = Ext.ucf.field.createTextField('contact_company_post', 'contact_company_post', '{{ucfp.voinfo.vo.contact_company_post|escapejs}}', '{{lang.FLD_CONTACT_COMPANY_POST}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_company_post.render('FIELD_contact_company_post');
+	lstCmpFrmEdit.push(field_contact_company_post);
+	{% if vcmsg.contact_company_post %}field_contact_company_post.markInvalid('{% for v in vcmsg.contact_company_post %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：メールアドレス1
+	var field_contact_email1 = Ext.ucf.field.createTextField('contact_email1', 'contact_email1', '{{ucfp.voinfo.vo.contact_email1|escapejs}}', '{{lang.FLD_CONTACT_EMAIL1}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_email1.render('FIELD_contact_email1');
+	lstCmpFrmEdit.push(field_contact_email1);
+	{% if vcmsg.contact_email2 %}field_contact_email2.markInvalid('{% for v in vcmsg.contact_email2 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：メールアドレス2
+	var field_contact_email2 = Ext.ucf.field.createTextField('contact_email2', 'contact_email2', '{{ucfp.voinfo.vo.contact_email2|escapejs}}', '{{lang.FLD_CONTACT_EMAIL2}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_email2.render('FIELD_contact_email2');
+	lstCmpFrmEdit.push(field_contact_email2);
+	{% if vcmsg.contact_email2 %}field_contact_email2.markInvalid('{% for v in vcmsg.contact_email2 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：電話番号1
+	var field_contact_tel_no1 = Ext.ucf.field.createTextField('contact_tel_no1', 'contact_tel_no1', '{{ucfp.voinfo.vo.contact_tel_no1|escapejs}}', '{{lang.FLD_CONTACT_TEL_NO1}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_tel_no1.render('FIELD_contact_tel_no1');
+	lstCmpFrmEdit.push(field_contact_tel_no1);
+	{% if vcmsg.contact_tel_no1 %}field_contact_tel_no1.markInvalid('{% for v in vcmsg.contact_tel_no1 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：電話番号2
+	var field_contact_tel_no2 = Ext.ucf.field.createTextField('contact_tel_no2', 'contact_tel_no2', '{{ucfp.voinfo.vo.contact_tel_no2|escapejs}}', '{{lang.FLD_CONTACT_TEL_NO2}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_tel_no2.render('FIELD_contact_tel_no2');
+	lstCmpFrmEdit.push(field_contact_tel_no2);
+	{% if vcmsg.contact_tel_no2 %}field_contact_tel_no2.markInvalid('{% for v in vcmsg.contact_tel_no2 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：電話番号3
+	var field_contact_tel_no3 = Ext.ucf.field.createTextField('contact_tel_no3', 'contact_tel_no3', '{{ucfp.voinfo.vo.contact_tel_no3|escapejs}}', '{{lang.FLD_CONTACT_TEL_NO3}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_tel_no3.render('FIELD_contact_tel_no3');
+	lstCmpFrmEdit.push(field_contact_tel_no3);
+	{% if vcmsg.contact_tel_no3 %}field_contact_tel_no3.markInvalid('{% for v in vcmsg.contact_tel_no3 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：電話番号4
+	var field_contact_tel_no4 = Ext.ucf.field.createTextField('contact_tel_no4', 'contact_tel_no4', '{{ucfp.voinfo.vo.contact_tel_no4|escapejs}}', '{{lang.FLD_CONTACT_TEL_NO4}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_tel_no4.render('FIELD_contact_tel_no4');
+	lstCmpFrmEdit.push(field_contact_tel_no4);
+	{% if vcmsg.contact_tel_no4 %}field_contact_tel_no4.markInvalid('{% for v in vcmsg.contact_tel_no4 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：電話番号5
+	var field_contact_tel_no5 = Ext.ucf.field.createTextField('contact_tel_no5', 'contact_tel_no5', '{{ucfp.voinfo.vo.contact_tel_no5|escapejs}}', '{{lang.FLD_CONTACT_TEL_NO5}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_tel_no5.render('FIELD_contact_tel_no5');
+	lstCmpFrmEdit.push(field_contact_tel_no5);
+	{% if vcmsg.contact_tel_no5 %}field_contact_tel_no5.markInvalid('{% for v in vcmsg.contact_tel_no5 %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：国、地域
+	var field_contact_postal_country = Ext.ucf.field.createTextField('contact_postal_country', 'contact_postal_country', '{{ucfp.voinfo.vo.contact_postal_country|escapejs}}', '{{lang.FLD_CONTACT_COUNTRY}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_postal_country.render('FIELD_contact_postal_country');
+	lstCmpFrmEdit.push(field_contact_postal_country);
+	{% if vcmsg.contact_postal_country %}field_contact_postal_country.markInvalid('{% for v in vcmsg.contact_postal_country %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：郵便番号
+	var field_contact_postal_code = Ext.ucf.field.createTextField('contact_postal_code', 'contact_postal_code', '{{ucfp.voinfo.vo.contact_postal_code|escapejs}}', '{{lang.FLD_CONTACT_POSTAL_CODE}}', 90, Ext.ucf.delegateCheckValidation);
+	field_contact_postal_code.render('FIELD_contact_postal_code');
+	lstCmpFrmEdit.push(field_contact_postal_code);
+	{% if vcmsg.contact_postal_code %}field_contact_postal_code.markInvalid('{% for v in vcmsg.contact_postal_code %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：住所１（都道府県）
+	var field_contact_postal_prefecture = Ext.ucf.field.createTextField('contact_postal_prefecture', 'contact_postal_prefecture', '{{ucfp.voinfo.vo.contact_postal_prefecture|escapejs}}', '{{lang.FLD_CONTACT_POSTAL_PREFECTURE}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_postal_prefecture.render('FIELD_contact_postal_prefecture');
+	lstCmpFrmEdit.push(field_contact_postal_prefecture);
+	{% if vcmsg.contact_postal_prefecture %}field_contact_postal_prefecture.markInvalid('{% for v in vcmsg.contact_postal_prefecture %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：住所２（市区町村）
+	var field_contact_postal_city = Ext.ucf.field.createTextField('contact_postal_city', 'contact_postal_city', '{{ucfp.voinfo.vo.contact_postal_city|escapejs}}', '{{lang.FLD_CONTACT_POSTAL_CITY}}', 180, Ext.ucf.delegateCheckValidation);
+	field_contact_postal_city.render('FIELD_contact_postal_city');
+	lstCmpFrmEdit.push(field_contact_postal_city);
+	{% if vcmsg.contact_postal_city %}field_contact_postal_city.markInvalid('{% for v in vcmsg.contact_postal_city %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 連絡先：住所３（番地）
+	var field_contact_postal_street_address = Ext.ucf.field.createTextAreaField('contact_postal_street_address', 'contact_postal_street_address', '{{ucfp.voinfo.vo.contact_postal_street_address|escapejs}}', '{{lang.FLD_CONTACT_POSTAL_STREET_ADDRESS}}', '500px', '30px', Ext.ucf.delegateCheckValidation);
+	field_contact_postal_street_address.render('FIELD_contact_postal_street_address');
+	lstCmpFrmEdit.push(field_contact_postal_street_address);
+	{% if vcmsg.contact_postal_street_address %}field_contact_postal_street_address.markInvalid('{% for v in vcmsg.contact_postal_street_address %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+
+}
+
+function goCopyNewRegist()
+{
+	location.href = '{{vurl}}group/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}&{{config.QSTRING_TYPE2}}={{config.EDIT_TYPE_COPYNEWREGIST}}'
+}
+
+function deleteData()
+{
+	if(confirm('{{lang.VMSG_CONFIRM_DELETE_GROUP}}'))
+	{
+		location.href = '{{vurl}}group/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_DELETE}}&{{config.QSTRING_STATUS}}={{config.VC_CHECK}}&token={{ucfp.data.token}}'
+	}	
+}
+
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+	
+	createFields();
+
+	// 親グループ
+	refleshGroupIdInfo();
+    
+	var btnRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}{{lang.VMSG_NEWREGIST_GROUP}}{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}{{lang.VMSG_RENEWREGIST_GROUP}}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;'
+		,handler:function(){
+			document.frmEdit.submit();
+		}
+//		,type:'submit'
+	});
+	btnRegist.render(Ext.get('btnRegist'));
+	
+	var btnReset = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_RESET}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			field_reset();
+		}
+	});
+	btnReset.render(Ext.get('btnReset'));
+
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+	var btnCopyNewRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_COPY}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goCopyNewRegist();
+		}
+	});
+	btnCopyNewRegist.render(Ext.get('btnCopyNewRegist'));
+
+	var btnDelete = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_GROUP_DELETE}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			deleteData();
+		}
+	});
+	btnDelete.render(Ext.get('btnDelete'));
+
+	var btnGoToBelongMemberPage = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.ADD_BELONG_MEMBER}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			location.href = '{{vurl}}group/member?unqid={{ucfp.voinfo.vo.unique_id}}';
+		}
+	});
+	btnGoToBelongMemberPage.render(Ext.get('btnGoToBelongMemberPage'));
+
+	{% endif %}
+	
+	var btnBackClose = new Ext.Button({
+		text:''
+	});
+	
+	if(history.length > 1)
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			history.back(-1);
+		};
+	}
+	else
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			window.close();
+		};
+	}
+	btnBackClose.render(Ext.get('btnBackClose'));
+
+	// 各セクションの開閉状態の初期化（設定によるものではなくユーザーが開閉を選択するもの）※予期せぬ動作不備を避けるため一番最後に行う
+	Ext.ucf.initShowOrHideSections();
+
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+
+<!-- leftMenu innerArea//start -->
+<div class="innerArea" >
+<p class="ttl">{{lang.VMSG_GROUP_TREE}}</p>
+<p align="right" >
+</p>
+<div id="AreaGroupTree" class="orgTree" style="padding:2px;"></div>
+<script type="text/javascript" >
+<!--
+if(Ext.ucf.popup_group_list){
+	Ext.ucf.popup_group_list.setTree2('AreaGroupTree');
+}
+//-->
+</script>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_GROUP_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/" >{{lang.VMSG_GROUP_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_GROUP_ADD}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/#GROUP_CSV_EXPORT" >{{lang.VMSG_GROUP_CSV_EXPORT}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/#GROUP_CSV_IMPORT" >{{lang.VMSG_GROUP_CSV_IMPORT}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+{% if 'ADMIN' in login.access_authority: %}
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_POSTMESSAGE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="close"><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+{#<li class="close"><a href="{{vurl}}businessrule/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_BUSINESSRULE_ADD}}</a></li>#}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+{% if 'ADMIN' in login.access_authority or 'USER' in login.delegate_function: %}
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_USER_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="close"><a href="{{vurl}}user/" >{{lang.VMSG_USER_LIST}}</a></li>
+<li class="close"><a href="{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_USER_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+
+<!-- leftMenu menu02//start -->
+<!--<div class="menu02">-->
+<!--<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--&lt;!&ndash; leftMenu innerArea//start &ndash;&gt;-->
+<!--<div class="innerArea">-->
+<!--<p class="ttl">{{lang.VMSG_SOME_HISTORY_LIST}}</p>-->
+<!--<div class="folderMenu">-->
+
+<!--<ul>-->
+<!--{% if 'ADMIN' in login.access_authority or 'OPERATOR' in login.delegate_function: %}-->
+<!--<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl}}acs/log" >{{lang.VMSG_LOGINHISTORY}}</a></li>-->
+<!--{% endif %}-->
+<!--{% if 'ADMIN' in login.access_authority: %}-->
+<!--<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>-->
+<!--{% endif %}-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--&lt;!&ndash; leftMenu innerArea//end &ndash;&gt;-->
+<!--<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--</div>-->
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/group.png"></span>
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_GROUP_NEW}}</p>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_GROUP_RENEW}}</p>
+{% endif %}
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+			<tr>
+			<td>
+			{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<p class="style1">{{lang.EXP_GROUP_NEW|safe}}</p>
+			{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<p class="style1">{{lang.EXP_GROUP_RENEW|safe}}</font></p>
+			{% endif %}
+
+			<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
+			<form name="frmEdit" method="POST" action="{{vurl}}group/regist?unqid={{ucfp.voinfo.vo.unique_id}}&{{config.QSTRING_TYPE}}={{ucfp.data.tp}}" onsubmit="JavaScript:return Ext.ucf.preSubmit(Ext.get('contentsArea'));" >
+			<input type="hidden" name="token" value="{{ucfp.data.token}}">
+			<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+			<input type="hidden" id="main_group_id" name="main_group_id" value="{{ucfp.voinfo.vo.main_group_id}}">
+			<input type="hidden" name="date_changed" value="{{ucfp.voinfo.vo.date_changed}}">
+			<input type="hidden" id="ParentGroupInfo" name="ParentGroupInfo" value="">
+			<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr align="left">
+			<td colspan="4" align="left">
+				<table  align="left">
+					<tr>
+						<td>
+							<div id="btnGoToBelongMemberPage"></div>
+						</td>
+						<td class="style1" >
+							（{{ucfp.voinfo.vo.belong_members_count}} {{lang.NUMBER_OF_DATA}}）
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+	{% endif %}
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.VMSG_BASIC_INFORMATION}}</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_GROUPID}}&nbsp;<font color="red">*</font></td>
+			<td width="80%" align="left" class="style3" colspan="3" >
+	{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}
+			<div id="FIELD_group_id" class="field" ></div>
+	{% else %}
+			{{ucfp.voinfo.vo.group_id}}
+			<input type="hidden" name="group_id" value="{{ucfp.voinfo.vo.group_id}}">
+	{% endif %}
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_GROUPNAME}}&nbsp;<font color="red">*</font></td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_group_name" class="field" ></div>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_MAILADDRESS}}</td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_mail_address" class="field" ></div>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_MANAGEMENT_GROUP}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_management_group" class="field" ></div>
+			<p class="style1">{{lang.VMSG_MANAGEMENT_GROUP_EXP}}</p>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_COMMENT}}</td>
+			<td align="left" class="style3" colspan="3">
+				<table border="0" cellpadding="1" cellspacing="1" >
+				<tr>
+                    <td>
+                        <div id="FIELD_comment" class="field" ></div>
+                    </td>
+				</tr>
+{#				<tr>#}
+{#				<td><p class="style1">{{lang.EXP_GROUP_COMMENT|safe}}</p></td>#}
+{#				</tr>#}
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="15" border="0"></div></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div class="section_area_title main_content_title2" section_show_hide_area_id="AREA_contactinfo_config" style="cursor:pointer;"><a name="CONTACTINFO">{{lang.CONTACTINFO_CONFIG|safe}}</a><img class="section_arrow_img" /></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<p>{{lang.EXP_CONTACTINFO_CONFIG_FOR_GROUP|safe}}</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" id="AREA_contactinfo_config" >
+					<tr>
+					<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY}}</td>
+					<td align="left" class="style3" width="30%" >
+					<div id="FIELD_contact_company" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_OFFICE}}</td>
+					<td align="left" class="style3" width="30%" >
+					<div id="FIELD_contact_company_office" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_DEPARTMENT}}</td>
+					<td align="left" class="style3" width="30%" >
+					<div id="FIELD_contact_company_department" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_DEPARTMENT2}}</td>
+					<td align="left" class="style3" width="30%" >
+					<div id="FIELD_contact_company_department2" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_POST}}</td>
+					<td align="left" class="style3" width="30%" >
+					<div id="FIELD_contact_company_post" class="field" ></div>
+					</td>
+					<td valign="middle" width="20%" nowrap></td>
+					<td align="left" class="style3" width="30%" >
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_EMAIL1}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_email1" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_EMAIL2}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_email2" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO1}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_tel_no1" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO2}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_tel_no2" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO3}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_tel_no3" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO4}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_tel_no4" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO5}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_tel_no5" class="field" ></div>
+					</td>
+					<td valign="middle" nowrap></td>
+					<td align="left" class="style3" >
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_COUNTRY}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_postal_country" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CODE}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_postal_code" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_PREFECTURE}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_postal_prefecture" class="field" ></div>
+					</td>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CITY}}</td>
+					<td align="left" class="style3" >
+					<div id="FIELD_contact_postal_city" class="field" ></div>
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+					</tr>
+					<tr>
+					<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_STREET_ADDRESS}}</td>
+					<td align="left" class="style3" colspan="3" >
+					<div id="FIELD_contact_postal_street_address" class="field" ></div>
+					</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div class="section_area_title main_content_title2" section_show_hide_area_id="AREA_parentgroup_config" style="cursor:pointer;"><a name="PARENTGROUP">{{lang.PARENT_GROUP_CONFIG|safe}}</a><img class="section_arrow_img" /></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" id="AREA_parentgroup_config" >
+					<tr>
+					<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+					</tr>
+					<tr>
+					<td colspan="4">
+					<div id="AreaGroupId" >
+						<table class="info_table">
+							<tr>
+								<td><div id="GroupIdArea" >
+										<table border="0" cellpadding="0" cellspacing="0" >
+										<tr>
+										<td><div id="GroupIdErrMessage" class="DispBox" ></td>
+										</tr>
+										</table>
+										<div id="GroupIdDispBox" class="DispBox" >
+									</div> 
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="20" border="0" alt=""></td>
+			</tr>
+			<tr align="center">
+			<td colspan="4" align="center">
+				<table  align="center">
+					<tr>
+						<td>
+							<div id="btnRegist"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnReset"></div>
+						</td>
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnCopyNewRegist"></div>
+						</td>
+	{% endif %}
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnDelete"></div>
+						</td>
+	{% endif %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnBackClose"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+			</form>
+			</td>
+			</tr>
+
+			</table>
+
+    </td>
+  </tr>
+
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

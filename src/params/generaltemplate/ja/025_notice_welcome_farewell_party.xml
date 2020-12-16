@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[歓送迎会のお知らせ]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  歓送迎会のお知らせ
+
+  @since 2014-01-29
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_value" colspan="4" align="center">
+			<font size="3"><b>
+				<select name="kansougeikai">
+					<option>　歓迎会　</option>
+					<option>　送別会　</option>
+				</select>&nbsp;のお知らせ</b></font>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">お知らせ発行日</td>
+		<td class="detail_value" colspan="3">
+			<input name="hakkou_date" class="date today_date">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">お知らせ内容</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="inin_jikou" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+</table>
+
+<div class="main_content_title2">詳細</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">日時</td>
+		<td class="detail_value" style="width:45%">
+			<input type="text" name="kansougeikai_date" class="date">&nbsp;&nbsp;
+			<input type="text" name="kansougeikai_start_time" size="5">&nbsp;&nbsp;～&nbsp;&nbsp;
+			<input type="text" name="kansougeikai_end_time" size="5">
+		</td>
+		<td class="detail_name" style="width:20%">会費</td>
+		<td class="detail_value" style="width:15%"><input type="text" name="kansougeikai_kaihi" size="5" class="number">&nbsp;円</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">場所</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="kansougeikai_place" style="width:100%"></td>
+		<td class="detail_name" style="width:20%">連絡先</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="kansougeikai_tel_num"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">住所</td>
+		<td class="detail_value" colspan="3"><input type="text" name="tenpo_address" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">幹事　氏名</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="kanji_name"></td>
+		<td class="detail_name" style="width:20%">幹事　連絡先</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="kanji_tel"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+		<td colspan="4">
+			<input type="button" value="地図表示" onclick="
+
+			//// 地図表示ボタンクリック時の処理
+
+			var form = SateraitoWF.getForm(this);
+
+			var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+			var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+			// 住所を取得し、iframeのソースURLを作成します
+
+			var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+			src += tenpo_address_encoded;
+			src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+			// 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+			var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+			map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+			// iframeとGoogleMapsリンクに作成したURLをセットします
+
+			$(form).find('.google_maps_frame_sateraito').attr('src', src);
+			$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+			// GoogleMapsリンクに住所をセットします
+
+			$(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+			">
+
+			<br />
+			<br />
+
+			<iframe class="google_maps_frame_sateraito" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe><br />
+			<small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left" target="_blank"></a> を表示</small>
+
+			<br>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140529081440mcGJQYPS200gaafj\",\"name\":\"歓送迎会のお知らせ1\",\"sections\":[{\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\",\"secname\":\"歓送迎会のお知らせ1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-14013260932030LjL47ISRd1rJyeo\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401326093207iK3gIiSGzuEsuHGW\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"},{\"control_id\":\"ctr_id-1401326093203uqk5EZxRI3fWs9xB\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"},{\"control_id\":\"ctr_id-1401326093206pAnVrpjQ7SIuih2J\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]},{\"section_id\":\"sec_id-1401326235259UmDsf3LhWebNz8bh\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401326249932Yn41KhHeQwDBPArA\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-14013262930418m8M5D2foKijMEEB\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401926753661B3UI3ZOBOqOuPuRQ\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"group_kansougeikai\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_kansougeikai\",\"style\":\"margin-left:250px;width:30%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"プルダウン\",\"config\":{\"items\":[{\"text\":\"　歓迎会　\",\"value\":\"　歓迎会　\",\"control_id\":\"ctr_id-1401926753661b30MaFL4DrbzHZF0\",\"section_id\":\"sec_id-14013262930418m8M5D2foKijMEEB\"},{\"text\":\"　送別会　\",\"value\":\"　送別会　\",\"control_id\":\"ctr_id-1401926753662dEvFfD0eSo5Jo27K\",\"section_id\":\"sec_id-14013262930418m8M5D2foKijMEEB\"}],\"attributes\":{\"lblname\":\"kansougeikai\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"kansougeikai\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"control_id\":\"ctr_id-1401926753661M0tvG5cNDDo98gRP\",\"map_type_control\":\"select\",\"section_id\":\"sec_id-14013262930418m8M5D2foKijMEEB\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"  のお知らせ\",\"style\":\"font-size:16px; font-weight:bold\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"label\"}],\"html\":\"\"},\"section_id\":\"sec_id-14013262930418m8M5D2foKijMEEB\"}]},{\"section_id\":\"sec_id-1401326490664zLDJekWRAUY6vMq2\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401326093206fyHCcUimvvM1LM6d\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"お知らせ発行日\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hakkou_date\",\"style\":\"width:100%\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326490664zLDJekWRAUY6vMq2\"},{\"control_id\":\"ctr_id-1401326093206wu2uk8SJvd59OH1F\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"お知らせ内容\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"inin_jikou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]},{\"section_id\":\"sec_id-1401326593959Q49aGESGWgB61jPy\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401326593960GcUuuH6ksAx2nN13\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401326593959Q49aGESGWgB61jPy\"}]},{\"section_id\":\"sec_id-1401326698511F6U06djIhVuhhbIU\",\"secname\":\"詳細\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14013268226958tQXs188LN2vPfzr\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"日時\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_kansougeikai_date\",\"style\":\"width :100%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansougeikai_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansougeikai_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansougeikai_start_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"  ～  \",\"name\":\"kansougeikai_start_time\",\"style\":\"width:40px\",\"class\":\"\",\"new_attrs\":\"size=5\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansougeikai_end_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansougeikai_end_time\",\"style\":\"width:40px\",\"class\":\"\",\"new_attrs\":\"size=5\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401326698511F6U06djIhVuhhbIU\"},{\"control_id\":\"ctr_id-1401326093207b0tV43XSOz2jKDh1\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"場所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansougeikai_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"},{\"control_id\":\"ctr_id-1401326093207I2Pfh0J1Ddhk9hrr\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"会費\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" 円\",\"name\":\"kansougeikai_kaihi\",\"style\":\"width:89%\",\"class\":\"number\",\"new_attrs\":\"size=5;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326698511F6U06djIhVuhhbIU\"},{\"control_id\":\"ctr_id-1401326093207CzzjI0XPDLIJdBHm\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"連絡先\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansougeikai_tel_num\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]},{\"section_id\":\"sec_id-1401326985438w9OeOYgECWbGhIvb\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401326093207IrvrpRXFDGUMjX8t\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"住所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tenpo_address\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]},{\"section_id\":\"sec_id-1401327827262Wy3zgzS5EgEo6j9Y\",\"secname\":\"div4\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401326093207dbksDBbkU7pv7zJR\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"幹事　氏名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kanji_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"},{\"control_id\":\"ctr_id-1401326093207jbc4fUfUwjNhxgzD\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"幹事　連絡先\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kanji_tel\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]},{\"section_id\":\"sec_id-1401327898568LGVsbepZ6mrDoLHy\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401327898568fZmcRW91QKTg5LLs\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401327898568LGVsbepZ6mrDoLHy\"}]},{\"section_id\":\"sec_id-1401327915390RMOxTzWLLQ1wp48R\",\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401927065908sXKA55mxA0DIaZQ7\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"btnMap\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"btnMap\"},\"items\":{},\"html\":\"%3Cinput%20type%3D%22button%22%20value%3D%22%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%22%20onclick%3D%22%0A%0A%09%09%09%2F%2F%2F%2F%20%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E6%99%82%E3%81%AE%E5%87%A6%E7%90%86%0A%0A%09%09%09var%20form%20%3D%20SateraitoWF.getForm(this)%3B%0A%0A%09%09%09var%20tenpo_address%20%3D%20SateraitoWF.getFormValue(form%2C%20'tenpo_address')%3B%0A%09%09%09var%20tenpo_address_encoded%20%3D%20encodeURIComponent(tenpo_address)%3B%0A%0A%09%09%09%2F%2F%20%E4%BD%8F%E6%89%80%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81iframe%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9URL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20src%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Ds_q%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09src%20%2B%3D%20tenpo_address_encoded%3B%0A%09%09%09src%20%2B%3D%20'%26amp%3Bt%3Dm%26amp%3Bz%3D14%26amp%3Boutput%3Dembed'%3B%0A%0A%09%09%09%2F%2F%20%E5%88%A5%E7%94%BB%E9%9D%A2%E3%81%A7GoogleMaps%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AFURL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20map_link%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Dembed%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09map_link%20%2B%3D%20encodeURIComponent(SateraitoWF.getFormValue(form%2C%20'tenpo_address'))%3B%0A%0A%09%09%09%2F%2F%20iframe%E3%81%A8GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9FURL%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_frame_sateraito').attr('src'%2C%20src)%3B%0A%09%09%09%24(form).find('.google_maps_link_sateraito').attr('href'%2C%20map_link)%3B%0A%0A%09%09%09%2F%2F%20GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%8F%E6%89%80%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_link_sateraito').text(tenpo_address)%3B%0A%0A%09%09%09%22%3E%0A%3Cbr%3E%0A%3Cbr%3E%0A%3Ciframe%20class%3D%22google_maps_frame_sateraito%22%20width%3D%22425%22%20height%3D%22350%22%20frameborder%3D%220%22%20scrolling%3D%22no%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%20src%3D%22%22%3E%3C%2Fiframe%3E%0A%3Cbr%3E%0A%3Csmall%3E%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%AA%E5%9C%B0%E5%9B%B3%E3%81%A7%20%3Ca%20class%3D%22google_maps_link_sateraito%22%20href%3D%22%22%20style%3D%22color%3A%230000FF%3Btext-align%3Aleft%22%20target%3D%22_blank%22%3E%3C%2Fa%3E%20%E3%82%92%E8%A1%A8%E7%A4%BA%3C%2Fsmall%3E%3Cbr%3E\"}}]},{\"section_id\":\"sec_id-1401926942680Q0DAHiNpkUzpOaFq\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401926942680Ms4run8MWoZEVr2x\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401926942680Q0DAHiNpkUzpOaFq\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401926955561WutnG2pEIWZ2K9jM\",\"controls\":[{\"control_id\":\"ctr_id-14013260932078y5snpfsgDMwWXIh\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401326093208sCm3NvKA6W0bB4kG\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140529081440mcGJQYPS200gaafj\",\"name\":\"歓送迎会のお知らせ1\",\"controls\":[{\"control_id\":\"ctr_id-1401326093207pcG9taSq3dOqKYw6\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"btnGoogleMap\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"name\":\"btnGoogleMap\",\"style\":\"width:50px\",\"class\":\"\",\"new_attrs\":\"onclick=googleMap(this)\",\"value\":\"地図表示\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"button\",\"tag\":\"input\",\"section_id\":\"sec_id-1401327915390RMOxTzWLLQ1wp48R\"}]}","sateraito_script_content":"function googleMap()\n{\n\t\t\t//// 地図表示ボタンクリック時の処理\n\n\t\t\tvar form = SateraitoWF.getForm(this);\n\n\t\t\tvar tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');\n\t\t\tvar tenpo_address_encoded = encodeURIComponent(tenpo_address);\n\n\t\t\t// 住所を取得し、iframeのソースURLを作成します\n\n\t\t\tvar src = 'https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=';\n\t\t\tsrc += tenpo_address_encoded;\n\t\t\tsrc += '&t=m&z=14&output=embed';\n\n\t\t\t// 別画面でGoogleMapsを表示するためのリンクURLを作成します\n\n\t\t\tvar map_link = 'https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=';\n\t\t\tmap_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));\n\n\t\t\t// iframeとGoogleMapsリンクに作成したURLをセットします\n\n\t\t\t$(form).find('.google_maps_frame_sateraito').attr('src', src);\n\t\t\t$(form).find('.google_maps_link_sateraito').attr('href', map_link);\n\n\t\t\t// GoogleMapsリンクに住所をセットします\n\n\t\t\t$(form).find('.google_maps_link_sateraito').text(tenpo_address);\n}\n"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  歓送迎会のお知らせ
+
+  @since 2014-01-29
+-->
+
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li li class="row">
+      <div class="detail_value" align="center">
+        <font size="3"><b>
+          <select name="kansougeikai">
+            <option>　歓迎会　</option>
+            <option>　送別会　</option>
+          </select>&nbsp;のお知らせ</b></font>
+      </div>
+    </li>
+
+    <li li class="row">
+      <div class="detail_name">お知らせ発行日</div>
+      <div class="detail_value">
+        <input type="text" name="hakkou_date" class="date today_date" style="width:100%">
+      </div>
+    </li>
+
+    <li li class="row">
+      <div class="detail_name">お知らせ内容</div>
+      <div class="detail_value">
+        <textarea name="inin_jikou" style="width:98%" rows="10"></textarea></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">詳細</div>
+<div class="container">
+  <ul class="detail">
+    <li li class="row">
+      <div class="detail_name">日時</div>
+      <div class="detail_value">
+        <input type="text" name="kansougeikai_date" class="date" style="width:100%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="kansougeikai_start_time" style="width:40%">&nbsp;～&nbsp;
+        <input type="text" name="kansougeikai_end_time" style="width:40%">
+      </div>
+      <div class="detail_name" style="width:20%">会費</div>
+      <div class="detail_value"><input type="text" name="kansougeikai_kaihi" class="number" style="width:90%">&nbsp;円
+      </div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+
+    <li li class="row">
+      <div class="detail_name">場所</div>
+      <div class="detail_value"><input type="text" name="kansougeikai_place" style="width:100%"></div>
+      <div class="detail_name">連絡先</div>
+      <div class="detail_value"><input type="text" name="kansougeikai_tel_num" style="width:100%"></div>
+    </li>
+
+    <li li class="row">
+      <div class="detail_name">住所</div>
+      <div class="detail_value"><input type="text" name="tenpo_address" style="width:100%"></div>
+    </li>
+
+    <li li class="row">
+      <div class="detail_name">幹事　氏名</div>
+      <div class="detail_value"><input type="text" name="kanji_name" style="width:100%"></div>
+      <div class="detail_name">幹事　連絡先</div>
+      <div class="detail_value"><input type="text" name="kanji_tel" style="width:100%"></div>
+    </li>
+
+    <li li class="row">
+      <div>
+        <input type="button" style="width:100%" value="地図表示" onclick="
+
+                //// 地図表示ボタンクリック時の処理
+
+                var form = SateraitoWF.getForm(this);
+
+                var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+                var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+                // 住所を取得し、iframeのソースURLを作成します
+
+                var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+                src += tenpo_address_encoded;
+                src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+                // 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+                var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+                map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+                // iframeとGoogleMapsリンクに作成したURLをセットします
+
+                $(form).find('.google_maps_frame_sateraito').attr('src', src);
+                $(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+                // GoogleMapsリンクに住所をセットします
+
+                $(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+                ">
+
+        <br/>
+        <br/>
+
+        <iframe class="google_maps_frame_sateraito" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src=""></iframe>
+        <br/>
+        <small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left"
+                           target="_blank"></a> を表示
+        </small>
+
+        <br>
+      </div>
+    </li>
+
+    <li li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

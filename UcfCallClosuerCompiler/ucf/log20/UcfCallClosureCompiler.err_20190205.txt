@@ -1,0 +1,26 @@
+﻿[2019/02/05 16:51:49] ERROR - Cannot read file c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/SecurityKeyboard.js: Failed to read: c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 16:51:50] c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 16:59:20] ERROR - Cannot read file c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/SecurityKeyboard.js: Failed to read: c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 16:59:21] c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 17:01:09] c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+

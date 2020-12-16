@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<form name="frmEdit" action="{{vurl}}personal/minfo/" method="POST" >
+<input type="hidden" name="token" value="{{ucfp.data.token}}">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="RURL" value="{{ucfp.data.RURL}}">
+<table border="0" cellpadding="0" cellspacing="0" width="310">
+<tr>
+<td colspan="2" class="style1" height="20">{{lang.VMSG_DESCRIPTION1_SUBMAILADDRESS|safe}}&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td width="80" class="style2" nowrap >{{lang.FLD_CURRENT_SUBMAILADDRESS}}</td>
+<td width="230">
+{% if not ucfp.data.sub_mail_address or ucfp.data.sub_mail_address == '': %}
+{{lang.VMSG_NOINDICATE_SUBMAILADDRESS}}
+{% else: %}
+&nbsp;<span class="style3">{{ucfp.data.sub_mail_address}}</span>
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td width="80" class="style2" nowrap >{{lang.FLD_NEW_SUBMAILADDRESS}}&nbsp;<font color="red" >*</font></td>
+<td width="230"><input type="text" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" maxlength="255" size="25" autocomplete="off"/>
+{% if vcmsg.sub_mail_address %}
+<br>
+{% for v in vcmsg.sub_mail_address %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" width="104" height="41" border="0" value="{{lang.VMSG_UPDATE_SUBMAILADDRESS}}" /></td>
+</tr>
+</table>
+</form>
+<p><a href="{{vurl}}personal/" >{{lang.VMSG_TO_PERSONAL}}</a></p>
+<p><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></p>
+</div>
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

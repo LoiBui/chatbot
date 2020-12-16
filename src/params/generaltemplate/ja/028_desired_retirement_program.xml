@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[希望退職者募集]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  希望退職者募集
+
+  @since 2014-02-14
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_value" align="center"><font size="4"><b>希望退職者募集のお知らせ</b></font></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><font size="3" >　株式会社サテライトオフィス（以下会社と言う）は、本日開催の取締役会において、下記の通り早期希望退職者を募集することを決議いたしましたのでお知らせいたします。<br>
+諸条件を確認の上、希望者は担当上司を通じてお申込みください。</font></td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" align="center"><font size="+2"><b>記</b></font></td>
+	</tr>
+
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">募集人員の詳細</td>
+		<td class="detail_value" style="width:80%"><textarea name="bosyu_jinin" style="width:100%" rows="3"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">募集期間（第1次）</td>
+		<td class="detail_value" style="width:80%"><textarea name="bosyu_kikan" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">退職条件</td>
+		<td class="detail_value" style="width:80%"><textarea name="taisyoku_jyouken" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">給与等の支払日</td>
+		<td class="detail_value" style="width:80%"><textarea name="kyuyo_shiharai_day" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">再就職先の斡旋</td>
+		<td class="detail_value" style="width:80%"><textarea name="saisyusyoku_assen" style="width:100%" rows="3"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-201405300300072riutXAPHIA6FSZJ\",\"name\":\"希望退職者募集1\",\"sections\":[{\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\",\"secname\":\"希望退職者募集1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401393621545yRGT0N2bOZtqJEAy\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急   \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"checked=checked;\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401393621549xsoRRT5IuddQQ5PC\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-1401393621545PRHnqKnEYuYw42vz\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-1401393621548R5pKEQPsz7SUXAWr\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"}]},{\"section_id\":\"sec_id-1401393858845TXCESUs0nsR0ZiAi\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401393871854RqDhnEXdxkTrLSid\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401393888860SFaVRo3HgPdr9hKi\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401394521080FUOxV5OBxUDBgLxi\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%224%22%20style%3D%22margin-left%20%3A250px%22%3E%3Cb%3E%E5%B8%8C%E6%9C%9B%E9%80%80%E8%81%B7%E8%80%85%E5%8B%9F%E9%9B%86%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%3C%2Fb%3E%3C%2Ffont%3E\"},\"section_id\":\"sec_id-1401393888860SFaVRo3HgPdr9hKi\"}]},{\"section_id\":\"sec_id-14013941722100VPuWNvBMELn9QBm\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401394172210MOvzzeiA1sHmuZGi\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14013941722100VPuWNvBMELn9QBm\"}]},{\"section_id\":\"sec_id-1401394183298VFDRtXjzqWfheqM8\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401394356131aejXuD1NbwK34kbq\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_text\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_text\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%223%22%3E%E3%80%80%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%B5%E3%83%86%E3%83%A9%E3%82%A4%E3%83%88%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%EF%BC%88%E4%BB%A5%E4%B8%8B%E4%BC%9A%E7%A4%BE%E3%81%A8%E8%A8%80%E3%81%86%EF%BC%89%E3%81%AF%E3%80%81%E6%9C%AC%E6%97%A5%E9%96%8B%E5%82%AC%E3%81%AE%E5%8F%96%E7%B7%A0%E5%BD%B9%E4%BC%9A%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6%E3%80%81%E4%B8%8B%E8%A8%98%E3%81%AE%E9%80%9A%E3%82%8A%E6%97%A9%E6%9C%9F%E5%B8%8C%E6%9C%9B%E9%80%80%E8%81%B7%E8%80%85%E3%82%92%E5%8B%9F%E9%9B%86%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%82%92%E6%B1%BA%E8%AD%B0%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%E3%81%AE%E3%81%A7%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%3Cbr%3E%0A%E8%AB%B8%E6%9D%A1%E4%BB%B6%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%AE%E4%B8%8A%E3%80%81%E5%B8%8C%E6%9C%9B%E8%80%85%E3%81%AF%E6%8B%85%E5%BD%93%E4%B8%8A%E5%8F%B8%E3%82%92%E9%80%9A%E3%81%98%E3%81%A6%E3%81%8A%E7%94%B3%E8%BE%BC%E3%81%BF%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%3C%2Ffont%3E\"},\"section_id\":\"sec_id-1401394183298VFDRtXjzqWfheqM8\"}]},{\"section_id\":\"sec_id-1401394389600sHfoKPGWjcXKYReW\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401394389600Q6TSgr8Rzj9pdtkI\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401394389600sHfoKPGWjcXKYReW\"}]},{\"section_id\":\"sec_id-1401394402160PeKqKK5LRvJvLcqM\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-14013944212577P9dDkLXDr3tN8wk\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_title\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_title\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%22%2B2%22%20style%3D%22margin-left%3A350px%22%3E%3Cb%3E%E8%A8%98%3C%2Fb%3E%3C%2Ffont%3E\"},\"section_id\":\"sec_id-1401394402160PeKqKK5LRvJvLcqM\"}]},{\"section_id\":\"sec_id-1401394577118KgouIQLuLnkhkiIk\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-14013945771180r0Czfxmp1vGx5de\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401394577118KgouIQLuLnkhkiIk\"}]},{\"section_id\":\"sec_id-1401394568472G6Cc7T7HqncTT1oz\",\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401393621548jwa6MtInsW7m8vYk\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"募集人員の詳細\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bosyu_jinin\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-14013936215486XCMDRHA39IC7irK\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"募集期間（第1次）\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bosyu_kikan\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-1401393621548uuR6NU0FBjpv7xG2\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"退職条件\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taisyoku_jyouken\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-1401393621548mnRRyg64OAg9Dywc\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"給与等の支払日\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kyuyo_shiharai_day\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"},{\"control_id\":\"ctr_id-1401393621548fI8IFiq1SHiza32J\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"再就職先の斡旋\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"saisyusyoku_assen\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"}]},{\"section_id\":\"sec_id-1401394690742AGubzWzWbVAmBAiB\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"controls\":[{\"control_id\":\"ctr_id-1401394690742KcOZqBUt7RerVAoq\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401394690742AGubzWzWbVAmBAiB\"}]},{\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"direction\":\"horizontal\"},\"section_id\":\"sec_id-1401394704294HMDgThwAEzAG2sPo\",\"controls\":[{\"control_id\":\"ctr_id-1401393621548b98kSNem4nPRf6Yh\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401393621549dT7uNA4bGISEgL3w\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  希望退職者募集
+
+  @since 2014-02-14
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_value" align="center"><font size="4"><b>希望退職者募集のお知らせ</b></font></div>
+
+      <div class="detail_value"><font size="3">　株式会社サテライトオフィス（以下会社と言う）は、本日開催の取締役会において、下記の通り早期希望退職者を募集することを決議いたしましたのでお知らせいたします。<br>
+        諸条件を確認の上、希望者は担当上司を通じてお申込みください。</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value" align="center"><font size="+2"><b>記</b></font></div>
+    </li>
+
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">募集人員の詳細</div>
+      <div class="detail_value"><textarea name="bosyu_jinin" style="width:98%" rows="3"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">募集期間（第1次）</div>
+      <div class="detail_value"><textarea name="bosyu_kikan" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">退職条件</div>
+      <div class="detail_value"><textarea name="taisyoku_jyouken" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">給与等の支払日</div>
+      <div class="detail_value"><textarea name="kyuyo_shiharai_day" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">再就職先の斡旋</div>
+      <div class="detail_value"><textarea name="saisyusyoku_assen" style="width:98%"rows="3"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

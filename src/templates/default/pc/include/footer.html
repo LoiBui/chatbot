@@ -1,0 +1,20 @@
+<div id="bottombox">
+<ul id="btn_list">
+<li><a href="#" id="toggle_fullscreen"><img src="/images/btn_fullscreen_enable.png" alt="full screen"></a></li>
+{% if not BgNoUse:%}
+<li><a href="#" id="arrow_prev"><img src="/images/btn_leftarrow.png" alt="prev"></a></li><li><a href="#" id="arrow_next"><img src="/images/btn_rightarrow.png" alt="next"></a></li>
+{% endif %}
+</ul>
+<div id="newsbox">
+<ul>
+{% if footer_message and footer_message != '' %}
+<li>{{footer_message|hyperlink_linebreaksbr}}</li>
+{% endif %}
+<li>&nbsp;</li>
+</ul>
+</div><!-- /#newsbox end -->
+</div><!-- /#bottombox end -->
+
+<div id="footer">
+{% include "./include/copyright.html" %}
+</div>

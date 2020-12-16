@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[監査報告書]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  監査報告書
+
+  @since 2014-01-08
+-->
+
+<table class="detail" width="99%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">報告日</td>
+		<td class="detail_value" colspan="3"><input name="houkoku_date" class="date"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" rowspan="2">報告先</td>
+		<td class="detail_value" colspan="3"><input name="houkokusaki" style="width:90%">&nbsp;殿</td>
+	</tr>
+	<tr>
+		<td class="detail_value" colspan="3"><font color="blue">&nbsp;例）株式会社　サテライトオフィス　　　代表取締役社長　原口 豊</td>
+	</tr>
+	<tr>
+	<td colspan="4">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">監査対象期間</td>
+		<td class="detail_value" colspan="3">
+			<input name="kansa_nendo" size="5">&nbsp;年度&nbsp;&nbsp;
+			<input name="kansa_kikan_start" class="date">&nbsp;&nbsp;～&nbsp;&nbsp;
+			<input name="kansa_kikan_end" class="date">
+	</td>
+	</tr>
+	<tr>
+		<td class="detail_name">監査報告内容</td>
+		<td class="detail_value" colspan="3"><textarea name="kansa_naiyo" style="width:100%" rows="20"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140527033552YiPanm4BLJVSwOC4\",\"name\":\"監査報告書1\",\"sections\":[{\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\",\"secname\":\"監査報告書1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401136561631e1tO94sDzubXDSa2\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401136561636Q2hvafEEuV3XHQHK\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"},{\"control_id\":\"ctr_id-1401136561631U7h2jX2ePY1zQ9gG\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"},{\"control_id\":\"ctr_id-1401136561635RaYGF7SfXmPEZA03\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"}]},{\"section_id\":\"sec_id-1401136708359oeQMvjNHIAfjeG7O\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14011367153931PdSMeJ3VSQ91Fbq\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401136708359oeQMvjNHIAfjeG7O\"}]},{\"section_id\":\"sec_id-1401136777661NL7wBubCUZg4L4ZR\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401136561635srTv13892krW3jD1\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"報告日\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"houkoku_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401136777661NL7wBubCUZg4L4ZR\"}]},{\"section_id\":\"sec_id-14018509219141BsU5zXTp57HxS50\",\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":true,\"title\":\"報告先\",\"width\":\"100px\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14011365616352woEg5EIdon2E9DS\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"houkokusaki\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 殿\",\"name\":\"houkokusaki\",\"style\":\"width:90%;margin-left:10px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14018509219141BsU5zXTp57HxS50\"},{\"control_id\":\"ctr_id-1401137260491O9TwGztBwUWPMEWh\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"例）株式会社　サテライトオフィス　　　代表取締役社長　原口 豊\",\"style\":\"color:blue ; margin-left:5px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14018509219141BsU5zXTp57HxS50\"}]},{\"section_id\":\"sec_id-1401137498129esMDOdEEz2jBCSZL\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401137498129YRgD5yhTMFIwNyC1\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401137498129esMDOdEEz2jBCSZL\"}]},{\"section_id\":\"sec_id-1401138354275dXiIG1MC3vonXyim\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14011383285974k0kMvqub2Yt0ONw\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"監査対象期間\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_kansa\",\"style\":\"width:350px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansa_nendo\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" 年度  \",\"name\":\"kansa_nendo\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size =5\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansa_kikan_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"  ～    \",\"name\":\"kansa_kikan_start\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"  ～  \",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"kansa_kikan_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansa_kikan_end\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401138354275dXiIG1MC3vonXyim\"},{\"control_id\":\"ctr_id-1401136561635xc39DYJaVLm1vtwx\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"監査報告内容\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansa_naiyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401138354275dXiIG1MC3vonXyim\"},{\"control_id\":\"ctr_id-1401136561635UedffhKz4445WJMH\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140527033552YiPanm4BLJVSwOC4\",\"name\":\"監査報告書1\",\"controls\":[{\"control_id\":\"ctr_id-1401136970382cahkFHwySHDXk56u\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"報告先\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_houkokusaki\",\"style\":\"width:100%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"houkokusaki\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" 殿\",\"name\":\"houkokusaki\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"例）株式会社　サテライトオフィス　　　代表取締役社長　原口 豊\",\"style\":\"color:blue\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401136970383E6uONuB8J9sqngaq\",\"map_type_control\":\"label\",\"section_id\":\"sec_id-14011365616368MuT4SnrMPebBegj\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401136777661NL7wBubCUZg4L4ZR\"},{\"control_id\":\"ctr_id-1401136561635ZMFmDWtJ1KEc24n1\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"kansa_nendo\",\"size\":\"5\",\"new_attrs\":\"size=5;\",\"lblname\":\"kansa_nendo\",\"class\":\"\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401136561635DS0fLXIp9GNh555r\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"kansa_kikan_end\",\"new_attrs\":\"\",\"lblname\":\"kansa_kikan_end\",\"class\":\"date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401136561635rb0O6p4noDaDi5A0\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"kansa_kikan_start\",\"new_attrs\":\"\",\"lblname\":\"kansa_kikan_start\",\"class\":\"date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"}]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+監査報告書
+
+  @since 2014-01-08
+-->
+<div class="container">
+  <ul class="detail">
+
+    <ul class="detail">
+      <li class="row">
+        <div class="detail_name">名前</div>
+        <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+      </li>
+      <li class="row">
+        <div class="detail_name">部署</div>
+        <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+      </li>
+      <li class="row">
+        <div class="detail_name">重要度</div>
+        <div class="detail_value">
+          <input type="radio" name="priority" value="urgent"><label>緊急</label>
+          <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+        </div>
+      </li>
+      <li class="row">
+        <div class="detail_name">文書種別</div>
+        <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+      </li>
+    </ul>
+
+    <li class="row">
+      <div class="detail_name">報告日</div>
+      <div class="detail_value"><input type="text" name="houkoku_date" class="date"
+                                       style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">報告先</div>
+      <div class="detail_value"><input type="text" name="houkokusaki" style="width:95%">&nbsp;殿
+      </div>
+
+      <div class="detail_value"><font color="blue">例）株式会社　サテライトオフィス　　　代表取締役社長　原口 豊</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">監査対象期間</div>
+      <div class="detail_value">
+        <input type="text" name="kansa_nendo" style="width:90%">&nbsp;年度&nbsp;<br>
+        <input type="text" name="kansa_kikan_start" class="date" style="width:40%">～
+        <input type="text" name="kansa_kikan_end" class="date" style="width:40%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">監査報告内容</div>
+      <div class="detail_value"><textarea name="kansa_naiyo" style="width:98%" rows="20"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

@@ -1,0 +1,174 @@
+#!/usr/bin/python
+# coding: utf-8
+
+import logging
+import json
+import datetime
+import re
+import urllib
+import urllib2
+
+import sateraito_inc
+import sateraito_func
+from ucf.utils.ucfutil import *
+from google.appengine.api import urlfetch
+from logiccommands.basecommand import *
+
+try:
+  from basecommandex import BaseCommandEx
+except:
+  from logiccommands.basecommand import BaseCommandEx
+
+
+#######################################
+#
+# ARRAY CREATE $a 1 2 3 4
+#
+#######################################
+
+
+MAP_FUNCTIONS = {
+  "create": None,
+
+  "get": "__getitem__",
+  "slice": "__getslice__",
+  "len": "__len__",
+  "str": "__str__",
+  "contains": "__contains__",
+
+  "append": "append",
+  "count": "count",
+  "extend": "extend",
+
+  "index": "index",
+
+  "insert": "insert",
+  "pop": "pop",
+  "remove": "remove",
+
+  "reverse": "reverse",
+  "sort": "sort",
+}
+
+
+class ArrayCommand(BaseCommandEx):
+  def __init__(self, element_list, parent_command, script_row_num, params):
+    super(ArrayCommand, self).__init__(element_list, parent_command, script_row_num, params)
+
+  # 解析
+  def _analysis(self):
+    elements_min = 3
+    self._assert_len_elements(num_min=elements_min)
+
+    index = 1
+    name = 'function'
+    if self._check_kind_element_keyword(1):
+      express = self._get_element_express(index)
+      function = express.lower()
+
+      if function not in MAP_FUNCTIONS:
+        # self._raise_exception_invalid_element(index, name)
+        valid_functions = MAP_FUNCTIONS.keys()
+        self._raise_exception_invalid_pattern(index, name, valid_functions)
+
+      method = MAP_FUNCTIONS.get(function)
+      # call variable method
+      if method:
+        pass
+
+      # call custom function
+      else:
+        if function == 'create':
+          index = 2
+          name = 'result'
+          self._assert_kind_element(index, name, ('VARIABLE', 'JSONXPATH'), exclude=('CONSTANT'))
+
+          return
+
+    index = 2
+    name = 'target'
+
+    index = 3
+    name = 'result'
+    self._assert_kind_element(index, name, ('VARIABLE', 'JSONXPATH'), exclude=('CONSTANT'))
+
+  # コマンド実行
+  def _execute(self):
+    index = 1
+    name = 'function'
+    element = self.getElementObj(index)
+    value = self.getValue(element)
+    self._assert_value_element_not_none(index, name)
+    if not value:
+      self._raise_exception_invalid_element(index, name)
+    value_lower = value.lower()
+    if value_lower not in MAP_FUNCTIONS:
+      self._raise_exception_invalid_element(index, name)
+    # logging.debug(function)
+    function = value_lower
+    method = MAP_FUNCTIONS.get(value_lower)
+
+    result = None
+
+    if method:
+      index = 2
+      name = 'target'
+      element = self.getElementObj(index)
+      value = self.getValue(element)
+      self._assert_value_element_not_none(index, name)
+      self._assert_type_element(index, name, [list])
+      if not value:
+        self._raise_exception_invalid_element(index, name)
+      target = value
+
+      current_index = 4
+      element_parameters = []
+      while True:
+        current_element = self.getElementObj(current_index)
+        if current_element:
+          element_parameters.append(current_element)
+          current_index += 1
+        else:
+          break
+
+      # logging.debug('element_parameters')
+      # logging.debug(element_parameters)
+
+      parameters = [self.getValue(parameter_element) for parameter_element in element_parameters]
+
+      function_caller = getattr(target, method)
+      # logging.debug('function_caller')
+      # logging.debug(function_caller)
+      if not callable(function_caller):
+        self._raise_exception_invalid_element(1, 'function')
+
+      result = function_caller(*parameters)
+
+      index = 3
+      # name = 'result'
+      element = self.getElementObj(index)
+
+      self.setValue(element.get('value'), result)
+
+    else:
+      current_index = 3
+      element_parameters = []
+      while True:
+        current_element = self.getElementObj(current_index)
+        if current_element:
+          element_parameters.append(current_element)
+          current_index += 1
+        else:
+          break
+
+      parameters = [self.getValue(parameter_element) for parameter_element in element_parameters]
+
+      if function == "create":
+        result = list(parameters)
+
+
+      index = 2
+      # name = 'result'
+      element = self.getElementObj(index)
+
+      self.setValue(element.get('value'), result)

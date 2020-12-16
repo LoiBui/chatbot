@@ -1,0 +1,341 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+<meta name="viewport" content="width=device-width">
+
+<link rel="stylesheet" href="/css/base4.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style_sp4.css?{{version}}" type="text/css" media="screen and (max-width:750px)">
+<link rel="stylesheet" href="/css/style_pc4.css?{{version}}" type="text/css" media="screen and (min-width:751px),print">
+
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+
+<script type="text/javascript" >
+	var _unqid = '{{unqid|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+<title>{{lang.FAQ_HTML_TITLE|safe}}</title>
+</head>
+
+<body id="top" class="home" style="background-color: white;">
+
+<div id="container">
+<div id="header">
+<div class="headerInner cf">
+<div id="logo">
+<h1><a href="{{my_site_url}}/{{unqid}}/faq/index"><img src="/images/faq_site/logo.png" class="fit" alt="Sateraito Office"></a></h1>
+</div>
+</div>
+</div>
+
+<div id="main" class="section">
+<div class="main cf"><img src="/images/faq_site/main.jpg" class="fit main_img"></div>
+<div class="topName">
+<h2 class="catch_pc">{{lang.FAQ_HTML_TITLE_SP|safe}}</h2>
+<h2 class="catch_sp">{{lang.FAQ_HTML_TITLE_SP|safe}}</h2>
+<div class="search search_index">
+<input type="text" id="search_key" class="full text_index_page" placeholder="{{lang.MSG_ENTER_WISH_KEYWORD}}">
+<input type="image" value="search" class="img_index_page" src="/images/faq_site/btnSearch.png" onclick="JavaScript:searchHandler();">
+</div>
+</div>
+</div>
+
+<div id="contents">
+<div class="cInner cInner_index">
+
+<div class="accordion">
+</div>
+
+</div>
+</div><!-- //#content-->
+
+
+<footer id="footer">
+    Copyright &copy; 2020 All rights reserved by Sateraito Office, Inc.<br>
+    {{lang.FAQSITE_EXPLAIN_COMMON_FOOTER1|safe}}<br class="sp">{{lang.FAQSITE_EXPLAIN_COMMON_FOOTER2|safe}}
+</footer>
+
+<div class="spCover"></div>
+</div><!-- //#container-->
+
+<script type="text/javascript">
+    var list_category = JSON.parse("{{ ucfp.voinfo.vo.list_category|escapejs }}");
+    var list_faq = JSON.parse("{{ ucfp.voinfo.vo.list_faq|escapejs }}");
+	var category_key = '{{ category_key }}';
+
+    var list_category_id = [];
+	for(let i=0; i<list_category.length; i++){
+		list_category_id.push(list_category[i].category_id);
+	}
+	list_category_id.sort();
+
+    var list_data = [];
+	var temp_data = '';
+	var data_disp = '';
+
+	var category_id_major = '';
+	var category_id_middle = '';
+	var fake_category_id = '';
+
+	for(var i=0; i<list_category_id.length; i++){
+		if(category_id_major != list_category_id[i].split('-')[0]){		// get category_major
+			category_id_major = list_category_id[i].split('-')[0];
+			for(var j=0; j<list_category.length; j++){
+				if(list_category_id[i] == list_category[j].category_id){
+					if(list_category[j].category_middle != ''){
+						if(list_category[j].category_minor == ''){
+							if(category_key == '' || category_key.split('-').length == 1){
+								// create fake category id 002-000-000
+								fake_category_id = list_category[j].category_id.split('-')[0] + '-000-000';
+								temp_data = list_category[j].category_major; 	//(fake)
+								list_data.push([fake_category_id, temp_data, 1]);
+							}
+
+							// if(category_key == '' || category_key.split('-').length == 1 || category_key.split('-').length == 2){
+							if(category_key == '' || category_key.split('-').length < 3){
+								// create origin
+								category_id_middle = list_category[j].category_id.split('-')[1]
+								origin_category_id = list_category[j].category_id;
+								temp_data = list_category[j].category_middle;
+								list_data.push([origin_category_id, temp_data, 2]);
+							}
+							break;
+						}
+						else{
+							if(category_key == '' || category_key.split('-').length == 1){
+								// create fake category id 002-000-000
+								fake_category_id = list_category[j].category_id.split('-')[0] + '-000-000';
+								temp_data = list_category[j].category_major;			//(fake)
+								list_data.push([fake_category_id, temp_data, 1]);
+							}
+							
+							// if(category_key == '' || category_key.split('-').length == 1 || category_key.split('-').length == 2){
+							if(category_key == '' || category_key.split('-').length < 3){
+								// create fake category id 002-001-000
+								category_id_middle = list_category[j].category_id.split('-')[1]
+								fake_category_id = list_category[j].category_id.split('-').slice(0, 2).join('-') + '-000';
+								temp_data = list_category[j].category_middle; 			//(fake)
+								list_data.push([fake_category_id, temp_data, 2]);
+							}
+
+							if(category_key.split('-').length == 2 || category_key.split('-').length == 3){
+								// create origin
+								origin_category_id = list_category[j].category_id;
+								temp_data = list_category[j].category_minor;
+								list_data.push([origin_category_id, temp_data, 3]);
+							}
+							break;
+						}
+					}
+					else{
+						if(category_key == '' || category_key.split('-').length == 1){
+							// create origin
+							origin_category_id = list_category[j].category_id;
+							temp_data = list_category[j].category_major;
+							list_data.push([origin_category_id, temp_data, 1]);
+							break;
+						}
+					}
+				}
+			}
+		}
+		else{
+			if(category_id_middle != list_category_id[i].split('-')[1]){		// get category_middle
+				category_id_middle = list_category_id[i].split('-')[1];
+				for(var j=0; j<list_category.length; j++){
+					if(list_category_id[i] == list_category[j].category_id){
+						if(list_category[j].category_minor != ''){
+							if(category_key == '' || category_key.split('-').length == 1){
+								// create fake category id 002-001-000
+								fake_category_id = list_category[j].category_id.split('-').slice(0, 2).join('-') + '-000';
+								temp_data = list_category[j].category_middle;			//(fake)
+								list_data.push([fake_category_id, temp_data, 2]);
+							}
+							
+							if(category_key.split('-').length == 2 || category_key.split('-').length == 3){
+								// create origin
+								origin_category_id = list_category[j].category_id;
+								temp_data = list_category[j].category_minor;
+								list_data.push([origin_category_id, temp_data, 3]);
+							}
+							break;
+						}
+						else{
+							// if(category_key == '' || category_key.split('-').length == 1 || category_key.split('-').length == 2){
+							if(category_key == '' || category_key.split('-').length < 3){
+								// create origin
+								origin_category_id = list_category[j].category_id;
+								temp_data = list_category[j].category_middle;
+								list_data.push([origin_category_id, temp_data, 2]);
+							}
+							break;
+						}
+					}
+				}
+			}
+			else{																		// get category_minor
+				if(category_key.split('-').length == 2 || category_key.split('-').length == 3){
+					for(var j=0; j<list_category.length; j++){
+						if(list_category_id[i] == list_category[j].category_id){
+							origin_category_id = list_category[j].category_id;
+							temp_data = list_category[j].category_minor;
+							list_data.push([origin_category_id, temp_data, 3]);
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	var html = '';
+	var x = y = 0
+	if(category_key == '' || category_key.split('-').length == 1){
+		if(category_key != ''){
+			html += '<div class="top_content">';
+			html += '<span><a style="color:#00923a;" href="{{my_site_url}}/{{unqid}}/faq/index">トップ</a></span>';
+			html += '</div>';
+		}
+
+		html += '<ul>';
+		for(let i=0; i<list_data.length; i++){
+			if(i==0 || list_data[i][0].split('-')[0] != list_data[i-1][0].split('-')[0]){
+				html += '<li>';
+			}
+			if(list_data[i][2] == 1){
+				var active_class = (category_key == '')?'':'active';
+				x += 1;
+				if(category_key == ''){
+					html += '<a class="toggle"><p class="accordion_icon ' + active_class +'"><span></span><span></span></p><h3 class="faq-overflow">' + x + '. ' + list_data[i][1] + '</h3></a>';
+				}
+				else{
+					html += '<a class="toggle"><p class="accordion_icon ' + active_class +'"><span></span><span></span></p><h3 class="faq-overflow">' + list_data[i][1] + '</h3></a>';
+				}
+				var display_style = (category_key == '')?'style="display:none"':'style="display:block"';
+				html += '<div class="div_accordion_icon" ' + display_style + '>';
+				for(let j=0; j<list_faq.length; j++){
+					if(list_faq[j].category_id == list_data[i][0]){
+						var requestUrl = '{{my_site_url}}/{{unqid}}/faq/detail?faq_code=' + list_faq[j].unique_id;
+						html += '<a href="' + requestUrl.trim() + '"><div class="qaList"><p class="faq-overflow" >' + list_faq[j].faq_question+ '</p></div></a>';
+					}
+				}
+			}
+			else if(list_data[i][2] == 2){
+				var requestUrl = '{{my_site_url}}/{{unqid}}/faq/index?category=' + list_data[i][0].split('-').slice(0, 2).join('-');
+				y += 1;
+				if(category_key == ''){
+					html += '<a class="toggle2" href="' + requestUrl.trim() + '" ><h3 class="faq-overflow">' + x + '.' + y + '. ' + list_data[i][1] + '</h3></a>';
+				}
+				else{
+					html += '<a class="toggle2" href="' + requestUrl.trim() + '" ><h3 class="faq-overflow">' + list_data[i][1] + '</h3></a>';
+				}
+			}
+			if((i+1<list_data.length && list_data[i][0].split('-')[0] != list_data[i+1][0].split('-')[0]) || i+1==list_data.length){
+				y = 0;
+				html += '</div>';
+				html += '</li>';
+			}
+		}
+		html += '</ul>';
+	}
+	else if(category_key.split('-').length == 2){
+		var category_major = list_category[0].category_major;
+		html += '<div class="top_content faq-overflow">';
+		html += '<span><a style="color:#00923a;" href="{{my_site_url}}/{{unqid}}/faq/index">' + _msg.VMSG_TOP + '</a></span>';
+		html += '<span>&nbsp;＞&nbsp;<span>';
+		html += '<span class="go_ctgr_major">' + category_major + '</span>';
+		html += '</div>';
+
+		html += '<ul>';
+		var title = '';
+		for(let i=0; i<list_data.length; i++){
+			if(i==0 || list_data[i][0].split('-')[1] != list_data[i-1][0].split('-')[1]){
+				html += '<li>';
+			}
+			if(list_data[i][2] == 2){
+				html += '<a class="toggle"><p class="accordion_icon active"><span></span><span></span></p><h3 class="faq-overflow">' + list_category[0].category_middle + '</h3></a>';
+				html += '<div class="div_accordion_icon" style="display:block;">';
+				for(let j=0; j<list_faq.length; j++){
+					if(list_faq[j].category_id == list_data[i][0]){
+						var requestUrl = '{{my_site_url}}/{{unqid}}/faq/detail?faq_code=' + list_faq[j].unique_id;
+						html += '<a href="' + requestUrl.trim() + '"><div class="qaList"><p class="faq-overflow">' + list_faq[j].faq_question+ '</p></div></a>';
+					}
+				}
+			}
+			else if(list_data[i][2] == 3){
+				var requestUrl = '{{my_site_url}}/{{unqid}}/faq/index?category=' + list_data[i][0];
+				html += '<a class="toggle2" href="' + requestUrl.trim() + '" ><h3 class="faq-overflow">' + list_data[i][1] + '</h3></a>';
+			}
+			if((i+1<list_data.length && list_data[i][0].split('-')[0] != list_data[i+1][0].split('-')[0]) || i+1==list_data.length){
+				html += '</div>';
+				html += '</li>';
+			}
+		}
+		html += '</ul>';
+	}
+	else if(category_key.split('-').length == 3){
+		var category_major = list_category[0].category_major;
+		var category_middle = list_category[0].category_middle;
+		html += '<div class="top_content faq-overflow">';
+		html += '<span><a style="color:#00923a;" href="{{my_site_url}}/{{unqid}}/faq/index">' + _msg.VMSG_TOP + '</a></span>';
+		html += '<span>&nbsp;＞&nbsp;<span>';
+		html += '<span class="go_ctgr_major">' + category_major + '</span>';
+		html += '<span>&nbsp;＞&nbsp;<span>';
+		html += '<span class="go_ctgr_middle">' + category_middle + '</span>';
+		html += '</div>';
+
+		html += '<ul>';
+		html += '<li>';
+		var title = '';
+		for(let i=0; i<list_data.length; i++){
+			html += '<a class="toggle"><p class="accordion_icon active"><span></span><span></span></p><h3 class="faq-overflow">' + list_category[0].category_minor + '</h3></a>';
+			html += '<div class="div_accordion_icon" style="display:block;">';
+			for(let j=0; j<list_faq.length; j++){
+				if(list_faq[j].category_id == list_data[i][0]){
+					var requestUrl = '{{my_site_url}}/{{unqid}}/faq/detail?faq_code=' + list_faq[j].unique_id;
+					html += '<a href="' + requestUrl.trim() + '"><div class="qaList"><p class="faq-overflow">' + list_faq[j].faq_question+ '</p></div></a>';
+				}
+			}
+			html += '</div>';
+		}
+		html += '</li>';
+		html += '</ul>';
+	}
+
+    $(".accordion").append(html);
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}faqsite_common.js?{{version}}" ></script>
+<script>
+	$(function(){
+		var category_id_major = list_category[0].category_id.split('-')[0]
+		$(".go_ctgr_major").click(function (){
+			var requestUrl = _my_site_url + '/' + _unqid + '/faq/index?category=' + category_id_major;
+			window.location = requestUrl.trim();
+		});
+
+		var category_id_middle = list_category[0].category_id.split('-').slice(0,2).join('-')
+		$(".go_ctgr_middle").click(function (){
+			var requestUrl = _my_site_url + '/' + _unqid + '/faq/index?category=' + category_id_middle;
+			window.location = requestUrl.trim();
+		});
+	});
+</script>
+
+</body>
+</html>

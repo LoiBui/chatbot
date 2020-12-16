@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+.channel_panel {
+}
+
+.channel_panel span.description{
+}
+
+.channel_panel span.section_description{
+}
+
+
+.channel_panel p {
+	font-size: 100%;
+}
+
+.channel_panel table td {
+	font-size: 100%;
+	padding:2px;
+}
+

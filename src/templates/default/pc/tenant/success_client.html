@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts_bing.html" %}
+<!-- <title>{{lang.VMSG_SITE_TITLE_SUCCESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_SUCCESS}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<div id="wrapper">
+
+<div id="mypagebox" >
+<h2><em><span class="ttl">{{lang.VMSG_MSG_SUCCESS}}</span>
+<span class="info"></span></em></h2>
+
+<p class="attention3">
+{% if success_info %}
+{{ success_info }}
+{% endif %}
+</p>
+<script type="text/javascript" >
+</script>
+</div><!-- /#mypagebox end -->
+
+{% include "./include/footer_bing.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>

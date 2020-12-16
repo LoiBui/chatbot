@@ -1,0 +1,151 @@
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<title>{{lang.VMSG_SITE_TITLE_REMINDER}} - {{lang.HTML_TITLE}}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<form name="frmEdit" action="{{vurl}}reminder/" method="POST" >
+<input type="hidden" name="token" value="{{ucfp.data.token}}">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="edit_step" value="{{edit_step}}">
+<input type="hidden" name="RURL" value="{{ucfp.data.RURL}}">
+{% if edit_step == 'request': %}
+{% elif edit_step == 'confirm': %}
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+{% elif edit_step == 'authcode': %}
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+<input type="hidden" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" />
+{% elif edit_step == 'reset': %}
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+<input type="hidden" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" />
+<input type="hidden" name="authcode" value="{{ucfp.voinfo.vo.authcode}}" />
+{% endif %}
+<table border="0" cellpadding="0" cellspacing="0" width="310">
+<tr>
+<td colspan="2" class="style1" height="20">
+{% if edit_step == 'request': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_REQUEST|safe}}
+{% elif edit_step == 'confirm': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_CONFIRM|safe}}{{ucfp.data.sub_mail_address_with_mask}}
+{% elif edit_step == 'authcode': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_AUTHCODE|safe}}
+{% elif edit_step == 'reset': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_RESET|safe}}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" height="5" border="0" alt=""></td>
+</tr>
+
+{% if edit_step == 'request': %}
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_INPUT_REMINDER_USER_ID}}<font color="red" >*</font>&nbsp;</td>
+<td>
+<input type="text" name="user_id" value="{{ucfp.voinfo.vo.user_id1}}" maxlength="255" size="30" />
+{% if vcmsg.user_id %}
+<br>
+{% for v in vcmsg.user_id %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% elif edit_step == 'confirm': %}
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_INPUT_REMINDER_USER_ID}}&nbsp;</td>
+<td>
+<span class="style2" >{{ucfp.voinfo.vo.user_id}}</span>
+{% if vcmsg.user_id %}
+<br>
+{% for v in vcmsg.user_id %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_INPUT_REMINDER_SUBMAILADDRESS}}<font color="red" >*</font>&nbsp;</td>
+<td>
+<input type="text" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" maxlength="255" size="30" />
+{% if vcmsg.sub_mail_address %}
+<br>
+{% for v in vcmsg.sub_mail_address %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% elif edit_step == 'authcode': %}
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_INPUT_REMINDER_AUTHCODE}}<font color="red" >*</font>&nbsp;</td>
+<td>
+<input type="text" name="authcode" value="{{ucfp.voinfo.vo.authcode}}" maxlength="10" size="15" />
+{% if vcmsg.authcode %}
+<br>
+{% for v in vcmsg.authcode %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% elif edit_step == 'reset': %}
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_INPUT_PASSWORD_CHANGE}}<font color="red" >*</font>&nbsp;</td>
+<td>
+<input type="password" name="Password1" value="{{ucfp.voinfo.vo.Password1}}" maxlength="50" size="15" />
+{% if vcmsg.Password1 %}
+<br>
+{% for v in vcmsg.Password1 %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_IPHONE_CONFIRM_PASSWORD_CHANGE}}<font color="red" >*</font>&nbsp;</td>
+<td ><input type="password" name="PasswordConfirm" value="{{ucfp.voinfo.vo.PasswordConfirm}}" maxlength="50" size="15" />
+{% if vcmsg.PasswordConfirm %}
+<br>
+{% for v in vcmsg.PasswordConfirm %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% endif %}
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+{% if edit_step == 'request': %}
+<input type="submit" height="41" border="0" value="{{lang.VMSG_REMINDER_SUBMIT_REQUEST}}" />
+{% elif edit_step == 'confirm': %}
+<input type="submit" height="41" border="0" value="{{lang.VMSG_REMINDER_SUBMIT_CONFIRM}}" />
+{% elif edit_step == 'authcode': %}
+<input type="submit" height="41" border="0" value="{{lang.VMSG_REMINDER_SUBMIT_AUTHCODE}}" />
+{% elif edit_step == 'reset': %}
+<input type="submit" height="41" border="0" value="{{lang.VMSG_REMINDER_SUBMIT_RESET}}" />
+{% endif %}
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

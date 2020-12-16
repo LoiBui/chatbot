@@ -1,0 +1,479 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Team Discussion]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+  Team Discussion
+  @since 2014-01-17
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Theme</td>
+		<td class="detail_value" colspan="2"><input name="discussion_theme" style="width:100%"></td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e. about consuming tax rate</td>
+	</tr>
+	<tr>
+		<td class="detail_name">DateTime</td>
+		<td class="detail_value" colspan="3">
+			<input name="discussion_date" class="date">&nbsp;
+			<select name="discussion_start">
+				<option value="00:00">00:00</option>
+				<option value="00:30">00:30</option>
+				<option value="01:00">01:00</option>
+				<option value="01:30">01:30</option>
+				<option value="02:00">02:00</option>
+				<option value="02:30">02:30</option>
+				<option value="03:00">03:00</option>
+				<option value="03:30">03:30</option>
+				<option value="04:00">04:00</option>
+				<option value="04:30">04:30</option>
+				<option value="05:00">05:00</option>
+				<option value="05:30">05:30</option>
+				<option value="06:00">06:00</option>
+				<option value="06:30">06:30</option>
+				<option value="07:00">07:00</option>
+				<option value="07:30">07:30</option>
+				<option value="08:00">08:00</option>
+				<option value="08:30">08:30</option>
+				<option value="09:00">09:00</option>
+				<option value="09:30">09:30</option>
+				<option value="10:00">10:00</option>
+				<option value="10:30">10:30</option>
+				<option value="11:00">11:00</option>
+				<option value="11:30">11:30</option>
+				<option value="12:00">12:00</option>
+				<option value="12:30">12:30</option>
+				<option value="13:00">13:00</option>
+				<option value="13:30">13:30</option>
+				<option value="14:00">14:00</option>
+				<option value="14:30">14:30</option>
+				<option value="15:00">15:00</option>
+				<option value="15:30">15:30</option>
+				<option value="16:00">16:00</option>
+				<option value="16:30">16:30</option>
+				<option value="17:00">17:00</option>
+				<option value="17:30">17:30</option>
+				<option value="18:00">18:00</option>
+				<option value="18:30">18:30</option>
+				<option value="19:00">19:00</option>
+				<option value="19:30">19:30</option>
+				<option value="20:00">20:00</option>
+				<option value="20:30">20:30</option>
+				<option value="21:00">21:00</option>
+				<option value="21:30">21:30</option>
+				<option value="22:00">22:00</option>
+				<option value="22:30">22:30</option>
+				<option value="23:00">23:00</option>
+				<option value="23:30">23:30</option>
+			</select>&nbsp;&nbsp;～&nbsp;&nbsp;
+			<select name="discussion_end">
+				<option value="00:00">00:00</option>
+				<option value="00:30">00:30</option>
+				<option value="01:00">01:00</option>
+				<option value="01:30">01:30</option>
+				<option value="02:00">02:00</option>
+				<option value="02:30">02:30</option>
+				<option value="03:00">03:00</option>
+				<option value="03:30">03:30</option>
+				<option value="04:00">04:00</option>
+				<option value="04:30">04:30</option>
+				<option value="05:00">05:00</option>
+				<option value="05:30">05:30</option>
+				<option value="06:00">06:00</option>
+				<option value="06:30">06:30</option>
+				<option value="07:00">07:00</option>
+				<option value="07:30">07:30</option>
+				<option value="08:00">08:00</option>
+				<option value="08:30">08:30</option>
+				<option value="09:00">09:00</option>
+				<option value="09:30">09:30</option>
+				<option value="10:00">10:00</option>
+				<option value="10:30">10:30</option>
+				<option value="11:00">11:00</option>
+				<option value="11:30">11:30</option>
+				<option value="12:00">12:00</option>
+				<option value="12:30">12:30</option>
+				<option value="13:00">13:00</option>
+				<option value="13:30">13:30</option>
+				<option value="14:00">14:00</option>
+				<option value="14:30">14:30</option>
+				<option value="15:00">15:00</option>
+				<option value="15:30">15:30</option>
+				<option value="16:00">16:00</option>
+				<option value="16:30">16:30</option>
+				<option value="17:00">17:00</option>
+				<option value="17:30">17:30</option>
+				<option value="18:00">18:00</option>
+				<option value="18:30">18:30</option>
+				<option value="19:00">19:00</option>
+				<option value="19:30">19:30</option>
+				<option value="20:00">20:00</option>
+				<option value="20:30">20:30</option>
+				<option value="21:00">21:00</option>
+				<option value="21:30">21:30</option>
+				<option value="22:00">22:00</option>
+				<option value="22:30">22:30</option>
+				<option value="23:00">23:00</option>
+				<option value="23:30">23:30</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Location</td>
+		<td class="detail_value" colspan="2"><input name="discussion_place" style="width:100%"></td>
+		<td class="detail_value"><font color="blue">&nbsp;i.e Meeting room 1</td>
+	</tr>
+</table>
+
+<br>
+<div class="main_content_title2">Participants</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%;">No</th>
+		<th class="detail_head" style="width:15%;">Employee Number</th>
+		<th class="detail_head" style="width:20%;">Name</th>
+		<th class="detail_head" style="width:25%;">Department</th>
+		<th class="detail_head" style="width:35%;">MAil Address</th>
+	</tr>
+
+<!-- _01st Row -->
+	<tr>
+		<td class="detail_name">1</td>
+		<td class="detail_value"><input name="syain_number_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_name_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_busyo_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="mail_address_1" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="5" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02nd Row -->
+	<tr>
+		<td class="detail_name">2</td>
+		<td class="detail_value"><input name="syain_number_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_name_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_busyo_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="mail_address_2" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="5" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03rd Row -->
+	<tr>
+		<td class="detail_name">3</td>
+		<td class="detail_value"><input name="syain_number_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_name_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_busyo_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="mail_address_3" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="5" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _04th Row -->
+	<tr>
+		<td class="detail_name">4</td>
+		<td class="detail_value"><input name="syain_number_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_name_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_busyo_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="mail_address_4" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="5" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _05th Row -->
+	<tr>
+		<td class="detail_name">5</td>
+		<td class="detail_value"><input name="syain_number_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_name_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="syain_busyo_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="mail_address_5" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="5" style="border-bottom:solid 1px silver"></td>
+	</tr>
+</table>
+
+<br>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">Content</td>
+		<td class="detail_value" width="80%"><textarea name="discussion_naiyo" style="width:100%" rows="20"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140529071213PJLwACaUrkbGUTQK\",\"name\":\"Team Discussion\",\"sections\":[{\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\",\"secname\":\"Team Discussion\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-14013223809343QkWrdZrYD8btr5q\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401322380941JqENLW9YiBrOchSh\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"},{\"control_id\":\"ctr_id-1401322380935cwYAD78P92vMWWmd\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"},{\"control_id\":\"ctr_id-1401322380938rcy3k63Hc2pkHYmI\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14013226483988w0hO0OkCAuUBN2r\",\"controls\":[{\"control_id\":\"ctr_id-1401322661295xmeaTbbP2EmRdwU8\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401322685819TOHPmtkPmjuWzSCo\",\"controls\":[{\"control_id\":\"ctr_id-1401322380938KXKLUXCuPwRpDdH5\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Theme\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. about consuming tax rate\",\"name\":\"discussion_theme\",\"style\":\"width:50%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401322685819TOHPmtkPmjuWzSCo\"},{\"control_id\":\"ctr_id-14013240619485G9WmxSJ4LjJKd45\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"DateTime\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_discussion\",\"style\":\"width:50%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"discussion_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"discussion_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"Pulldown\",\"config\":{\"items\":[{\"text\":\"00:00\",\"value\":\"00:00\"},{\"text\":\"00:30\",\"value\":\"00:30\"},{\"text\":\"01:00\",\"value\":\"01:00\"},{\"text\":\"01:30\",\"value\":\"01:30\"},{\"text\":\"02:00\",\"value\":\"02:00\"},{\"text\":\"02:30\",\"value\":\"02:30\"},{\"text\":\"03:00\",\"value\":\"03:00\"},{\"text\":\"03:30\",\"value\":\"03:30\"},{\"text\":\"04:00\",\"value\":\"04:00\"},{\"text\":\"04:30\",\"value\":\"04:30\"},{\"text\":\"05:00\",\"value\":\"05:00\"},{\"text\":\"05:30\",\"value\":\"05:30\"},{\"text\":\"06:00\",\"value\":\"06:00\"},{\"text\":\"06:30\",\"value\":\"06:30\"},{\"text\":\"07:00\",\"value\":\"07:00\"},{\"text\":\"07:30\",\"value\":\"07:30\"},{\"text\":\"08:00\",\"value\":\"08:00\"},{\"text\":\"08:30\",\"value\":\"08:30\"},{\"text\":\"09:00\",\"value\":\"09:00\"},{\"text\":\"09:30\",\"value\":\"09:30\"},{\"text\":\"10:00\",\"value\":\"10:00\"},{\"text\":\"10:30\",\"value\":\"10:30\"},{\"text\":\"11:00\",\"value\":\"11:00\"},{\"text\":\"11:30\",\"value\":\"11:30\"},{\"text\":\"12:00\",\"value\":\"12:00\"},{\"text\":\"12:30\",\"value\":\"12:30\"},{\"text\":\"13:00\",\"value\":\"13:00\"},{\"text\":\"13:30\",\"value\":\"13:30\"},{\"text\":\"14:00\",\"value\":\"14:00\"},{\"text\":\"14:30\",\"value\":\"14:30\"},{\"text\":\"15:00\",\"value\":\"15:00\"},{\"text\":\"15:30\",\"value\":\"15:30\"},{\"text\":\"16:00\",\"value\":\"16:00\"},{\"text\":\"16:30\",\"value\":\"16:30\"},{\"text\":\"17:00\",\"value\":\"17:00\"},{\"text\":\"17:30\",\"value\":\"17:30\"},{\"text\":\"18:00\",\"value\":\"18:00\"},{\"text\":\"18:30\",\"value\":\"18:30\"},{\"text\":\"19:00\",\"value\":\"19:00\"},{\"text\":\"19:30\",\"value\":\"19:30\"},{\"text\":\"20:00\",\"value\":\"20:00\"},{\"text\":\"20:30\",\"value\":\"20:30\"},{\"text\":\"21:00\",\"value\":\"21:00\"},{\"text\":\"21:30\",\"value\":\"21:30\"},{\"text\":\"22:00\",\"value\":\"22:00\"},{\"text\":\"22:30\",\"value\":\"22:30\"},{\"text\":\"23:00\",\"value\":\"23:00\"},{\"text\":\"23:30\",\"value\":\"23:30\"}],\"attributes\":{\"lblname\":\"discussion_start\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"discussion_start\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"map_type_control\":\"select\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"  ～  \",\"style\":\"\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-14019255539361rdXZfMksYJz7qpF\",\"map_type_control\":\"label\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"Pulldown\",\"config\":{\"items\":[{\"text\":\"00:00\",\"value\":\"00:00\"},{\"text\":\"00:30\",\"value\":\"00:30\"},{\"text\":\"01:00\",\"value\":\"01:00\"},{\"text\":\"01:30\",\"value\":\"01:30\"},{\"text\":\"02:00\",\"value\":\"02:00\"},{\"text\":\"02:30\",\"value\":\"02:30\"},{\"text\":\"03:00\",\"value\":\"03:00\"},{\"text\":\"03:30\",\"value\":\"03:30\"},{\"text\":\"04:00\",\"value\":\"04:00\"},{\"text\":\"04:30\",\"value\":\"04:30\"},{\"text\":\"05:00\",\"value\":\"05:00\"},{\"text\":\"05:30\",\"value\":\"05:30\"},{\"text\":\"06:00\",\"value\":\"06:00\"},{\"text\":\"06:30\",\"value\":\"06:30\"},{\"text\":\"07:00\",\"value\":\"07:00\"},{\"text\":\"07:30\",\"value\":\"07:30\"},{\"text\":\"08:00\",\"value\":\"08:00\"},{\"text\":\"08:30\",\"value\":\"08:30\"},{\"text\":\"09:00\",\"value\":\"09:00\"},{\"text\":\"09:30\",\"value\":\"09:30\"},{\"text\":\"10:00\",\"value\":\"10:00\"},{\"text\":\"10:30\",\"value\":\"10:30\"},{\"text\":\"11:00\",\"value\":\"11:00\"},{\"text\":\"11:30\",\"value\":\"11:30\"},{\"text\":\"12:00\",\"value\":\"12:00\"},{\"text\":\"12:30\",\"value\":\"12:30\"},{\"text\":\"13:00\",\"value\":\"13:00\"},{\"text\":\"13:30\",\"value\":\"13:30\"},{\"text\":\"14:00\",\"value\":\"14:00\"},{\"text\":\"14:30\",\"value\":\"14:30\"},{\"text\":\"15:00\",\"value\":\"15:00\"},{\"text\":\"15:30\",\"value\":\"15:30\"},{\"text\":\"16:00\",\"value\":\"16:00\"},{\"text\":\"16:30\",\"value\":\"16:30\"},{\"text\":\"17:00\",\"value\":\"17:00\"},{\"text\":\"17:30\",\"value\":\"17:30\"},{\"text\":\"18:00\",\"value\":\"18:00\"},{\"text\":\"18:30\",\"value\":\"18:30\"},{\"text\":\"19:00\",\"value\":\"19:00\"},{\"text\":\"19:30\",\"value\":\"19:30\"},{\"text\":\"20:00\",\"value\":\"20:00\"},{\"text\":\"20:30\",\"value\":\"20:30\"},{\"text\":\"21:00\",\"value\":\"21:00\"},{\"text\":\"21:30\",\"value\":\"21:30\"},{\"text\":\"22:00\",\"value\":\"22:00\"},{\"text\":\"22:30\",\"value\":\"22:30\"},{\"text\":\"23:00\",\"value\":\"23:00\"},{\"text\":\"23:30\",\"value\":\"23:30\"}],\"attributes\":{\"lblname\":\"discussion_end\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"discussion_end\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"control_id\":\"ctr_id-1401926000020TKPTECqcWuLHCt53\",\"map_type_control\":\"select\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401322685819TOHPmtkPmjuWzSCo\"},{\"control_id\":\"ctr_id-1401322380939yy1vFjY3xmQbnch0\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e Meeting room 1\",\"name\":\"discussion_place\",\"style\":\"width:50%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401322685819TOHPmtkPmjuWzSCo\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401324830243LHoBsgJYW2k6z0uz\",\"controls\":[{\"control_id\":\"ctr_id-1401324830243NKRiwyadLpC4DuV5\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401324830243LHoBsgJYW2k6z0uz\"}]},{\"secname\":\"Participants\",\"column_cof\":5,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"Employee Number\",\"width\":\"15%\",\"align\":\"left\"},\"3\":{\"title\":\"Name\",\"width\":\"20%\",\"align\":\"left\"},\"4\":{\"title\":\"Department\",\"width\":\"25%\",\"align\":\"left\"},\"5\":{\"title\":\"MAil Address\",\"width\":\"35%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"\"}},\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\",\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401325032505f8989ArQX7A1dUZh\",\"pos_col\":1,\"pos_row\":1},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14013250325057B4JbImgVbQ6ahAn\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401325032505wOKOgz5R2Z35wo5r\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401325032505O1NpDQUrTDvuh0KG\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14013250325054NCIei1kmJp3TYVc\",\"pos_col\":1,\"pos_row\":5},{\"control_id\":\"ctr_id-1401322380939fCG3PFH0Xm5qaLQx\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"syain_number_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_number_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-14013223809405RBJV4HRbEzI1Hmz\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"syain_number_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_number_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940iUZMAuu3xbOAtMNa\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"syain_number_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_number_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940OdxnwzJtRGPst0hg\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"syain_number_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_number_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940LBVZTxIsM2J4y3eD\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"syain_number_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_number_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380939h0iX4bUkhGR5kLr0\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"syain_name_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_name_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940d3KDo0BFrkZqYzZF\",\"pos_row\":2,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"syain_name_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_name_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940OEy5kWnVRVTNfmxj\",\"pos_row\":3,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"syain_name_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_name_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940SHZbQW6CmXZIMqKt\",\"pos_row\":4,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"syain_name_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_name_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-14013223809408QjwKkGvXGPJFU68\",\"pos_row\":5,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"syain_name_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_name_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380939QQfhK6xrGy0sojLy\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"syain_busyo_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_busyo_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940EDnSTfo1BKiY4wsJ\",\"pos_row\":2,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"syain_busyo_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_busyo_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940wXZ4HYqNU5REmf9G\",\"pos_row\":3,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"syain_busyo_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_busyo_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-14013223809402Id3kPduOnNM2D7E\",\"pos_row\":4,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"syain_busyo_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_busyo_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940ir0ZUtxASE9kSKuk\",\"pos_row\":5,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"syain_busyo_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syain_busyo_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380939AzH1aUpPiUCIHfTk\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"mail_address_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mail_address_1\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940GtKkHwBaQbf8fbPL\",\"pos_row\":2,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"mail_address_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mail_address_2\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940AjKEUxsUd4EH0uXK\",\"pos_row\":3,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"mail_address_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mail_address_3\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940CuxGfeQOBBu7F3O5\",\"pos_row\":4,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"mail_address_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mail_address_4\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"},{\"control_id\":\"ctr_id-1401322380940PVdX6gAYo34cYs4f\",\"pos_row\":5,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"mail_address_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mail_address_5\",\"style\":\"width:98%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401324920461qW3TYMFN2yQQriX4\"}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401325394488ERA4QzHvHcIy5c4j\",\"controls\":[{\"control_id\":\"ctr_id-1401325394488nsiwfFa60FpAk1y2\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401325394488ERA4QzHvHcIy5c4j\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401325408823HeUT1AvSBSGR6AGX\",\"controls\":[{\"control_id\":\"ctr_id-1401322380941knZO7FUgNwqQNJhH\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Content\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"discussion_naiyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"},{\"control_id\":\"ctr_id-1401322380941p1dp2Y6RkgzTf110\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401322380942Y53jHqfqfSaTAbNu\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140529071213PJLwACaUrkbGUTQK\",\"name\":\"Team Discussion\",\"controls\":[]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+  Team Discussion
+  @since 2014-01-17
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Theme</div>
+      <div class="detail_value"><input type="text" name="discussion_theme" style="width:100%"></div>
+      <div class="detail_value"><font color="blue">i.e. about consuming tax rate</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">DateTime</div>
+      <div class="detail_value">
+        <input type="text" name="discussion_date" class="date" style="width:100%">
+      </div>
+      <div class="detail_value detail_select">
+        <select name="discussion_start" style="width: 40%">
+          <option value="00:00">00:00</option>
+          <option value="00:30">00:30</option>
+          <option value="01:00">01:00</option>
+          <option value="01:30">01:30</option>
+          <option value="02:00">02:00</option>
+          <option value="02:30">02:30</option>
+          <option value="03:00">03:00</option>
+          <option value="03:30">03:30</option>
+          <option value="04:00">04:00</option>
+          <option value="04:30">04:30</option>
+          <option value="05:00">05:00</option>
+          <option value="05:30">05:30</option>
+          <option value="06:00">06:00</option>
+          <option value="06:30">06:30</option>
+          <option value="07:00">07:00</option>
+          <option value="07:30">07:30</option>
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+          <option value="20:00">20:00</option>
+          <option value="20:30">20:30</option>
+          <option value="21:00">21:00</option>
+          <option value="21:30">21:30</option>
+          <option value="22:00">22:00</option>
+          <option value="22:30">22:30</option>
+          <option value="23:00">23:00</option>
+          <option value="23:30">23:30</option>
+        </select>&nbsp;&nbsp;～&nbsp;&nbsp;
+        <select name="discussion_end" style="width: 40%">
+          <option value="00:00">00:00</option>
+          <option value="00:30">00:30</option>
+          <option value="01:00">01:00</option>
+          <option value="01:30">01:30</option>
+          <option value="02:00">02:00</option>
+          <option value="02:30">02:30</option>
+          <option value="03:00">03:00</option>
+          <option value="03:30">03:30</option>
+          <option value="04:00">04:00</option>
+          <option value="04:30">04:30</option>
+          <option value="05:00">05:00</option>
+          <option value="05:30">05:30</option>
+          <option value="06:00">06:00</option>
+          <option value="06:30">06:30</option>
+          <option value="07:00">07:00</option>
+          <option value="07:30">07:30</option>
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+          <option value="20:00">20:00</option>
+          <option value="20:30">20:30</option>
+          <option value="21:00">21:00</option>
+          <option value="21:30">21:30</option>
+          <option value="22:00">22:00</option>
+          <option value="22:30">22:30</option>
+          <option value="23:00">23:00</option>
+          <option value="23:30">23:30</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Location</div>
+      <div class="detail_value"><input type="text" name="discussion_place" style="width:100%"></div>
+      <div class="detail_value"><font color="blue">i.e Meeting room 1</font></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Participants</div>
+<div class="container">
+  <ul class="detail">
+    <!-- _01st Row -->
+    <li class="row">
+      <div class="detail_head" style="width:5%;">No1</div>
+      <div class="detail_head" style="width:15%;">Employee Number</div>
+      <div class="detail_value"><input type="text" name="syain_number_1" style="width:100%;"></div>
+      <div class="detail_head" style="width:20%;">Name</div>
+      <div class="detail_value"><input type="text" name="syain_name_1" style="width:100%;"></div>
+      <div class="detail_head" style="width:25%;">Department</div>
+      <div class="detail_value"><input type="text" name="syain_busyo_1" style="width:100%;"></div>
+      <div class="detail_head" style="width:35%;">MAil Address</div>
+      <div class="detail_value"><input type="text" name="mail_address_1" style="width:100%;"></div>
+    </li>
+
+    <!-- _02nd Row -->
+    <li class="row">
+      <div class="detail_head">No2</div>
+      <div class="detail_head">Employee Number</div>
+      <div class="detail_value"><input type="text" name="syain_number_2" style="width:100%;"></div>
+      <div class="detail_head">Name</div>
+      <div class="detail_value"><input type="text" name="syain_name_2" style="width:100%;"></div>
+      <div class="detail_head">Department</div>
+      <div class="detail_value"><input type="text" name="syain_busyo_2" style="width:100%;"></div>
+      <div class="detail_head">MAil Address</div>
+      <div class="detail_value"><input type="text" name="mail_address_2" style="width:100%;"></div>
+    </li>
+
+    <!-- _03rd Row -->
+    <li class="row">
+      <div class="detail_head">No3</div>
+      <div class="detail_head">Employee Number</div>
+      <div class="detail_value"><input type="text" name="syain_number_3" style="width:100%;"></div>
+      <div class="detail_head">Name</div>
+      <div class="detail_value"><input type="text" name="syain_name_3" style="width:100%;"></div>
+      <div class="detail_head">Department</div>
+      <div class="detail_value"><input type="text" name="syain_busyo_3" style="width:100%;"></div>
+      <div class="detail_head">MAil Address</div>
+      <div class="detail_value"><input type="text" name="mail_address_3" style="width:100%;"></div>
+    </li>
+
+    <!-- _04th Row -->
+    <li class="row">
+      <div class="detail_head">No4</div>
+      <div class="detail_head">Employee Number</div>
+      <div class="detail_value"><input type="text" name="syain_number_4" style="width:100%;"></div>
+      <div class="detail_head">Name</div>
+      <div class="detail_value"><input type="text" name="syain_name_4" style="width:100%;"></div>
+      <div class="detail_head">Department</div>
+      <div class="detail_value"><input type="text" name="syain_busyo_4" style="width:100%;"></div>
+      <div class="detail_head">MAil Address</div>
+      <div class="detail_value"><input type="text" name="mail_address_4" style="width:100%;"></div>
+    </li>
+
+    <!-- _05th Row -->
+    <li class="row">
+      <div class="detail_head">No5</div>
+      <div class="detail_head">Employee Number</div>
+      <div class="detail_value"><input type="text" name="syain_number_5" style="width:100%;"></div>
+      <div class="detail_head">Name</div>
+      <div class="detail_value"><input type="text" name="syain_name_5" style="width:100%;"></div>
+      <div class="detail_head">Department</div>
+      <div class="detail_value"><input type="text" name="syain_busyo_5" style="width:100%;"></div>
+      <div class="detail_head">MAil Address</div>
+      <div class="detail_value"><input type="text" name="mail_address_5" style="width:100%;"></div>
+    </li>
+  </ul>
+
+  <ul class="detail" style="width:99%">
+    <li class="row">
+      <div class="detail_name">Content</div>
+      <div class="detail_value"><textarea name="discussion_naiyo" style="width:98%" rows="20"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

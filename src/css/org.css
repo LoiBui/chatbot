@@ -1,0 +1,234 @@
+/* ガジェット表示時
+----------------------------------------- */
+#gadget #leftMenu .menu01{
+	margin-bottom:5px;
+	height:420px;}
+
+#gadget #leftMenu .menu02{
+	margin-bottom:5px;
+	height:420px;}
+
+#gadget #leftMenu .menu03{
+	margin-top:5px;}
+
+/* ツリーサイズ
+----------------------------------------- */
+.orgTree{
+	height:320px;
+	overflow:auto;
+}
+
+
+
+/* 左メニュー　固定幅　ガジェット時
+----------------------------------------*/
+#gadget #mainArea #leftMenu {
+	background-color:#E6E9EF;
+	display:block;
+	width:240px;
+	padding:0px 10px 0px 15px;}
+
+/* 左メニュー　固定幅　非ガジェット　表示
+---------------------------------------- */
+ #mainArea.on #leftMenu {
+	background-color:#E6E9EF;
+	display:block;
+	width:240px;
+	padding:0px 10px 0px 15px;}
+
+
+/* ガジェット
+---------------------------------------- */
+#gadget #mainArea #rightArea {
+	background-color: #E6E9EF;
+	padding:0px 0px 5px 0px;
+	width:550px;
+	height:480px;
+	position:relative;
+	margin-left:260px;
+	margin-right:25px;}
+
+/* 非ガジェット
+---------------------------------------- */
+ #mainArea #rightArea {
+	background-color: #E6E9EF;
+	padding:0px 10px 0px 0px;}
+
+ #mainArea.off #rightArea {
+	position:relative;
+	margin-left:35px;
+	margin-right:25px;}
+
+ #mainArea.on #rightArea {
+	position:relative;
+	margin-left:260px;
+	margin-right:25px;}
+
+/*-------------------------------------------------
+  MailAddressArea
+-------------------------------------------------*/
+
+/* MailAddressArea start */
+.MailAddressArea {
+	width:auto;
+	margin: 0px;
+	text-align:left;
+	padding:0px 0px 0px 0px;}
+
+.MailAddressArea ul{
+	margin:0px 0px 0px 0px;
+	white-space:nowrap;
+	padding:0;
+	list-style-type: none;}
+
+.MailAddressArea li {
+	float:left;
+	margin:0px 1px 0px 0px;}
+
+.MailAddressArea .type2 a 
+{ /* 通常時 */
+	display:block;
+	width:53px;
+	height:22px;
+	background-repeat:no-repert;
+	background-position:left top;
+	background-attachment:scroll;
+	font-weight: normal;
+	font-size:90%;
+	text-align:center;
+	line-height:2em;
+	text-decoration:none;
+	_line-height:2em;
+	background-color:#F5F6F9;}
+
+.MailAddressArea a 
+{ /* 通常時 */
+	display:block;
+	width:100%,
+	height:100%,
+	background-repeat:no-repert;
+	background-position:left top;
+	background-attachment:scroll;
+	font-weight: normal;
+	font-size:90%;
+	text-align:center;
+	line-height:2em;
+	text-decoration:none;
+	_line-height:2em;
+	background-color:#F5F6F9;}
+
+.MailAddressArea .current,
+.MailAddressArea a:hover { 
+	display:block;
+	width:53px;
+	height:22px;
+	background-repeat:no-repert;
+	background-position:left top;
+	background-attachment:scroll;
+	font-weight:bold;
+	font-size:90%;
+	text-align:center;
+	line-height:2em;
+	text-decoration:none;
+	_line-height:2em;
+	background-color:#E6E9EF;}
+
+.MailAddressArea select
+{
+	width: 200px;
+	height: 80px;
+	margin: 5px;}
+
+/* MailAddressArea end */
+
+.innerAreaContact{
+	overflow:none;
+}
+
+.contactTree{
+	float:left;
+	width:100%;
+	padding:2px;
+}
+
+.TreeArea ul.head{
+	float:left;
+	margin:0px 0px 0px 0px;
+	white-space:nowrap;
+	padding:0;
+	list-style-type: none;}
+
+
+
+/* headerTree start */
+
+#headerTree {
+	width:100%;
+	display:block;
+}
+
+#headerTree ul.tab {
+	width:100%;
+	margin:0 0 0 2px;
+	padding:0px 0px 0px 0px;
+	font-weight:bold;}
+
+#headerTree ul.tab li {
+	position:relative;
+	float:left;
+	text-align:center;
+/*	color:#E6EFEA;*/
+/*	background-color:#0085ce;*/
+	background-color:#E6E9EF;
+	color:#333;
+	background-attachment:scroll;
+	background-position: top right;
+	background-repeat:no-repeat;
+	margin-right:2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	width:25%;
+}
+
+#headerTree ul.tab li a {
+	display:block;
+	width:100%,
+	height:100%,
+	float:left;
+/*	background-color:#0085ce;*/
+	background-color:#E6E9EF;
+	color:#333;
+	text-decoration:none;}
+
+#headerTree ul.tab li a:link,
+#headerTree ul.tab li a:visited {
+/*	color:#E6EFEA;*/
+	color:#666;
+	text-decoration:none;}
+
+#headerTree ul.tab li a:hover,
+#headerTree ul.tab li a:active {
+	color:#000;
+	text-decoration:none;}
+
+#headerTree ul.tab li.current,
+#headerTree ul.tab li.current a {
+	background-color:#0085ce;
+/*	background-color:#E6E9EF;*/
+/*	color:#E6EFEA;*/
+	color:#FFF;
+}
+
+
+/* headerTree end */
+
+
+
+#mainArea.on .visible {
+	visibility:visible;
+}
+
+#mainArea.off .visible {
+	visibility:hidden;
+}

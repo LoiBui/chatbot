@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_store.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_STORE}} - {% if sp_code == 'worksmobile'%}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<script type="text/javascript" >
+<!--
+
+var _store_list = [];
+Ext.each(jQuery.parseJSON('{{store_list|escapejs}}'), function(item){
+    _store_list.push([item.id,item.name]);
+});
+
+//sort
+_store_list.sort(function (a, b) {
+    return a[1].localeCompare(b[1]);
+});
+_store_list.unshift(['', '{{lang.VMSG_SELECT_ALL}}']);
+
+// 各フィールドを設定
+function createFields()
+{
+  var to_date_val = new Date();
+  var from_date_val =new Date(to_date_val.getFullYear(), to_date_val.getMonth(), 1);
+
+  var field_store_list = Ext.ucf.field.createComboBox('store', 'store', _store_list, '', '{{lang.VMSG_STORE_LIST}}', 200);
+  field_store_list.render('FIELD_store');
+
+  // ユーザID
+  var field_user_id = Ext.ucf.field.createTextField('user_id', 'user_id', '', '{{lang.FLD_USERID}}', 200);
+  field_user_id.render('FIELD_user_id');
+
+  // メールアドレス
+  var field_mail_address = Ext.ucf.field.createTextField('mail_address', 'mail_address', '', '{{lang.FLD_MAILADDRESS}}', 200);
+  field_mail_address.render('FIELD_mail_address');
+
+  // 姓
+  var field_last_name = Ext.ucf.field.createTextField('last_name', 'last_name', '', '{{lang.FLD_LASTNAME}}', 200);
+  field_last_name.render('FIELD_last_name');
+
+  // 名
+  var field_first_name = Ext.ucf.field.createTextField('first_name', 'first_name', '', '{{lang.FLD_FIRSTNAME}}', 200);
+  field_first_name.render('FIELD_first_name');
+
+  var field_from_date = Ext.ucf.field.createDateField('from_date', 'from_date', from_date_val, '{{lang.FLD_FROM_DATE|safe|escapejs}}', 200, null);
+	field_from_date.render('FIELD_from_date');
+
+  var field_to_date = Ext.ucf.field.createDateField('to_date', 'to_date', to_date_val, '{{lang.FLD_TO_DATE|safe|escapejs}}', 200, null);
+	field_to_date.render('FIELD_to_date');
+}
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function() {
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+  createFields();
+
+  var store_data_grid = Ext.ucf.store.createStoreDataGrid();
+  store_data_grid.render(Ext.get('GridList'));
+
+  // GridPanelリサイズ処理を追加
+  Ext.ucf.appendLeftMenuChangeDelagate(function () {
+      store_data_grid.setWidth(store_data_grid.getWidth() - 2);
+  });
+
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+{% if 'ADMIN' in login.access_authority or 'STORE' in login.delegate_function %}
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}store/" >{{lang.VMSG_STORE_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}store/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_STORE_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+{% endif %}
+<!-- leftMenu menu01//end -->
+
+{% if 'ADMIN' in login.access_authority or 'STORE' in login.delegate_function %}
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_TEMPLATE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if (ucfp.data.leftmenuid == 'INDEX' or ucfp.data.leftmenuid == 'REGIST') and ucfp.data.gnaviid == 'STORE_TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storetemplate/" >{{lang.VMSG_STORE_TEMPLATE_LIST}}</a></li>
+{#<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'STORE_TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storetemplate/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_STORE_TEMPLATE_ADD}}</a></li>#}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+{% endif %}
+
+
+{% if 'ADMIN' in login.access_authority or 'STORE' in login.delegate_function or 'STORE_RESULT' in login.delegate_function %}
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_STORE_DATA}}</p>
+{% if 'STORE' not in login.delegate_function and 'STORE_RESULT' in login.delegate_function %}
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+{% endif %}
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'STORE_DATA' %}current open{% else %}close{% endif %}"><a href="{{vurl}}storedata/" >{{lang.VMSG_STORE_DATA_LIST}}</a></li>
+<li class="{% if (ucfp.data.leftmenuid == 'INDEX' or ucfp.data.leftmenuid == 'REGIST' or ucfp.data.leftmenuid == 'DETAIL') and ucfp.data.gnaviid == 'FORM_DATA_STORE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}formdatastore/" >{{lang.VMSG_FORM_DATA_LIST}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+{% endif %}
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+
+<div class="innerArea01">
+    <span class="span_icon"><img src="/images/icons/history_32.png"></span>
+    <p class="ttl">{{ lang.VMSG_STORE_DATA_LIST|safe }}</p>
+    <table class="acs_layout">
+        <tbody>
+         <tr>
+          <td class=" layout_td layout_td_all2" >
+            <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+          <form onsubmit="JavaScript:search();return false;" >
+                <input type="hidden" value="0" id="total_records"/>
+
+            <div class="search_table">
+
+
+              <div class="filter-cmp">
+                <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.VMSG_STORE_LIST}} </label>
+                    <div id="FIELD_store" class="select-cmp input-cmp"></div>
+                  </div>
+                </div>
+                 <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.FLD_USERID}} </label>
+                    <div id="FIELD_user_id" class="input-cmp"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter-cmp">
+                <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.FLD_LASTNAME}} </label>
+                    <div id="FIELD_last_name" class="input-cmp"></div>
+                  </div>
+                </div>
+                <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.FLD_MAILADDRESS}} </label>
+                    <div id="FIELD_mail_address" class="input-cmp"></div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="filter-cmp">
+
+                <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.FLD_FIRSTNAME}} </label>
+                    <div id="FIELD_first_name" class="input-cmp"></div>
+                  </div>
+                </div>
+
+                 <div class="text-feild item-filter">
+                  <div class="form-group">
+                    <label for="">{{lang.FLD_FROM_DATE}} </label>
+                    <div class="datetime-cmp">
+                      <div id="FIELD_from_date" class="select-cmp datetime-input"></div>
+                      <label for="" class="w10px cls-center">~</label>
+                      <div id="FIELD_to_date" class="select-cmp datetime-input"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+{#              <div class="filter-cmp">#}
+{#                #}
+{#              </div>#}
+
+              <div class="act-filter">
+                  <div id="btnSearch"></div>
+                  <div id="btnExportCSV"></div>
+              </div>
+            </div>
+
+{#            <table border="0" width="100%" cellpadding="2" cellspacing="2" class="search_table" >#}
+{#                  <tr>#}
+{#                  <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>#}
+{#                  </tr>#}
+{##}
+{#                  <tr>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.VMSG_STORE_LIST}}</td>#}
+{#                  <td width="80%" align="left" class="style3" colspan="3">#}
+{#                  <div id="FIELD_store" class="field" ></div>#}
+{#                  </td>#}
+{#                  </tr>#}
+{##}
+{#                  <tr>#}
+{#                  <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>#}
+{#                  </tr>#}
+{##}
+{#                  <tr>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_USERID}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_user_id" class="field" ></div>#}
+{#                  </td>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_MAILADDRESS}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_mail_address" class="field" ></div>#}
+{#                  </td>#}
+{#                  </tr>#}
+{#                  <tr>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_LASTNAME}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_last_name" class="field" ></div>#}
+{#                  </td>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FIRSTNAME}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_first_name" class="field" ></div>#}
+{#                  </td>#}
+{#                  </tr>#}
+{#                   <tr>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FROM_DATE}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_from_date" class="field" ></div>#}
+{#                  </td>#}
+{#                  <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_TO_DATE}}</td>#}
+{#                  <td width="30%" align="left" class="style3">#}
+{#                  <div id="FIELD_to_date" class="field" ></div>#}
+{#                  </td>#}
+{#                  </tr>#}
+{##}
+{#            <tr>#}
+{#            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#              <td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#            <td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>#}
+{#            </tr>#}
+{##}
+{#                   <tr align="center">#}
+{#                      <td colspan="4" align="center">#}
+{#                          <table  align="center" style="margin: auto;">#}
+{#                              <tr>#}
+{#                                  <td>#}
+{#                                      <div id="btnSearch"></div>#}
+{#                                  </td>#}
+{#                                  <td>#}
+{#                                      &nbsp;&nbsp;#}
+{#                                  </td>#}
+{#                                  <td>#}
+{#                                      <div id="btnExportCSV"></div>#}
+{#                                  </td>#}
+{#                              </tr>#}
+{#                          </table>#}
+{#                      </td>#}
+{#            </tr>#}
+{##}
+{#            </table>#}
+          </form>
+          </td>
+        </tr>
+
+         <tr>
+            <td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+            </tr>
+         <tr>
+
+        <tr>
+            <td class="layout_td layout_td_all">
+                <div id="GridList"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

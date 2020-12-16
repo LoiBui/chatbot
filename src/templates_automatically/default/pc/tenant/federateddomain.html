@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<title>{{lang.VMSG_SITE_TITLE_FEDERATEDDOMAIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<script type="text/javascript" src="{{vscripturl}}ucfext_config.js?{{version}}"></script>
+<script type="text/javascript" >
+<!--
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+}
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+//////////////////////////////////////////////////
+// 画面自体の編集をキャンセル
+//////////////////////////////////////////////////
+function cancel()
+{
+}
+
+
+// 各フィールドを設定
+function createFields()
+{
+	var field_domain_name = Ext.ucf.field.createTextField('domain_name', 'domain_name', '{{ucfp.voinfo.vo.domain_name|escapejs}}', '{{lang.FLD_FEDERATEDDOMAIN}}', 400, Ext.ucf.delegateCheckValidation)
+	field_domain_name.render('FIELD_domain_name');
+	lstCmpFrmEdit.push(field_domain_name);
+
+}
+
+var RecordInfo = Ext.data.Record.create([
+						{name: 'domain_name',  type: 'string'}
+	]);
+
+var store = new Ext.data.Store({
+		reader: new Ext.data.JsonReader({
+					idProperty: 'domain_name'
+					,root: 'records'
+					,totalProperty: 'all_count'
+					}, RecordInfo),
+    url: _vurl + 'config/xtfederateddomainlist',
+		autoDestroy:true
+});
+
+var getSearchBaseParam = function()	{
+	var params = {};
+	return params;
+};
+var search = function(){
+	Ext.ucf.search(false, store, getSearchBaseParam, '');
+};
+
+
+function confirmDomainDelete(domain_name)
+{
+
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var result = jQuery.parseJSON(response.responseText);
+			var code = result.code;
+			if (code == 0) {
+				search();
+			}
+			else
+			{
+				if (result.msg == '')
+				{
+					Ext.ucf.dispSysErrMsg(code);
+				}
+				else{
+					Ext.ucf.flowMsg(code, result.msg);
+				}
+			}
+		}
+	}
+
+	Ext.Msg.show({
+		icon: Ext.MessageBox.WARNING,
+		title: _msg.CONFIRM,
+		msg: _msg.VMSG_CONFIRM_FEDERATED_DOMAIN_DELETE,
+		buttons: Ext.Msg.YESNO,
+		fn:function(btn,text){
+	    if (btn == 'yes'){
+				var params = {
+					domain_name:domain_name
+				};
+			  Ext.Ajax.request({ 
+			    url: _vurl + 'config/xtfederateddomaindelete',
+			    method: 'POST', 
+			    params: params, 
+			    success: handleAfterProcess, 
+			    failure: handleAfterProcess
+			  }); 
+	    }
+		}
+	});
+	
+	
+}
+
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+    
+	createFields();
+
+	var btnAddDomain = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.ADD_FEDERATED_DOMAIN}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+
+			// マスクをかける
+			var mask = new Ext.LoadMask(Ext.get('contentsArea'), {msg:_msg.VMSG_MSG_UPDATING});
+			mask.show();
+
+			var handleAfterProcess = function(response){
+				mask.hide();
+				if (response.responseText != undefined && response.responseText != '') {
+					var result = jQuery.parseJSON(response.responseText);
+					var code = result.code;
+					if (code == 0) {
+						search();
+					}
+					else if(code == 100)
+					{
+						var message = '';
+						for (data in result.vcmsg)
+						{
+							message += result.vcmsg[data] + '<br/>';
+							var ele = Ext.getCmp(data);
+							if(ele != undefined){
+								ele.preVCMessage = result.vcmsg[data];
+								ele.markInvalid(result.vcmsg[data]);
+							}
+						}
+						Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, message);
+					}
+					else
+					{
+						if (result.msg == '')
+						{
+							Ext.ucf.dispSysErrMsg(code);
+						}
+						else{
+							Ext.ucf.flowMsg(code, result.msg);
+						}
+					}
+				}
+			}
+
+			var params = {
+				domain_name:Ext.ucf.getElementValue('domain_name')
+			};
+
+		  Ext.Ajax.request({ 
+		    url: _vurl + 'config/xtfederateddomainadd',
+		    method: 'POST', 
+		    params: params, 
+		    success: handleAfterProcess, 
+		    failure: handleAfterProcess
+		  }); 
+		}
+	});
+	btnAddDomain.render(Ext.get('AreaBtnAddDomain'));
+
+	var btnClose = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			window.close();
+		}
+	});
+	btnClose.render(Ext.get('BtnClose'));
+
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+	
+	var toolBarItems = [btnReflesh];
+	var toolBar = new Ext.Toolbar({
+		items:toolBarItems
+	});
+	
+	var grid;
+	var cm = new Ext.grid.ColumnModel({
+      columns: [
+//			sm,
+			{
+          header: _msg.VMSG_DOMAIN_NAME,
+          dataIndex: 'domain_name',
+          width: 120,
+          sortable: true
+      },{
+          header: '{{lang.VMSG_LINK_DELETE}}',
+          dataIndex: '',
+          width: 10,
+          sortable: false,
+					renderer: function(value, p, record)
+					{
+						if(typeof(record.get('domain_name')) != 'undefined' && record.get('domain_name') != ''){
+							return '<input type="button" title="{{lang.VMSG_LINK_DELETE}}" value="" class="btnTrash" onclick="JavaScript:confirmDomainDelete(\'' + escape(record.get('domain_name')) + '\');" />';
+						}else{
+							return '';
+						}
+					}
+      }
+		]
+	});
+	grid = new Ext.grid.EditorGridPanel({
+		id: 'domain_list_grid',
+    store: store,
+//      width: 600,
+    region:'center',
+		clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+    stripeRows: true,
+//		bbar: pagingBar,
+		tbar: toolBar,
+//		sm: sm,
+		cm: cm
+  });
+	// パネルにグリッドをセット
+  var layout = new Ext.Panel({
+    collapsible: true,
+    title: _msg.VMSG_DOMAIN_LIST,
+    layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+    layoutConfig: {
+        columns: 1
+    },
+    height: 320,
+    items: [grid]
+  });
+
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+	layout.render(Ext.get('AreaGridDomain'));
+	search();
+
+});
+
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{#-% include "./include/header.html" %-#}
+<!-- mainArea//start -->
+<div id="mainArea" class="off">
+{#-% include "./include/index_leftmenu.html" %-#}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_SITE_TITLE_FEDERATEDDOMAIN}}</p>
+<table class="detail_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+      <table class="info_table" >
+        <tr>
+					<td>
+						<table border="0" cellpadding="0" cellspacing="0" >
+							<tr>
+								<th>{{lang.FLD_FEDERATEDDOMAIN}}：</th>
+								<td>
+									<div id="FIELD_domain_name" class="field" ></div>
+								</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td>
+									<div id="AreaBtnAddDomain"></div>
+								</td>
+							</tr>
+						</table>
+					</td>
+        </tr>
+        <tr>
+					<td>
+						<p class="style1">{{lang.VMSG_FEDERATED_DOMAIN_EXP|safe}}</p>
+					</td>
+        </tr>
+        <tr>
+					<td>
+						<img src="/images/spacer.gif" alt="" height="10" />
+					</td>
+        </tr>
+        <tr>
+					<td>
+						<div id="AreaGridDomain" ></div> 
+					</td>
+        </tr>
+        <tr>
+					<td>
+						<img src="/images/spacer.gif" alt="" height="20" />
+					</td>
+        </tr>
+        <tr>
+					<td align="center">
+    				<div id="BtnClose" />
+					</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

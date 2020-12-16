@@ -1,0 +1,79 @@
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_OPERATOR_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl}}#OPERATOR" >{{lang.VMSG_OPERATOR_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operator/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_OPERATOR_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+{#{% if 'ADMIN' in login.access_authority: %}#}
+{#<!-- leftMenu menu02//start -->#}
+{#<div class="menu02">#}
+{#<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>#}
+{#<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>#}
+{#<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>#}
+{#<!-- leftMenu innerArea//start -->#}
+{#<div class="innerArea">#}
+{#<p class="ttl">{{lang.VMSG_BUSINESSRULE_CONFIG}}</p>#}
+{#<div class="folderMenu">#}
+{#<ul>#}
+{#<li class="close"><a href="{{vurl}}businessrule/" >{{lang.VMSG_BUSINESSRULE_LIST}}</a></li>#}
+{#<li class="close"><a href="{{vurl}}businessrule/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_BUSINESSRULE_ADD}}</a></li>#}
+{#</ul>#}
+{#</div>#}
+{#</div>#}
+{#<!-- leftMenu innerArea//end -->#}
+{#<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>#}
+{#<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>#}
+{#<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>#}
+{#</div>#}
+{#<!-- leftMenu menu02//end -->#}
+{#{% endif %}#}
+
+
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SOME_HISTORY_LIST}}</p>
+<div class="folderMenu">
+
+<ul>
+{% if 'ADMIN' in login.access_authority or 'OPERATOR' in login.delegate_function: %}
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl}}acs/log" >{{lang.VMSG_LOGINHISTORY}}</a></li>
+{% endif %}
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->

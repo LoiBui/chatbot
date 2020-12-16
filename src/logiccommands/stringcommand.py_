@@ -1,0 +1,214 @@
+#!/usr/bin/python
+# coding: utf-8
+
+import logging
+import json
+import datetime
+import re
+import urllib
+import urllib2
+
+import sateraito_inc
+import sateraito_func
+from ucf.utils.ucfutil import *
+from google.appengine.api import urlfetch
+from logiccommands.basecommand import *
+
+try:
+  from basecommandex import BaseCommandEx
+except:
+  from logiccommands.basecommand import BaseCommandEx
+
+
+#######################################
+#
+# STRING function $target $result $parameter1 $parameter2
+#
+#
+#
+#######################################
+
+
+MAP_FUNCTIONS = {
+  'get': '__getitem__',
+  'slice': '__getslice__',
+  'len': '__len__',
+  'str': '__str__',
+  'contains': '__contains__',
+
+  'endswith': 'endswith',
+  'startswith': 'startswith',
+
+  'decode': 'decode',
+  'encode': 'encode',
+
+  'join': 'join',
+  'format': 'format',
+  'replace': 'replace',
+
+  'capitalize': 'capitalize',
+  'title': 'title',
+  'lower': 'lower',
+  'upper': 'upper',
+  'swapcase': 'swapcase',
+
+  'center': 'center',
+  'ljust': 'startswith',
+  'rjust': 'rjust',
+  'zfill': 'zfill',
+
+  'strip': 'strip',
+  'lstrip': 'lstrip',
+  'rstrip': 'rstrip',
+
+  'partition': 'partition',
+  'rpartition': 'rpartition',
+
+  'find': 'find',
+  'rfind': 'rfind',
+  'index': 'index',
+  'rindex': 'rindex',
+  'count': 'count',
+
+  'split': 'split',
+  'rsplit': 'rsplit',
+  'splitlines': 'splitlines',
+
+  'isalnum': 'isalnum',
+  'isalpha': 'isalpha',
+  'isdigit': 'isdigit',
+  'islower': 'islower',
+  'isupper': 'isupper',
+  'istitle': 'istitle',
+  'isspace': 'isspace'
+}
+
+
+class StringCommand(BaseCommandEx):
+  def __init__(self, element_list, parent_command, script_row_num, params):
+    super(StringCommand, self).__init__(element_list, parent_command, script_row_num, params)
+
+  # 解析
+  def _analysis(self):
+    elements_min = 4
+    self._assert_len_elements(num_min=elements_min)
+
+    index = 1
+    name = 'function'
+    if self._check_kind_element_keyword(1):
+      express = self._get_element_express(index)
+      function = express.lower()
+      if function not in MAP_FUNCTIONS:
+        # self._raise_exception_invalid_element(index, name)
+        valid_functions = MAP_FUNCTIONS.keys()
+        self._raise_exception_invalid_pattern(index, name, valid_functions)
+    # should allow function store in $element or /element for dynamic call function ???
+    # todo may need check functions valid
+
+    # target string to call function
+    index = 2
+    name = 'target'
+
+    index = 3
+    name = 'result'
+    self._assert_kind_element(index, name, ('VARIABLE', 'JSONXPATH'), exclude=('CONSTANT'))
+
+  # コマンド実行
+  def _execute(self):
+    index = 1
+    name = 'function'
+    element = self.getElementObj(index)
+    value = self.getValue(element)
+    self._assert_value_element_not_none(index, name)
+    if not value:
+      self._raise_exception_invalid_element(index, name)
+    value_lower = value.lower()
+    if value_lower not in MAP_FUNCTIONS:
+      self._raise_exception_invalid_element(index, name)
+    # logging.debug(function)
+    function = value_lower
+    method = MAP_FUNCTIONS.get(value_lower)
+
+    index = 2
+    name = 'target'
+    element = self.getElementObj(index)
+    value = self.getValue(element)
+    self._assert_value_element_not_none(index, name)
+    self._assert_type_element(index, name, (basestring, unicode))
+    if not value:
+      self._raise_exception_invalid_element(index, name)
+    target = value
+
+    current_index = 4
+    element_parameters = []
+    while True:
+      current_element = self.getElementObj(current_index)
+      if current_element:
+        element_parameters.append(current_element)
+        current_index += 1
+      else:
+        break
+
+    # logging.debug('element_parameters')
+    # logging.debug(element_parameters)
+
+    parameters = [self.getValue(parameter_element) for parameter_element in element_parameters]
+    len_parameters = len(parameters)
+
+    function_caller = getattr(target, method)
+    # logging.debug('function_caller')
+    # logging.debug(function_caller)
+    if not callable(function_caller):
+      self._raise_exception_invalid_element(1, 'function')
+
+    result = None
+
+    if function in [
+      'isalnum',
+      'isalpha',
+      'isdigit',
+      'islower',
+      'isupper',
+      'istitle',
+      'isspace'
+    ]:
+      if len_parameters > 0:
+        self._raise_exception_redundant_element()
+
+    elif function in [
+      "capitalize",
+      "title",
+      "lower",
+      "upper",
+      "swapcase"
+    ]:
+      if len_parameters > 0:
+        self._raise_exception_redundant_element()
+
+    elif function in [
+      "find",
+      "rfind",
+      "index",
+      "rindex",
+      "count"
+    ]:
+      if len_parameters < 1:
+        self._raise_exception_missing_element()
+      if len_parameters > 3:
+        self._raise_exception_redundant_element()
+
+    elif function == 'replace':
+      if len_parameters < 2:
+        self._raise_exception_missing_element()
+      if len_parameters > 3:
+        self._raise_exception_redundant_element()
+
+    # todo check other functions valid
+
+    result = function_caller(*parameters)
+
+    index = 3
+    name = 'result'
+    element = self.getElementObj(index)
+
+    self.setValue(element.get('value'), result)

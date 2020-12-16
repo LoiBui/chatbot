@@ -1,0 +1,1002 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_group.js?{{version}}"></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all-red.css" />
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all-green.css" />
+<script type="text/javascript" src="{{vscripturl}}ext/PopupGroupList.js?{{version}}" ></script>
+<LINK href="/css/jqueryUcfTree2.css?{{version|safe}}" type="text/css" rel="stylesheet">
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<title>{{lang.VMSG_SITE_TITLE_GROUP_NEW}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<title>{{lang.VMSG_SITE_TITLE_GROUP_RENEW}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% else %}<title>{{lang.VMSG_SITE_TITLE_GROUP}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+{% endif %}
+<script type="text/javascript" >
+<!--
+
+var _date_changed = '{{ucfp.voinfo.vo.date_changed|escapejs}}';
+
+// 所属メンバータイプ
+var _lst_belong_member_type = [['', '{{lang.OWNERTYPE_MEMBER}}'], ['OWNER', '{{lang.OWNERTYPE_OWNER}}']];
+
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+}
+
+// 所属組織（グループ）ストア
+var createBelongMemberStore = function(){
+	return new Ext.data.ArrayStore({
+    storeId: 'storBelongMember',
+    idIndex: 0,
+    fields: [
+       {name: 'Index'}
+      ,{name: 'UniqueID'}
+      ,{name: 'Name'}
+      ,{name: 'MailAddress'}
+      ,{name: 'Type'}
+      ,{name: 'OwnerFlag'}
+    ]
+	});
+};
+
+var storBelongMember = createBelongMemberStore();
+var storBelongMemberInit = createBelongMemberStore();
+
+var lstStore = [storBelongMember,storBelongMemberInit];
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+
+//////////////////////////////////////////////////
+// 所属メンバーを削除
+//////////////////////////////////////////////////
+function delBelongMemberItem(idx)
+{
+	var mask;
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var jsondata = eval('(' + response.responseText + ')');
+			var code = jsondata.code;
+			// 正常時処理
+			if (code == 0) {
+				{% if without_belong_members_info:%}
+				Ext.ucf.flowMsg('{{lang.MSG_DELETED_MEMBER}}:' + escape(jsondata.memberinfo.MailAddress), jsondata.msg);
+				location.href = '{{vurl}}group/member?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}';
+				{% else:%}
+				var rec = new Ext.data.Record(jsondata.memberinfo);
+				_date_changed = rec.get('DateChanged');
+				storBelongMember.removeAt(idx);
+				refleshBelongMemberDispBox();
+				Ext.ucf.flowMsg('{{lang.MSG_DELETED_MEMBER}}:' + escape(jsondata.memberinfo.MailAddress), jsondata.msg);
+				{% endif%}
+
+			}
+			else if(code == 100) {
+				var message = '';
+				for (data in jsondata.vcmsg)
+				{
+					message += jsondata.vcmsg[data] + '<br/>';
+					var ele = Ext.getCmp(data);
+					if(ele != undefined){
+						ele.preVCMessage = jsondata.vcmsg[data];
+						ele.markInvalid(jsondata.vcmsg[data]);
+					}
+				}
+				Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', message);
+			}
+			else {
+				if (jsondata.msg == '')
+				{
+					Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, _msg.VMSG_MSG_SYSTEMERROR_OCCURED);
+				}
+				else{
+					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+				}
+			}
+		}
+		else
+		{
+			Ext.ucf.dispSysErrMsg();
+		}
+		mask.hide();
+		return;
+	}
+
+	//*****************************
+	// バリデーションチェック
+
+	var rec = storBelongMember.getAt(idx);
+	var belong_member_address = rec.get('MailAddress');
+	var params = {
+		UniqueID:'{{ucfp.voinfo.vo.unique_id|escapejs}}'
+		,date_changed:_date_changed
+		,belong_member_address:belong_member_address
+	};
+
+	// マスクをかける
+	mask = new Ext.LoadMask(Ext.get('BelongMemberArea'), {msg:"{{lang.VMSG_MSG_PROCESSING}}"});
+	mask.show();
+
+	// AJAXコール
+  Ext.Ajax.request({ 
+    url: '{{vurl}}group/deletebelongmember',
+    method: "POST", 
+    params: params, 
+    success: handleAfterProcess, 
+    failure: handleAfterProcess
+  }); 
+}
+
+
+//////////////////////////////////////////////////
+// 所属メンバーを追加
+//////////////////////////////////////////////////
+function addBelongMemberItem()
+{
+	var mask;
+
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var jsondata = eval('(' + response.responseText + ')');
+			var code = jsondata.code;
+			if (code == 0) {
+				{% if without_belong_members_info:%}
+				var memberinfo = jsondata.memberinfos[i];
+				Ext.ucf.flowMsg('{{lang.MSG_ADDED_MEMBER|safe}}：' + escape(memberinfo.MailAddress), jsondata.msg);
+				location.href = '{{vurl}}group/member?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}';
+				{% else:%}
+				// 正常時処理
+				_date_changed = jsondata.DateChanged;
+				for(i = 0; i < jsondata.memberinfos.length; i++){
+					var memberinfo = jsondata.memberinfos[i];
+					var rec = new Ext.data.Record(memberinfo);
+					var length = storBelongMember.getCount();
+					//_date_changed = rec.get('DateChanged');
+					storBelongMember.add([rec]);
+					refleshBelongMemberDispBox();
+					Ext.ucf.flowMsg('{{lang.MSG_ADDED_MEMBER|safe}}：' + escape(memberinfo.MailAddress), jsondata.msg);
+				}
+				{% endif%}
+			}
+			else if(code == 100) {
+				var message = '';
+				for (i = 0; i < jsondata.vcmsg.length; i ++)
+				{
+					var data = jsondata.vcmsg[i];
+					message += data + '<br/>';
+					var ele = Ext.getCmp(data);
+					if(ele != undefined){
+						ele.preVCMessage = data;
+						ele.markInvalid(data);
+					}
+				}
+				Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR|safe|escapejs}}', message);
+
+				// 複数対応に伴い、エラー時も追加されたメンバーはあるので
+				_date_changed = jsondata.DateChanged;
+				for(i = 0; i < jsondata.memberinfos.length; i++){
+					var memberinfo = jsondata.memberinfos[i];
+					var rec = new Ext.data.Record(memberinfo);
+					var length = storBelongMember.getCount();
+					//_date_changed = rec.get('DateChanged');
+					storBelongMember.add([rec]);
+					refleshBelongMemberDispBox();
+					Ext.ucf.flowMsg('{{lang.MSG_ADDED_MEMBER|safe}}：' + escape(memberinfo.MailAddress), jsondata.msg);
+				}
+			}
+			else {
+				if (jsondata.msg == '')
+				{
+					Ext.ucf.dispSysErrMsg();
+				}
+				else{
+					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+				}
+			}
+		}
+		else
+		{
+			Ext.ucf.dispSysErrMsg();
+		}
+		mask.hide();
+		return;
+	}
+
+	//*****************************
+	// バリデーションチェック
+
+	var belong_member_address = Ext.ucf.getElementValue('belong_member_address');
+	var belong_member_type = Ext.ucf.getElementValue('belong_member_type');
+	//var self_group_id_localpart = Ext.ucf.getElementValue('group_id_localpart');
+	var self_group_id = Ext.ucf.getElementValue('group_id');
+	var self_federated_domain = Ext.ucf.getElementValue('federated_domain');
+
+	var params = {
+		UniqueID:'{{ucfp.voinfo.vo.unique_id|escapejs}}'
+		,date_changed:_date_changed
+		,belong_member_address:belong_member_address
+		,belong_member_type:belong_member_type
+		//,self_group_id_localpart:self_group_id_localpart
+		,self_group_id:self_group_id
+		,self_federated_domain:self_federated_domain
+	};
+
+	// マスクをかける
+	mask = new Ext.LoadMask(Ext.get('BelongMemberArea'), {msg:"{{lang.VMSG_MSG_PROCESSING}}"});
+	mask.show();
+
+	// AJAXコール
+  Ext.Ajax.request({ 
+    url: '{{vurl}}group/addbelongmember',
+    method: "POST", 
+    params: params, 
+    success: handleAfterProcess, 
+    failure: handleAfterProcess
+  }); 
+}
+
+// 取得した所属メンバー情報の足りない情報を捕捉して画面に反映
+function supplyBelongMemberItem(datItem, content_sub_li, type_sub_li, owner_sub_li, del_sub_li)
+{
+
+//	var mask;
+
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var jsondata = eval('(' + response.responseText + ')');
+			var code = jsondata.code;
+			if (code == 0) {
+				// 正常時処理
+
+				var item = new Ext.data.Record(jsondata.memberinfo);
+				datItem.UniqueID = item.get('UniqueID');
+				datItem.Type = item.get('Type');
+				datItem.Name = item.get('Name');
+				var rec = storBelongMember.getAt(datItem.Index);
+				rec.set('UniqueID', datItem.UniqueID);
+				rec.set('Type', datItem.Type);
+				rec.set('Name', datItem.Name);
+
+				setOneBelongMebmerInfo(datItem, content_sub_li, type_sub_li, owner_sub_li, del_sub_li);
+			}
+			else {
+				if (jsondata.msg == '')
+				{
+					Ext.ucf.dispSysErrMsg();
+				}
+				else{
+					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+				}
+			}
+		}
+		else
+		{
+			Ext.ucf.dispSysErrMsg();
+		}
+		//mask.hide();
+		return;
+	}
+
+	//*****************************
+	// バリデーションチェック
+	var params = {
+		belong_member_address:datItem.MailAddress
+	};
+
+	// AJAXコール
+  Ext.Ajax.request({ 
+    url: '{{vurl}}group/getbelongmember',
+    method: "POST", 
+    params: params, 
+    success: handleAfterProcess, 
+    failure: handleAfterProcess
+  }); 
+}
+
+function setOneBelongMebmerInfo(datItem, content_sub_li, type_sub_li, owner_sub_li, del_sub_li)
+{
+	// contentの補足
+	var innerHtml = '';
+	if(typeof(datItem.Name) != 'undefined' && datItem.Name != '')
+	{
+		innerHtml = Ext.ucf.htmlEscape(datItem.Name) + '&nbsp;&lt;' + Ext.ucf.htmlEscape(datItem.MailAddress) + '&gt;';
+	}
+	else
+	{
+		innerHtml = Ext.ucf.htmlEscape(datItem.MailAddress);
+	}
+
+	if(typeof(datItem.UniqueID) != 'undefined' && datItem.UniqueID != '')
+	{
+		if(datItem.Type == 'GROUP')
+		{
+			innerHtml = '<a href="{{vurl}}group/regist?unqid=' + escape(datItem.UniqueID) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}" target="_blank" >' + innerHtml + '</a>';
+		}
+		else if(datItem.Type == 'USER')
+		{
+			innerHtml = '<a href="{{vurl}}user/regist?unqid=' + escape(datItem.UniqueID) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}" target="_blank" >' + innerHtml + '</a>';
+		}
+	}
+	content_sub_li.innerHTML = innerHtml;
+
+	// メンバータイプの補足
+	if(datItem.Type == 'GROUP')
+	{
+		type_sub_li.innerHTML = '{{lang.MEMBERTYPE_GROUP}}';
+	}
+	else if(datItem.Type == 'USER')
+	{
+		type_sub_li.innerHTML = '{{lang.MEMBERTYPE_USER}}';
+	}
+	else if(datItem.Type == 'MEMBER')
+	{
+		type_sub_li.innerHTML = '{{lang.MEMBERTYPE_MEMBER}}';
+	}
+	else
+	{
+		type_sub_li.innerHTML = '&nbsp;';
+	}
+
+	if(datItem.OwnerFlag == 'OWNER')
+	{
+		owner_sub_li.innerHTML = '{{lang.OWNERTYPE_OWNER}}';
+	}
+	else
+	{
+		owner_sub_li.innerHTML = '{{lang.OWNERTYPE_MEMBER}}';
+	}
+
+	del_sub_li.innerHTML = '<a href="JavaScript:delBelongMemberItem(' + datItem.Index + ');">{{lang.DELETE}}</a>';
+
+}
+
+// BelongMemberDispBoxをレンダリング
+var refleshBelongMemberDispBox = function()
+{
+	
+	var disp_box = Ext.get('BelongMemberDispBox');
+	if(!disp_box)
+	{
+		return;
+	}
+
+	disp_box.dom.innerHTML = '';
+
+	var length = storBelongMember.getCount();
+	var datJson = [];
+
+	for(var i = 0; i < length; i++)
+	{
+		var rec = storBelongMember.getAt(i);
+		datJson.push({Index:i, UniqueID:rec.get('UniqueID'), Name:rec.get('Name'), MailAddress:rec.get('MailAddress'), Type:rec.get('Type'), OwnerFlag:rec.get('OwnerFlag')});
+	}
+
+	for(var i = 0; i < datJson.length; i++)
+	{
+		var datItem = datJson[i];
+
+		var ul = document.createElement('ul');
+		disp_box.dom.appendChild(ul);
+		var li = document.createElement('li');
+		ul.appendChild(li);
+		var sub_div = document.createElement('div');
+		Ext.get(sub_div).addClass('mem_rec');
+
+		li.appendChild(sub_div);
+		sub_ul = document.createElement('ul');
+		Ext.get(sub_ul).addClass('sub');
+		sub_div.appendChild(sub_ul);
+
+		var content_sub_li = document.createElement('li');
+		Ext.get(content_sub_li).addClass('content');
+		sub_ul.appendChild(content_sub_li);
+
+		var type_sub_li = document.createElement('li');
+		Ext.get(type_sub_li).addClass('type');
+		sub_ul.appendChild(type_sub_li);
+
+		var owner_sub_li = document.createElement('li');
+		Ext.get(owner_sub_li).addClass('owner');
+		sub_ul.appendChild(owner_sub_li);
+
+		var del_sub_li = document.createElement('li');
+		Ext.get(del_sub_li).addClass('del');
+		sub_ul.appendChild(del_sub_li);
+
+		setOneBelongMebmerInfo(datItem, content_sub_li, type_sub_li, owner_sub_li, del_sub_li);
+		// 足りない情報を取得（UniqueID, Name, Type)
+		// パフォーマンスチューニングのためコメントアウト。それに伴い、タイプとか出さないように変更
+		//if(typeof(datItem.Type) == 'undefined' || datItem.Type == '')
+		//{
+		//	supplyBelongMemberItem(datItem, content_sub_li, type_sub_li, owner_sub_li, del_sub_li);
+		//}
+
+	}
+
+	//$('#BelongMemberInfo').val($.toJSON(datJson));
+
+
+};
+
+//////////////////////////////////////////////////
+// 所属メンバー情報を取得し画面に反映
+//////////////////////////////////////////////////
+var refleshBelongMemberInfo = function()
+{
+	var mask;
+
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var jsondata = eval('(' + response.responseText + ')');
+			var code = jsondata.code;
+			if (code == 0) {
+				// 正常時処理
+				Ext.each(lstStore, function(store){store.removeAll();});
+				var rec;
+
+				if(typeof(jsondata.BelongMemberInfo) != 'undefined' && jsondata.BelongMemberInfo != '')
+				{
+					var datJson = $.secureEvalJSON(jsondata.BelongMemberInfo);
+					for(var i = 0; i < datJson.length; i++)
+					{
+						var datItem = datJson[i];
+						rec = new Ext.data.Record(datItem);
+						storBelongMember.add([rec]);
+						storBelongMemberInit.add([rec]);
+					}
+				}
+				// ストアから表示
+				refleshBelongMemberDispBox();
+
+			}
+			else {
+				if (jsondata.msg == '')
+				{
+					Ext.ucf.dispSysErrMsg();
+				}
+				else{
+					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+				}
+			}
+		}
+		else
+		{
+			Ext.ucf.dispSysErrMsg();
+		}
+		mask.hide();
+		return;
+	}
+
+	//*****************************
+	// バリデーションチェック
+	var params = {
+		UniqueID:'{{ucfp.voinfo.vo.unique_id|escapejs}}'
+	};
+
+	// マスクをかける
+	mask = new Ext.LoadMask(Ext.get('BelongMemberArea'), {msg:"{{lang.VMSG_MSG_LOADING}}"});
+	mask.show();
+
+	// AJAXコール
+  Ext.Ajax.request({ 
+    url: '{{vurl}}group/getbelongmemberlist',
+    method: "POST", 
+    params: params, 
+    success: handleAfterProcess, 
+    failure: handleAfterProcess
+  }); 
+
+
+}
+
+
+// 各フィールドを設定
+function createFields()
+{
+	// 所属メンバー追加：メールアドレス
+	var field_belong_member_address = Ext.ucf.field.createTextField('belong_member_address', 'belong_member_address', '{{ucfp.voinfo.vo.belong_member_address|escapejs}}', '{{lang.FLD_BELONG_MEMBERS}}', 400, Ext.ucf.delegateCheckValidation);
+	field_belong_member_address.render('FIELD_belong_member_address');
+	lstCmpFrmEdit.push(field_belong_member_address);
+	{% if vcmsg.belong_member_address %}field_belong_member_address.markInvalid('{% for v in vcmsg.belong_member_address %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	// 所属メンバー追加：タイプ
+	var field_belong_member_type = Ext.ucf.field.createComboBox('', 'belong_member_type', _lst_belong_member_type, '{{ucfp.voinfo.vo.belong_member_type|escapejs}}', '{{lang.FLD_BELONG_MEMBERS}}', 100, Ext.ucf.delegateCheckValidation);
+	field_belong_member_type.render('FIELD_belong_member_type');
+	lstCmpFrmEdit.push(field_belong_member_type);
+	{% if vcmsg.belong_member_type %}field_belong_member_type.markInvalid('{% for v in vcmsg.belong_member_type %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+}
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+	
+	createFields();
+
+	// 所属メンバー
+	refleshBelongMemberInfo();
+
+	var btnAddBelongMemberItem = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.ADD_GROUP_MEMBER}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			addBelongMemberItem();
+		}
+	});
+	btnAddBelongMemberItem.render(Ext.get('btnAddBelongMemberItem'));
+
+	var btnBackToBasicInfoPage = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.EXP_LINK_TO_BASICINFO_OF_GROUP}}&nbsp;&nbsp;&nbsp;&nbsp;'
+		,handler:function(){
+			location.href = '{{vurl}}group/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}'
+		}
+	});
+	btnBackToBasicInfoPage.render(Ext.get('btnBackToBasicInfoPage'));
+
+
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+
+<!-- leftMenu innerArea//start -->
+<div class="innerArea" >
+<p class="ttl">{{lang.VMSG_GROUP_TREE}}</p>
+<p align="right" >
+</p>
+<div id="AreaGroupTree" class="orgTree" style="padding:2px;"></div>
+<script type="text/javascript" >
+<!--
+if(Ext.ucf.popup_group_list){
+	Ext.ucf.popup_group_list.setTree2('AreaGroupTree');
+}
+//-->
+</script>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_GROUP_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/" >{{lang.VMSG_GROUP_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_GROUP_ADD}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/#GROUP_CSV_EXPORT" >{{lang.VMSG_GROUP_CSV_EXPORT}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}group/#GROUP_CSV_IMPORT" >{{lang.VMSG_GROUP_CSV_IMPORT}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+{% if 'ADMIN' in login.access_authority: %}
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_POSTMESSAGE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="close"><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+{#<li class="close"><a href="{{vurl}}businessrule/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_BUSINESSRULE_ADD}}</a></li>#}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+{% if 'ADMIN' in login.access_authority or 'USER' in login.delegate_function: %}
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_USER_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="close"><a href="{{vurl}}user/" >{{lang.VMSG_USER_LIST}}</a></li>
+<li class="close"><a href="{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_USER_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+
+<!-- leftMenu menu02//start -->
+<!--<div class="menu02">-->
+<!--<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--&lt;!&ndash; leftMenu innerArea//start &ndash;&gt;-->
+<!--<div class="innerArea">-->
+<!--<p class="ttl">{{lang.VMSG_SOME_HISTORY_LIST}}</p>-->
+<!--<div class="folderMenu">-->
+
+<!--<ul>-->
+<!--{% if 'ADMIN' in login.access_authority or 'OPERATOR' in login.delegate_function: %}-->
+<!--<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl}}acs/log" >{{lang.VMSG_LOGINHISTORY}}</a></li>-->
+<!--{% endif %}-->
+<!--{% if 'ADMIN' in login.access_authority: %}-->
+<!--<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>-->
+<!--{% endif %}-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--&lt;!&ndash; leftMenu innerArea//end &ndash;&gt;-->
+<!--<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>-->
+<!--</div>-->
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/group.png"></span>
+<p class="ttl">{{lang.BELONGMEMBER_ADD_DELETE_CONFIG}}</p>
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+			<tr>
+			<td>
+			<p class="style1">{{lang.EXP_BELONGMEMBER_ADD_DELETE_CONFIG|safe}}</p>
+			<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
+			<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr align="left">
+			<td colspan="4" align="left">
+				<table  align="left">
+					<tr>
+						<td>
+							<div id="btnBackToBasicInfoPage"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.VMSG_BASIC_INFORMATION}}</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_GROUPID}}</td>
+			<td width="80%" align="left" class="style3" colspan="3" >
+			{{ucfp.voinfo.vo.group_id}}
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_GROUPNAME}}</td>
+			<td width="80%" align="left" class="style3" colspan="3" >
+			{{ucfp.voinfo.vo.group_name}}
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4">
+				<div class="main_content_title2">{{lang.BELONGMEMBER_CONFIG}}</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4" ><p class="style1">{{lang.EXP_BELONGMEMBER_CONFIG|safe}}</p>
+{% if without_belong_members_info:%}
+			<p class="style1"><font color="red">{{lang.EXP_WITHOUT_BELONGMEMBER_INFO|safe}}</font></p>
+{% endif %}
+			</td>
+			</tr>
+			<td colspan="4"><div id="AreaBelongMember" >
+		      <table class="info_table">
+		        <tr>
+
+		          <td><div id="BelongMemberArea" >
+								<table border="0" cellpadding="0" cellspacing="0" >
+								<tr><td>
+								<div id="FIELD_belong_member_address" class="field" ></div>
+								</td>
+								<td>&nbsp;</td>
+								<td>
+								<div id="FIELD_belong_member_type" class="field" ></div>
+								</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td>
+								<div id="btnAddBelongMemberItem"></div>
+								</td>
+							</tr>
+							</table>
+							</div>
+							<div id="BelongMemberDispBox" class="DispBox" >
+							</div> 
+							</td>
+		        </tr>
+		      </table>
+					</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			</table>
+			</td>
+			</tr>
+
+			</table>
+
+    </td>
+  </tr>
+
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

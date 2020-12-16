@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+	<msg name="HTML_TEXT_BOX" js="on" ><![CDATA[テキストボックス]]></msg>
+	<msg name="HTML_TEXT_AREA" js="on" ><![CDATA[テキストエリア]]></msg>
+	<msg name="HTML_TEXT_LABEL" js="on" ><![CDATA[ラベル]]></msg>
+	<msg name="HTML_TEXT_SERIAL_LABEL" js="on" ><![CDATA[連番ラベル]]></msg>
+	<msg name="HTML_INPUT_DATE" js="on" ><![CDATA[Date（日付）]]></msg>
+	<msg name="HTML_INPUT_TIME" js="on" ><![CDATA[Time（時刻）]]></msg>
+	<msg name="HTML_INPUT_COLOR" js="on" ><![CDATA[Color（カラー選択）]]></msg>
+	<msg name="HTML_INPUT_MAIL_ADDRESS" js="on" ><![CDATA[メールアドレス]]></msg>
+	<msg name="HTML_INPUT_UPLOAD_FILE" js="on" ><![CDATA[添付ファイル]]></msg>
+	<msg name="HTML_INPUT_BUTTON" js="on" ><![CDATA[Button（ボタン）]]></msg>
+	<msg name="HTML_INPUT_BUTTON_SUBMIT" js="on" ><![CDATA[Submit]]></msg>
+	<msg name="HTML_INPUT_PULLDOWN" js="on" ><![CDATA[プルダウン]]></msg>
+	<msg name="HTML_INPUT_CHECKBOX" js="on" ><![CDATA[チェックボックス]]></msg>
+	<msg name="HTML_INPUT_RADIO" js="on" ><![CDATA[ラジオボタン]]></msg>
+	<msg name="HTML_INPUT_RADIO_GROUP" js="on" ><![CDATA[ラジオボタングループ]]></msg>
+	<msg name="HTML_INPUT_GROUP" js="on" ><![CDATA[項目のグループ]]></msg>
+	<msg name="HTML_INPUT_BOX" js="on" ><![CDATA[HTMLボックス]]></msg>
+	<msg name="HTML_INPUT_HIDDEN" js="on" ><![CDATA[Hidden（隠し項目）]]></msg>
+	<msg name="HTML_GRID" js="on" ><![CDATA[Grid（グリッド）]]></msg>
+	<msg name="HTML_CANVAS" js="on" ><![CDATA[キャンバス（印）]]></msg>
+	<msg name="HTML_NOT_SUPPORT_TAG" js="on" ><![CDATA[未対応項目です。]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION" js="on" ><![CDATA[JavaScriptでフォームの制御が必要な場合は以下に定義してください。]]></msg>
+	<msg name="MSG_DELETE_COMP" js="on" ><![CDATA[削除しますか？（削除後に復旧不可になります。）]]></msg>
+	<msg name="MSG_MUST_CREATE_SECTION" js="on" ><![CDATA[先にセクションを作成してください。]]></msg>
+	<msg name="MSG_COMP_COPY" js="on" ><![CDATA[ - コピー]]></msg>
+	<msg name="MSG_COMP_DROP_DRAG_ERR" js="on" ><![CDATA[ドラッグ＆ドロップエラー]]></msg>
+	<msg name="BTN_EDIT" js="on" ><![CDATA[編集]]></msg>
+	<msg name="BTN_MULTI_COPY" js="on" ><![CDATA[複製]]></msg>
+	<msg name="BTN_DELETE" js="on" ><![CDATA[削除]]></msg>
+	<msg name="BTN_MOVE_UP" js="on" ><![CDATA[上へ]]></msg>
+	<msg name="BTN_MOVE_DOWN" js="on" ><![CDATA[下へ]]></msg>
+	<msg name="MSG_SELECT_TEMPLATE" js="on" ><![CDATA[レイアウトを選択してください]]></msg>
+	<msg name="MSG_DELETE_SECTION" js="on" ><![CDATA[セクションを削除します。よろしいでしょうか？]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION_1" js="on" ><![CDATA[ //javascriptでフォームの制御が必要な場合はここで定義してください。]]></msg>
+	<msg name="MSG_SAVE_HTML_EDITOR" js="on" ><![CDATA[レイアウトのHTMLをひな形の内容に保存してフォームレイアウトビルダーを閉じます。よろしいでしょうか？]]></msg>
+	<msg name="MSG_SAVE_HTML_ERROR" js="on" ><![CDATA[保存失敗にしました。]]></msg>
+	<msg name="MSG_SAVE_UNDEFINED_ERROR" js="on" ><![CDATA[不明なエラー]]></msg>
+	<msg name="MSG_SECTION_EDIT" js="on" ><![CDATA[セクション編集]]></msg>
+	<msg name="BTN_SAVE" js="on" ><![CDATA[保存]]></msg>
+	<msg name="BTN_SECTION_ADD_NEW" js="on" ><![CDATA[セクション新規追加]]></msg>
+	<msg name="BTN_ADD" js="on" ><![CDATA[追加]]></msg>
+	<msg name="BTN_CANCEL" js="on" ><![CDATA[キャンセル]]></msg>
+	<msg name="LBL_HORIZONTAL_DISPLAY" js="on" ><![CDATA[ タイトルを横方に表示]]></msg>
+	<msg name="LBL_HEADER_EXP" js="on" ><![CDATA[幅(例：80px, 40%)]]></msg>
+	<msg name="LBL_HEADER_ARRANGE" js="on" ><![CDATA[揃える]]></msg>
+	<msg name="LBL_COL_ALIGN_LEFT" js="on" ><![CDATA[左]]></msg>
+	<msg name="LBL_COL_ALIGN_CENTER" js="on" ><![CDATA[中央]]></msg>
+	<msg name="LBL_COL_ALIGN_RIGHT" js="on" ><![CDATA[右]]></msg>
+	<msg name="LBL_VERTICAL_DISPLAY" js="on" ><![CDATA[タイトルを縦方に表示]]></msg>
+	<msg name="MSG_SECTION_NAME_REQUIRED" js="on" ><![CDATA[セクション名が必須項目です。]]></msg>
+	<msg name="LBL_SECTION_NAME" js="on" ><![CDATA[セクション題名]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_NAME" js="on" ><![CDATA[セクション名を表示する]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_TOGGLE" js="on" ><![CDATA[表示／非表示が行われる]]></msg>
+	<msg name="LBL_SECTION_COLUMN" js="on" ><![CDATA[列のレイアウト]]></msg>
+	<msg name="LBL_COLUMN" js="on" ><![CDATA[列]]></msg>
+	<msg name="LBL_DISPLAY_COLUMN" js="on" ><![CDATA[列のタイトルを表示したい場合にチェックしてください。]]></msg>
+	<msg name="LBL_ITEM_EDIT" js="on" ><![CDATA[項目編集]]></msg>
+	<msg name="LBL_ITEM_ADD_NEW" js="on" ><![CDATA[項目新規追加]]></msg>
+	<msg name="MSG_ITEM_NAME" js="on" ><![CDATA[フィールド名]]></msg>
+	<msg name="MSG_ITEM_NAME_REQUIRED" js="on" ><![CDATA[フィールド名は必須項目です。]]></msg>
+	<msg name="MSG_ITEM_ADD_REQUIRED" js="on" ><![CDATA[追加項目を選択してください。]]></msg>
+	<msg name="MSG_ITEM_DELETE" js="on" ><![CDATA[削除してもよろしいでしょうか？]]></msg>
+	<msg name="TITLE_ITEM_ADD" js="on" ><![CDATA[項目追加]]></msg>
+	<msg name="TITLE_ITEM_EDIT" js="on" ><![CDATA[項目編集]]></msg>
+	<msg name="MSG_RAIDO_ITEM_SELECT" js="on" ><![CDATA[ラジオボタンを１つ選択してください。]]></msg>
+	<msg name="LBL_LIST_ITEM_DISPLAY_VALUE" js="on" ><![CDATA[リスト項目の表示値]]></msg>
+	<msg name="LBL_LIST_ITEM_SUBMIT_VALUE" js="on" ><![CDATA[リスト項目の送信値]]></msg>
+	<msg name="TITLE_LIST_ITEM" js="on" ><![CDATA[リスト項目]]></msg>
+	<msg name="LBL_TITLE" js="on" ><![CDATA[タイトル]]></msg>
+	<msg name="LBL_SERIAL_TITLE" js="on" ><![CDATA[未入力の場合に連番（1,2,3...）のみ表示される。]]></msg>
+	<msg name="LBL_DISPLAY_DIRECTION" js="on" ><![CDATA[表示方向]]></msg>
+	<msg name="LBL_HORIZONTAL_DIRECTION" js="on" ><![CDATA[横方]]></msg>
+	<msg name="LBL_VERTICAL_DIRECTION" js="on" ><![CDATA[縦方]]></msg>
+	<msg name="LBL_NUMBER_COPY" js="on" ><![CDATA[個数]]></msg>
+	<msg name="LBL_NUMBER_COPY_EXP" js="on" ><![CDATA[横方：列数、縦方：行数]]></msg>
+	<msg name="LBL_ITEM_STYLE" js="on" ><![CDATA[フィールドスタイル]]></msg>
+	<msg name="LBL_STYLE_SAMPLE_EXP" js="on" ><![CDATA[例：<br>width:100%; <br>height:300px;<br>margin: 5px 5px 5px 5px;<br>padding: 5px 5px 5px 5px;<br>background: #FFFFFF<br>text-align: right;<br>font-size: 12px;<br>border: 1px solid grey;<br>color: red;]]></msg>
+	<msg name="LBL_SATERAITO_CLASS" js="on" ><![CDATA[サテライトクラス]]></msg>
+	<msg name="LBL_SATERAITO_CLASS_EXP" js="on" ><![CDATA[例：<br>リッチテキスト: richtext<br>必須入力項目: mandatory<br>日付入力項目：date<br>数値入力項目：number<br>当日の日付を自動セット：today_date<br>掛け算自動計算：multi<br>　→タグ属性：fields="field1 field2"<br>合計自動計算：sum<br>　→タグ属性：fields="field1 field2"<br>引き算動計算：diff<br>　→タグ属性：fields="field1 field2"<br>複数クラス：number mandatory]]></msg>
+	<msg name="LBL_SATERAITO_CLASS_EXP_2" js="on" ><![CDATA[※詳しい設定方法については、<a target="_blank" href="https://nextset-public.sharepoint.com/Pages/manual_workflow.aspx#TOC542">こちら</a>を参照してください。]]></msg>
+	<msg name="LBL_ITEM_WIDTH" js="on" ><![CDATA[幅]]></msg>
+	<msg name="LBL_ITEM_NAME_DISPLAY" js="on" ><![CDATA[表示する]]></msg>
+	<msg name="LBL_ITEM_SECTION" js="on" ><![CDATA[セクション]]></msg>
+	<msg name="LBL_ITEM_SECTION_COLUMN" js="on" ><![CDATA[列目]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS" js="on" ><![CDATA[タグ属性]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS_EXP" js="on" ><![CDATA[例：<br>必須入力項目: mandatory_msg="XXXが必須項目です。" <br>自動計算フィールド: fields="kingaku1 kingaku2"<br>税金計算：number=1.08<br>複数属性：fields="kingaku1 kingaku2" number=1.08]]></msg>
+	<msg name="LBL_HTML_CODE" js="on" ><![CDATA[HTMLソース]]></msg>
+	<msg name="LBL_LIST_RADIO_BTN" js="on" ><![CDATA[リストラジオボタン]]></msg>
+	<msg name="LBL_GROUP_HTML_ITEM" js="on" ><![CDATA[グループ項目]]></msg>
+	<msg name="LBL_ITEM_INIT_VALUE" js="on" ><![CDATA[初期値]]></msg>
+	<msg name="LBL_ITEM_LENGTH" js="on" ><![CDATA[入力可能な文字数]]></msg>
+	<msg name="LBL_ITEM_LENGTH_EXP" js="on" ><![CDATA[例： 10]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS" js="on" ><![CDATA[横の桁数]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS_EXP" js="on" ><![CDATA[例： 50]]></msg>
+	<msg name="LBL_ITEM_NUMBER_LINES" js="on" ><![CDATA[縦の行数]]></msg>
+	<msg name="LBL_ITEM_READONLY" js="on" ><![CDATA[読み取り専用]]></msg>
+	<msg name="LBL_ITEM_READONLY_EXP" js="on" ><![CDATA[※ReadOnlyタグ]]></msg>
+	<msg name="LBL_ITEM_DISABLE" js="on" ><![CDATA[使用不可]]></msg>
+	<msg name="LBL_ITEM_DISABLE_EXP" js="on" ><![CDATA[※Disabledタグ]]></msg>
+	<msg name="LBL_ITEM_CHEKED_ON" js="on" ><![CDATA[ONに設定]]></msg>
+	<msg name="LBL_ITEM_MULTI_SELECT" js="on" ><![CDATA[複数選択可能に設定]]></msg>
+	<msg name="LBL_ITEM_BEFORE_EXP" js="on" ><![CDATA[入力項目の前に表示]]></msg>
+	<msg name="LBL_ITEM_AFFTER_EXP" js="on" ><![CDATA[入力項目の後ろに表示]]></msg>
+	<msg name="LBL_ITEM_BOLDER_ON" js="on" ><![CDATA[太字にする]]></msg>
+	<msg name="LBL_ITEM_MULTI_COPY" js="on" ><![CDATA[複製数]]></msg>
+	<msg name="MSG_ITEM_SET_ATTRS" js="on" ><![CDATA[項目の属性を設定してください。]]></msg>
+	<msg name="MSG_ITEM_TYPE_SELECT" js="on" ><![CDATA[項目の種類を選択してください。]]></msg>
+	<msg name="MSG_EDITOR_TAB_EXP" js="on" ><![CDATA[列や項目の順序やセクションを変更してからレイアウトを変更できます。セクションの見出しをドラッグ＆ドロップすると、セクションを並べ替えられます。<br>表示しない項目の一覧に移動するには、ドラッグ＆ドロップしてください。]]></msg>
+	<msg name="MSG_EDITOR_NOT_DISPLAY_LIST" js="on" ><![CDATA[非表示項目一覧]]></msg>
+	<msg name="MSG_ITEM_DELETE_PERMANET" js="on" ><![CDATA[恒久削除]]></msg>
+	<msg name="BTN_EDITOR_COMPLETE" js="on" ><![CDATA[完了]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW" js="on" ><![CDATA[プレビュー]]></msg>
+	<msg name="BTN_EDITOR_HTML_CONFIRM" js="on" ><![CDATA[HTMLソースを確認する]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP" js="on" ><![CDATA[※完了ボタンを押しますと、フォームレイアウトHTMLを上書きします。]]></msg>
+	<msg name="MSG_TEMPLATE_TITLE" js="on" ><![CDATA[題名を入力してください。]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP" js="on" ><![CDATA[掲示板・ドキュメント管理・ワークフロー等のひな形を作成する時に、ひな形の内容は下記のHTMLソースコードを利用することができます。]]></msg>
+	<msg name="MSG_HTML_EDITOR_TAB" js="on" ><![CDATA[レイアウト作成・編集]]></msg>
+	<msg name="MSG_HTML_PREVIEW_TAB" js="on" ><![CDATA[レイアウトプレビュー]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB" js="on" ><![CDATA[HTMLソースコード]]></msg>
+	<msg name="MSG_HTML_EDITOR_TITLE" js="on" ><![CDATA[サテライトオフィス・フォームレイアウトビルダー]]></msg>
+	<msg name="BTN_EDITOR_BACK" js="on" ><![CDATA[レイアウト編集に戻る]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW_BACK" js="on" ><![CDATA[プレビューに戻る]]></msg>
+
+	<!-- add message 2015.06.16 -->
+	<msg name="USERINFO_BOSS_EMAIL" js="on" ><![CDATA[承認者]]></msg>
+	<msg name="USERINFO_EMAIL" js="on" ><![CDATA[メールアドレス]]></msg>
+	<msg name="USERINFO_FAMILY_NAME" js="on" ><![CDATA[氏名（姓）]]></msg>
+	<msg name="USERINFO_GIVEN_NAME" js="on" ><![CDATA[氏名（名）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_1" js="on" ><![CDATA[部署1（事業所）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_2" js="on" ><![CDATA[部署2（部署）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_3" js="on" ><![CDATA[部署3（課・グループ）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_4" js="on" ><![CDATA[部署4]]></msg>
+	<msg name="USERINFO_DEPARTMENT_5" js="on" ><![CDATA[部署5]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_1" js="on" ><![CDATA[追加属性1]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_2" js="on" ><![CDATA[追加属性2]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_3" js="on" ><![CDATA[追加属性3]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_4" js="on" ><![CDATA[追加属性4]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_5" js="on" ><![CDATA[追加属性5]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_1" js="on" ><![CDATA[関連元文書の承認ステップ%1の承認者]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_2" js="on" ><![CDATA[関連元文書の承認ステップ%1の承認候補者]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_3" js="on" ><![CDATA[関連元文書の申請者]]></msg>
+	<msg name="USERINFO_DOC_AUTHOR" js="on" ><![CDATA[申請者自身]]></msg>
+	<msg name="USERINFO_JOB_TITLE" js="on" ><![CDATA[役職]]></msg>
+	<msg name="USERINFO_EMPLOYEE" js="on" ><![CDATA[社員番号]]></msg>
+	<msg name="APPROVE_COND_EXP_1" js="on" ><![CDATA[申請者と]]></msg>
+	<msg name="APPROVE_COND_EXP_2" js="on" ><![CDATA[が同じ]]></msg>
+	<msg name="OR_CONDITION" js="on" ><![CDATA[または]]></msg>
+	<msg name="AND_CONDITION" js="on" ><![CDATA[かつ]]></msg>
+	<msg name="PROCESS_NUMBER" js="on" ><![CDATA[プロセス]]></msg>
+	<msg name="AUTHOR_NAME" js="on" ><![CDATA[申請者]]></msg>
+	<msg name="APPROVER_ADD_BUTTON_EXP" js="on" ><![CDATA[ボタンを表示させるプロセスを選択してください]]></msg>
+	<msg name="APPROVER_ADD_EXP_1" js="on" ><![CDATA[承認者１～２０のメンバーを指定]]></msg>
+	<msg name="APPROVER_ADD_EXP_2" js="on" ><![CDATA[ユーザー情報に設定された承認者１～２０を指定します。「申請者の直属の上長が承認する」など、申請者により承認者を変えたいときなどに利用します。]]></msg>
+	<msg name="APPROVER_ADD_EXP_3" js="on" ><![CDATA[部署、役職などからメンバーを指定]]></msg>
+	<msg name="APPROVER_ADD_EXP_6" js="on" ><![CDATA[申請者と同じ部署のメンバーを指定]]></msg>
+	<msg name="APPROVER_ADD_EXP_4" js="on" ><![CDATA[「役職＝総務部長」など、ユーザー情報に設定された部署、役職などからメンバーを指定します。]]></msg>
+	<msg name="APPROVER_ADD_EXP_5" js="on" ><![CDATA[申請者と同じ部署のメンバーを指定します。]]></msg>
+	<msg name="APPROVER_ADD_EXP_7" js="on" ><![CDATA[が同じメンバー]]></msg>
+	<msg name="APPROVER_ADD_EXP_8" js="on" ><![CDATA[関連元文書の承認者、承認候補者、申請者で指定]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_1" js="on" ><![CDATA[関連元文書の承認ステップ]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_2" js="on" ><![CDATA[の承認者]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_3" js="on" ><![CDATA[関連元文書の承認ステップ]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_4" js="on" ><![CDATA[の承認候補者]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_5" js="on" ><![CDATA[関連元文書の申請者]]></msg>
+	<msg name="APPROVER_ADD_EXP_9" js="on" ><![CDATA[申請者自身を指定]]></msg>
+	<msg name="APPROVE_SINGLE" js="on" ><![CDATA[単独承認]]></msg>
+	<msg name="APPROVE_ALL_MEMBER" js="on" ><![CDATA[全員承認]]></msg>
+	<msg name="APPROVE_SKIP" js="on" ><![CDATA[スキップ可能]]></msg>
+	<msg name="APPROVE_AUTO" js="on" ><![CDATA[自動承認]]></msg>
+	<msg name="DAY" js="on" ><![CDATA[日]]></msg>
+	<msg name="CHECK_SEND_MAIL" js="on" ><![CDATA[メール通知しない]]></msg>
+	<msg name="APPROVE_SINGLE_OR_ALL" js="on" ><![CDATA[単独承認/全員承認]]></msg>
+	<msg name="APPROVE_PROCESS_SINGLE" js="on" ><![CDATA[一人でも承認(回覧)すれば次のプロセスに進む]]></msg>
+	<msg name="APPROVE_PROCESS_ALL" js="on" ><![CDATA[全員が承認(回覧)すれば次のプロセスに進む]]></msg>
+	<msg name="APPROVE_SKIP_SETTING" js="on" ><![CDATA[スキップ設定]]></msg>
+	<msg name="APPROVE_PROCESS_SKIP" js="on" ><![CDATA[スキップ可能なプロセスとする]]></msg>
+	<msg name="APPROVE_AUTO_SETTING" js="on" ><![CDATA[自動承認設定]]></msg>
+	<msg name="APPROVE_AUTO_SETTING_EXP_1" js="on" ><![CDATA[日間、承認が無い場合は自動で次のプロセスに進む]]></msg>
+	<msg name="APPROVE_AUTO_SETTING_EXP_2" js="on" ><![CDATA[※0を指定した場合は自動承認は行いません]]></msg>
+	<msg name="CHECK_SEND_NOTIFY" js="on" ><![CDATA[メール通知]]></msg>
+	<msg name="CHECK_SEND_NOTIFY_EXP_1" js="on" ><![CDATA[メール通知をしないプロセスとする]]></msg>
+	<msg name="OPTION_APPROVE" js="on" ><![CDATA[承認]]></msg>
+	<msg name="OPTION_APPROVE_FINAL" js="on" ><![CDATA[決裁(最終承認)]]></msg>
+	<msg name="OPTION_ROUTING" js="on" ><![CDATA[回覧]]></msg>
+	<msg name="OPTION_NO_REJECTED" js="on" ><![CDATA[否決はできない]]></msg>
+	<msg name="OPTION_NO_REVERTED" js="on" ><![CDATA[差し戻しはできない]]></msg>
+	<msg name="OPTION_NO_AGENCY_APPROVE" js="on" ><![CDATA[代理承認はできない]]></msg>
+	<msg name="OPTION_APPROVE_PROCESS" js="on" ><![CDATA[承認プロセス]]></msg>
+	<msg name="OPTION_APPROVE_PROCESS_FINAL" js="on" ><![CDATA[決裁(最終承認)プロセス]]></msg>
+	<msg name="OPTION_ROUTING_PROCESS" js="on" ><![CDATA[回覧プロセス]]></msg>
+	<msg name="BTN_ADD_USER" js="on" ><![CDATA[ユーザー追加]]></msg>
+	<msg name="BTN_ADD_DEPARTMENT" js="on" ><![CDATA[部署名から追加]]></msg>
+	<msg name="BTN_CLEAR" js="on" ><![CDATA[クリア]]></msg>
+	<msg name="PROCESS" js="on" ><![CDATA[プロセス]]></msg>
+	<msg name="MSG_ALERT_1" js="on" ><![CDATA[条件が指定されていません]]></msg>
+	<msg name="MSG_ALERT_2" js="on" ><![CDATA[自動承認は数値で入力してください]]></msg>
+	<msg name="SUCCESS_UPDATE" js="on" ><![CDATA[更新しました]]></msg>
+	<msg name="CKPROCESS" js="on" ><![CDATA[プロセス]]></msg>
+	<msg name="CONDITIONS" js="on" ><![CDATA[条件]]></msg>
+	<msg name="BTN_SIGN_UP" js="on" ><![CDATA[登録]]></msg>
+	<msg name="BTN_UPDATE" js="on" ><![CDATA[更新]]></msg>
+	<msg name="BTN_DISP_MEMBER" js="on" ><![CDATA[対象ユーザー表示]]></msg>
+	<msg name="NAME_WIDTH_VALUE" js="on" ><![CDATA[プロセス名称幅]]></msg>
+	<msg name="MEMBER_WIDTH_VALUE" js="on" ><![CDATA[プロセス承認者幅]]></msg>
+	<msg name="HTML_HEADER_VALUE" js="on" ><![CDATA[HTMLヘッダー]]></msg>
+	<msg name="HTML_DETAIL_VALUE" js="on" ><![CDATA[HTML明細]]></msg>
+	<msg name="HTML_FOOTER_VALUE" js="on" ><![CDATA[HTMLフッター]]></msg>
+	<msg name="TITLE_WINDOW_ACTION" js="on" ><![CDATA[承認/回覧]]></msg>
+	<msg name="TITLE_WINDOW_STEP_PROCESS" js="on" ><![CDATA[プロセスの進み方]]></msg>
+	<msg name="TITLE_WINDOW_APPROVER" js="on" ><![CDATA[承認者・回覧者の指定]]></msg>
+	<msg name="TITLE_WINDOW_APPROVER_CONDITION" js="on" ><![CDATA[条件指定]]></msg>
+	<msg name="TITLE_WINDOW_BUTTON_SETTING" js="on" ><![CDATA[ボタンの表示設定]]></msg>
+	<msg name="TITLE_WINDOW_TEMPLATE_SETTING" js="on" ><![CDATA[TITLE_WINDOW_TEMPLATE_SETTING]]></msg>
+	<msg name="PROCESS_NO" js="on" ><![CDATA[プロセス№<br><span style="color: #ff7b4e">※直接入力<br>(半角数値)</span>]]></msg>
+	<msg name="APPROVER_NAME" js="on" ><![CDATA[プロセス名称<br><span style="color: #ff7b4e">※直接入力</span>]]></msg>
+	<msg name="ACTION_TYPE" js="on" ><![CDATA[承認/回覧<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="STEP_PROCESS" js="on" ><![CDATA[プロセス<br>の進み方<span style="color: #ff7b4e"><br>※設定から入力</span>]]></msg>
+	<msg name="CONDITION" js="on" ><![CDATA[承認者の指定条件<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="SELECT_BUTTON" js="on" ><![CDATA[承認者追加<br>ボタンの表示<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="SELECT_DEP_BUTTON" js="on" ><![CDATA[承認者追加<br>(部署指定)<br>ボタンの表示<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="DEL_BUTTON" js="on" ><![CDATA[承認者削除<br>ボタンの表示<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="UPDATE_CLASS" js="on" ><![CDATA[編集可能<br>CLASS<br><span style="color: #ff7b4e">※直接入力</span>]]></msg>
+	<msg name="MSG_HTML_APPROVER_TAB" js="on" ><![CDATA[承認ルート]]></msg>
+	<msg name="MSG_APPROVER_EDITOR_TAB_EXP" js="on" ><![CDATA[<span style="color: red">※各項目を入力したい場合に入力所にダブルクリックして入力ください。</span><br>入力完了後、「完了」ボタンを押すとひな形の承認ルートに自動的に生成されます。HTMLを確認したい場合に「HTMLソースを確認する」ボタンを押して下さい。]]></msg>
+	<msg name="MSG_HTML_SETTING_TAB" js="on" ><![CDATA[設定]]></msg>
+	<msg name="BTN_EDITOR_SETTING" js="on" ><![CDATA[設定を表示する]]></msg>
+	<msg name="BTN_EDITOR_SETTING_BACK" js="on" ><![CDATA[承認ルートに戻る]]></msg>
+	<msg name="MSG_HTML_ROUTER_APPROVER_EDITOR_TITLE" js="on" ><![CDATA[承認ルートビルダー]]></msg>
+	<msg name="TITLE_EDIT_STYLESHEET_CELL" js="on" ><![CDATA[セルのスタイル]]></msg>
+	<msg name="GO_EDIT_GRID" js="on" ><![CDATA[グリッドを編集]]></msg>
+	<msg name="GO_ADD_CTR_CELL" js="on" ><![CDATA[セルに項目を追加]]></msg>
+	<msg name="GO_MERGE_CELL" js="on" ><![CDATA[セルを結合]]></msg>
+	<msg name="GO_SPLIT_HORIZONTALLY_CELL" js="on" ><![CDATA[セルを横に分割]]></msg>
+	<msg name="GO_SPLIT_VERTICALLY_CELL" js="on" ><![CDATA[セルを縦に分割]]></msg>
+	<msg name="GO_UNMERGE" js="on" ><![CDATA[結合を解除]]></msg>
+	<msg name="GO_STYLESHEET_CELL" js="on" ><![CDATA[セルのスタイルを編集]]></msg>
+	<msg name="GO_DELETE_CELL" js="on" ><![CDATA[セルを削除]]></msg>
+	<msg name="MSG_CAN_NOT_CREATE_GRID_IN_GRID" js="on" ><![CDATA[グリッドの中に子グリッドを追加できません。]]></msg>
+	<msg name="LBL_ITEM_MAX_ROW" js="on" ><![CDATA[行数]]></msg>
+	<msg name="LBL_ITEM_MAX_COL" js="on" ><![CDATA[列数]]></msg>
+	<msg name="MSG_SAVE_HTML_ROUTER_EDITOR" js="on" ><![CDATA[承認ルートのHTMLをひな形の承認ルートに保存して承認ルートビルダーを閉じます。よろしいでしょうか？]]></msg>
+	<msg name="BTN_EDITOR_ROUTER_COMPLETE" js="on" ><![CDATA[完了]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP_1" js="on" ><![CDATA[※完了ボタンを押しますと、承認ルートHTMLが上書きされます。]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP_1" js="on" ><![CDATA[ドキュメント管理・ワークフロー等の承認ルートひな形を作成する時に、承認ルートひな形の内容は下記のHTMLソースコードを利用することができます。]]></msg>
+	<msg name="USERINFO_PRIORITY" js="on" ><![CDATA[役職(NOT条件)]]></msg>
+	<msg name="ORDER_OF_PRIORITY_SPECIFIED" js="on" ><![CDATA[＜優先順指定＞]]></msg>
+	<msg name="LBL_CK_PRIORITY" js="on" ><![CDATA[上から順番に該当者がいないかチェックし、該当者がいる場合はそれ以降はセットしない（優先順指定）]]></msg>
+	<msg name="BUTTON_TYPE_OPEN_NOTIFICATION" js="on" ><![CDATA[開封通知設定<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="OTHER_SETTING" js="on" ><![CDATA[その他設定<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="EDITABLE_ITEM" js="on" ><![CDATA[編集可能項目<br><span style="color: #ff7b4e">※設定から入力</span>]]></msg>
+	<msg name="TITLE_WINDOW_EDITABLE_ITEM" js="on" ><![CDATA[編集可能項目設定表示]]></msg>
+	<msg name="TITLE_WINDOW_OTHER_SETTING" js="on" ><![CDATA[その他設定表示]]></msg>
+	<msg name="BUTTON_TYPE_SELECT_COMMENT" js="on" ><![CDATA[のユーザー追加が可能なプロセスを指定します]]></msg>
+	<msg name="BUTTON_TYPE_SELECT_DEP_COMMENT" js="on" ><![CDATA[のユーザー追加(部署指定)が可能なプロセスを指定します]]></msg>
+	<msg name="BUTTON_TYPE_DEL_COMMENT" js="on" ><![CDATA[のユーザー削除が可能なプロセスを指定します]]></msg>
+	<msg name="BUTTON_TYPE_OPEN_NOTIFICATION_COMMENT" js="on" ><![CDATA[の開封通知設定が可能なプロセスを指定します]]></msg>
+	<msg name="DISPLAY_OK_TO_ATTACH" js="on" ><![CDATA[添付ファイル許可]]></msg>
+	<msg name="DISPLAY_UPDATE_CLASS" js="on" ><![CDATA[クラスで指定]]></msg>
+	<msg name="DISPLAY_UPDATE_FIELD" js="on" ><![CDATA[項目名で指定]]></msg>
+	<msg name="LBL_UPDATE_CLASS" js="on" ><![CDATA[クラスで指定<span style="color: #ff7b4e">（※複数指定の場合に、空白区切りで入力下さい。）</span>]]></msg>
+	<msg name="LBL_UPDATE_FIELD" js="on" ><![CDATA[項目名で指定<span style="color: #ff7b4e">（※複数指定の場合に、空白区切りで入力下さい。）</span>]]></msg>
+	<msg name="LBL_OK_TO_ATTACH" js="on" ><![CDATA[添付ファイルの追加、削除を許可する]]></msg>
+	<msg name="LBL_OK_TO_OPEN_NOTIFICATION" js="on" ><![CDATA[開封通知を設定する]]></msg>
+	<msg name="DISPLAY_OK_TO_OPEN_NOTIFICATION" js="on" ><![CDATA[開封通知設定]]></msg>
+	<msg name="DISPLAY_ADDITIONAL_FILTER" js="on" ><![CDATA[ユーザーフィルターの追加条件設定]]></msg>
+	<msg name="LBL_ADDITIONAL_FILTER" js="on" ><![CDATA[対象のユーザー一覧をさらにフィルタリングする追加条件を設定する]]></msg>
+
+	<msg name="BTN_ADD_ROW" js="on" ><![CDATA[最終に行を追加]]></msg>
+	<msg name="BTN_ADD_BEFORE" js="on" ><![CDATA[選択した行を上に追加]]></msg>
+	<msg name="BTN_ADD_AFTER" js="on" ><![CDATA[行を下に追加]]></msg>
+	<msg name="BTN_ROW_DELETE" js="on" ><![CDATA[行を削除]]></msg>
+	<msg name="MSG_ROW_DELETE" js="on" ><![CDATA[選択されている行を削除しますか？]]></msg>
+	<msg name="LBL_SECTION_ATTR_NAME" js="on" ><![CDATA[セクション名]]></msg>
+	<msg name="LBL_SECTION_CLASS_EXP" js="on" ><![CDATA[クラス show_only_creating_doc<br>→ 申請書の新規作成時だけ表示するように設定します<br>クラス hide_if_not_final_approved<br>→ 最終承認（決裁）の後にだけ表示される領域を指定します。<br>クラス hide_if_not_author<br>→ 申請者本人にだけ表示される領域を指定します。<br>クラス hide_if_not_author_or_ghost_writer<br>→ 申請者本人あるいは代理申請者にだけ表示される領域を指定します。<br>クラス hide_if_not_final_approver<br>→ 決裁者にだけ表示される領域を指定します。]]></msg>
+	<msg name="LBL_SECTION_ATTR" js="on" ><![CDATA[セクション属性]]></msg>
+
+	<msg name="REMIND_APPROVE_SETTING" js="on" ><![CDATA[承認催促通知メール送信の設定]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_1" js="on" ><![CDATA[承認催促通知メールを有効にする]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_2" js="on" ><![CDATA[初回の催促メールまでの日数。指定なしの場合は翌日送信される。]]></msg>
+<!-- edit at 2016.11.28
+	<msg name="REMIND_APPROVE_SETTING_EXP_3" js="on" ><![CDATA[２回目以降の催促間隔日数。指定なしの場合は毎日送信される。]]></msg>
+-->
+	<msg name="REMIND_APPROVE_SETTING_EXP_3" js="on" ><![CDATA[２回目以降の催促間隔日数。1を指定すると毎日送信される。]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_4" js="on" ><![CDATA[最大送信回数。指定なしの場合は初回のみ送信される。]]></msg>
+	<msg name="SEND_REMIND_APPROVE" js="on" ><![CDATA[承認催促通知]]></msg>
+	<msg name="TIMES" js="on" ><![CDATA[回]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_5" js="on" ><![CDATA[初回催促日数]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_6" js="on" ><![CDATA[催促間隔日数]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_7" js="on" ><![CDATA[最大送信回数]]></msg>
+	<msg name="MSG_ALERT_3" js="on" ><![CDATA[初回催促日数は数値で入力下さい。]]></msg>
+	<msg name="MSG_ALERT_4" js="on" ><![CDATA[催促間隔日数は数値で入力下さい。]]></msg>
+	<msg name="MSG_ALERT_5" js="on" ><![CDATA[最大送信回数は数値で入力下さい。]]></msg>
+
+	<msg name="LBL_MANDATORY" js="on" ><![CDATA[承認者の指定を必須とする]]></msg>
+	<msg name="LBL_MANDATORY_MSG" js="on" ><![CDATA[表示するメッセージ：]]></msg>
+	<msg name="LBL_MANDATORY_MSG_EXP" js="on" ><![CDATA[（例：　※決裁者は必須です）]]></msg>
+	<msg name="DISPLAY_MANDATORY" js="on" ><![CDATA[承認者の指定が必須]]></msg>
+
+	<!--add 2015/11/04-->
+	<msg name="EXCUSION_APPROVERS_SETTING" js="on" ><![CDATA[重複承認者削除の設定]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_1" js="on" ><![CDATA[指定プロセスの承認者は重複削除チェックの対象外となる]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_2" js="on" ><![CDATA[こちらのプロセスを]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_3" js="on" ><![CDATA[グループで重複チェックを行う]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_4" js="on" ><![CDATA[指定プロセスの承認者は申請者と同じであっても削除チェックの対象外となる。]]></msg>
+	<msg name="NOT_EXCLUSION_DUPLICATE_SETTING_VAL" js="on" ><![CDATA[重複削除チェックの対象外]]></msg>
+	<msg name="EXCLUSION_APPROVERS_CATEGORY_VAL" js="on" ><![CDATA[グループで重複チェック]]></msg>
+	<msg name="NOT_EXCLUSION_SAME_AS_SUBMITTER_VAL" js="on" ><![CDATA[申請者との削除チェックの対象外]]></msg>
+
+	<!--add 2015/11/25-->
+	<msg name="APPROVE_COND_EXP_3" js="on" ><![CDATA[部署]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="APPROVE_COND_EXP_4" js="on" ><![CDATA[が申請者の]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="APPROVE_COND_EXP_5" js="on" ><![CDATA[と同じメンバー]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE" js="on" ><![CDATA[既存のひな形の読込を実行]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_CONFIRM" js="on" ><![CDATA[選択したひな形から読み込むことを実行しますか？]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_EMPTY_DATA" js="on" ><![CDATA[選択したひな形にビルダーの内部データが存在しません！]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_ERROR" js="on" ><![CDATA[データ読込中にエラーが発生されました。]]></msg>
+	<msg name="LOADING" js="on" ><![CDATA[読込中です... ]]></msg>
+	<msg name="UPDATING" js="on" ><![CDATA[更新しています... ]]></msg>
+	<msg name="ROUTER" js="on" ><![CDATA[承認ルート]]></msg>
+	<msg name="NO_SUBJECT" js="on" ><![CDATA[題名なし]]></msg>
+	<msg name="NO_SELECT_TEMAPLTE" js="on" ><![CDATA[既存のひな形を選択ください！]]></msg>
+	<msg name="ERROR_TIMEOUT" js="on" ><![CDATA[セッションタイムアウトが発生しました。ブラウザの再読み込みをしてください。]]></msg>
+	<msg name="ALERT_GADGET_TIMEOUT" js="on" ><![CDATA[あと10分ほどでタイムアウトとなります。お手数ですが、今編集中の内容を保存のため、「完了」を押してひな形を保存しブラウザの再読み込みをしてください。]]></msg>
+	<msg name="APPROVER_ADD_EXP_10" js="on" ><![CDATA[部署が申請者の指定部署と同じメンバーを指定]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="APPROVER_ADD_EXP_10_1" js="on" ><![CDATA[部署]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="APPROVER_ADD_EXP_10_2" js="on" ><![CDATA[が申請者の]]></msg><!-- edit at 2016.01.12 -->
+	<msg name="APPROVER_ADD_EXP_10_3" js="on" ><![CDATA[と同じメンバー]]></msg><!-- edit at 2016.01.12 -->
+
+	<!--add 2016/01/04-->
+	<msg name="APPROVER_ADD_EXP_3_1" js="on" ><![CDATA[承認グループから指定]]></msg>
+	<msg name="APPROVER_ADD_EXP_3_2" js="on" ><![CDATA[「承認グループ情報」タブで登録した承認グループIDを指定します。]]></msg>
+	<msg name="LBL_DRAFT_WITH_APPROVERS" js="on" ><![CDATA[ひな形のオプション「「下書き保存」を開くときに最新のひな形設定を使用して決裁ルートを再構築する」の対象外とする]]></msg>
+	<msg name="DISPLAY_DRAFT_WITH_APPROVERS" js="on" ><![CDATA[下書きに保存された承認候補者をそのまま使用する]]></msg>
+	<msg name="LBL_ADDITIONAL_FILTER_EXP" js="on" ><![CDATA[※クラス「department_1_select_button」のオプションです（additional_filter）]]></msg>
+	<msg name="APPROVE_COND_EXP_6" js="on" ><![CDATA[承認グループ]]></msg>
+
+	<!--add 2016/06/01-->
+	<msg name="LBL_USER_ADDITIONAL_FILTER_EXP" js="on" ><![CDATA[※クラス「user_select_button」のオプションです（additional_filter）]]></msg>
+	<msg name="TITLE_WINDOW_USER_ADDITIONAL_SETTING" js="on" ><![CDATA[フィルタリングする追加条件設定画面]]></msg>
+	<msg name="BUTTON_USER_ADDINATIONAL_SETTING" js="on" ><![CDATA[フィルタリングする追加条件を設定]]></msg>
+	<msg name="TITLE_WINDOW_DEPARTMENT_ADDITIONAL_SETTING" js="on" ><![CDATA[フィルタリングする追加条件設定画面]]></msg>
+	<msg name="BUTTON_DEPARTMENT_ADDINATIONAL_SETTING" js="on" ><![CDATA[フィルタリングする追加条件を設定]]></msg>
+	<msg name="NAME_DESC" js="on" ><![CDATA[※半角英数字記号（先頭はアルファベット、記号はハイフン、アンダースコアのみ可）]]></msg>
+	<msg name="APPROVER_ADD_EXP_10_4" js="on" ><![CDATA[申請者の]]></msg>
+
+  <!--add 2017/02/25-->
+  <msg name="HTML_INPUT_CHECKBOX_GROUP" js="on" ><![CDATA[チェックボックスグループ]]></msg>
+  <msg name="LBL_LIST_CHECKBOX_BTN" js="on" ><![CDATA[リストチェックボックス]]></msg>
+  <!--add 2017/03/06-->
+  <msg name="TITLE_SECTION_LIST" js="on" ><![CDATA[セクション一覧]]></msg>
+  <msg name="MSG_TEMPLATE_BUILDER_DATA_IS_EMPTY" js="on" ><![CDATA[選択したひな形はレイアウトビルダーが登録されていません。]]></msg>
+  <msg name="RUN_LOAD_SECTION_TEMPLATE" js="on" ><![CDATA[既存のひな形のセクションを追加]]></msg>
+
+</messagebundle>

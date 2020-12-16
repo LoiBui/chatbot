@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[社員紹介]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+社員紹介
+
+ @version 2014-01-17
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+
+	<tr>
+		<td colspan="4"><div class="main_content_title2">社員紹介</div></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">氏名<font color="red">*</font></td>
+		<td class="detail_value" ><input name="staff_name" class="mandatory" mandatory_msg="氏名は必須です。"></td>
+		<td class="detail_name" >フリガナ<font color="red">*</font></td>
+		<td class="detail_value" ><input name="staff_kana" class="mandatory" mandatory_msg="フリガナは必須です。"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">社員番号</td>
+		<td class="detail_value" width="30%"><input name="staff_no" ></td>
+		<td class="detail_name" width="20%">職位</td>
+		<td class="detail_value" width="30%"><input name="staff_department" ></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" >入社年月日</td>
+		<td class="detail_value" ><input name="staff_date" class="date"></td>
+		<td class="detail_name" width="20%">出身地</td>
+		<td class="detail_value" width="30%">
+			<select name="staff_from" >
+				<OPTION value="">▼選択して下さい</OPTION>
+				<OPTION value="北海道">北海道</OPTION>
+				<OPTION value="青森県">青森県</OPTION>
+				<OPTION value="岩手県">岩手県</OPTION>
+				<OPTION value="宮城県">宮城県</OPTION>
+				<OPTION value="秋田県">秋田県</OPTION>
+				<OPTION value="山形県">山形県</OPTION>
+				<OPTION value="福島県">福島県</OPTION>
+				<OPTION value="茨城県">茨城県</OPTION>
+				<OPTION value="栃木県">栃木県</OPTION>
+				<OPTION value="群馬県">群馬県</OPTION>
+				<OPTION value="埼玉県">埼玉県</OPTION>
+				<OPTION value="千葉県">千葉県</OPTION>
+				<OPTION value="東京都">東京都</OPTION>
+				<OPTION value="神奈川県">神奈川県</OPTION>
+				<OPTION value="新潟県">新潟県</OPTION>
+				<OPTION value="富山県">富山県</OPTION>
+				<OPTION value="石川県">石川県</OPTION>
+				<OPTION value="福井県">福井県</OPTION>
+				<OPTION value="山梨県">山梨県</OPTION>
+				<OPTION value="長野県">長野県</OPTION>
+				<OPTION value="岐阜県">岐阜県</OPTION>
+				<OPTION value="静岡県">静岡県</OPTION>
+				<OPTION value="愛知県">愛知県</OPTION>
+				<OPTION value="三重県">三重県</OPTION>
+				<OPTION value="滋賀県">滋賀県</OPTION>
+				<OPTION value="京都府">京都府</OPTION>
+				<OPTION value="大阪府">大阪府</OPTION>
+				<OPTION value="兵庫県">兵庫県</OPTION>
+				<OPTION value="奈良県">奈良県</OPTION>
+				<OPTION value="和歌山県">和歌山県</OPTION>
+				<OPTION value="鳥取県">鳥取県</OPTION>
+				<OPTION value="島根県">島根県</OPTION>
+				<OPTION value="岡山県">岡山県</OPTION>
+				<OPTION value="広島県">広島県</OPTION>
+				<OPTION value="山口県">山口県</OPTION>
+				<OPTION value="徳島県">徳島県</OPTION>
+				<OPTION value="香川県">香川県</OPTION>
+				<OPTION value="愛媛県">愛媛県</OPTION>
+				<OPTION value="高知県">高知県</OPTION>
+				<OPTION value="福岡県">福岡県</OPTION>
+				<OPTION value="佐賀県">佐賀県</OPTION>
+				<OPTION value="長崎県">長崎県</OPTION>
+				<OPTION value="熊本県">熊本県</OPTION>
+				<OPTION value="大分県">大分県</OPTION>
+				<OPTION value="宮崎県">宮崎県</OPTION>
+				<OPTION value="鹿児島県">鹿児島県</OPTION>
+				<OPTION value="沖縄県">沖縄県</OPTION>
+				<OPTION value="海外">海外</OPTION>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">メールアドレス</td>
+		<td class="detail_value" colspan="3"><input name="staff_mail" style="width:50%" ></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">出身校</td>
+		<td class="detail_value" width="30%"><input name="staff_school" ></td>
+		<td class="detail_name" width="20%">趣味</td>
+		<td class="detail_value" width="30%"><input name="staff_interest" ></td>
+	</tr>
+	<tr>
+		<td class="detail_name" >既婚・独身</td>
+		<td class="detail_value" colspan="3" >
+			<label>
+				<input type="radio" name="staff_married" value="既婚" >既婚
+			</label>&nbsp;&nbsp;&nbsp;
+			<label>
+				<input type="radio" name="staff_married" value="独身" >独身
+			</label>&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">紹介文</td>
+		<td class="detail_value" colspan="3"><textarea name="staff_comment_1" class="richtext" style="width:100%" rows="20"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="staff_memo" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140602100258LUYudff1OtWCMCTi\",\"name\":\"社員紹介1\",\"sections\":[{\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\",\"secname\":\"社員紹介1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401678195552yymtvN4COQtvxxXg\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401678195558kpd1EmocRPvADvSb\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195552HBxmejAChJJiRGg3\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195555dIa9OpjKsP8LU42S\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678382759Bachf111pgYD8zFq\",\"controls\":[{\"control_id\":\"ctr_id-1401678395863PTHOkGDFcOK4dsR1\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"社員紹介\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678405838QRmpUqcUQQ79IQsE\",\"controls\":[{\"control_id\":\"ctr_id-1401678195556jQb9fSxC4K5UE507\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"氏名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_name\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"mandatory_msg=氏名は必須です。;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556oZw9TYDBv3GKTVCL\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"社員番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556Ks06qjzPCCmLVkad\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"入社年月日\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556EfNUBf4qEXbd6K1Q\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"フリガナ\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_kana\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"mandatory_msg=フリガナは必須です。;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556ByYH5FvktoiyyqZn\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"職位\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556d9vhdPDpi7nwAUPn\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"出身地\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_from\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"▼選択して下さい\",\"value\":\"\"},{\"text\":\"北海道\",\"value\":\"北海道\"},{\"text\":\"青森県\",\"value\":\"青森県\"},{\"text\":\"岩手県\",\"value\":\"岩手県\"},{\"text\":\"宮城県\",\"value\":\"宮城県\"},{\"text\":\"秋田県\",\"value\":\"秋田県\"},{\"text\":\"山形県\",\"value\":\"山形県\"},{\"text\":\"福島県\",\"value\":\"福島県\"},{\"text\":\"茨城県\",\"value\":\"茨城県\"},{\"text\":\"栃木県\",\"value\":\"栃木県\"},{\"text\":\"群馬県\",\"value\":\"群馬県\"},{\"text\":\"埼玉県\",\"value\":\"埼玉県\"},{\"text\":\"千葉県\",\"value\":\"千葉県\"},{\"text\":\"東京都\",\"value\":\"東京都\"},{\"text\":\"神奈川県\",\"value\":\"神奈川県\"},{\"text\":\"新潟県\",\"value\":\"新潟県\"},{\"text\":\"富山県\",\"value\":\"富山県\"},{\"text\":\"石川県\",\"value\":\"石川県\"},{\"text\":\"福井県\",\"value\":\"福井県\"},{\"text\":\"山梨県\",\"value\":\"山梨県\"},{\"text\":\"長野県\",\"value\":\"長野県\"},{\"text\":\"岐阜県\",\"value\":\"岐阜県\"},{\"text\":\"静岡県\",\"value\":\"静岡県\"},{\"text\":\"愛知県\",\"value\":\"愛知県\"},{\"text\":\"三重県\",\"value\":\"三重県\"},{\"text\":\"滋賀県\",\"value\":\"滋賀県\"},{\"text\":\"京都府\",\"value\":\"京都府\"},{\"text\":\"大阪府\",\"value\":\"大阪府\"},{\"text\":\"兵庫県\",\"value\":\"兵庫県\"},{\"text\":\"奈良県\",\"value\":\"奈良県\"},{\"text\":\"和歌山県\",\"value\":\"和歌山県\"},{\"text\":\"鳥取県\",\"value\":\"鳥取県\"},{\"text\":\"島根県\",\"value\":\"島根県\"},{\"text\":\"岡山県\",\"value\":\"岡山県\"},{\"text\":\"広島県\",\"value\":\"広島県\"},{\"text\":\"山口県\",\"value\":\"山口県\"},{\"text\":\"徳島県\",\"value\":\"徳島県\"},{\"text\":\"香川県\",\"value\":\"香川県\"},{\"text\":\"愛媛県\",\"value\":\"愛媛県\"},{\"text\":\"高知県\",\"value\":\"高知県\"},{\"text\":\"福岡県\",\"value\":\"福岡県\"},{\"text\":\"佐賀県\",\"value\":\"佐賀県\"},{\"text\":\"長崎県\",\"value\":\"長崎県\"},{\"text\":\"熊本県\",\"value\":\"熊本県\"},{\"text\":\"大分県\",\"value\":\"大分県\"},{\"text\":\"宮崎県\",\"value\":\"宮崎県\"},{\"text\":\"鹿児島県\",\"value\":\"鹿児島県\"},{\"text\":\"沖縄県\",\"value\":\"沖縄県\"},{\"text\":\"海外\",\"value\":\"海外\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401678405838QRmpUqcUQQ79IQsE\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678539990kbQCafzcZDxINC5v\",\"controls\":[{\"control_id\":\"ctr_id-140167819555698Mtexz1LP1DqyZ8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"メールアドレス\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_mail\",\"style\":\"width:50%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678539990kbQCafzcZDxINC5v\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678571398PgsGJ4FOduUs3uCO\",\"controls\":[{\"control_id\":\"ctr_id-1401678195556gSh33dhwU8Enx9zP\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"出身校\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_school\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678571398PgsGJ4FOduUs3uCO\"},{\"control_id\":\"ctr_id-14016781955571B0aoIXQBOZTj5Od\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"趣味\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_interest\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\",\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"既婚  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"既婚\",\"name\":\"staff_married\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"独身\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"独身\",\"name\":\"staff_married\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"既婚・独身\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_married\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401678195559ay8aV6F7Zs4dtf2w\",\"map_type_control\":\"radiogroup\",\"pos_row\":1,\"pos_col\":1,\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\"},{\"control_id\":\"ctr_id-14016781955578g3PjTVxBErG3bUs\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"紹介文\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_comment_1\",\"style\":\"width:100%\",\"class\":\"richtext\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\"},{\"control_id\":\"ctr_id-1401678195557WQfuZLisB7GAvZ7e\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_memo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+
+  <template_body_for_mobile><![CDATA[<!--
+
+社員紹介
+
+ @version 2014-01-17
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="main_content_title2">社員紹介</div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">氏名<font color="red">*</font></div>
+      <div class="detail_value"><input type="text" name="staff_name" class="mandatory" mandatory_msg="氏名は必須です。"
+                                       style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">フリガナ<font color="red">*</font></div>
+      <div class="detail_value"><input type="text" name="staff_kana" class="mandatory" mandatory_msg="フリガナは必須です。"
+                                       style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">社員番号</div>
+      <div class="detail_value"><input type="text" type="text" name="staff_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">職位</div>
+      <div class="detail_value"><input type="text" name="staff_department" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">入社年月日</div>
+      <div class="detail_value"><input type="text" name="staff_date" class="date" style="width:100%"></div>
+
+    </li>
+    <li class="row">
+      <div class="detail_name">出身地</div>
+      <div class="detail_value">
+        <select name="staff_from" style="width:100%">
+          <OPTION value="">▼選択して下さい</OPTION>
+          <OPTION value="北海道">北海道</OPTION>
+          <OPTION value="青森県">青森県</OPTION>
+          <OPTION value="岩手県">岩手県</OPTION>
+          <OPTION value="宮城県">宮城県</OPTION>
+          <OPTION value="秋田県">秋田県</OPTION>
+          <OPTION value="山形県">山形県</OPTION>
+          <OPTION value="福島県">福島県</OPTION>
+          <OPTION value="茨城県">茨城県</OPTION>
+          <OPTION value="栃木県">栃木県</OPTION>
+          <OPTION value="群馬県">群馬県</OPTION>
+          <OPTION value="埼玉県">埼玉県</OPTION>
+          <OPTION value="千葉県">千葉県</OPTION>
+          <OPTION value="東京都">東京都</OPTION>
+          <OPTION value="神奈川県">神奈川県</OPTION>
+          <OPTION value="新潟県">新潟県</OPTION>
+          <OPTION value="富山県">富山県</OPTION>
+          <OPTION value="石川県">石川県</OPTION>
+          <OPTION value="福井県">福井県</OPTION>
+          <OPTION value="山梨県">山梨県</OPTION>
+          <OPTION value="長野県">長野県</OPTION>
+          <OPTION value="岐阜県">岐阜県</OPTION>
+          <OPTION value="静岡県">静岡県</OPTION>
+          <OPTION value="愛知県">愛知県</OPTION>
+          <OPTION value="三重県">三重県</OPTION>
+          <OPTION value="滋賀県">滋賀県</OPTION>
+          <OPTION value="京都府">京都府</OPTION>
+          <OPTION value="大阪府">大阪府</OPTION>
+          <OPTION value="兵庫県">兵庫県</OPTION>
+          <OPTION value="奈良県">奈良県</OPTION>
+          <OPTION value="和歌山県">和歌山県</OPTION>
+          <OPTION value="鳥取県">鳥取県</OPTION>
+          <OPTION value="島根県">島根県</OPTION>
+          <OPTION value="岡山県">岡山県</OPTION>
+          <OPTION value="広島県">広島県</OPTION>
+          <OPTION value="山口県">山口県</OPTION>
+          <OPTION value="徳島県">徳島県</OPTION>
+          <OPTION value="香川県">香川県</OPTION>
+          <OPTION value="愛媛県">愛媛県</OPTION>
+          <OPTION value="高知県">高知県</OPTION>
+          <OPTION value="福岡県">福岡県</OPTION>
+          <OPTION value="佐賀県">佐賀県</OPTION>
+          <OPTION value="長崎県">長崎県</OPTION>
+          <OPTION value="熊本県">熊本県</OPTION>
+          <OPTION value="大分県">大分県</OPTION>
+          <OPTION value="宮崎県">宮崎県</OPTION>
+          <OPTION value="鹿児島県">鹿児島県</OPTION>
+          <OPTION value="沖縄県">沖縄県</OPTION>
+          <OPTION value="海外">海外</OPTION>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">メールアドレス</div>
+      <div class="detail_value"><input type="text" name="staff_mail" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">出身校</div>
+      <div class="detail_value"><input type="text" name="staff_school" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">趣味</div>
+      <div class="detail_value"><input type="text" name="staff_interest" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">既婚・独身</div>
+      <div class="detail_value">
+        <label>
+          <input type="radio" name="staff_married" value="既婚">既婚
+        </label>&nbsp;&nbsp;&nbsp;
+        <label>
+          <input type="radio" name="staff_married" value="独身">独身
+        </label>&nbsp;&nbsp;&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">紹介文</div>
+      <div class="detail_value"><textarea name="staff_comment_1" class="richtext " style="width:98%" rows="20"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="staff_memo" style="width:98%" rows="10"></textarea></div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

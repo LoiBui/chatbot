@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+	
+	// フォーカスを初期セットする対応
+	var focus_target;
+	
+		focus_target = document.getElementById("login_id");
+	
+	if(focus_target)
+	{
+		focus_target.focus();
+	}
+});
+//-->
+</script>
+<title>管理ログイン - {{lang.HTML_TITLE}}</title>
+</head>
+<body>
+<div id="preloadedImages"></div> 
+<form name="login" action="{{vurl}}login" method="post">
+<input type="hidden" name="st" value="v">
+<table border="0" cellpadding="0" cellspacing="0" width="320">
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="320" height="10" border="0" alt="">
+{% for v in header_msg %}
+<span><br/><font color="red">{{v}}</font></span>
+{% endfor %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="320" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td width="90" class="style2" nowrap >{{lang.VMSG_LOGIN_USERID}}</td>
+<td width="280" align="left" nowrap>
+<input id="login_id" name="login_id" type="text" value="{{req.login_id}}" size="15" maxlength="50" class="textBox" autocomplete="off" >
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="320" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap >{{lang.VMSG_LOGIN_PASSWORD}}</td>
+<td align="left" nowrap>
+<input id="pass_word" name="login_pwd" type="password" value="{{req.login_pwd}}" size="15" maxlength="50" class="textBox" autocomplete="off" >
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="320" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<input type="image" src="/images/share/bt_login.gif" width="100" height="26" border="0" alt="Login" />
+</td>
+</tr>
+</table>
+</form>
+{% include "./include/footer.html" %}
+</body>
+</html>

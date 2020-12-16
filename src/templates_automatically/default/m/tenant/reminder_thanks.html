@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis" />
+-#}
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=UTF-8" />
+
+<title>{{lang.VMSG_SITE_TITLE_REMINDER}} - {{lang.HTML_TITLE}}</title>
+</head>
+<body>
+<a name="top"></a>
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+<hr color="#0085ce">
+
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<p class="style2">{{lang.VMSG_INFO_REMINDER}}</p>
+<br/>
+{% if ucfp.data.RURL != '': %}
+<p><a href="{{ucfp.data.RURL}}" >{{lang.VMSG_ORIGINAL_RURL}}</a></p>
+{% endif %}
+</div>
+</div>
+<!-- MainBox//end -->
+<hr color="#0085ce" />
+{#
+<div align="left">{{mini_pr|safe}}</div>
+{% if show_upgrade_link: %}
+<div align="left">
+<a href="http://goo.gl/A2fmz" target="_blank" style="color:red;text-decoration:none;font-weight:bold;font-size:12px;margin:2px;">{{lang.MSG_UPGRADE}}</a>
+</div>
+{% endif %}
+#}
+<div align="right"><font color="#0085ce">▲</font><a href="{{vurl}}personal/">{{lang.VMSG_TO_PERSONAL}}</a>&nbsp;<font color="#0085ce">▲</font><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></div>
+Copyright &copy; All rights reserved by Sateraito Office, Inc.
+
+
+</body>
+</html>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_LINEWORKSBOT|safe}} - {{lang.HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+<!--
+		var each_page_cnt = 20;
+		var store;
+		function goEditPage(unique_id)
+		{
+			window.location.href = '{{vurl|safe}}lineworksbot/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}';
+		}
+
+		// 手動BOT送信Window
+		var sendMessageWindow = function(selected_bot_no)
+		{
+
+			var handleAfterProcess = function(response){
+				var jsondata = jQuery.parseJSON(response.responseText);
+				var code = jsondata.code;
+				if (code != 0) 
+				{
+					if (jsondata.msg == '')
+					{
+						Ext.ucf.dispSysErrMsg(code);
+					}
+					else{
+						Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+					}
+					return;
+				}
+
+				search(true);
+				Ext.ucf.flowMsg(_msg.FIN_SEND_MESSAGE, jsondata.msg);
+				//Ext.ucf.dispUpdateMsgByReturnCode(code, jsondata.msg)
+				Ext.ComponentMgr.get('send_message_window').close();
+				//Ext.get(layout.container).unmask();
+			}
+
+
+			// 送信ボタン
+			var send_btn_process = function(){
+
+				var bot_no = selected_bot_no;
+				var to_list = $('#send_to_list').val(); 
+				var send_message = $('#send_message').val();
+
+				var params = {
+					open_api_id:document.getElementById('open_api_id').value
+					,consumer_key:document.getElementById('consumer_key').value
+					,server_id:document.getElementById('server_id').value
+					,priv_key:document.getElementById('priv_key').value
+
+					,bot_no:bot_no
+					,to_list:to_list
+					,send_message:send_message
+				};
+				// AJAXコール
+				Ext.Ajax.request({ 
+					url: '{{vurl|safe}}lineworksbot/xtsendmessage',
+					method: 'POST', 
+					params: params, 
+					success: handleAfterProcess, 
+					failure: handleAfterProcess
+				});
+			};
+			var cancel_btn_process = function(){
+				Ext.ComponentMgr.get('send_message_window').close();
+				//Ext.get(layout.container).unmask();
+			};
+
+			var buttons = [];
+
+			// メッセージ送信ボタン
+			buttons.push(
+				new Ext.Button({
+					text: _msg.SEND_MESSAGE_FROM_BOT_BUTTON,
+					handler: send_btn_process
+				})
+			);
+			// キャンセルボタン
+			buttons.push(
+				new Ext.Button({
+					text: _msg.VMSG_BOT_CANCEL,
+					handler: cancel_btn_process
+				})
+			);
+			
+			var vHtml = '';
+			vHtml += '<div style="font-size:13px;padding:10px;">';
+			vHtml += '<span>' + _msg.EXP_SEND_MESSAGE_FROM_BOT + '</span><br/><br/>';
+			vHtml += '<table class="detail" style="width:99%;padding:2px;">';
+			vHtml += '<td style="width:100%" class="detail_value">';
+			vHtml += _msg.SEND_MESSAGE_TO_LIST + '：&nbsp;<font size="2" color="red" >*</font><br/>';
+			vHtml += '<textarea id="send_to_list" cols="60" rows="5" ></textarea>';
+			vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.EXP_SEND_MESSAGE_TO_LIST) + '</font></span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td class="detail_value">';
+			vHtml += _msg.SEND_MESSAGE_CONTENT + '：&nbsp;<font size="2" color="red" >*</font><br/>';
+			vHtml += '<textarea id="send_message" cols="60" rows="8" ></textarea>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '</table>';
+			
+			vHtml += '</div>';
+			
+			var settingPanel = new Ext.Panel({
+				html: vHtml,
+				autoScroll: true
+			});
+			
+			var detailWindow = new Ext.Window({
+				id: 'send_message_window',
+				width: 500,
+				height: 485,
+				modal:true,
+				title: _msg.SEND_MESSAGE_FROM_BOT_TITLE,
+				plain: true,
+				autoScroll: false,
+				layout: 'fit',
+				autoDestory:true,
+				closable:false,
+				items: [settingPanel],
+				buttons: buttons
+			});
+
+			detailWindow.addListener('afterrender', function(cmp){
+				// EnterキーとESCキーの動作を定義
+				var el = cmp.getEl();
+				var nav = new Ext.KeyNav(el, {
+						enter: function(){
+								save_btn_process();
+							},
+						esc: function(){
+								cancel_btn_process();
+							},
+						scope:this
+					});
+			});
+
+			detailWindow.show();
+			// ウインドウの移動範囲を制約
+			detailWindow.dd.constrainTo(Ext.getBody());
+
+			// 初期値セット
+
+		};
+
+
+		var layout;
+		
+		var openAddOrEditWindow = function(edit_type, selected_bot_no)
+		{
+			Ext.get(layout.container).mask();
+
+			var handleAfterProcess = function(response){
+				var jsondata = jQuery.parseJSON(response.responseText);
+				var code = jsondata.code;
+				if (code != 0) 
+				{
+					if (jsondata.msg == '')
+					{
+						Ext.ucf.dispSysErrMsg(code);
+					}
+					else{
+						Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+					}
+					return;
+				}
+
+				search(true);
+				Ext.ucf.dispUpdateMsgByReturnCode(code, jsondata.msg)
+				Ext.ComponentMgr.get('add_bot_window').close();
+				Ext.get(layout.container).unmask();
+				window.opener.channels.lineworksbot.refreshBotNoPullDown(0, '{{instanceid|safe|escapejs}}', '{{panel_kind|safe|escapejs}}');
+			}
+
+
+			// BOT作成、更新ボタン
+			var save_btn_process = function(){
+
+				var bot_no = $('#input_bot_no').val();
+				var bot_name = $('#input_bot_name').val();
+				var bot_description = $('#input_bot_description').val();
+				var bot_photourl = $('#input_bot_photourl').val();
+				var bot_url = $('#input_bot_url').val();
+				var bot_manager = $('#input_bot_manager').val();
+				//var bot_status = $('#input_bot_status').val();
+				//var bot_adminemail = $('#input_bot_adminemail').val();		// APIv2対応…廃止
+				var bot_icon = $('#input_bot_icon').val();
+
+				// 入力チェック
+				if(edit_type == 'renew' && bot_no == ''){
+					Ext.Msg.show({
+							icon: Ext.MessageBox.WARNING,
+							title: _msg.WARNING,
+							msg: _msg.VC_INVALID_BOT_NO,
+							buttons: Ext.Msg.OK
+						});
+					return;
+				}
+				if(bot_name == ''){
+					Ext.Msg.show({
+							icon: Ext.MessageBox.WARNING,
+							title: _msg.WARNING,
+							msg: _msg.VC_INVALID_BOT_NAME,
+							buttons: Ext.Msg.OK
+						});
+					return;
+				}
+				if(bot_description == ''){
+					Ext.Msg.show({
+							icon: Ext.MessageBox.WARNING,
+							title: _msg.WARNING,
+							msg: _msg.VC_INVALID_BOT_DESCRIPTION,
+							buttons: Ext.Msg.OK
+						});
+					return;
+				}
+				if(bot_manager == ''){
+					Ext.Msg.show({
+							icon: Ext.MessageBox.WARNING,
+							title: _msg.WARNING,
+							msg: _msg.VC_INVALID_BOT_MANAGER,
+							buttons: Ext.Msg.OK
+						});
+					return;
+				}
+
+				var params = {
+					edit_type:edit_type
+					,open_api_id:document.getElementById('open_api_id').value
+					,consumer_key:document.getElementById('consumer_key').value
+					,server_id:document.getElementById('server_id').value
+					,priv_key:document.getElementById('priv_key').value
+
+					,bot_no:bot_no
+					,bot_name:bot_name
+					,bot_description:bot_description
+					,bot_photourl:bot_photourl
+					,bot_url:bot_url
+					,bot_manager:bot_manager
+					//,bot_status:bot_status
+					//,bot_adminemail:bot_adminemail		// APIv2対応…廃止
+					,bot_icon:bot_icon
+				};
+				// AJAXコール
+				Ext.Ajax.request({ 
+					url: '{{vurl|safe}}lineworksbot/xtregist',
+					method: 'POST', 
+					params: params, 
+					success: handleAfterProcess, 
+					failure: handleAfterProcess
+				});
+			};
+			var cancel_btn_process = function(){
+				Ext.ComponentMgr.get('add_bot_window').close();
+				Ext.get(layout.container).unmask();
+			};
+
+			// チャネルにセットボタン
+			var settochannel_btn_process = function(){
+
+				var bot_no = $('#input_bot_no').val();
+				var bot_url = $('#input_bot_url').val();
+
+				// trigger用パネルから開かれた場合…WebhookURLが本ビジネスルール用と一致していないとNGとする
+				{% if panel_kind == 'trigger': %}
+				if(bot_url != '{{webhook_url|safe|escape}}'){
+					alert(_msg.ERR_NOTSET_AS_CHANNEL_BY_WEBHOOKURL_INVALID);
+					return;
+				}
+				{% endif %}
+
+				if(confirm(_msg.CONFIRM_SETTOCHANNEL_BOT)){
+					// 親画面にボットNoをセット
+					//window.opener.channels.lineworksbot.setBotNo(bot_no, '{{instanceid|safe|escapejs}}');
+					window.opener.channels.lineworksbot.refreshBotNoPullDown(bot_no, '{{instanceid|safe|escapejs}}', '{{panel_kind|safe|escapejs}}');
+					// このウインドウを閉じる
+					window.close();
+				}
+			};
+
+			// BOTから指定ユーザーに手動でチャット
+			var send_message_btn_process = function(){
+				var bot_no = $('#input_bot_no').val();
+				sendMessageWindow(bot_no);
+			};
+
+			var buttons = [];
+
+			if(edit_type == 'renew'){
+				// 手動でメッセージ送信（BOTからユーザーに）
+				buttons.push(
+					new Ext.Button({
+						text: _msg.SEND_MESSAGE_FROM_BOT_BUTTON,
+						handler: send_message_btn_process
+					})
+				);
+				// チャネルにセットボタン
+				buttons.push(
+					new Ext.Button({
+						text: _msg.SET_BOT_TO_CHANNEL_BUTTON,
+						handler: settochannel_btn_process
+					})
+				);
+			}
+
+			// BOT作成、更新ボタン
+			buttons.push(
+				new Ext.Button({
+					text: edit_type == 'renew' ? _msg.VMSG_BOT_UPDATE : _msg.VMSG_BOT_REGIST,
+					handler: save_btn_process
+				})
+			);
+			// キャンセルボタン
+			buttons.push(
+				new Ext.Button({
+					text: _msg.VMSG_BOT_CANCEL,
+					handler: cancel_btn_process
+				})
+			);
+			
+			var vHtml = '';
+			vHtml += '<div style="font-size:13px;padding:10px;">';
+			vHtml += '<table class="detail" style="width:99%;padding:2px;">';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name">';
+			vHtml += _msg.LINEWORKS_BOT_NO + '：&nbsp;<font size="2" color="red" >*</font>';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			vHtml += '<input type="text" id="input_bot_no" style="width:10%;" disabled >';
+			vHtml += '&nbsp;<span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.VMSG_LINEWORKS_BOT_NO) + '</font></span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name">';
+			vHtml += _msg.LINEWORKS_BOT_NAME + '：&nbsp;<font size="2" color="red" >*</font>';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			vHtml += '<input type="text" id="input_bot_name" style="width:40%;" >';
+			vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.EXP_LINEWORKS_BOT_NAME) + '</font></span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name">';
+			vHtml += _msg.LINEWORKS_BOT_DESCRIPTION + '：&nbsp;<font size="2" color="red" >*</font>';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			vHtml += '<textarea id="input_bot_description" style="width:80%;height:50px;" ></textarea>';
+			vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.EXP_LINEWORKS_BOT_DESCRIPTION) + '</font></span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name">';
+			vHtml += _msg.LINEWORKS_BOT_MANAGER + '：&nbsp;<font size="2" color="red" >*</font>';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			vHtml += '<input type="text" id="input_bot_manager" style="width:90%;" >';
+			vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.EXP_LINEWORKS_BOT_MANAGER) + '</font></span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			//vHtml += '<tr>';
+			//vHtml += '<th style="width:20px;" class="detail_name">';
+			//vHtml += _msg.LINEWORKS_BOT_STATUS + '：&nbsp;<font size="2" color="red" >*</font>';
+			//vHtml += '</th>';
+			//vHtml += '<td style="width:80%" class="detail_value">';
+			//vHtml += '<select id="input_bot_status" >';
+			//vHtml += '<option value="1" >' + _msg.VMSG_AVAILABLE + '</option>';
+			//vHtml += '<option value="0" >' + _msg.VMSG_UNAVAILABLE + '</option>';
+			//vHtml += '</select>';
+			//vHtml += '</td>';
+			//vHtml += '</tr>';
+			// APIv2対応…廃止
+			//vHtml += '<tr>';
+			//vHtml += '<td colspan="2" style="height:5px;" >';
+			//vHtml += '</td>';
+			//vHtml += '</tr>';
+			//vHtml += '<tr>';
+			//vHtml += '<th style="width:20px;" class="detail_name">';
+			//vHtml += _msg.LINEWORKS_BOT_ADMINEMAIL + '：&nbsp;<font size="2" color="red" >*</font>';
+			//vHtml += '</th>';
+			//vHtml += '<td style="width:80%" class="detail_value">';
+			//vHtml += '<input type="text" id="input_bot_adminemail" style="width:90%;" >';
+			//vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.EXP_LINEWORKS_BOT_ADMINEMAIL) + '</font></span>';
+			//vHtml += '</td>';
+			//vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name" valign="top">';
+			vHtml += _msg.LINEWORKS_BOT_URL + '：&nbsp;';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			{% if webhook_url != '': %}
+			vHtml += '<input type="text" id="input_bot_url" style="width:90%;" disabled>';
+			vHtml += '<div id="set_bot_url_area" style="display:none;" >';
+			vHtml += '<input type="button" id="btn_set_bot_url" value="' + Ext.ucf.htmlEscape(_msg.SET_LINEWORKS_BOT_URL) + '" >';
+			vHtml += '<br/><span><font color="#696969">' + Ext.ucf.htmlEscape(_msg.VMSG_LINEWORKS_BOT_URL) + '</font></span>';
+			vHtml += '</div>';
+			{% else: %}
+			vHtml += '<input type="text" id="input_bot_url" style="width:90%;" >';
+			{% endif %}
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th style="width:20px;" class="detail_name" style="vertical-align:top;" valign="top">';
+			vHtml += _msg.LINEWORKS_BOT_ICON + '：&nbsp;<font size="2" color="red" >*</font>';
+			vHtml += '</th>';
+			vHtml += '<td style="width:80%" class="detail_value">';
+			vHtml += '<table>';
+			vHtml += '<tr>';
+			vHtml += '<td nowrap>';
+			vHtml += '<img src="" width="88px" height="88px" border="0" id="img_bot_icon" />';
+			vHtml += '<input type="hidden" id="input_bot_icon" >';
+			vHtml += '<span id="img_bot_icon_noupload_msg" >' + _msg.LINEWORKS_BOT_ICON_NOUPLOAD + '</span>';
+			vHtml += '</td>';
+			vHtml += '<td style="vertical-align:bottom;">';
+			vHtml += '<div id="bot_icon_upload_area" style="padding:0;" ></div>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" >';
+			vHtml += '<span >' + _msg.VMSG_LINEWORKS_BOT_ICON + '</span>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<td colspan="2" style="height:5px;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '<tr>';
+			vHtml += '<th class="detail_name" nowrap>';
+			vHtml += _msg.LINEWORKS_BOT_PHOTOURL + '：';
+			vHtml += '</th>';
+			vHtml += '<td class="detail_value">';
+			vHtml += '<input type="text" id="input_bot_photourl" style="width:90%;" >';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '</table>';
+			vHtml += '</td>';
+			vHtml += '</tr>';
+			vHtml += '</table>';
+			
+			vHtml += '</div>';
+			
+			var settingPanel = new Ext.Panel({
+				html: vHtml,
+				autoScroll: true
+			});
+			
+			var detailWindow = new Ext.Window({
+				id: 'add_bot_window',
+				width: 600,
+				height: 600,
+				modal:true,
+				title: edit_type == 'renew' ? _msg.VMSG_BOT_UPDATE_TITLE : _msg.VMSG_BOT_REGIST_TITLE,
+				plain: true,
+				autoScroll: false,
+				layout: 'fit',
+				autoDestory:true,
+				closable:false,
+				items: [settingPanel],
+				buttons: buttons
+			});
+
+			detailWindow.addListener('afterrender', function(cmp){
+				// EnterキーとESCキーの動作を定義
+				var el = cmp.getEl();
+				var nav = new Ext.KeyNav(el, {
+						enter: function(){
+								save_btn_process();
+							},
+						esc: function(){
+								cancel_btn_process();
+							},
+						scope:this
+					});
+			});
+
+			detailWindow.show();
+			// ウインドウの移動範囲を制約
+			detailWindow.dd.constrainTo(Ext.getBody());
+
+			// イベントハンドラ登録
+			//「通知サーバーで受信する」ボタンクリック…WebHookURLに本サーバーのURLをセットする
+			{% if webhook_url != '': %}
+			$('#btn_set_bot_url').on('click', function(){
+				var webhook_url = '{{webhook_url|safe|escapejs}}';
+				$('#input_bot_url').val(webhook_url);
+			});
+			{% endif %}
+
+			// 初期値セット
+
+			$('#img_bot_icon').css('display', 'none');
+			if(edit_type == 'new'){
+				$('#input_bot_url').val('{{webhook_url|safe|escapejs}}');
+			} else if(edit_type == 'renew'){
+
+				//var bot_no = store.data.items[editRowIndex].data.bot_no;
+				var bot_no = selected_bot_no;
+				var setBotInfoToWindow = function(response){
+					var jsondata = jQuery.parseJSON(response.responseText);
+					var code = jsondata.code;
+					if (code != 0) 
+					{
+						if (jsondata.msg == '')
+						{
+							Ext.ucf.dispSysErrMsg(code);
+						}
+						else{
+							Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+						}
+						return;
+					}
+					var bot_data = jsondata.bot_vo;
+
+					$('#input_bot_no').val(bot_data.bot_no);
+					$('#input_bot_name').val(bot_data.bot_name);
+					$('#input_bot_description').text(bot_data.bot_description);
+					$('#input_bot_type').val(bot_data.bot_type);
+					$('#input_bot_photourl').val(bot_data.bot_photourl);
+					$('#input_bot_url').val(bot_data.bot_url);
+					$('#input_bot_manager').val(bot_data.bot_manager);
+					//$('#input_bot_adminemail').val(bot_data.bot_adminemail);					// APIv2対応…廃止
+					//$('#input_bot_status').val(bot_data.bot_status);
+
+					if($('#input_bot_url').val() != '{{webhook_url|safe|escapejs}}'){
+						$('#set_bot_url_area').css('display', 'block');
+					}
+
+					//if(typeof(bot_data.bot_icon) != 'undefined' && bot_data.bot_icon != ''){
+					if(false){
+						$('#img_bot_icon').attr('src', _vurl + 'picture/boticon/' + bot_data.bot_icon + '?uc=n');
+						$('#img_bot_icon').css('display', 'block');
+						$('#img_bot_icon_noupload_msg').css('display', 'none');
+					}else if(typeof(bot_data.bot_photourl) != 'undefined' && bot_data.bot_photourl != ''){
+						$('#img_bot_icon').attr('src', bot_data.bot_photourl);
+						$('#img_bot_icon').css('display', 'block');
+						$('#img_bot_icon_noupload_msg').css('display', 'none');
+					}
+
+
+				};
+
+				// データ取得
+				Ext.Ajax.request({ 
+					url: '{{vurl|safe}}lineworksbot/xtgetdetail',
+					method: 'POST', 
+					params: {
+						bot_no:bot_no
+						,open_api_id:document.getElementById('open_api_id').value
+						,consumer_key:document.getElementById('consumer_key').value
+						,server_id:document.getElementById('server_id').value
+						,priv_key:document.getElementById('priv_key').value
+					}, 
+					success: setBotInfoToWindow,
+					failure: setBotInfoToWindow
+				});
+
+			}
+
+			var bot_icon_upload_area = Ext.ucf.file.createFileUpdateField('custom_icon', _vurl + 'config/xtpictureupload?picture_id=boticon',{csrf_token:'{{ucfp.data.upload_icon_token}}',btn_text:'&nbsp;&nbsp;&nbsp;&nbsp;' + _msg.LINEWORKS_BOT_ICON_UPLOAD  + '&nbsp;&nbsp;&nbsp;&nbsp;',width:0, btn_only:true},function(jsondata){
+					var data_key = jsondata.data_key;
+					$('#input_bot_icon').val(data_key);
+					$('#input_bot_photourl').val('{{my_site_url|safe|escapejs}}/a/{{tenant|safe|escapejs}}/picture/boticon/' + data_key);
+					(function(){
+						$('#img_bot_icon').attr('src', _vurl + 'picture/boticon/' + data_key + '?uc=n');
+					}).defer(1000);
+					$('#img_bot_icon').css('display', 'block');
+					$('#img_bot_icon_noupload_msg').css('display', 'none');
+				});
+			bot_icon_upload_area.render('bot_icon_upload_area');
+		};
+
+		
+		function getSearchBaseParam(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				//document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+				//Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+				document.getElementsByName('open_api_id')[0].value = Ext.ucf.nvl(scond['open_api_id']);
+				document.getElementsByName('consumer_key')[0].value = Ext.ucf.nvl(scond['consumer_key']);
+				document.getElementsByName('server_id')[0].value = Ext.ucf.nvl(scond['server_id']);
+				document.getElementsByName('priv_key')[0].value = Ext.ucf.nvl(scond['priv_key']);
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+							//,sk_keyword:Ext.ucf.getElementValue('sk_keyword')
+							,open_api_id:document.getElementById('open_api_id').value
+							,consumer_key:document.getElementById('consumer_key').value
+							,server_id:document.getElementById('server_id').value
+							,priv_key:document.getElementById('priv_key').value
+						};
+			
+			return params;
+		}
+		
+		function search(psc)
+		{
+			{#- // 検索条件保持しなくてもいいかな
+			//Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl|safe}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID|safe}}={{config.SESSIONKEY_SCOND_BUSINESSRULE_LIST|safe}}');
+			-#}
+			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl|safe}}xtgetscond');
+		}
+		
+
+		function vh_basic(value, p, record)
+		{
+			var html = '';
+			html += Ext.ucf.htmlEscape(value);
+			return html;
+		}
+
+		//function vh_bot_status(value, p, record)
+		//{
+		//	var html = '';
+		//	if(value == '0'){
+		//		html += Ext.ucf.htmlEscape(_msg.VMSG_UNAVAILABLE);
+		//	}else if(value == '1'){
+		//		html += Ext.ucf.htmlEscape(_msg.VMSG_AVAILABLE);
+		//	}else{
+		//		html += Ext.ucf.htmlEscape(value);
+		//	}
+		//	return html;
+		//}
+
+		function vhEdit(value, p, record)
+		{
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:openAddOrEditWindow(\'renew\', \'' + Ext.ucf.htmlEscape(record.get('bot_no')) + '\');" />';
+		}
+
+		function createSearchCondFields()
+		{
+			//var field_sk_keyword = Ext.ucf.field.createTextField('sk_keyword', 'sk_keyword', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
+			//field_sk_keyword.render('FIELD_sk_keyword');
+		}
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+	Ext.QuickTips.init();
+	Ext.ucf.init();
+
+	createSearchCondFields();
+
+	var RecordInfo = Ext.data.Record.create([
+								{name: 'bot_no',  type: 'string'}
+								,{name: 'bot_name',  type: 'string'}
+								//,{name: 'bot_status',  type: 'string'}
+	]);
+	store = new Ext.data.Store({
+			reader: new Ext.data.JsonReader({
+						idProperty: 'unique_id'
+						,root: 'records'
+						,totalProperty: 'all_count'
+						}, RecordInfo),
+	    url: '{{vurl|safe}}lineworksbot/xtlist',
+		autoDestroy:true
+	});
+	// Storeのロード後のイベントハンドラを追加
+	store.on('load', function(s, records, options) {
+		{#-
+		//Ext.Ajax.request({url: '{{vurl|safe}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID|safe}}={{config.SESSIONKEY_SCOND_BUSINESSRULE_LIST|safe}}',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+		-#}
+		Ext.Ajax.request({url: '{{vurl|safe}}xtsetscond',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+	});
+
+
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+		
+	var sLimitCB = new Ext.ucf.searchLimitComboBox(
+				[each_page_cnt,50,100]
+				,{
+					'select':function(cb, record, index){
+						each_page_cnt = cb.value;
+						pagingBar.pageSize = each_page_cnt;
+						search();
+					}
+				});
+	each_page_cnt = sLimitCB.value;
+	
+//	var pagingBar = new Ext.PagingToolbar({
+//		pageSize: each_page_cnt,
+//		store: store,
+//		displayInfo: true, 
+//		displayMsg: _msg.PAGING_BAR,
+//		emptyMsg: _msg.NO_DISP_DATA,
+//		items:[
+//			'->','-',_msg.DISP_COUNT,sLimitCB
+//		]
+//	});
+	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			,'-'
+			,{
+		      text: '{{lang.VMSG_LINEWORKS_BOT_ADD|safe|escapejs}}',
+		      handler: function(){
+					openAddOrEditWindow('new');
+		          }
+		      },'-']
+		});
+		
+		//var sm = new Ext.grid.CheckboxSelectionModel({
+		//});		
+		
+	var cm = new Ext.grid.ColumnModel({
+    columns: [
+			//sm,
+			{
+        header: '{{lang.LINEWORKS_BOT_NO|safe|escapejs}}',
+        dataIndex: 'bot_no',
+        width: 35,
+        sortable: true,
+		renderer: vh_basic
+    },{
+        header: '{{lang.LINEWORKS_BOT_NAME|safe|escapejs}}',
+        dataIndex: 'bot_name',
+        width: 120,
+        sortable: true,
+		renderer: vh_basic
+    //},{
+    //    header: '{{lang.LINEWORKS_BOT_STATUS|safe|escapejs}}',
+    //    dataIndex: 'bot_status',
+    //    width: 35,
+    //    sortable: true,
+	//	renderer: vh_bot_status
+    },{
+        header: '',
+        dataIndex: 'bot_no',
+		hidden: false,
+        width: 25,
+        sortable: false,
+		renderer: vhEdit
+//    },{
+//        header: '',
+//        dataIndex: 'bot_no',
+//        width: 70,
+//        sortable: true,
+//		renderer: vhSetParentPage
+    }
+		]
+	});
+	var grid = new Ext.grid.GridPanel({
+		store: store,
+		region:'center',
+		//clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+		stripeRows: true,
+		//bbar: pagingBar,
+		tbar: toolBar,
+		//sm: sm,
+		cm: cm
+	});
+
+	grid.addListener('rowdblclick', function(thisGrid, rowIndex, e){
+		var selected_bot_no = store.data.items[rowIndex].data.bot_no;
+		openAddOrEditWindow('renew', selected_bot_no);
+	});
+
+	// パネルに一覧グリッドをセット
+	layout = new Ext.Panel({
+		collapsible: true,
+		title: '{{lang.VMSG_LINEWORKSBOT_LIST|safe|escapejs}}',
+		layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+		layoutConfig: {
+			columns: 1
+		},
+		height: 470,
+		items: [grid]
+	});
+	layout.render(Ext.get('GridList'));
+	// 検索（ページ遷移初回は前回の条件を使用して検索）
+	search(true);		
+
+{#
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'))
+#}
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% if not ispopup: %}
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+{% endif %}
+<!-- mainArea//start -->
+{% if not ispopup: %}
+<div id="mainArea" class="{{leftmenu_class}}">
+{% else: %}
+<div id="mainArea" class="off">
+{% endif %}
+{% if not ispopup: %}
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_BUSINESSRULE_CONFIG|safe}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/" >{{lang.VMSG_BUSINESSRULE_LIST|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/regist?{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}" >{{lang.VMSG_BUSINESSRULE_ADD|safe}}</a></li>
+<li class="close"><a href="{{vurl|safe}}businessrule/#TRIGGER_HISTORYS" >{{lang.VMSG_BUSINESSRULE_HISTORY|safe}}</a></li>
+<li class="close"><a href="{{vurl|safe}}businessrule/#ACTION_HISTORYS" >{{lang.VMSG_ACTION_HISTORY|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'CREATE' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/create?{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}" >{{lang.VMSG_BUSINESSRULE_CREATE|safe}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SHORTCUT|safe}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'DASHBOARD' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}" >{{lang.VMSG_DASHBOARD|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'USER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}user/" >{{lang.VMSG_USER_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'GROUP' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}group/" >{{lang.VMSG_GROUP_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'BUSINESSRULE' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/" >{{lang.VMSG_BUSINESSRULE_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/log" >{{lang.VMSG_LOGINHISTORY|safe}}</a></li>
+{% if is_available_ssoclient_access_log and 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'ACCESSPAGELOG' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/pagelog" >{{lang.VMSG_ACCESSPAGELOG|safe}}</a></li>
+{% endif %}
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+<!-- leftMenu innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+
+{% endif %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if not ispopup: %}
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+{% endif %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_LINEWORKSBOT_CONFIG|safe}}</p>
+<table class="acs_layout">
+  <tr style="display:none;">
+    <td class="layout_td layout_td_all2" >
+      <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH|safe}}</div>
+	  <form onsubmit="JavaScript:search();return false;" >
+	  <input type="hidden" id="open_api_id" name="open_api_id" value="{{open_api_id}}" >
+	  <input type="hidden" id="consumer_key" name="consumer_key" value="{{consumer_key}}" >
+	  <input type="hidden" id="server_id" name="server_id" value="{{server_id}}" >
+	  <input type="hidden" id="priv_key" name="priv_key" value="{{priv_key}}" >
+		<div id="btnSearch" />
+      <table class="search_table" >
+        <tr>
+          <th>{{lang.FULLTEXT_SEARCH|safe}}：</th>
+          <td>
+				<div id="FIELD_sk_keyword" class="field" ></div>
+          <th></th>
+          <td>&nbsp;&nbsp;</td>
+          <th></th>
+          <td>
+					</td>
+          <th></th>
+          
+          <td><div id="btnSearch" /></td>
+          
+        </tr>
+			</table>
+			</form>
+			
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="GridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% if not ispopup: %}
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+{% endif %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

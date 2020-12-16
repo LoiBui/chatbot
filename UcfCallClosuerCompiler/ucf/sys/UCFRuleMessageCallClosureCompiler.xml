@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<Message>
+	<Item id="00" code="00">原因不明のエラーが発生しました。</Item>
+	<Item id="0" code="0">メッセージ未定義(ID: {0})。</Item>
+	<!--
+	<Item id="0" code="0">原因不明のエラーが発生しました(ErrorID: {0})。</Item>
+	-->
+
+	<!-- いじるな！危険！！！（このエラーコードで処理を分岐しているところあり） -->
+	<Item id="FATALERROR" code="FATALERROR">致命的エラーが発生しました。「{0}」</Item>
+
+
+	<Item id="ERR_INVALID_PROCESS_TYPE" code="ERR_INVALID_PROCESS_TYPE">処理タイプが不正です。「{0}」</Item>
+
+	<Item id="VC_EXIST_VALIATION_ERROR" code="VC_EXIST_VALIATION_ERROR">入力に不備があります。</Item>
+	<Item id="VC_EMPTY_INPUT_CRYPTO_CSV_FILE" code="VC_EMPTY_INPUT_CRYPTO_CSV_FILE">対象のＣＳＶファイルが指定されていません。</Item>
+	<Item id="VC_EMPTY_OUTPUT_CRYPTO_CSV_FILE" code="VC_EMPTY_OUTPUT_CRYPTO_CSV_FILE">出力ＣＳＶファイルパスが指定されていません。</Item>
+	<Item id="VC_EMPTY_TARGET_COLUMN_TITLE" code="VC_EMPTY_TARGET_COLUMN_TITLE">暗号化対象のカラムが指定されていません。</Item>
+
+	<Item id="VC_NEED" code="VC_NEED">[入力ERR][行:{0}][KEY:{1}][TITLE:{2}][VALUE:{3}]必須です。</Item>
+
+	<Item id="ERR_GET_CSV_TITLE_RECORD" code="ERR_GET_CSV_TITLE_RECORD">CSVファイルのタイトル行の取得に失敗しました。ファイル構成を確認してください。</Item>
+	<Item id="ERR_CRYPTO_CSV_FILE" code="ERR_CRYPTO_CSV_FILE">CSVファイルの一括暗号化に失敗しました。</Item>
+	<Item id="PCS_FIN_CRYPTO_CSV_FILE" code="PCS_FIN_CRYPTO_CSV_FILE">暗号化完了</Item>
+	<Item id="FAILED_LOAD_CSV" code="FAILED_LOAD_CSV" >CSVファイルの読み込みに失敗しました。</Item>
+	<Item id="MSG_SELECT_SAVE_FILE" code="MSG_SELECT_SAVE_FILE">保存ファイルを選択してください。</Item>
+  
+	<Item id="WARNING_LICENSE_EXPIRE" code="WARNING_LICENSE_EXPIRE">UCFライセンスの有効期限が迫っています。期限「{0}」</Item>
+
+
+	<Item id="MSG_CONFIRM_CANCEL_PROCESS" code="MSG_CONFIRM_CANCEL_PROCESS">処理が完全に終了しておりません。中止してもよろしいですか？</Item>
+	<Item id="PCS_CANCEL_PROCESS_SYNC" code="PCS_CANCEL_PROCESS_SYNC">同期処理がキャンセルされました。</Item>
+	<Item id="MSG_CONFIRM_EXIT_APP_PROCESS" code="MSG_CONFIRM_EXIT_APP_PROCESS">処理中です。終了してよろしいですか？</Item>
+
+	<Item id="ERR_COMPLETED_BGWORKER" code="ERR_COMPLETED_BGWORKER">Error of CompletedWorker. ERROR「{0}」</Item>
+	<Item id="ERR_DO_BGWORKER" code="ERR_DO_BGWORKER">Error of DoWorker. ERROR「{0}」</Item>
+
+	<Item id="LOG_CSV_FILE_PATH" code="LOG_CSV_FILE_PATH">[{0}]ファイルパス:「{1}」</Item>
+
+	<Item id="ERR_FAILED_SEND_MANAGE_MAIL" code="ERR_FAILED_SEND_MANAGE_MAIL">管理者へのメール送信に失敗しました。</Item>
+
+
+	<Item id="PCS_START_SEND_MANAGE_MAIL" code="PCS_START_SEND_MANAGE_MAIL">通知メール送信...</Item>
+	<Item id="PCS_END_SEND_MANAGE_MAIL" code="PCS_END_SEND_MANAGE_MAIL">通知メール送信完了.</Item>
+	<Item id="ERR_LOAD_MAILTEMPLATE_FILE" code="ERR_LOAD_MAILTEMPLATE_FILE">メールテンプレートファイルの読み込みに失敗しました。KEY「{0}」PATH「{1}」</Item>
+	<Item id="ERR_LOAD_MAILTEMPLATE_FILE2" code="ERR_LOAD_MAILTEMPLATE_FILE2">メールテンプレートファイルの読み込みに失敗しました。PATH「{0}」</Item>
+
+
+	<Item id="LOG_DELIMITER_RECORD" code="LOG_DELIMITER_RECORD">■■■■■■■■■■■■■■■■■■■■■■■■■■■■</Item>
+
+
+</Message>

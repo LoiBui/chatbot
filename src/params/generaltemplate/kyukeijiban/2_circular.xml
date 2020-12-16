@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+	<template_id><![CDATA[]]></template_id>
+	<template_name><![CDATA[回覧板]]></template_name>
+	<template_disabled><![CDATA[false]]></template_disabled>
+	<show_as_max_window><![CDATA[true]]></show_as_max_window>
+	<doc_info_place><![CDATA[middle]]></doc_info_place>
+	<show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+	<created_date><![CDATA[]]></created_date>
+	<updated_date><![CDATA[]]></updated_date>
+	<template_body><![CDATA[<!--
+  回覧板
+
+  @since 2013-03-17
+
+-->
+
+<table class="detail">
+
+<tr>
+<td class="detail_name" style="width:20%">名前</td>
+<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+<td class="detail_name" style="width:20%">部署</td>
+<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+</tr>
+
+<tr>
+<td class="detail_name">重要度</td>
+<td class="detail_value">
+<label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label>
+</td>
+<td class="detail_name">文書種別</td>
+<td class="detail_value"><input type="text" name="document_type"></td>
+</tr>
+
+</table>
+<br>
+
+<!-- リッチテキストを入力するコーナー -->
+<textarea name="honbun" class="richtext" style="width:100%; height:300px;"></textarea>
+
+<hr>
+<!-- 回覧者に指定したユーザーが一覧表示されます -->
+<div class="main_content_title2">回覧情報</div>
+<div class="checklist_with_comment"></div>
+
+]]></template_body>
+</entry>

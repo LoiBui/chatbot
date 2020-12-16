@@ -1,0 +1,53 @@
+indexes:
+
+- kind: UCFMDLOperator
+  properties:
+  - name: management_group
+  - name: operator_id_lower
+
+#- kind: UCFMDLOperator
+#  properties:
+#  - name: management_group
+#  - name: employee_id_lower
+
+- kind: UCFMDLOperator
+  properties:
+  - name: data_federation_group
+  - name: password_change_date
+
+- kind: UCFMDLOperatorGroup
+  properties:
+  - name: management_group
+  - name: group_id_lower
+
+- kind: UCFMDLFile
+  properties:
+  - name: data_kind
+  - name: download_operator_unique_id
+
+- kind: UCFMDLFile
+  properties:
+  - name: data_kind
+  - name: upload_operator_unique_id
+
+- kind: UCFMDLLoginHistory
+  properties:
+  - name: management_group
+  - name: login_id_lower
+
+- kind: UCFMDLLoginHistory
+  properties:
+  - name: management_group
+  - name: access_date
+    direction: desc
+
+- kind: UCFMDLOperationLog
+  properties:
+  - name: operation
+  - name: operation_date
+    direction: desc
+
+- kind: CsvDownloadData
+  properties:
+  - name: csv_download_id
+  - name: created_date

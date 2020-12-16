@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+/* バックアップツール用 */
+/* elements' property reset */
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+margin: 0;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+padding: 0;
+}
+
+table {
+  font-size:13px;
+}
+
+textarea {
+  font-family:メイリオ, Meiryo, arial, sans-serif;
+  font-size:13px;
+}
+/*******************************************************************/
+/* doc_detail */
+/*******************************************************************/
+
+
+a:visited {color: blue}
+a:link {color: blue}
+td.layout {border:0px none; font-size:12px; margin:5px; padding:5px;}
+
+.workflow_btn {font-size:12px; margin:1px 2px; padding:1px 2px;}
+.sateraito_btn {font-size:12px; margin:1px 2px; padding:1px 2px;}
+
+table.detail {
+  font-family:メイリオ, Meiryo, arial, sans-serif;
+  font-size:12px;
+  line-height:22px;
+  width:100%;
+}
+
+table.detail td.detail_name {
+  font-weight: bold;
+  background-color:#EEE;
+  background-image:url(../images/arrowRight.gif);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding: 2px 5px 2px 10px;
+}
+table.detail td.detail_value {
+  padding: 2px 5px 2px 10px;
+}
+
+table.detail th.detail_head {
+  font-weight: bold;
+  background-color:#EEE;
+  padding: 1px 5px;
+}
+
+table.q_and_a th {
+	font-weight: bold;
+	background-color: #EEE;
+	padding: 2px 5px;
+}
+
+table.q_and_a td {
+	padding: 2px 5px;
+}
+
+table.approver_comment_list th {
+	font-weight: bold;
+	background-color: #EEE;
+	padding: 2px 5px;
+}
+
+table.approver_comment_list td {
+	padding: 2px 5px;
+}
+
+h1 {
+  font-size: 19px;
+  color: #33F;
+  font-family:メイリオ, Meiryo, arial, sans-serif;
+  line-height: 26px;
+  border-bottom: solid 1px #CCC;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+
+span.link_cmd { cursor:pointer; color:blue;text-decoration:underline; }
+span.link_cmd2 { cursor:pointer; color:blue; }
+span.link_cmd2:hover { text-decoration:underline; }
+
+div.message {margin:3px; padding:3px;}
+
+div.document_back {
+	background-color:#efefef;background-image:url(../images/mainBg.gif);
+	background-attachment: scroll;
+	background-position:center;
+	background-repeat:repeat-y;
+	text-align:center;
+	font-size: 13px;
+/*	height:100%;*/
+}
+div.document_body {
+	width:740px;
+	margin:0px auto;
+	text-align:left;
+  font-family:メイリオ, Meiryo, tahoma, arial, helvetica, sans-serif;
+}
+
+div.document_form {
+	width:95%;
+/*	height:100%;*/	/* backup用だとなぜかこれがあると崩れちゃうので */
+	border:0px none;
+	padding:10px;
+}
+
+div.attachment_area {
+	width:95%;
+}
+div.comment_area {
+	width:95%;
+}
+
+div.main_content_title2 {
+	color: #005C9C;
+	font-size: 10pt;
+	font-weight: bold;
+	height: 20px;
+	padding: 2px 0;
+	padding-left: 2px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+div.x-grid3-body div.silverGrid {
+	background-color:#EFEFEF;
+	color:gray;
+}
+
+div.x-grid3-body div.silverGrid span.link_cmd2{
+	color:cornflowerblue;
+}
+
+span.document_info_area_title {cursor:pointer; font-weight:bold;}
+
+/*******************************************************************/
+/* workflow_common.css */
+/*******************************************************************/
+td.header_bga01 {
+	width: 685px;
+}
+
+table.header_table {
+	width: 740px;
+}
+
+ul.x-tab-strip {
+	width: 20000px;  // original value=5000px
+}
+
+textarea{
+	margin:0px;
+	border:solid 1px;
+	border-color:#b5b8c8;
+}
+
+input{
+	border:solid 1px;
+	border-color:#b5b8c8;
+}
+

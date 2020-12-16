@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	  <!--<script type="text/javascript" src="{{ my_site_url }}/static/jquery.js"></script>-->
+    {% if debug_mode == 'True': %}
+	  <script type="text/javascript" src="{{ my_site_url }}/static/jquery-1.9.1.js"></script>
+		{% else: %}
+	  <script type="text/javascript" src="{{ my_site_url }}/static/jquery-1.9.1.min.js"></script>
+		{% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ my_site_url }}/static/ext/resources/css/ext-all.css" />
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/jquery/ext-jquery-adapter.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}/static/ext/ext-all.js"></script>
+		<script type="text/javascript" src="{{ my_site_url }}/static/ext/src/locale/{{ extjs_locale_file }}"></script>
+
+	  <!--{% if debug_mode == 'True': %}-->
+    <!--<script src="{{ my_site_url }}/static/jquery-ui-1.10.3.custom.js"></script>-->
+		<!--{% else: %}-->
+    <!--<script src="{{ my_site_url }}/static/jquery-ui-1.10.3.custom.min.js"></script>-->
+		<!--{% endif %}-->
+    <!--<script src="{{ my_site_url }}/library/gadgets.js"></script>-->
+    <!--<script src="{{ my_site_url }}/library/sateraito.js"></script>-->
+
+    <script type="text/javascript">
+
+      // BTN_EDITOR_BACK lang
+      APP_ID = '{{ app_id }}';
+      Ext.BLANK_IMAGE_URL='{{ my_site_url }}/static/ext/resources/images/default/s.gif';
+
+      SATERAITO_MY_SITE_URL = '{{ my_site_url }}';
+      TENANT = '{{ tenant }}';
+      SATERAITO_GOOGLE_APPS_DOMAIN = '{{ google_apps_domain }}';
+      IS_GADGET_MODE = false;
+      IS_OPENID_MODE = true;
+      IS_TOKEN_MODE = false;
+      USER_TOKEN = '{{ user_token }}';
+      SATERAITO_LANG = '{{ lang }}';
+      // RELATED_SATERAITO_ADDRESS_DOMAIN = '{{ related_sateraito_address_domain }}';
+      TEMPLATE_TYPE = '{{template_type}}';
+      BASE_URL = SATERAITO_MY_SITE_URL + '/htmlbuilder';
+      WORKFLOW_TEMPLATE_ROUTE_COUNT = {{ template_route_max_count }};
+
+      GADGET_START_TIME = {{gst}};
+    </script>
+
+    <!--<link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/jquery.contextMenu.css">-->
+    <!--<script src="{{ my_site_url }}{{html_builder_vscripturl}}jquery.ui.position.js" type="text/javascript"></script>-->
+    <!--<script src="{{ my_site_url }}{{html_builder_vscripturl}}jquery.contextmenu.js" type="text/javascript"></script>-->
+
+    <!--<script type="text/javascript" src="{{ my_site_url }}{{vscripturl}}sateraito_workflow_lang.js?{{version}}"></script>-->
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}sateraito_html_builder_lang.js?{{version}}"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}defined_extend.js?{{version}}"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}router_approve_editor.js?{{version}}"></script>
+    <!--<script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}prettify.js?{{version}}"></script>-->
+    <link type="text/css" rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/shCoreDefault.css"/>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shCore.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushCss.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushJScript.js"></script>
+    <script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}shBrushXml.js"></script>
+    <!--<script type="text/javascript" src="{{ my_site_url }}{{html_builder_vscripturl}}{{template_type}}/sateraito_common.js?{{version}}"></script>-->
+    <link rel="stylesheet" href="{{ my_site_url }}/css/sateraito.css">
+    <link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/html_editor.css">
+    <link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/router_approve.css">
+    <!--<link rel="stylesheet" href="{{ my_site_url }}/htmlbuilder/css/prettify.css">-->
+    <!--<script type="text/javascript">-->
+      <!--LoginMgr = {-->
+        <!--viewerEmail: '{{ viewer_email }}',-->
+        <!--appId: '{{ app_id }}',-->
+
+        <!--/**-->
+         <!--* getViewerEmail-->
+         <!--*-->
+         <!--* @return {string}-->
+         <!--*/-->
+        <!--getViewerEmail: function()-->
+        <!--{-->
+          <!--return LoginMgr.viewerEmail;-->
+        <!--}-->
+      <!--}-->
+    <!--</script>-->
+</head>
+<body>
+<input id="template_id" type="hidden" value="{{ template_id }}">
+<input id="route_approve_body_id" type="hidden" value="{{ route_approve_body_id }}">
+<!--<input id="template_name" type="hidden" value="{{ template_name }}">-->
+<textarea id="json_data_grid" style="display: none;">{{ json_data_grid }}</textarea>
+<input id="name_width_value_tmp" type="hidden" value="{{ name_width_value }}">
+<input id="member_width_value_tmp" type="hidden" value="{{ member_width_value }}">
+<textarea id="html_header_value_tmp" style="display: none;">{{ html_header_value }}</textarea>
+<textarea id="html_detail_value_tmp" style="display: none;">{{ html_detail_value }}</textarea>
+<textarea id="html_footer_value_tmp" style="display: none;">{{ html_footer_value }}</textarea>
+<textarea id="default_template_list" style="display: none;">
+    {{ default_template_list }}
+</textarea>
+<div id="html_editor_render"></div>
+</body>
+</html>

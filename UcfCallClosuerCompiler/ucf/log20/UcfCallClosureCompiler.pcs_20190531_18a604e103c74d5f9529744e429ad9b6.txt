@@ -1,0 +1,9 @@
+﻿[2019/05/31 15:38:57] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/05/31 15:38:57] Create message python file...:c:\Users\chun\PycharmProjects\sateraito-logging\src\sateraito_message.py
+[2019/05/31 15:38:57] [Compile Start]lang\default.js
+[2019/05/31 15:38:59] [Compile Start]lang\ja.js
+[2019/05/31 15:39:01] [Compile Start]lang\en.js
+[2019/05/31 15:39:03] Expand Jinja Templates include files...
+[2019/05/31 15:39:03] Src:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates
+[2019/05/31 15:39:03] Dst:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates_automatically
+[2019/05/31 15:39:03] Expand Jinja Templates include files fin.

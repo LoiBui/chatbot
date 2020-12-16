@@ -1,0 +1,10 @@
+﻿[2019/05/15 10:08:15] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/05/15 10:08:15] Create message python file...:c:\Users\chun\PycharmProjects\sateraito-logging\src\sateraito_message.py
+[2019/05/15 10:08:15] [Compile Start]ucfext_loginfo.js
+[2019/05/15 10:08:17] [Compile Start]lang\default.js
+[2019/05/15 10:08:19] [Compile Start]lang\ja.js
+[2019/05/15 10:08:21] [Compile Start]lang\en.js
+[2019/05/15 10:08:23] Expand Jinja Templates include files...
+[2019/05/15 10:08:23] Src:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates
+[2019/05/15 10:08:23] Dst:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates_automatically
+[2019/05/15 10:08:24] Expand Jinja Templates include files fin.

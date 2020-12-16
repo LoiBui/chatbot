@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="shift_jis">
+<title>{{lang.FILEUP_CONTRACT_PAGE_HEADER|safe}}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="index,follow">
+
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<link rel="stylesheet" type="text/css" href="/css/styles_sp.css?{{version}}" media="screen and (max-width:640px)">
+<link rel="stylesheet" type="text/css" href="/css/styles_pc.css?{{version}}" media="screen and (min-width:641px),print">
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+function backToRequestPage()
+{
+	frmBack.submit();
+}
+
+var _click_submit = false;
+function onPreSubmit()
+{
+	if(_click_submit == true)
+	{
+		alert('{{lang.MSG_NOW_PROCESSING|escapejs}}');
+		return false;
+	}
+	_click_submit = true;
+	return true;
+}
+</script>
+
+</head>
+<body>
+
+<div id="header">
+<div class="cInner cf">
+<h1 id="logo"><img src="/images/x/logo.png" class="img100" alt="Sateraito Office"></h1>
+</div>
+</div>
+
+<div id="bggray">
+<div class="cInner cf">
+<h2 class="Title">{{lang.FILEUP_CONTRACT_PAGE_HEADER}}</h2><p>{{lang.EXP_FILEUP_CONTRACT_REQUEST}}</p>
+<div class="btn_clause"><a href="https://docs.google.com/document/d/1Pu8mbDiH-3MiUuXO-GeZTuaMlxXo54WDbM1SUg1LZRU" target="_blank" >{{lang.VMSG_POLICY}}</a></div>
+</div>
+</div>
+
+<div id="content">
+<div class="cInner">
+
+<div class="registerBlock confirm">
+<form name="register" action="{{vurl}}{{oem_company_code}}{% if sp_code and sp_code != '': %}/{{sp_code}}{% endif %}/contract/request" method="POST" id="contractpage_form" onsubmit="JavaScript:return onPreSubmit();" >
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="pno" value="CONFIRM">
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_COMPANY_NAME}}</dt>
+<dd>
+{{ucfp.data.company_name}}
+</dd>
+<input type="hidden" name="company_name" value="{{ucfp.data.company_name}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_TANTO_NAME}}</dt>
+<dd>
+{{ucfp.data.tanto_name}}
+</dd>
+<input type="hidden" name="tanto_name" value="{{ucfp.data.tanto_name}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_CONTACT_MAIL_ADDRESS}}</dt>
+<dd>
+{{ucfp.data.contact_mail_address}}
+</dd>
+<input type="hidden" name="contact_mail_address" value="{{ucfp.data.contact_mail_address}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_CONTACT_TEL_NO}}</dt>
+<dd>
+{{ucfp.data.contact_tel_no1}}-{{ucfp.data.contact_tel_no2}}-{{ucfp.data.contact_tel_no3}}
+</dd>
+<input type="hidden" name="contact_tel_no1" value="{{ucfp.data.contact_tel_no1}}" >
+<input type="hidden" name="contact_tel_no2" value="{{ucfp.data.contact_tel_no2}}" >
+<input type="hidden" name="contact_tel_no3" value="{{ucfp.data.contact_tel_no3}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTACT_PROSPECTIVE_ACCOUNT_NUM}}</dt>
+<dd>
+{{ucfp.data.contact_prospective_account_num}}
+</dd>
+<input type="hidden" name="contact_prospective_account_num" value="{{ucfp.data.contact_prospective_account_num}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_TENANT_NAME}}</dt>
+<dd>
+{{ucfp.data.tenant}}
+</dd>
+<input type="hidden" name="tenant" value="{{ucfp.data.tenant}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_DEFAULT_OPERATOR_ID}}</dt>
+<dd>
+{{ucfp.data.default_operator_id}}
+</dd>
+<input type="hidden" name="default_operator_id" value="{{ucfp.data.default_operator_id}}" >
+</dl>
+
+<dl class="cf">
+<dt>{{lang.FLD_CONTRACT_DEFAULT_OPERATOR_PWD}}</dt>
+<dd>
+*************************
+<input type="hidden" name="default_operator_pwd" value="{{ucfp.data.default_operator_pwd}}" >
+</dd>
+</dl>
+
+<div class="bigBtn">
+<ul class="cf">
+<li class="reset"><span onclick="JavaScript:backToRequestPage();">{{lang.VMSG_BACK}}</span></li>
+<li class="confirm"><span onclick = 'document.register.submit();'>{{lang.MSG_CONTRACT}}</span></li></ul>
+</div>
+
+</div>
+</form>
+<form name="frmBack" action="{{vurl}}{{oem_company_code}}{% if sp_code and sp_code != '': %}/{{sp_code}}{% endif %}/contract/request" method="POST" >
+<input type="hidden" name="bk" value="b">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="company_name" value="{{ucfp.data.company_name}}" >
+<input type="hidden" name="tanto_name" value="{{ucfp.data.tanto_name}}" >
+<input type="hidden" name="contact_mail_address" value="{{ucfp.data.contact_mail_address}}" >
+<input type="hidden" name="contact_tel_no1" value="{{ucfp.data.contact_tel_no1}}" >
+<input type="hidden" name="contact_tel_no2" value="{{ucfp.data.contact_tel_no2}}" >
+<input type="hidden" name="contact_tel_no3" value="{{ucfp.data.contact_tel_no3}}" >
+<input type="hidden" name="contact_prospective_account_num" value="{{ucfp.data.contact_prospective_account_num}}" >{# // 申込ページ拡張対応 #}
+<input type="hidden" name="tenant" value="{{ucfp.data.tenant}}" >
+<input type="hidden" name="default_operator_id" value="{{ucfp.data.default_operator_id}}" >
+<input type="hidden" name="default_operator_pwd" value="{{ucfp.data.default_operator_pwd}}" >
+</form>
+</div>
+</div><!-- //#content-->
+
+<div id="bggray">
+<div class="cInner cf">
+<p>{{lang.EXP_FILEUP_CONTRACT_REQUEST}}</p>
+</div>
+</div>
+<p id="footer">Copyright &copy; All rights reserved by Sateraito Office, Inc.</p>
+
+</body>
+</html>

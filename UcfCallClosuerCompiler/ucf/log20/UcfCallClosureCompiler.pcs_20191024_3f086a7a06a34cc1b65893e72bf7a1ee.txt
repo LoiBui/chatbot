@@ -1,0 +1,12 @@
+﻿[2019/10/24 12:51:58] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/10/24 12:51:58] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/10/24 12:51:58] System.IO.IOException: 別のプロセスで使用されているため、プロセスはファイル 'C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py' にアクセスできません。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   場所 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   場所 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   場所 System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   場所 System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding)
+   場所 Ucf.CallClosureCompiler.Program.createLangPyFile()
+   場所 Ucf.CallClosureCompiler.Program.executeMainProcess()
+   場所 Ucf.CallClosureCompiler.Program.Main(String[] args)

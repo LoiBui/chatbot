@@ -1,0 +1,228 @@
+{% for row in chats %}
+
+{% set content = row['message_content'] %}
+
+{% if row['read_flag'] == '1' %}
+  {% set cls_unread =''  %}
+{% else %}
+  {% set cls_unread ='text-bold'  %}
+{% endif %}
+
+{% if row['reply_flag'] == '1' %}
+  {% set cls ='mdRGT07Own'  %}
+  {% set style_rigth ='float: right;'  %}
+  {% set image_url =default_image_url + row['prefix_name'] %}
+  {% set chat_user = row['user_reply']  %}
+{% else %}
+  {% set cls = 'mdRGT07Other'  %}
+  {% set style_rigth =''  %}
+  {% set image_url =user_image_url  %}
+  {% set chat_user = user_name  %}
+{% endif %}
+
+{% set event_type = row['event_type']  %}
+{% set url_file_blob_chat = ''  %}
+
+{% if event_type=='image' %}
+  {% if row['blob_key'] %}
+    {% set url_file_blob_chat =imgObj.get_serving_url(row['blob_key'],size=image_size,secure_url=True)  %}
+  {% else %}
+    {% set url_file_blob_chat = '/images/none.png'  %}
+  {% endif %}
+{% endif %}
+
+{% if event_type=='sticker' %}
+ {% set url_file_blob_chat = '/images/sticker/144_2.png' %}
+ {% if row['stickerId'] and row['stickerId']!='' %}
+    {% set url_file_blob_chat = '/images/sticker/{0}.png'.format(row['stickerId']) %}
+ {% endif %}
+{% endif %}
+
+{% if event_type=='audio' or event_type=='video'  %}
+  {% if row['blob_key'] %}
+    {% set url_file_blob_chat = url_tenant_my_site + '/chatbot/exportfile?key=' + row['blob_key'] %}
+  {% endif %}
+{% endif %}
+
+<div class="MdRGT07Cont {{ cls }} {{ row['created_date'] }}" data-unique_id="{{ row['unique_id'] }}">
+  <div title="{{ chat_user }}" class="mdRGT07Img img-user" style="display:block;{{ style_rigth }}"><img src="{{ image_url }}" width="35" height="35" alt="" onerror="Ext.ucf.chatbot.imgError(this);"></div>
+  <div class="info-user">
+    <div class="flexImpt">
+        <div class="user-image">
+            <img src="{{ image_url }}" width="48" height="48" alt="" onerror="Ext.ucf.chatbot.imgError(this);">
+        </div>
+        <div class="user-info">
+            <div class="title-user">{{ chat_user }}</div>
+            <div class="email-user"></div>
+            <div class="detail-user btn-primary"><a href="#">{{lang.FLD_CHAT_USER_DETAIL}}</a></div>
+        </div>
+    </div>
+  </div>
+  <div class="mdRGT07Body">
+
+    {% if event_type=='video' %}
+      <div class="mdRGT07Msg mdRGT07Image">
+        <div class="mdRGT07MsgImg mdRGT07MsgInfo {{ cls_unread }}">
+          <video controls style="max-width: 150px;">
+              <source src="{{ url_file_blob_chat }}" >
+          </video>
+        </div>
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if event_type=='audio' %}
+      <div class="mdRGT07Msg mdRGT07Image">
+        <div class="mdRGT07MsgImg mdRGT07MsgInfo {{ cls_unread }}">
+          <audio controls style="width: 275px;">
+              <source src="{{ url_file_blob_chat }}" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if event_type=='image' %}
+      <div class="mdRGT07Msg mdRGT07Image">
+        <div class="mdRGT07MsgImg mdRGT07MsgInfo {{ cls_unread }}">
+          <a href="{{ vurl }}chatbot/imagechat?key={{ row['blob_key'] }}" target="_blank">
+          <img src="{{ url_file_blob_chat }}">
+          </a>
+        </div>
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if event_type=='sticker' %}
+      <div class="mdRGT07Msg mdRGT07Image">
+        <div class="mdRGT07MsgImg mdRGT07MsgInfo {{ cls_unread }}">
+          <img src="{{ url_file_blob_chat }}" class="sticker_image">
+        </div>
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if event_type=='text' %}
+      <div class="mdRGT07Msg mdRGT07Text">
+        <div class="mdRGT07MsgText">
+          <span class="mdRGT07MsgTextInner mdRGT07MsgInfo text-task {{ cls_unread }}">
+                {{ row['event_text']|safe }}
+          </span>
+        </div>
+
+        <!-- Action Task & Unread -->
+        <div class="msg-body-action ">
+          <div class="flx-ct">
+            <div class="re-task flx-ct">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.53 11.06L15.47 10l-4.88 4.88-2.12-2.12-1.06 1.06L10.59 17l5.94-5.94zM19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"></path>
+              </svg>
+
+              <span>{{lang.FLD_CHAT_TASK}}</span>
+            </div>
+            <div class="un-read flx-ct">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+              </svg>
+              <span>{{lang.FLD_CHAT_UNREAD}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+     {% endif %}
+
+     {% if event_type=='location' %}
+{#      <div class="mdRGT07Msg mdRGT07Image">#}
+{#        <div class="mdRGT07MsgImg mdRGT07MsgInfo mdRGT07MsgLocation {{ cls_unread }}">#}
+{#          <div class="mdRGT07MsgLocationItem LocationItem"  data-lat="{{ content['latitude'] }}" data-lng="{{ content['longitude'] }}" data-title="{{ content['title'] }}" ></div>#}
+{#          <div class="mdRGT07MsgLocationItem">#}
+{#            <a href="https://maps.google.com/?q={{ content['latitude'] }},{{ content['longitude'] }}" target='_blank'>{{ content['address'] }}</a>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="mdRGT07Opt">#}
+{#          <p class="mdRGT07Date">#}
+{#            <time>{{ row['create_time'] }}</time>#}
+{#          </p>#}
+{#        </div>#}
+{#      </div>#}
+
+      <div class="mdRGT07Msg mdRGT07Text">
+        <div class="mdRGT07MsgText">
+         <a href="https://maps.google.com/?q={{ content['latitude'] }},{{ content['longitude'] }}" target='_blank' class="location-cmp">
+            <div class="flag-icon ">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                  width="24px" height="24px" viewBox="0 0 497.25 497.25" style="enable-background: f;fill: red;" xml:space="preserve">
+                  <g>
+                    <polygon points="114.75,0 114.75,124.312 114.75,497.25 133.875,497.25 133.875,221.85 382.5,114.75  " />
+                  </g>
+                </svg>
+            </div>
+
+            <div class="">
+              <div class="location-title">
+               {{ content['title'] }}
+              </div>
+              <div class="location-address text-task">
+                  {{ content['address'] }}
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Action Task & Unread -->
+        <div class="msg-body-action ">
+          <div class="flx-ct">
+            <div class="re-task flx-ct">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.53 11.06L15.47 10l-4.88 4.88-2.12-2.12-1.06 1.06L10.59 17l5.94-5.94zM19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"></path>
+              </svg>
+
+              <span>{{lang.FLD_CHAT_TASK}}</span>
+            </div>
+            <div class="un-read flx-ct">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+              </svg>
+              <span>{{lang.FLD_CHAT_UNREAD}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mdRGT07Opt">
+          <p class="mdRGT07Date">
+            <time>{{ row['create_time'] }}</time>
+          </p>
+        </div>
+      </div>
+
+     {% endif %}
+  </div>
+</div>
+ 
+{% endfor %}

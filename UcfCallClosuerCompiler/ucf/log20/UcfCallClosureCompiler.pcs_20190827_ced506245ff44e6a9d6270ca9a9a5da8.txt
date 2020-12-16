@@ -1,0 +1,16 @@
+﻿[2019/08/27 10:39:18] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/08/27 10:39:19] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/08/27 10:39:19] [Compile Start]channels\lineworksbotchannel.js
+[2019/08/27 10:39:21] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/channels/lineworksbotchannel.js:1293: WARNING - unreachable code
+			if(false){
+			         ^^
+
+0 error(s), 1 warning(s)
+
+[2019/08/27 10:39:21] [Compile Start]lang\default.js
+[2019/08/27 10:39:23] [Compile Start]lang\ja.js
+[2019/08/27 10:39:25] [Compile Start]lang\en.js
+[2019/08/27 10:39:27] Expand Jinja Templates include files...
+[2019/08/27 10:39:27] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2019/08/27 10:39:27] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2019/08/27 10:39:29] Expand Jinja Templates include files fin.

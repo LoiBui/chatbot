@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts_bing.html" %}
+
+<!-- <title>{{lang.VMSG_SITE_TITLE_PERSONAL}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_PERSONAL}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+{% include "./include/external_analysis_head.html" %}
+
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+</script>
+<script type="text/javascript">
+{% if is_hide_backstretch: %}
+	_is_hide_blind = true;
+{% endif %}
+	_is_fullscreen = true;
+</script>
+<style type="text/css">
+.bookmark_link2 {margin-top:5px;border:1px solid #CCC; font-size:12px; font-weight: bold; font-family:"Helvetica Neue",Arial,sans-serif;width:90%;height:120px;}
+</style>
+</head>
+<body>
+<div id="wrapper">
+
+{% include "./include/header_bing.html" %}
+
+<div id="mypagebox">
+<h2>
+{% if mypage_links.mypage_links_ck_mydomain: %}
+{%if not exist_custom_links: %}
+<strong>{{lang.MYPAGE_GW_TITLE|safe}}</strong>
+{% endif %}
+<a href="{{mypage_links.mypage_links_lk_mydomain}}"><img src="/images/mypage/ic_salesforce.png" alt="{{lang.FLD_MYPAGE_LINKS_MYDOMAIN}}" width="88px" >{{lang.FLD_MYPAGE_LINKS_MYDOMAIN}}</a>
+{% endif %}
+
+{%if exist_custom_links: %}
+{% for link in custom_links: %}
+<a href="{{link.url}}">
+{% if link.icon and link.icon != '': %}
+<img src="{{vurl}}picture/icon/{{link.icon}}" border="0" alt="{{link.name}}" width="88px" height="88px" >
+{% endif %}
+{{link.name}}</a>
+{% endfor %}
+{% endif %}
+
+</h2>
+
+{% if ucfp.data.is_display_securitybrowser_link: %}
+<a href="{{ucfp.data.securitybrowser_link|safe}}" style="text-decoration: underline;font-size:15px;" class="securitybrowser_link" target="_blank">{{lang.ADD_POPUP_TITLE_SECURITY_BROWSER|safe}}</a>
+{% endif %}
+<ul id="mypage_list">
+{% if ucfp.data.is_available_password_change: %}
+<li id="mp01"><a href="{{vurl}}personal/password/"><h3>{{lang.VMSG_PERSONAL_PASSWORDCHANGE}}</h3><span>{{lang.VMSG_PERSONAL_PASSWPORDCHANGE_EXP1|safe}}</span></a></li>
+{% endif %}
+{% if ucfp.data.is_available_matrixauth: %}
+<li id="mp04"><a href="{{vurl}}personal/otp/"><h3>{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE|safe}}</h3><span>{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE_EXP1|safe}}</span></a></li>
+{% endif %}
+{% if ucfp.data.is_available_sub_mailaddress_regist and dept.hide_regist_sub_mail_address_link_flag != 'HIDDEN': %}
+<li id="mp02"><a href="{{vurl}}personal/minfo/"><h3>{{lang.VMSG_PERSONAL_SUBMAILADDRESS}}</h3><span>{{lang.VMSG_PERSONAL_SUBMAILADDRESS_EXP1|safe}}</span></a></li>
+{% endif %}
+{% if ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN': %}
+<li id="mp03"><a href="{{vurl}}acs/apply"><h3>{{lang.VMSG_PERSONAL_ACCESSAPPLY}}</h3><span>{{lang.VMSG_PERSONAL_ACCESSAPPLY_EXP1|safe}}</span></a></li>
+{% endif %}
+</ul>
+
+{% if 'ADMIN' in login.access_authority: %}
+<a href="{{vurl}}" class="btn_right">{{lang.VMSG_TO_DASHBOARD}}</a>
+{% elif 'OPERATOR' in login.access_authority: %}
+<ul class="btn_right_list">
+	{% if 'OPERATOR' in login.delegate_function: %}
+<li><a href="{{vurl}}operator/">{{lang.VMSG_OPERATOR_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'USER' in login.delegate_function: %}
+<li><a href="{{vurl}}user/">{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'GROUP' in login.delegate_function: %}
+<li><a href="{{vurl}}group/">{{lang.VMSG_GROUP_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'BUSINESSRULE' in login.delegate_function: %}
+<li><a href="{{vurl}}businessrule/">{{lang.VMSG_BUSINESSRULE_CONFIG}}</a></li>
+	{% endif %}
+	{% if 'ACSAPPLY' in login.delegate_function: %}
+<li><a href="{{vurl}}acs/">{{lang.VMSG_ACCESSAPPLY}}</a></li>
+	{% endif %}
+{% if 'POSTMESSAGE' in login.delegate_function: %}
+<li><a href="{{vurl}}postmessage/">{{lang.VMSG_POSTMESSAGE_CONFIG}}</a></li>
+	{% endif %}
+{% if 'FORM' in login.delegate_function: %}
+<li><a href="{{vurl}}form/">{{lang.VMSG_FORM_CONFIG}}</a></li>
+	{% endif %}
+{% if 'FORM_RESULT' in login.delegate_function: %}
+<li><a href="{{vurl}}formdata/">{{lang.VMSG_FORM_DATA_LIST}}</a></li>
+	{% endif %}
+{% if 'CHATBOT' in login.delegate_function: %}
+<li><a href="{{vurl}}chatbot/">{{lang.VMSG_CHATBOT_CONFIG}}</a></li>
+	{% endif %}
+{% if 'STORE' in login.delegate_function: %}
+<li><a href="{{vurl}}store/">{{lang.VMSG_STORE_CONFIG}}</a></li>
+	{% endif %}
+{% if 'STORE_RESULT' in login.delegate_function: %}
+<li><a href="{{vurl}}storedata/">{{lang.VMSG_STORE_DATA_LIST}}</a></li>
+	{% endif %}
+{% if 'EMAILMAGAZINE' in login.delegate_function: %}
+<li><a href="{{vurl}}emailmagazine/">{{lang.VMSG_EMAIL_MAGAZINE}}</a></li>
+	{% endif %}
+</ul>
+{% endif %}
+
+</div><!-- /#mypagebox end -->
+
+{% include "./include/footer_bing.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>

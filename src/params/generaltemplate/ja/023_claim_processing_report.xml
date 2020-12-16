@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[クレーム処理報告書]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  クレーム処理報告書
+
+  @since 2014-01-16
+-->
+<table class="detail" width="80%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">顧客氏名</td>
+		<td class="detail_value">
+			<input name="kokyaku_name">
+		</td>
+		<td class="detail_name">電話番号</td>
+		<td class="detail_value">
+			<input name="kokyaku_tel_num">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">メールアドレス</td>
+		<td class="detail_value">
+			<input name="kokyaku_mail_address" size="30">
+		</td>
+		<td class="detail_name">FAX番号</td>
+		<td class="detail_value">
+			<input name="kokyaku_fax_num">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">顧客住所</td>
+		<td class="detail_value" colspan="3"><input name="kokyaku_address" style="width:100%" maxlength="100"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">発生日時</td>
+		<td class="detail_value" colspan="3">
+			<input name="hassei_date" class="date">
+			<input name="hassei_time" size="10">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">発生場所</td>
+		<td class="detail_value" colspan="3"><input name="hassei_place" style="width:100%" maxlength="100"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">内容</td>
+		<td class="detail_value" colspan="3"><textarea name="claim_naiyou" style="width:100%" rows="10"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">発生状況</td>
+		<td class="detail_value" colspan="3"><textarea name="hassei_jyokyo" style="width:100%" rows="10"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">発生原因</td>
+		<td class="detail_value" colspan="3"><textarea name="hassei_cause" style="width:100%" rows="10"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">対応</td>
+		<td class="detail_value" colspan="3"><textarea name="taiou" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140529045223CEZVmySxQQqgpKi4\",\"name\":\"クレーム処理報告書 1\",\"sections\":[{\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\",\"secname\":\"クレーム処理報告書 1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401320772813a8AqDXNoOwWuI0k2\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401320772818yFRRYHjDstCjuKZm\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772813Q3XMWTLYD3CidZAZ\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772817mKItB2AQBKbLvXdU\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"}]},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401320889440jGBK0o4L8IcNU45Z\",\"controls\":[{\"control_id\":\"ctr_id-14013208993536mOZLnOpT2zWaFJC\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401320889440jGBK0o4L8IcNU45Z\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401321104799JvpOswc4oa2V4799\",\"controls\":[{\"control_id\":\"ctr_id-1401320772817MyoEqTVf9ZSKnwcn\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"顧客氏名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kokyaku_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401321104799JvpOswc4oa2V4799\"},{\"control_id\":\"ctr_id-1401320772817eXicQfJoPDtwcJLG\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"メールアドレス\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kokyaku_mail_address\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401321104799JvpOswc4oa2V4799\"},{\"control_id\":\"ctr_id-1401320772817evoP7k69vTXCxo2W\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"電話番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kokyaku_tel_num\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401321104799JvpOswc4oa2V4799\"},{\"control_id\":\"ctr_id-1401320772817DkqNO922ifmG5ZfV\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"FAX番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kokyaku_fax_num\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401321104799JvpOswc4oa2V4799\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14013211907824ywxGTXygaX1z5jj\",\"controls\":[{\"control_id\":\"ctr_id-1401320772817sO4yUi4UQW6WmLS9\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"顧客住所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kokyaku_address\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401321264653BibLcF8TioxeWz7M\",\"controls\":[{\"control_id\":\"ctr_id-1401321264654AFGhBK5zbDSLVTyk\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401321264653BibLcF8TioxeWz7M\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401321311205htgydIJWvIb7S47z\",\"controls\":[{\"control_id\":\"ctr_id-1401321374127XSqXSdwo9yTi0yFh\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"発生日時\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_hassei\",\"style\":\"width:40%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"hassei_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hassei_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401321374127ZTRdnP9hEArOKkC8\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401321311205htgydIJWvIb7S47z\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"hassei_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hassei_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401321374127NVIgKUuc9Cqfm9iu\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401321311205htgydIJWvIb7S47z\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401321311205htgydIJWvIb7S47z\"},{\"control_id\":\"ctr_id-1401320772817sGrLyWL77t5HYnDH\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"発生場所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hassei_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772817BK1Mhuzx6UkRD8ac\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"内容\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"claim_naiyou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772817vcteRy89UykYNLro\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"発生状況\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hassei_jyokyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772817ner9Pg0MWs0w7KRg\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"発生原因\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"hassei_cause\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772818zKns3s01nQFa8dzt\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"対応\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"},{\"control_id\":\"ctr_id-1401320772818kfCzsu9CICDupsnY\",\"pos_row\":7,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401320772818NifDAiTNQ5Dqdxvs\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140529045223CEZVmySxQQqgpKi4\",\"name\":\"クレーム処理報告書 1\",\"controls\":[{\"control_id\":\"ctr_id-1401320772817CxupDSSQQNNUYZV1\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"hassei_date\",\"class\":\"date\",\"new_attrs\":\"\",\"lblname\":\"hassei_date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401320772817a4mAJstKwGwb8oTr\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"hassei_time\",\"size\":\"10\",\"new_attrs\":\"size=10;\",\"lblname\":\"hassei_time\",\"class\":\"\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"}]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  クレーム処理報告書
+
+  @since 2014-01-16
+-->
+<div class="container">
+  <ul class="detail">
+
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">顧客氏名</div>
+      <div class="detail_value">
+        <input type="text" name="kokyaku_name" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">電話番号</div>
+      <div class="detail_value">
+        <input type="text" name="kokyaku_tel_num" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">メールアドレス</div>
+      <div class="detail_value">
+        <input type="text" name="kokyaku_mail_address" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">FAX番号</div>
+      <div class="detail_value">
+        <input type="text" name="kokyaku_fax_num" style="width:100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">顧客住所</div>
+      <div class="detail_value"><input type="text" name="kokyaku_address" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生日時</div>
+      <div class="detail_value">
+        <input type="text" name="hassei_date" style="width:49%" class="date">
+        <input type="text" name="hassei_time" style="width:49%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生場所</div>
+      <div class="detail_value"><input type="text" name="hassei_place" style="width:100%" maxlength="100">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">内容</div>
+      <div class="detail_value"><textarea name="claim_naiyou" style="width:98%" rows="10"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生状況</div>
+      <div class="detail_value"><textarea name="hassei_jyokyo"  style="width:98%" rows="10"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生原因</div>
+      <div class="detail_value"><textarea name="hassei_cause" style="width:98%" rows="10"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">対応</div>
+      <div class="detail_value"><textarea name="taiou"  style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment"  style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

@@ -1,0 +1,9 @@
+﻿[2019/07/11 17:34:37] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/07/11 17:34:37] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/07/11 17:34:37] [Compile Start]lang\default.js
+[2019/07/11 17:34:39] [Compile Start]lang\ja.js
+[2019/07/11 17:34:41] [Compile Start]lang\en.js
+[2019/07/11 17:34:43] Expand Jinja Templates include files...
+[2019/07/11 17:34:43] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2019/07/11 17:34:43] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2019/07/11 17:34:46] Expand Jinja Templates include files fin.

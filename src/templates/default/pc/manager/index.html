@@ -1,0 +1,748 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+<title>管理トップ - {{lang.HTML_TITLE}}</title>
+<script type="text/javascript" >
+<!--
+		var each_page_cnt = 20;
+		var store_domain;
+		var store_user;
+		
+		function getSearchBaseParamDomain(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				document.getElementsByName('sk_tenant')[0].value = Ext.ucf.nvl(scond['sk_tenant']);
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+							,sk_tenant:Ext.ucf.getElementValue('sk_tenant')
+						};
+			return params;
+		}
+		
+		function searchTenant(psc)
+		{
+			Ext.ucf.search(psc, store_domain, getSearchBaseParamDomain, '');
+		}
+
+		function getSearchBaseParamUser(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+						};
+			return params;
+		}
+		
+		function searchUser(psc)
+		{
+			Ext.ucf.search(psc, store_user, getSearchBaseParamUser, '');
+		}
+
+		function vh_basic(value, p, record)
+		{
+			var html = '';
+			html += Ext.ucf.htmlEscape(value);
+			return html;
+		}
+
+		function vh_is_disable(value, p, record)
+		{
+			var html = '';
+			if(value == 'True'){
+				html += '無効';
+			}else{
+				html += '有効';
+			}
+			return html;
+		}
+
+		function vh_is_free_mode(value, p, record)
+		{
+			var html = '';
+			if(value == 'True'){
+				html += '無償版';
+			}else{
+				html += '有償版';
+			}
+			return html;
+		}
+
+		function vhEdit(value, p, record)
+		{
+			return '<input title="編集" type="button" value="" class="btnEdit" onclick="JavaScript:editDeptMasterInfo(\'' + Ext.ucf.htmlEscape(record.id) + '\');" />';
+		}
+
+
+		function editDeptMasterInfo(target_tenant)
+		{
+			var dispDeptMasterInfo = function(response){
+				var jsondata = jQuery.parseJSON(response.responseText);
+				var code = jsondata.code;
+				if (code != 0) 
+				{
+					if (jsondata.msg == '')
+					{
+						Ext.ucf.dispSysErrMsg();
+					}
+					else{
+						Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+					}
+					return;
+				}
+				var dept_vo = jsondata.dept_vo;
+
+				var editeddata;
+				var isValid = true;
+				var items_button = [];
+				items_button.push({
+						text: '&nbsp;&nbsp;&nbsp;&nbsp;テナント情報を更新する&nbsp;&nbsp;&nbsp;&nbsp;',
+						handler: function(){
+								editeddata = Ext.ucf.getFormValues(editform.getForm());
+								if(!editform.getForm().isValid() || isValid == false)
+								{
+									Ext.Msg.show({
+										icon: Ext.MessageBox.WARNING,
+										title: '警告',
+										msg: '入力エラーが発生しています。',
+										buttons: Ext.Msg.OK
+										});
+								}
+								else
+								{
+									var params = {
+										target_tenant:dept_vo['tenant'],
+										//federated_domains:editeddata['federated_domains'],
+										profile_infos:editeddata['profile_infos'],
+										login_history_max_export_cnt:editeddata['login_history_max_export_cnt'],
+										md5_suffix_key:editeddata['md5_suffix_key'],
+										deptinfo_encode_key:editeddata['deptinfo_encode_key'],
+										sso_private_key:editeddata['sso_private_key'],
+										sso_cert:editeddata['sso_cert'],
+										is_disable:editeddata['is_disable'],
+										is_free_mode:editeddata['is_free_mode'],
+										is_available_mailproxy:editeddata['is_available_mailproxy'],
+										is_education_mode:editeddata['is_education_mode']
+									};
+									// AJAXコール
+									Ext.Ajax.request({ 
+										url: '{{vurl}}tenant/xtregistdeptmaster',
+										method: "POST", 
+										params: params, 
+										success: handleAfterProcess, 
+										failure: handleAfterProcess
+										});
+									editwindow.close();
+								}
+							}
+					});
+
+				items_button.push({
+						text: '閉じる',
+						handler: function(){
+							editwindow.close();
+						}
+					});
+
+				var editform = new Ext.FormPanel({
+					labelWidth: 100, // label settings here cascade unless overridden
+					frame:true,
+					width: 850,
+					layout:'form',
+					border: true, // IEでborderを出さないとタイトルが縦に表示されてしまう為、ここを変更
+					style:'border:#99BBE8', // borderの色を背景と同じに設定。
+					collapsible: false,
+					defaults: {
+					},
+//					data:record.data,
+					items: [
+						{
+							xtype:'textfield',
+							fieldLabel: '会社名',
+							width:'300px',
+							name: 'company_name',
+							disabled:true,
+							value: dept_vo['company_name']
+						},{
+							xtype:'textfield',
+							fieldLabel: '担当者名',
+							width:'300px',
+							name: 'tanto_name',
+							disabled:true,
+							value: dept_vo['tanto_name']
+						},{
+							xtype:'textfield',
+							fieldLabel: 'メールアドレス',
+							width:'300px',
+							name: 'contact_mail_address',
+							disabled:true,
+							value: dept_vo['contact_mail_address']
+						},{
+							xtype:'textfield',
+							fieldLabel: 'お電話番号',
+							width:'300px',
+							name: 'contact_tel_no',
+							disabled:true,
+							value: dept_vo['contact_tel_no']
+						},{
+							xtype:'textarea',
+							fieldLabel: 'SSO対象ドメイン',
+							width:'300px',
+							height:'50px',
+							name: 'federated_domains',
+							disabled:true,
+							value: dept_vo['federated_domains']
+						},{
+							xtype:'textfield',
+							fieldLabel: 'MD5サフィックスキー',
+							width:'250px',
+							name: 'md5_suffix_key',
+							value: dept_vo['md5_suffix_key']
+						},{
+							xtype:'textfield',
+							fieldLabel: '企業情報エンコードキー',
+							width:'250px',
+							name: 'deptinfo_encode_key',
+							value: dept_vo['deptinfo_encode_key']
+						},{
+							xtype:'textarea',
+							fieldLabel: 'SAML用秘密鍵',
+							width:'300px',
+							height:'50px',
+							name: 'sso_private_key',
+							value: dept_vo['sso_private_key']
+						},{
+							xtype:'textarea',
+							fieldLabel: 'SAML用証明書',
+							width:'300px',
+							height:'50px',
+							name: 'sso_cert',
+							value: dept_vo['sso_cert']
+						},{
+							xtype:'textfield',
+							fieldLabel: 'デフォルトプロファイル',
+							width:'250px',
+							name: 'profile_infos',
+							value: dept_vo['profile_infos']
+						},{
+							xtype:'numberfield',
+							fieldLabel: 'Login履歴DL件数',
+							width:'50px',
+							name: 'login_history_max_export_cnt',
+							value: dept_vo['login_history_max_export_cnt']
+						},{
+							xtype:'checkbox',
+							fieldLabel: '無効',
+							boxLabel: 'テナントを無効にする',
+							name: 'is_disable',
+							inputValue: 'True',
+							checked: dept_vo['is_disable'] == 'True'
+						},{
+							xtype:'checkbox',
+							fieldLabel: '無償版',
+							boxLabel: '無償版',
+							name: 'is_free_mode',
+							inputValue: 'True',
+							checked: dept_vo['is_free_mode'] == 'True'
+						},{
+							xtype:'checkbox',
+							fieldLabel: 'メールプロキシ',
+							boxLabel: 'メールプロキシサーバーの利用を有効にする',
+							name: 'is_available_mailproxy',
+							inputValue: 'True',
+							checked: dept_vo['is_available_mailproxy'] == 'True'
+						},{
+							xtype:'checkbox',
+							fieldLabel: '教育機関モード',
+							boxLabel: '教育機関なので背景画像やロゴを変更させない',
+							name: 'is_education_mode',
+							inputValue: 'True',
+							checked: dept_vo['is_education_mode'] == 'True'
+						}
+					],
+					buttons: items_button
+				});
+
+
+				var editwindow
+					{
+					editwindow = new Ext.Window({
+							title:'テナント設定',
+							layout:'fit',
+							modal:true,
+							width:800,
+							height:720,
+							plain: true,
+							autoDestory:true,
+							items: editform
+						});
+					};
+				editwindow.show();
+				editwindow.dd.constrainTo(Ext.getBody());
+				
+				var handleAfterProcess = function(response){
+					var jsondata = jQuery.parseJSON(response.responseText);
+					var code = jsondata.code;
+					if (code != 0) 
+					{
+						if (jsondata.msg == '')
+						{
+							Ext.ucf.dispSysErrMsg();
+						}
+						else{
+							Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+						}
+						return;
+					}
+					Ext.ucf.dispUpdateMsgByReturnCode(code, jsondata.msg)
+					searchTenant();
+				}
+			};
+
+			// AJAXコール
+			Ext.Ajax.request({ 
+				url: '{{vurl}}tenant/xtgetdeptmaster',
+				method: "POST", 
+				params: {target_tenant:target_tenant}, 
+				success: dispDeptMasterInfo,
+				failure: dispDeptMasterInfo
+			});
+
+
+		}
+
+		function createSearchCondFields()
+		{
+			var field_sk_tenant = Ext.ucf.field.createTextField('sk_tenant', 'sk_tenant', '', 'Domain Name', 180, null)
+			field_sk_tenant.render('FIELD_sk_tenant');
+		}
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+	createSearchCondFields();
+
+	{
+	  var DomainInfo = Ext.data.Record.create([
+									{name: 'tenant',  type: 'string'}
+									,{name: 'is_disable',  type: 'string'}
+									,{name: 'is_free_mode',  type: 'string'}
+									,{name: 'created_date',  type: 'string'}
+									,{name: 'updated_date',  type: 'string'}
+									,{name: 'num_users',  type: 'string'}
+									,{name: 'max_users',  type: 'string'}
+									,{name: 'available_users',  type: 'string'}
+									,{name: 'last_login_month',  type: 'string'}
+									,{name: 'available_start_date',  type: 'string'}
+									,{name: 'charge_start_date',  type: 'string'}
+									,{name: 'cancel_date',  type: 'string'}
+		]);
+	  store_domain = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+							idProperty: 'tenant'
+							,root: 'records'
+							,totalProperty: 'all_count'
+							}, DomainInfo),
+		    url: '{{vurl}}tenant/xtgettenantentrys',
+				autoDestroy:true
+	  });
+		// Storeのロード後のイベントハンドラを追加
+		store_domain.on('load', function(s, records, options) {
+		});
+		
+		var btnReflesh = new Ext.Button({
+			iconCls:'reflesh',
+			handler:searchTenant
+		});
+			
+			var sLimitCB = new Ext.ucf.searchLimitComboBox(
+						[each_page_cnt,50,100]
+						,{
+							'select':function(cb, record, index){
+								each_page_cnt = cb.value;
+								pagingBar.pageSize = each_page_cnt;
+								searchTenant();
+								}
+						});
+			each_page_cnt = sLimitCB.value;
+		
+		var pagingBar = new Ext.PagingToolbar({
+			pageSize: each_page_cnt,
+			store: store_domain,
+			displayInfo: true, 
+			displayMsg: _msg.PAGING_BAR,
+			emptyMsg: _msg.NO_DISP_DATA,
+			items:[
+					'->','-',_msg.DISP_COUNT,sLimitCB
+			]
+		});
+		
+		var toolBar = new Ext.Toolbar({
+			items:[
+				btnReflesh
+					,{
+		          text: 'テナント一覧CSVエクスポート',
+		          handler: function(){
+								Ext.ucf.exportToCsv({data_kind:'tenantlist'},'TenantGridList');
+		          }
+					}
+	      ]
+			});
+			
+			var sm = new Ext.grid.CheckboxSelectionModel({
+			});		
+			
+			var cm = new Ext.grid.ColumnModel({
+	        columns: [
+					sm,
+					{
+	            header: 'テナント名',
+	            dataIndex: 'tenant',
+	            width: 150,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: '無償版',
+	            dataIndex: 'is_free_mode',
+	            width: 40,
+	            sortable: false,
+							renderer: vh_is_free_mode
+	        },{
+	            header: '無効テナント',
+	            dataIndex: 'is_disable',
+	            width: 40,
+	            sortable: false,
+							renderer: vh_is_disable
+	        },{
+	            header: '利用可能ユーザ数',
+	            dataIndex: 'available_users',
+	            width: 40,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '現在のユーザ数',
+	            dataIndex: 'num_users',
+	            width: 40,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '契約ユーザ数',
+	            dataIndex: 'max_users',
+	            width: 60,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '利用開始日',
+	            dataIndex: 'available_start_date',
+	            width: 50,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: '課金開始日',
+	            dataIndex: 'charge_start_date',
+	            width: 50,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: '解約日',
+	            dataIndex: 'cancel_date',
+	            width: 50,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: '最終利用月',
+	            dataIndex: 'last_login_month',
+	            width: 50,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: '登録日',
+	            dataIndex: 'created_date',
+	            width: 85,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '更新日',
+	            dataIndex: 'updated_date',
+	            width: 85,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '',
+	            dataIndex: '',
+							hidden: false,
+	            width: 25,
+	            sortable: false,
+							renderer: vhEdit
+	        }
+				]
+			});
+			var grid = new Ext.grid.GridPanel({
+	      store: store_domain,
+	//      width: 600,
+	      region:'center',
+				clicksToEdit: 1,
+				columnLines:true,
+				loadMask:true,
+				viewConfig: {forceFit: true},
+	//	        margins: '20 20 20 20',
+	      stripeRows: true,
+				bbar: pagingBar,
+				tbar: toolBar,
+				sm: sm,
+				cm: cm
+	    });
+			// パネルに一覧グリッドをセット
+	    var layout = new Ext.Panel({
+	      collapsible: true,
+	      title: 'テナント一覧',
+	      layout: 'border',
+				waitMsgTarget: true,
+				monitorResize:true,
+	      layoutConfig: {
+	          columns: 1
+	      },
+	      height: 300,
+	      items: [grid]
+	    });
+	    layout.render(Ext.get('TenantGridList'));
+			searchTenant();		
+		
+		// 検索ボタンのレイアウト修正
+		//検索ボタン	
+		var btnSearch = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		type:'submit',
+		handler:searchTenant
+		});
+		btnSearch.render(Ext.get('btnSearch'))
+		
+		// GridPanelリサイズ処理を追加
+		Ext.ucf.appendLeftMenuChangeDelagate(function()
+		{
+			grid.setWidth(layout.getWidth() - 2);
+		});
+		grid.setWidth(layout.getWidth() - 2);
+	}
+	{
+	  var UserInfo = Ext.data.Record.create([
+									{name: 'tenant',  type: 'string'}
+									,{name: 'user_email',  type: 'string'}
+									,{name: 'created_date',  type: 'string'}
+		]);
+	  store_user = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+							idProperty: ''
+							,root: 'records'
+							,totalProperty: 'all_count'
+							}, UserInfo),
+		    url: '{{vurl}}tenant/xtgetadminuserentrys',
+				autoDestroy:true
+	  });
+		// Storeのロード後のイベントハンドラを追加
+		store_user.on('load', function(s, records, options) {
+		});
+		
+		var btnReflesh = new Ext.Button({
+			iconCls:'reflesh',
+			handler:searchUser
+		});
+			
+			var sLimitCB = new Ext.ucf.searchLimitComboBox(
+						[each_page_cnt,50,100]
+						,{
+							'select':function(cb, record, index){
+								each_page_cnt = cb.value;
+								pagingBar.pageSize = each_page_cnt;
+								searchUser();
+								}
+						});
+			each_page_cnt = sLimitCB.value;
+		
+		var pagingBar = new Ext.PagingToolbar({
+			pageSize: each_page_cnt,
+			store: store_user,
+			displayInfo: true, 
+			displayMsg: _msg.PAGING_BAR,
+			emptyMsg: _msg.NO_DISP_DATA,
+			items:[
+					'->','-',_msg.DISP_COUNT,sLimitCB
+			]
+		});
+		
+		var toolBar = new Ext.Toolbar({
+			items:[
+				btnReflesh
+					,{
+		          text: '管理者一覧CSVエクスポート',
+		          handler: function(){
+								Ext.ucf.exportToCsv({data_kind:'adminlist'},'AdminGridList');
+		          }
+					}
+	      ]
+			});
+			
+			var sm = new Ext.grid.CheckboxSelectionModel({
+			});		
+			
+			var cm = new Ext.grid.ColumnModel({
+	        columns: [
+					sm,
+					{
+	            header: 'テナント名',
+	            dataIndex: 'tenant',
+	            width: 200,
+	            sortable: true,
+							renderer: vh_basic
+	        },{
+	            header: 'ユーザ',
+	            dataIndex: 'user_email',
+	            width: 200,
+	            sortable: false,
+							renderer: vh_basic
+	        },{
+	            header: '登録日',
+	            dataIndex: 'created_date',
+	            width: 100,
+	            sortable: false,
+							renderer: vh_basic
+	        }
+				]
+			});
+			var grid = new Ext.grid.GridPanel({
+	      store: store_user,
+	//      width: 600,
+	      region:'center',
+				clicksToEdit: 1,
+				columnLines:true,
+				loadMask:true,
+				viewConfig: {forceFit: true},
+	//	        margins: '20 20 20 20',
+	      stripeRows: true,
+				bbar: pagingBar,
+				tbar: toolBar,
+				sm: sm,
+				cm: cm
+	    });
+			// パネルに一覧グリッドをセット
+	    var layout = new Ext.Panel({
+	      collapsible: true,
+	      title: '管理者一覧',
+	      layout: 'border',
+				waitMsgTarget: true,
+				monitorResize:true,
+	      layoutConfig: {
+	          columns: 1
+	      },
+	      height: 300,
+	      items: [grid]
+	    });
+	    layout.render(Ext.get('AdminGridList'));
+			searchUser();		
+		
+		
+		// GridPanelリサイズ処理を追加
+		Ext.ucf.appendLeftMenuChangeDelagate(function()
+		{
+			grid.setWidth(layout.getWidth() - 2);
+		});
+		grid.setWidth(layout.getWidth() - 2);
+	}
+});
+//-->
+</script>
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="off">
+<!-- rightArea//start -->
+<div id="rightArea">
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">テナント一覧</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all2" >
+      <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+	  <form onsubmit="JavaScript:searchTenant();return false;" >
+      <table class="search_table" >
+        <tr>
+          <th>テナント名：</th>
+          <td>
+			<div id="FIELD_sk_tenant" class="field" ></div>
+					</td>
+          <th></th>
+          <td>&nbsp;&nbsp;</td>
+          <th></th>
+          <td>
+					</td>
+          <th></th>
+          
+          <td><div id="btnSearch" /></td>
+          
+        </tr>
+			</table>
+			
+			</form>
+			
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="TenantGridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+
+<div class="innerArea01">
+<p class="ttl">管理者一覧</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="AdminGridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

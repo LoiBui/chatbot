@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+	<msg name="HTML_TEXT_BOX" js="on" ><![CDATA[Textfeld]]></msg>
+	<msg name="HTML_TEXT_AREA" js="on" ><![CDATA[Textbereich]]></msg>
+	<msg name="HTML_TEXT_LABEL" js="on" ><![CDATA[Beschriftung]]></msg>
+	<msg name="HTML_TEXT_SERIAL_LABEL" js="on" ><![CDATA[Serielle Schriftung]]></msg>
+	<msg name="HTML_INPUT_DATE" js="on" ><![CDATA[Datum]]></msg>
+	<msg name="HTML_INPUT_TIME" js="on" ><![CDATA[Zeit]]></msg>
+	<msg name="HTML_INPUT_COLOR" js="on" ><![CDATA[Farbe]]></msg>
+	<msg name="HTML_INPUT_MAIL_ADDRESS" js="on" ><![CDATA[E-Mail-Adresse]]></msg>
+	<msg name="HTML_INPUT_UPLOAD_FILE" js="on" ><![CDATA[Dateianlage]]></msg>
+	<msg name="HTML_INPUT_BUTTON" js="on" ><![CDATA[Schaltfläche]]></msg>
+	<msg name="HTML_INPUT_BUTTON_SUBMIT" js="on" ><![CDATA[Submit]]></msg>
+	<msg name="HTML_INPUT_PULLDOWN" js="on" ><![CDATA[Pulldown]]></msg>
+	<msg name="HTML_INPUT_CHECKBOX" js="on" ><![CDATA[Checkbox]]></msg>
+	<msg name="HTML_INPUT_RADIO" js="on" ><![CDATA[Optionsfeld]]></msg>
+	<msg name="HTML_INPUT_RADIO_GROUP" js="on" ><![CDATA[Optionsfeldgruppe]]></msg>
+	<msg name="HTML_INPUT_GROUP" js="on" ><![CDATA[Elementgruppe]]></msg>
+	<msg name="HTML_INPUT_BOX" js="on" ><![CDATA[HTML-Feld]]></msg>
+	<msg name="HTML_INPUT_HIDDEN" js="on" ><![CDATA[Ausgeblendetes Element]]></msg>
+	<msg name="HTML_GRID" js="on" ><![CDATA[Gitter]]></msg>
+	<msg name="HTML_CANVAS" js="on" ><![CDATA[Canvas]]></msg>
+	<msg name="HTML_NOT_SUPPORT_TAG" js="on" ><![CDATA[Element nicht unterstützt]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION" js="on" ><![CDATA[Definieren Sie unten, um Formular mit JavaScript zu kontrollieren.]]></msg>
+	<msg name="MSG_DELETE_COMP" js="on" ><![CDATA[Möchten Sie ausgeblendetes Element löschen? (Das kann nicht später wiederhergestellt werden)]]></msg>
+	<msg name="MSG_MUST_CREATE_SECTION" js="on" ><![CDATA[Erstellen Sie bitte Abschnitt zuerst.]]></msg>
+	<msg name="MSG_COMP_COPY" js="on" ><![CDATA[ - Kopie]]></msg>
+	<msg name="MSG_COMP_DROP_DRAG_ERR" js="on" ><![CDATA[Drag & Drop Fehler]]></msg>
+	<msg name="BTN_EDIT" js="on" ><![CDATA[Bearbeiten]]></msg>
+	<msg name="BTN_MULTI_COPY" js="on" ><![CDATA[Duplizieren]]></msg>
+	<msg name="BTN_DELETE" js="on" ><![CDATA[Löschen]]></msg>
+	<msg name="BTN_MOVE_UP" js="on" ><![CDATA[Nach oben]]></msg>
+	<msg name="BTN_MOVE_DOWN" js="on" ><![CDATA[Nach unten]]></msg>
+	<msg name="MSG_SELECT_TEMPLATE" js="on" ><![CDATA[Layout auswählen]]></msg>
+	<msg name="MSG_DELETE_SECTION" js="on" ><![CDATA[Abschnitt wird gelöscht. Sind Sie sicher?]]></msg>
+  <msg name="MSG_INPUT_JAVASCRIPT_SECTION_1" js="on" ><![CDATA[ //Definieren Sie hier, wenn Sie Formular mit javascript kontrollieren müssen.]]></msg>
+	<msg name="MSG_SAVE_HTML_EDITOR" js="on" ><![CDATA[Layout HTML wird in Vorlage gespeichert und Formularlayout-Builder wird geschlossen. Sind Sie sicher?]]></msg>
+	<msg name="MSG_SAVE_HTML_ERROR" js="on" ><![CDATA[Speicherung ist fehlgeschlagen]]></msg>
+	<msg name="MSG_SAVE_UNDEFINED_ERROR" js="on" ><![CDATA[Unklarer Fehler]]></msg>
+	<msg name="MSG_SECTION_EDIT" js="on" ><![CDATA[Abschnitt bearbeiten]]></msg>
+	<msg name="BTN_SAVE" js="on" ><![CDATA[Speichern]]></msg>
+	<msg name="BTN_SECTION_ADD_NEW" js="on" ><![CDATA[Neuen Abschnitt hinzufügen]]></msg>
+	<msg name="BTN_ADD" js="on" ><![CDATA[Hinzufügen]]></msg>
+	<msg name="BTN_CANCEL" js="on" ><![CDATA[Abbrechen]]></msg>
+	<msg name="LBL_HORIZONTAL_DISPLAY" js="on" ><![CDATA[Titel horizontal anzeigen]]></msg>
+	<msg name="LBL_HEADER_EXP" js="on" ><![CDATA[Breite(Beispiel: 80px, 40%)]]></msg>
+	<msg name="LBL_HEADER_ARRANGE" js="on" ><![CDATA[Ausrichten]]></msg>
+	<msg name="LBL_COL_ALIGN_LEFT" js="on" ><![CDATA[Link]]></msg>
+	<msg name="LBL_COL_ALIGN_CENTER" js="on" ><![CDATA[Zentral]]></msg>
+	<msg name="LBL_COL_ALIGN_RIGHT" js="on" ><![CDATA[Recht]]></msg>
+	<msg name="LBL_VERTICAL_DISPLAY" js="on" ><![CDATA[Titel vertikal anzeigen]]></msg>
+	<msg name="MSG_SECTION_NAME_REQUIRED" js="on" ><![CDATA[Abschnittname ist erforderlich.]]></msg>
+	<msg name="LBL_SECTION_NAME" js="on" ><![CDATA[Abschnittname]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_NAME" js="on" ><![CDATA[Abschnittname anzeigen]]></msg>
+  <msg name="LBL_SECTION_DISPLAY_TOGGLE" js="on" ><![CDATA[Anzeigen/Ausblenden]]></msg>
+	<msg name="LBL_SECTION_COLUMN" js="on" ><![CDATA[Spaltenlayout]]></msg>
+	<msg name="LBL_COLUMN" js="on" ><![CDATA[Spalte]]></msg>
+	<msg name="LBL_DISPLAY_COLUMN" js="on" ><![CDATA[Haken Sie an, um Spaltentitel anzuzaigen.]]></msg>
+	<msg name="LBL_ITEM_EDIT" js="on" ><![CDATA[Element bearbeiten]]></msg>
+	<msg name="LBL_ITEM_ADD_NEW" js="on" ><![CDATA[Neues Element hinzufügen]]></msg>
+	<msg name="MSG_ITEM_NAME" js="on" ><![CDATA[Feldname]]></msg>
+	<msg name="MSG_ITEM_NAME_REQUIRED" js="on" ><![CDATA[Feldname ist erforderlich.]]></msg>
+	<msg name="MSG_ITEM_ADD_REQUIRED" js="on" ><![CDATA[Wählen Sie zusätzliches Element aus.]]></msg>
+	<msg name="MSG_ITEM_DELETE" js="on" ><![CDATA[Sind Sie sicher, dass Sie das löschen möchten?]]></msg>
+	<msg name="TITLE_ITEM_ADD" js="on" ><![CDATA[Element hinzufügen]]></msg>
+	<msg name="TITLE_ITEM_EDIT" js="on" ><![CDATA[Element bearbeiten]]></msg>
+	<msg name="MSG_RAIDO_ITEM_SELECT" js="on" ><![CDATA[Wählen Sie 1 Optionsfeld aus.]]></msg>
+	<msg name="LBL_LIST_ITEM_DISPLAY_VALUE" js="on" ><![CDATA[Anzeigewert Listenelements]]></msg>
+	<msg name="LBL_LIST_ITEM_SUBMIT_VALUE" js="on" ><![CDATA[Übermittlungswert Listenelements]]></msg>
+	<msg name="TITLE_LIST_ITEM" js="on" ><![CDATA[Listenelement]]></msg>
+	<msg name="LBL_TITLE" js="on" ><![CDATA[Titel]]></msg>
+	<msg name="LBL_SERIAL_TITLE" js="on" ><![CDATA[Nur sequenzielle Nummern (1,2,3...) anzeigen, wenn es leer bleibt.]]></msg>
+	<msg name="LBL_DISPLAY_DIRECTION" js="on" ><![CDATA[Anzeigerichtung]]></msg>
+	<msg name="LBL_HORIZONTAL_DIRECTION" js="on" ><![CDATA[Horizontal]]></msg>
+	<msg name="LBL_VERTICAL_DIRECTION" js="on" ><![CDATA[Vertikal]]></msg>
+	<msg name="LBL_NUMBER_COPY" js="on" ><![CDATA[Zahl]]></msg>
+	<msg name="LBL_NUMBER_COPY_EXP" js="on" ><![CDATA[Horizontal:Spaltenzahl,Vertikal:Zeilenzahl]]></msg>
+	<msg name="LBL_ITEM_STYLE" js="on" ><![CDATA[Feldstil]]></msg>
+	<msg name="LBL_STYLE_SAMPLE_EXP" js="on" ><![CDATA[Beispiel：<br>width:100%; <br>height:300px;<br>margin: 5px 5px 5px 5px;<br>padding: 5px 5px 5px 5px;<br>background: #FFFFFF<br>text-align: right;<br>font-size: 12px;<br>border: 1px solid grey;<br>color: red;]]></msg>
+	<msg name="LBL_SATERAITO_CLASS" js="on" ><![CDATA[Sateraito Klasse]]></msg>
+<msg name="LBL_SATERAITO_CLASS_EXP" js="on" >
+  <![CDATA[Ex:<br>Rich-Text-Feld: richtext<br>Erforderliches Feld: mandatory<br>Datumsfeld：date<br>Zahlfeld：number<br>Datum automatisch einstellen：today_date<br>Berechnen(Multiplizieren)：multi<br>　>Tag-Attribut: fields="field1 field2"<br>Berechnen(Addieren)：sum<br> >Tag-Attribut:fields="field1 field2"<br>Berechnen(Subtrahieren):diff<br>　>Tag-Attribut: fields="field1 field2"<br>Mehrfache Klasse: number mandatory]]></msg>
+	<msg name="LBL_SATERAITO_CLASS_EXP_2" js="on" ><![CDATA[*Für detalliertes Manual, klicken Sie <a target="_blank" href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/jie-shi-ban-hui-lan-ban-ji-nengmanyuaru#TOC--45">hier</a>.]]></msg>
+	<msg name="LBL_ITEM_WIDTH" js="on" ><![CDATA[Breite]]></msg>
+	<msg name="LBL_ITEM_NAME_DISPLAY" js="on" ><![CDATA[Anzeigen]]></msg>
+	<msg name="LBL_ITEM_SECTION" js="on" ><![CDATA[Abschnitt]]></msg>
+	<msg name="LBL_ITEM_SECTION_COLUMN" js="on" ><![CDATA[Spaltenzahl]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS" js="on" ><![CDATA[Tag-Attribut]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS_EXP" js="on" ><![CDATA[Beispiel:<br>Erforderliches Feld: mandatory_msg="XXX ist erforderliches Feld." <br>Berechnungsfeld: fields="kingaku1 kingaku2"<br>Steuerberechnung:number=1.08<br>Mehrfaches Attribut:fields="kingaku1 kingaku2" number=1.08]]></msg>
+	<msg name="LBL_HTML_CODE" js="on" ><![CDATA[HTML-Quelle]]></msg>
+	<msg name="LBL_LIST_RADIO_BTN" js="on" ><![CDATA[Listenoptionsfeld]]></msg>
+	<msg name="LBL_GROUP_HTML_ITEM" js="on" ><![CDATA[Gruppenelement]]></msg>
+	<msg name="LBL_ITEM_INIT_VALUE" js="on" ><![CDATA[Anfangswert]]></msg>
+	<msg name="LBL_ITEM_LENGTH" js="on" ><![CDATA[Maximale Anzahl von Zeichen]]></msg>
+	<msg name="LBL_ITEM_LENGTH_EXP" js="on" ><![CDATA[Beispiel: 10]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS" js="on" ><![CDATA[Spaltenzahl]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS_EXP" js="on" ><![CDATA[Beispiel: 50]]></msg>
+	<msg name="LBL_ITEM_NUMBER_LINES" js="on" ><![CDATA[Zeilenzahl]]></msg>
+	<msg name="LBL_ITEM_READONLY" js="on" ><![CDATA[Nur lesen]]></msg>
+	<msg name="LBL_ITEM_READONLY_EXP" js="on" ><![CDATA[*ReadOnly-Tag]]></msg>
+	<msg name="LBL_ITEM_DISABLE" js="on" ><![CDATA[Deaktiviert]]></msg>
+	<msg name="LBL_ITEM_DISABLE_EXP" js="on" ><![CDATA[*Deaktiviertes Tag]]></msg>
+	<msg name="LBL_ITEM_CHEKED_ON" js="on" ><![CDATA[Aktivieren]]></msg>
+	<msg name="LBL_ITEM_MULTI_SELECT" js="on" ><![CDATA[Mehrfache Auswahl erlauben]]></msg>
+	<msg name="LBL_ITEM_BEFORE_EXP" js="on" ><![CDATA[Vor Feld anzeigen]]></msg>
+	<msg name="LBL_ITEM_AFFTER_EXP" js="on" ><![CDATA[Nach Feld anzeigen]]></msg>
+	<msg name="LBL_ITEM_BOLDER_ON" js="on" ><![CDATA[Fett]]></msg>
+	<msg name="LBL_ITEM_MULTI_COPY" js="on" ><![CDATA[Duplizierenzahl]]></msg>
+	<msg name="MSG_ITEM_SET_ATTRS" js="on" ><![CDATA[Konfigurieren Sie Elementatribut.]]></msg>
+	<msg name="MSG_ITEM_TYPE_SELECT" js="on" ><![CDATA[Wählen Sie Elementtyp aus.]]></msg>
+	<msg name="MSG_EDITOR_TAB_EXP" js="on" ><![CDATA[Spalten und Zeilen sortieren, Abschnitt auswählen und Layout bearbeiten. Ziehen/Ablegen, um Abschnittbeschriftung zu sortieren.<br>Ziehen/Ablegen, um es in ausgeblendete Elementliste zu verlegen.]]></msg>
+	<msg name="MSG_EDITOR_NOT_DISPLAY_LIST" js="on" ><![CDATA[Ausgeblendete Elementliste]]></msg>
+	<msg name="MSG_ITEM_DELETE_PERMANET" js="on" ><![CDATA[Löschen]]></msg>
+	<msg name="BTN_EDITOR_COMPLETE" js="on" ><![CDATA[Fertig]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW" js="on" ><![CDATA[Preview]]></msg>
+	<msg name="BTN_EDITOR_HTML_CONFIRM" js="on" ><![CDATA[HTML-Quelle bestätigen]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP" js="on" ><![CDATA[*Klicken Sie „Fertig“, um Formularlayout-HTML zu aktualisieren.]]></msg>
+	<msg name="MSG_TEMPLATE_TITLE" js="on" ><![CDATA[Geben Sie einen Titel ein.]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP" js="on" ><![CDATA[Die HTML-Quellcode unten benutzen, wenn Vorlage für Bulletin/ Dokumentverwaltung/Workflow usw. erstellt wird.]]></msg>
+  <msg name="MSG_HTML_EDITOR_TAB" js="on" ><![CDATA[Layout erstellen/bearbeiten]]></msg>
+	<msg name="MSG_HTML_PREVIEW_TAB" js="on" ><![CDATA[Layout-Preview]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB" js="on" ><![CDATA[HTML-Quellcode]]></msg>
+	<msg name="MSG_HTML_EDITOR_TITLE" js="on" ><![CDATA[Sateraito Office – Formularlayout-Builder]]></msg>
+	<msg name="BTN_EDITOR_BACK" js="on" ><![CDATA[Zurück nach Layoutbearbeitung]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW_BACK" js="on" ><![CDATA[Zurück nach Preview]]></msg>
+</messagebundle>

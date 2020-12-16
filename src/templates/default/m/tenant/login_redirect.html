@@ -1,0 +1,15 @@
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body vlink="#800080" bgcolor="#FFFFFF" onLoad="JavaScript:location.href='{{url}}';" >
+{% include "./include/header.html" %}
+<font size="3" color="#0085ce"><b>■</b></font><font size="3" color="#00AA99" ><b>Login...</b></font>
+<br/><br/>
+<form name="frmSendSamlResponse" action="{{url}}" method="POST" >
+<input type="image" src="/images/m/bt_login.png" width="104" height="41" border="0" alt="Login" />
+</form>
+{% include "./include/footer.html" %}
+</body>
+</html>

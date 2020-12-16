@@ -1,0 +1,575 @@
+
+.MdLFT01Tab, .LyHead .lyHeadInner2, .LyContents, .LyKeep, .LyLFT, .LyLFT .lyLFTInner, .typeLogin, .typeLogin .LyWrap, .MdGHD03Global, .MdTxtCaution01, .MdInputTxt01, .MdInputTxt02, .MdInputTxt03, .MdSelectBox01, .MdBtn03D01, .MdBtn03D02, .MdBtn03D03, .MdBtn03D04, .MdBtn03P01, .MdBtn03P02, .MdIcoBadge01, .MdIcoBadge02, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardType, .MdBoxCard .MdBoxCardType li img, .MdBoxCard .MdBoxCardType li.selected:before, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardViewSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage .enterTxt, .MdBoxCard .MdBoxCardEdit .cardSection .cardView:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .palette, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .palette li, .MdCMN01Login.mdCMN01Verify, .MdCMN01LoginNew .MdFormTabs button, .MdCMN01LoginNew .MdFormTabs div, .MdCMN01LoginNew .MdFormTabs li, .MdCMN01LoginNew.mdCMN01Verify, .MdCMN03List>li, .MdCMN03List.mdCMN03Nodata>li, .MdCMN04Item .mdCMN04ImgInner, .MdCMN07Caution, .MdCMN09ImgEdit .mdCMN09ImgInner, .MdLFT01Search .mdLFT01Inner, .MdLFT01Search .mdLFT01Input, .MdLFT03Notice, .MdLFT05Item, .MdRGT02Set .mdRGT02Input, .MdBox02 .MdRGT02Set, .MdRGT04Head, .MdRGT04Head .mdRGT04ImgInner, .MdRGT05Body, .MdRGT06Form, .MdRGT06Form .mdRGT06Input, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .mdRGT07MsgText, .MdRGT08Head, .MdRGT09Sticker .mdRGT09Resize, .MdRGT09Sticker .mdRGT09Ul>li:hover>button:after, .MdRGT10Notice, .MdLYR01Box, .MdLYR02Viewer, .MdLYR02Viewer .mdLYR02ListBox, .MdLYR02Viewer .mdLYR02ImgBox, .MdLYR02Viewer .mdLYR02Img, .MdLYR02Viewer .mdLYR02Img img, .MdLYR02Viewer .mdLYR02Img video, .MdLYR02Viewer .mdLYR02Img webview, .MdLYR02Viewer .mdLYR02Head, .MdLYR03Box .mdLYR03Ol li, .MdLYR04Skin .mdLYR04Ul {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.LyContents {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    /*max-width: 500px;*/
+    /* background-color: #fff; */
+    background-color: #f5f5f5;
+    /*border-right: 1px solid #f0f1f4;*/
+    /*border-bottom: 1px solid #f0f1f4;*/
+    -webkit-box-shadow: inset 1px 0 0 #f0f1f4;
+    box-shadow: inset 1px 0 0 #f0f1f4;
+    margin: 0 auto;
+}
+.LyRGT, .MdGHD01Head, .MdInputTxt02 input, .MdBoxCard .MdBoxCardEdit .cardSection .cardViewSection, .MdCMN04Item .mdCMN04Txt, .MdCMN05Item .mdCMN05Txt, .MdLFT01Search .mdLFT01Inner, .MdLFT01Search .mdLFT01Input, .MdRGT02Set .mdRGT02Txt .mdRGT02Desc, .MdRGT02Set .mdRGT02Input input, .MdRGT02Set .mdRGT02Input [contenteditable=true], .MdRGT02Set .mdRGT02Input [contenteditable=false], .MdBox02 .MdRGT02Set, .MdRGT02Set.mdRGT02Info .MdBox04, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoCp .textView .detail, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView .detail, .MdRGT10Notice.mdRGT10Invite .mdRGT10Txt, .MdRGT11Head input.mdRGT11Ttl, .MdRGT11Head [contenteditable=true], .MdRGT11Head [contenteditable=false], .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .detail {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.LyRGT {
+    overflow: hidden;
+    position: relative;
+}
+/*html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, textarea, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*font-size: 100%;*/
+/*}*/
+/*html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, textarea, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*font-size: 100%;*/
+    /*-webkit-user-drag: none;*/
+/*}*/
+.MdBox02 {
+    z-index: 0;
+    position: relative;
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.MdRGT02Set.mdRGT02Chat {
+    overflow: hidden;
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.MdRGT02Set {
+    position: relative;
+}
+.MdRGT04Head.mdRGT04Link {
+    cursor: pointer;
+}
+.MdRGT04Head {
+    z-index: 9;
+    width: 100%;
+    height: 51px;
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, .95);
+}
+.LyHead .lyHeadInner2, .MdGHD01Head, .MdInputTxt02, .standardHeight .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control, .MdCMN04Item, .MdCMN04Item .mdCMN04Head, .MdCMN05Item, .MdLFT01Search, .MdLFT01Search .mdLFT01Inner, .MdRGT02Set .mdRGT02Txt li, .MdRGT02Set .mdRGT02Input, .MdRGT04Head, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb, .MdRGT10Notice.mdRGT10Invite, .MdRGT11Head.ExEdit, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT04Head .mdRGT04Img {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin: 0 8px 0 12px;
+}
+.LyHead .lyHeadInner2>*, .MdGHD01Head>*, .MdInputTxt02>*, .standardHeight .MdBoxCard .MdBoxCardEdit>*, .MdBoxCard .MdBoxCardHead>*, .MdBoxCard .MdBoxCardEdit>*, .MdBoxCard .MdBoxCardEdit .cardSection>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color>*, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control>*, .MdCMN04Item>*, .MdCMN04Item .mdCMN04Head>*, .MdCMN05Item>*, .MdLFT01Search>*, .MdLFT01Search .mdLFT01Inner>*, .MdRGT02Set .mdRGT02Txt li>*, .MdRGT02Set .mdRGT02Input>*, .MdRGT04Head>*, .MdRGT04Head .mdRGT04Txt>*, .MdRGT06Form .mdRGT06Unblock>*, .MdRGT07Cont .infoBb .textView .detail>*, .MdRGT07Cont .mdRGT07LinkType .linkView>*, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb>*, .MdRGT10Notice.mdRGT10Invite>*, .MdRGT11Head.ExEdit>*, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView>*, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb>* {
+    vertical-align: middle;
+}
+.MdRGT04Head.mdRGT04Link {
+    cursor: pointer;
+}
+.MdRGT04Head .mdRGT04Txt {
+    overflow: hidden;
+}
+.LyHead .lyHeadInner2, .MdGHD01Head, .MdInputTxt02, .standardHeight .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardHead, .MdBoxCard .MdBoxCardEdit, .MdBoxCard .MdBoxCardEdit .cardSection, .MdBoxCard .MdBoxCardEdit .cardSection .cardView .cardMessage, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .txt, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control, .MdCMN04Item, .MdCMN04Item .mdCMN04Head, .MdCMN05Item, .MdLFT01Search, .MdLFT01Search .mdLFT01Inner, .MdRGT02Set .mdRGT02Txt li, .MdRGT02Set .mdRGT02Input, .MdRGT04Head, .MdRGT04Head .mdRGT04Txt, .MdRGT06Form .mdRGT06Unblock, .MdRGT07Cont .infoBb .textView .detail, .MdRGT07Cont .mdRGT07LinkType .linkView, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb, .MdRGT10Notice.mdRGT10Invite, .MdRGT11Head.ExEdit, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT04Head .MdCMN10BtnSet {
+    margin: 0 15px;
+}
+
+.MdRGT04Head .MdIcoSubmenu01 {
+    margin: 0 1px 0 8px;
+}
+.MdBtn01More {
+    position: relative;
+    width: 34px;
+    height: 38px;
+}
+
+.MdGHD01Head.mdGHD01Back .mdGHD01Ttl:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File, .MdBtn01Image, .MdBtn01More, .MdBtn01Note, .MdBtn01Option, .MdBtn01Skin, .MdBtn01Card, .MdBtn01Card.MdNew:after, .MdBtn01Sticker, .MdBtn01Sync, .MdIcoMute01, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .boldType, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control .reduce:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .control .raising:after, .MdBoxCard .MdBoxCardEdit .cardSection .cardEdit .color:after, .MdBoxCard.typeLi .MdBoxCardHead .back:before, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    text-indent: -9999px;
+}
+input, button, textarea {
+    font-family: inherit;
+}
+button {
+    background-color: transparent;
+    padding: 0;
+}
+input, button, textarea {
+    border: 0;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+}
+button, input {
+    line-height: normal;
+}
+select, input, button {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+.MdBtn01More:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 18px;
+    background-position: -3754px 0;
+    margin-left: -2px;
+    margin-top: -9px;
+}
+
+.imgList li.clip:before, .imgList li.error:before, .imgList li.loading:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01Add, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture:before, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File:before, .MdBtn01Help, .MdBtn01Image:before, .MdBtn01More:after, .MdBtn01Note:after, .MdBtn01Option:before, .MdBtn01Reload, .MdBtn01Skin, .MdBtn01Card:before, .MdBtn01Sticker:before, .MdBtn01Sync:before, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdIcoMute01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdCMN04Item .pin, .MdCMN05Item.typeClip .mdCMN05Img:before, .MdCMN05Item.typeError .mdCMN05Img:before, .MdCMN05Item.typeLoading .mdCMN05Img:before, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdLFT07Nav .mdLFT07Ul button:after, .MdRGT02Set .mdRGT02Txt .mdRGT02Link:before, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn:after, .MdRGT09Sticker .mdRGT09Ul>li.ani:after, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01Ver:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ImageLi .mdLYR02toImage .mdLYR02Extention, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .mdLYR02toMovie:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button:after, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR03Box .tab button.on:before, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    background-image: url(../images/common.png);
+}
+.MdNonDisp {
+    display: none !important;
+}
+.fadeInNormal {
+    -webkit-animation: fadein .4s;
+}
+.MdRGT05Body {
+    position: relative;
+    padding-top: 51px;
+}
+.MdRGT10Notice.mdRGT10Date {
+    text-align: center;
+    margin: 10px 0;
+}
+.MdRGT10Notice.mdRGT10Prev a {
+    display: block;
+    background-color: #f3f5f7;
+    border-bottom: 1px solid #f0f1f4;
+    font-size: 11px;
+    color: #8f939c;
+    text-align: center;
+    padding: 3px 0 5px;
+}
+.MdRGT10Notice.mdRGT10Date>time {
+    display: inline-block;
+    background-color: #f3f3f4;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #82878f;
+    text-align: center;
+    padding: 3px 14px;
+}
+.MdRGT07Cont {
+    position: relative;
+    margin: 12px 0 12px 12px;
+}
+.typeSingle .MdRGT07Cont .mdRGT07Img, .typeSingle .MdRGT07Cont .mdRGT07Ttl {
+    display: none;
+}
+.MdRGT07Cont .mdRGT07Img {
+    float: left;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 9px;
+    cursor: pointer;
+}
+img {
+    border: 0;
+    vertical-align: top;
+}
+.MdRGT07Cont .mdRGT07Body {
+    overflow: hidden;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07Msg {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+.MdRGT07Cont .mdRGT07Msg {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    margin: 0 7px;
+}
+.fontType12 .MdRGT07Cont .mdRGT07Msg.mdRGT07Text .mdRGT07MsgText {
+    font-size: 12px;
+    line-height: 18px;
+}
+.fontType12 .MdRGT07Cont .mdRGT07MsgText {
+    font-size: 12px;
+    line-height: 18px;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07MsgText {
+    background-color: #fff;
+    color: #36393d;
+}
+.MdRGT07Cont .mdRGT07MsgText {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 7px 11px 8px;
+    -webkit-user-select: text;
+    user-select: text;
+}
+.MdRGT07Cont .mdRGT07Msg>* {
+    vertical-align: bottom;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07MsgText:before {
+    left: -2px;
+    width: 8px;
+    height: 8px;
+    background-position: 0 0;
+}
+.MdRGT07Cont .mdRGT07MsgText:before {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+.imgList li.clip:before, .imgList li.error:before, .imgList li.loading:before, .MdTxtAdd01:before, .MdTxtForgot:before, .MdTxtHelp01:before, .MdTxtInfo01:before, .MdTxtInfo02:before, .MdTxtInfo03:before, .MdTxtLink01:after, .MdTxtLink02:after, .MdTxtLink03:after, .MdTxtLink04:after, .MdTxtLine:before, .MdBtn01Add, .MdBtn01AlertsOff, .MdBtn01AlertsOn, .MdBtn01Back, .MdBtn01Cancel01, .MdBtn01Capture:before, .MdBtn01Close, .MdBtn01Close02, .MdBtn01Close03, .MdBtn01Close04, .MdBtn01Delete01, .MdBtn01Delete02, .MdBtn01Down01, .MdBtn01Edit01, .MdBtn01Failure, .MdBtn01File:before, .MdBtn01Help, .MdBtn01Image:before, .MdBtn01More:after, .MdBtn01Note:after, .MdBtn01Option:before, .MdBtn01Reload, .MdBtn01Skin, .MdBtn01Card:before, .MdBtn01Sticker:before, .MdBtn01Sync:before, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdIcoMute01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Link02 a:after, .MdCMN01Login .mdCMN01Img:after, .MdCMN01LoginNew .mdCMN01Link a:after, .MdCMN01LoginNew .mdCMN01Img:after, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdCMN04Item .pin, .MdCMN05Item.typeClip .mdCMN05Img:before, .MdCMN05Item.typeError .mdCMN05Img:before, .MdCMN05Item.typeLoading .mdCMN05Img:before, .MdCMN11Progress .mdCMN11Cancel, .MdLFT01Search .mdLFT01Inner:before, .MdLFT07Nav .mdLFT07Ul button:after, .MdRGT02Set .mdRGT02Txt .mdRGT02Link:before, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdRGT09Sticker .mdRGT09Tab .mdRGT09Btn:after, .MdRGT09Sticker .mdRGT09Ul>li.ani:after, .MdRGT10Notice.mdRGT10Prev a:before, .MdRGT10Notice.mdRGT10New a:before, .MdRGT10Notice.mdRGT10Down a:before, .MdRGT12List li a:after, .MdRGT13List .mdRGT13Nav button+button:before, .MdLYR01Box .mdLYR01Ver:before, .MdLYR01Box .mdLYR01BtnClose, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ImageLi .mdLYR02toImage .mdLYR02Extention, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .mdLYR02toMovie:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02MovieLi .progressUI button.close, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button:after, .MdLYR02Viewer .mdLYR02Controller button, .MdLYR03Box .tab button.on:before, .MdLYR04Skin .mdLYR04Li.ExSelected:after {
+    background-image: url(../images/common.png);
+}
+.MdGHD01Head .mdGHD01Line, .MdGHD01Head .mdGHD01Setting, .MdGHD02Util>button, .MdGHD03Global button, .MdBtn01Add, .MdBtn01Help, .MdBtn01Reload, .MdBtn01Write, .MdBtn01SelectRegion:after, .MdIcoBadge03, .MdIcoEdit01, .MdLoading01, .MdLoading02, .MdCMN01Login .mdCMN01Line, .MdCMN01LoginNew .mdCMN01Line, .MdCMN03List.mdCMN03Note>li.mdCMN03Sync:after, .MdCMN03List.mdCMN03RegionPop .ExSelected .MdCMN03CountryItem:after, .MdLFT07Nav .mdLFT07Ul button, .MdRGT07Cont .mdRGT07MsgText:before, .MdRGT07Cont .mdRGT07MsgText.mdRGT07Loading:after, .MdRGT07Cont .mdRGT07CP a.mdRGT07MsgTextCPunder:after, .MdRGT07Cont .mdRGT07LinkType .linkView .thumb:before, .MdRGT07Cont .mdRGT07LinkType:after, .MdRGT07Cont .mdRGT07File .mdRGT07MsgText:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.error:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02ListUl>li.loading:after, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType .linkView .thumb:before, .MdLYR02Viewer .mdLYR02ListBox .mdLYR02LinkLi .mdLYR02LinkType:after, .MdLYR02Viewer .mdLYR02ImgBox>button {
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    text-indent: -9999px;
+}
+.MdRGT07Cont .mdRGT07Text .mdRGT07MsgTextInner {
+    cursor: text;
+    min-height: 21px;
+    line-height: 21px;
+}
+.MdRGT07Cont .mdRGT07Opt {
+    min-width: 50px;
+    font-size: 11px;
+    color: #adb0b7;
+    white-space: nowrap;
+    margin: 0 7px 1px;
+}
+
+.MdRGT07Cont .mrg3{
+ margin-top: 3px!important;
+}
+
+.MdRGT07Cont .mdRGT07Msg>* {
+    vertical-align: bottom;
+}
+.MdRGT07Cont .mdRGT07Opt {
+    min-width: 50px;
+    font-size: 11px;
+    color: #adb0b7;
+    white-space: nowrap;
+    margin: 0 7px 1px;
+}
+.MdRGT07Cont .mdRGT07Image .mdRGT07MsgImg>img {
+    max-width: 100%;
+    min-height: 34px;
+    max-height: 200px;
+    border-radius: 7px;
+}
+.MdRGT04Head .mdRGT04ImgT1 .mdRGT04ImgInner {
+    width: 35px;
+    height: 35px;
+    border-radius: 17.5px;
+}
+
+.MdRGT04Head .mdRGT04ImgInner {
+    width: 17.5px;
+    overflow: hidden;
+    position: absolute;
+}
+.MdRGT07Cont .infoBb .icon .icoView .icoPlay {
+    min-width: auto;
+    min-height: auto;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView img {
+    object-fit: cover;
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+}
+.MdRGT07Cont.mdRGT07Own .mdRGT07ClipMin .mdRGT07MsgText .icoView {
+    background-color: #aeeb94;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView {
+    overflow: hidden;
+    position: relative;
+    width: 68px;
+    height: 68px;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .icon {
+    margin-left: 2px;
+    margin-right: 13px;
+}
+
+.MdRGT07Cont .infoBb .icon {
+    position: relative;
+}
+.MdRGT07Cont .infoBb {
+    display: table\0/;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07ClipMin .mdRGT07MsgText .icoView {
+    background-color: #e0e4eb;
+}
+
+.MdRGT07Cont .infoBb .icon .icoView {
+    overflow: hidden;
+    position: relative;
+    width: 68px;
+    height: 68px;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+.MdRGT07Cont.mdRGT07Other .mdRGT07File .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Contacts .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07ClipMin .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Location .mdRGT07MsgText, .MdRGT07Cont.mdRGT07Other .mdRGT07Music .mdRGT07MsgText {
+    background-image: url(../images/ico_mdRGT07TextLink_other.png);
+    -webkit-background-size: 7px 11px;
+    background-size: 7px 11px;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .textView .detail .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.MdRGT07Cont.mdRGT07Other .infoBb .textView .text {
+    color: #3b4048;
+}
+.MdRGT07Cont .infoBb .textView .detail .text {
+    display: block;
+    width: 100%;
+}
+.MdRGT07Cont .mdRGT07ClipMin .mdRGT07MsgText .infoBb .textView {
+    min-width: 52px;
+    width: 100%;
+    margin-right: 24px;
+    padding-right: 0;
+}
+
+.MdRGT07Cont .infoBb .textView {
+    padding-right: 24px;
+}
+.MdRGT07Cont .infoBb>* {
+    vertical-align: middle;
+}
+
+video{
+    max-width: 100%;
+    border-radius: 7px;
+}
+
+.yScroll{
+    overflow-y: scroll;
+}
+.mdRGT07MsgTlt{
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    /*border-radius: 0 0 15px 15px;*/
+    border-radius: 0 0 7px 7px;
+}
+.mdRGT07MsgTlt2{
+    background-color: #fff;
+    z-index: 9999;
+    width: 100%;
+    /*border-radius: 0 0 15px 15px;*/
+    border-radius: 0 0 7px 7px;
+    width: 100%;
+    height: 120px;
+}
+.mdRGT07MsgTlt .title{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 0 0px 10px;
+}
+.mdRGT07MsgTlt .description{
+    font-size: 13px;
+    padding: 0 0 5px 10px;
+}
+.mdRGT07MsgTlt2 .title{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 0 0px 10px;
+}
+.mdRGT07MsgTlt2 .description{
+    font-size: 13px;
+    padding: 0 0 5px 10px;
+}
+.mdRGT07MsgImg{
+    position: relative;
+}
+.w65pcent{
+    width: 65%!important;
+}
+.w100pcent{
+    width: 100%!important;
+}
+.btn-action{
+    font-size: 13px;
+    padding: 30 0 15px 10px;
+    text-align: center;
+}
+.swiper-container{
+ /*max-height: 280px;*/
+   height: auto;
+}
+
+.cfrm_btn {
+    padding: 10px 10px;
+    font-weight: 600;
+}
+.btn-confirm {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+.MdRGT07Cont  .confirmText{
+    padding: 0;
+    background-color: #eaeaea!important;
+}
+.MdRGT07Cont  .confirmText::before{
+    background-image: none;
+}
+.confirmText .mdRGT07MsgTextInner{
+    padding: 7px 11px 8px;
+}
+.swiper-scrollbar{
+    height: 2px!important;
+}
+.crop{
+    height: 150px;
+    overflow: hidden;
+}
+.img_cover{
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.flr{
+    float: right;
+}
+.ha{
+    height: auto;
+}
+.mess{
+    display: block;
+    overflow: hidden;
+    padding: 15px 10px ;
+    min-width: 260px;
+}
+
+.mess-carousel{
+    display: block;
+    overflow: hidden;
+    padding: 15px 10px ;
+    min-width: 200px;
+}
+
+.header{
+    border-bottom: 1px solid #ccc;
+}
+.footer{
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+.pd0{
+    padding: 0!important;
+}
+.nonequote::before{
+    background-image: none!important;
+}
+
+.item-block{
+}
+
+.item-block>*{
+    display: block;
+}
+
+.item-image{
+    width: 100px;
+    height: 100px;
+}
+
+.separator-vertical{
+    margin: 5px 0 5px 0;
+    border-bottom: 1px solid #e4e3e3;
+}
+
+.separator-horizontal{
+    height: 100px;
+    margin: 0 5px 0 5px;
+    border-left: 1px solid #e4e3e3;
+}
+
+.spacer-vertical{
+    padding-bottom: 5px;
+}
+
+.spacer-horizontal{
+    padding-left: 5px;
+}

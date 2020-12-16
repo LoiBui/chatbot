@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+{#<link rel="stylesheet" type="text/css" href="{{ my_site_url }}/static/ext/resources/css/ext-all.css" />#}
+{#<link rel="stylesheet" type="text/css" href="{{ my_site_url }}/css/sateraito.css" />#}
+{#<style type="text/css">#}
+{#body {#}
+{#	font:normal 13px tahoma,arial,helvetica,sans-serif;#}
+{#}#}
+{#</style>#}
+
+{#<script type="text/javascript" src="{{ my_site_url }}/static/jquery-1.7.1.min.js"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}/static/jquery.timer.js"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/jquery/ext-jquery-adapter.js"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}/static/ext/adapter/ext/ext-base.js"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}/static/ext/ext-all.js"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}/static/ext/src/locale/{{ extjs_locale_file }}"></script>#}
+
+{#<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}sateraito.js?{{ version }}"></script>#}
+{#<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}sateraito_bbs_lang.js?{{ version }}"></script>#}
+
+{#<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>#}
+
+{#<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}ucfext.js?{{ version }}"></script>#}
+<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}ucfext_formdata_common.js?{{ version }}"></script>
+<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}ZeroClipboard.min.js?{{ version }}"></script>
+{#<script type="text/javascript" src="{{ my_site_url }}/static/ZeroClipboard.min.js"></script>#}
+
+<script type="text/javascript">
+{#Ext.BLANK_IMAGE_URL='{{ my_site_url }}/static/ext/resources/images/default/s.gif';#}
+
+var _vurl = '{{vurl}}';
+var SATERAITO_MY_SITE_URL = '{{ my_site_url }}';
+var SATERAITO_GOOGLE_APPS_DOMAIN = '{{ tenant }}';
+var DOC_ID = '{{ doc_id }}';
+var USER_TOKEN =  '{{ user_token }}';
+var SATERAITO_LANG = '{{ language }}';
+var SATERAITO_TIMEZONE = '{{ tz }}';
+var FORM_TEMPLATE_ID = '{{ template_id }}';
+var IS_OPENID_MODE = false;
+var IS_TOKEN_MODE = true;
+
+
+{% if is_editable %}
+	var IS_EDITABLE = true;
+{% else %}
+	var IS_EDITABLE = false;
+{% endif %}
+</script>
+
+<script type="text/javascript" src="{{ my_site_url }}{{ vscripturl }}attach_file_list.js?{{ version }}"></script>
+
+<script type="text/javascript">
+// エントリーポイント
+Ext.onReady(function(){
+	
+	// ゼロクリップボードの初期化処理
+	ZeroClipboard.setMoviePath('{{ my_site_url }}{{ vscripturl }}ZeroClipboard10.swf');
+	
+	AttachFile.showList();
+	
+	// ファイル名クリック時の動作
+	AttachFile.bindDownloadAttachedFileLink();
+
+	{% if is_editable %}
+		
+		// ファイルの添付（Blobstore直接アップロード）ボタンを表示
+		var uploadButton = new Ext.Button({
+			text: MyLang.getMsg('DOC_FILE_UPLOAD'),
+			renderTo: 'upload_file_button_render_area',
+			handler: function()
+			{
+			
+				uploadButton.disable();
+				
+				Importer.requestUploadUrl(function(aUploadUrl){
+					if (aUploadUrl == null) {
+						uploadButton.enable();
+					} else {
+						$('#file_upload_form').attr('action', aUploadUrl);
+						Importer.requestAttachFileImport(function(aSucceeded){
+							
+							uploadButton.enable();
+							
+							if (aSucceeded) {
+								// アップロードが成功した場合
+								// 添付ファイル一覧を再表示
+								(function(){
+									AttachFile.showList();
+								}).defer(500);
+							}
+						});
+					}
+				});
+			}
+		});
+		
+		// 削除ボタンのハンドラ
+//		$('.btn_delete_file').live('click', function(){
+      $(document).on('click', '.btn_delete_file', function(){
+
+			var fileId = $(this).attr('file_id');
+			
+			uploadButton.disable();
+			// ファイルの削除実行
+			AttachFile.requestDeleteFile(fileId, function(){
+				uploadButton.enable();
+
+				// 添付ファイル一覧を再表示
+				
+				AttachFile.showList();
+			});
+		});
+
+    // @_@ edited: tan@vn.sateraito.co.jp
+    var FileUpload = {
+      id: null,
+      dropFileUpload: null,
+      support: false,
+      files: null,
+      statusMessge: [],
+      msgDefault: '<table class="tblHead"><tr><td>' + MyLang.getMsg('DOC_FILE_UPLOAD_DROP1') + '</td></tr><tr><td>' + MyLang.getMsg('DOC_FILE_UPLOAD_DROP2') + '</td></tr></table>',
+      isIE: function() {
+        var myNav = navigator.userAgent.toLowerCase();
+        return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+      },
+      //acceptFileTypes: /(\.|\/)(gif|jpe?g|png|xls|xlsx|csv)$/i,
+      //maxFileSize: 10000000, // 10 MB
+      init: function(idUpload){
+        //IE  対応
+       /* if (FileUpload.isIE()) {
+          //The File APIs are not fully supported in this browser.
+          FileUpload.support = false;
+          var dropFileUpload = document.getElementById(idUpload);
+          dropFileUpload.style.display = 'none';
+          return;
+        }*/
+        // Check for the various File API support.
+        if (window.File && window.FileReader && window.FileList) {
+          // Great success! All the File APIs are supported.
+          FileUpload.support = true;
+
+          FileUpload.id = idUpload;
+          // Setup the dnd listeners.
+          var dropFileUpload = document.getElementById(idUpload);
+
+          dropFileUpload.innerHTML = FileUpload.msgDefault;
+          dropFileUpload.addEventListener('dragover', FileUpload.handleDragOver, false);
+          dropFileUpload.addEventListener('drop', FileUpload.handleFileSelect, false);
+        } else {
+          //The File APIs are not fully supported in this browser.
+          FileUpload.support = false;
+          var dropFileUpload = document.getElementById(idUpload);
+          dropFileUpload.style.display = 'none';
+          return;
+        }
+
+      },
+      getFileBlob: function (file,callback) {
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+          if (evt.target.readyState == FileReader.DONE) {
+            if (typeof (callback) == 'function'){
+              callback(evt.target.result)
+            }
+          }
+        };
+        reader.readAsDataURL(file);
+      },
+      handleFileSelect:function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var dropFileUpload = document.getElementById(FileUpload.id);
+        dropFileUpload.innerHTML = '';
+        dropFileUpload.textContent = '';
+        dropFileUpload.removeEventListener('dragover', FileUpload.handleDragOver, false);
+        dropFileUpload.removeEventListener('drop', FileUpload.handleFileSelect, false);
+
+        FileUpload.statusMessge = [];
+
+        var files = evt.dataTransfer.files; // FileList object.
+        var length = files.length;
+        if(length == 0){ return; }
+
+        var countRequest = 0;
+        var processFunc = function(aFileName, aProcessId, aFormData){
+          Importer.requestUploadUrl(function(aUploadUrl) {
+            if (aUploadUrl == null) {
+            } else {
+
+				$('#file_upload_form').attr('action', aUploadUrl);
+              AttachFile.requestDropFileUpload(aFileName, aProcessId, aFormData, function (aSucceeded, msg) {
+                countRequest++;
+                //uploadButton.enable();
+                //SateraitoUI.changeEnabledComponents(true);
+
+                if (aSucceeded) {
+                  FileUpload.statusMessge.push({message: msg, isError: false});
+
+                } else {
+                  FileUpload.statusMessge.push({message: msg, isError: true});
+                }
+                // アップロードが成功した場合
+
+                // 添付ファイル一覧を再表示
+
+                if (countRequest == length) {
+                  uploadButton.enable();
+                  //var bShowList = false;
+                  var strMessage = '';
+                  for (var i = 0; i < FileUpload.statusMessge.length; i++) {
+                    strMessage += '◆' + FileUpload.statusMessge[i].message + '\n';
+                  }
+                  alert(strMessage);
+                  var dropFileUpload = document.getElementById(FileUpload.id);
+                  dropFileUpload.innerHTML = FileUpload.msgDefault;
+                  dropFileUpload.addEventListener('dragover', FileUpload.handleDragOver, false);
+                  dropFileUpload.addEventListener('drop', FileUpload.handleFileSelect, false);
+                  uploadButton.enable();
+                  // 添付ファイル一覧を再表示
+                  (function () {
+                    AttachFile.showList();
+                  }).defer(300);
+                }
+              });
+            }
+          });
+        };
+
+        for (var i = 0, f; f = files[i]; i++){
+          /*if(f.size > FileUpload.maxFileSize){
+            continue;
+          }*/
+          // ファイルのアップロード
+          var progress = document.createElement('span');
+          progress.id = 'process' + (i+1);
+          progress.textContent = f.name + MyLang.getMsg('DOC_FILE_UPLOAD_DROP3') + '0' + MyLang.getMsg('DOC_FILE_UPLOAD_DROP4');
+          dropFileUpload.appendChild(progress);
+          dropFileUpload.appendChild(document.createElement('br'));
+          uploadButton.disable();
+
+          var formData = new FormData();
+          formData.append("attach_file", f);
+          formData.append("doc_id", DOC_ID);
+          formData.append("token", USER_TOKEN);
+
+          processFunc(f.name, progress.id, formData);
+
+        }
+      },
+      handleDragOver:function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+      }
+    };
+    FileUpload.init('drop_file_upload');
+	{% endif %}
+
+});
+
+</script>
+<script type="text/javascript" >
+    $(document).ready(function(){
+        $('#lbl_attach_file').text(MyLang.getMsg('ATTACH_FILE') + ':　');
+        if($('#lbl_attach_file_size')){
+            $('#lbl_attach_file_size').text(MyLang.getMsg('ATTACH_FILE_SIZE_MSG'));
+        }
+    })
+</script>
+
+<style type="text/css">
+  #drop_file_upload {
+    width: 300px;
+    height: 42px;
+    border: 1px dashed #bbb;
+    margin-left: 5px;
+    color: #b5b5b5;
+  }
+  #drop_file_upload:hover{
+    border: 1px dashed #99bbe8;
+  }
+  #drop_file_upload span{
+    margin-left: 5px;
+    color: #666666;
+  }
+  .tblHead {
+      width: 100%;
+      margin-top: 2px;
+  }
+  .tblHead td {
+    text-align: center;
+  }
+</style>
+</head>
+<body style="margin:5px;background-color: #FFF;">
+<div id="contentsArea">
+<span id="lbl_attach_file">添付ファイル： </span>
+{% if is_editable %}
+<span id="lbl_attach_file_size" style="font-size:11px;">※最大200MBのファイルを添付することができます</span>
+{% endif %}
+<div id="attached_file_render_area" style="margin:5px;">
+</div>
+
+{# 新規申請時などファイルが添付できる場合 #}
+{% if is_editable %}
+	<div style="font-size:13px;margin:5px;padding:5px">
+	<form id="file_upload_form" action="" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="token" value="">
+	<input type="hidden" name="doc_id" value="">
+	<table>
+	<tr>
+	<td><input type="file" name="attach_file"></td>
+	<td id="upload_file_button_render_area"></td>
+  <td><div id="drop_file_upload"></div></td>
+	</tr>
+	</table>
+	</form>
+	</div>
+{% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+	<template_id><![CDATA[]]></template_id>
+	<template_name><![CDATA[回覧板]]></template_name>
+	<template_disabled><![CDATA[false]]></template_disabled>
+	<show_as_max_window><![CDATA[true]]></show_as_max_window>
+	<doc_info_place><![CDATA[middle]]></doc_info_place>
+	<show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+	<created_date><![CDATA[]]></created_date>
+	<updated_date><![CDATA[]]></updated_date>
+	<template_body><![CDATA[<!--
+  回覧板
+
+  @since 2013-03-17
+
+-->
+
+<table class="detail">
+
+<tr>
+<td class="detail_name" style="width:20%">名前</td>
+<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+<td class="detail_name" style="width:20%">部署</td>
+<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+</tr>
+
+<tr>
+<td class="detail_name">重要度</td>
+<td class="detail_value">
+<label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label>
+</td>
+<td class="detail_name">文書種別</td>
+<td class="detail_value"><input type="text" name="document_type"></td>
+</tr>
+
+</table>
+<br>
+
+<!-- リッチテキストを入力するコーナー -->
+<textarea name="honbun" class="richtext" style="width:100%; height:300px;"></textarea>
+
+<hr>
+<!-- 回覧者に指定したユーザーが一覧表示されます -->
+<div class="main_content_title2">回覧情報</div>
+<div class="checklist_with_comment"></div>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-201405260315419HBksAIDSHP8J3KK\",\"name\":\"回覧板1\",\"sections\":[{\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\",\"secname\":\"回覧板1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401048977417iheLv4dbe6LQktGo\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401048977419Etq3uPoEOchD5s8x\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"control_id\":\"ctr_id-1401048977417T5A4YONuWgpZvyKA\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"control_id\":\"ctr_id-1401048977418885wftJmhKSJpw28\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"}]},{\"section_id\":\"sec_id-1401049534994FhuU7EfDnrM3wAfb\",\"secname\":\"space\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049559365CctUPQqFgfYJ2pAe\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\" width:100%;height:10px;\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401049534994FhuU7EfDnrM3wAfb\"}]},{\"section_id\":\"sec_id-140104940300557pWfUoguLbyrfev\",\"secname\":\"test\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401048977418Wo65DibtLVW6ZqaK\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"honbun\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"honbun\",\"style\":\"width:100%; height:300px\",\"class\":\"richtext\",\"new_attrs\":\"\",\"value\":\"\",\"cols\":\"\",\"rows\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-140104940300557pWfUoguLbyrfev\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  回覧板
+
+  @since 2013-03-17
+
+-->
+
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <label><input type="radio" name="priority" value="urgent">緊急</label>
+        <label><input type="radio" name="priority" value="normal" checked>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name"></div>
+      <div class="detail_value">
+        <!-- リッチテキストを入力するコーナー -->
+        <textarea name="honbun" class="richtext" style="width:98%; height:300px;"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- 回覧者に指定したユーザーが一覧表示されます -->
+<div class="main_content_title2">回覧情報</div>
+<div class="checklist_with_comment"></div>
+]]></template_body_for_mobile>
+</entry>

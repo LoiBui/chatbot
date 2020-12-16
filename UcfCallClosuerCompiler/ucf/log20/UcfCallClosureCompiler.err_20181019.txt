@@ -1,0 +1,160 @@
+﻿[2018/10/19 14:17:47] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:17:50] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:17:51] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:17:52] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:32:05] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:32:06] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:32:07] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:32:08] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:28] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:29] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:30] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:31] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:45] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:46] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:47] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:35:48] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:38:58] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:38:59] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:38:59] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 14:39:00] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:02:29] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:02:30] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:02:31] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:02:32] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:31:44] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:31:45] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:31:46] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 16:31:47] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 18:06:13] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext.js:156: ERROR - Object literal contains illegal duplicate key " ", disallowed in strict mode
+				  var map = {"<":"&lt;", ">":"&gt;", "&":"&amp;", "'":"&#39;", "\"":"&quot;", " ":"&nbsp;", " ":" ", "　":"　"};
+				                                                                                            ^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 18:06:14] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 18:06:14] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/19 18:06:15] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+

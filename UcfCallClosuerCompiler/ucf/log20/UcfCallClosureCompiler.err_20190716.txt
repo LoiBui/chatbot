@@ -1,0 +1,18 @@
+﻿[2019/07/16 17:20:11] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/channels/lineworksbotchannel.js:1441: WARNING - unreachable code
+			if(false){
+			         ^^
+
+0 error(s), 1 warning(s)
+
+[2019/07/16 17:21:49] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/channels/lineworksbotchannel.js:1441: WARNING - unreachable code
+			if(false){
+			         ^^
+
+0 error(s), 1 warning(s)
+
+[2019/07/16 17:22:47] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/channels/lineworksbotchannel.js:1295: WARNING - unreachable code
+			if(false){
+			         ^^
+
+0 error(s), 1 warning(s)
+

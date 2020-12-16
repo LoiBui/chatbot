@@ -1,0 +1,11 @@
+﻿[2019/07/09 14:48:05] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/07/09 14:48:06] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/07/09 14:48:06] [Compile Start]ext\SecurityKeyboard.js
+[2019/07/09 14:48:07] ERROR - Cannot read file C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/07/09 14:48:07] Expand Jinja Templates include files...
+[2019/07/09 14:48:07] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2019/07/09 14:48:07] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2019/07/09 14:48:09] Expand Jinja Templates include files fin.

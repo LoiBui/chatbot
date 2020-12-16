@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Branch Details]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Branch Details
+
+  @since 2014-01-22
+-->
+
+<table class="detail" width="80%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td><div class="main_content_title2">Branch Details</div></td>
+		<td colspan="3"> </td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Postal Number</td>
+		<td class="detail_value" width="30%"><input name="tenpo_zip_code" maxlength="8"></td>
+		<td class="detail_name" width="20%">Prefecture</td>
+		<td class="detail_value" width="30%">
+				<select name="tenpo_divisions_of_japan">
+					<option value="">Please choose</option>
+					<option value="Hokkaido">Hokkaido</option>
+					<option value="Aomori">Aomori</option>
+					<option value="Iwate">Iwate</option>
+					<option value="Miyagi">Miyagi</option>
+					<option value="Akita">Akita</option>
+					<option value="Yamagata">Yamagata</option>
+					<option value="Fukushima">Fukushima</option>
+					<option value="Ibaraki">Ibaraki</option>
+					<option value="Tochigi">Tochigi</option>
+					<option value="Gunma">Gunma</option>
+					<option value="Saitama">Saitama</option>
+					<option value="Chiba">Chiba</option>
+					<option value="Tokyo">Tokyo</option>
+					<option value="Kanagawa">Kanagawa</option>
+					<option value="Niigata">Niigata</option>
+					<option value="Toyama">Toyama</option>
+					<option value="Ishikawa">Ishikawa</option>
+					<option value="Fukui">Fukui</option>
+					<option value="Yamanashi">Yamanashi</option>
+					<option value="Nagano">Nagano</option>
+					<option value="Gifu">Gifu</option>
+					<option value="Shizuoka">Shizuoka</option>
+					<option value="Aichi">Aichi</option>
+					<option value="Mie">Mie</option>
+					<option value="Shiga">Shiga</option>
+					<option value="Kyoto">Kyoto</option>
+					<option value="Osaka">Osaka</option>
+					<option value="Hyogo">Hyogo</option>
+					<option value="Nara">Nara</option>
+					<option value="Wakayama">Wakayama</option>
+					<option value="Tottori">Tottori</option>
+					<option value="Shimane">Shimane</option>
+					<option value="Okayama">Okayama</option>
+					<option value="Hiroshima">Hiroshima</option>
+					<option value="Yamaguchi">Yamaguchi</option>
+					<option value="Tokushima">Tokushima</option>
+					<option value="Kagawa">Kagawa</option>
+					<option value="Ehime">Ehime</option>
+					<option value="Kouchi">Kouchi</option>
+					<option value="Fukushima">Fukushima</option>
+					<option value="Saga">Saga</option>
+					<option value="Nagasaki">Nagasaki</option>
+					<option value="Kumamoto">Kumamoto</option>
+					<option value="Ooita">Ooita</option>
+					<option value="Miyazaki">Miyazaki</option>
+					<option value="Kagoshima">Kagoshima</option>
+					<option value="Okanawa">Okanawa</option>
+				</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Address</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_address" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Phone Number</td>
+		<td class="detail_value" width="30%"><input name="tenpo_tel_no" maxlength="15"></td>
+		<td class="detail_name" width="20%">Fax No</td>
+		<td class="detail_value" width="30%"><input name="tenpo_fax_no"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">Business Hours</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_eigyo_time" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">Regular Holiday</td>
+		<td class="detail_value"><input name="tenpo_teikyubi"></td>
+		<td class="detail_name">Parking Lot</td>
+		<td class="detail_value">
+			<input type="radio" name="tenpo_parking" value="Yes">Yes&nbsp;&nbsp;
+			<input type="radio" name="tenpo_parking" value="No">No
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Branch Information</td>
+		<td class="detail_value" colspan="3"><input name="tenpo_address" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">Access</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="tenpo_access" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+
+	<tr>
+	<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">
+			<input type="button" value="Display Map" onclick="
+
+			//// It will be processed when clicking the Display Map button
+
+			var form = SateraitoWF.getForm(this);
+
+			var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+			var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+			// Get the address and set it to iframe's URL
+
+			var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+			src += tenpo_address_encoded;
+			src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+			// Create URL to open Google Maps in different screen
+
+			var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+			map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+			// Set the URL of iframe and Google Maps link
+
+			$(form).find('.google_maps_frame_sateraito').attr('src', src);
+			$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+			// Set the address to the Google Maps link
+
+			$(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+			">
+
+			<br />
+			<br />
+
+			<iframe class="google_maps_frame_sateraito" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe><br />
+			<small>More bigger maps <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left" target="_blank"></a> will display</small>
+
+			<br>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140604025218JIuDFKBsfINXPqzk\",\"name\":\"Branch Details\",\"sections\":[{\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\",\"secname\":\"Branch Details\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401825159676xLqYQ5r6zRpcRwS8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401825159687ceKdrQcNFLfHKgYF\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159676nAZ5aEM5NDJ3h27R\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159682sSWFITuMyhKzz8pU\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825313045Za6UaKmPjSpgd1aX\",\"controls\":[{\"control_id\":\"ctr_id-1401825325133C7paOd7cNONFcFas\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"Branch Details\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825347140EQv9NkDRyviDpnIz\",\"controls\":[{\"control_id\":\"ctr_id-1401825159682xC52p6msfedIDrQ1\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Postal Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_zip_code\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=8;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159682Xbw1fHSm5U7IeCYL\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Prefecture\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_divisions_of_japan\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"Please choose\",\"value\":\"\"},{\"text\":\"Hokkaido\",\"value\":\"Hokkaido\"},{\"text\":\"Aomori\",\"value\":\"Aomori\"},{\"text\":\"Iwate\",\"value\":\"Iwate\"},{\"text\":\"Miyagi\",\"value\":\"Miyagi\"},{\"text\":\"Akita\",\"value\":\"Akita\"},{\"text\":\"Yamagata\",\"value\":\"Yamagata\"},{\"text\":\"Fukushima\",\"value\":\"Fukushima\"},{\"text\":\"Ibaraki\",\"value\":\"Ibaraki\"},{\"text\":\"Tochigi\",\"value\":\"Tochigi\"},{\"text\":\"Gunma\",\"value\":\"Gunma\"},{\"text\":\"Saitama\",\"value\":\"Saitama\"},{\"text\":\"Chiba\",\"value\":\"Chiba\"},{\"text\":\"Tokyo\",\"value\":\"Tokyo\"},{\"text\":\"Kanagawa\",\"value\":\"Kanagawa\"},{\"text\":\"Niigata\",\"value\":\"Niigata\"},{\"text\":\"Toyama\",\"value\":\"Toyama\"},{\"text\":\"Ishikawa\",\"value\":\"Ishikawa\"},{\"text\":\"Fukui\",\"value\":\"Fukui\"},{\"text\":\"Yamanashi\",\"value\":\"Yamanashi\"},{\"text\":\"Nagano\",\"value\":\"Nagano\"},{\"text\":\"Gifu\",\"value\":\"Gifu\"},{\"text\":\"Shizuoka\",\"value\":\"Shizuoka\"},{\"text\":\"Aichi\",\"value\":\"Aichi\"},{\"text\":\"Mie\",\"value\":\"Mie\"},{\"text\":\"Shiga\",\"value\":\"Shiga\"},{\"text\":\"Kyoto\",\"value\":\"Kyoto\"},{\"text\":\"Osaka\",\"value\":\"Osaka\"},{\"text\":\"Hyogo\",\"value\":\"Hyogo\"},{\"text\":\"Nara\",\"value\":\"Nara\"},{\"text\":\"Wakayama\",\"value\":\"Wakayama\"},{\"text\":\"Tottori\",\"value\":\"Tottori\"},{\"text\":\"Shimane\",\"value\":\"Shimane\"},{\"text\":\"Okayama\",\"value\":\"Okayama\"},{\"text\":\"Hiroshima\",\"value\":\"Hiroshima\"},{\"text\":\"Yamaguchi\",\"value\":\"Yamaguchi\"},{\"text\":\"Tokushima\",\"value\":\"Tokushima\"},{\"text\":\"Kagawa\",\"value\":\"Kagawa\"},{\"text\":\"Ehime\",\"value\":\"Ehime\"},{\"text\":\"Kouchi\",\"value\":\"Kouchi\"},{\"text\":\"Fukushima\",\"value\":\"Fukushima\"},{\"text\":\"Saga\",\"value\":\"Saga\"},{\"text\":\"Nagasaki\",\"value\":\"Nagasaki\"},{\"text\":\"Kumamoto\",\"value\":\"Kumamoto\"},{\"text\":\"Ooita\",\"value\":\"Ooita\"},{\"text\":\"Miyazaki\",\"value\":\"Miyazaki\"},{\"text\":\"Kagoshima\",\"value\":\"Kagoshima\"},{\"text\":\"Okanawa\",\"value\":\"Okanawa\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401825347140EQv9NkDRyviDpnIz\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825397308IAgqynAYO672WFAM\",\"controls\":[{\"control_id\":\"ctr_id-1401825159683ptrrI1qONv9evYWS\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Address\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_address_1\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825397308IAgqynAYO672WFAM\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825432859VjG99OpSpm8B6p1A\",\"controls\":[{\"control_id\":\"ctr_id-140182515968319yTJYw470ScHnAF\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Phone Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_tel_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=15;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"control_id\":\"ctr_id-1401825159683qV21RYY3McXZ7TN5\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Fax No\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_fax_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825470468nrJiaH06xbAmiCCe\",\"controls\":[{\"control_id\":\"ctr_id-1401825159684rOSeFd9Xm28gRv4h\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Business Hours\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_eigyo_time\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"div4\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14018254907238wAZMRMKrMV2KqE3\",\"controls\":[{\"control_id\":\"ctr_id-1401825159684uhIZzOmoQ3wTptzv\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Regular Holiday\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_teikyubi\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Yes \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"Yes\",\"name\":\"tenpo_parking\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"No\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"No\",\"name\":\"tenpo_parking\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Parking Lot\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_parking\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401825159688aMdFqMJLEMF42tyN\",\"map_type_control\":\"radiogroup\",\"pos_row\":1,\"pos_col\":2,\"section_id\":\"sec_id-14018254907238wAZMRMKrMV2KqE3\"}]},{\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825553962mgMzaWz3w5g8UHQ5\",\"controls\":[{\"control_id\":\"ctr_id-1401825159685JfOBjAWNvLCnPMUC\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Branch Information\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_address_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401825553962mgMzaWz3w5g8UHQ5\"},{\"control_id\":\"ctr_id-1401825159685OBxO85Hq9BBg1uzu\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Access\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tenpo_access\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401825159688q1EjT3dn0eRiVhZg\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825623939GEq8vDuOp2ZTWi60\",\"controls\":[{\"control_id\":\"ctr_id-1401825623939jUy4i2eGpeBp92hF\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401825623939GEq8vDuOp2ZTWi60\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825637707jIz7BBYt7EmtAdu8\",\"controls\":[{\"control_id\":\"ctr_id-1401825674382m5i2TOS39nehKhew\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"btn_Map\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"btn_Map\"},\"items\":{},\"html\":\"%3Cinput%20type%3D%22button%22%20value%3D%22%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%22%20onclick%3D%22%0A%0A%09%09%09%2F%2F%2F%2F%20%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E6%99%82%E3%81%AE%E5%87%A6%E7%90%86%0A%0A%09%09%09var%20form%20%3D%20SateraitoWF.getForm(this)%3B%0A%0A%09%09%09var%20tenpo_address%20%3D%20SateraitoWF.getFormValue(form%2C%20'tenpo_address')%3B%0A%09%09%09var%20tenpo_address_encoded%20%3D%20encodeURIComponent(tenpo_address)%3B%0A%0A%09%09%09%2F%2F%20%E4%BD%8F%E6%89%80%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81iframe%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9URL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20src%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Ds_q%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09src%20%2B%3D%20tenpo_address_encoded%3B%0A%09%09%09src%20%2B%3D%20'%26amp%3Bt%3Dm%26amp%3Bz%3D14%26amp%3Boutput%3Dembed'%3B%0A%0A%09%09%09%2F%2F%20%E5%88%A5%E7%94%BB%E9%9D%A2%E3%81%A7GoogleMaps%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AFURL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09var%20map_link%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Dembed%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09%09map_link%20%2B%3D%20encodeURIComponent(SateraitoWF.getFormValue(form%2C%20'tenpo_address'))%3B%0A%0A%09%09%09%2F%2F%20iframe%E3%81%A8GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9FURL%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_frame_sateraito').attr('src'%2C%20src)%3B%0A%09%09%09%24(form).find('.google_maps_link_sateraito').attr('href'%2C%20map_link)%3B%0A%0A%09%09%09%2F%2F%20GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%8F%E6%89%80%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%09%24(form).find('.google_maps_link_sateraito').text(tenpo_address)%3B%0A%0A%09%09%09%22%3E%0A%0A%09%09%09%3Cbr%3E%0A%09%09%09%3Cbr%3E%0A%0A%09%09%09%3Ciframe%20class%3D%22google_maps_frame_sateraito%22%20width%3D%22425%22%20height%3D%22350%22%20frameborder%3D%220%22%20scrolling%3D%22no%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%20src%3D%22%22%3E%3C%2Fiframe%3E%3Cbr%3E%0A%09%09%09%3Csmall%3E%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%AA%E5%9C%B0%E5%9B%B3%E3%81%A7%20%3Ca%20class%3D%22google_maps_link_sateraito%22%20href%3D%22%22%20style%3D%22color%3A%230000FF%3Btext-align%3Aleft%22%20target%3D%22_blank%22%3E%3C%2Fa%3E%20%E3%82%92%E8%A1%A8%E7%A4%BA%3C%2Fsmall%3E%0A%0A%09%09%09%3Cbr%3E\"}}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825677249B7Ac1SE2NbpwmvoB\",\"controls\":[{\"control_id\":\"ctr_id-1401825677249C5FaWb4xPTCfhiCR\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401825677249B7Ac1SE2NbpwmvoB\"}]},{\"secname\":\"div7\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401825690792Gznstp0okwMx9z0f\",\"controls\":[{\"control_id\":\"ctr_id-1401825159686zw23UqH7tbEHvu1m\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401825690792Gznstp0okwMx9z0f\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140604025218JIuDFKBsfINXPqzk\",\"name\":\"Branch Details\",\"controls\":[{\"control_id\":\"ctr_id-1401825159686TeCZNWnEVYxf8qLE\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"\",\"type\":\"button\",\"value\":\"Display Map\",\"onclick\":\"\\n\\n\\t\\t\\t//// It will be processed when clicking the Display Map button\\n\\n\\t\\t\\tvar form = SateraitoWF.getForm(this);\\n\\n\\t\\t\\tvar tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');\\n\\t\\t\\tvar tenpo_address_encoded = encodeURIComponent(tenpo_address);\\n\\n\\t\\t\\t// Get the address and set it to iframe's URL\\n\\n\\t\\t\\tvar src = 'https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=';\\n\\t\\t\\tsrc += tenpo_address_encoded;\\n\\t\\t\\tsrc += '&t=m&z=14&output=embed';\\n\\n\\t\\t\\t// Create URL to open Google Maps in different screen\\n\\n\\t\\t\\tvar map_link = 'https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=';\\n\\t\\t\\tmap_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));\\n\\n\\t\\t\\t// Set the URL of iframe and Google Maps link\\n\\n\\t\\t\\t$(form).find('.google_maps_frame_sateraito').attr('src', src);\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').attr('href', map_link);\\n\\n\\t\\t\\t// Set the address to the Google Maps link\\n\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').text(tenpo_address);\\n\\n\\t\\t\\t\",\"new_attrs\":\"onclick=\\n\\n\\t\\t\\t//// It will be processed when clicking the Display Map button\\n\\n\\t\\t\\tvar form = SateraitoWF.getForm(this);\\n\\n\\t\\t\\tvar tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');\\n\\t\\t\\tvar tenpo_address_encoded = encodeURIComponent(tenpo_address);\\n\\n\\t\\t\\t// Get the address and set it to iframe's URL\\n\\n\\t\\t\\tvar src = 'https://maps.google.co.jp/maps?f=q&source=s_q&hl=ja&geocode=&q=';\\n\\t\\t\\tsrc += tenpo_address_encoded;\\n\\t\\t\\tsrc += '&t=m&z=14&output=embed';\\n\\n\\t\\t\\t// Create URL to open Google Maps in different screen\\n\\n\\t\\t\\tvar map_link = 'https://maps.google.co.jp/maps?f=q&source=embed&hl=ja&geocode=&q=';\\n\\t\\t\\tmap_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));\\n\\n\\t\\t\\t// Set the URL of iframe and Google Maps link\\n\\n\\t\\t\\t$(form).find('.google_maps_frame_sateraito').attr('src', src);\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').attr('href', map_link);\\n\\n\\t\\t\\t// Set the address to the Google Maps link\\n\\n\\t\\t\\t$(form).find('.google_maps_link_sateraito').text(tenpo_address);\\n\\n\\t\\t\\t;\",\"lblname\":\"\",\"class\":\"\",\"style\":\"width:100%\"}},\"map_type_control\":\"button\",\"tag\":\"input\"}]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Branch Details
+
+  @since 2014-01-22
+-->
+<div class="container">
+  <ul class="detail">
+
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Branch Details</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Postal Number</div>
+      <div class="detail_value"><input type="text" name="tenpo_zip_code" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Prefecture</div>
+      <div class="detail_value">
+        <select name="tenpo_divisions_of_japan" style="width:100%">
+          <option value="">Please choose</option>
+          <option value="Hokkaido">Hokkaido</option>
+          <option value="Aomori">Aomori</option>
+          <option value="Iwate">Iwate</option>
+          <option value="Miyagi">Miyagi</option>
+          <option value="Akita">Akita</option>
+          <option value="Yamagata">Yamagata</option>
+          <option value="Fukushima">Fukushima</option>
+          <option value="Ibaraki">Ibaraki</option>
+          <option value="Tochigi">Tochigi</option>
+          <option value="Gunma">Gunma</option>
+          <option value="Saitama">Saitama</option>
+          <option value="Chiba">Chiba</option>
+          <option value="Tokyo">Tokyo</option>
+          <option value="Kanagawa">Kanagawa</option>
+          <option value="Niigata">Niigata</option>
+          <option value="Toyama">Toyama</option>
+          <option value="Ishikawa">Ishikawa</option>
+          <option value="Fukui">Fukui</option>
+          <option value="Yamanashi">Yamanashi</option>
+          <option value="Nagano">Nagano</option>
+          <option value="Gifu">Gifu</option>
+          <option value="Shizuoka">Shizuoka</option>
+          <option value="Aichi">Aichi</option>
+          <option value="Mie">Mie</option>
+          <option value="Shiga">Shiga</option>
+          <option value="Kyoto">Kyoto</option>
+          <option value="Osaka">Osaka</option>
+          <option value="Hyogo">Hyogo</option>
+          <option value="Nara">Nara</option>
+          <option value="Wakayama">Wakayama</option>
+          <option value="Tottori">Tottori</option>
+          <option value="Shimane">Shimane</option>
+          <option value="Okayama">Okayama</option>
+          <option value="Hiroshima">Hiroshima</option>
+          <option value="Yamaguchi">Yamaguchi</option>
+          <option value="Tokushima">Tokushima</option>
+          <option value="Kagawa">Kagawa</option>
+          <option value="Ehime">Ehime</option>
+          <option value="Kouchi">Kouchi</option>
+          <option value="Fukushima">Fukushima</option>
+          <option value="Saga">Saga</option>
+          <option value="Nagasaki">Nagasaki</option>
+          <option value="Kumamoto">Kumamoto</option>
+          <option value="Ooita">Ooita</option>
+          <option value="Miyazaki">Miyazaki</option>
+          <option value="Kagoshima">Kagoshima</option>
+          <option value="Okanawa">Okanawa</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Address</div>
+      <div class="detail_value"><input type="text" name="tenpo_address" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Phone Number</div>
+      <div class="detail_value"><input type="text" name="tenpo_tel_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Fax No</div>
+      <div class="detail_value"><input type="text" name="tenpo_fax_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Business Hours</div>
+      <div class="detail_value"><input type="text" name="tenpo_eigyo_time" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Regular Holiday</div>
+      <div class="detail_value"><input type="text" name="tenpo_teikyubi" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Parking Lot</div>
+      <div class="detail_value">
+        <input type="radio" name="tenpo_parking" value="Yes">Yes&nbsp;&nbsp;
+        <input type="radio" name="tenpo_parking" value="No">No
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Branch Information</div>
+      <div class="detail_value"><input type="text" name="tenpo_address"style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Access</div>
+      <div class="detail_value">
+        <textarea name="tenpo_access" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value">
+        <input type="button" style="width: 100%"  value="Display Map" onclick="
+
+			//// It will be processed when clicking the Display Map button
+
+			var form = SateraitoWF.getForm(this);
+
+			var tenpo_address = SateraitoWF.getFormValue(form, 'tenpo_address');
+			var tenpo_address_encoded = encodeURIComponent(tenpo_address);
+
+			// Get the address and set it to iframe's URL
+
+			var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+			src += tenpo_address_encoded;
+			src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+			// Create URL to open Google Maps in different screen
+
+			var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+			map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'tenpo_address'));
+
+			// Set the URL of iframe and Google Maps link
+
+			$(form).find('.google_maps_frame_sateraito').attr('src', src);
+			$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+
+			// Set the address to the Google Maps link
+
+			$(form).find('.google_maps_link_sateraito').text(tenpo_address);
+
+			">
+
+        <iframe class="google_maps_frame_sateraito" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src=""></iframe>
+        <br/>
+        <small>More bigger maps <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left"
+                           target="_blank"></a> will display
+        </small>
+
+        <br>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

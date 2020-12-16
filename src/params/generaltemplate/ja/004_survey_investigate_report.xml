@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[アンケート調査報告書]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  アンケート調査報告書
+
+  @since 2014-01-08
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" colspan="4" align="center"><b><input name="questionnaire" size="30">&nbsp;に関するアンケート調査結果報告書</b></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" colspan="4">
+			<input name="questionnaire_2" size="30">&nbsp;を目的に以下のとおり、アンケート調査を実施しましたのでご報告を致します。
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">アンケート実施期間</td>
+		<td class="detail_value" colspan="3">
+			<input name="questionnaire_kikan_start" class="date today_date">&nbsp;&nbsp;～&nbsp;&nbsp;
+			<input name="questionnaire_kikan_end" class="date today_date">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">アンケート方法</td>
+		<td class="detail_value" colspan="2"><input name="questionnaire_houhou" style="width:100%"></td>
+		<td><font color="blue">&nbsp;例）お店の来店者に記入してもらう</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">アンケート総数</td>
+		<td class="detail_value" colspan="3"><input name="questionnaire_sousuu"size="3" class="number">&nbsp;件&nbsp;（&nbsp;有効アンケート数&nbsp;<input name="questionnaire_yuukou_sousuu" size="3" class="number">&nbsp;件&nbsp;）</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+</table>
+
+<div class="main_content_title2">アンケート詳細</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">アンケート調査<br>目的・意図</td>
+		<td class="detail_value" colspan="3"><textarea name="questionnaire_mokuteki_ito" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%">No</th>
+		<th class="detail_head" style="width:95%">アンケート項目・内容</th>
+	<tr>
+	<tr>
+		<td class="detail_name">1</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_1" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">2</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_2" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">3</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_3" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">4</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_4" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">5</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_5" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">6</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_6" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">7</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_7" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">8</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_8" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">9</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_9" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">10</td>
+		<td class="detail_value"><input name="questionnaire_naiyo_10" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">調査結果<br>現状分析<br>現状把握</td>
+		<td class="detail_value"><textarea name="serch_kekka" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">今後の課題<br>改善課題<br>将来展望</td>
+		<td class="detail_value"><textarea name="kadai_tenbo" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">添付資料</td>
+		<td class="detail_value">
+			<input type="radio" name="tenpu_shiryo" value="無">無&nbsp;&nbsp;
+			<input type="radio" name="tenpu_shiryo" value="有">有&nbsp;&nbsp;
+			<input name="tenpu_shiryo_shosai" size="45"><font color="blue">&nbsp;例）アンケート用紙</font></td>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140526040438Mp2EjOFMvgE70hHI\",\"name\":\"アンケート調査報告書1\",\"sections\":[{\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\",\"secname\":\"アンケート調査報告書1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-140106711161103tVfHp2eqyzugGn\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"110px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401067111622BhnquHFCzArfDb4X\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"},{\"control_id\":\"ctr_id-1401067111611koQYoCnyifkMPdNw\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"110px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"},{\"control_id\":\"ctr_id-1401067111619DyRAK8yqcZstUoFf\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"110px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"}]},{\"section_id\":\"sec_id-1401067533909z0NrmOwqtLTx3UYe\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401067585951RTgcXJkdo4nYNYqf\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401067533909z0NrmOwqtLTx3UYe\"}]},{\"section_id\":\"sec_id-14010672444008Rm536XWNDRJ7hF0\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14018451826385tXhkBgxNGspZLQv\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"questionnaire\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"bold\",\"aftercontent\":\" に関するアンケート調査結果報告書\",\"name\":\"questionnaire\",\"style\":\"width:40%;margin-left:130px\",\"class\":\"\",\"new_attrs\":\"size=30\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14010672444008Rm536XWNDRJ7hF0\"}]},{\"section_id\":\"sec_id-1401068341400B7oSwZw10eERwUMs\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401068341400qrhfZq9ugUt64kQ6\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401068341400B7oSwZw10eERwUMs\"}]},{\"section_id\":\"sec_id-1401067406366j4OLueGbM3obJi8a\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401067111619ysPH1qYHg5AJ7Tkm\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" を目的に以下のとおり、アンケート調査を実施しましたのでご報告を致します。\",\"name\":\"questionnaire_2\",\"style\":\"width:30%;margin-left:20px;\",\"class\":\"\",\"new_attrs\":\"size=30;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401067406366j4OLueGbM3obJi8a\"}]},{\"section_id\":\"sec_id-1401068369151t5WPhdKwiB0zUTvY\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401068369151sKtL6sSeOES5FAfU\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401068369151t5WPhdKwiB0zUTvY\"}]},{\"section_id\":\"sec_id-1401068453214h2ujt5nDr3yB1BET\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401068552151CRteWLDmeRGDnaNU\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"アンケート実施期間\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_questionnaire_kikan\",\"style\":\"width:220px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"questionnaire_kikan_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"questionnaire_kikan_start\",\"style\":\"\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"  ～  \",\"style\":\"\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401847262882cwejEbSFcprv5Tcy\",\"map_type_control\":\"label\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"questionnaire_kikan_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"questionnaire_kikan_end\",\"style\":\"\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401068453214h2ujt5nDr3yB1BET\"},{\"control_id\":\"ctr_id-14018453386978dCoKDB079fw99zw\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"アンケート方法\",\"showlblname\":\"true\",\"widthlbl\":\"110px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 例）お店の来店者に記入してもらう\",\"name\":\"questionnaire_houhou\",\"style\":\"width:50%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401068453214h2ujt5nDr3yB1BET\"},{\"control_id\":\"ctr_id-1401069366321rwzLZ3On6ARpy3pY\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"アンケート総数\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_questionnaire_sousuu\",\"style\":\"width:280px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"questionnaire_sousuu\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" 件 （ 有効アンケート数 \",\"name\":\"questionnaire_sousuu\",\"style\":\"\",\"class\":\"number\",\"new_attrs\":\"size=3\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\",\"control_id\":\"ctr_id-1401069366322URFea4XM8GPmo32s\",\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"questionnaire_yuukou_sousuu\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\" 件 ）\",\"name\":\"questionnaire_yuukou_sousuu\",\"style\":\"\",\"class\":\"number\",\"new_attrs\":\"size=3\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-140106936632232eHTnu7nogiLC7c\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-14010671116225ZQpeXd0IPPtxnAe\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401068453214h2ujt5nDr3yB1BET\"}]},{\"section_id\":\"sec_id-1401069537756MWiUcLNezk2zOT5s\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401069537756ysCUVmBwn98oNA3Z\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401069537756MWiUcLNezk2zOT5s\"}]},{\"section_id\":\"sec_id-1401069468790wGKF7Ncc7xtASK2Y\",\"secname\":\"アンケート詳細\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401067111620EqPhNb2yk1Q1KWa6\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"アンケート調査目的・意図\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_mokuteki_ito\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401069468790wGKF7Ncc7xtASK2Y\"}]},{\"section_id\":\"sec_id-1401069558463Mr4PcKipLyKwq1xi\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401069558463c0ox4fTiyQW4U7hv\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401069558463Mr4PcKipLyKwq1xi\"}]},{\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\",\"secname\":\"div4\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"アンケート項目・内容\",\"width\":\"95%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"\"}},\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677416AbbGHdt7caOc1q5L\",\"pos_col\":1,\"pos_row\":1},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677416v35PMAbLdBwAPqfY\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677416gQpcEXjjvs3RI06S\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677416JRSYbEEaEiHsHFW9\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14010696774164vAqSHZwHfenJPPY\",\"pos_col\":1,\"pos_row\":5},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"6\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677417eN5FdapvRKaqKCXn\",\"pos_col\":1,\"pos_row\":6},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"7\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677417fxOZ8U8BbZDAviHJ\",\"pos_col\":1,\"pos_row\":7},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"8\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677417IOwwS87eUobKuNQL\",\"pos_col\":1,\"pos_row\":8},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"9\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677417dyD07oNrWj4e1g6L\",\"pos_col\":1,\"pos_row\":9},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"10\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401069677417UdDVrXMu8ENcOx4w\",\"pos_col\":1,\"pos_row\":10},{\"control_id\":\"ctr_id-1401067111620bB7o3UK9nHXGJUDI\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_1\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620pmapwQJBkr35n3U9\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620RzEaMsefB8JVYk7U\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_3\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620o5BdJpDScDX4OM2A\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_4\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620sJtVHqff29kBuZhN\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_5\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620yzznLY8wSv9KMhNv\",\"pos_row\":6,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_6\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620dFD0VuQnZkz0mjji\",\"pos_row\":7,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_7\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620Q4jX8ofajqpUYkLn\",\"pos_row\":8,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_8\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620qxLoekZnfbPwmmXr\",\"pos_row\":9,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_9\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"},{\"control_id\":\"ctr_id-1401067111620kTdiINU6exWf2Rin\",\"pos_row\":10,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"questionnaire_naiyo_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"questionnaire_naiyo_10\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401069608511TCx4XzK0Sq1tC7ri\"}]},{\"section_id\":\"sec_id-14010699055950am2f8BRNpaKk2WF\",\"secname\":\"space6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401069905595T6UVYDM1yG3xWA5C\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14010699055950am2f8BRNpaKk2WF\"}]},{\"section_id\":\"sec_id-1401069937658mGrpk49eAAKXdC1H\",\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401067111620nyieFfGSUDfsDIxL\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"調査結果　　　　　現状分析　　　　　現状把握\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"serch_kekka\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401069937658mGrpk49eAAKXdC1H\"},{\"control_id\":\"ctr_id-1401067111620Su2LXVTxLUXT9C2B\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"今後の課題　　　　改善課題　　　　　将来展望\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"kadai_tenbo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401069937658mGrpk49eAAKXdC1H\"}]},{\"section_id\":\"sec_id-1401070122403EIRFTikVPRsEZmRO\",\"secname\":\"div6\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"30%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"70%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"無\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=無;\",\"value\":\"無\",\"name\":\"tenpu_shiryo\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"有\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=有;\",\"value\":\"有\",\"name\":\"tenpu_shiryo\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"添付資料\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tenpu_shiryo\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401067111622UiLK9kfQFhavkETK\",\"map_type_control\":\"radiogroup\",\"pos_row\":1,\"pos_col\":1,\"section_id\":\"sec_id-1401070122403EIRFTikVPRsEZmRO\"},{\"control_id\":\"ctr_id-1401845477184MXLUxTYU5Gt7hK59\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"tenpu_shiryo_shosai\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"  例）アンケート用紙\",\"name\":\"tenpu_shiryo_shosai\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"size=45\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401070122403EIRFTikVPRsEZmRO\"}]},{\"section_id\":\"sec_id-1401070239714g9tSdXFgctS2OG4L\",\"secname\":\"div7\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401067111621oX0qRMTtRi1TW9YZ\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"110px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401070239714g9tSdXFgctS2OG4L\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140526040438Mp2EjOFMvgE70hHI\",\"name\":\"アンケート調査報告書1\",\"controls\":[]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+
+  <template_body_for_mobile><![CDATA[<!--
+     アンケート調査報告書
+
+  @since 2014-01-08
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width: 100%"></div>
+    </li>
+    <li>
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width: 100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input
+        type="radio" name="priority" value="normal" checked>普通</label></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value">
+        <input type="text" name="document_type" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value">
+        <input type="text" name="questionnaire" style="width: 100%">
+      </div>
+      <div class="detail_name text_detail">
+        に関するアンケート調査結果報告書
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value">
+        <input type="text" name="questionnaire_2" style="width: 100%">
+      </div>
+      <div class="detail_name text_detail">
+        を目的に以下のとおり、アンケート調査を実施しましたのでご報告を致します。
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">アンケート実施期間</div>
+      <div class="detail_value">
+        <input type="text" name="questionnaire_kikan_start" class="date today_date">&nbsp;~&nbsp;
+        <input type="text" name="questionnaire_kikan_end" class="date today_date">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">アンケート方法</div>
+      <div class="detail_value"><input type="text" name="questionnaire_houhou" style="width:100%"></div>
+      <div class="text_detail"><font color="blue">&nbsp;例）お店の来店者に記入してもらう</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">アンケート総数</div>
+      <div class="detail_value"><input type="text" name="questionnaire_sousuu"
+                                       class="number" style="width:30%">&nbsp;件&nbsp;（&nbsp;有効アンケート数&nbsp;<input
+        name="questionnaire_yuukou_sousuu" class="number" style="width:30%">&nbsp;件&nbsp;）
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">アンケート詳細</div>
+<div class="container">
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">アンケート調査目的・意図</div>
+      <div class="detail_value">
+        <textarea name="questionnaire_mokuteki_ito" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_head" style="width:5%">No</div>
+      <div class="detail_head" style="width:95%">アンケート項目・内容</div>
+    <li>
+    <li class="row">
+      <div class="detail_name">1</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_1" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">2</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_2" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">3</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_3" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">4</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_4" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">5</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_5" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">6</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_6" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">7</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_7" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">8</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_8" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">9</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_9" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">10</div>
+      <div class="detail_value"><input type="text" name="questionnaire_naiyo_10" style="width:100%"></div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">調査結果現状分析現状把握</div>
+      <div class="detail_value"><textarea name="serch_kekka" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">今後の課題改善課題将来展望</div>
+      <div class="detail_value"><textarea name="kadai_tenbo" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">添付資料</div>
+      <div class="detail_value">
+        <input type="radio" name="tenpu_shiryo" value="無">無&nbsp;&nbsp;
+        <input type="radio" name="tenpu_shiryo" value="有">有&nbsp;&nbsp;
+        <input type="text" name="tenpu_shiryo_shosai" style="width:100%">
+      </div>
+      <div class="text_detail">
+        <font color="blue">&nbsp;例）アンケート用紙</font>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

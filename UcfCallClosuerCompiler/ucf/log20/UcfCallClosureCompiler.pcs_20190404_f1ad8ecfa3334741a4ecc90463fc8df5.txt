@@ -1,0 +1,33 @@
+﻿[2019/04/04 12:17:22] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/04/04 12:17:22] Create message python file...:c:\Users\chun\PycharmProjects\sateraito-logging\src\sateraito_message.py
+[2019/04/04 12:17:23] [Compile Start]ajax.js
+[2019/04/04 12:17:27] [Compile Start]common.js
+[2019/04/04 12:17:29] [Compile Start]jkmegamenu.js
+[2019/04/04 12:17:31] [Compile Start]jquery.crossSelect.js
+[2019/04/04 12:17:33] [Compile Start]jquery.blockUI.js
+[2019/04/04 12:17:36] [Compile Start]json.js
+[2019/04/04 12:17:38] [Compile Start]ucfext.file.js
+[2019/04/04 12:17:40] [Compile Start]ucfext.js
+[2019/04/04 12:17:43] [Compile Start]ucfext_operator.js
+[2019/04/04 12:17:45] [Compile Start]ucfext_acslog.js
+[2019/04/04 12:17:46] [Compile Start]ucfext_operationlog.js
+[2019/04/04 12:17:48] [Compile Start]ucfext_config.js
+[2019/04/04 12:17:51] [Compile Start]ucfext_task.js
+[2019/04/04 12:17:54] [Compile Start]ucfext_field.js
+[2019/04/04 12:17:56] [Compile Start]ucfext_loginfo.js
+[2019/04/04 12:17:58] [Compile Start]ucfext_api.js
+[2019/04/04 12:18:00] [Compile Start]ucfext.strength.js
+[2019/04/04 12:18:02] [Compile Start]xmleditor.js
+[2019/04/04 12:18:04] [Compile Start]init_backstretch.js
+[2019/04/04 12:18:06] [Compile Start]ext\PasswordStrength.js
+[2019/04/04 12:18:07] [Compile Start]ext\PopupGroupList.js
+[2019/04/04 12:18:09] [Compile Start]ext\PopupOrgUnitList.js
+[2019/04/04 12:18:11] [Compile Start]ext\SecurityKeyboard.js
+[2019/04/04 12:18:13] [Compile Start]ext\ucf_element_selector.js
+[2019/04/04 12:18:15] [Compile Start]lang\default.js
+[2019/04/04 12:18:17] [Compile Start]lang\ja.js
+[2019/04/04 12:18:19] [Compile Start]lang\en.js
+[2019/04/04 12:18:20] Expand Jinja Templates include files...
+[2019/04/04 12:18:20] Src:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates
+[2019/04/04 12:18:21] Dst:c:\Users\chun\PycharmProjects\sateraito-logging\src\templates_automatically
+[2019/04/04 12:18:21] Expand Jinja Templates include files fin.

@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis" />
+-#}
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=UTF-8" />
+
+<title>{{lang.VMSG_SITE_TITLE_PERSONAL}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+<a name="top"></a>
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+<hr color="#0085ce">
+
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+{% if mypage_links.mypage_links_ck_mydomain or exist_custom_links: %}
+{%if not exist_custom_links: %}
+<font color="green">��</font><b><font color="#06c">{{lang.MYPAGE_GW_TITLE|safe}}</font></b><br/>
+{% endif %}
+{% endif %}
+
+{% if mypage_links.mypage_links_ck_mydomain: %}
+<a href="{{mypage_links.mypage_links_lk_mydomain}}" ><img src="/images/x/ic_salesforce.png" alt="{{lang.FLD_MYPAGE_LINKS_MYDOMAIN}}" width="75px" height="75px" /></a>
+{% endif %}
+
+{%if exist_custom_links: %}
+{% for link in custom_links: %}
+{% if link.icon and link.icon != '': %}
+<a href="{{link.url}}"><img src="{{vurl}}picture/icon/{{link.icon}}" border="0" alt="{{link.name}}" width="75px" height="75px" ></img></a>
+{% else: %}
+<a href="{{link.url}}">{{link.name}}</a>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<br/>
+<br/>
+
+{% if ucfp.data.is_available_password_change: %}
+<a href="{{vurl}}personal/password/">{{lang.VMSG_PERSONAL_PASSWORDCHANGE}}</a><br/>
+{{lang.VMSG_PERSONAL_PASSWORDCHANGE_EXP1|safe}}
+<br/>
+{% endif %}
+{% if ucfp.data.is_available_matrixauth: %}
+<a href="{{vurl}}personal/otp/">{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE}}</a><br/>
+{{lang.VMSG_PERSONAL_MATRIXAUTH_PINCODE_CHANGE_EXP1|safe}}
+<br/>
+{% endif %}
+{% if ucfp.data.is_available_sub_mailaddress_regist and dept.hide_regist_sub_mail_address_link_flag != 'HIDDEN': %}
+<a href="{{vurl}}personal/minfo/">{{lang.VMSG_PERSONAL_SUBMAILADDRESS}}</a><br/>
+{{lang.VMSG_PERSONAL_SUBMAILADDRESS_EXP1|safe}}
+<br/>
+{% endif %}
+{% if ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN': %}
+<a href="{{vurl}}personal/minfo/">{{lang.VMSG_PERSONAL_ACCESSAPPLY}}</a><br/>
+{{lang.VMSG_PERSONAL_ACCESSAPPLY_EXP1|safe}}
+<br/>
+{% endif %}
+
+</div>
+</div>
+<!-- MainBox//end -->
+<hr color="#0085ce" />
+{#
+<div align="left">{{mini_pr|safe}}</div>
+{% if show_upgrade_link: %}
+<div align="left">
+<a href="http://goo.gl/A2fmz" target="_blank" style="color:red;text-decoration:none;font-weight:bold;font-size:12px;margin:2px;">{{lang.MSG_UPGRADE}}</a>
+</div>
+{% endif %}
+#}
+<div align="right"><font color="#0085ce">▲</font><a href="{{vurl}}personal/">{{lang.VMSG_TO_PERSONAL}}</a>&nbsp;<font color="#0085ce">▲</font><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></div>
+Copyright &copy; All rights reserved by Sateraito Office, Inc.
+
+
+</body>
+</html>

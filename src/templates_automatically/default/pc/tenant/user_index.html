@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{ vscripturl|safe }}base64.js?{{ version|safe }}"></script>
+<script type="text/javascript" src="{{vscripturl}}CheckColumn.js"></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_search.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_user.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<!-- <title>{{lang.VMSG_SITE_TITLE_USER}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_USER}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+
+		var each_page_cnt = 20;
+		var store;
+
+		function goEditPage(unique_id)
+		{
+			window.location.href = '{{vurl}}user/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
+		}
+		
+		function getSearchBaseParam(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+				Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+							,sk_search_type:Ext.ucf.getElementValue('sk_search_type')
+							,sk_keyword:Ext.ucf.getElementValue('sk_keyword')
+						};
+			
+			return params;
+		}
+
+        function getSearchBaseParam2(scond)
+        {
+            var start = 0;
+            // 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+            if(scond)
+            {
+                start = parseInt(scond['start'], 0);
+                //document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+                //Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+            }
+
+
+            var record_count = $('#total_records').val();
+            if (record_count=='') record_count='0';
+
+            var params = {start:start, limit: each_page_cnt
+                            ,'record_count': record_count
+                            ,sk_search_type:'fulltext'
+                            ,sk_keyword:''
+                            ,sk_user_id:Ext.getCmp('user_id').getValue()
+                            ,sk_mail_address:Ext.getCmp('mail_address').getValue()
+                            ,sk_last_name:Ext.getCmp('last_name').getValue()
+                            ,sk_first_name:Ext.getCmp('first_name').getValue()
+                            ,sk_first_name_kana:Ext.getCmp('first_name_kana').getValue()
+                            ,sk_last_name_kana:Ext.getCmp('last_name_kana').getValue()
+                            ,sk_contact_postal_country:Ext.getCmp('contact_postal_country').getValue()
+                            ,sk_contact_postal_code:Ext.getCmp('contact_postal_code').getValue()
+                            ,sk_contact_postal_prefecture:Ext.getCmp('contact_postal_prefecture').getValue()
+                            ,sk_contact_postal_city:Ext.getCmp('contact_postal_city').getValue()
+                        };
+
+            return params;
+        }
+		
+		function search(psc)
+		{
+			Ext.ucf.search(psc, store, getSearchBaseParam2, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_USER_LIST}}');
+		}
+		
+
+		function vh_user_id(value, p, record)
+		{
+			var html = '';
+			html += '<a href="{{vurl}}user/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
+			return html;
+		}
+		
+		function vh_basic(value, p, record)
+		{
+			var html = '';
+			html += Ext.ucf.htmlEscape(value);
+			return html;
+		}
+		function vh_access_authority(value, p, record)
+		{
+			var html = '';
+			var result = Ext.ucf.user.viewHelper('access_authority', value);
+			if(result.is_html){
+				html = result.value;
+			}else{
+				html = Ext.ucf.htmlEscape(result.value);
+			}
+			return html;
+		}
+		
+		function vh_account_stop_flag(value, p, record)
+		{
+			var disp = '';
+			for(i = 0; i < Ext.ucf.user.DatAccountStopFlag.length; i++)
+			{
+				if(Ext.ucf.user.DatAccountStopFlag[i][0] == value){
+					disp = Ext.ucf.htmlEscape(Ext.ucf.user.DatAccountStopFlag[i][1]);
+					break;
+				}
+			}
+			var html = '';
+			html += disp;
+//			html += Ext.ucf.getHiddenHtml('invalid_flag', record.get('unique_id'), value);
+			return html;
+		}
+		
+		function vh_login_lock_flag(value, p, record)
+		{
+			var disp = '';
+			for(i = 0; i < Ext.ucf.user.DatLoginLockFlag.length; i++)
+			{
+				if(Ext.ucf.user.DatLoginLockFlag[i][0] == value){
+					disp = Ext.ucf.htmlEscape(Ext.ucf.user.DatLoginLockFlag[i][1]);
+					break;
+				}
+			}
+			var html = '';
+			html += disp;
+//			html += Ext.ucf.getHiddenHtml('invalid_flag', record.get('unique_id'), value);
+			return html;
+		}
+
+		function vhSave(value, p, record)
+		{
+			return '<input type="button" value="" class="btnSave" onclick="JavaScript:saveAccountInfo(\'' + value + '\');" />';
+		}
+		
+		function vhEdit(value, p, record)
+		{
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
+		}
+		
+		function updateLumpAccountInfo(unique_id_list, tpupd, value)
+		{
+			var handleAfterProcess = function(response){
+				if (response.responseXML != undefined) { 
+					var query = Ext.DomQuery;
+					var nodRoot = response.responseXML;
+					var code = Ext.ucf.getInnerText(query.selectNode('ReturnCode', nodRoot));
+					Ext.ucf.dispUpdateMsgByReturnCode(code, nodRoot);
+					// 正常時処理
+					if(code == '0'){
+						search();
+					}
+				}
+				else
+				{
+					Ext.ucf.dispSysErrMsg();
+				}
+				mask.hide();
+			}
+			var params = {
+				UNIQUE_IDS:unique_id_list
+				,TYPE:tpupd
+				,VALUE:value
+			};
+			
+			var mask = new Ext.LoadMask(Ext.get('GridList'), {msg:"{{lang.VMSG_MSG_UPDATING}}"});
+			mask.show();
+			
+		  Ext.Ajax.request({ 
+		    url: '{{vurl}}user/xtlumpupdate'
+		    ,method: "POST"
+		    ,params: params
+		    ,success: handleAfterProcess
+		    ,failure: handleAfterProcess
+		  }); 
+		}
+
+        function createSearchCondFields()
+        {
+        // {#	var lst_sk_search_type = [];#}
+        // {#	lst_sk_search_type.push(['user_id','{{lang.FLD_USERID|safe|escapejs}}']);#}
+        // {#	lst_sk_search_type.push(['fulltext','{{lang.FULLTEXT_SEARCH|safe|escapejs}}']);#}
+        // {##}
+        // {#	var field_sk_search_type = Ext.ucf.field.createComboBox('id_sk_search_type', 'sk_search_type', lst_sk_search_type, 'user_id', '{{lang.SEARCH_CONDITION|safe|escapejs}}', 150, null);#}
+        // {#	field_sk_search_type.render('FIELD_sk_search_type');#}
+        // {#	var field_sk_keyword = Ext.ucf.field.createTextField('sk_keyword', 'sk_keyword', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);#}
+        // {#	field_sk_keyword.render('FIELD_sk_keyword');#}
+
+            // ユーザID
+            var field_user_id = Ext.ucf.field.createTextField('user_id', 'user_id', '', '{{lang.FLD_USERID}}', 200);
+            field_user_id.render('FIELD_user_id');
+
+
+            // メールアドレス
+            var field_mail_address = Ext.ucf.field.createTextField('mail_address', 'mail_address', '', '{{lang.FLD_MAILADDRESS}}', 200);
+            field_mail_address.render('FIELD_mail_address');
+
+            // 姓
+            var field_last_name = Ext.ucf.field.createTextField('last_name', 'last_name', '', '{{lang.FLD_LASTNAME}}', 200);
+            field_last_name.render('FIELD_last_name');
+
+            // 名
+            var field_first_name = Ext.ucf.field.createTextField('first_name', 'first_name', '', '{{lang.FLD_FIRSTNAME}}', 200);
+            field_first_name.render('FIELD_first_name');
+
+            // 姓カナ
+            var field_last_name_kana = Ext.ucf.field.createTextField('last_name_kana', 'last_name_kana', '', '{{lang.FLD_LASTNAME_KANA}}', 200);
+            field_last_name_kana.render('FIELD_last_name_kana');
+
+            // 名カナ
+            var field_first_name_kana = Ext.ucf.field.createTextField('first_name_kana', 'first_name_kana', '', '{{lang.FLD_FIRSTNAME_KANA}}', 200);
+            field_first_name_kana.render('FIELD_first_name_kana');
+
+            // 連絡先：国、地域
+            var field_contact_postal_country = Ext.ucf.field.createTextField('contact_postal_country', 'contact_postal_country', '', '{{lang.FLD_CONTACT_COUNTRY}}', 200);
+            field_contact_postal_country.render('FIELD_contact_postal_country');
+
+            // 連絡先：郵便番号
+            var field_contact_postal_code = Ext.ucf.field.createTextField('contact_postal_code', 'contact_postal_code', '', '{{lang.FLD_CONTACT_POSTAL_CODE}}', 90);
+            field_contact_postal_code.render('FIELD_contact_postal_code');
+
+            // 連絡先：住所１（都道府県）
+            var field_contact_postal_prefecture = Ext.ucf.field.createTextField('contact_postal_prefecture', 'contact_postal_prefecture', '', '{{lang.FLD_CONTACT_POSTAL_PREFECTURE}}', 200);
+            field_contact_postal_prefecture.render('FIELD_contact_postal_prefecture');
+
+            // 連絡先：住所２（市区町村）
+            var field_contact_postal_city = Ext.ucf.field.createTextField('contact_postal_city', 'contact_postal_city', '', '{{lang.FLD_CONTACT_POSTAL_CITY}}', 200);
+            field_contact_postal_city.render('FIELD_contact_postal_city');
+        }
+
+function createColumnsModel(){
+
+    Ext.ucf.user.GetSettingReport(function (aResult) {
+
+        var cols = [];
+        var colsToShow = aResult.colsToShow;
+
+        var sm = new Ext.grid.CheckboxSelectionModel({});
+	    cols.push(sm);
+
+        if (colsToShow!='') {
+            var columns = Ext.decode(colsToShow);
+            Ext.each(columns, function (aEntry) {
+                cols.push({
+                    header: aEntry.header,
+                    dataIndex: aEntry.field,
+                    width: aEntry.width,
+// {#                    sortable: false,#}
+// {#                    renderer: vh_user_id#}
+                });
+            });
+        }
+
+        var cm = new Ext.grid.ColumnModel({
+            columns: cols
+        });
+
+        return cm
+    })
+}
+
+function getRender(name){
+    if (name=='user_id') return vh_user_id;
+    return vh_basic;
+}
+
+</script>
+<script type="text/javascript" >
+
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+    //createColumnsModel();
+
+	createSearchCondFields();
+
+
+   var colsToShow ='{{colsToShow|escapejs}}'; //jQuery.parseJSON('{{colsToShow|escapejs}}');
+   var AccountInfo = Ext.data.Record.create([
+       {name: 'unique_id', type: 'string', mapping: 'unique_id'}
+       ,{name: 'user_id', type: 'string'}
+       ,{name: 'employee_id', type: 'string'}
+       ,{name: 'lineworks_id', type: 'string'}
+       ,{name: 'line_id', type: 'string'}
+       ,{name: 'facebookworkplace_id', type: 'string'}
+       ,{name: 'facebook_id', type: 'string'}
+       ,{name: 'mail_address', type: 'string'}
+       ,{name: 'display_name', type: 'string'}
+       ,{name: 'display_name_kana', type: 'string'}
+       ,{name: 'birthday', type: 'string'}
+       ,{name: 'comment', type: 'string'}
+       ,{name: 'contact_company', type: 'string'}
+       ,{name: 'contact_company_office', type: 'string'}
+       ,{name: 'contact_company_department', type: 'string'}
+       ,{name: 'contact_company_department2', type: 'string'}
+       ,{name: 'contact_company_post', type: 'string'}
+       ,{name: 'contact_email1', type: 'string'}
+       ,{name: 'contact_email2', type: 'string'}
+       ,{name: 'contact_tel_no1', type: 'string'}
+       ,{name: 'contact_tel_no2', type: 'string'}
+       ,{name: 'contact_tel_no3', type: 'string'}
+       ,{name: 'contact_tel_no4', type: 'string'}
+       ,{name: 'contact_tel_no5', type: 'string'}
+       ,{name: 'contact_postal_country', type: 'string'}
+       ,{name: 'contact_postal_code', type: 'string'}
+       ,{name: 'contact_postal_prefecture', type: 'string'}
+       ,{name: 'contact_postal_city', type: 'string'}
+       ,{name: 'contact_postal_street_address', type: 'string'}
+   ]);
+   store = new Ext.data.Store({
+       reader: new Ext.data.JsonReader({
+           idProperty: 'unique_id', root: 'records', totalProperty: 'all_count'
+       }, AccountInfo),
+       url: '{{vurl}}user/search',
+       autoDestroy: true
+   });
+
+  //  {#store = new Ext.data.Store({#}
+  //  {#			reader: new Ext.data.JsonReader({#}
+  //  {#						idProperty: 'unique_id'#}
+  //  {#						,root: 'records'#}
+  //  {#						,totalProperty: 'all_count'#}
+  //  {#						}, AccountInfo),#}
+  //  {#	    url: '{{vurl}}user/xtlist',#}
+  //  {#			autoDestroy:true#}
+  //  {#  }); #}
+
+
+   // Storeのロード後のイベントハンドラを追加
+   store.on('load', function (s, records, options) {
+       Ext.Ajax.request({url: '{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_USER_LIST}}', method: 'POST', params: options.params, failure: function (response) {
+           Ext.ucf.dispSysErrMsg();
+       }}); 	// 検索条件をセット
+
+       //update total record
+       if (s.reader.jsonData.start == 0) {
+           $('#total_records').val(s.reader.jsonData.all_count);
+       }
+   });
+
+   var btnReflesh = new Ext.Button({
+       iconCls: 'reflesh',
+       handler: search
+   });
+
+
+   var btnSetting = new Ext.Button({
+       id: 'setting_influenza_confirm_button',
+       text: _msg.SETTING_CONFIRM,
+       icon: '/images/setting.png',
+       //margins: {top:0, right:2, bottom:0, left:2},
+       listeners: {
+           click: function () {
+               //Setting.showWindow(InfluenzaConfirmPanel.type)
+               Ext.ucf.user.showColumnSetting()
+           }
+       }
+   });
+
+  var sLimitCB = new Ext.ucf.searchLimitComboBox(
+    [each_page_cnt, 50, 100]
+    , {
+        'select': function (cb, record, index) {
+            each_page_cnt = cb.value;
+            pagingBar.pageSize = each_page_cnt;
+            search();
+        }
+  });
+   each_page_cnt = sLimitCB.value;
+
+   var pagingBar = new Ext.PagingToolbar({
+       pageSize: each_page_cnt,
+       store: store,
+       displayInfo: true,
+       displayMsg: _msg.PAGING_BAR,
+       emptyMsg: _msg.NO_DISP_DATA,
+       items: [
+           '->', '-', _msg.DISP_COUNT, sLimitCB
+       ]
+   });
+
+  var toolBar = new Ext.Toolbar({
+      items: [
+          btnReflesh
+          , '-'
+          , {
+              text: '{{lang.VMSG_USER_ADD}}',
+              handler: function () {
+                  (new Ext.LoadMask(Ext.get('contentsArea'), {msg: "{{lang.VMSG_MSG_ACCESSING}}"})).show();
+                  window.location.href = '{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}';
+              }
+          } 
+          , '-'
+          , '->'
+          , '-'
+          , btnSetting
+      ]
+  });
+
+   var colIndex = 0;
+   var cols = [];
+   var sm = new Ext.grid.CheckboxSelectionModel({});
+    cols.push(sm);
+    var columns = Ext.decode(colsToShow);
+    Ext.each(columns, function (aEntry) {
+        cols.push({
+            header: aEntry.header,
+            dataIndex: aEntry.field,
+            width: aEntry.width,
+            sortable: false,
+            renderer: getRender(aEntry.field)
+        });
+
+        colIndex++;
+    });
+
+    //add col edit
+    cols.push({
+           header: '',
+           dataIndex: 'unique_id',
+           hidden: false,
+           width: 20,
+           sortable: false,
+           renderer: vhEdit
+       });
+
+    var cm = new Ext.grid.ColumnModel({
+        columns: cols
+    });
+
+   var grid = new Ext.grid.EditorGridPanel({
+       id: 'grid_user_list',
+       store: store,
+//      width: 600,
+       region: 'center',
+       clicksToEdit: 1,
+       columnLines: true,
+       loadMask: true,
+       viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+       stripeRows: true,
+       bbar: pagingBar,
+       tbar: toolBar,
+       sm: sm,
+       cm: cm
+   });
+   // パネルにユーザ一覧グリッドをセット
+   var layout = new Ext.Panel({
+       collapsible: true,
+       title: '{{lang.VMSG_USER_LIST}}',
+       layout: 'border',
+       waitMsgTarget: true,
+       monitorResize: true,
+       layoutConfig: {
+           columns: 1
+       },
+       height: 600,
+       items: [grid]
+   });
+   layout.render(Ext.get('GridList'));
+
+
+  // 検索（ページ遷移初回は前回の条件を使用して検索）
+   search(true);
+
+	
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'));
+	
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+	var export_history = Ext.ucf.file.createExportHistoryGridPanel('exportusercsv',{panel_title:'{{lang.USERCSV_EXPORT_HISTORY}}',mask_area:'GridExportHistory'},[]);
+	export_history.render('GridExportHistory');
+	var import_history = Ext.ucf.file.createImportHistoryGridPanel('importusercsv',{panel_title:'{{lang.USERCSV_IMPORT_HISTORY}}', popup_panel_title:'{{lang.SELECT_USERCSV}}',mask_area:'GridImportHistory'});
+	import_history.render('GridImportHistory');
+
+	var import_changeid = Ext.ucf.file.createImportHistoryGridPanel('importchangeuseridcsv',{panel_title:'{{lang.CHANGEUSERIDCSV_IMPORT_HISTORY|safe|escapejs}}', popup_panel_title:'{{lang.SELECT_CHANGEUSERIDCSV|safe|escapejs}}',mask_area:'GridImportChangeUserID'});
+	import_changeid.render('GridImportChangeUserID');
+
+  // 各セクションの開閉状態の初期化（設定によるものではなくユーザーが開閉を選択するもの）※予期せぬ動作不備を避けるため一番最後に行う
+	Ext.ucf.initShowOrHideSections();
+});
+
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_USER_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl}}user/" >{{lang.VMSG_USER_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_USER_ADD}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}user/#USER_CSV_EXPORT" >{{lang.VMSG_USER_CSV_EXPORT}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LUMP_UPDATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}user/#USER_CSV_IMPORT" >{{lang.VMSG_USER_CSV_IMPORT}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SHORTCUT|safe}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'DASHBOARD' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}" >{{lang.VMSG_DASHBOARD|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'CATEGORYMASTER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'FAQMASTER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'DICTIONARY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/log" >{{lang.VMSG_LOGINHISTORY|safe}}</a></li>
+{% if is_available_ssoclient_access_log and 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'ACCESSPAGELOG' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/pagelog" >{{lang.VMSG_ACCESSPAGELOG|safe}}</a></li>
+{% endif %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+
+{% if 'OPERATOR' in login.access_authority: %}
+{% for operator in login.delegate_function %}
+{% if operator == 'CATEGORYMASTER' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG|safe}}</a></li>{% endif %}
+{% if operator == 'FAQMASTER' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG|safe}}</a></li>{% endif %}
+{% if operator == 'DICTIONARY' %}<li class="{% if ucfp.data.leftmenuid == '{{operator}}' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG|safe}}</a></li>{% endif %}
+{% endfor %}
+{% endif %}
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/user_32.png"></span>
+<p class="ttl">{{lang.VMSG_USER}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class=" layout_td layout_td_all2" >
+      <div class="main_content_title2 section_area_title" section_show_hide_area_id="AREA_search_config" style="cursor:pointer;text-align:left" init_display="show"><a name="LINEAPI">{{lang.VMSG_SEARCH|safe}}</a><img class="section_arrow_img" /></div>
+{#      <div class="main_content_title2" section_show_hide_area_id="AREA_LineAPI_config" style="cursor:pointer;text-align:left" init_display="show">{{lang.VMSG_SEARCH}}</div>#}
+
+	  <form onsubmit="JavaScript:search();return false;" id="AREA_search_config">
+          <input type="hidden" value="0" id="total_records"/>
+<!-- {#            <table class="search_table" >#}
+{#        <tr>#}
+{#          <th>{{lang.SEARCH_CONDITION|safe}}：</th>#}
+{#          <td>#}
+{#					<div id="FIELD_sk_search_type" class="field" ></div>#}
+{#					</td>#}
+{#          <th></th>#}
+{#          <td>&nbsp;&nbsp;</td>#}
+{#          <td>#}
+{#					<div id="FIELD_sk_keyword" class="field" ></div>#}
+{#					</td>#}
+{#          <th></th>#}
+{#          <td>&nbsp;&nbsp;</td>#}
+{#          <th></th>#}
+{#          <td>#}
+{#					</td>#}
+{#          <th></th>#}
+{#          #}
+{#          <td><div id="btnSearch" /></td>#}
+{#          #}
+{#        </tr>#}
+{#			</table>#} -->
+      <div class="search_table">
+        <div class="filter-cmp">
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_USERID}} </label>
+              <div id="FIELD_user_id" class="input-cmp"></div>
+            </div>
+          </div>
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_MAILADDRESS}} </label>
+              <div id="FIELD_mail_address" class="input-cmp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-cmp">
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_LASTNAME}} </label>
+              <div id="FIELD_last_name" class="input-cmp"></div>
+            </div>
+          </div>
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_FIRSTNAME}} </label>
+              <div id="FIELD_first_name" class="input-cmp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-cmp">
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_LASTNAME_KANA}} </label>
+              <div id="FIELD_last_name_kana" class="input-cmp"></div>
+            </div>
+          </div>
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_FIRSTNAME_KANA}} </label>
+              <div id="FIELD_first_name_kana" class="input-cmp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-cmp">
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_CONTACT_POSTAL_COUNTRY}} </label>
+              <div id="FIELD_contact_postal_country" class="input-cmp"></div>
+            </div>
+          </div>
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_CONTACT_POSTAL_CODE}} </label>
+              <div id="FIELD_contact_postal_code" class="input-cmp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-cmp">
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_CONTACT_POSTAL_PREFECTURE}} </label>
+              <div id="FIELD_contact_postal_prefecture" class="input-cmp"></div>
+            </div>
+          </div>
+          <div class="text-feild item-filter">
+            <div class="form-group">
+              <label for="">{{lang.FLD_CONTACT_POSTAL_CITY}} </label>
+              <div id="FIELD_contact_postal_city" class="input-cmp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="act-filter">
+            <div id="btnSearch"></div>
+        </div>
+      </div>
+
+	  </form>
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="GridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+<div class="innerArea01">
+  <a name="USER_CSV_EXPORT" ></a>
+    <span class="span_icon"><img src="/images/icons/export_32_green.png"></span>
+    <p class="ttl" style="padding-left:40px;">{{lang.VMSG_USER_CSV_EXPORT}}</p>
+  <table class="acs_layout" >
+  <tr>
+    <td>
+      <p>{{lang.EXP_USER_CSV_EXPORT|safe}}</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div id="GridExportHistory" ></div>
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  </table>
+</div>
+<div class="innerArea01">
+  <a name="USER_CSV_IMPORT" ></a>
+  <span class="span_icon"><img src="/images/icons/import_32_green.png"></span>
+  <p class="ttl" style="padding-left:40px;">{{lang.VMSG_USER_CSV_IMPORT}}</p>
+  <table class="acs_layout" >
+  <tr>
+    <td>
+      <p>{{lang.EXP_USER_CSV_IMPORT|safe}}&nbsp;
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.CLICK_HERE_FOR_DETAILS|safe}}</a>
+	</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div id="GridImportHistory" ></div>
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  </table>
+</div>
+<div class="innerArea01">
+  <a name="CHANGEUSERID_CSV_IMPORT" ></a>
+    <span class="span_icon"><img src="/images/icons/import_32_green.png"></span>
+    <p class="ttl" style="padding-left:40px;">{{lang.VMSG_CHANGEUSERID_CSV_IMPORT|safe}}</p>
+  <table class="acs_layout" >
+  <tr>
+    <td>
+      <p>{{lang.EXP_CHANGEUSERID_CSV_IMPORT|safe}}&nbsp;
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.CLICK_HERE_FOR_DETAILS|safe}}</a>
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div id="GridImportChangeUserID" ></div>
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  </table>
+</div>
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FILEUP_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li style="margin-top:2px;"><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

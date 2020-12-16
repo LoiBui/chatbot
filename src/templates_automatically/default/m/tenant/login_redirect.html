@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis" />
+-#}
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=UTF-8" />
+
+<title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body vlink="#800080" bgcolor="#FFFFFF" onLoad="JavaScript:location.href='{{url}}';" >
+<a name="top"></a>
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+<hr color="#0085ce">
+
+<font size="3" color="#0085ce"><b>■</b></font><font size="3" color="#00AA99" ><b>Login...</b></font>
+<br/><br/>
+<form name="frmSendSamlResponse" action="{{url}}" method="POST" >
+<input type="image" src="/images/m/bt_login.png" width="104" height="41" border="0" alt="Login" />
+</form>
+<hr color="#0085ce" />
+{#
+<div align="left">{{mini_pr|safe}}</div>
+{% if show_upgrade_link: %}
+<div align="left">
+<a href="http://goo.gl/A2fmz" target="_blank" style="color:red;text-decoration:none;font-weight:bold;font-size:12px;margin:2px;">{{lang.MSG_UPGRADE}}</a>
+</div>
+{% endif %}
+#}
+<div align="right"><font color="#0085ce">▲</font><a href="{{vurl}}personal/">{{lang.VMSG_TO_PERSONAL}}</a>&nbsp;<font color="#0085ce">▲</font><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></div>
+Copyright &copy; All rights reserved by Sateraito Office, Inc.
+
+
+</body>
+</html>

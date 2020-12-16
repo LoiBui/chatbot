@@ -1,0 +1,8 @@
+<div class="member-content" data-type="1">
+{% for row in users %}
+    <div class="member" title="{{ row['mail_address'] }}" data-id="{{ row['user_id'] }}" id="user_{{ row['user_id'] }}">
+        {{ row['last_name'] }}{{ row['first_name'] }}
+     <img  src="/images/btn_delete.png" style="cursor:pointer;" onclick="javascript:deleteUsers('{{ row['user_id'] }}');">
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<title>{{lang.VMSG_SITE_TITLE_ERROR}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+
+<div class="area01">
+{% if error_info %}
+<p class="style1"><font color="#FF0000">{{ error_info }}</font></p>
+{% endif %}
+<br />
+<script type="text/javascript" >
+<!--
+if(history.length > 1){
+	document.write('<a href="JavaScript:history.back(-1);" >{{lang.VMSG_BACK}}</a>');
+}
+//-->
+</script>
+&nbsp;
+<a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a>
+</div>
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

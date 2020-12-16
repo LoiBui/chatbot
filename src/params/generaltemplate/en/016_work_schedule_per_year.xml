@@ -1,0 +1,783 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Work Schedule Table (Annualy)]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Work Schedule Table (Annualy)
+
+  @since 2014-01-05
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Creation Date</td>
+		<td class="detail_value"><input name="sakusei_day" class="date"></td>
+		<td class="detail_name">Update Date</td>
+		<td class="detail_value"><input name="koushin_day" class="date"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+</table>
+
+<div class="main_content_title2">Construction Period</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%;">Start of Construction</td>
+		<td class="detail_value"><input name="chakkou_day" class="date"></td>
+		<td style="border:none; width:60%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">Work Schedule Table (Annualy)</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" colspan="2">Subject　Year</td>
+		<td class="detail_value" colspan="2">
+			<select name="geppou_tsuki">
+				<option value="2000">2000</option>
+				<option value="2001">2001</option>
+				<option value="2002">2002</option>
+				<option value="2003">2003</option>
+				<option value="2004">2004</option>
+				<option value="2005">2005</option>
+				<option value="2006">2006</option>
+				<option value="2007">2007</option>
+				<option value="2008">2008</option>
+				<option value="2009">2009</option>
+				<option value="2010">2010</option>
+				<option value="2011">2011</option>
+				<option value="2012">2012</option>
+				<option value="2013">2013</option>
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+				<option value="2022">2022</option>
+				<option value="2023">2023</option>
+				<option value="2024">2024</option>
+				<option value="2025">2025</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th class="detail_head" style="width:5%;">No</th>
+		<th class="detail_head" style="width:18%;">Working Content</th>
+		<th class="detail_head" style="width:5%;">Operation<br>Number of days</th>
+		<th class="detail_head" style="width:6%;">1 month</th>
+		<th class="detail_head" style="width:6%;">2 months</th>
+		<th class="detail_head" style="width:6%;">3 months</th>
+		<th class="detail_head" style="width:6%;">4 months</th>
+		<th class="detail_head" style="width:6%;">5 months</th>
+		<th class="detail_head" style="width:6%;">6 months</th>
+		<th class="detail_head" style="width:6%;">7 months</th>
+		<th class="detail_head" style="width:6%;">8 months</th>
+		<th class="detail_head" style="width:6%;">9 months</th>
+		<th class="detail_head" style="width:6%;">10 months</th>
+		<th class="detail_head" style="width:6%;">11 months</th>
+		<th class="detail_head" style="width:6%;">12 months</th>
+	</tr>
+
+<!-- _01st Row -->
+	<tr>
+		<td class="detail_name">1</td>
+		<td class="detail_value"><input name="sagyo_naiyo_1" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_1" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_1" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02nd Row -->
+	<tr>
+		<td class="detail_name">2</td>
+		<td class="detail_value"><input name="sagyo_naiyo_2" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_2" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_2" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03rd Row -->
+	<tr>
+		<td class="detail_name">3</td>
+		<td class="detail_value"><input name="sagyo_naiyo_3" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_3" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_3" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _04th Row -->
+	<tr>
+		<td class="detail_name">4</td>
+		<td class="detail_value"><input name="sagyo_naiyo_4" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_4" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_4" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _05th Row -->
+	<tr>
+		<td class="detail_name">5</td>
+		<td class="detail_value"><input name="sagyo_naiyo_5" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_5" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_5" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _06th Row -->
+	<tr>
+		<td class="detail_name">6</td>
+		<td class="detail_value"><input name="sagyo_naiyo_6" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_6" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_6" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _07th Row -->
+	<tr>
+		<td class="detail_name">7</td>
+		<td class="detail_value"><input name="sagyo_naiyo_7" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_7" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_7" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _08th Row -->
+	<tr>
+		<td class="detail_name">8</td>
+		<td class="detail_value"><input name="sagyo_naiyo_8" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_8" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_8" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _09th Row -->
+	<tr>
+		<td class="detail_name">9</td>
+		<td class="detail_value"><input name="sagyo_naiyo_9" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_9" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_9" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _10th Row -->
+	<tr>
+		<td class="detail_name">10</td>
+		<td class="detail_value"><input name="sagyo_naiyo_10" style="width:75px;">
+		<td class="detail_value"><input name="sagyo_nissu_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_January_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_February_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_March_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_April_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_May_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_June_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_July_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_August_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_September_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_October_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_November_10" style="width:27px;">
+		<td class="detail_value"><input name="sagyo_December_10" style="width:27px;">
+	</tr>
+
+	<tr>
+		<td colspan="15" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Remarks</td>
+		<td class="detail_value"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140528015655eLuKZKvJCQxnO2RR\",\"name\":\"Work Schedule Table (Annualy) 1\",\"sections\":[{\"section_id\":\"sec_id-1401224492138U7OoqQCBVuY8aUPh\",\"secname\":\"div0\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401224532043xDd38rM1BRIxIjC7\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401224958480F95FKKHqghTie1hb\",\"map_type_control\":\"radiogroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent   \",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"class\":\"priority\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"priority\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401224492138U7OoqQCBVuY8aUPh\"},{\"control_id\":\"ctr_id-1401224549915ovSFpQe7PKpXI9La\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401224654097BR7yU0QAsWaG5aiD\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401217603580eT22b4RoOTt2WazJ\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401217613711vrTQPyQt6jeAy33Q\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-14012176361491JKox0NyDNL8S1hr\",\"secname\":\"div1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401217026567kNpBAWYkhDME1GCV\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Creation Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sakusei_day\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401217026575gF0OEpn0ymSeQrG7\"},{\"control_id\":\"ctr_id-1401217026567c3MTOzA5x6OWpUQP\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Update Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"koushin_day\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401217026575gF0OEpn0ymSeQrG7\"}]},{\"section_id\":\"sec_id-1401217687961CGBLgGNb1KnU9Ize\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401217687962k6jkQBqC0wrt2eJG\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401217687961CGBLgGNb1KnU9Ize\"}]},{\"section_id\":\"sec_id-1401217716865CVnmMDKMcbHWv3NG\",\"secname\":\"Construction Period\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401217026568p1r84wwuPkRcMEG0\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Start of Construction\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"chakkou_day\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401217026575gF0OEpn0ymSeQrG7\"}]},{\"section_id\":\"sec_id-1401218087399MPLy9YpGPHCjGepX\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14012180873994zpGT16RgIyR5C4z\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218087399MPLy9YpGPHCjGepX\"}]},{\"section_id\":\"sec_id-14012177744656G3vXQwFG6MEh6V7\",\"secname\":\"Work Schedule Table (Annualy)\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401219005694Ib0jnRyK5FXkJTJz\",\"map_type_control\":\"select\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Subject　Year\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"geppou_tsuki\",\"style\":\"width:75px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"2000\",\"value\":\"2000\"},{\"text\":\"2001\",\"value\":\"2001\"},{\"text\":\"2002\",\"value\":\"2002\"},{\"text\":\"2003\",\"value\":\"2003\"},{\"text\":\"2004\",\"value\":\"2004\"},{\"text\":\"2005\",\"value\":\"2005\"},{\"text\":\"2006\",\"value\":\"2006\"},{\"text\":\"2007\",\"value\":\"2007\"},{\"text\":\"2008\",\"value\":\"2008\"},{\"text\":\"2009\",\"value\":\"2009\"},{\"text\":\"2010\",\"value\":\"2010\"},{\"text\":\"2011\",\"value\":\"2011\"},{\"text\":\"2012\",\"value\":\"2012\"},{\"text\":\"2013\",\"value\":\"2013\"},{\"text\":\"2014\",\"value\":\"2014\"},{\"text\":\"2015\",\"value\":\"2015\"},{\"text\":\"2016\",\"value\":\"2016\"},{\"text\":\"2017\",\"value\":\"2017\"},{\"text\":\"2018\",\"value\":\"2018\"},{\"text\":\"2019\",\"value\":\"2019\"},{\"text\":\"2020\",\"value\":\"2020\"},{\"text\":\"2021\",\"value\":\"2021\"},{\"text\":\"2022\",\"value\":\"2022\"},{\"text\":\"2023\",\"value\":\"2023\"},{\"text\":\"2024\",\"value\":\"2024\"},{\"text\":\"2025\",\"value\":\"2025\"}],\"html\":\"\"},\"section_id\":\"sec_id-14012177744656G3vXQwFG6MEh6V7\"}]},{\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\",\"secname\":\"div2\",\"column_cof\":15,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"Working Content\",\"width\":\"18%\",\"align\":\"left\"},\"3\":{\"title\":\"Number of Work Days\",\"width\":\"5%\",\"align\":\"left\"},\"4\":{\"title\":\"1 month\",\"width\":\"6%\",\"align\":\"left\"},\"5\":{\"title\":\"2 months\",\"width\":\"6%\",\"align\":\"left\"},\"6\":{\"title\":\"3 months\",\"width\":\"6%\",\"align\":\"left\"},\"7\":{\"title\":\"4 months\",\"width\":\"6%\",\"align\":\"left\"},\"8\":{\"title\":\"5 months\",\"width\":\"6%\",\"align\":\"left\"},\"9\":{\"title\":\"6 months\",\"width\":\"6%\",\"align\":\"left\"},\"10\":{\"title\":\"7 months\",\"width\":\"6%\",\"align\":\"left\"},\"11\":{\"title\":\"8 months\",\"width\":\"6%\",\"align\":\"left\"},\"12\":{\"title\":\"9 months\",\"width\":\"6%\",\"align\":\"left\"},\"13\":{\"title\":\"10 months\",\"width\":\"6%\",\"align\":\"left\"},\"14\":{\"title\":\"11 months\",\"width\":\"6%\",\"align\":\"left\"},\"15\":{\"title\":\"12 months\",\"width\":\"6%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"\"}},\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558h3BPOsDkDtf0STQr\",\"pos_col\":1,\"pos_row\":1,\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558TrFjqGTWewtSsVw5\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558MVmP0Jn9bX7a6meY\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558sd46QxrmL9KnXujA\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558a7NfDYi1FXRf4w2V\",\"pos_col\":1,\"pos_row\":5},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"6\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558tc0Hkn7Zu88kTv6d\",\"pos_col\":1,\"pos_row\":6},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"7\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337558S7iXKY34QR1YYdiy\",\"pos_col\":1,\"pos_row\":7},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"8\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337559WoJMc1YDWC9KEYfQ\",\"pos_col\":1,\"pos_row\":8},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"9\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337559n4Tc8XIerZ7RrRqw\",\"pos_col\":1,\"pos_row\":9},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"10\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401218337559j7XECJXqgzyCae9g\",\"pos_col\":1,\"pos_row\":10,\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568SxJx1WecgCROUxAO\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_1\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569Ef8WR0EF8YpJQYio\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_2\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265699MZ64fujreSMb1iW\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_3\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569vwC6rCvEdmkq8sDw\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_4\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026570xKaR44mHI5qAxDnn\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_5\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265709tMaqm0cfPoMHTeB\",\"pos_row\":6,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_6\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026571mLPD1uFABNOc2na4\",\"pos_row\":7,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_7\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572uY1JJvYctjrXhEzu\",\"pos_row\":8,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_8\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572BTfp3WWHwTjV3CgG\",\"pos_row\":9,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_9\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265737AxkbUI8P7uwhq1O\",\"pos_row\":10,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_naiyo_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_naiyo_10\",\"style\":\"width:90%;margin-left:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265687SjQco3QzEATWXR0\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569GfUjvJWMyUhWwdu8\",\"pos_row\":2,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569apTRSkEjIcRsytRZ\",\"pos_row\":3,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569vYFzU5Z4UCXkPJWh\",\"pos_row\":4,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_4\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026570DdA7QdbP9DGfu81f\",\"pos_row\":5,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_5\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026570mwARQn4JAjxui7yH\",\"pos_row\":6,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_6\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026571osb3CIkTSbtDcWFP\",\"pos_row\":7,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_7\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572gQW5W9sjjzisVsYk\",\"pos_row\":8,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_8\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572e17C3vKS83Dubxcf\",\"pos_row\":9,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_9\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026573zWEdGR50LI7ObjmL\",\"pos_row\":10,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_nissu_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_nissu_10\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568zavw1eeDVnU2vNny\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569ZW6erqhV1KpOci5Z\",\"pos_row\":2,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569zcNtXoH26XDG7K3V\",\"pos_row\":3,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569bdVAL8xYPz659ReF\",\"pos_row\":4,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_4\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026570z5TZWTIXJ15E8M4i\",\"pos_row\":5,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_5\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026570xfvOKqcDUutURqUV\",\"pos_row\":6,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_6\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026571IJhVODT64JzguHfI\",\"pos_row\":7,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_7\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572bDJCfT2Zw3EK050A\",\"pos_row\":8,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_8\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_8\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026572cLAdvOCrSdESoLc0\",\"pos_row\":9,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_9\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_9\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026573vaFpRwSuPez8GLiw\",\"pos_row\":10,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_January_10\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_January_10\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568snbsrX6WWvducL34\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569A5XJJFibJ9ZQ2p2M\",\"pos_row\":2,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265695yCASUNL15cYEBEV\",\"pos_row\":3,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222687292FmKx8jWWkd6zeAxJ\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-140122275824351fFi9hzOSspXLLA\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401222758243G1NNQ7hvA45wdatR\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222758243WVcN9EGHS1mh0Aaw\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-140122275824445GeHPmdGm7INohc\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222758244hoGtoxJOMYDJfFRs\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222758244zqLVkMIjF2e8kTps\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_February_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_February_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265682bxygCkU1HRYjAvG\",\"pos_row\":1,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569rB2OVgoDKfwfucpy\",\"pos_row\":2,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569zXp68QA1DwC2n6U1\",\"pos_row\":3,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222883914zuYCDjBRLLYjOd5m\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401222883914x8dCERHwRzaZLe5g\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222883914hHX9SLAoaOGuuc1g\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222883914msY0uxK4PkskLcws\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222883914oGHg7jDmzdr7E2gg\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012228839146HQQuceByJXL7DSs\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401222883914Bg7wQYrjQ46dFgwh\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_March_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_March_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265685Dmn2AxNfEISzZF7\",\"pos_row\":1,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569rSgTUD0YAfQ6yOBx\",\"pos_row\":2,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569IFOWrmeVnAHq7qvt\",\"pos_row\":3,\"pos_col\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223053618SQbN3Yjtczd8OsXh\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223053618dDMjIwd6xYiFkTds\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223053618TQNo4YfRoXV92fwA\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012230536180Avb5iLFXf5PfI1H\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223053618GvTacVdUMhwCi3RP\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223053618OhJh7pSbFEgY4fC6\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012230536189qzfDek4kPAkxNND\",\"map_type_control\":\"text\",\"pos_col\":7,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_April_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_April_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568EZOPOnEJL627k8Rk\",\"pos_row\":1,\"pos_col\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-140121702656903aOaC0HuQBv9IAY\",\"pos_row\":2,\"pos_col\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569ur1vwbxXIcHsZFj9\",\"pos_row\":3,\"pos_col\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223186122AEvGnfBpfHHeC2Ng\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223186122jS2bJzbGSCjxcLXp\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223186122awn8yn6HLxXv32mh\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-140122318612267Nh9ZVyZ054wri6\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223186122PIaYFoFLYv7rXYIr\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223186122b0KvyEZP9JJGoBjB\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223186122AoyR3TxKy4k6r6LR\",\"map_type_control\":\"text\",\"pos_col\":8,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_May_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_May_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265688GEBZhAu5UrtYbkC\",\"pos_row\":1,\"pos_col\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265698djjWz5d0bJANTH7\",\"pos_row\":2,\"pos_col\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012170265695hg4KNaOtfUMaCaz\",\"pos_row\":3,\"pos_col\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569UZenvAtysnbjd5Au\",\"pos_row\":4,\"pos_col\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_4\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223304544bkHezZsEg5RyABtn\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223304544o91TtqX6qfiLQseq\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223304544KPeaEeVuhBGKxvjM\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223304544gVp0z2gJIOknWj7L\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223304544t2dD98G92hWudfnJ\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223304544MJzxJ1ubJ2w8aAKq\",\"map_type_control\":\"text\",\"pos_col\":9,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_June_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_June_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568MzzzCPIjKuW9Bd2W\",\"pos_row\":1,\"pos_col\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569i8byPxyTOb4IH1rW\",\"pos_row\":2,\"pos_col\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569XwLsLR3QPoiT315z\",\"pos_row\":3,\"pos_col\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223417633ZhNKfJM6di6QA80x\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223417633FB0WHsdTS8MmVV4b\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012234176339cps4GcgrUNczZ6D\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223417633LSA8iEeTE4QrxZHj\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223417633KtXyA9NM3pVGxZeI\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223417633PzvqZYvY3gEbJ6rA\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012234176331hTVxeqqQh0yd5ZQ\",\"map_type_control\":\"text\",\"pos_col\":10,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_July_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_July_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568UZiKXHcInhUEMwEy\",\"pos_row\":1,\"pos_col\":11,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569OkFKSFOUnyKbWL3v\",\"pos_row\":2,\"pos_col\":11,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569k98WKqTogcOenMfp\",\"pos_row\":3,\"pos_col\":11,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012235242667s13xEP7KPNiaZHK\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223524266HSDc3Xgy6NWGY3CC\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223524266aB1EeQAjPCx8REai\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223524266BbceRP8JfNPowTbv\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223524266jOtHR4H3Sj9UXzBk\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223524266hXoQxAAiZqu43PrS\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223524267JzrH8ibuMwLh8uQh\",\"map_type_control\":\"text\",\"pos_col\":11,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_August_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_August_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568hG518R4B2Urf3DXK\",\"pos_row\":1,\"pos_col\":12,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892TwtOKOPQWzAup5mV\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_2\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892WvtFDsvVJvWaea3C\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_21\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892fxbAsJ6kF4QVBOyD\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892E6QNUDdCoIfLtiqj\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892C1AvGPhqLQyWxgC3\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892hod8j8fVWgSwhp8Z\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892zOdZYt0kZQfqULU5\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892cZ2ypW40EwFPGz7V\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223608892mEuAhiwxedWDGCSU\",\"map_type_control\":\"text\",\"pos_col\":12,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_September_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_September_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568q6L7UzMbB3rrQ5Ly\",\"pos_row\":1,\"pos_col\":13,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569EK71wnGE9ieN7FZs\",\"pos_row\":2,\"pos_col\":13,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_2\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569edRDCx37o5EHPS5D\",\"pos_row\":3,\"pos_col\":13,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_3\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223867689zdT11Kwh0yOJ4dYA\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223867689xRS0Gz97cWd4qmTX\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223867689WKV7AoRO8KNmpCgw\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223867689s3xu6wKmOXo4W4jd\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223867689Xxp1SCfZ2KQ5gHSS\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012238676894XbkYJ9qAZr4uqPc\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223867689xBO6CbfIh0tJDZng\",\"map_type_control\":\"text\",\"pos_col\":13,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_October_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_October_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026568PYh8BG58n6N5hxBq\",\"pos_row\":1,\"pos_col\":14,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555OdUVF591SDOGMFvu\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_2\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401223959555rsvNCXaps0sge0sz\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_3\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555LKYryhwS6mEjtO86\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555iQSNmr4oxSMERPZa\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555GjYIqjgcAvKQCnAF\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555zy2jc2txLWmksJW2\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555x2JUdia5e4rFd5MN\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401223959555YuCOt0b8sqGkudh7\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012239595556QRNNQE2yJsEkZNV\",\"map_type_control\":\"text\",\"pos_col\":14,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_November_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_November_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401217026569IzdRzE6cjQmWmrwh\",\"pos_row\":1,\"pos_col\":15,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_1\",\"style\":\"width:27px;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186WbBIV55zVC91Ka3F\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_2\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012240571869kA9faIHLhMbtiku\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_3\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186xaBuGEcsWHrYFXFH\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_4\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186CJSECN6LrnJ8TybA\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_5\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186294QFczL7mcQckTF\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_6\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186Nh16r96tu0njbLPx\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_7\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186abIRVVNMgtfxy9mQ\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_8\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-1401224057186R33AcpHIq2OAbF5z\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_9\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"},{\"control_id\":\"ctr_id-14012240571864W4JjnnXtqOg8Ebb\",\"map_type_control\":\"text\",\"pos_col\":15,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"sagyo_December_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sagyo_December_10\",\"style\":\"width:27px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401218299933nBQvreqMaLHAuF19\"}]},{\"section_id\":\"sec_id-14012244647782s7saKcc0W7MHxrg\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401224464778ggQbHJyEcM0Q9YXg\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14012244647782s7saKcc0W7MHxrg\"}]},{\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401224757560d7rd3UwY7WVQNgZY\",\"controls\":[{\"control_id\":\"ctr_id-1401224751139CReNvrQeAPIx00dY\",\"map_type_control\":\"textarea\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401224757560d7rd3UwY7WVQNgZY\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140528015655eLuKZKvJCQxnO2RR\",\"name\":\"Work Schedule Table (Annualy) 1\",\"controls\":[]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Work Schedule Table (Annualy)
+
+  @since 2014-01-05
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Creation Date</div>
+      <div class="detail_value"><input type="text" name="sakusei_day" class="date" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Update Date</div>
+      <div class="detail_value"><input type="text" name="koushin_day" class="date" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+
+<div class="main_content_title2">Construction Period</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Start of Construction</div>
+      <div class="detail_value"><input type="text" name="chakkou_day" class="date" style="width: 100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Work Schedule Table (Annualy)</div>
+<div class="container">
+<ul class="detail">
+<li class="row">
+  <div class="detail_name">Subject　Year</div>
+  <div class="detail_value">
+    <select name="geppou_tsuki">
+      <option value="2000">2000</option>
+      <option value="2001">2001</option>
+      <option value="2002">2002</option>
+      <option value="2003">2003</option>
+      <option value="2004">2004</option>
+      <option value="2005">2005</option>
+      <option value="2006">2006</option>
+      <option value="2007">2007</option>
+      <option value="2008">2008</option>
+      <option value="2009">2009</option>
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+      <option value="2017">2017</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+    </select>
+  </div>
+</li>
+<!-- _01st Row -->
+<li class="row">
+  <div class="detail_head">No1</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_1" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_1" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_1" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_1" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_1" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_1" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_1" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_1" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_1" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_1" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_1" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_1" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_1" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_1" style="width:100%"></div>
+</li>
+<!-- _02nd Row -->
+<li class="row">
+  <div class="detail_head">No2</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_2" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_2" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_2" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_2" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_2" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_2" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_2" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_2" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_2" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_2" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_2" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_2" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_2" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_2" style="width:100%"></div>
+</li>
+<!-- _03rd Row -->
+<li class="row">
+  <div class="detail_head">No3</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_3" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_3" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_3" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_3" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_3" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_3" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_3" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_3" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_3" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_3" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_3" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_3" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_3" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_3" style="width:100%"></div>
+</li>
+
+<!-- _04th Row -->
+<li class="row">
+  <div class="detail_head">No4</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_4" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_4" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_4" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_4" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_4" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_4" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_4" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_4" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_4" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_4" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_4" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_4" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_4" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_4" style="width:100%"></div>
+</li>
+
+<!-- _05th Row -->
+<li class="row">
+  <div class="detail_head">No5</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_5" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_5" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_5" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_5" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_5" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_5" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_5" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_5" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_5" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_5" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_5" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_5" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_5" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_5" style="width:100%"></div>
+</li>
+
+<!-- _06th Row -->
+<li class="row">
+  <div class="detail_head">No6</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_6" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_6" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_6" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_6" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_6" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_6" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_6" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_6" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_6" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_6" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_6" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_6" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_6" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_6" style="width:100%"></div>
+</li>
+
+<!-- _07th Row -->
+<li class="row">
+  <div class="detail_head">No7</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_7" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_7" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_7" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_7" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_7" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_7" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_7" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_7" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_7" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_7" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_7" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_7" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_7" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_7" style="width:100%"></div>
+</li>
+
+<!-- _08th Row -->
+<li class="row">
+  <div class="detail_head">No8</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_8" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_8" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_8" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_8" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_8" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_8" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_8" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_8" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_8" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_8" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_8" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_8" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_8" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_8" style="width:100%"></div>
+</li>
+<!-- _09th Row -->
+<li class="row">
+  <div class="detail_head">No9</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_9" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_9" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_9" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_9" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_9" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_9" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_9" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_9" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_9" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_9" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_9" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_9" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_9" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_9" style="width:100%"></div>
+</li>
+
+<!-- _10th Row -->
+<li class="row">
+  <div class="detail_head">No10</div>
+  <div class="detail_head">Working Content</div>
+  <div class="detail_value"><input type="text" name="sagyo_naiyo_10" style="width:100%;"></div>
+  <div class="detail_head">Number of Work Days</div>
+  <div class="detail_value"><input type="text" name="sagyo_nissu_10" style="width:100%;"></div>
+  <div class="detail_head">1 month</div>
+  <div class="detail_value"><input type="text" name="sagyo_January_10" style="width:100%;"></div>
+  <div class="detail_head">2 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_February_10" style="width:100%;"></div>
+  <div class="detail_head">3 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_March_10" style="width:100%;"></div>
+  <div class="detail_head">4 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_April_10" style="width:100%;"></div>
+  <div class="detail_head">5 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_May_10" style="width:100%;"></div>
+  <div class="detail_head">6 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_June_10" style="width:100%;"></div>
+  <div class="detail_head">7 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_July_10" style="width:100%;"></div>
+  <div class="detail_head">8 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_August_10" style="width:100%;"></div>
+  <div class="detail_head">9 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_September_10" style="width:100%;"></div>
+  <div class="detail_head">10 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_October_10" style="width:100%;"></div>
+  <div class="detail_head">11 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_November_10" style="width:100%;"></div>
+  <div class="detail_head">12 months</div>
+  <div class="detail_value"><input type="text" name="sagyo_December_10" style="width:100%"></div>
+</li>
+</ul>
+<ul class="detail">
+  <li class="row">
+    <div class="detail_name">Remarks</div>
+    <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+    </div>
+  </li>
+</ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

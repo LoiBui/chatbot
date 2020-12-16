@@ -1,0 +1,48 @@
+﻿[2018/10/11 16:29:57] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2018/10/11 16:29:57] Create message python file...:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\sateraito_message.py
+[2018/10/11 16:29:57] [Compile Start]ajax.js
+[2018/10/11 16:29:59] [Compile Start]common.js
+[2018/10/11 16:30:00] [Compile Start]jkmegamenu.js
+[2018/10/11 16:30:02] [Compile Start]jquery.crossSelect.js
+[2018/10/11 16:30:03] [Compile Start]jquery.blockUI.js
+[2018/10/11 16:30:05] [Compile Start]json.js
+[2018/10/11 16:30:06] [Compile Start]ucfext.file.js
+[2018/10/11 16:30:08] [Compile Start]ucfext.js
+[2018/10/11 16:30:10] [Compile Start]ucfext_acnt.js
+[2018/10/11 16:30:11] [Compile Start]ucfext_acs.js
+[2018/10/11 16:30:13] [Compile Start]ucfext_acslog.js
+[2018/10/11 16:30:14] [Compile Start]ucfext_operationlog.js
+[2018/10/11 16:30:16] [Compile Start]ucfext_config.js
+[2018/10/11 16:30:17] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ucfext_config.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ucfext_config.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:17] [Compile Start]ucfext_task.js
+[2018/10/11 16:30:18] [Compile Start]ucfext_field.js
+[2018/10/11 16:30:20] [Compile Start]ucfext_group.js
+[2018/10/11 16:30:21] [Compile Start]ucfext_device.js
+[2018/10/11 16:30:23] [Compile Start]ucfext.strength.js
+[2018/10/11 16:30:24] [Compile Start]xmleditor.js
+[2018/10/11 16:30:26] [Compile Start]init_backstretch.js
+[2018/10/11 16:30:27] [Compile Start]ext\PasswordStrength.js
+[2018/10/11 16:30:29] [Compile Start]ext\PopupGroupList.js
+[2018/10/11 16:30:31] [Compile Start]ext\PopupOrgUnitList.js
+[2018/10/11 16:30:32] [Compile Start]ext\SecurityKeyboard.js
+[2018/10/11 16:30:33] ERROR - Cannot read file C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:33] [Compile Start]ext\ucf_element_selector.js
+[2018/10/11 16:30:34] C:/Users/phamthanhba/Documents/sateraito-meishi_20181004/sateraito-meishi/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2018/10/11 16:30:34] [Compile Start]lang\default.js
+[2018/10/11 16:30:35] [Compile Start]lang\ja.js
+[2018/10/11 16:30:37] [Compile Start]lang\en.js
+[2018/10/11 16:30:38] Expand Jinja Templates include files...
+[2018/10/11 16:30:38] Src:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\templates
+[2018/10/11 16:30:38] Dst:C:\Users\phamthanhba\Documents\sateraito-meishi_20181004\sateraito-meishi\src\templates_automatically
+[2018/10/11 16:30:38] Expand Jinja Templates include files fin.

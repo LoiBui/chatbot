@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/*
+common.css
+*/
+
+
+@import url(reset.css);
+
+@import url(base.css);
+@import url(serch.css);

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<!--
+<link rel="start" href="/" title="">
+<link rel="home" href="/home.html" title="">
+-->
+<link rel="shortcut icon" href="/images/oem/{{oem_company_code}}/favicon.ico">
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<!-- BASE -->
+{#
+<link rel="stylesheet" href="/css/common2.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base2.css?{{version}}" type="text/css" />
+
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}init_backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+
+	function btn_resize(){
+		var window_width = $(window).width();
+		var btn_right_right = 15;
+		var btn_left_left = 15;
+		if(window_width < 784){
+			if(15 + 675 - window_width > 110){
+				btn_right_right = 15 + 675 - window_width;
+			}else{
+				btn_right_right = 110;
+			}
+
+			if(635 - window_width > 0){
+				btn_left_left = 15 + 635 - window_width;
+			}else{
+				btn_left_left = 60;
+			}
+		}
+
+		$('#wrapper').find('a.btn_right').css({
+			'right' : btn_right_right + 'px'
+		});
+
+		$('#wrapper').find('a.btn_left').css({
+			'left' : btn_left_left + 'px'
+		});
+
+	}
+	$(window).resize(function(){
+		btn_resize();
+	});
+	$(window).load(function(){
+		btn_resize();
+	});
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+
+// 背景画像URL配列を作成
+var _bgpicary = [];
+{% if not BgIsExistCustom: %}
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('/images/bg/{{idx}}.jpg');
+{% endfor -%};
+{% else: %}
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('{{vurl}}picture/mainbg{{idx}}');
+{% endfor -%};
+{% endif %}
+//-->
+</script>
+
+
+<link type="text/css" rel="stylesheet" href="/css/jquery-ui.min.css" />
+<script type="text/javascript" src="{{vscripturl}}jquery-ui.js"></script>
+<STYLE type="text/css">
+<!--
+.login_link {
+	color: {% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%}
+	margin-left: 132px;
+/*
+	width: 540px;
+	text-align:right;
+*/
+}
+
+.login_check {
+	color: {% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%}
+}
+
+.login_link a:hover,
+.login_link a:active {
+	color: {% if dept.login_linkcolor and dept.login_linkcolor != '': %}#{{dept.login_linkcolor}};{%else:%}#FFFFFF;{%endif%}
+/*	font-weight:bold;*/
+	text-decoration:underline;}
+.login_link a {
+	color: {% if dept.login_linkcolor and dept.login_linkcolor != '': %}#{{dept.login_linkcolor}};{%else:%}#FFFFFF;{%endif%}
+/*	font-weight:bold; */
+}
+
+.text_validate
+{
+	color: {% if dept.login_vccolor and dept.login_vccolor != '': %}#{{dept.login_vccolor}};{%else:%}#FF0000;{%endif%}
+	font-weight:bold;
+}
+
+.text_validate_for_column{
+	font-size: 124%;
+	margin-left: 132px;
+}
+
+.text_message_for_column{
+	font-size: 124%;
+	margin-left: 132px;
+	color: {% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%};
+}
+
+
+/* 背景が白だとテキストボックスの枠すら見えないので、フォントカラーに合わせて枠を表示*/
+#loginbox #loginID,
+#loginbox #login_password,
+#loginbox #two_factor_auth_code {
+	border-color: {% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%}
+	border-style:solid;
+	border-width:1px;
+}
+
+#loginbox #loginID{
+{# // マルチドメインでないか、ドメイン選択ボックスを表示する場合、IDボックスを少し短くする #}
+{% if ucfp.data.is_disp_domain_combobox: %}
+{# // 要望による幅を広げる対応 2016.08.30 #}
+/*	width: 120px;*/
+	width: 140px;
+{% elif ucfp.data.single_federated_domain == '': %}
+	width: 338px;
+{% endif %}
+}
+
+
+-->
+</style>
+<STYLE type="text/css">
+#dcard_matrix {
+	margin-left: 134px;
+	text-align:center;
+	padding:2px;
+	background-color:gray;
+	width:244px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border-collapse: separate;
+	border-spacing:2px;
+}
+#dcard_matrix table {
+	text-align:center;
+	background-color:white;
+	width:244px;
+	color:gray;
+	font-size:12px;
+	font-weight:bold;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+#dcard_matrix td {
+	text-align:center;
+	font-size: 124%;
+	font-weight:bold;
+	padding-left:13px;
+	padding-right:13px;
+
+}
+
+</style>
+
+<script type="text/javascript" >
+{% if is_hide_backstretch: %}
+	_is_hide_blind = true;
+{% endif %}
+{% if is_first_hide_backstretch: %}
+_is_fullscreen = true;
+{% else: %}
+_is_fullscreen = false;
+{% endif %}
+
+function setFocusAndValue()
+{
+	// フォーカスを初期セットする対応
+	var login_id = document.getElementById("loginID");
+{% if not dept.login_autocomplete_type or dept.login_autocomplete_type=='' %}
+	if(typeof(login_id) != 'undefined' && login_id != null){
+		login_id.value = '{{voinfo.vo.login_id|escapejs}}';
+		if(login_id.value == '\t'){
+			login_id.value = '';
+		}
+	}
+{% endif %}
+	var login_password = document.getElementById("login_password");
+{% if not ucfp.data.is_disp_matrixauth and (not dept.login_autocomplete_type or dept.login_autocomplete_type!='BOTH'): %}
+	if(typeof(login_password) != 'undefined' && login_password != null){
+		login_password.value = '{{voinfo.vo.login_password|escapejs}}';
+		if(login_password.value == '\t'){
+			login_password.value = '';
+		}
+	}
+{% endif %}
+	var two_factor_auth_code = document.getElementById("two_factor_auth_code");
+	if(typeof(two_factor_auth_code) != 'undefined' && two_factor_auth_code != null){
+		two_factor_auth_code.value = '{{voinfo.vo.two_factor_auth_code|escapejs}}';
+		if(two_factor_auth_code.value == '\t'){
+			two_factor_auth_code.value = '';
+		}
+	}
+	if(typeof(login_id) != 'undefined' && login_id.value == ''){
+		login_id.focus();
+	}else if(typeof(login_password) != 'undefined' && login_password.value == ''){
+		login_password.focus();
+	}else if(typeof(login_id) != 'undefined'){
+		//login_id.focus();
+		login_password.focus();
+	}
+};
+
+$(document).ready(function(){	
+{% if ucfp.data.is_disp_language_combobox: %}
+	createLanguageSelectBox('languageselectbox', jQuery.parseJSON('{{language_list|escapejs}}'), '{{language|escape}}', true, {% if request_method == 'POST':%}true{% else: %}false{% endif %}, function(){
+		$('#post_form').find('input[name=st]').val('');
+		$('#post_form').submit();
+	});
+{% endif %}
+
+	// autocomplete対応
+/*
+	$(document).find('.autocomplete_focus').focus(function(){
+		var element = this;
+		if($(element).val() == '\t'){
+			$(element).val('');
+		}
+	});
+*/
+	// パスワード系は「*」表記で1文字セットされていることが見えてしまうため...
+	/*
+	$(document).find('.autocomplete_focus').blur(function(){
+		var element = this;
+		if($(element).val() == ''){
+			$(element).val('\t');
+		}
+	});
+	*/
+
+	// 即時セットするとautocomplete回避のタブセットも効かないので少し遅延処理
+  setTimeout(function () {
+		setFocusAndValue();
+  }, 50);
+});
+
+</script>
+<!-- <title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<div id="wrapper">
+<div id="loginbox">
+{#- if not BgNoUse and not BgIsExistCustom and not BgIsDispCustomLogo: -#}
+{% if not BgNoUse and not BgIsExistCustom and (not BgIsExistCustomLogo or not BgIsDispCustomLogo): %}
+<h1><img src="/images/oem/{{oem_company_code}}/login_logo.png" ></h1>
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<h1><img src="{{vurl}}picture/logo" style="height:64px;" ></h1>
+{% else: %}
+<div style="height:64px;" >&nbsp;</div>
+{% endif %}
+<form id="post_form" action="{{vurl}}login" method="post">
+<input type="hidden" name="st" value="v">
+<input type="hidden" name="RURL" value="{{voinfo.vo.RURL}}">
+<input type="hidden" name="{{config.REQUESTKEY_TEMP_LOGIN_CHECK_ACTION_KEY}}" value="{{ucfp.voinfo.vo.tc}}">
+<input type="hidden" name="{{config.REQUESTKEY_MATRIXAUTH_RANDOMKEY|safe}}" value="{{ucfp.data.current_matrixauth_key}}">
+<input type="hidden" name="rurl_key" value="{{ucfp.data.rurl_key}}">
+<fieldset>
+<legend {% if dept.login_fontcolor and dept.login_fontcolor != '': %}style="color:#{{dept.login_fontcolor}};"{%endif%}>
+{% if not ucfp.voinfo.vo.tc or ucfp.voinfo.vo.tc == '':%}
+{{lang.VMSG_LOGIN_INFO_INPUT_LOGINBOX|safe}}
+{% elif ucfp.voinfo.vo.tc == config.TEMPLOGIN_ACTIONKEY_ACS_APPLY :%}
+{{lang.VMSG_LOGIN_INFO_INPUT_LOGINBOX_FOR_ACS_REQUEST|safe}}
+{% endif %}
+{% for v in header_msg %}
+<br/><span class="text_validate">{{v|safe}}</span>
+{% endfor %}
+</legend>
+<label for="loginID">
+{{lang.VMSG_LOGIN_USERID}}
+</label>
+{% if ucfp.data.single_federated_domain != '': %}
+{# // id=loginID は変更不可（SSOアプリで使うため）#}
+{% if not dept.login_autocomplete_type or dept.login_autocomplete_type=='' %}
+<input id="loginID" name="login_id" type="text" value="&#009;" maxlength="255" autocomplete="off">
+{% else: %}
+<input id="loginID" name="login_id" type="text" value="{{voinfo.vo.login_id}}" maxlength="255" >
+{% endif %}
+{% if not profile_vo: -%}
+<p {% if dept.login_fontcolor and dept.login_fontcolor != '': %}style="color:#{{dept.login_fontcolor}};"{%endif%}>@{{ucfp.data.single_federated_domain}}</p>
+{%- elif profile_vo.login_type == 'OPE' or profile_vo.login_type == 'DCARD' or profile_vo.login_type == 'CERT' or profile_vo.login_type == '': -%}
+<p {% if dept.login_fontcolor and dept.login_fontcolor != '': %}style="color:#{{dept.login_fontcolor}};"{%endif%}>@{{ucfp.data.single_federated_domain}}</p>
+{%- elif profile_vo.login_type == 'OPE1': -%}
+{%- endif -%}
+
+{% else:%}
+{# // id=loginID は変更不可（SSOアプリで使うため）#}
+{% if not dept.login_autocomplete_type or dept.login_autocomplete_type=='' %}
+<input id="loginID" name="login_id" type="text" value="&#009;" maxlength="255" autocomplete="off">
+{% else: %}
+<input id="loginID" name="login_id" type="text" value="{{voinfo.vo.login_id}}" maxlength="255" >
+{% endif %}
+
+{%- if ucfp.data.is_disp_domain_combobox:%}
+<p {% if dept.login_fontcolor and dept.login_fontcolor != '': %}style="color:#{{dept.login_fontcolor}};"{%endif%}>@</p>
+<select id="loginDomain" name="login_domain" >
+{% for one_domain in domaincombobox_list:%}
+<option value="{{one_domain}}" {% if voinfo.vo.login_domain ==  one_domain:%}selected{%endif%}>{{one_domain}}</option>
+{% endfor %}
+</select>
+{% endif %}
+{% endif %}
+{% if vcmsg.login_id %}
+{% for v in vcmsg.login_id %}
+<br>
+<span class="text_validate text_validate_for_column">※{{v}}</span>
+{% endfor %}
+{% endif %}
+<br>
+<label for="login_password">{{lang.VMSG_LOGIN_PASSWORD}}</label>
+{# // セキュリティブラウザからのトークン渡しで100桁超えるのでmaxlength変更（100→500） 2015.09.30 #}
+{# // id=login_password は変更不可（SSOアプリで使うため）#}
+{% if not ucfp.data.is_disp_matrixauth and (not dept.login_autocomplete_type or dept.login_autocomplete_type!='BOTH'): %}
+<input type="password" id="login_password" name="login_password" value="" maxlength="500" autocomplete="off">
+{% else: %}
+<input type="password" id="login_password" name="login_password" value="{{voinfo.vo.login_password}}" maxlength="500" >
+{% endif %}
+{% if ucfp.data.is_disp_matrixauth: -%}
+<br/>
+<span class="text_message_for_column">{{lang.VMSG_LOGIN_PASSWORD_MATRIXAUTH|safe}}</span>
+{% endif %}
+<input type="submit" value="LOGIN" id="login_btn">
+{% if vcmsg.login_password %}
+{% for v in vcmsg.login_password %}
+<br>
+<span class="text_validate text_validate_for_column">※{{v}}</span>
+{% endfor %}
+{% endif %}
+{% if ucfp.data.is_disp_two_factor_auth_code: %}
+<br/>
+<label for="two_factor_auth_code">{{lang.VMSG_LOGIN_TWO_FACTOR_AUTH_REQUIRED}}</label>
+<input id="two_factor_auth_code" name="two_factor_auth_code" type="password" value="" size="10" maxlength="10" autocomplete="off">
+{% if vcmsg.login_access_code %}
+{% for v in vcmsg.login_access_code %}
+<br>
+<span class="text_validate text_validate_for_column">※{{v}}</span>
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if ucfp.data.is_disp_matrixauth: -%}
+<br/>
+<div id="dcard_matrix" >
+{# // ワンタイム・ランダムパスワード認証マトリックス表示 #}
+<table>
+{% for one_row in ucfp.data.current_matrixauth_matrix: -%}
+<tr>
+{% for one_item in one_row: -%}
+<td>{{one_item}}</td>
+{%- endfor %}
+</tr>
+{%- endfor %}
+</table>
+</div>
+
+{% endif %}
+
+{% if ucfp.data.is_available_auto_login: -%}
+<br>
+<input type="checkbox" id="login_check" name="auto_login_flag" value="on" {% if voinfo.vo.auto_login_flag == 'on' %}checked{% endif %}><label for="login_check" class="for_checkbox"><span class="login_check">{{lang.VMSG_LOGIN_AUTOLOGIN_ON}}</span></label>
+{% if vcmsg.auto_login_flag %}
+{% for v in vcmsg.auto_login_flag %}
+<br>
+<span class="text_validate text_validate_for_column">※{{v}}</span>
+{% endfor %}
+{% endif %}
+{% endif %}
+{% if (ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN') or ucfp.data.is_disp_password_reminder: -%}
+<br/>
+{% endif %}
+{% if ucfp.data.is_disp_password_reminder: -%}
+<br/>
+<p class="login_link"><a href="{{vurl}}reminder/" >{{lang.VMSG_LOGIN_LINK_REMINDER|safe}}</a></p>
+{%- endif %}
+{% if ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN': -%}
+<br/>
+<p class="login_link"><a href="{{vurl}}acs/apply?rurl_key={{ucfp.data.rurl_key}}" >{{lang.VMSG_LOGIN_LINK_ACS_CTRL_REQUEST}}</a></p>
+{%- endif %}
+</fieldset>
+</form>
+</div><!-- /#loginbox end -->
+
+{% if ucfp.data.is_disp_language_combobox: %}
+<div id="righttopbar">
+{% if ucfp.data.is_disp_language_combobox: %}
+<p class="title">{{lang.VMSG_LANGUAGE|safe}}：</p>
+<p class="languageboxarea" >
+<select name="language" id="languageselectbox" >
+</select>
+</p>
+{% endif %}
+</div>
+
+{% endif %}
+
+{% if not is_hide_backstretch: %}
+<div id="bottombox">
+<ul id="btn_list">
+<li><a href="#" id="toggle_fullscreen"><img src="/images/btn_fullscreen_enable.png" alt="full screen"></a></li>
+{% if not BgNoUse:%}
+<li><a href="#" id="arrow_prev"><img src="/images/btn_leftarrow.png" alt="prev"></a></li><li><a href="#" id="arrow_next"><img src="/images/btn_rightarrow.png" alt="next"></a></li>
+{% endif %}
+</ul>
+<div id="newsbox">
+<ul>
+{% if dept.login_message and dept.login_message != '' %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{dept.login_message|hyperlink_linebreaksbr}}</li>
+{% elif footer_message and footer_message != '': %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{footer_message|hyperlink_linebreaksbr}}</li>
+{% endif %}
+<li>&nbsp;</li>
+</ul>
+</div><!-- /#newsbox end -->
+</div><!-- /#bottombox end -->
+
+<div id="footer">
+<p id="copyright">Copyright&copy;All rights reserved by Sateraito Office, Inc.</p>
+
+
+</div>
+{% endif %}
+
+</div><!-- /#wrapper end -->
+</body>
+</html>

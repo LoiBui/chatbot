@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl|safe}}channels/basechannel.js?{{version|safe}}" ></script>
+{# basechannel.js内で動的にロードしてもよいがやりすぎな気がするので静的にセット... #}
+<script type="text/javascript" src="{{vscripturl|safe}}channels/lineworksbotchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/linebotchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/facebookworkplacebotchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/facebookbotchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/sateraitoaddonchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/nextsetaddonchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/restchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/mailchannel.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}channels/gmailchannel.js?{{version|safe}}" ></script>
+
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_businessrule.js?{{version|safe}}" ></script>
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<title>{{lang.VMSG_SITE_TITLE_BUSINESSRULE_NEW|safe}} - {{lang.HTML_TITLE|safe}}</title>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<title>{{lang.VMSG_SITE_TITLE_BUSINESSRULE_RENEW|safe}} - {{lang.HTML_TITLE|safe}}</title>
+{% else %}<title>{{lang.VMSG_SITE_TITLE_BUSINESSRULE|safe}} - {{lang.HTML_TITLE|safe}}</title>
+{% endif %}
+<link rel="stylesheet" href="/css/businessrule.css?{{version}}" type="text/css" />
+<script type="text/javascript" >
+<!--
+
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+};
+
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+
+// 各フィールドを設定
+function createFields()
+{
+	////////////////////////////
+	// 基本設定
+	{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}
+	{% endif %}
+	// 名称
+	var field_rule_name = Ext.ucf.field.createTextField('rule_name', 'rule_name', '{{ucfp.voinfo.vo.rule_name|escapejs}}', '{{lang.FLD_BUSINESSRULE_RULE_NAME|safe|escapejs}}', 250, Ext.ucf.delegateCheckValidation);
+	field_rule_name.render('FIELD_rule_name');
+	lstCmpFrmEdit.push(field_rule_name);
+	{% if vcmsg.rule_name %}field_rule_name.markInvalid('{% for v in vcmsg.rule_name %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	// 説明
+	var field_comment = Ext.ucf.field.createTextAreaField('comment', 'comment', '{{ucfp.voinfo.vo.comment|escapejs}}', '{{lang.FLD_COMMENT|safe|escapejs}}', '400px', '50px', Ext.ucf.delegateCheckValidation);
+	field_comment.render('FIELD_comment');
+	lstCmpFrmEdit.push(field_comment);
+	{% if vcmsg.comment %}field_comment.markInvalid('{% for v in vcmsg.comment %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	// 管理グループ
+	{% if 'ADMIN' in login.access_authority or not is_exist_delegate_management_groups: %}
+
+	var field_management_group = Ext.ucf.field.createTextField('management_group', 'management_group', '{{ucfp.voinfo.vo.management_group|escapejs}}', '{{lang.FLD_MANAGEMENT_GROUP|safe|escapejs}}', 150, Ext.ucf.delegateCheckValidation);
+	field_management_group.render('FIELD_management_group');
+	lstCmpFrmEdit.push(field_management_group);
+	{% if vcmsg.management_group %}field_management_group.markInvalid('{% for v in vcmsg.management_group %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	{% else %}
+
+	var _lst_delegate_management_groups = [];
+	{% for item in login.delegate_management_groups: %}
+	_lst_delegate_management_groups.push(['{{item|escapejs}}','{{item|escapejs}}']);
+	{% endfor %}
+
+	var field_management_group = Ext.ucf.field.createComboBox('', 'management_group', _lst_delegate_management_groups, '{{ucfp.voinfo.vo.management_group|escapejs}}', '{{lang.FLD_MANAGEMENT_GROUP|safe|escapejs}}', 250, Ext.ucf.delegateCheckValidation);
+	field_management_group.render('FIELD_management_group');
+	lstCmpFrmEdit.push(field_management_group);
+	{% if vcmsg.management_group %}field_management_group.markInvalid('{% for v in vcmsg.management_group %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+
+	{% endif %}
+
+	// トリガーパネル
+{#
+	var lst_trigger_channel_kind = [];
+	{% for item in trigger_channels: %}
+	lst_trigger_channel_kind.push(['{{item.kind|escapejs}}','{{item.title|escapejs}}']);
+	{% endfor %}
+#}
+	var trigger_channel_config;
+	trigger_channel_config_str = $('#frmEdit').find('input[name=trigger_channel_config]').val();
+	if(trigger_channel_config_str != ''){
+		trigger_channel_config = Ext.decode(trigger_channel_config_str);
+	}
+	Ext.ucf.businessrule.createTriggerConfigPanel('trigger_panel_area', {trigger_channel_kind: '{{ucfp.voinfo.vo.trigger_channel_kind|escapejs}}', trigger_channel_config:trigger_channel_config, rule_id:'{{ucfp.voinfo.vo.rule_id|escapejs}}', webhook_url:'{{webhook_url|escapejs}}'});
+
+	// ロジックパネル
+	var logic_config;
+	logic_config_str = $('#frmEdit').find('input[name=logic_config]').val();
+	if(logic_config_str != ''){
+		logic_config = Ext.decode(logic_config_str);
+	}
+	Ext.ucf.businessrule.createLogicConfigPanel('logic_panel_area', {logic_config:logic_config, rule_id:'{{ucfp.voinfo.vo.rule_id|escapejs}}'});
+
+	{% if vcmsg.logic_config %}Ext.ucf.businessrule.setValidationMessageToLogicConfig('{% for v in vcmsg.logic_config %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+	
+
+	// アクションパネル
+{#
+	var lst_action_channel_kind = [];
+	{% for item in action_channels: %}
+	lst_action_channel_kind.push(['{{item.kind|escapejs}}','{{item.title|escapejs}}']);
+	{% endfor %}
+#}
+
+	var action_channel_config;
+	action_channel_config_str = $('#frmEdit').find('input[name=action_channel_config]').val();
+	if(action_channel_config_str != ''){
+		action_channel_config = Ext.decode(action_channel_config_str);
+	}
+
+	Ext.ucf.businessrule.createActionConfigPanel('action_panel_area', {action_channel_config:action_channel_config, rule_id:'{{ucfp.voinfo.vo.rule_id|escapejs}}'});
+
+}
+
+function goCopyNewRegist()
+{
+	location.href = '{{vurl|safe}}businessrule/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}&{{config.QSTRING_TYPE2|safe}}={{config.EDIT_TYPE_COPYNEWREGIST|safe|escapejs}}'
+}
+
+function deleteData()
+{
+	if(confirm('{{lang.VMSG_CONFIRM_DELETE_BUSINESSRULE|safe|escapejs}}'))
+	{
+		location.href = '{{vurl|safe}}businessrule/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_DELETE|safe}}&{{config.QSTRING_STATUS|safe}}={{config.VC_CHECK|safe}}&token={{ucfp.data.token}}'
+	}	
+}
+
+function regist()
+{
+	var created_data = Ext.ucf.businessrule.createTriggerAndLogicAndActionJsonsWithVC();
+	if(!created_data.is_ok){
+		Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, created_data.vc_msg, '');
+		return;
+	}
+	$('#frmEdit').find('input[name=trigger_channel_config]').val(created_data.trigger_channel_config);
+	$('#frmEdit').find('input[name=logic_config]').val(created_data.logic_config);
+	$('#frmEdit').find('input[name=action_channel_config]').val(created_data.action_channel_config);
+	document.frmEdit.submit();
+}
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+	
+	createFields();
+
+	// テスト実行ボタン
+	var testCallButton = Ext.ucf.businessrule.createTestCallButton('{{ucfp.voinfo.vo.rule_id|escapejs}}');
+	testCallButton.render(Ext.get('btnTestCall'));
+	var testCallButton2 = Ext.ucf.businessrule.createTestCallButton('{{ucfp.voinfo.vo.rule_id|escapejs}}');
+	testCallButton2.render(Ext.get('btnTestCall2'));
+
+	var btnRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}{{lang.VMSG_NEWREGIST_BUSINESSRULE|safe}}{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}{{lang.VMSG_RENEWREGIST_BUSINESSRULE|safe}}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			regist();
+		}
+	});
+	btnRegist.render(Ext.get('btnRegist'));
+	var btnRegist2 = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}{{lang.VMSG_NEWREGIST_BUSINESSRULE|safe}}{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}{{lang.VMSG_RENEWREGIST_BUSINESSRULE|safe}}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			regist();
+		}
+	});
+	btnRegist2.render(Ext.get('btnRegist2'));
+	
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+	var btnCopyNewRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_COPY|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goCopyNewRegist();
+		}
+	});
+	btnCopyNewRegist.render(Ext.get('btnCopyNewRegist'));
+	var btnCopyNewRegist2 = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_COPY|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goCopyNewRegist();
+		}
+	});
+	btnCopyNewRegist2.render(Ext.get('btnCopyNewRegist2'));
+
+	var btnDelete = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_DELETE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			deleteData();
+		}
+	});
+	btnDelete.render(Ext.get('btnDelete'));
+	var btnDelete2 = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_DELETE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			deleteData();
+		}
+	});
+	btnDelete2.render(Ext.get('btnDelete2'));
+
+	{% endif %}
+	
+	var btnBackClose = new Ext.Button({
+		text:''
+	});
+	var btnBackClose2 = new Ext.Button({
+		text:''
+	});
+	
+	if(history.length > 1)
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			history.back(-1);
+		};
+		btnBackClose2.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose2.handler = function(){
+			history.back(-1);
+		};
+	}
+	else
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			window.close();
+		};
+		btnBackClose2.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose2.handler = function(){
+			window.close();
+		};
+	}
+	btnBackClose.render(Ext.get('btnBackClose'));
+	btnBackClose2.render(Ext.get('btnBackClose2'));
+
+	{% if ucfp.data.tp == config.EDIT_TYPE_RENEW %}
+	// パネルに履歴一覧グリッドをセット
+	var businessrule_history_grid = Ext.ucf.businessrule.trigger.createHistoryGrid('{{ucfp.voinfo.vo.unique_id}}');
+	businessrule_history_grid.render(Ext.get('BusinessRuleHistoryGridList'));
+
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		businessrule_history_grid.setWidth(businessrule_history_grid.getWidth() - 2);
+	});
+
+	{% endif %}
+
+
+	// 各セクションの開閉状態の初期化（設定によるものではなくユーザーが開閉を選択するもの）※予期せぬ動作不備を避けるため一番最後に行う
+	Ext.ucf.initShowOrHideSections();
+	// セクションの初期表示制御
+	// ロジック設定パネル
+	var logic_config;
+	logic_config_str = $('#frmEdit').find('input[name=logic_config]').val();
+	if(logic_config_str != ''){
+		logic_config = Ext.decode(logic_config_str);
+		// ロジック設定セクション開閉制御
+		if(typeof(logic_config.script) != 'undefined' && logic_config.script != ''){
+			Ext.ucf.showSection($('#section_area_logic_config'));
+		}
+	}
+
+
+
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu01">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_BUSINESSRULE_CONFIG|safe}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/" >{{lang.VMSG_BUSINESSRULE_LIST|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/regist?{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}" >{{lang.VMSG_BUSINESSRULE_ADD|safe}}</a></li>
+<li class="close"><a href="{{vurl|safe}}businessrule/#TRIGGER_HISTORYS" >{{lang.VMSG_BUSINESSRULE_HISTORY|safe}}</a></li>
+<li class="close"><a href="{{vurl|safe}}businessrule/#ACTION_HISTORYS" >{{lang.VMSG_ACTION_HISTORY|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'CREATE' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/create?{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}" >{{lang.VMSG_BUSINESSRULE_CREATE|safe}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+<!-- leftMenu menu02//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SHORTCUT|safe}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'DASHBOARD' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}" >{{lang.VMSG_DASHBOARD|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'USER' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}user/" >{{lang.VMSG_USER_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'GROUP' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}group/" >{{lang.VMSG_GROUP_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'BUSINESSRULE' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}businessrule/" >{{lang.VMSG_BUSINESSRULE_CONFIG|safe}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'LOGINHISTORY' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/log" >{{lang.VMSG_LOGINHISTORY|safe}}</a></li>
+{% if is_available_ssoclient_access_log and 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'ACCESSPAGELOG' %}current open{% else %}close{% endif %}"><a href="{{vurl|safe}}acs/pagelog" >{{lang.VMSG_ACCESSPAGELOG|safe}}</a></li>
+{% endif %}
+{% if 'ADMIN' in login.access_authority: %}
+<li class="{% if ucfp.data.leftmenuid == 'OPERATIONLOG' %}current open{% else %}close{% endif %}"><a href="{{vurl}}operationlog/" >{{lang.VMSG_OPERATIONLOG}}</a></li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+<!-- leftMenu innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//end -->
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_BUSINESSRULE_NEW|safe}}</p>
+{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}<p class="ttl">{{lang.VMSG_SITE_TITLE_BUSINESSRULE_RENEW|safe}}</p>
+{% endif %}
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+			<tr>
+			<td>
+			<p class="style1">
+			{% if ucfp.data.tp == config.EDIT_TYPE_NEW %}{{lang.EXP_BUSINESSRULE_NEW|safe}}
+			{% elif ucfp.data.tp == config.EDIT_TYPE_RENEW %}{{lang.EXP_BUSINESSRULE_RENEW|safe}}
+			{% endif %}
+			{{lang.EXP_BUSINESSRULE|safe}}
+			</p>
+			<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
+			<form id="frmEdit" name="frmEdit" method="POST" action="{{vurl|safe}}businessrule/regist?unqid={{ucfp.voinfo.vo.unique_id}}&{{config.QSTRING_TYPE|safe}}={{ucfp.data.tp}}" onsubmit="JavaScript:return Ext.ucf.preSubmit(Ext.get('contentsArea'));" >
+			<input type="hidden" name="token" value="{{ucfp.data.token}}">
+			<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+			<input type="hidden" name="date_changed" value="{{ucfp.voinfo.vo.date_changed}}">
+			<input type="hidden" name="trigger_channel_config" value="{{ucfp.voinfo.vo.trigger_channel_config}}">
+			<input type="hidden" name="logic_config" value="{{ucfp.voinfo.vo.logic_config}}">
+			<input type="hidden" name="action_channel_config" value="{{ucfp.voinfo.vo.action_channel_config}}">
+			<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2"><a name="BASIC">{{lang.VMSG_BASIC_INFORMATION|safe}}</a></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_BUSINESSRULE_RULE_NAME|safe}}&nbsp;<font color="red">*</font></td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_rule_name" class="field" ></div>&nbsp;<font color="#55E">{{lang.EXP_BUSINESSRULE_RULE_NAME|safe}}</font>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_MANAGEMENT_GROUP}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_management_group" class="field" ></div>
+			<p class="style1">{{lang.VMSG_MANAGEMENT_GROUP_EXP}}</p>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_COMMENT|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_comment" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_BUSINESSRULE_RULE_ID|safe}}</td>
+			<td width="80%" align="left" class="style3" colspan="3" >
+			<span style="padding-left:5px;font-size:16px;font-weight:bold;color:#7777FF;" >{{ucfp.voinfo.vo.rule_id}}</span>
+			<input type="hidden" name="rule_id" value="{{ucfp.voinfo.vo.rule_id}}">
+			<br/><font color="#55E">{{lang.EXP_BUSINESSRULE_RULE_ID|safe}}</font>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="20" border="0" alt=""></td>
+			</tr>
+			<tr align="center">
+			<td colspan="4" align="center">
+				<table  align="center">
+					<tr>
+						<td>
+							<div id="btnTestCall2"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnRegist2"></div>
+						</td>
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnCopyNewRegist2"></div>
+						</td>
+	{% endif %}
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnDelete2"></div>
+						</td>
+	{% endif %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnBackClose2"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="20" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div class="section_area_title" section_show_hide_area_id="AREA_trigger_config" style="cursor:pointer;" init_display="show"><p class="ttl"><a name="TRIGGER">{{lang.BUSINESSRULE_TRIGGER_CONFIG|safe}}</a><img class="section_arrow_img" /></p></div>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="4" >
+				<p class="style1" style="padding-left:15px;color:#696969;">{{lang.EXP_BUSINESSRULE_TRIGGER_CONFIG|safe}}</p>
+			</td>
+			</tr>
+		     <tr>
+			<td colspan="4">
+		      <table class="info_table" id="AREA_trigger_config" >
+				<tr>
+				<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+				</tr>
+				<tr>
+				<td colspan="4" >
+				<div id="trigger_panel_area" ></div>
+				</td>
+				</tr>
+				<tr>
+					<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+				</tr>
+		      </table>
+			</td>
+		      </tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="20" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div id="section_area_logic_config" class="section_area_title" section_show_hide_area_id="AREA_logic_config" style="cursor:pointer;" ><p class="ttl"><a name="LOGIC">{{lang.BUSINESSRULE_LOGIC_CONFIG|safe}}</a><img class="section_arrow_img" /></p></div>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="4" >
+				<p class="style1" style="padding-left:15px;color:#696969;">{{lang.EXP_BUSINESSRULE_LOGIC_CONFIG|safe}}</p>
+			</td>
+			</tr>
+		     <tr>
+			<td colspan="4">
+		      <table class="info_table" id="AREA_logic_config" >
+				<tr>
+				<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+				</tr>
+				<tr>
+				<td colspan="4" >
+				<div id="logic_panel_area" ></div>
+				</td>
+				</tr>
+				<tr>
+					<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+				</tr>
+		      </table>
+			</td>
+		      </tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="20" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div class="section_area_title" section_show_hide_area_id="AREA_action_config" style="cursor:pointer;" init_display="show"><p class="ttl"><a name="ACTION">{{lang.BUSINESSRULE_ACTION_CONFIG|safe}}</a><img class="section_arrow_img" /></p></div>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="4" >
+				<p class="style1" style="padding-left:15px;color:#696969;">{{lang.EXP_BUSINESSRULE_ACTION_CONFIG|safe}}</p>
+			</td>
+			</tr>
+		    <tr>
+			<td colspan="4">
+		      <table class="info_table" id="AREA_action_config" >
+				<tr>
+				<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="5" border="0"></div></td>
+				</tr>
+				<tr>
+				<td colspan="4" >
+				<div id="action_panel_area" ></div>
+				</td>
+				</tr>
+				<tr>
+					<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+				</tr>
+		      </table>
+			</td>
+		      </tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="50" border="0" alt=""></td>
+			</tr>
+
+
+			<tr align="center">
+			<td colspan="4" align="center">
+				<table  align="center">
+					<tr>
+						<td>
+							<div id="btnTestCall"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnRegist"></div>
+						</td>
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnCopyNewRegist"></div>
+						</td>
+	{% endif %}
+	{% if ucfp.data.tp != config.EDIT_TYPE_NEW %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnDelete"></div>
+						</td>
+	{% endif %}
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnBackClose"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+
+			</table>
+			</form>
+			</td>
+			</tr>
+
+			</table>
+
+    </td>
+  </tr>
+</table>
+</div>
+<!-- rightArea innerArea//end -->
+
+{% if ucfp.data.tp == config.EDIT_TYPE_RENEW %}
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_BUSINESSRULE_HISTORY}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="BusinessRuleHistoryGridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+{% endif %}
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+</div>
+<!-- rightArea//end -->
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

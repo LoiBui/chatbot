@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[交際･接待費申請書]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  交際･接待費申請書
+
+  @since 2014-01-30
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%;">No</th>
+		<th class="detail_head" style="width:15%;">月日</th>
+		<th class="detail_head" style="width:23%;">内容</th>
+		<th class="detail_head" style="width:23%;">事由</th>
+		<th class="detail_head" style="width:23%;">支払先</th>
+		<th class="detail_head" style="width:11%;">金額</th>
+	</tr>
+
+<!-- _01行目 -->
+	<tr>
+		<td class="detail_value">1</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_1" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_1" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02行目 -->
+	<tr>
+		<td class="detail_value">2</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_2" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_2" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03行目 -->
+	<tr>
+		<td class="detail_value">3</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_3" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_3" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _04行目 -->
+	<tr>
+		<td class="detail_value">4</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_4" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_4" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _05行目 -->
+	<tr>
+		<td class="detail_value">5</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_5" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_5" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _06行目 -->
+	<tr>
+		<td class="detail_value">6</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_6" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_6" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _07行目 -->
+	<tr>
+		<td class="detail_value">7</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_7" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_7" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _08行目 -->
+	<tr>
+		<td class="detail_value">8</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_8" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_8" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_8" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _09行目 -->
+	<tr>
+		<td class="detail_value">9</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_9" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_9" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_9" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _10行目 -->
+	<tr>
+		<td class="detail_value">10</td>
+		<td class="detail_value"><input name="seisan_tsuki_hi_10" class="date"></td>
+		<td class="detail_value"><input name="seisan_naiyou_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_jiyuu_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_shiharaisaki_10" style="width:100%;"></td>
+		<td class="detail_value"><input name="seisan_kingaku_10" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="6" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" colspan="4">　</td>
+		<td class="detail_name">合計</td>
+		<td class="detail_value">
+			<input name="seisan_goukei" style="width:100%;" class="sum" fields="seisan_kingaku_1 seisan_kingaku_2 seisan_kingaku_3 seisan_kingaku_4 seisan_kingaku_5 seisan_kingaku_6 seisan_kingaku_7 seisan_kingaku_8 seisan_kingaku_9 seisan_kingaku_10" readonly>
+		</td>
+	</tr>
+
+	<tr>
+		<td>　</td>
+		<td class="detail_value"><input name="ryosyu_date" class="date"></td>
+		<td class="detail_value" colspan="4"><font size="3">上記金額領収いたしました。</font></td>
+	</tr>
+
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140602085945rPhtFAUodGx7ZRrH\",\"name\":\"交際･接待費申請書1\",\"sections\":[{\"section_id\":\"sec_id-1401675014998Kgyp8nbPfq7XKNVB\",\"secname\":\"交際･接待費申請書1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401674408148mHRsx8OmHYCawNUZ\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674408156k75tuYFdE831jTt9\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急 \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401674408156RosHT5GMnc5kjx6d\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401675014998Kgyp8nbPfq7XKNVB\"},{\"control_id\":\"ctr_id-1401674408148JpBzDBPSNPTJP7do\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674408156k75tuYFdE831jTt9\"},{\"control_id\":\"ctr_id-1401674408152UusGpgDMdcGkZyLA\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674408156k75tuYFdE831jTt9\"}]},{\"section_id\":\"sec_id-1401674734041Q9R8f1wQJYoaZHyr\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14016747456419EhpTVadmwwPqJdF\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\",\"secname\":\"div1\",\"column_cof\":6,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"No\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"月日\",\"width\":\"15%\",\"align\":\"left\"},\"3\":{\"title\":\"内容\",\"width\":\"23%\",\"align\":\"left\"},\"4\":{\"title\":\"事由\",\"width\":\"23%\",\"align\":\"left\"},\"5\":{\"title\":\"支払先\",\"width\":\"23%\",\"align\":\"left\"},\"6\":{\"title\":\"金額\",\"width\":\"11%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860944gQdnZ7bwrFSS8KPf\",\"pos_col\":1,\"pos_row\":1},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860944oiV9h6WczzKNAKrn\",\"pos_col\":1,\"pos_row\":2},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-140167486094441wgI5i9TQuCtJGD\",\"pos_col\":1,\"pos_row\":3},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860944L1SQOt4w1dK46eDr\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"5\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860944sZygCyhnhXNKZUjG\",\"pos_col\":1,\"pos_row\":5},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"6\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860945MP0zPk9VKId7bCEQ\",\"pos_col\":1,\"pos_row\":6},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"7\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-14016748609459z7FHGHKbNA09mIV\",\"pos_col\":1,\"pos_row\":7},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"8\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860945f8Yr1Pz6v8HqKnvX\",\"pos_col\":1,\"pos_row\":8},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"9\",\"class\":\"detail_name arrowRight\",\"showlblname\":false,\"style\":\"\",\"beforecontent\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"aftercontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"new_attrs\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860945VOUGO6DEM7zhD14I\",\"pos_col\":1,\"pos_row\":9},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"10\",\"style\":\"\",\"class\":\"detail_name arrowRight\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{},\"html\":\"\"},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401674860945ufT16vyR2SL9fPTj\",\"pos_col\":1,\"pos_row\":10,\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401674408153B9rqkXZGQBuHjMA9\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_1\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106738hi8uPo8xuGSrM9Fr\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_2\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016751067387itVguGRCccucRd3\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_3\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739L5yEiRopEaR7D8db\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_4\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739uIRJaYxs2M9Mm9hW\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_5\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739QCZ6vWcOt6Wgu1Dw\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_6\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739wwus3Uw0afZaH8N6\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_7\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739nkGJzDvaESbEBJxU\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_8\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739k6mwV2T5NFGzojzB\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_9\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675106739PJIrhUw9sVhO2ISo\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"seisan_tsuki_hi_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_tsuki_hi_10\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401674408153wXMqxK4YPvW4pHYv\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_1\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181582OWUABZzpAEsJADVq\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_2\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181582Lx3FAgSPHR5MkdCQ\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_3\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181582hHcCs8aVFfppj732\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_4\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583EaDrYVzGuvoTt99E\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_5\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583XWJjgOBLLhKX093m\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_6\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583r0gRsfjtZtfWe3ZP\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_7\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583FEFJhPw0PEK44OvY\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_8\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583XGH8FgM0P48Jh7ix\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_9\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675181583B1jdTg3D7hOBzSnR\",\"map_type_control\":\"text\",\"pos_col\":3,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"seisan_naiyou_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_naiyou_10\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401674408153r13QNxQ71V90Vznv\",\"pos_row\":1,\"pos_col\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_1\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244069aQ15q4enE7kwKbr4\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_2\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070eYEGHJK3r9EHnpVN\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_3\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070kSCvEmdzxyNM0C2y\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_4\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016752440700AgEgxj2jAP3eKnw\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_5\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070Ux16ZBsBmSpmcAjs\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_6\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070QGsf9ZQ0z7xQUL1n\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_7\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070hRS9bT3Sfx6zejqT\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_8\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070Ux2o370rVSuHi51C\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_9\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675244070jVid0hoPqKZAM5Am\",\"map_type_control\":\"text\",\"pos_col\":4,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"seisan_jiyuu_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_jiyuu_10\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401674408153s0DYYsBxUKVBtKEo\",\"pos_row\":1,\"pos_col\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_1\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879cyvghb1w7qf9MKKc\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_2\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016753118791g1LWOFG85h43tt6\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_3\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879CNCavgbUHTwtZ9Iq\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_4\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879Vx8VjEMmrvBPn3bj\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_5\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879qXNisG1k1OyNUAIf\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_6\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879RG19icpRIv1Gy4Ix\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_7\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879ZYEbZmYihfftI3yv\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_8\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879VKhZuPohBZvnJL93\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_9\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675311879BDUccMWXfnvIK3os\",\"map_type_control\":\"text\",\"pos_col\":5,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"seisan_shiharaisaki_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_shiharaisaki_10\",\"style\":\"width:95%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675743153zbfSokPwWCtAT88n\",\"map_type_control\":\"label\",\"pos_col\":5,\"pos_row\":11,\"config\":{\"attributes\":{\"lblname\":\"合計\",\"style\":\"width:90%\",\"class\":\"detail_name arrowRight\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401674408153fWLaYNrG7eoWLIeK\",\"pos_row\":1,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_1\",\"style\":\"width:100%;\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016753821493Le28erFhpnmH457\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_2\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405996HNhkFjVayomFXJTD\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_3\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_3\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"}},{\"control_id\":\"ctr_id-1401675405996f5IEphaJgTjQ0jNR\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_4\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_4\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405996xm1zqbcpajaqgqQj\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_5\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_5\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016754059964xOFxSCzhQCepP4X\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_6\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_6\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405996LSFJAn2NJkaCrncc\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":7,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_7\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_7\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405996xRL9zOta3IZHWcBo\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":8,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_8\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_8\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405997b6ywBQxe1XzOaT6c\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":9,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_9\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_9\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-1401675405997oThdAzF0Otktht84\",\"map_type_control\":\"text\",\"pos_col\":6,\"pos_row\":10,\"config\":{\"attributes\":{\"lblname\":\"seisan_kingaku_10\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_kingaku_10\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"},{\"control_id\":\"ctr_id-14016744081556Ia39hRaZrxpXQS6\",\"pos_row\":11,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"seisan_goukei\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"seisan_goukei\",\"style\":\"width:100%;\",\"class\":\"sum\",\"new_attrs\":\"fields=seisan_kingaku_1 seisan_kingaku_2 seisan_kingaku_3 seisan_kingaku_4 seisan_kingaku_5 seisan_kingaku_6 seisan_kingaku_7 seisan_kingaku_8 seisan_kingaku_9 seisan_kingaku_10;readonly=;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401674837474VfIJtHLjYTIiKYjv\"}]},{\"section_id\":\"sec_id-14016758030401S9CytQDa4zbP1WD\",\"secname\":\"div2\",\"column_cof\":3,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"15%\",\"align\":\"left\"},\"3\":{\"title\":\"\",\"width\":\"80%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401676140980eGL6BMRXdODu6PuL\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"width:30px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14016758030401S9CytQDa4zbP1WD\"},{\"control_id\":\"ctr_id-1401674408155mAJLpwBgUwkHeB9M\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"ryosyu_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"bold\",\"aftercontent\":\"\",\"name\":\"ryosyu_date\",\"style\":\"width:100%;margin-left:100px;\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14016758030401S9CytQDa4zbP1WD\"},{\"control_id\":\"ctr_id-140167610689421tmdaeXfaIFpqhk\",\"map_type_control\":\"label\",\"pos_col\":3,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"上記金額領収いたしました。\",\"style\":\"font-size:20px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14016758030401S9CytQDa4zbP1WD\"}]},{\"section_id\":\"sec_id-14016759851974XfYEBKVPOR6xxrp\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401675985197wnYsytrA6EsobxvH\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14016759851974XfYEBKVPOR6xxrp\"}]},{\"section_id\":\"sec_id-1401675908495tgn9S32ARfiXQILW\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401674408155ywnRu6O26PIX9Z8Y\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401675908495tgn9S32ARfiXQILW\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  交際･接待費申請書
+
+  @since 2014-01-30
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <!-- _01行目 -->
+    <li class="row">
+      <div class="detail_head">No1</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_1" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_1" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_1" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_1" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_1" style="width:100%;"></div>
+    </li>
+
+    <!-- _02行目 -->
+    <li class="row">
+      <div class="detail_head">No2</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_2" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_2" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_2" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_2" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_2" style="width:100%;"></div>
+    </li>
+
+    <!-- _03行目 -->
+    <li class="row">
+      <div class="detail_head">No3</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_3" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_3" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_3" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_3" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_3" style="width:100%;"></div>
+    </li>
+
+    <!-- _04行目 -->
+    <li class="row">
+      <div class="detail_head">No4</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_4" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_4" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_4" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_4" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_4" style="width:100%;"></div>
+    </li>
+
+    <!-- _05行目 -->
+    <li class="row">
+      <div class="detail_head">No5</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_5" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_5" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_5" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_5" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_5" style="width:100%;"></div>
+    </li>
+
+    <!-- _06行目 -->
+    <li class="row">
+      <div class="detail_head">No6</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_6" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_6" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_6" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_6" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_6" style="width:100%;"></div>
+    </li>
+
+    <!-- _07行目 -->
+    <li class="row">
+      <div class="detail_head">No7</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_7" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_7" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_7" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_7" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_7" style="width:100%;"></div>
+    </li>
+
+    <!-- _08行目 -->
+    <li class="row">
+      <div class="detail_head">No8</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_8" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_8" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_8" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_8" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_8" style="width:100%;"></div>
+    </li>
+
+    <!-- _09行目 -->
+    <li class="row">
+      <div class="detail_head">No9</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_9" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_9" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_9" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_9" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_9" style="width:100%;"></div>
+    </li>
+
+    <!-- _10行目 -->
+    <li class="row">
+      <div class="detail_head">No10</div>
+      <div class="detail_head">月日</div>
+      <div class="detail_value"><input type="text" name="seisan_tsuki_hi_10" style="width:100%;" class="date">
+      </div>
+      <div class="detail_head">内容</div>
+      <div class="detail_value"><input type="text" name="seisan_naiyou_10" style="width:100%;"></div>
+      <div class="detail_head">事由</div>
+      <div class="detail_value"><input type="text" name="seisan_jiyuu_10" style="width:100%;"></div>
+      <div class="detail_head">支払先</div>
+      <div class="detail_value"><input type="text" name="seisan_shiharaisaki_10" style="width:100%;"></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value"><input type="text" name="seisan_kingaku_10" style="width:100%;"></div>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name"><font color="blue">合計</font></div>
+      <div class="detail_head">金額</div>
+      <div class="detail_value">
+        <input type="text" class="sum" name="seisan_goukei" style="width:100%;"
+               fields="seisan_kingaku_1 seisan_kingaku_2 seisan_kingaku_3 seisan_kingaku_4 seisan_kingaku_5 seisan_kingaku_6 seisan_kingaku_7 seisan_kingaku_8 seisan_kingaku_9 seisan_kingaku_10"
+               readonly>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value"><input type="text" name="ryosyu_date" class="date" style="width:100%;"></div>
+      <div class="detail_value"><font>上記金額領収いたしました。</font></div>
+    </li>
+
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

@@ -1,0 +1,506 @@
+
+{% if action['action_type']=='push_message' %}
+<!-- PUSH MESSAGE-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Text">
+                <div class="mdRGT07MsgText">
+                    <span class="mdRGT07MsgTextInner">
+                        {{ action['message_text']|safe}}
+                    </span>
+                </div>
+                <div class="mdRGT07Opt">
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_image' %}
+<!-- PUSH IMAGE-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <img src="{{ action['content_url'] }}">
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+                </div>
+
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_video' %}
+<!-- PUSH VIDEO-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <video controls>
+                        <source src="{{ action['content_url'] }}">
+                    </video>
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+                </div>
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_sticker' %}
+<!-- PUSH STICKER-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <img src="/images/sticker/144_2.png">
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+                </div>
+
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_location' %}
+<!-- PUSH LOCATION-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <img src="/images/tokyo_map.png">
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+
+                    <div class="mdRGT07MsgTlt">
+                        <div class="title">
+                            {{ action['title'] }}
+                        </div>
+                        <div class="description">
+                            {{ action['address'] }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_audio' %}
+<!-- PUSH AUDIO-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <audio controls style="width: 275px;">
+                        <source src="{{ action['originalContentUrl'] }}" type="audio/mpeg">
+                    </audio>
+
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+                </div>
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_imagemap' %}
+<!-- PUSH IMAGE MAP-->
+    <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+        <div class="mdRGT07Img" style="display:block;">
+            <img src="/images/favicon2.ico" width="35" height="35" alt="">
+        </div>
+        <div class="mdRGT07Body">
+            <div class="mdRGT07Msg mdRGT07Image">
+                <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                    <img src="{{ action['content_url'] }}/{{ action['width'] }}">
+                    <button type="button" class="MdBtn01Cancel01 MdNonDisp">Cancel</button>
+                </div>
+
+                <div class="mdRGT07Opt">
+                    <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure</button>
+                    <p class="mdRGT07Read MdNonDisp"></p>
+
+                    <p class="mdRGT07Date">
+                        <time>12:00 PM</time>
+                    </p>
+                </div>
+
+                <div>
+                    <div id="_chat_message_success_menu" class="mdRGT07Btn"></div>
+                    <div id="_chat_message_fail_menu" class="mdRGT07Btn MdNonDisp">
+                        <button type="button" id="_chat_message_image_retry">Resend</button>
+                        <button type="button" id="_chat_message_image_delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% if action['action_type']=='push_template' %}
+<!-- PUSH TEMPLATE-->
+    {% set template = json.decode(action['template']) %}
+
+    {% if template['type'] == 'buttons' %}
+        <!-- BUTTON -->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <div class="mdRGT07Body">
+                <div class="mdRGT07Msg mdRGT07Image">
+
+                    <div class="mdRGT07MsgImg2" id="_chat_message_loading_area">
+                        {% if  template['thumbnailImageUrl'] and template['thumbnailImageUrl']!='' %}
+                        <div class="crop ">
+                            <img src="{{  template['thumbnailImageUrl'] }}" class="w100pcent  img_cover">
+                        </div>
+                        {% endif %}
+
+                        <div class="mdRGT07MsgTlt2 w100pcent">
+                            {% if template['title']!='' %}
+                                <div class="title">
+                                    {{ template['title'] }}
+                                </div>
+                            {% endif %}
+
+                            {% if template['text']!='' %}
+                                <div class="description">
+                                    {{ template['text'] }}
+                                </div>
+                            {% endif %}
+
+                            <div class="btn-action">
+                                {% for item in template['actions'] %}
+                                    {% if item['label'] %}
+                                        <span class="cfrm_btn">{{ item['label'] }}</span>
+                                    {% endif %}
+                                    {% if item['chatBarText'] %}
+                                        <span class="cfrm_btn">{{ item['chatBarText'] }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdRGT07Opt">
+                        <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure
+                        </button>
+                        <p class="mdRGT07Read MdNonDisp"></p>
+
+                        <p class="mdRGT07Date">
+                            <time>12:00 PM</time>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if template['type'] == 'confirm'%}
+        <!-- CONFIRM -->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <div class="mdRGT07Body">
+                <div class="mdRGT07Msg mdRGT07Text">
+
+                    <div class="mdRGT07MsgText confirmText">
+                        <div class="mdRGT07MsgTextInner">
+                           {% if template['text']!='' %}
+                                <div class="description">
+                                    {{ template['text'] }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="mdRGT07MsgTlt2 w100pcent ha">
+                            <div class="btn-confirm">
+                                {% for item in template['actions'] %}
+                                    {% if item['label'] %}
+                                        <span class="cfrm_btn">{{ item['label'] }}</span>
+                                    {% endif %}
+                                    {% if item['chatBarText'] %}
+                                        <span class="cfrm_btn">{{ item['chatBarText'] }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdRGT07Opt">
+                        <button type="button" id="_chat_message_image_failure" class="MdBtn01Failure MdNonDisp">Failure
+                        </button>
+                        <p class="mdRGT07Read MdNonDisp"></p>
+
+                        <p class="mdRGT07Date">
+                            <time>12:00 PM</time>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if template['type'] == 'carousel' %}
+    <!-- CAROUSEL-->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    {% for column in template['columns'] %}
+                        <!-- Slides -->
+                        <div class="swiper-slide w65pcent">
+                            <div class="mdRGT07Body">
+                                <div class="mdRGT07Msg mdRGT07Image">
+                                    <div class="mdRGT07MsgImg2" id="_chat_message_loading_area">
+                                        {% if column['thumbnailImageUrl'] and column['thumbnailImageUrl']!='' %}
+                                            <div class="crop ">
+                                                <img src="{{ column['thumbnailImageUrl'] }}" class="w100pcent  img_cover">
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="mdRGT07MsgTlt2 w100pcent">
+                                            {% if column['title']!='' %}
+                                                <div class="title">
+                                                    {{ column['title'] }}
+                                                </div>
+                                            {% endif %}
+
+                                            {% if column['text']!='' %}
+                                                <div class="description">
+                                                    {{ column['text'] }}
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="btn-action">
+                                                {% for item in column['actions'] %}
+                                                    {% if item['label'] %}
+                                                        <span class="cfrm_btn">{{ item['label'] }}</span>
+                                                    {% endif %}
+                                                    {% if item['chatBarText'] %}
+                                                        <span class="cfrm_btn">{{ item['chatBarText'] }}</span>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+{#                <div class="swiper-scrollbar"></div>#}
+            </div>
+            <!-- If we need scrollbar -->
+            <div class="mdRGT07Opt mrg3 flr">
+                <p class="mdRGT07Date">
+                    <time>12:00 PM</time>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if template['type'] == 'image_carousel' %}
+    <!-- IMAGES CAROUSEL-->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    {% for column in template['columns'] %}
+                        <!-- Slides -->
+                        <div class="swiper-slide w65pcent">
+                            <div class="mdRGT07Body">
+                                <div class="mdRGT07Msg mdRGT07Image">
+                                    <div class="mdRGT07MsgImg2" id="_chat_message_loading_area">
+                                        <div class="mdRGT07MsgImg" id="_chat_message_loading_area">
+                                            {% if column['imageUrl'] and column['imageUrl']!='' %}
+                                                <img src="{{ column['imageUrl'] }}">
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+{#                <div class="swiper-scrollbar"></div>#}
+            </div>
+            <!-- If we need scrollbar -->
+            <div class="mdRGT07Opt mrg3 flr">
+                <p class="mdRGT07Date">
+                    <time>12:00 PM</time>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% if action['action_type']=='push_flex' %}
+<!-- PUSH FLEX-->
+    {% set template = json.decode(action['template']) %}
+
+    {% if template['type'] == 'bubble' %}
+    <!-- BUBBLE-->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <div class="mdRGT07Body">
+                <div class="mdRGT07Msg mdRGT07Text">
+                    <div class="mdRGT07MsgText pd0 nonequote">
+                        {{ page_self.getTemplateRender('preview_flex_bubble.html', page_self._design_type, {'template':template,'page_self':page_self,'class_mess': 'mess'})|safe }}
+                    </div>
+                    <div class="mdRGT07Opt">
+                        <p class="mdRGT07Date">
+                            <time>12:00 PM</time>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if template['type'] == 'carousel' %}
+    <!-- CAROUSEL-->
+        <div class="MdRGT07Cont mdRGT07Other" data-local-id="1008" data-visible-prev="visible" data-visible="visible">
+            <div class="mdRGT07Img" style="display:block;">
+                <img src="/images/favicon2.ico" width="35" height="35" alt="">
+            </div>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    {% for column in template['contents'] %}
+                        <!-- Slides -->
+                        <div class="swiper-slide w65pcent">
+                            <div class="mdRGT07Body">
+                                <div class="mdRGT07Msg mdRGT07Text">
+                                    <div class="mdRGT07MsgText pd0 nonequote">
+                                        {{ page_self.getTemplateRender('preview_flex_bubble.html', page_self._design_type, {'template':column,'page_self':page_self,'class_mess': 'mess-carousel'})|safe }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- If we need scrollbar -->
+            <div class="mdRGT07Opt mrg3 flr">
+                <p class="mdRGT07Date">
+                    <time>12:00 PM</time>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

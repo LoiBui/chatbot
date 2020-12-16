@@ -1,0 +1,14 @@
+﻿[2020/06/18 15:37:57] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2020/06/18 15:37:57] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2020/06/18 15:37:57] [Compile Start]common.js
+[2020/06/18 15:38:00] [Compile Start]ucfext_operationlog.js
+[2020/06/18 15:38:02] [Compile Start]ucfext_field.js
+[2020/06/18 15:38:03] [Compile Start]lang\default.js
+[2020/06/18 15:38:05] [Compile Start]lang\ja.js
+[2020/06/18 15:38:07] [Compile Start]lang\en.js
+[2020/06/18 15:38:09] [Compile Start]ucfext_lineworks.js
+[2020/06/18 15:38:11] [Compile Start]ucfext_dictionary.js
+[2020/06/18 15:38:13] Expand Jinja Templates include files...
+[2020/06/18 15:38:13] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2020/06/18 15:38:13] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2020/06/18 15:38:16] Expand Jinja Templates include files fin.

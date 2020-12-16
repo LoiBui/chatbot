@@ -1,0 +1,19 @@
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<p class="style2">{{lang.VMSG_INFO_SUBMAILADDRESS|safe}}</p>
+<br/>
+</div>
+
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿[2019/08/28 12:54:02] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/channels/lineworksbotchannel.js:1293: WARNING - unreachable code
+			if(false){
+			         ^^
+
+0 error(s), 1 warning(s)
+

@@ -1,0 +1,51 @@
+#!/usr/bin/python
+# coding: utf-8
+
+__author__ = 'T.ASAO <asao@sateraito.co.jp>'
+
+import sateraito_inc
+import logging as gae_logging
+
+###############################
+# ロギングクラス
+class logging(object):
+
+	# 調査用デバッグログ（普段非表示）
+	@classmethod
+	def debug(cls, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 5:
+			gae_logging.debug(msg)
+
+	# 通常ログ
+	@classmethod
+	def info(cls, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 4:
+			gae_logging.info(msg)
+
+	# 警告ログ
+	@classmethod
+	def warning(cls, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 3:
+			gae_logging.warning(msg)
+	warn = warning
+
+	# エラーログ
+	@classmethod
+	def error(cls, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 2:
+			gae_logging.error(msg)
+
+	# 例外ログ
+	@classmethod
+	def exception(cls, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 1:
+			gae_logging.exception(msg)
+
+	# クリティカルログ
+	@classmethod
+	def critical(cls, lvl, msg, *args, **kwargs):
+		if sateraito_inc.logging_level >= 0:
+			gae_logging.critical(lvl, msg)
+
+###############################
+

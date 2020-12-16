@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Commodity Information Management]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+Commodity Information Management
+
+@version 2014-01-22
+
+-->
+
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">
+	Commodity Information Management
+</div>
+
+<table class="detail" style="width:99%">
+
+	<tr>
+		<td class="detail_name" width="20%">Commodity Type&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" >
+		<select name="item_type" class="mandatory">
+			<option value="">Please choose</option>
+			<optgroup label="Clothing">
+				<option value="Men's clothing">Men's clothing</option>
+				<option value="Women's clothing">Women's clothing</option>
+				<option value="Child's clothing">Child's clothing</option>
+				<option value="Other clothing">Other clothing</option>
+			</optgroup>
+			<optgroup label="Miscellaneous">
+				<option value="Cosmetics">Cosmetics</option>
+				<option value="Art/Jewelry/Noble">Art/Jewelry/Noble</option>
+				<option value="Sports">Sports</option>
+				<option value="Doll">Doll</option>
+				<option value="Other">Other</option>
+			</optgroup>
+			<optgroup label="Food/Drink">
+				<option value="Fresh food">Fresh food</option>
+				<option value="Pastry">Pastry</option>
+				<option value="Side dish">Side dish</option>
+				<option value="Other foods">Other foods</option>
+			</optgroup>
+			<optgroup label="Consumer Electrics">
+				<option value="Camera">Camera</option>
+				<option value="Television/Recorder">Television/Recorder</option>
+				<option value="Audio">Audio</option>
+				<option value="Mobile Phone">Mobile Phone</option>
+				<option value="Home appliances">Home appliances</option>
+				<option value="Kitchen/Housework">Kitchen/Housework</option>
+				<option value="Season/Illumination">Season/Illumination</option>
+				<option value="Hairdressing Appliance">Hairdressing Appliance</option>
+			</optgroup>
+			<optgroup label="Printer">
+				<option value="Fukushima">Fukushima</option>
+				<option value="Kagoshima">Kagoshima</option>
+				<option value="Okanawa">Okanawa</option>
+			</optgroup>
+			<optgroup label="Industrial Good">
+				<option value="Chemical Industrial Product">Chemical Industrial Product</option>
+				<option value="Petroleum Products/Coal Products">Petroleum Products/Coal Products</option>
+				<option value="Plastic">Plastic</option>
+				<option value="Rubber">Rubber</option>
+				<option value="Steel">Steel</option>
+				<option value="Other material">Other material</option>
+				<option value="Metal products">Metal products</option>
+				<option value="Wood">Wood</option>
+				<option value="Others industrial goods">Others industrial goods</option>
+			</optgroup>
+		</select></td>
+		<td class="detail_name" width="20%">Commodity Management Number&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%">
+		<input name="item_id" sequence="monthly" >
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Commodity Code&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" maxlength="13" style="width:50%">
+		<input name="item_barcode" sequence="monthly" >
+		&nbsp;<font color="blue">13 numbers or 8 numbersＪＡＮCourt</font></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Product Name&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" >
+			<input name="item_name" sequence="monthly" style="width:60%">&nbsp;<font color="blue">※Please input name here</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Product Name&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" style="width:60%">
+			<input name="item_name_kana" sequence="monthly" style="width:60%">&nbsp;<font color="blue">※Please input name here</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Model Number</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_model_number" style="width:60%" class=""/>&nbsp;<font color="blue">i.e G3-1234-"</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Size</td>
+		<td class="detail_value" width="30%" colspan="3" style="width:60%">
+			<label>Longitudinal&nbsp;</label><input name="item_height" class="number" width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>Horizontal&nbsp;</label><input name="item_width" class="number"　width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>Depth&nbsp;</label><input name="item_depth" class="number"　width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>Unit&nbsp;</label><select name="item_unit" width="10%" style="width:10%">
+				<option value="mm">mm</option>
+				<option value="cm">cm</option>
+				<option value="m">m</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Weight</td>
+		<td class="detail_value" width="30%">
+			<input name="item_weight" width="30%" class="number"/>&nbsp;Gram
+		</td>
+		<td class="detail_name" width="20%">Locality</td>
+		<td class="detail_value" width="30%">
+			<select name="item_made_in" class="mandatory">
+			<option value="">Please choose</option>
+			<option value="Japan">Japan</option>
+			<option value="Chugoku">Chugoku</option>
+			<option value="Korea">Korea</option>
+			<option value="Vietnam">Vietnam</option>
+			<option value="Spain">Spain</option>
+			<option value="France">France</option>
+			<option value="Italia">Italia</option>
+			<option value="England">England</option>
+			<option value="USA">USA</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Brand</td>
+		<td class="detail_value" width="30%">
+			<input name="item_brand" style="width:60%" class=""/>
+		</td>
+		<td class="detail_name" width="20%">Color</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_color" style="width:60%" class=""/>&nbsp;<font color="blue">i.e. brown</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Maker</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_maker" style="width:60%" class=""/>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Supplier</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_supplier" style="width:60%" class=""/>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Price</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_cost" class="number"/>&nbsp;USD
+		</td>
+		<td class="detail_name" width="20%">Selling Price</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_price" class="number"/>&nbsp;USD
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Explanation</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<textarea name="item_comment" class="richtext" style="width:100%" rows="20"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" width="20%">&nbsp;</td>
+		<td class="detail_value" width="80%" colspan="3"><font color="blue">(Please upload the image of your product and insert it here.。)</font></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140603043902izuc2PDJDZRAYWtO\",\"name\":\"Product Information Management1\",\"sections\":[{\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\",\"secname\":\"Product Information Management1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401750740549v0vhqG0Jhw9e6pnw\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401750740555bM0ax5sprJ8sydyi\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740550BOiqvfRjE3vETejL\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740553cStJe6g0yCh2CwwU\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401750863934Rd29istZTrQu27cq\",\"controls\":[{\"control_id\":\"ctr_id-14017508772148UtNx84O0178ByzP\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"Commodity Information Management\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14017508897514YiPMyXQJQJo7VoZ\",\"controls\":[{\"control_id\":\"ctr_id-1401750740553Nko5h8sRNVnosY8h\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Commodity Type\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_type\",\"style\":\"\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"Please choose\",\"value\":\"\"},{\"text\":\"Men's clothing\",\"value\":\"Men's clothing\"},{\"text\":\"Women's clothing\",\"value\":\"Women's clothing\"},{\"text\":\"Child's clothing\",\"value\":\"Child's clothing\"},{\"text\":\"Other clothing\",\"value\":\"Other clothing\"},{\"text\":\"Cosmetics\",\"value\":\"Cosmetics\"},{\"text\":\"Art/Jewelry/Noble\",\"value\":\"Art/Jewelry/Noble\"},{\"text\":\"Sports\",\"value\":\"Sports\"},{\"text\":\"Doll\",\"value\":\"Doll\"},{\"text\":\"Other\",\"value\":\"Other\"},{\"text\":\"Fresh food\",\"value\":\"Fresh food\"},{\"text\":\"Pastry\",\"value\":\"Pastry\"},{\"text\":\"Side dish\",\"value\":\"Side dish\"},{\"text\":\"Other foods\",\"value\":\"Other foods\"},{\"text\":\"Camera\",\"value\":\"Camera\"},{\"text\":\"Television/Recorder\",\"value\":\"Television/Recorder\"},{\"text\":\"Audio\",\"value\":\"Audio\"},{\"text\":\"Mobile Phone\",\"value\":\"Mobile Phone\"},{\"text\":\"Home appliances\",\"value\":\"Home appliances\"},{\"text\":\"Kitchen/Housework\",\"value\":\"Kitchen/Housework\"},{\"text\":\"Season/Illumination\",\"value\":\"Season/Illumination\"},{\"text\":\"Hairdressing Appliance\",\"value\":\"Hairdressing Appliance\"},{\"text\":\"Fukushima\",\"value\":\"Fukushima\"},{\"text\":\"Kagoshima\",\"value\":\"Kagoshima\"},{\"text\":\"Okanawa\",\"value\":\"Okanawa\"},{\"text\":\"Chemical Industrial Product\",\"value\":\"Chemical Industrial Product\"},{\"text\":\"Petroleum Products/Coal Products\",\"value\":\"Petroleum Products/Coal Products\"},{\"text\":\"Plastic\",\"value\":\"Plastic\"},{\"text\":\"Rubber\",\"value\":\"Rubber\"},{\"text\":\"Steel\",\"value\":\"Steel\"},{\"text\":\"Other material\",\"value\":\"Other material\"},{\"text\":\"Metal products\",\"value\":\"Metal products\"},{\"text\":\"Wood\",\"value\":\"Wood\"},{\"text\":\"Others industrial goods\",\"value\":\"Others industrial goods\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-14017508897514YiPMyXQJQJo7VoZ\"},{\"control_id\":\"ctr_id-1401750740553B0eXkbzsysIbCbNa\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Commodity Management Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_id\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\",\"controls\":[{\"control_id\":\"ctr_id-1401750740553wIFXKyxa22fCvCwK\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Commodity Code\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"  13 numbers or 8 numbersＪＡＮCourt\",\"name\":\"item_barcode\",\"style\":\"width:25%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553cuL2765u9wFcI66T\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Product Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" ※Please input name here\",\"name\":\"item_name\",\"style\":\"width:60%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553Ca7Cmx5x6DOb9jfG\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Product Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" ※Please input name here\",\"name\":\"item_name_kana\",\"style\":\"width:60%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553OYXIZptIohnwHEnr\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Model Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e G3-1234-"\",\"name\":\"item_model_number\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-140175150205134wGCIf2Kny6OJAg\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"Size\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_item\",\"style\":\"width:60%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"Longitudinal\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_height\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"Horizontal\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_width\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"Depth\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_depth\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"Pulldown\",\"config\":{\"items\":[{\"text\":\"mm\",\"value\":\"mm\"},{\"text\":\"cm\",\"value\":\"cm\"},{\"text\":\"m\",\"value\":\"m\"}],\"attributes\":{\"lblname\":\"Unit\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_unit\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"map_type_control\":\"select\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\",\"controls\":[{\"control_id\":\"ctr_id-14017507405542afHxBde0XFPdxhq\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Weight\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" Gram\",\"name\":\"item_weight\",\"style\":\"width:60%\",\"class\":\"number\",\"new_attrs\":\"width=30%;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\"},{\"control_id\":\"ctr_id-1401750740554IYGNiAvWItBtDnJQ\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Brand\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_brand\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740554K2aQ7a7vnv4XQvxI\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Locality\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_made_in\",\"style\":\"\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"Please choose\",\"value\":\"\"},{\"text\":\"Japan\",\"value\":\"Japan\"},{\"text\":\"Chugoku\",\"value\":\"Chugoku\"},{\"text\":\"Korea\",\"value\":\"Korea\"},{\"text\":\"Vietnam\",\"value\":\"Vietnam\"},{\"text\":\"Spain\",\"value\":\"Spain\"},{\"text\":\"France\",\"value\":\"France\"},{\"text\":\"Italia\",\"value\":\"Italia\"},{\"text\":\"England\",\"value\":\"England\"},{\"text\":\"USA\",\"value\":\"USA\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\"},{\"control_id\":\"ctr_id-14017507405541z396fOtaAsqUVIf\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Color\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. brown\",\"name\":\"item_color\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751883941QGVfL8NBPwSzv5re\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554hMfB16N4MFxCR6Lp\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Maker\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_maker\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740554sHJtRz7L5dEQAWUc\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Supplier\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_supplier\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div5\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554Ha7Jen6m76J8q3Aw\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Price\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" USD\",\"name\":\"item_cost\",\"style\":\"width:85%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\"},{\"control_id\":\"ctr_id-1401750740554hvM4YEHEfVdWYVNH\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Selling Price\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" USD\",\"name\":\"item_price\",\"style\":\"width:85%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401752040373oHMxxza8rB4d5iTE\",\"controls\":[{\"control_id\":\"ctr_id-1401750740555AyvmxcwjB55wxU0u\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Explanation\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_comment\",\"style\":\"width:100%\",\"class\":\"richtext\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140603043902izuc2PDJDZRAYWtO\",\"name\":\"Product Information Management1\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554i8qDUOR9Go67YHfC\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"item_height\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_height\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401750740554yP1wgv0mUtgPKWAm\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"item_depth\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_depth\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401750740554F4d4tyc2hebCicQt\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"item_width\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_width\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-14017507405540G0Rh8y9uxxeJ04s\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"item_unit\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_unit\",\"class\":\"\"},\"items\":[{\"value\":\"mm\",\"text\":\"mm\"},{\"value\":\"cm\",\"text\":\"cm\"},{\"value\":\"m\",\"text\":\"m\"}]},\"map_type_control\":\"select\",\"tag\":\"select\"}]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+Commodity Information Management
+
+@version 2014-01-22
+
+-->
+<div class="container">
+  <ul class="detail" style="width:99%">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">
+  Commodity Information Management
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Commodity Type&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <select name="item_type" class="mandatory" style="width:100%">
+          <option value="">Please choose</option>
+          <optgroup label="Clothing">
+            <option value="Men's clothing">Men's clothing</option>
+            <option value="Women's clothing">Women's clothing</option>
+            <option value="Child's clothing">Child's clothing</option>
+            <option value="Other clothing">Other clothing</option>
+          </optgroup>
+          <optgroup label="Miscellaneous">
+            <option value="Cosmetics">Cosmetics</option>
+            <option value="Art/Jewelry/Noble">Art/Jewelry/Noble</option>
+            <option value="Sports">Sports</option>
+            <option value="Doll">Doll</option>
+            <option value="Other">Other</option>
+          </optgroup>
+          <optgroup label="Food/Drink">
+            <option value="Fresh food">Fresh food</option>
+            <option value="Pastry">Pastry</option>
+            <option value="Side dish">Side dish</option>
+            <option value="Other foods">Other foods</option>
+          </optgroup>
+          <optgroup label="Consumer Electrics">
+            <option value="Camera">Camera</option>
+            <option value="Television/Recorder">Television/Recorder</option>
+            <option value="Audio">Audio</option>
+            <option value="Mobile Phone">Mobile Phone</option>
+            <option value="Home appliances">Home appliances</option>
+            <option value="Kitchen/Housework">Kitchen/Housework</option>
+            <option value="Season/Illumination">Season/Illumination</option>
+            <option value="Hairdressing Appliance">Hairdressing Appliance</option>
+          </optgroup>
+          <optgroup label="Printer">
+            <option value="Fukushima">Fukushima</option>
+            <option value="Kagoshima">Kagoshima</option>
+            <option value="Okanawa">Okanawa</option>
+          </optgroup>
+          <optgroup label="Industrial Good">
+            <option value="Chemical Industrial Product">Chemical Industrial Product</option>
+            <option value="Petroleum Products/Coal Products">Petroleum Products/Coal Products</option>
+            <option value="Plastic">Plastic</option>
+            <option value="Rubber">Rubber</option>
+            <option value="Steel">Steel</option>
+            <option value="Other material">Other material</option>
+            <option value="Metal products">Metal products</option>
+            <option value="Wood">Wood</option>
+            <option value="Others industrial goods">Others industrial goods</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="detail_name">Commodity Management Number&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_id" sequence="monthly" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Commodity Code&nbsp;<font color="red">*</font></div>
+      <div class="detail_value" style="width:100%">
+        <input type="text" name="item_barcode" sequence="monthly" style="width:100%">
+      </div>
+      <div><font color="blue">13 numbers or 8 numbersＪＡＮCourt</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Product Name&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_name" sequence="monthly" style="width:100%">
+      </div>
+      <div><font color="blue">※Please input name here</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Product Name&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_name_kana" sequence="monthly" style="width:100%"></div>
+      <div>
+        <font color="blue">※Please input name here</font>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Model Number</div>
+      <div class="detail_value">
+        <input type="text" name="item_model_number" style="width:100%"/></div>
+      <div>
+        <font color="blue">i.e G3-1234-"</font>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Size</div>
+      <div class="detail_value">
+        <label>Longitudinal</label><br><input type="text" name="item_height" class="number" style="width:100%"><br>
+        <label>Horizontal</label><br><input type="text" name="item_width" class="number" style="width:100%"><br>
+        <label>Depth</label><br><input type="text" name="item_depth" class="number" style="width:100%"><br>
+        <label>Unit</label>
+        <select name="item_unit" style="width:100%"><br>
+          <option value="mm">mm</option>
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Weight</div>
+      <div class="detail_value">
+        <input type="text" name="item_weight" class="number" style="width:80%"/>&nbsp;Gram
+      </div>
+      <div class="detail_name">Locality</div>
+      <div class="detail_value">
+        <select name="item_made_in" class="mandatory" style="width:100%">
+          <option value="">Please choose</option>
+          <option value="Japan">Japan</option>
+          <option value="Chugoku">Chugoku</option>
+          <option value="Korea">Korea</option>
+          <option value="Vietnam">Vietnam</option>
+          <option value="Spain">Spain</option>
+          <option value="France">France</option>
+          <option value="Italia">Italia</option>
+          <option value="England">England</option>
+          <option value="USA">USA</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Brand</div>
+      <div class="detail_value">
+        <input type="text" name="item_brand" style="width:100%"/>
+      </div>
+      <div class="detail_name">Color</div>
+      <div class="detail_value">
+        <input type="text" name="item_color" style="width:100%"/>
+
+        <div>
+          <font color="blue">i.e. brown</font>
+        </div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Maker</div>
+      <div class="detail_value">
+        <input type="text" name="item_maker" style="width:100%" />
+      </div>
+    </li>
+    <li class="row">
+      <td class="detail_name">Supplier</td>
+      <td class="detail_value">
+        <input type="text" name="item_supplier" style="width:100%" />
+      </td>
+    </li>
+    <li class="row">
+      <div class="detail_name">Price</div>
+      <div class="detail_value">
+        <input type="text" name="item_cost" class="number" style="width:100%"/>&nbsp;USD
+      </div>
+      <div class="detail_name">Selling Price</div>
+      <div class="detail_value">
+        <input type="text" name="item_price" class="number" style="width:100%"/>&nbsp;USD
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Explanation</div>
+      <div class="detail_value">
+        <textarea name="item_comment" class="richtext" style="width:98%" rows="20"></textarea>
+      </div>
+    </li>
+    <li class="row">
+
+      <div><font color="blue">(Please upload the image of your product and insert it here.。)</font>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

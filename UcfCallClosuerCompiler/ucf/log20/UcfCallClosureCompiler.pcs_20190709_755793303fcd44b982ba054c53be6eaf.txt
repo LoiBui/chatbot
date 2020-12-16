@@ -1,0 +1,123 @@
+﻿[2019/07/09 14:39:46] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/07/09 14:39:46] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2019/07/09 14:39:46] [Compile Start]ajax.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]common.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]jkmegamenu.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]jquery.crossSelect.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]jquery.blockUI.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]json.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext.file.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_operator.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_acs.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_acslog.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_operationlog.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_config.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_task.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_field.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_user.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_group.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext_businessrule.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ucfext.strength.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]xmleditor.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]init_backstretch.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ext\PasswordStrength.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ext\PopupGroupList.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ext\PopupOrgUnitList.js
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] [Compile Start]ext\SecurityKeyboard.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]ext\ucf_element_selector.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\basechannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\lineworksbotchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\facebookworkplacebotchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\sateraitoaddonchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\nextsetaddonchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\restchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\facebookbotchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\gmailchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\linebotchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]channels\mailchannel.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]lang\default.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]lang\ja.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] [Compile Start]lang\en.js
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Expand Jinja Templates include files...
+[2019/07/09 14:39:48] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2019/07/09 14:39:48] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2019/07/09 14:39:51] Expand Jinja Templates include files fin.

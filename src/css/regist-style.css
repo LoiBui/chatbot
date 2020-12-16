@@ -1,0 +1,83 @@
+
+@media screen and (orientation:portrait) {
+	.register tr, .register  td, .register table {
+		display: block;
+		width: -webkit-fill-available;
+		background-color: #fff!important;
+	}
+	.register tbody {
+		width: 100%!important;
+		display: block;
+	}
+	.register  textarea.x-form-field {
+		width: 100%!important;
+		border-radius: 3px;
+	}
+	.register #FIELD_birthday .x-form-text{
+		height: 18px;
+	}
+	.register .x-form-text {
+		width: 100%!important;
+		height: 24px;
+		border-radius: 3px;
+	}
+	.register #btnRegist tr{
+		display: table-row;
+	}
+	.register #btnRegist td{
+		display: table-cell;
+	}
+	.register #btnRegist table{
+		display: table;
+	}
+	.register #btnRegist tbody{
+		display: table-row-group;
+	}
+	.register .x-btn button{
+		height: 24px!important;
+	}
+	#footerArea {
+		margin: 10px;
+	}
+}
+@media   screen and (max-width: 780px) {
+	.register tr, .register  td, .register table {
+		display: block;
+		width: -webkit-fill-available;
+		background-color: #fff!important;
+	}
+	.register tbody {
+		width: 100%!important;
+		display: block;
+	}
+	.register  textarea.x-form-field {
+		width: 100%!important;
+		border-radius: 3px;
+	}
+	.register #FIELD_birthday .x-form-text{
+		height: 18px;
+	}
+	.register .x-form-text {
+		width: 100%!important;
+		height: 24px;
+		border-radius: 3px;
+	}
+	.register #btnRegist tr{
+		display: table-row;
+	}
+	.register #btnRegist td{
+		display: table-cell;
+	}
+	.register #btnRegist table{
+		display: table;
+	}
+	.register #btnRegist tbody{
+		display: table-row-group;
+	}
+	/* .register .x-btn button{
+		height: 24px!important;
+	} */
+	 #footerArea {
+		margin: 10px;
+	}
+}

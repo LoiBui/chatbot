@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+{% include "./include/header.html" %}
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<p class="style1">{{lang.VMSG_INFO_SUBMAILADDRESS|safe}}</p>
+<br/>
+<p><a href="{{vurl}}personal/" >{{lang.VMSG_TO_PERSONAL}}</a></p>
+<p><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></p>
+</div>
+
+</div>
+<!-- MainBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>

@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[障害管理報告書]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  障害管理報告書
+
+  @since 2013-12-29
+-->
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">障害管理の対象</div>
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name" width="20%">障害の種類</td>
+		<td class="detail_value" width="30%">
+			<select name="syougai_kanri">
+				<option value="ハードウェア">ハードウェア</option>
+				<option value="ソフトウェア">ソフトウェア</option>
+				<option value="ネットワーク">ネットワーク</option>
+				<option value="アプリケーションプログラム">アプリケーションプログラム</option>
+				<option value="その他">その他</option>
+			</select>
+		</td>
+		<td colspan="2" class="detail_value" width="50%"><input name="others_naiyou"><font color="red">　※その他の場合</font></td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">障害管理の方法</div>
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name">発生日時</td>
+		<td class="detail_value" colspan="3">
+			<input name="syogai_hassei_date" class="date">
+			<input name="syogai_hassei_time" size="6">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">発生場所</td>
+		<td class="detail_value" colspan="3"><input name="syogai_hassei_place" style="width:100%" maxlength="100"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">内容</td>
+		<td class="detail_value" colspan="3"><textarea name="syogai_naiyou" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">発生状況</td>
+		<td class="detail_value" colspan="3"><textarea name="syogai_hassei_jyokyo" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">障害の原因</div>
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name" width="20%" rowspan="6">障害の原因</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_1" value="デッドロック">デッドロック&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_2" value="ソフトウェアのバグ">ソフトウェアのバグ&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_3" value="トランザクション量増加によるレスポンス低下">トランザクション量増加によるレスポンス低下&nbsp;
+		<td>
+	</tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_4" value="設計ミス">設計ミス&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_5" value="プログラムミス">プログラムミス&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_6" value="プログラム改修によるデグレーション">プログラム改修によるデグレーション&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_7" value="テスト不十分">テスト不十分&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_8" value="入力データチェック漏れ">入力データチェック漏れ&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_9" value="プログラムバージョン不整合">プログラムバージョン不整合&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_10" value="環境設定ミス">環境設定ミス&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_11" value="データの移行漏れ">データの移行漏れ&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_12" value="ジョブ運行制御のスケジュール登録ミス">ジョブ運行制御のスケジュール登録ミス&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_13" value="移行手順ミス">移行手順ミス&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_14" value="オペレーションミス">オペレーションミス&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_15" value="ディスク容量オーバー">ディスク容量オーバー&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_16" value="ロック待ち">ロック待ち&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_17" value="ハードウェア障害">ハードウェア障害&nbsp;
+		</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="genin_18" value="データベースの制限オーバー">データベースの制限オーバー&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">障害の原因(その他)</td>
+		<td class="detail_value" colspan="3"><textarea name="genin_others" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">障害対応</div>
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name" width="20%" rowspan="12">障害対応</td>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_1" value="関係者(利用者・管理者・経営者等)への運用停止連絡">関係者(利用者・管理者・経営者等)への運用停止連絡&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_2" value="障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・環境・オペレーション等)の把握">
+														障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・
+														<br>&nbsp;&nbsp;&nbsp;&nbsp;環境・オペレーション等)の把握&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_3" value="被害状況(業務への影響等)の確認">被害状況(業務への影響等)の確認&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_4" value="被害拡大防止措置">被害拡大防止措置&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_5" value="関係者(利用者・管理者・経営者等)への中間報告">関係者(利用者・管理者・経営者等)への中間報告&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_6" value="原因調査">原因調査&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_7" value="暫定対応の検討と実施">暫定対応の検討と実施&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_8" value="関係者(利用者・管理者・経営者等)への運用再開連絡">関係者(利用者・管理者・経営者等)への運用再開連絡&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_9" value="恒久対応の検討と実施">恒久対応の検討と実施&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_10" value="再発防止策の検討と実施">再発防止策の検討と実施&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_11" value="障害記録">障害記録&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" nowrap>
+			<input type="checkbox" name="taiou_12" value="関係者(利用者・管理者・経営者等)への最終報告">関係者(利用者・管理者・経営者等)への最終報告&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">障害対応(その他)</td>
+		<td class="detail_value" colspan="3"><textarea name="taiou_others" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">障害記憶</div>
+
+<table class="detail" width="80%">
+	<tr>
+		<td class="detail_name" width="20%">障害管理番号</td>
+		<td class="detail_value" width="30%">
+			<input name="syogai_kanri_number">
+		</td>
+		<td class="detail_name" width="20%">障害区分</td>
+		<td class="detail_value" width="30%">
+			<select name="syougai_kanri">
+				<option value="ハードウェア">ハードウェア</option>
+				<option value="ソフトウェア">ソフトウェア</option>
+				<option value="ネットワーク">ネットワーク</option>
+				<option value="アプリケーション">アプリケーション</option>
+				<option value="運用">運用</option>
+				<option value="操作">操作</option>
+				<option value="他システム">他システム</option>
+				<option value="災害等">災害等</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">障害件名</td>
+		<td class="detail_value" colspan="3"><input name="syogai_kenmei" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">通報者　部署</td>
+		<td class="detail_value" width="30%">
+			<input name="syogai_tsuhousya_busyo">
+		</td>
+		<td class="detail_name" width="20%">通報者　氏名</td>
+		<td class="detail_value" width="30%">
+			<input name="syogai_tsuhousya_name">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">対象業務名</td>
+		<td class="detail_value" colspan="3"><input name="taisyo_gyomu_name" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">対象システム名</td>
+		<td class="detail_value" colspan="3"><input name="taisyo_system_name" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">現象</td>
+		<td class="detail_value" colspan="3"><textarea name="syougai_gensyou" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">操作手順</td>
+		<td class="detail_value" colspan="3"><textarea name="sousa_tejyun" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">対応者</td>
+		<td class="detail_value" width="30%">
+			<input name="taiousya">
+		</td>
+		<td class="detail_name" width="20%">対応人数</td>
+		<td class="detail_value" width="30%">
+			<input name="taiou_ninzuu" size="5">&nbsp;人
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">対応期間</td>
+		<td class="detail_value" colspan="3">
+			<input name="taiou_kikan_start_date" class="date">
+			<input name="taiou_kikan_start_time" size="10">&nbsp;&nbsp;～&nbsp;&nbsp;
+			<input name="taiou_kikan_end_date" class="date">
+			<input name="taiou_kikan_end_time" size="10">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">対応工数</td>
+		<td class="detail_value" width="30%">
+			<input name="taiou_kousuu" size="10">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">直接原因</td>
+		<td class="detail_value" colspan="3"><textarea name="tyokusetsu_genin" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">間接原因</td>
+		<td class="detail_value" colspan="3"><textarea name="kansetsu_genin" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">根本原因</td>
+		<td class="detail_value" colspan="3"><textarea name="konpon_genin" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">暫定対応</td>
+		<td class="detail_value" colspan="3"><textarea name="zantei_taiou" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">類似・周辺箇所への<br>対応</td>
+		<td class="detail_value" colspan="3"><textarea name="ruiji_syuhenkasyo_taiou" style="width:100%" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name">完了日</td>
+		<td class="detail_value" colspan="3">
+			<input name="kanryou_date" class="date">
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140528071832FF3IXWNZnRU7trcy\",\"name\":\"障害管理報告書1\",\"sections\":[{\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\",\"secname\":\"障害管理報告書1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401236323644jCDvD2fhNHhEbMxY\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急 \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401236323651XNVBUFyUY3JZWjOr\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323644ePhz2LOiaVn7drS5\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323647Skh1JFZdUPE7W5rb\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]},{\"section_id\":\"sec_id-1401236496319R3hIVTYyNIHuPvX1\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401236508315sQzRrqaVg8kA8Ge2\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401236533352RhAUgRRkKSzCDqU9\",\"secname\":\"障害管理の対象\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401236323647jNM8fCLUBw4Mjpi9\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"障害の種類\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syougai_kanri\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"ハードウェア\",\"value\":\"ハードウェア\"},{\"text\":\"ソフトウェア\",\"value\":\"ソフトウェア\"},{\"text\":\"ネットワーク\",\"value\":\"ネットワーク\"},{\"text\":\"アプリケーションプログラム\",\"value\":\"アプリケーションプログラム\"},{\"text\":\"その他\",\"value\":\"その他\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401913100311O6YFB2AO9My2JsZg\",\"map_type_control\":\"text\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"others_naiyou\",\"showlblname\":\"false\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#ff0000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" ※その他の場合\",\"name\":\"others_naiyou\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401236533352RhAUgRRkKSzCDqU9\"}]},{\"section_id\":\"sec_id-1401236701363j5vO3ASNBZDmSNr8\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401236701364PINbkyxpUkqBgeqp\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401236701363j5vO3ASNBZDmSNr8\"}]},{\"section_id\":\"sec_id-1401236721308GeIKJAXUBFp8QeBn\",\"secname\":\"障害管理の方法\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401236798260hrmDR7a36404kty3\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"発生日時\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_syogai_hassei\",\"style\":\"width:200px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"syogai_hassei_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_hassei_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"syogai_hassei_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_hassei_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=6\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401236721308GeIKJAXUBFp8QeBn\"},{\"control_id\":\"ctr_id-1401236323648k3ys3owSOEV3kTPW\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"発生場所\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_hassei_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"maxlength=100;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323648cj7by9Rw6YOc2R5w\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"内容\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_naiyou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323648j6W4npfQzkvcftUF\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"発生状況\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_hassei_jyokyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]},{\"section_id\":\"sec_id-1401237006155XLm4P0xoS9E4v4jT\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401237006155Pec6QWD34CzqYjUd\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401237006155XLm4P0xoS9E4v4jT\"}]},{\"section_id\":\"sec_id-14012369325224zyatNHaPoBC5wp4\",\"secname\":\"障害の原因\",\"column_cof\":3,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"3\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401237351752ShuGIyJpIW2VbMqs\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"障害の原因\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_genin\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_1\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"デッドロック\",\"name\":\"genin_1\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"デッドロック\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_4\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"設計ミス \",\"name\":\"genin_4\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"設計ミス \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_7\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"テスト不十分 \",\"name\":\"genin_7\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"テスト不十分 \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_10\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"環境設定ミス\",\"name\":\"genin_10\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"環境設定ミス\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_13\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"移行手順ミス \",\"name\":\"genin_13\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"移行手順ミス \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_16\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"ロック待ち\",\"name\":\"genin_16\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"ロック待ち\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"}],\"html\":\"\"},\"section_id\":\"sec_id-14012369325224zyatNHaPoBC5wp4\"},{\"control_id\":\"ctr_id-1401237704567jnadjhiy7C1hXteY\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"group_gennin_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_gennin_1\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"ソフトウェアのバグ \",\"name\":\"genin_2\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"ソフトウェアのバグ \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_5\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"プログラムミス \",\"name\":\"genin_5\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"プログラムミス \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_8\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"入力データチェック漏れ \",\"name\":\"genin_8\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"入力データチェック漏れ \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_11\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"データの移行漏れ \",\"name\":\"genin_11\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"データの移行漏れ \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_14\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"オペレーションミス \",\"name\":\"genin_14\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"オペレーションミス \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_17\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"ハードウェア障害 \",\"name\":\"genin_17\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"ハードウェア障害 \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"}],\"html\":\"\"},\"section_id\":\"sec_id-14012369325224zyatNHaPoBC5wp4\"},{\"control_id\":\"ctr_id-140123785459194gde3ChSaLPxWDR\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"group_gennin_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_gennin_2\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_3\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"トランザクション量増加によるレスポンス低下\",\"name\":\"genin_3\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"トランザクション量増加によるレスポンス低下\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_6\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"プログラム改修によるデグレーション \",\"name\":\"genin_6\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"プログラム改修によるデグレーション \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_9\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"プログラムバージョン不整合 \",\"name\":\"genin_9\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"プログラムバージョン不整合 \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_12\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"ジョブ運行制御のスケジュール登録ミス \",\"name\":\"genin_12\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"ジョブ運行制御のスケジュール登録ミス \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_15\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"ディスク容量オーバー \",\"name\":\"genin_15\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"ディスク容量オーバー \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"genin_18\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"データベースの制限オーバー \",\"name\":\"genin_18\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"データベースの制限オーバー \"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"}],\"html\":\"\"},\"section_id\":\"sec_id-14012369325224zyatNHaPoBC5wp4\"}]},{\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401238784175p4ARb5IuKTk5fb8k\",\"controls\":[{\"control_id\":\"ctr_id-1401236323649nd8dTmRNb7SXzeyk\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"障害の原因(その他)\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"genin_others\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401238784175p4ARb5IuKTk5fb8k\"}]},{\"section_id\":\"sec_id-14012390074602eY5V2gh8WBobPPb\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401239007461euMscm66IOKnnNSY\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14012390074602eY5V2gh8WBobPPb\"}]},{\"secname\":\"障害対応\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\",\"controls\":[{\"control_id\":\"ctr_id-1401239462084hdUQjUb57UG3KwZ7\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"障害対応\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_taiou\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_1\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"関係者(利用者・管理者・経営者等)への運用停止連絡\",\"name\":\"taiou_1\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"関係者(利用者・管理者・経営者等)への運用停止連絡\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085Bfmt6KiCpXYBrwMA\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・      環境・オペレーション等)の把握\",\"name\":\"taiou_2\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・環境・オペレーション等)の把握\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"checkbox\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_3\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"被害状況(業務への影響等)の確認\",\"name\":\"taiou_3\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"被害状況(業務への影響等)の確認\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085g6sdL2mEwiKFOjPP\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_4\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"関係者(利用者・管理者・経営者等)への中間報告\",\"name\":\"taiou_4\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"関係者(利用者・管理者・経営者等)への中間報告\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085Z9P2wvbvJ2tHW5Ec\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_6\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"原因調査\",\"name\":\"taiou_6\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"原因調査\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085KHBNDZPxrQLyB0HD\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_7\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"暫定対応の検討と実施\",\"name\":\"taiou_7\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"暫定対応の検討と実施\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085RexM0GDBPFj8cXpF\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_8\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"関係者(利用者・管理者・経営者等)への運用再開連絡\",\"name\":\"taiou_8\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"関係者(利用者・管理者・経営者等)への運用再開連絡\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-14012394620854K9hn2BGWokPrbpc\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_9\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"恒久対応の検討と実施\",\"name\":\"taiou_9\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"恒久対応の検討と実施\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085CbEJvfF7RnDYmFaC\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_10\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"再発防止策の検討と実施\",\"name\":\"taiou_10\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"再発防止策の検討と実施\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085IAXnnMqxhfqyygX3\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_11\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"障害記録\",\"name\":\"taiou_11\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"障害記録\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-1401239462085Xyyrem13ZENd5dAz\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/checkbox_checked.png\",\"tag\":\"input\",\"type\":\"checkbox\",\"label\":\"チェックボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_12\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"関係者(利用者・管理者・経営者等)への最終報告\",\"name\":\"taiou_12\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"関係者(利用者・管理者・経営者等)への最終報告\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"control_id\":\"ctr_id-14012394620854OeK0XzWWGILDkpq\",\"map_type_control\":\"checkbox\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"},{\"control_id\":\"ctr_id-14012363236492XDr6VqMk9h6UtJv\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"障害対応(その他)\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou_others\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401239019668zACGfoaxa0FSdjeU\"}]},{\"section_id\":\"sec_id-1401240378097udShOdXpEQyxBqh1\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401240378098mtzcYH1NFC9L3SYR\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401240378097udShOdXpEQyxBqh1\"}]},{\"secname\":\"障害記憶\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401240408114Z6I39oT8kfPbPp7P\",\"controls\":[{\"control_id\":\"ctr_id-1401236323649XzMicQj9BiAZ1UFs\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"障害管理番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_kanri_number\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401240408114Z6I39oT8kfPbPp7P\"},{\"control_id\":\"ctr_id-1401236323649Sp1tx9v0A4oJeuLO\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"障害区分\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"syougai_kanri\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"ハードウェア\",\"value\":\"ハードウェア\"},{\"text\":\"ソフトウェア\",\"value\":\"ソフトウェア\"},{\"text\":\"ネットワーク\",\"value\":\"ネットワーク\"},{\"text\":\"アプリケーション\",\"value\":\"アプリケーション\"},{\"text\":\"運用\",\"value\":\"運用\"},{\"text\":\"操作\",\"value\":\"操作\"},{\"text\":\"他システム\",\"value\":\"他システム\"},{\"text\":\"災害等\",\"value\":\"災害等\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401240408114Z6I39oT8kfPbPp7P\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401240486641LfIweSmD0A77FOQu\",\"controls\":[{\"control_id\":\"ctr_id-1401236323649e8j5B6FK80wYIn1N\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"障害件名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_kenmei\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401241670395yW4fF7354kOCKOy8\",\"controls\":[{\"control_id\":\"ctr_id-1401236323649wzYkUfJ6DfbeqQ4p\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"通報者　部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_tsuhousya_busyo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401241670395yW4fF7354kOCKOy8\"},{\"control_id\":\"ctr_id-1401236323649mbgjmMJNcwEV4kuS\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"通報者　氏名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syogai_tsuhousya_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401241670395yW4fF7354kOCKOy8\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401241737242Sy3pFcQg5mZubI6J\",\"controls\":[{\"control_id\":\"ctr_id-1401236323649a8e0kMk3HLCW5sH3\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"対象業務名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taisyo_gyomu_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401241737242Sy3pFcQg5mZubI6J\"},{\"control_id\":\"ctr_id-1401236323649tKknJzUP90DBPrA3\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"対象システム名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taisyo_system_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401241737242Sy3pFcQg5mZubI6J\"},{\"control_id\":\"ctr_id-1401236323649WLIpyCtpzxo41Pea\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"現象\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"syougai_gensyou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323650ifVEmsefWc4WAUPE\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"操作手順\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"sousa_tejyun\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]},{\"secname\":\"div4\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401241869696XuCW6owfmjLJLy7T\",\"controls\":[{\"control_id\":\"ctr_id-1401236323650C0f7IK07s7RN6cRn\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"対応者\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiousya\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323650FTyIyijqQdjn773a\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"対応人数\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 人\",\"name\":\"taiou_ninzuu\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=5;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401241869696XuCW6owfmjLJLy7T\"}]},{\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401241975421PXG5A0pP9hAHFLn1\",\"controls\":[{\"control_id\":\"ctr_id-1401242077230W1p1ukWYWrc6Nipx\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"対応期間\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"group_taiou_kikan\",\"style\":\"width:500px\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_kikan_start_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou_kikan_start_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401244087821geVzkZPAGzCnKMYI\",\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_kikan_start_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"   ～    \",\"name\":\"taiou_kikan_start_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401244116066zHmkBK5GLUr3bXbY\",\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_kikan_end_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou_kikan_end_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401244135545EHNIcMOHNMADc4Go\",\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"taiou_kikan_end_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou_kikan_end_time\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-14012441526172UE7jKZcotZjOzCa\",\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401241975421PXG5A0pP9hAHFLn1\"},{\"control_id\":\"ctr_id-1401236323650n7MViuMnaFWN7CDg\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"対応工数\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"taiou_kousuu\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"size=10;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323650o3u0Frgk0aGHAgwf\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"直接原因\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tyokusetsu_genin\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401241975421PXG5A0pP9hAHFLn1\"},{\"control_id\":\"ctr_id-1401236323650kGRiSyhChJqYbUCa\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"間接原因\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kansetsu_genin\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-14012363236500do3xH4s2RHo1ESp\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"根本原因\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"konpon_genin\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323650oAk4kqDdAKCWbBuG\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"暫定対応\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"zantei_taiou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"},{\"control_id\":\"ctr_id-1401236323650h0W3FAwoFcZfEbGD\",\"pos_row\":7,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"類似・周辺箇所への 対応\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"ruiji_syuhenkasyo_taiou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401241975421PXG5A0pP9hAHFLn1\"},{\"control_id\":\"ctr_id-14012363236502XYmEnRQys9ZKjrT\",\"pos_row\":8,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"完了日\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kanryou_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]},{\"section_id\":\"sec_id-14012424529565WzS4ARDZNmvwXcv\",\"secname\":\"space6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401242452956qegWZMENZ6ffgtgX\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14012424529565WzS4ARDZNmvwXcv\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401242502371zEg4AVSjHpy4iqr5\",\"controls\":[{\"control_id\":\"ctr_id-1401236323650PhQDuRbhC84BT9jA\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401236323651XqnBABWLXpQm9gNp\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140528071832FF3IXWNZnRU7trcy\",\"name\":\"障害管理報告書1\",\"controls\":[]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  障害管理報告書
+
+  @since 2013-12-29
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">障害管理の対象</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row  height_format">
+      <div class="detail_name">障害の種類</div>
+      <div class="detail_value">
+        <select name="syougai_kanri" style="width:70%">
+          <option value="ハードウェア">ハードウェア</option>
+          <option value="ソフトウェア">ソフトウェア</option>
+          <option value="ネットワーク">ネットワーク</option>
+          <option value="アプリケーションプログラム">アプリケーションプログラム</option>
+          <option value="その他">その他</option>
+        </select>
+
+      </div>
+      <div class="detail_value"><input type="text" name="others_naiyou" style="width:70%"><font color="red">※その他の場合</font>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">障害管理の方法</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">発生日時</div>
+      <div class="detail_value">
+        <input type="text" name="syogai_hassei_date" class="date" style="width: 49%">
+        <input type="text" name="syogai_hassei_time" style="width: 49%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生場所</div>
+      <div class="detail_value"><input type="text" name="syogai_hassei_place" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">内容</div>
+      <div class="detail_value"><textarea name="syogai_naiyou" style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">発生状況</div>
+      <div class="detail_value"><textarea name="syogai_hassei_jyokyo" style="width:98%" rows="5"></textarea></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">障害の原因</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">障害の原因</div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_1" value="デッドロック">デッドロック&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_2" value="ソフトウェアのバグ">ソフトウェアのバグ&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_3" value="トランザクション量増加によるレスポンス低下">トランザクション量増加によるレスポンス低下&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_4" value="設計ミス">設計ミス&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_5" value="プログラムミス">プログラムミス&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_6" value="プログラム改修によるデグレーション">プログラム改修によるデグレーション&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_7" value="テスト不十分">テスト不十分&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_8" value="入力データチェック漏れ">入力データチェック漏れ&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_9" value="プログラムバージョン不整合">プログラムバージョン不整合&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_10" value="環境設定ミス">環境設定ミス&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_11" value="データの移行漏れ">データの移行漏れ&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_12" value="ジョブ運行制御のスケジュール登録ミス">ジョブ運行制御のスケジュール登録ミス&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_13" value="移行手順ミス">移行手順ミス&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_14" value="オペレーションミス">オペレーションミス&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_15" value="ディスク容量オーバー">ディスク容量オーバー&nbsp;
+      </div>
+
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_16" value="ロック待ち">ロック待ち&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_17" value="ハードウェア障害">ハードウェア障害&nbsp;
+      </div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="genin_18" value="データベースの制限オーバー">データベースの制限オーバー&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">障害の原因(その他)</div>
+      <div class="detail_value"><textarea name="genin_others" style="width:98%" rows="5"></textarea></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">障害対応</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">障害対応</div>
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="taiou_1" value="関係者(利用者・管理者・経営者等)への運用停止連絡">関係者(利用者・管理者・経営者等)への運用停止連絡&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <input type="checkbox" name="taiou_2" value="障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・環境・オペレーション等)の把握">
+        障害状況(障害発生日時・障害発生場所・通報者・対象システム名・対象媒体・現象・影響範囲・
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;環境・オペレーション等)の把握&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_3" value="被害状況(業務への影響等)の確認">被害状況(業務への影響等)の確認</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_4" value="被害拡大防止措置">被害拡大防止措置</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_5" value="関係者(利用者・管理者・経営者等)への中間報告">関係者(利用者・管理者・経営者等)への中間報告</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_6" value="原因調査">原因調査</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_7" value="暫定対応の検討と実施">暫定対応の検討と実施</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label> <input type="checkbox" name="taiou_8"
+                       value="関係者(利用者・管理者・経営者等)への運用再開連絡">関係者(利用者・管理者・経営者等)への運用再開連絡</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_9" value="恒久対応の検討と実施">恒久対応の検討と実施</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_10" value="再発防止策の検討と実施">再発防止策の検討と実施</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label><input type="checkbox" name="taiou_11" value="障害記録">障害記録</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value" nowrap>
+        <label> <input type="checkbox" name="taiou_12" value="関係者(利用者・管理者・経営者等)への最終報告">関係者(利用者・管理者・経営者等)への最終報告</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">障害対応(その他)</div>
+      <div class="detail_value"><textarea name="taiou_others" style="width:98%" rows="5"></textarea></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">障害記憶</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">障害管理番号</div>
+      <div class="detail_value">
+        <input type="text" name="syogai_kanri_number" style="width:100%">
+      </div>
+      <div class="detail_name">障害区分</div>
+      <div class="detail_value">
+        <select name="syougai_kanri">
+          <option value="ハードウェア">ハードウェア</option>
+          <option value="ソフトウェア">ソフトウェア</option>
+          <option value="ネットワーク">ネットワーク</option>
+          <option value="アプリケーション">アプリケーション</option>
+          <option value="運用">運用</option>
+          <option value="操作">操作</option>
+          <option value="他システム">他システム</option>
+          <option value="災害等">災害等</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">障害件名</div>
+      <div class="detail_value"><input type="text" name="syogai_kenmei" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">通報者　部署</div>
+      <div class="detail_value">
+        <input type="text" name="syogai_tsuhousya_busyo" style="width:100%">
+      </div>
+      <div class="detail_name">通報者　氏名</div>
+      <div class="detail_value">
+        <input type="text" name="syogai_tsuhousya_name" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">対象業務名</div>
+      <div class="detail_value"><input type="text" name="taisyo_gyomu_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">対象システム名</div>
+      <div class="detail_value"><input type="text" name="taisyo_system_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">現象</div>
+      <div class="detail_value"><textarea  name="syougai_gensyou" style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">操作手順</div>
+      <div class="detail_value"><textarea  name="sousa_tejyun" style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">対応者</div>
+      <div class="detail_value">
+        <input type="text" name="taiousya" style="width:100%">
+      </div>
+      <div class="detail_name">対応人数</div>
+      <div class="detail_value">
+        <input type="text" name="taiou_ninzuu" style="width:90%">&nbsp;人
+      </div>
+    </li>
+    <li class="height_format">
+      <div class="detail_name">対応期間</div>
+      <div class="detail_value">
+        <input type="text" name="taiou_kikan_start_date" class="date" style="width:45%">&nbsp;～&nbsp;
+        <input type="text" name="taiou_kikan_end_date" class="date" style="width:45%">
+      </div>
+      <div class="detail_value">
+        <input type="text" name="taiou_kikan_start_time" style="width:45%">&nbsp;～&nbsp;
+        <input type="text" name="taiou_kikan_end_time" style="width:45%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">対応工数</div>
+      <div class="detail_value">
+        <input type="text" name="taiou_kousuu" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">直接原因</div>
+      <div class="detail_value"><textarea name="tyokusetsu_genin"  style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">間接原因</div>
+      <div class="detail_value"><textarea name="kansetsu_genin" style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">根本原因</div>
+      <div class="detail_value"><textarea name="konpon_genin" style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">暫定対応</div>
+      <div class="detail_value"><textarea name="zantei_taiou"  style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">類似・周辺箇所への<br>対応</div>
+      <div class="detail_value"><textarea name="ruiji_syuhenkasyo_taiou"  style="width:98%" rows="5"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">完了日</div>
+      <div class="detail_value">
+        <input type="text" name="kanryou_date" class="date" style="width:100%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

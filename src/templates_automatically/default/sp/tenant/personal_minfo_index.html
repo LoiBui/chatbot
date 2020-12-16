@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta name = "viewport" content = "width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<!--
+<meta name = "viewport" content = "width = 320">
+-->
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+
+
+<STYLE type="text/css">
+<!--
+body{
+		color:{% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+		background-color:#ffffff;
+		margin-left:0px;
+		margin-top:0px;
+		margin-right:0px;
+		margin-bottom:0px;
+		font-family: Meiryo, メイリオ, 'MS UI Gothic', 'MS PGothic', Osaka, Arial, sans-serif;
+{% if not BgIsExistCustom:%}
+		background:url(/images/sp/01.jpg) no-repeat top left;
+{% else: %}
+		background:url({{vurl}}picture/mainbg01) no-repeat top left;
+{% endif %}
+}
+
+.style1 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 10px;
+	text-align:left;}
+
+.style2 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:center;}
+
+.style3 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	text-align:right;}
+
+.style4 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	font-weight: bold;
+	text-align:left;}
+
+.style5 {
+	color: {% if dept.login_fontcolor_sp and dept.login_fontcolor_sp != '': %}#{{dept.login_fontcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+	font-size: 12px;
+	text-align:left;}
+
+.text_validate {
+	color: {% if dept.login_vccolor_sp and dept.login_vccolor_sp != '': %}#{{dept.login_vccolor_sp}};{%else:%}#FF0000;{%endif%}
+	font-size: 10px;
+	font-weight: bold;
+	text-align:center;}
+
+.Logo{
+/*	position:absolute;
+	top:0px;
+	left:0px;
+*/
+	padding:10px;
+	margin:0 auto;
+	min-height:44px;
+}
+
+.MainBox{
+	min-height:356px;
+	position:relative;
+	clear:both;
+}
+
+.area01{
+	color: #FFFFFF;
+	font-size: 10px;
+/*
+	position:absolute;
+	top:65px;
+	left:10px;
+*/
+	min-height:356px;
+	max-height:480px;
+	padding:10px;
+}
+	
+.LoginBox{
+	min-height:356px;
+	max-height:480px;
+	position:relative;
+	clear:both;
+}
+
+.LoginBoxTable{
+	margin:0 auto;
+	width:320px;
+	height:356px;
+}
+
+.mini_pr{
+	text-align:center;
+}
+	
+
+.paging_area {
+	text-align:right;
+	font-size:11px;
+	font-family: 'メイリオ',Meiryo,tahoma, arial, verdana, sans-serif;
+ }
+
+a {
+	color:{% if dept.login_linkcolor_sp and dept.login_linkcolor_sp != '': %}#{{dept.login_linkcolor_sp}};{%else:%}#FFFFFF;{%endif%}
+}
+-->
+</style>
+
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body>
+<div class="Logo">
+{% if not BgIsExistCustom and (not BgIsExistCustomLogo or not BgIsDispCustomLogo): %}
+<img src="/images/oem/{{oem_company_code}}/login_logo.png" height="44px" border="0" />
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+{% else: %}
+{% endif %}
+</div>
+<!-- MainBox//start -->
+<div class="MainBox">
+<div class="area01">
+<form name="frmEdit" action="{{vurl}}personal/minfo/" method="POST" >
+<input type="hidden" name="token" value="{{ucfp.data.token}}">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="RURL" value="{{ucfp.data.RURL}}">
+<table border="0" cellpadding="0" cellspacing="0" width="310">
+<tr>
+<td colspan="2" class="style1" height="20">{{lang.VMSG_DESCRIPTION1_SUBMAILADDRESS|safe}}&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td width="80" class="style2" nowrap >{{lang.FLD_CURRENT_SUBMAILADDRESS}}</td>
+<td width="230">
+{% if not ucfp.data.sub_mail_address or ucfp.data.sub_mail_address == '': %}
+{{lang.VMSG_NOINDICATE_SUBMAILADDRESS}}
+{% else: %}
+&nbsp;<span class="style3">{{ucfp.data.sub_mail_address}}</span>
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td width="80" class="style2" nowrap >{{lang.FLD_NEW_SUBMAILADDRESS}}&nbsp;<font color="red" >*</font></td>
+<td width="230"><input type="text" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" maxlength="255" size="25" autocomplete="off"/>
+{% if vcmsg.sub_mail_address %}
+<br>
+{% for v in vcmsg.sub_mail_address %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/share/space.gif" width="310" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" width="104" height="41" border="0" value="{{lang.VMSG_UPDATE_SUBMAILADDRESS}}" /></td>
+</tr>
+</table>
+</form>
+<p><a href="{{vurl}}personal/" >{{lang.VMSG_TO_PERSONAL}}</a></p>
+<p><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></p>
+</div>
+</div>
+<!-- MainBox//end -->
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Project Bug Report]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Project Bug Report
+
+  @since 2013-12-29
+-->
+
+<table class="detail" width="99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Summary</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="youyaku" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">App Version</td>
+		<td class="detail_value" width="30%"><input name="application_version"></td>
+		<td class="detail_name" width="20%">Connected Server</td>
+		<td class="detail_value" width="30%"><input name="setsuzokusaki_server"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">My environment</td>
+		<td class="detail_value" colspan="3"><input name="my_pc_environment" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td class="detail_name">Symptom details</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="genshou_shosai" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Screenshot</td>
+		<td class="detail_value" colspan="3">
+			<label><input type="radio" name="kyapcha" value="Yes">Yes</label>&nbsp;&nbsp;
+			<label><input type="radio" name="kyapcha" value="No">No</label>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Log</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="log" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Reproduce steps</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="saigen_houhou" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Workaround</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="kaihi_houhou" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Category</td>
+		<td class="detail_value" colspan="3">
+			<textarea name="category" style="width:100%" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value" colspan="3">
+			<label><input type="radio" name="jyuyodo" value="High">High</label>&nbsp;&nbsp;
+			<label><input type="radio" name="jyuyodo" value="Medium">Medium</label>&nbsp;&nbsp;
+			<label><input type="radio" name="jyuyodo" value="Low">Low</label>
+		</td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140526094415SaSxgyjm9gNd1ZmB\",\"name\":\"Project Bug Report\",\"sections\":[{\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\",\"secname\":\"Project Bug Report\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401072442649zwbT55E2hPvIiatV\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent   \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401072442653sMaQKSFs5vnZNfLk\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"control_id\":\"ctr_id-14010724426496zYnuMVhBp01ueUo\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"control_id\":\"ctr_id-1401072442651G5XDkzIq6EQXDjfz\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401072549057OukvUyzR8vqRPpLA\",\"controls\":[{\"control_id\":\"ctr_id-1401072558385nbd5fSsGtatPC964\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401072549057OukvUyzR8vqRPpLA\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401072566547iHhMHU4bvNCLAT59\",\"controls\":[{\"control_id\":\"ctr_id-1401072442651sgqNQZmuHEdZe3gc\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Summary\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"youyaku\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401072616608eWDcRkTRB0QMP6H8\",\"controls\":[{\"control_id\":\"ctr_id-1401072442651TH5WwwBYMvEdJuz8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"App Version\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"application_version\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"control_id\":\"ctr_id-1401072442651Nj5dHhPT81s7ivjz\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Connected Server\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"setsuzokusaki_server\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401072681255UIOKTRyc1QfFP3b1\",\"controls\":[{\"control_id\":\"ctr_id-1401072442651i66AOANWKU2HRLcQ\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"My environment\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"my_pc_environment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"control_id\":\"ctr_id-1401072442651RPdhAie0FnKphSV2\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Symptom details\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"genshou_shosai\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Yes  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=Yes;\",\"value\":\"Yes\",\"name\":\"kyapcha\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"No\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=No;\",\"value\":\"No\",\"name\":\"kyapcha\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Screenshot\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kyapcha\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401072442654rHjjN3Gwti07mEST\",\"map_type_control\":\"radiogroup\",\"pos_row\":3,\"pos_col\":1,\"section_id\":\"sec_id-1401072681255UIOKTRyc1QfFP3b1\"},{\"control_id\":\"ctr_id-1401072442652t1cfbpRgw3qEFXaU\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Log\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"log\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401072681255UIOKTRyc1QfFP3b1\"},{\"control_id\":\"ctr_id-1401072442652giaXcb3U2Z7S20PP\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Reproduce steps\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"saigen_houhou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401072681255UIOKTRyc1QfFP3b1\"},{\"control_id\":\"ctr_id-1401072442652RY1D5Vi76POCYd0N\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Workaround\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"kaihi_houhou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"control_id\":\"ctr_id-1401072442652vz1CzUCaLfx91qUM\",\"pos_row\":7,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Category\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"category\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"High  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=High;\",\"value\":\"High\",\"name\":\"jyuyodo\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Medium  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=Medium;\",\"value\":\"Medium\",\"name\":\"jyuyodo\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Low\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=Low;\",\"value\":\"Low\",\"name\":\"jyuyodo\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"jyuyodo\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401072442654fYeGt025QabjNhU0\",\"map_type_control\":\"radiogroup\",\"pos_row\":8,\"pos_col\":1,\"section_id\":\"sec_id-1401072681255UIOKTRyc1QfFP3b1\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1402011309146FxtgO8EoJMqYAGHI\",\"controls\":[{\"control_id\":\"ctr_id-1402011309146jeq1FL93V65IWw9z\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1402011309146FxtgO8EoJMqYAGHI\"}]},{\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1402011323105ncFPDNMu0tTKjbQt\",\"controls\":[{\"control_id\":\"ctr_id-1401072442653Vty9yVtp85yQ31mT\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14010724426542CvjYFzTekTLJPzh\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+    Project Bug Report
+
+  @since 2013-12-29
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width: 100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width: 100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input
+        type="radio" name="priority" value="normal" checked>Normal</label></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value">
+        <input type="text" name="document_type" style="width: 100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Summary</div>
+      <div class="detail_value">
+        <textarea name="youyaku" style="width:98%" rows="5" ></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">App Version</div>
+      <div class="detail_value"><input type="text" name="application_version" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Connected Server</div>
+      <div class="detail_value"><input type="text" name="setsuzokusaki_server" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">My environment</div>
+      <div class="detail_value"><input type="text" name="my_pc_environment" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Symptom details</div>
+      <div class="detail_value">
+        <textarea name="genshou_shosai" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Screenshot</div>
+      <div class="detail_value">
+        <label><input type="radio" name="kyapcha" value="Yes">Yes</label>&nbsp;&nbsp;
+        <label><input type="radio" name="kyapcha" value="No">No</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Log</div>
+      <div class="detail_value">
+        <textarea name="log" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Reproduce steps</div>
+      <div class="detail_value">
+        <textarea name="saigen_houhou" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Workaround</div>
+      <div class="detail_value">
+        <textarea name="kaihi_houhou" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Category</div>
+      <div class="detail_value">
+        <textarea name="category" style="width:98%" rows="5"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <label><input type="radio" name="jyuyodo" value="High">High</label>&nbsp;&nbsp;
+        <label><input type="radio" name="jyuyodo" value="Medium">Medium</label>&nbsp;&nbsp;
+        <label><input type="radio" name="jyuyodo" value="Low">Low</label>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

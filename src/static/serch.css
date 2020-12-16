@@ -1,0 +1,107 @@
+#srchBox
+{
+width:298px;
+_width:296px;
+margin:0px;
+
+
+color:#000000;
+text-align:left;
+}
+#srchBox *
+{
+margin:0;
+padding:0;
+font-size:13px;
+*font-size:small;
+*font:x-small;
+}
+#srchBox a img
+{
+border:none;
+}
+#srchBox #srch
+{
+padding:0px 10px 0 10px;
+}
+#srchBox #srch #srchForm
+{
+white-space:nowrap;
+}
+#srchBox #srchInput
+{
+width:188px;
+margin-right:6px;
+vertical-align:bottom;
+text-align:left;
+}
+#srchBox #srchBtn
+{
+width:80px;
+}
+*html #srchBox #srchBtn
+{
+padding-top:2px;
+}
+*:first-child+html #srchBox #srchBtn
+{
+padding-top:2px;
+}
+#srchBox ul
+{
+margin-top:6px;
+text-align:left;
+}
+#srchBox li
+{
+list-style-type:none;
+display:inline;
+zoom:1;
+padding-right:10px;
+}
+#srchBox li input
+{
+zoom:1;
+margin-right:2px;
+_margin:-4px 0 -4px -4px;
+vertical-align:middle;
+border:0;
+}
+*:+html #srchBox li input
+{
+margin:-4px 0 -4px -4px;
+}
+#srchBox #srchLogo
+{
+margin:6px 6px 6px 0;
+text-align:right;
+}
+#srchBox #srchLogo a
+{
+color:#666666;
+text-decoration:none;
+font-size:85%;
+}
+#srchBox #srchLogo a:hover
+{
+text-decoration:underline;
+}
+#srchBox.watermark
+{
+padding-bottom: 6px;
+}
+#srchBox.watermark #srchInput
+{
+padding:1px 1px 2px 1px;
+border:1px solid #a5acb2;
+background: #fff
+center center no-repeat;
+}
+#srchBox.watermark #srchInput.nomark
+{
+background: #fff;
+}
+#srchBox.watermark #srchLogo
+{
+display: none;
+}

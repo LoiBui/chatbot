@@ -1,0 +1,157 @@
+#application: sateraito-chatmagazine
+#version: 3
+module: b2process
+runtime: python27
+instance_class: B2
+threadsafe: true
+api_version: '1'
+basic_scaling:
+  max_instances: '1'
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "2.6"
+- name: markupsafe
+  version: latest
+#- name: django
+#  version: "1.2"
+- name: pycrypto
+#  version: latest
+  version: "2.6"
+inbound_services:
+- warmup
+handlers:
+- login: admin
+  script: backends_global.app
+  secure: optional
+  url: (/_ah/start|/_ah/stop)
+- login: admin
+  script: warmup.app
+  secure: optional
+  url: (/_ah/warmup)
+
+- url: (/api/contract/(.*))
+  script: api_contract.app
+  login: admin
+
+# [cron job]delete_expired_sessions
+# [cron job]delete_login_history
+# [cron job]delete_operation_log
+# [cron job]update_tenant_entry
+- url: (/cron/update_tenant_entry)|(/cron/delete_expired_sessions)|(/cron/delete_login_history)|(/tq/delete_login_history/([^/]*))|(/cron/delete_operation_log)|(/tq/delete_operation_log/([^/]*))|(/cron/gmail_trigger_watch)|(?:/tq/gmail_trigger_watch/([^/]*))
+  script: cron.app
+  login: admin
+
+# task
+- url: (/a/([^/]*)/([^/]*)/tq/uploadimage)|(/a/([^/]*)/([^/]*)/tq/viewphoto)
+  script: tenant_directcloudbox_tqprocess.app
+
+- login: admin
+  script: data_cleansing.app
+  secure: optional
+  url: (/datacleansing$)
+- login: admin
+  script: data_cleansing.app
+  secure: optional
+  url: (/tq/datacleansing$)
+- login: admin
+  script: manager.app
+  secure: always
+  url: (/manager/)|(/manager/(.*))
+- login: admin
+  script: manager.app
+  secure: always
+  url: (/manager/([^/]*)/queue_csv_export)
+- login: admin
+  script: examin.app
+  secure: always
+  url: (/examin/)|(/examin/(.*))
+- login: admin
+  script: contract_\1.app
+  secure: always
+  url: /contract/([^/]*)
+- login: admin
+  script: tenant_queue_changeid.app
+  secure: optional
+  url: (/a/([^/]*)/([^/]*)/queue_changeid)
+- login: admin
+  script: queue_regist_tenant_entry.app
+  secure: optional
+  url: (/a/([^/]*)/openid/([^/]*)/regist_tenant_entry|/a/([^/]*)/openid/([^/]*)/next_regist_tenant_entry)
+- login: admin
+  script: queue_regist_federated_domain_entry.app
+  secure: optional
+  url: (/a/([^/]*)/openid/([^/]*)/regist_federated_domain_entry)
+- login: admin
+  script: queue_login_process.app
+  secure: optional
+  url: (/a/([^/]*)/openid/([^/]*)/insert_login_history|/a/([^/]*)/openid/([^/]*)/update_user_for_login)
+- login: admin
+  script: tenant_queue_csv_export.app
+  secure: optional
+  url: (/a/([^/]*)/([^/]*)/queue_csv_export)
+- login: admin
+  script: tenant_queue_csv_import.app
+  secure: optional
+  url: (/a/([^/]*)/([^/]*)/queue_csv_import)
+- login: admin
+  script: tenant_api_\2.app
+  secure: always
+  url: /a/([^/]+)/api/([^/]+)
+- login: admin
+  script: api_domain_\2.app
+  secure: always
+  url: /api/domain/([^/]+)/([^/]+)
+- login: admin
+  script: api_\2.app
+  secure: always
+  url: /api/([^/]+)
+- login: admin
+  script: tenant_picture.app
+  secure: optional
+  url: /a/([^/]*)/picture/([^/]+)
+- login: admin
+  script: tenant_\2_\3_index.app
+  secure: always
+  url: /a/([^/]*)/([^/].*)/([^/].*)/
+- login: admin
+  script: tenant_\2_\3.app
+  secure: always
+  url: /a/([^/]*)/([^/].*)/([^/]+)
+- login: admin
+  script: tenant_\2_index.app
+  secure: always
+  url: /a/([^/]*)/([^/].*)/
+- login: admin
+  script: tenant_\2.app
+  secure: always
+  url: /a/([^/]*)/([^/]+)
+- login: admin
+  script: tenant_index.app
+  secure: always
+  url: /a/([^/]*)/
+- login: admin
+  script: tenant_index.app
+  secure: always
+  url: /a/([^/]*)
+- login: admin
+  script: index.app
+  secure: optional
+  url: /
+- login: admin
+  script: \1.app
+  secure: optional
+  url: /([^/]*)
+- login: admin
+  script: \1_index.app
+  secure: optional
+  url: /([^/]+)/
+- login: admin
+  script: \1_\2.app
+  secure: optional
+  url: /([^/]+)/([^/]+)
+- login: admin
+  script: notfound.app
+  secure: optional
+  url: /.*

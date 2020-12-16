@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*
+style.css
+*/
+
+
+/* ////////////////////////////////////////////////
+  Font Style
+//////////////////////////////////////////////// */
+body {
+font-size:13px;
+font-family: 'メイリオ', Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif;
+*font-size: small;
+*font: x-small;
+line-height:0;　/* margin fix for include file */
+}
+
+/* text size sample *10-26 number is pixel number */
+.text8 { font-size: 62%; }
+.text9 { font-size: 70%; }
+.text10 { font-size: 77%; }
+.text11 { font-size: 85%; }
+.text12 { font-size: 93%; }
+.text13 { font-size: 100%; }
+.text14 { font-size: 108%; }
+.text15 { font-size: 116%; }
+.text16 { font-size: 124%; }
+.text17 { font-size: 131%; }
+.text18 { font-size: 139%; }
+.text19 { font-size: 147%; }
+.text20 { font-size: 154%; }
+.text21 { font-size: 162%; }
+.text22 { font-size: 170%; }
+.text23 { font-size: 177%; }
+.text24 { font-size: 185%; }
+.text25 { font-size: 193%; }
+.text26 { font-size: 200%; }
+.text27 { font-size: 208%; }
+.text28 { font-size: 216%; }
+.text29 { font-size: 224%; }
+.text30 { font-size: 231%; }
+.text31 { font-size: 239%; }
+.text32 { font-size: 247%; }
+.text33 { font-size: 254%; }
+.text34 { font-size: 262%; }
+.text35 { font-size: 270%; }
+.text36 { font-size: 277%; }
+.text37 { font-size: 285%; }
+.text38 { font-size: 293%; }
+.text39 { font-size: 300%; }
+.text40 { font-size: 308%; }
+/*
+Font-size list (base: 13px)
+ 62% =  8px
+ 70% =  9px
+ 77% = 10px
+ 85% = 11px        162% = 21px        239% = 31px
+ 93% = 12px        170% = 22px        247% = 32px
+100% = 13px        177% = 23px        254% = 33px
+108% = 14px        185% = 24px        262% = 34px
+116% = 15px        193% = 25px        270% = 35px
+124% = 16px        200% = 26px        277% = 36px
+131% = 17px        208% = 27px        285% = 37px
+139% = 18px        216% = 28px        293% = 38px
+147% = 19px        224% = 29px        300% = 39px
+154% = 20px        231% = 30px        308% = 40px
+*/
+
+p {
+font-size: 100%;
+line-height: 1.5;
+}
+
+h1 {
+font-size: 100%;
+line-height: 1.5;
+}
+h2 {
+font-size: 100%;
+line-height: 1.5;
+}
+h3 {
+font-size: 100%;
+line-height: 1.5;
+}
+h4 {
+font-size: 100%;
+line-height: 1.5;
+}
+h5 {
+font-size: 100%;
+line-height: 1.5;
+}
+h6 {
+font-size: 100%;
+line-height: 1.5;
+}
+
+table {
+font-size: 100%;
+line-height: 1.5;
+}
+
+ul,ol,dl {
+font-size: 100%;
+line-height: 1.5;
+}
+
+strong {
+font-weight:bold;
+}
+sub {
+font-size: 64%;
+line-height: 1;
+}
+sup {
+font-size: 64%;
+line-height: 1;
+}
+form {
+line-height: 1.5;
+}
+
+/* setting a consistent width, 160px; 
+   control of type=file still not possible */
+input[type=text],input[type=password],textarea {
+font-size: 100%;
+width:12.25em;
+*width:11.9em;
+}
+
+/*-------------------------------------------------
+  Links 
+-------------------------------------------------*/
+/* Links */
+a:link {
+text-decoration: none;
+}
+a:visited {
+text-decoration: underline;
+}
+a:hover, a:active {
+text-decoration: none;
+}

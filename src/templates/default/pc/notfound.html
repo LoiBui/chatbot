@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts.html" %}
+<!-- <title>{{lang.VMSG_SITE_TITLE_NOTFOUND}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.FILEUP_HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_NOTFOUND}} - {{lang.FILEUP_HTML_TITLE}}</title>
+{% include "./include/external_analysis_head.html" %}
+<script type="text/javascript" >
+$(document).ready(function(){	
+//	createLanguageSelectBox('languageselectbox', jQuery.parseJSON('{{language_list|escapejs}}'), '{{language|escape}}');
+});
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="loginbox">
+<h1><img src="/images/login_logo.png" alt="Sateraito Office"></h1>
+</div><!-- /#loginbox end -->
+
+<div id="mypagebox" >
+<h2><em><span class="ttl">{{lang.VMSG_SITE_TITLE_NOTFOUND}}</span>
+<span class="info"></span></em></h2>
+
+<p class="attention2">
+{% if error_info %}
+{{ error_info }}
+{% endif %}
+</p>
+
+<a href="JavaScript:history.back(-1);" class="btn_left" >{{lang.VMSG_BACK}}</a>
+</div><!-- /#mypagebox end -->
+
+{#
+{% include "./include/righttopbar.html" %}
+#}
+{% include "./include/footer.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>

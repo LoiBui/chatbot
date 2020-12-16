@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Company Medical Examination Notification]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Company Medical Examination Notification
+
+  @since 2014-02-19
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_value" align="center"><font size="4"><b>Company Medical Examination Notification</b></font></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><font size="3" >　Year〇〇Our company will hold the regular medical examination as described below。<br>
+All contractors and employees should take part in the examination upon the schedule is set up.</font></td>
+	</tr>
+
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" align="center"><font size="+2"><b>Sign</b></font></td>
+	</tr>
+
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Medical Examination</td>
+		<td class="detail_value" style="width:80%"><textarea name="kenkou_shindan" style="width:100%" rows="3"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Time</td>
+		<td class="detail_value" style="width:80%">
+			<input name="jisshi_Date_start" class="date">&nbsp;&nbsp;～&nbsp;&nbsp;<input name="jisshi_Date_end" class="date">&nbsp;&nbsp;
+			<input name="jisshi_time_start" size="5">&nbsp;&nbsp;～&nbsp;&nbsp;<input name="jisshi_time_end" size="5">
+		</td>
+	</tr>
+	<tr>
+		<td>　</td>
+		<td class="detail_value"><font color="blue">※Please kindly noticed that male and female will be separated。</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Location</td>
+		<td class="detail_value" style="width:80%"><input name="jisshi_place" size="50" style="width:100%"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Target Person</td>
+		<td class="detail_value" style="width:80%"><input name="taishyosya" size="30">&nbsp;<font color="blue">i.e. All Employees</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" style="width:20%">Notices</td>
+		<td class="detail_value" style="width:80%"><textarea name="ryui_jikou" style="width:100%" rows="3"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140603063947L9VGE7V2AkEpT8zd\",\"name\":\"Company Medical Examination Notification1\",\"sections\":[{\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\",\"secname\":\"Company Medical Examination Notification1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14017524014166AcweHtBZQSjcodc\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401752401419o8DXKfaF17V6Z2FM\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"},{\"control_id\":\"ctr_id-1401752401417rTu25LrhdzoRWSUQ\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"},{\"control_id\":\"ctr_id-1401752401418y9PjMHrVTWKhNv3w\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"}]},{\"section_id\":\"sec_id-1401752497203goWYwnqCE9ZBwVK8\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752506730772IZTnz3GqKYBED\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401752599425RAkUYiS4LhPVEgBE\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752655034Lz8yX0tDpTetKznj\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%224%22%20style%3D%22margin-left%3A250px%22%3E%3Cb%3E%E7%A4%BE%E5%86%85%E5%AE%9A%E6%9C%9F%E5%81%A5%E5%BA%B7%E8%A8%BA%E6%96%AD%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%3C%2Fb%3E%3C%2Ffont%3E\"},\"section_id\":\"sec_id-1401752599425RAkUYiS4LhPVEgBE\"}]},{\"section_id\":\"sec_id-1401752720609Bk4HuidvG7WBxfxx\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752720609NEEQpL5GA3zeqefA\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401752720609Bk4HuidvG7WBxfxx\"}]},{\"section_id\":\"sec_id-1401752679323rzQI92icug64T2rO\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752705917tnYwMpKYQno1UmeA\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_content\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_content\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%223%22%3E%E3%80%80%E5%B9%B3%E6%88%90%E3%80%87%E3%80%87%E5%B9%B4%E5%BA%A6%E3%81%AE%E5%AE%9A%E6%9C%9F%E5%81%A5%E5%BA%B7%E8%A8%BA%E6%96%AD%E3%82%92%E3%80%81%E4%B8%8B%E8%A8%98%E8%A8%98%E8%BC%89%E3%81%AE%E9%80%9A%E3%82%8A%E5%AE%9F%E6%96%BD%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%3Cbr%3E%0A%E5%A5%91%E7%B4%84%E7%A4%BE%E5%93%A1%E3%82%82%E5%90%AB%E3%82%80%E3%80%81%E5%85%A8%E7%A4%BE%E5%93%A1%E3%81%AE%E5%8F%82%E5%8A%A0%E3%81%8C%E7%BE%A9%E5%8B%99%E4%BB%98%E3%81%91%E3%82%89%E3%82%8C%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%81%AE%E3%81%A7%E3%80%81%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E8%AA%BF%E6%95%B4%E3%81%AE%E4%B8%8A%E3%80%81%E5%BF%85%E3%81%9A%E5%8F%82%E5%8A%A0%E3%81%99%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84%3C%2Ffont%3E\"}}]},{\"section_id\":\"sec_id-1401752735966nBCaC6T9uGKs62Sq\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752735966TyfLbNV7sAg3tk3u\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401752735966nBCaC6T9uGKs62Sq\"}]},{\"section_id\":\"sec_id-1401752747440RkLSBUjXa9KUgN9F\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14017527902887vT9kenWadiemdcB\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_bottom\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_bottom\"},\"items\":{},\"html\":\"%3Cfont%20size%3D%22%2B2%22%20style%3D%22margin-left%3A350px%22%3E%3Cb%3E%E8%A8%98%3C%2Fb%3E%3C%2Ffont%3E\"}}]},{\"section_id\":\"sec_id-1401752797846czz4fHaw0iydDWOB\",\"secname\":\"space4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752797846AAZAfB154gFBxIEW\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401752797846czz4fHaw0iydDWOB\"}]},{\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\",\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752401418vpcaBBcYjKxbt4mo\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Medical Examination\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"kenkou_shindan\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"},{\"control_id\":\"ctr_id-1401752992543sch496uJyzKNy9hZ\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Time\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_jisshi\",\"style\":\"width:70%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"jisshi_Date_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"  ～  \",\"name\":\"jisshi_Date_start\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401752992543txiuNmsMsHsTEQzV\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"jisshi_Date_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"jisshi_Date_end\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401752992543dWnFAV9WLKfZPvMF\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"jisshi_time_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"  ～  \",\"name\":\"jisshi_time_start\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=5\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401752992544F9GXjaKL8kHks1Rn\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"jisshi_time_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"jisshi_time_end\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"size=5\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-14017529925449eQhDi0wjXByiDDu\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"control_id\":\"ctr_id-1401753068933HJVxO07CNRI72Mhx\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"※Please kindly noticed that male and female will be separated。\",\"style\":\"margin-left:62px ; color:blue\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"control_id\":\"ctr_id-1401752401419zVXiiyUNtf2znNFF\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"jisshi_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"size=50;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"control_id\":\"ctr_id-1401752401419uVefNF70bpJ1NsFq\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Target Person\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. All Employees\",\"name\":\"taishyosya\",\"style\":\"width:40%\",\"class\":\"\",\"new_attrs\":\"size=30;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401752838135KJYhvpikX1HqkGPA\"},{\"control_id\":\"ctr_id-1401752401419Yggp8w1RFBJZoFCw\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Notices\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"ryui_jikou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"}]},{\"section_id\":\"sec_id-1401753205484VA57byqLErvd3uHq\",\"secname\":\"space5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753205484rR5514muZkFUcFeT\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401753205484VA57byqLErvd3uHq\"}]},{\"section_id\":\"sec_id-1401753188999KIhVQ8iofnoOXeo0\",\"secname\":\"div5\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401752401419WTzIAB43MbC8q6ty\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401752401419uDcsK0KhGxuwrdU0\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140603063947L9VGE7V2AkEpT8zd\",\"name\":\"Company Medical Examination Notification1\",\"controls\":[]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Company Medical Examination Notification
+
+  @since 2014-02-19
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_value" align="center"><font size="4"><b>Company Medical Examination Notification</b></font></div>
+    </li>
+
+
+    <li class="row">
+      <div class="detail_value"><font size="3">　Year〇〇Our company will hold the regular medical examination as described below。<br>
+        All contractors and employees should take part in the examination upon the schedule is set up.</font></div>
+
+      <div class="detail_value margin_top" align="center"><font size="+2"><b>Sign</b></font></div>
+    </li>
+
+  </ul>
+
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Medical Examination</div>
+      <div class="detail_value"><textarea name="kenkou_shindan" style="width:98%" rows="3"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Time</div>
+      <div class="detail_value ">
+        <input type="text" name="jisshi_Date_start" class="date" style="width:40%">&nbsp;～&nbsp;<input type="text"
+        name="jisshi_Date_end" style="width:40%" class="date">
+      </div>
+      <div class="detail_value margin_top">
+        <input type="text" name="jisshi_time_start" style="width:40%" >&nbsp;～&nbsp;<input type="text"
+        name="jisshi_time_end" style="width:40%" >
+      </div>
+    </li>
+    <li class="row">
+
+      <div class="detail_value"><font color="blue">※Please kindly noticed that male and female will be separated。</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Location</div>
+      <div class="detail_value"><input type="text" name="jisshi_place" style="width:100%" ></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Target Person</div>
+      <div class="detail_value"><input type="text" name="taishyosya" style="width:75%">&nbsp;<font
+        color="blue">i.e. All Employees</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Notices</div>
+      <div class="detail_value"><textarea name="ryui_jikou" style="width:98%" rows="3"></textarea></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

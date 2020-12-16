@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css?{{version}}" />
+<script type="text/javascript" src="{{vscripturl}}jquery-ui.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}datepicker-ja.js" ></script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_form.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}attach_file_list.js?{{version}}" ></script>
+    <script type="text/javascript" src="{{vscripturl}}ucfext_masterdata.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_formdata_common.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<link rel="stylesheet" type="text/css" href="/css/formdata.css?{{version}}" />
+<link rel="stylesheet" type="text/css" href="/css/builder-style.css?{{version}}" />
+{#<link rel="stylesheet" type="text/css" href="/css/builder-style.css?{{version}}" />#}
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_FORM}}</title>
+<script type="text/javascript" >
+<!--
+        var GADGET_START_TIME = -1;
+        var SATERAITO_TIMEZONE = 'Asia/Tokyo';
+        var SATERAITO_LANG = 'ja';
+        var SATERAITO_MY_SITE_URL  = '{{ my_site_url }}';
+        var IS_OPENID_MODE = false;
+        var IS_TOKEN_MODE = true;
+        var FORM_TEMPLATE_ID = '{{ template_id }}';
+        var USER_ID = '{{ user_id }}';
+        var REPLY_ID = '{{ reply_id }}';
+        var STORE_ID = '{{ store_id }}';
+        var STORE_HISTORY_ID = '{{ store_history_id }}';
+        var REGIST_FLAG = '{{ regist_flag }}';
+
+        var merge_field_class = [];
+    Ext.each(jQuery.parseJSON('{{merge_field_class|escapejs}}'), function (item) {
+        merge_field_class.push({keys: item.keys, content: item.content, class: item.class})
+    });
+</script>
+
+<script type="text/javascript" >
+
+Ext.onReady(function() {
+    Ext.QuickTips.init();
+    Ext.ucf.init();
+
+    var templateId = FORM_TEMPLATE_ID;
+    var defaultValues = {};
+    var templateBody = null;
+    var areaId = 'contentsArea';
+
+    var option = {
+                is_copy_new: true,
+                showAsMax:true,
+                hideMaxButton:true,
+                hideHeader:true,
+                hideCloseButton:true,
+                merge_field_class: merge_field_class
+            };
+    Ext.ucf.FormData.renderTemplate(templateId, defaultValues, templateBody, areaId, option);
+});
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+{#<h1>BUILD</h1>#}
+{#<p>{{ template_id }}</p>#}
+<div class="header-doc">
+  <div >
+    <img class="img-header" src="/images/file-document-box7.png" >
+  </div>
+  <div class="title-header">
+    <span id="title_template_doc"></span>
+  </div>
+</div>
+<div id="contentsArea" style="margin: auto;padding:10px;"></div>
+<div id="contentsAreaView" style="margin: auto;padding:10px;display: none;"></div>
+
+<div style="margin-bottom: 10px;margin-left: 2px;width: 99%;margin-bottom: 40px;">
+<div id="action_buttons" style="width: 80px;margin: auto;display: -webkit-box;"></div>
+</div>
+
+</body>
+</html>

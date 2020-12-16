@@ -1,0 +1,58 @@
+﻿[2019/02/05 16:50:58] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/02/05 16:50:58] Create message python file...:c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\sateraito_message.py
+[2019/02/05 16:50:58] [Compile Start]ajax.js
+[2019/02/05 16:51:00] [Compile Start]common.js
+[2019/02/05 16:51:02] [Compile Start]jkmegamenu.js
+[2019/02/05 16:51:04] [Compile Start]jquery.crossSelect.js
+[2019/02/05 16:51:06] [Compile Start]jquery.blockUI.js
+[2019/02/05 16:51:08] [Compile Start]json.js
+[2019/02/05 16:51:09] [Compile Start]ucfext.file.js
+[2019/02/05 16:51:12] [Compile Start]ucfext.js
+[2019/02/05 16:51:14] [Compile Start]ucfext_operator.js
+[2019/02/05 16:51:16] [Compile Start]ucfext_acs.js
+[2019/02/05 16:51:18] [Compile Start]ucfext_acslog.js
+[2019/02/05 16:51:19] [Compile Start]ucfext_operationlog.js
+[2019/02/05 16:51:21] [Compile Start]ucfext_config.js
+[2019/02/05 16:51:23] [Compile Start]ucfext_task.js
+[2019/02/05 16:51:25] [Compile Start]ucfext_field.js
+[2019/02/05 16:51:27] [Compile Start]ucfext_user.js
+[2019/02/05 16:51:29] [Compile Start]ucfext_group.js
+[2019/02/05 16:51:31] [Compile Start]ucfext_businessrule.js
+[2019/02/05 16:51:33] [Compile Start]ucfext_masterdata.js
+[2019/02/05 16:51:35] [Compile Start]ucfext_api.js
+[2019/02/05 16:51:37] [Compile Start]ucfext.strength.js
+[2019/02/05 16:51:39] [Compile Start]xmleditor.js
+[2019/02/05 16:51:41] [Compile Start]init_backstretch.js
+[2019/02/05 16:51:43] [Compile Start]ext\PasswordStrength.js
+[2019/02/05 16:51:45] [Compile Start]ext\PopupGroupList.js
+[2019/02/05 16:51:46] [Compile Start]ext\PopupOrgUnitList.js
+[2019/02/05 16:51:48] [Compile Start]ext\SecurityKeyboard.js
+[2019/02/05 16:51:49] ERROR - Cannot read file c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/SecurityKeyboard.js: Failed to read: c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 16:51:49] [Compile Start]ext\ucf_element_selector.js
+[2019/02/05 16:51:50] c:/Users/chun/PycharmProjects/sateraito-notification_20190201/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2019/02/05 16:51:50] [Compile Start]channels\basechannel.js
+[2019/02/05 16:51:52] [Compile Start]channels\lineworksbotchannel.js
+[2019/02/05 16:51:55] [Compile Start]channels\facebookworkplacebotchannel.js
+[2019/02/05 16:51:57] [Compile Start]channels\sateraitoaddonchannel.js
+[2019/02/05 16:51:59] [Compile Start]channels\nextsetaddonchannel.js
+[2019/02/05 16:52:00] [Compile Start]channels\restchannel.js
+[2019/02/05 16:52:02] [Compile Start]channels\facebookbotchannel.js
+[2019/02/05 16:52:04] [Compile Start]channels\gmailchannel.js
+[2019/02/05 16:52:07] [Compile Start]channels\linebotchannel.js
+[2019/02/05 16:52:10] [Compile Start]channels\mailchannel.js
+[2019/02/05 16:52:12] [Compile Start]channels\chatworkbotchannel.js
+[2019/02/05 16:52:14] [Compile Start]lang\default.js
+[2019/02/05 16:52:16] [Compile Start]lang\ja.js
+[2019/02/05 16:52:18] [Compile Start]lang\en.js
+[2019/02/05 16:52:20] Expand Jinja Templates include files...
+[2019/02/05 16:52:20] Src:c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\templates
+[2019/02/05 16:52:20] Dst:c:\Users\chun\PycharmProjects\sateraito-notification_20190201\src\templates_automatically
+[2019/02/05 16:52:20] Expand Jinja Templates include files fin.

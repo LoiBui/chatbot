@@ -1,0 +1,54 @@
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<!--
+<link rel="start" href="/" title="">
+<link rel="home" href="/home.html" title="">
+-->
+<link rel="shortcut icon" href="/images/oem/{{oem_company_code}}/favicon.ico">
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<!-- BASE -->
+{#
+<link rel="stylesheet" href="/css/common2.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base2.css?{{version}}" type="text/css" />
+
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}init_backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+
+// 背景画像URL配列を作成
+{% if not BgIsExistCustom: %}
+var _bgpicary = ['/images/bg/01.jpg', '/images/bg/06.jpg', '/images/bg/09.jpg', '/images/bg/07.jpg', '/images/bg/04.jpg'];
+{% else: %}
+var _bgpicary = [];
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('{{vurl}}picture/mainbg{{idx}}');
+{% endfor -%};
+{% endif %}
+//-->
+</script>
+

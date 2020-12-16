@@ -1,0 +1,8 @@
+<div class="Logo">
+{% if not BgIsExistCustom and (not BgIsExistCustomLogo or not BgIsDispCustomLogo): %}
+<img src="/images/oem/{{oem_company_code}}/login_logo.png" height="44px" border="0" />
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+{% else: %}
+{% endif %}
+</div>

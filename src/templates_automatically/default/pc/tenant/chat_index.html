@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{#<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">#}
+{#<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">#}
+{#<meta http-equiv="Content-Security-Policy" content="connect-src http:">#}
+{#<add name="Content-Security-Policy" value="default-src ''self' cdn.https://cdn.socket.io/socket.io-1.4.5.js;" />#}
+
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+
+<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+{#<script type="text/javascript" src="{{vscripturl}}socketIO.js?{{version}}" ></script>#}
+{#<script type="text/javascript" src="/_ah/channel/jsapi"></script>#}
+{#<script type="text/javascript" src="https://www.google.com/jsapi"></script>#}
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_form.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_form_data.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_formdata_common.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_FORM_DATA}} - {% if sp_code == 'worksmobile'%}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<script type="text/javascript" >
+<!--
+  var each_page_cnt = 20;
+
+function initHandlerSocket(){
+  socket.on('chat_message', function(msg){
+    console.log(msg);
+  });
+
+  socket.on('connect' ,function(msg){
+    console.log('Connected to server: socketio');
+  });
+
+  socket.on('disconnect' ,function(msg){
+    console.log('Disconnected from server: socketio');
+  });
+}
+
+function load_socket(){
+    var url_server_chat = 'http://messaging.sateraito.jp/get-external-ip';
+    Ext.ucf.executeQuery(url_server_chat,{},function(jsonData){
+        console.log(jsonData.externalIp);
+        //var externalIp = '35.221.176.86';//jsonData.externalIp;
+        var externalIp = jsonData.externalIp;
+{#        var webSocketHost = location.protocol === 'https:' ? 'wss://' : 'ws://';#}
+        var webSocketHost = 'ws://';
+        var webSocketUri = webSocketHost + externalIp + ':65080';
+
+        //Khoi tao socket connection
+{#        socket = io.connect('http://35.239.15.70:65080');#}
+{#        socket = io(webSocketUri,{rejectUnauthorized: false,transports:["websocket"]});#}
+        socket = io(webSocketUri);
+        initHandlerSocket(socket);
+    },'get');
+}
+
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function() {
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+  load_socket();
+
+  $('#send').on('click',function(){
+    socket.emit('chat_message','Test message');
+  });
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<h1>Chat Demo</h1>
+<!-- contentsArea//end -->
+{#<iframe src="http://messaging.sateraito.jp/"></iframe>#}
+<br/>
+<br/>
+<br/>
+<button id="send">Send Message</button>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% for row in listItems %}
+  <li title="{{ row['creater_by'] }}" class="memoItem" data-unique_id="{{ row['unique_id'] }}">
+
+    <div class="MdCMN04Item">
+    <div class="memo-row">
+      <div class="act-done">
+        {% if row['status']=='NONE' %}
+          <div class="button btn-done">{{ page_self.getMsg('FLD_ACTION_DONE') }}</div>
+        {% else %}
+            <div class="button btn-done complete">{{ page_self.getMsg('FLD_STATUS_COMPLETE') }}</div>
+        {% endif %}
+      </div>
+      <div class="mdCMN04Head">
+        <span class="memoDescripton">
+          {{ row['memo']|safe }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="MdCMN04Item secondRow">
+    <div class="pin">Fixed top</div>
+    <div class="memo-row memo-second-row">
+      <div class="control-group">
+        <label class="controlLabel">{{ page_self.getMsg('FLD_FROM_USER') }}</label>
+
+        <div class="group-user">
+{#          <img src="{{ row['creater_image_url'] }}" width="20" height="20" alt="">#}
+          <span class="control-name">{{ row['creator_name'] }}</span>
+        </div>
+      </div>
+{#      <div class="control-group">#}
+{#        <label class="controlLabel">To</label>#}
+{##}
+{#        <div class="group-user">#}
+{#          <img src="./chatbot_files/image" width="20" height="20" alt="">#}
+{#          <span class="control-name">Nguyen Quoc Thinh</span>#}
+{#        </div>#}
+{#      </div>#}
+      <div class="memoTime">
+        <label class="controlLabel">{{ page_self.getMsg('FLD_DATE_DUE') }}</label>
+        <span class="deadline-time">{{ row['date_due'] }}</span>
+      </div>
+      <div class="memo-act">
+        <div class="memo-act-delete delete-memo" title="delete">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- ==========================================-->
+{#    <div class="MdCMN04Item">#}
+{#      <div class="pin">Fixed top</div>#}
+{#      <div class="memo-row">#}
+{#        <div class="row-author">#}
+{#          <img src="{{ row['creater_image_url'] }}" width="20" height="20" alt="">#}
+{#        </div>#}
+{#        <div class="mdCMN04Head">#}
+{#          <span class="memoDescripton">{{ row['memo']|safe }}</span>#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="memoEachAction">#}
+{#        <div class="edit"></div>#}
+{#        <div class="delete delete-memo"></div>#}
+{#      </div>#}
+{#    </div>#}
+  </li>
+
+{% endfor %}
+
+{#{% for row in listItems %}#}
+{#  <li title="{{ row['creater_by'] }}" class="memoItem" data-unique_id="{{ row['unique_id'] }}">#}
+{#    <div class="memoAuthor">#}
+{#        <div class="mdCMN04Img radiusNone ">#}
+{#            <div class="">#}
+{#                <img src="{{ row['creater_image_url'] }}" width="24"  height="24" alt="">#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="MdCMN04Item " >#}
+{#        <div class="pin">Fixed top</div>#}
+{#        <div class="">#}
+{#            <div class="mdCMN04Head">#}
+{#                <span class="memoDescripton">{{ row['memo']|safe }}</span>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="memoEachAction">#}
+{#            <div class="edit"></div>#}
+{#            <div class="delete delete-memo"></div>#}
+{#        </div>#}
+{#    </div>#}
+{#  </li>#}
+{#{% endfor %}#}

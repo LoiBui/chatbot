@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+	<template_id><![CDATA[]]></template_id>
+	<template_name><![CDATA[Circular News]]></template_name>
+	<template_disabled><![CDATA[false]]></template_disabled>
+	<show_as_max_window><![CDATA[true]]></show_as_max_window>
+	<doc_info_place><![CDATA[middle]]></doc_info_place>
+	<show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+	<created_date><![CDATA[]]></created_date>
+	<updated_date><![CDATA[]]></updated_date>
+	<template_body><![CDATA[<!--
+  Circular News
+
+  @since 2013-03-17
+
+-->
+
+<table class="detail">
+
+<tr>
+<td class="detail_name" style="width:20%">Name</td>
+<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+<td class="detail_name" style="width:20%">Department</td>
+<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+</tr>
+
+<tr>
+<td class="detail_name">Priority</td>
+<td class="detail_value">
+<label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label>
+</td>
+<td class="detail_name">Doc Type</td>
+<td class="detail_value"><input type="text" name="document_type"></td>
+</tr>
+
+</table>
+<br>
+
+<!-- richtext field is here -->
+<textarea name="honbun" class="richtext" style="width:100%; height:300px;"></textarea>
+
+<hr>
+<!-- This will list all circulators -->
+<div class="main_content_title2">Circular Information</div>
+<div class="checklist_with_comment"></div>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-201405260315419HBksAIDSHP8J3KK\",\"name\":\"Circular News\",\"sections\":[{\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\",\"secname\":\"Circular News\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401048977417iheLv4dbe6LQktGo\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401048977419Etq3uPoEOchD5s8x\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"control_id\":\"ctr_id-1401048977417T5A4YONuWgpZvyKA\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"},{\"control_id\":\"ctr_id-1401048977418885wftJmhKSJpw28\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-140104897741989tEuFPrfkO0RBuT\"}]},{\"section_id\":\"sec_id-1401049534994FhuU7EfDnrM3wAfb\",\"secname\":\"space\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049559365CctUPQqFgfYJ2pAe\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\" width:100%;height:10px;\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401049534994FhuU7EfDnrM3wAfb\"}]},{\"section_id\":\"sec_id-140104940300557pWfUoguLbyrfev\",\"secname\":\"test\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401048977418Wo65DibtLVW6ZqaK\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"honbun\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"honbun\",\"style\":\"width:100%; height:300px\",\"class\":\"richtext\",\"new_attrs\":\"\",\"value\":\"\",\"cols\":\"\",\"rows\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-140104940300557pWfUoguLbyrfev\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Circular News
+
+  @since 2013-03-17
+
+-->
+
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <label><input type="radio" name="priority" value="urgent">Urgent</label>
+        <label><input type="radio" name="priority" value="normal" checked>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name"></div>
+      <div class="detail_value">
+        <!-- richtext field is here -->
+        <textarea name="honbun" class="richtext" style="width:98%; height:300px;"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- This will list all circulators -->
+<div class="main_content_title2">Circular Information</div>
+<div class="checklist_with_comment"></div>
+]]></template_body_for_mobile>
+</entry>

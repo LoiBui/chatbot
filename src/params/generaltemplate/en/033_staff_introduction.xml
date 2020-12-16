@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Employee Introduction]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+Employee Introduction
+
+ @version 2014-01-17
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+
+	<tr>
+		<td colspan="4"><div class="main_content_title2">Employee Introduction</div></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Name<font color="red">*</font></td>
+		<td class="detail_value" ><input name="staff_name" class="mandatory" mandatory_msg="This field is required。"></td>
+		<td class="detail_name" >Furigana<font color="red">*</font></td>
+		<td class="detail_value" ><input name="staff_kana" class="mandatory" mandatory_msg="This field is required。"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Employee Number</td>
+		<td class="detail_value" width="30%"><input name="staff_no" ></td>
+		<td class="detail_name" width="20%">Title</td>
+		<td class="detail_value" width="30%"><input name="staff_department" ></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" >Onboard Date</td>
+		<td class="detail_value" ><input name="staff_date" class="date"></td>
+		<td class="detail_name" width="20%">Birthplace</td>
+		<td class="detail_value" width="30%">
+			<select name="staff_from" >
+				<OPTION value="">▼Please choose</OPTION>
+				<OPTION value="Hokkaido">Hokkaido</OPTION>
+				<OPTION value="Aomori">Aomori</OPTION>
+				<OPTION value="Iwate">Iwate</OPTION>
+				<OPTION value="Miyagi">Miyagi</OPTION>
+				<OPTION value="Akita">Akita</OPTION>
+				<OPTION value="Yamagata">Yamagata</OPTION>
+				<OPTION value="Fukushima">Fukushima</OPTION>
+				<OPTION value="Ibaraki">Ibaraki</OPTION>
+				<OPTION value="Tochigi">Tochigi</OPTION>
+				<OPTION value="Gunma">Gunma</OPTION>
+				<OPTION value="Saitama">Saitama</OPTION>
+				<OPTION value="Chiba">Chiba</OPTION>
+				<OPTION value="Tokyo">Tokyo</OPTION>
+				<OPTION value="Kanagawa">Kanagawa</OPTION>
+				<OPTION value="Niigata">Niigata</OPTION>
+				<OPTION value="Toyama">Toyama</OPTION>
+				<OPTION value="Ishikawa">Ishikawa</OPTION>
+				<OPTION value="Fukui">Fukui</OPTION>
+				<OPTION value="Yamanashi">Yamanashi</OPTION>
+				<OPTION value="Nagano">Nagano</OPTION>
+				<OPTION value="Gifu">Gifu</OPTION>
+				<OPTION value="Shizuoka">Shizuoka</OPTION>
+				<OPTION value="Aichi">Aichi</OPTION>
+				<OPTION value="Mie">Mie</OPTION>
+				<OPTION value="Shiga">Shiga</OPTION>
+				<OPTION value="Kyoto">Kyoto</OPTION>
+				<OPTION value="Osaka">Osaka</OPTION>
+				<OPTION value="Hyogo">Hyogo</OPTION>
+				<OPTION value="Nara">Nara</OPTION>
+				<OPTION value="Wakayama">Wakayama</OPTION>
+				<OPTION value="Tottori">Tottori</OPTION>
+				<OPTION value="Shimane">Shimane</OPTION>
+				<OPTION value="Okayama">Okayama</OPTION>
+				<OPTION value="Hiroshima">Hiroshima</OPTION>
+				<OPTION value="Yamaguchi">Yamaguchi</OPTION>
+				<OPTION value="Tokushima">Tokushima</OPTION>
+				<OPTION value="Kagawa">Kagawa</OPTION>
+				<OPTION value="Ehime">Ehime</OPTION>
+				<OPTION value="Kouchi">Kouchi</OPTION>
+				<OPTION value="Fukushima">Fukushima</OPTION>
+				<OPTION value="Saga">Saga</OPTION>
+				<OPTION value="Nagasaki">Nagasaki</OPTION>
+				<OPTION value="Kumamoto">Kumamoto</OPTION>
+				<OPTION value="Ooita">Ooita</OPTION>
+				<OPTION value="Miyazaki">Miyazaki</OPTION>
+				<OPTION value="Kagoshima">Kagoshima</OPTION>
+				<OPTION value="Okanawa">Okanawa</OPTION>
+				<OPTION value="Overseas">Overseas</OPTION>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">MAil Address</td>
+		<td class="detail_value" colspan="3"><input name="staff_mail" style="width:50%" ></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Graduate School</td>
+		<td class="detail_value" width="30%"><input name="staff_school" ></td>
+		<td class="detail_name" width="20%">Hobbies</td>
+		<td class="detail_value" width="30%"><input name="staff_interest" ></td>
+	</tr>
+	<tr>
+		<td class="detail_name" >Married/Single</td>
+		<td class="detail_value" colspan="3" >
+			<label>
+				<input type="radio" name="staff_married" value="Married" >Married
+			</label>&nbsp;&nbsp;&nbsp;
+			<label>
+				<input type="radio" name="staff_married" value="Single" >Single
+			</label>&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Introduction Words</td>
+		<td class="detail_value" colspan="3"><textarea name="staff_comment_1" class="richtext" style="width:100%" rows="20"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="staff_memo" style="width:100%" rows="10"></textarea></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140602100258LUYudff1OtWCMCTi\",\"name\":\"Employee Introduction\",\"sections\":[{\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\",\"secname\":\"Employee Introduction\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401678195552yymtvN4COQtvxxXg\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401678195558kpd1EmocRPvADvSb\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195552HBxmejAChJJiRGg3\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195555dIa9OpjKsP8LU42S\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678382759Bachf111pgYD8zFq\",\"controls\":[{\"control_id\":\"ctr_id-1401678395863PTHOkGDFcOK4dsR1\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"Employee Introduction\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678405838QRmpUqcUQQ79IQsE\",\"controls\":[{\"control_id\":\"ctr_id-1401678195556jQb9fSxC4K5UE507\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_name\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"mandatory_msg=This field is required。;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556oZw9TYDBv3GKTVCL\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Employee Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_no\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556Ks06qjzPCCmLVkad\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Onboard Date\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_date\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556EfNUBf4qEXbd6K1Q\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Furigana\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_kana\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"mandatory_msg=This field is required。;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556ByYH5FvktoiyyqZn\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Title\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"},{\"control_id\":\"ctr_id-1401678195556d9vhdPDpi7nwAUPn\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Birthplace\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_from\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"▼Please choose\",\"value\":\"\"},{\"text\":\"Hokkaido\",\"value\":\"Hokkaido\"},{\"text\":\"Aomori\",\"value\":\"Aomori\"},{\"text\":\"Iwate\",\"value\":\"Iwate\"},{\"text\":\"Miyagi\",\"value\":\"Miyagi\"},{\"text\":\"Akita\",\"value\":\"Akita\"},{\"text\":\"Yamagata\",\"value\":\"Yamagata\"},{\"text\":\"Fukushima\",\"value\":\"Fukushima\"},{\"text\":\"Ibaraki\",\"value\":\"Ibaraki\"},{\"text\":\"Tochigi\",\"value\":\"Tochigi\"},{\"text\":\"Gunma\",\"value\":\"Gunma\"},{\"text\":\"Saitama\",\"value\":\"Saitama\"},{\"text\":\"Chiba\",\"value\":\"Chiba\"},{\"text\":\"Tokyo\",\"value\":\"Tokyo\"},{\"text\":\"Kanagawa\",\"value\":\"Kanagawa\"},{\"text\":\"Niigata\",\"value\":\"Niigata\"},{\"text\":\"Toyama\",\"value\":\"Toyama\"},{\"text\":\"Ishikawa\",\"value\":\"Ishikawa\"},{\"text\":\"Fukui\",\"value\":\"Fukui\"},{\"text\":\"Yamanashi\",\"value\":\"Yamanashi\"},{\"text\":\"Nagano\",\"value\":\"Nagano\"},{\"text\":\"Gifu\",\"value\":\"Gifu\"},{\"text\":\"Shizuoka\",\"value\":\"Shizuoka\"},{\"text\":\"Aichi\",\"value\":\"Aichi\"},{\"text\":\"Mie\",\"value\":\"Mie\"},{\"text\":\"Shiga\",\"value\":\"Shiga\"},{\"text\":\"Kyoto\",\"value\":\"Kyoto\"},{\"text\":\"Osaka\",\"value\":\"Osaka\"},{\"text\":\"Hyogo\",\"value\":\"Hyogo\"},{\"text\":\"Nara\",\"value\":\"Nara\"},{\"text\":\"Wakayama\",\"value\":\"Wakayama\"},{\"text\":\"Tottori\",\"value\":\"Tottori\"},{\"text\":\"Shimane\",\"value\":\"Shimane\"},{\"text\":\"Okayama\",\"value\":\"Okayama\"},{\"text\":\"Hiroshima\",\"value\":\"Hiroshima\"},{\"text\":\"Yamaguchi\",\"value\":\"Yamaguchi\"},{\"text\":\"Tokushima\",\"value\":\"Tokushima\"},{\"text\":\"Kagawa\",\"value\":\"Kagawa\"},{\"text\":\"Ehime\",\"value\":\"Ehime\"},{\"text\":\"Kouchi\",\"value\":\"Kouchi\"},{\"text\":\"Fukushima\",\"value\":\"Fukushima\"},{\"text\":\"Saga\",\"value\":\"Saga\"},{\"text\":\"Nagasaki\",\"value\":\"Nagasaki\"},{\"text\":\"Kumamoto\",\"value\":\"Kumamoto\"},{\"text\":\"Ooita\",\"value\":\"Ooita\"},{\"text\":\"Miyazaki\",\"value\":\"Miyazaki\"},{\"text\":\"Kagoshima\",\"value\":\"Kagoshima\"},{\"text\":\"Okanawa\",\"value\":\"Okanawa\"},{\"text\":\"Overseas\",\"value\":\"Overseas\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401678405838QRmpUqcUQQ79IQsE\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678539990kbQCafzcZDxINC5v\",\"controls\":[{\"control_id\":\"ctr_id-140167819555698Mtexz1LP1DqyZ8\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"MAil Address\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_mail\",\"style\":\"width:50%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678539990kbQCafzcZDxINC5v\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678571398PgsGJ4FOduUs3uCO\",\"controls\":[{\"control_id\":\"ctr_id-1401678195556gSh33dhwU8Enx9zP\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Graduate School\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_school\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678571398PgsGJ4FOduUs3uCO\"},{\"control_id\":\"ctr_id-14016781955571B0aoIXQBOZTj5Od\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Hobbies\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_interest\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\",\"controls\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Married  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"Married\",\"name\":\"staff_married\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Single\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"Single\",\"name\":\"staff_married\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Married/Single\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_married\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401678195559ay8aV6F7Zs4dtf2w\",\"map_type_control\":\"radiogroup\",\"pos_row\":1,\"pos_col\":1,\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\"},{\"control_id\":\"ctr_id-14016781955578g3PjTVxBErG3bUs\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Introduction Words\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_comment_1\",\"style\":\"width:100%\",\"class\":\"richtext\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401678617844EZFm7Nm0qzw1vbIB\"},{\"control_id\":\"ctr_id-1401678195557WQfuZLisB7GAvZ7e\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"staff_memo\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401678195559B2g3e7k7iDKGCpCO\"}]}]}","trash_template_list_json_string":"","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+
+  <template_body_for_mobile><![CDATA[<!--
+
+Employee Introduction
+
+ @version 2014-01-17
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="main_content_title2">Employee Introduction</div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Name<font color="red">*</font></div>
+      <div class="detail_value"><input type="text" name="staff_name" class="mandatory" mandatory_msg="This field is required。"
+                                       style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Furigana<font color="red">*</font></div>
+      <div class="detail_value"><input type="text" name="staff_kana" class="mandatory" mandatory_msg="This field is required。"
+                                       style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Employee Number</div>
+      <div class="detail_value"><input type="text" type="text" name="staff_no" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Title</div>
+      <div class="detail_value"><input type="text" name="staff_department" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Onboard Date</div>
+      <div class="detail_value"><input type="text" name="staff_date" class="date" style="width:100%"></div>
+
+    </li>
+    <li class="row">
+      <div class="detail_name">Birthplace</div>
+      <div class="detail_value">
+        <select name="staff_from" style="width:100%">
+          <OPTION value="">▼Please choose</OPTION>
+          <OPTION value="Hokkaido">Hokkaido</OPTION>
+          <OPTION value="Aomori">Aomori</OPTION>
+          <OPTION value="Iwate">Iwate</OPTION>
+          <OPTION value="Miyagi">Miyagi</OPTION>
+          <OPTION value="Akita">Akita</OPTION>
+          <OPTION value="Yamagata">Yamagata</OPTION>
+          <OPTION value="Fukushima">Fukushima</OPTION>
+          <OPTION value="Ibaraki">Ibaraki</OPTION>
+          <OPTION value="Tochigi">Tochigi</OPTION>
+          <OPTION value="Gunma">Gunma</OPTION>
+          <OPTION value="Saitama">Saitama</OPTION>
+          <OPTION value="Chiba">Chiba</OPTION>
+          <OPTION value="Tokyo">Tokyo</OPTION>
+          <OPTION value="Kanagawa">Kanagawa</OPTION>
+          <OPTION value="Niigata">Niigata</OPTION>
+          <OPTION value="Toyama">Toyama</OPTION>
+          <OPTION value="Ishikawa">Ishikawa</OPTION>
+          <OPTION value="Fukui">Fukui</OPTION>
+          <OPTION value="Yamanashi">Yamanashi</OPTION>
+          <OPTION value="Nagano">Nagano</OPTION>
+          <OPTION value="Gifu">Gifu</OPTION>
+          <OPTION value="Shizuoka">Shizuoka</OPTION>
+          <OPTION value="Aichi">Aichi</OPTION>
+          <OPTION value="Mie">Mie</OPTION>
+          <OPTION value="Shiga">Shiga</OPTION>
+          <OPTION value="Kyoto">Kyoto</OPTION>
+          <OPTION value="Osaka">Osaka</OPTION>
+          <OPTION value="Hyogo">Hyogo</OPTION>
+          <OPTION value="Nara">Nara</OPTION>
+          <OPTION value="Wakayama">Wakayama</OPTION>
+          <OPTION value="Tottori">Tottori</OPTION>
+          <OPTION value="Shimane">Shimane</OPTION>
+          <OPTION value="Okayama">Okayama</OPTION>
+          <OPTION value="Hiroshima">Hiroshima</OPTION>
+          <OPTION value="Yamaguchi">Yamaguchi</OPTION>
+          <OPTION value="Tokushima">Tokushima</OPTION>
+          <OPTION value="Kagawa">Kagawa</OPTION>
+          <OPTION value="Ehime">Ehime</OPTION>
+          <OPTION value="Kouchi">Kouchi</OPTION>
+          <OPTION value="Fukushima">Fukushima</OPTION>
+          <OPTION value="Saga">Saga</OPTION>
+          <OPTION value="Nagasaki">Nagasaki</OPTION>
+          <OPTION value="Kumamoto">Kumamoto</OPTION>
+          <OPTION value="Ooita">Ooita</OPTION>
+          <OPTION value="Miyazaki">Miyazaki</OPTION>
+          <OPTION value="Kagoshima">Kagoshima</OPTION>
+          <OPTION value="Okanawa">Okanawa</OPTION>
+          <OPTION value="Overseas">Overseas</OPTION>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">MAil Address</div>
+      <div class="detail_value"><input type="text" name="staff_mail" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Graduate School</div>
+      <div class="detail_value"><input type="text" name="staff_school" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Hobbies</div>
+      <div class="detail_value"><input type="text" name="staff_interest" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Married/Single</div>
+      <div class="detail_value">
+        <label>
+          <input type="radio" name="staff_married" value="Married">Married
+        </label>&nbsp;&nbsp;&nbsp;
+        <label>
+          <input type="radio" name="staff_married" value="Single">Single
+        </label>&nbsp;&nbsp;&nbsp;
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Introduction Words</div>
+      <div class="detail_value"><textarea name="staff_comment_1" class="richtext " style="width:98%" rows="20"></textarea></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="staff_memo" style="width:98%" rows="10"></textarea></div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

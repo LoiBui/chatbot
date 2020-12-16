@@ -1,0 +1,44 @@
+UL.jqueryUcfTree2 {
+	font-family: 'ÉÅÉCÉäÉI',Meiryo,Verdana, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+
+UL.jqueryUcfTree2 LI {
+	list-style: none;
+/*	padding: 0px;*/
+	padding: 0px 8px;
+	line-height:1.8em;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+UL.jqueryUcfTree2 LI.sub {
+	list-style: none;
+	padding: 0px;
+	padding-left: 20px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+UL.jqueryUcfTree2 A {
+	color: #333;
+	text-decoration: none;
+	display: inline;
+	padding: 0px 2px;
+}
+
+UL.jqueryUcfTree2 A.link:hover {
+	background: #BDF;
+	text-decoration: underline;
+}
+/* Core Styles */
+.jqueryUcfTree2 LI.category A.folder { background: url(/images/jquery/ucfTree/category.png) no-repeat;}
+.jqueryUcfTree2 LI.expanded A.folder { background: url(/images/jquery/ucfTree/category_open.png) no-repeat; }
+.jqueryUcfTree2 LI.collapsed A.folder { background: url(/images/jquery/ucfTree/category.png) no-repeat;}
+.jqueryUcfTree2 LI.item A.folder { background: url(/images/jquery/ucfTree/file.png) no-repeat; }
+.jqueryUcfTree2 LI.wait A.folder { background: url(/images/jquery/ucfTree/spinner.gif) no-repeat; }
+.jqueryUcfTree2 LI.file A.folder { background: url(/images/jquery/ucfTree/file.png) no-repeat; }
+

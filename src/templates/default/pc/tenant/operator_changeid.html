@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<script type="text/javascript" src="{{vscripturl}}ucfext_operator.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_task.js?{{version}}" ></script>
+<LINK href="/css/jqueryUcfTree.css" type="text/css" rel="stylesheet">
+<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATOR_CHANGEID}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_OPERATOR_CHANGEID}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+
+{#
+var _lst_federated_domain = [];
+Ext.each(jQuery.parseJSON('{{domain_list|escapejs}}'), function(item){
+	_lst_federated_domain.push([item,item]);
+});
+#}
+
+Ext.ucf.delegateCheckValidation = function(ele)
+{
+}
+
+// frmEditに属する画面コンポーネント
+var lstCmpFrmEdit = [];
+
+//////////////////////////////////////////////////
+// 画面自体の編集をリセット
+//////////////////////////////////////////////////
+function field_reset()
+{
+	Ext.ucf.resetComponents(lstCmpFrmEdit);
+}
+
+//////////////////////////////////////////////////
+// 更新(POST)
+//////////////////////////////////////////////////
+function update()
+{
+	var mask;
+
+	var handleAfterProcess = function(response){
+		if (response.responseText != undefined && response.responseText != '') {
+			var jsondata = eval('(' + response.responseText + ')');
+			var code = jsondata.code;
+			if (code == 0) {
+				// このページをリロード
+				location.reload();
+			}else if(code == 100){
+				var message = '';
+				for (data in jsondata.vcmsg)
+				{
+					message += '<br/>※' + jsondata.vcmsg[data];
+					var ele = Ext.getCmp(data);
+					if(typeof(ele) != 'undefined'){
+						ele.preVCMessage = jsondata.vcmsg[data];
+						ele.markInvalid(jsondata.vcmsg[data]);
+					}
+					$('#VC_' + data).html(message);
+				}
+				Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', message);
+				mask.hide();
+			}else{
+				if(jsondata.msg != ''){
+					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
+				}else{
+					Ext.ucf.dispSysErrMsg(code);
+				}
+				mask.hide();
+			}
+		}
+		else
+		{
+			Ext.ucf.dispSysErrMsg();
+			mask.hide();
+		}
+
+	}
+
+	// AjaxPostパラメータ
+	var params = {
+		unqid:'{{ucfp.voinfo.vo.unique_id|escapejs}}',
+		src_accountid:Ext.ucf.getElementValue('src_accountid'),		
+		//dst_accountid_localpart:Ext.ucf.getElementValue('dst_accountid_localpart'),
+		dst_accountid:Ext.ucf.getElementValue('dst_accountid'),
+		//federated_domain:Ext.ucf.getElementValue('federated_domain'),
+		token:'{{ucfp.data.token}}'
+	};
+
+	// マスクをかける
+	mask = new Ext.LoadMask(Ext.get('contentsArea'), {msg:_msg.VMSG_MSG_UPDATING});
+	mask.show();
+
+	// 該当の項目のメッセージをまずクリア
+	//Ext.each(['src_accountid', 'dst_accountid_localpart'], function(id){Ext.ucf.clearValidationMessage(id);});
+	Ext.each(['src_accountid', 'dst_accountid'], function(id){Ext.ucf.clearValidationMessage(id);});
+
+	// AJAXコール
+	Ext.Ajax.request({ 
+		url: _vurl + 'operator/xtchangeid',
+		method: "POST", 
+		params: params, 
+		success: handleAfterProcess, 
+		failure: handleAfterProcess
+	}); 
+}
+
+
+var store;
+
+// 更新履歴検索条件パラメータ取得
+function getSearchBaseParam()
+{
+	var start = 0;
+	var limit = -1;
+	var params = {start:start, limit: limit,
+					sk_task_type:'CHANGE_OPERATOR_ID',
+					sk_target_unique_id:'{{ucfp.voinfo.vo.unique_id|escapejs}}'
+				};
+
+	return params;
+}
+
+// 検索
+function search(psc)
+{
+	Ext.ucf.search(psc, store, getSearchBaseParam, '');
+}
+
+// レンダラ：task_status
+function vh_task_status(value, p, record)
+{
+	var disp = '';
+	for(i = 0; i < Ext.ucf.task.DatTaskStatus.length; i++)
+	{
+		if(Ext.ucf.task.DatTaskStatus[i][0] == value){
+			disp = Ext.ucf.htmlEscape(Ext.ucf.task.DatTaskStatus[i][1]);
+			break;
+		}
+	}
+	var html = '';
+	html += disp;
+	return html;
+}
+
+
+// レンダラ：task_date_created
+function vh_date_created(value, p, record)
+{
+	var html = '';
+	html += Ext.ucf.htmlEscape(value);
+	return html;
+}
+
+function vh_log_text(value, p, record)
+{
+
+	var html = '';
+	if(record.get('log_text') && record.get('log_text') != ''){
+		html += '<a href="JavaScript:Ext.ucf.task_history.dispChangeIDLogTextDetail(\'' + record.get('unique_id') + '\')" >{{lang.LOG}}</a>';
+	}
+	return html;
+}
+
+// レンダラ：一般
+function vh_basic(value, p, record)
+{
+	var html = '';
+	html += Ext.ucf.htmlEscape(value);
+	return html;
+}
+
+function backToUserDetail()
+{
+	location.href = '{{vurl}}operator/detail?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}'
+}
+
+// 各フィールドを設定
+function createFields()
+{
+{#
+	// ドメイン
+	var field_federated_domain = Ext.ucf.field.createComboBox('', 'federated_domain', _lst_federated_domain, '{{ucfp.voinfo.vo.federated_domain|escapejs}}', '{{lang.FLD_DOMAIN}}', 250, null);
+	field_federated_domain.render('FIELD_federated_domain');
+	lstCmpFrmEdit.push(field_federated_domain);
+	{% if vcmsg.federated_domain %}field_federated_domain.markInvalid('{% for v in vcmsg.federated_domain %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+#}
+	// 変更後のユーザID
+{#
+	var field_dst_accountid_localpart = Ext.ucf.field.createTextField('dst_accountid_localpart', 'dst_accountid_localpart', '{{ucfp.voinfo.vo.dst_accountid_localpart|escapejs}}', '{{lang.FLD_USER_ID}}', 180, Ext.ucf.delegateCheckValidation);
+	field_dst_accountid_localpart.render('FIELD_dst_accountid_localpart');
+	lstCmpFrmEdit.push(field_dst_accountid_localpart);
+	{% if vcmsg.dst_accountid_localpart %}field_dst_accountid_localpart.markInvalid('{% for v in vcmsg.dst_accountid_localpart %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+#}
+	var field_dst_accountid = Ext.ucf.field.createTextField('dst_accountid', 'dst_accountid', '{{ucfp.voinfo.vo.dst_accountid|escapejs}}', '{{lang.FLD_USER_ID}}', 180, Ext.ucf.delegateCheckValidation);
+	field_dst_accountid.render('FIELD_dst_accountid');
+	lstCmpFrmEdit.push(field_dst_accountid);
+	{% if vcmsg.dst_accountid %}field_dst_accountid.markInvalid('{% for v in vcmsg.dst_accountid %}{{v|escapejs}}\n{% endfor %}');{% endif %}
+}
+
+</script>
+<script type="text/javascript" >
+Ext.onReady(function(){
+
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+	
+	createFields();
+    
+	var btnUpdate = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_RENAME_USER}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			update();
+		}
+	});
+	btnUpdate.render(Ext.get('btnUpdate'));
+
+	var btnBackToDetail = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACKTO_USER_DETAIL}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			backToUserDetail();
+		}
+	});
+	btnBackToDetail.render(Ext.get('btnBackToDetail'));
+
+	if(history.length > 1)
+	{
+	    var btnBackorClose = new Ext.Button({
+		    text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		    handler:function(){
+			    history.back(-1);
+		    }
+	    });		
+	}
+	else
+	{
+	    var btnBackorClose = new Ext.Button({
+		    text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		    handler:function(){
+			    window.close();
+		    }
+	    });				
+	}
+	btnBackorClose.render(Ext.get('btnBackorClose'));
+	
+	// ID変更履歴
+  var TaskScheduleInfo = Ext.data.Record.create([
+								{name: 'unique_id',  type: 'string', mapping: 'unique_id'}
+								,{name: 'task_status',  type: 'string'}
+								,{name: 'src_data_id',  type: 'string'}
+								,{name: 'dst_data_id',  type: 'string'}
+								,{name: 'log_text',  type: 'string'}
+								,{name: 'date_created',  type: 'string'}
+	]);
+
+  store = new Ext.data.Store({
+			reader: new Ext.data.JsonReader({
+						idProperty: 'unique_id'
+						,root: 'records'
+						,totalProperty: 'all_count'
+						}, TaskScheduleInfo),
+	    url: '{{vurl}}task/xtchangeidlist',
+			autoDestroy:true
+  });
+  	
+  var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+    	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			]
+		});
+
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+      ]
+		});
+		    	
+	var cm = new Ext.grid.ColumnModel({
+        columns: [
+			{
+				header: '{{lang.FLD_SRC_USER_ID}}',
+				dataIndex: 'src_data_id',
+				width: 80,
+				renderer: vh_basic
+			},{
+				header: '{{lang.FLD_DST_USER_ID}}',
+				dataIndex: 'dst_data_id',
+				width: 80,
+				renderer: vh_basic
+			},{
+				header: '{{lang.FLD_CHANGEID_TASK_STATUS}}',
+				dataIndex: 'task_status',
+				width: 80,
+				renderer: vh_task_status
+			},{
+				header: '{{lang.FLD_CHANGE_DATE}}',
+				dataIndex: 'date_created',
+				width: 130,
+				renderer: vh_date_created
+      },{
+        header: '{{lang.LOG}}',
+        dataIndex: '',
+        align: 'center',
+        width: 40,
+        sortable: false,
+				renderer: vh_log_text
+			}
+		]
+	});
+
+	var grid = new Ext.grid.GridPanel({
+		store: store,
+		region:'center',
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+		stripeRows: true,
+		tbar: toolBar,
+		cm: cm
+    });
+
+    var layout = new Ext.Panel({
+		collapsible: true,
+		title: '{{lang.CHANGEUSERID_HISTORY}}',
+		layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+		layoutConfig: {
+		  columns: 1
+		},
+	    height: 30 * 8,
+		listeners:{
+//				resize:function(t,aw,ah,w,h){
+//					var col = t.items.items[0];
+//					col.rendered && col.setWidth(w-10);
+//				}
+		},
+		items: [grid]
+    });
+
+	// div内にレンダリング
+  layout.render(Ext.get('AreaUpdateHistory'));
+	
+	search();
+
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+});
+</script>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+{% include "./include/operator_leftmenu.html" %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% include "./include/attention.html" %}
+{% include "./include/explain.html" %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_SITE_TITLE_OPERATOR_CHANGEID}}</p>
+
+<table class="detail_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+	    <div class="main_content_title"><a name="BASIC">{{lang.CHANGEUSERID_INPUT}}</a></div>
+	    <table>
+			<tr>
+			<td colspan="2"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="2">
+			<p class="style1"><font color="#696969">{{lang.EXP_OPERATOR_CHANGEID|safe}}
+			</font>
+			</p>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2" align="right">
+			<p class="style1"><font color="#696969">{{lang.EXP_OPERATOR_CHANGEID2|safe}}&nbsp;
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/chatmagazine#HOWTOCHANGEID" target="_blank" >{{lang.CLICK_HERE_FOR_DETAILS|safe}}</a>
+			</p>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="2"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+	    <tr>
+	      <th valign="middle" nowrap class="style2">{{lang.FLD_SRC_USER_ID}}&nbsp;:</th>
+			  <td align="left" class="style3">
+				<b>{{ucfp.voinfo.vo.operator_id}}</b>
+				<input type="hidden" name="src_accountid" value="{{ucfp.voinfo.vo.operator_id}}" >
+				<span id="VC_src_accountid" class="text_validate2" ></span>
+			  </td>
+	    </tr>
+			<tr>
+			<td colspan="2"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+	    <tr>
+	      <th valign="middle" nowrap class="style2">{{lang.FLD_DST_USER_ID}}&nbsp;:</th>
+			  <td align="left" class="style3">
+				<div id="FIELD_dst_accountid" class="field" ></div>
+{#
+				<table border="0" >
+				<tr>
+				<td><div id="FIELD_dst_accountid_localpart" class="field" ></div></td>
+				<td>&nbsp;@</td>
+				<td>
+				<div id="FIELD_federated_domain" class="field" ></div>
+				</td>
+				</tr>
+				</table>
+#}
+			  </td>
+	    </tr>
+	    </table>
+    </td>
+  </tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+		<div id="AreaUpdateHistory"></div>
+    </td>
+  </tr>
+  <tr>
+	<td class="layout_td layout_td_all" colspan="2" align="center">
+      <table align="center">
+        <tr align="center">
+          <td>
+            <div id="btnUpdate" />
+          </td>
+          <td>
+            &nbsp;&nbsp;
+          </td>          
+          <td>
+            <div id="btnBackToDetail" />
+          </td>
+          <td>
+            &nbsp;&nbsp;
+          </td>          
+          <td>
+            <div id="btnBackorClose" />
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  
+</table>
+
+
+
+
+</div>
+<!-- rightArea innerArea//end -->
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

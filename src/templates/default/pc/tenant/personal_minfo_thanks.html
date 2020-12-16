@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include "./include/headparts_bing.html" %}
+<!-- <title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_SUBMAILADDRESS}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+{% include "./include/external_analysis_head.html" %}
+<script type="text/javascript"> 
+{% if is_hide_backstretch: %}
+	_is_hide_blind = true;
+{% endif %}
+	_is_fullscreen = true;
+</script>
+</head>
+<body>
+<div id="wrapper">
+
+{% include "./include/header_bing.html" %}
+
+<div id="mypagebox" class="subaddress">
+<h2><span class="img"><img src="/images/mypage/ic_subaddress.png" alt=""></span><em><span class="ttl">{{lang.VMSG_PERSONAL_SUBMAILADDRESS}}</span></em></h2>
+
+<p class="attention2">
+{{lang.VMSG_INFO_SUBMAILADDRESS|safe}}
+</p>
+
+<a href="{{vurl}}personal/" class="btn_left" >{{lang.VMSG_TO_PERSONAL}}</a>
+{% if 'ADMIN' in login.access_authority: %}
+<a href="{{vurl}}" class="btn_right">{{lang.VMSG_TO_DASHBOARD}}</a>
+{% endif %}
+
+</div><!-- /#mypagebox end -->
+
+{% include "./include/footer_bing.html" %}
+</div><!-- /#wrapper end -->
+</body>
+</html>

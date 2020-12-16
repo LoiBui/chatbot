@@ -1,0 +1,13 @@
+<div id="loginbox">
+{% if not BgNoUse and not BgIsExistCustom and not BgIsDispCustomLogo: %}
+<h1><img src="/images/oem/{{oem_company_code}}/login_logo.png" ></h1>
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<h1><img src="{{vurl}}picture/logo" style="height:64px;" ></h1>
+{% endif %}
+</div><!-- /#loginbox end -->
+
+<div id="logoutbox">
+{% if login.mail_address != '': %}
+<p class="name" style="color:{% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%}" >{{login.mail_address}}</p><a href="{{vurl}}logout" class="btn_logout">LOGOUT</a>
+{% endif %}
+</div>

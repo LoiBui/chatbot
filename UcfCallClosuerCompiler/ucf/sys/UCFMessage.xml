@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<Message>
+	<Item id="0" code="0">原因不明のエラーが発生しました(ErrorID: {0})。</Item>
+	<Item id="PAGEERROR" code="PAGEERROR"><![CDATA[ただいまアクセスが集中しており、サイトに接続しにくい状態となっております。
+　しばらく時間をおいてから、再度アクセスをお願い致します。]]></Item>
+	<Item id="1" code="1">更新処理に失敗しました。</Item>
+	<Item id="2" code="2">XMLの生成に失敗しました。</Item>
+	<Item id="3" code="3">Ｕスクリプトの解析に失敗しました。</Item>
+	<Item id="4" code="4">パラメータが不正です。{0}</Item>
+	<Item id="5" code="5">設定XMLが適切にセットされていません。</Item>
+	<Item id="6" code="6">設定XMLの解析に失敗しました。</Item>
+	<Item id="7" code="7" use="not">入力項目に誤りがあります。</Item>
+	<Item id="8" code="8">コマンドが不正です。CMD:「{0}」</Item>
+	<Item id="9" code="9">{0}の長さは{1}文字以内でなければなりません。</Item>
+	<Item id="10" code="10">{0}は入力必須項目です。</Item>
+	<Item id="11" code="11">{0}の長さは{1}でなければなりません。</Item>
+	<Item id="12" code="12">{0}は半角英数字でなければなりません。</Item>
+	<Item id="13" code="13">{0}は半角英字でなければなりません。</Item>
+	<Item id="14" code="14">{0}は半角数字でなければなりません。</Item>
+	<Item id="15" code="15">{0}は全角でなければなりません。</Item>
+	<Item id="16" code="16">『{0}』は日付型として不正です。</Item>
+	<Item id="17" code="17">{0}と{1}の大小関係が不正です。</Item>
+	<Item id="18" code="18">({0}件ヒット){1}-{2}を表示しています。</Item>
+	<Item id="19" code="19">該当データがありません。</Item>
+	<Item id="20" code="20">表示可能件数を超えています。{0}件中{1}件表示します。</Item>
+	<Item id="21" code="21">トランザクションキー "{0}" は既に登録されています。</Item>
+	<Item id="22" code="22">トランザクションキー"{0}"は登録されていません。</Item>
+	<Item id="23" code="23">トランザクション追加･･･"{0}"</Item>
+	<Item id="24" code="24">SQLを作成中にエラーが発生しました。</Item>
+	<Item id="25" code="25">XMLのロードに失敗しました。PATH「{0}」</Item>
+	<Item id="26" code="26">前へ</Item>
+	<Item id="27" code="27">次へ</Item>
+	<Item id="28" code="28">最初へ</Item>
+	<Item id="29" code="29">最後へ</Item>
+	<Item id="30" code="30">トランザクションのコミット処理でエラーが発生しました。</Item>
+	<Item id="31" code="31">トランザクションのロールバック処理でエラーが発生しました。</Item>
+	<Item id="32" code="32">トランザクション開始処理でエラーが発生しました。</Item>
+	<Item id="33" code="33">SQLの実行に失敗しました。</Item>
+	<Item id="34" code="34">SQLの作成に失敗しました。</Item>
+	<Item id="35" code="35">{0}が設定されていません。</Item>
+	<Item id="36" code="36">有効期限情報の取得に失敗しました。</Item>
+	<Item id="37" code="37">期間タイプが不正です。</Item>
+	<Item id="38" code="38">曜日指定文字列が不正です。</Item>
+	<Item id="39" code="39">他でデータが編集されたため処理を続行できません。</Item>
+	<Item id="40" code="40">ConfigXMLが設定されていません。</Item>
+	<Item id="41" code="41">店舗IDの取得に失敗しました。</Item>
+	<Item id="42" code="42">テーブルIDが設定されていません。</Item>
+	<Item id="43" code="43">DBアクセスキーが設定されていません。</Item>
+	<Item id="44" code="44">タイプが不正です。type:「{0}」. 次のいずれかでなければなりません。:「{1}」</Item>
+	<Item id="45" code="45">ノードが設定されていません。XPATH:「{0}」</Item>
+	<Item id="46" code="46">テンプレートの作成に失敗しました。</Item>
+	<Item id="47" code="47">ファイルパスの部分要素として正しくありません。PATH：{0}</Item>
+	<Item id="48" code="48">ショップフォルダパスが設定されていません。</Item>
+	<Item id="49" code="49">絶対パスの作成に失敗しました。</Item>
+	<Item id="50" code="50">XPathが不正です。ノードの作成に失敗しました。「{0}」</Item>
+	<Item id="51" code="51">ファイルが存在しません。PATH:「{0}」</Item>
+	<Item id="52" code="52">GeneralInformationのインスタンスが不適切です。</Item>
+	<Item id="53" code="53">キャッシュIDが不適切です。</Item>
+	<Item id="54" code="54">DBアクセスキーの取得に失敗しました。</Item>
+	<Item id="55" code="55">キャッシュ設定XMLパスの作成に失敗しました。</Item>
+	<Item id="56" code="56">キャッシュ設定XMLの取得に失敗しました。「{0}」</Item>
+	<Item id="57" code="57" use="not">自動更新有効期限情報の取得に失敗しました。</Item>
+	<Item id="58" code="58">ログファイルの出力に失敗しました。「{0}」</Item>
+	<Item id="59" code="59">XMLDumpの出力に失敗しました。「{0}」</Item>
+	<Item id="60" code="60">ログインされていません。</Item>
+	<Item id="61" code="61"><![CDATA[ただいまアクセスが集中しており、サイトに接続しにくい状態となっております。
+　しばらく時間をおいてから、再度アクセスをお願い致します。]]></Item>
+	<Item id="62" code="62">指定されたノードは存在しません。({0})</Item>
+	<Item id="63" code="63">指定されたパスにキャッシュファイルが存在しません。キャッシュ設定は無効になります。「{0}」</Item>
+	<Item id="64" code="64">指定されたノードが正しくありません。</Item>
+	<Item id="65" code="65">{0}がメールアドレスとして正しくありません。</Item>
+	<Item id="68" code="68">「{0}」は数値型として不正です。</Item>
+	<Item id="69" code="69">「{0}」を用いて計算することによって許容範囲を超えてしまいます。</Item>
+	<Item id="70" code="70" use="not"></Item>
+	<Item id="71" code="71" use="not"></Item>
+	<Item id="72" code="72" use="not"></Item>
+	<Item id="73" code="73" use="not"></Item>
+	<Item id="76" code="76">XPATHは絶対パスで指定して下さい。「{0}」</Item>
+	<Item id="77" code="77">メール情報の作成に失敗しました。「{0}」</Item>
+	<Item id="78" code="78">メール送信に失敗しました。ERROR:「{0}」</Item>
+	<Item id="79" code="79">ファイルのロードに失敗しました。</Item>
+	<Item id="82" code="82">{0}は入力形式と一致していません。</Item>
+	<Item id="83" code="83">{0}の値が不正です。「{1}」</Item>
+	<Item id="84" code="84">原因不明なエラーが発生しました。管理者にお問い合わせください。</Item>
+	<Item id="85" code="85">指定されたタイプが正しくありません。年:YYYY 月:MM 日:DD のいずれかを指定して下さい。</Item>
+	<Item id="86" code="86">指定された文字列が日付型として正しくありません。({0})</Item>
+	<Item id="87" code="87">ConditionXMLのロードに失敗しました。PATH:「0」</Item>
+	<Item id="88" code="88" use="not">ValueObjectTemplateXMLのロードに失敗しました。</Item>
+	<Item id="89" code="89">SQL文作成</Item>
+	<Item id="90" code="90">ファイルの保存に失敗しました。PATH：「{0}」</Item>
+	<Item id="91" code="91">不正な手順です。</Item>
+	<Item id="92" code="92">{0}がnullです。</Item>
+	<Item id="94" code="94" use="not">型が不正です「{0}」。correct ：「{1}」</Item>
+	<Item id="95" code="95">"UCFスクリプト関数構成文字列として正しくありません。「{0}」</Item>
+	<Item id="96" code="96">処理に失敗しました。</Item>
+	<Item id="97" code="97">挿入処理に失敗したファイルがあります。</Item>
+	<Item id="98" code="98">UCFScript定数として適切ではありません。「{0}」</Item>
+	<Item id="99" code="99">指定されたXMLドキュメントはnullです。</Item>
+	<Item id="101" code="101">メモリキャッシュからデータを取得.</Item>
+	<Item id="102" code="102">ディスクキャッシュからデータを取得.</Item>
+	<Item id="103" code="103">メモリキャッシュ更新.</Item>
+	<Item id="104" code="104">ディスクキャッシュ更新.</Item>
+	<Item id="105" code="105">ディスクキャッシュ更新失敗.</Item>
+	<Item id="106" code="106">計算処理に失敗しました。</Item>
+	<Item id="107" code="107">UcfXmlスクリプトのエイリアス変換処理中にエラーが発生しました。： 対象XmlScript「{0}」</Item>
+	<Item id="109" code="109">対象のデータが存在しません。CSVの構成が正しくない可能性があります。「対象レコード:{0} タイトル:{1}」</Item>
+	<Item id="110" code="110" use="not">ConfigXMLテンプレートの取得に失敗しました。PATH：「{0}」</Item>
+	<Item id="111" code="111">ファイル検証中にエラーが発生しました。PATH：「{0}」</Item>
+	<Item id="112" code="112">CSVファイルのロードに失敗しました。PATH：「{0}」</Item>
+	<Item id="113" code="113">CSVに同じタイトルが複数存在します。 TITLE:「{0}」</Item>
+	<Item id="114" code="114">ソート処理が実行されていません。</Item>
+	<Item id="115" code="115">ソート対象項目指定が正しくない可能性があります。</Item>
+	<Item id="116" code="116">CSVファイルのソートに失敗しました。</Item>
+	<Item id="117" code="117">ディレクトリのコピーに失敗しました。TARGET_PATH:「{0}」VALUE_PATH:「{1}」</Item>
+	<Item id="118" code="118">ファイルの削除に失敗しました。PATH:「{0}」</Item>
+	<Item id="119" code="119">指定されたディレクトリは存在しません。PATH：「{0}：</Item>
+	<Item id="120" code="120">ファイルのコピーに失敗しました。PATH:「{0}」</Item>
+	<Item id="121" code="121">データを処理対象から除外しました。</Item>
+	<Item id="122" code="122">入力チェックに失敗しました。AutoCmd：「{0}」</Item>
+	<Item id="124" code="124">タイプは「{0}」で指定して下さい。</Item>
+	<Item id="128" code="128">SQL作成時にエラーが発生しました。</Item>
+	<Item id="129" code="129">エラー発生タグ：「{0}」</Item>
+	<Item id="130" code="130">「{0}」はBoolean型として不正です。</Item>
+	<Item id="131" code="131">この"{0}"「{1}」と"{2}"「{3}」の組み合わせは正しくありません。</Item>
+	<Item id="133" code="133">指定されたCondition情報はセットされていません。KEY:「{0}」ID:「{1}」</Item>
+	<Item id="134" code="134">指定されたTable情報はセットされていません。KEY:「{0}」</Item>
+	<Item id="136" code="136">コンディションＸＭＬの形式が正しくありません。「{0}」ノードが存在しません。</Item>
+	<Item id="137" code="137">データバインドに失敗しました。KEY:「{0}」PROPERTY:「{1}」 TYPE：{2}」</Item>
+	<Item id="138" code="138">書式の変換に失敗しました。。VALUE:「{0}」」</Item>
+	<Item id="139" code="139">指定されたRuleParameter情報はセットされていません。KEY:「{0}」</Item>
+	<Item id="140" code="140">許容される範囲を超えています。「{0} ～ {1}」</Item>
+	<Item id="141" code="141">SQL実行...「{0}」</Item>
+	<Item id="142" code="142">トランザクション開始時のDB接続キー「{0}」とコンディションで指定されているDB接続キー「{1}」が異なります。</Item>
+	<Item id="148" code="148">「{0}」は無効な文字列です。有効値の候補：「{1}」</Item>
+	<Item id="150" code="150">このノードは既に登録されています。ノード名:「{0}」</Item>
+	<Item id="151" code="151">UCFXmlScript変数のルートノードをノード一覧指定UCFXmlScriptとして指定することは出来ません。PATH：「{0}」</Item>
+	<Item id="152" code="152">変数名として正しくありません。「{0}」</Item>
+	<Item id="153" code="153">コピー成功. From:[{0}] To:[{1}]</Item>
+	<Item id="154" code="154">コピー失敗. From:[{0}] To:[{1}]</Item>
+	<Item id="155" code="155">UcfXmlScriptのAlias定義ファイルの読み込みに失敗しました。「{0}」</Item>
+	<Item id="156" code="156">対象のレコードが複数存在しました。１つになるようにConditionを作成して下さい。</Item>
+	<Item id="157" code="157">Conditionに情報が存在しません。PATH：「{0}」</Item>
+	<Item id="158" code="158">指定されたフィールドは取得データ内に存在しません。「{0}」</Item>
+	<Item id="159" code="159">キャッシュファイルパスが設定されていません。</Item>
+	<Item id="160" code="160">ダウンロードＸＭＬ指定が不適切です。[xml1, xml2, xml3, xml4]</Item>
+	<Item id="161" code="161">ダウンロードタイプ指定が不適切です。[XML, CSV]</Item>
+	<Item id="162" code="162">Conditionにフィールド指定属性「{0}」が設定されていません。</Item>
+	<Item id="163" code="163">日付が等しくありません。DATE1:「{0}」DATE2:「{1}」</Item>
+	<Item id="164" code="164">変数名が設定されていません。</Item>
+	<Item id="165" code="165">変数名「{0}」が無効です。変数名の先頭は 「{1}」のいずれかでなければなりません。</Item>
+	<Item id="166" code="166">データの取得に失敗しました。</Item>
+	<Item id="167" code="167">このＤＢＭＳでは指定された機能には対応していません。DBMS:「{0}」Func:「{1}」</Item>
+	<Item id="168" code="168">更新データが１件ではないため無効です。条件指定があいまいか、テーブルにオートナンバーフィールドが存在しない可能性があります。</Item>
+	<Item id="169" code="169">更新データを取得する設定が適切にされていません。</Item>
+	<Item id="170" code="170">IDENTITYフィールドが指定されていません。XPATH：「{0}」</Item>
+	<Item id="171" code="171">取得データ格納時にエラーが発生しました。</Item>
+	<Item id="172" code="172">UrlDecodeに失敗しました。</Item>
+	<Item id="173" code="173">メールの受信に失敗しました。</Item>
+	<Item id="174" code="174">このLoopCount関数は適切な位置にありません。</Item>
+	<Item id="175" code="175">パラメータチェック:ビジネスルール「{0}」では「{1}({2})」に値がセットされている必要があります。</Item>
+	<Item id="176" code="176">パラメータチェック:ビジネスルール「{0}」では「{1}({2})」ノードが存在する必要があります。</Item>
+	<Item id="177" code="177">UcfXmlScriptが適切に設定されていません。「{0}」</Item>
+	<Item id="178" code="178">指定されたUcfHashParameterはセットされていません。({0})</Item>
+	<Item id="179" code="179">登録されていないためこの機能は使用できません。</Item>
+	<Item id="180" code="180">この名前のHashParameterは登録されていません。NAME：「{0}」</Item>
+	<Item id="181" code="181">ConditionのTable/Fieldノードに適切に属性が設定されていません。CONDITIONKEY:「{0}」 NAME：「{1}」</Item>
+	<Item id="182" code="182">ConditionのTable/Fieldノードのキーが重複しています。CONDITIONKEY:「{0}」 NAME：「{1}」</Item>
+	<Item id="183" code="183">POOLされたSQLの一括実行に失敗しました。</Item>
+	<Item id="184" code="184">キャッシュテーブルにアクセスするSQLの作成に失敗しました。TYPE:「{0}」</Item>
+	<Item id="185" code="185">指定する値は「{0}」で始まる必要があります。</Item>
+	<Item id="186" code="186">GHashの設定に失敗しました。</Item>
+	<Item id="187" code="187">トランザクションの設定に失敗しました。</Item>
+	<Item id="188" code="188">メール送信に失敗しました。添付ファイル形式が不正な可能性があります。</Item>
+	<Item id="189" code="189">メール送信に失敗しました。メールサーバ情報が不正な可能性があります。</Item>
+	<Item id="190" code="190">加算処理に失敗しました。VALUE1：「{0}」 VALUE2:「{1}」</Item>
+	<Item id="191" code="191">減算処理に失敗しました。VALUE1：「{0}」 VALUE2:「{1}」</Item>
+	<Item id="192" code="192">乗算処理に失敗しました。VALUE1：「{0}」 VALUE2:「{1}」</Item>
+	<Item id="193" code="193">除算処理に失敗しました。VALUE1：「{0}」 VALUE2:「{1}」</Item>
+	<Item id="194" code="194">余り算出処理に失敗しました。VALUE1：「{0}」 VALUE2:「{1}」</Item>
+	<Item id="195" code="195">指定されたUCFXMLALIASのSRCとUFXMLSCRIPTのルートノード名が一致しません。SRC:[{0}] SCRIPT:[{1}]</Item>
+	<Item id="196" code="196">「{0}」と「{1}」の関係が不正です。</Item>
+	<Item id="197" code="197">{0}の長さは「{1} ～ {2}」の範囲でなければなりません。</Item>
+	<Item id="198" code="198">{0}の長さは「{1}」以上でなければなりません。</Item>
+	<Item id="199" code="199">{0}は全角ひらがなでなければなりません。</Item>
+	<Item id="200" code="200">{0}は全角カタカナでなければなりません。</Item>
+	<Item id="201" code="201">{0}は半角カタカナでなければなりません。</Item>
+	<Item id="202" code="202">変換に失敗しました。文字列または変換書式の指定が不適切です。CMD:「{0}」 STR:「{1}」</Item>
+	<Item id="203" code="203">ディスクキャッシュからデータの取得に失敗しました。</Item>
+	<Item id="204" code="204">時間指定文字列の書式が不正です。HH:MM:SS形式で指定してください。「{0}」</Item>
+	<Item id="205" code="205">「{0}」の書式が正しくありません。</Item>
+	<Item id="206" code="206">{0}はＸＭＬ形式として適切ではありません。</Item>
+	<Item id="207" code="207">このコマンド「{0}」は既に登録されています。</Item>
+	<Item id="208" code="208">コマンド指定が不適切です。CMD：{0}」</Item>
+	<Item id="209" code="209">ＤＢ接続情報：ドライバタイプが適切に設定されていません。</Item>
+	<Item id="210" code="210">ＤＢ接続情報：ＤＢタイプが適切に設定されていません。</Item>
+	<Item id="211" code="211">コネクションのオープンに失敗しました。接続文字列：「{0}」</Item>
+	<Item id="212" code="212">データリーダの読み込みに失敗しました。</Item>
+	<Item id="213" code="213">HTTPアクセスに失敗しました。</Item>
+	<Item id="214" code="214">設定ファイルから消費税率を取得できませんでした。</Item>
+	<Item id="215" code="215">設定ファイルの消費税率が適切ではありません。</Item>
+	<Item id="216" code="216">設定ファイルから値を取得できませんでした。KEY:「{0}」</Item>
+	<Item id="217" code="217">設定ファイルの読み込みに失敗しました。設定ファイルが壊れている可能性があります。</Item>
+	<Item id="218" code="218">ＣＳＶの列数が指定された数と等しくありません。 指定列数：「{0}」 実列数：「{1}」</Item>
+	<Item id="219" code="219">ページ設定情報から指定メニューアイテム情報が取得できませんでした。ＩＤ：「{0}」</Item>
+	<Item id="220" code="220">ページ設定情報から指定機能アイテム情報が取得できませんでした。メニューＩＤ：「{0}」機能ＩＤ：「1}」</Item>
+	<Item id="221" code="221">メソッドの指定が不適切です。METHOD:「{0}」</Item>
+	<Item id="222" code="222">条件式を含むＸＰＡＴＨをcreate属性で作成することはできません。XPATH:「{0}」</Item>
+	<Item id="223" code="223">ＳＱＬ設定ファイルにDB名称が設定されていません。DBACCESSKEY:「{0}」</Item>
+	<Item id="224" code="224">ＦＴＰアクセスに失敗しました。CODE「{0}」MESSAGE「{1}」</Item>
+	<Item id="225" code="225">有効なＦＴＰコマンドではありません。CMD:「{0}」</Item>
+	<Item id="226" code="226">ＦＴＰコマンドの実行に失敗しました。CMD:「{0}」</Item>
+	<Item id="227" code="227">ディレクトリ作成に失敗しました。PATH:「{0}」</Item>
+	<Item id="228" code="228">ＦＴＰソケットの切断に失敗しました。</Item>
+	<Item id="229" code="229">ＦＴＰコマンドの送信に失敗しました。CMD:「{0}」</Item>
+	<Item id="230" code="230">ＦＴＰ：アップロードに失敗しました。CLIENT_PATH:「{0}」 SERVER_PATH:「{1}」</Item>
+	<Item id="231" code="231">ＦＴＰ：ダウンロードに失敗しました。CLIENT_PATH:「{0}」 SERVER_PATH:「{1}」</Item>
+	<Item id="232" code="232">ＦＴＰ：ディレクトリ作成に失敗しました。PATH:「{0}」</Item>
+	<Item id="233" code="233">ＦＴＰ：ディレクトリ削除に失敗しました。PATH:「{0}」</Item>
+	<Item id="234" code="234">ＦＴＰ：ファイル削除に失敗しました。PATH:「{0}」</Item>
+	<Item id="235" code="235">ＦＴＰ：接続に失敗しました。SERVER:「{0}」UID:「{1}」</Item>
+	<Item id="236" code="236">ＦＴＰ：カレントディレクトリの取得に失敗しました。</Item>
+	<Item id="237" code="237">ＦＴＰ：カレントディレクトリの移動に失敗しました。PATH:「{0}」</Item>
+	<Item id="238" code="238">キャッシュの更新に失敗しました。</Item>
+	<Item id="239" code="239">キャッシュの削除に失敗しました。</Item>
+	<Item id="240" code="240">ＦＴＰ：リネイムに失敗しました。PATH1:「{0}」PATH2:「{1}」</Item>
+	<Item id="241" code="241">コンディションのバージョンがそれを使用するルールのバージョンと異なります。。RULE:「{0}」CONDITION:{1}」</Item>
+	<Item id="242" code="242">ＡｕｔｏＣｍｄチェックが通りませんでした。TARGET:「{0}」CMD：「{1}」</Item>
+	<Item id="243" code="243">ＡｕｔｏＣｍｄが無効です。CMD：「{0}」</Item>
+	<Item id="244" code="244">プロトコルの指定が無効です。「{0}」</Item>
+	<Item id="245" code="245">JavaScriptの囲い文字の指定として不適切です。「{0}」</Item>
+	<Item id="246" code="246">プロキシポートの設定が正しくありません。「{0}」</Item>
+	<Item id="247" code="247">指定ノードはＸＭＬのルートなので同階層にノードを挿入することはできません。</Item>
+	<Item id="248" code="248">このＤＢタイプでは更新ロックフラグはサポートされていません。DBTYPE:「{0}」</Item>
+	<Item id="249" code="249">DynamicQueryのequation属性のコマンドが適切に閉じられていません。CMD:「{0}」</Item>
+	<Item id="250" code="250">CONTAINS, FREETEXTを使用する場合、必ず対象文字列は「'」で囲わなければなりません。</Item>
+	<Item id="251" code="251">このタイプは暦変換のタイプとして対応していません。TYPE:「{0}」</Item>
+	<Item id="252" code="252">暦変換に失敗しました。VALUE:「{0}」TYPE:「{1}」</Item>
+	<Item id="253" code="253">ＳＱＬクエリーとして無効な文字列が含まれています。KEY:「{0}」VALUE:「{1}」</Item>
+	<Item id="254" code="254">文字コード変換に失敗しました。VALUE:「{0}」</Item>
+	<Item id="255" code="255">Hashの値のコピーに失敗しました。</Item>
+	<Item id="256" code="256">このＨａｓｈキーは既に存在するためコピーできません。KEY:「{0}」</Item>
+	<Item id="257" code="257">Hashの値のクリアに失敗しました。</Item>
+	<Item id="258" code="258">ファイルの解凍に失敗しました。PATH:「{0}」</Item>
+	<Item id="259" code="259">ファイルの圧縮に失敗しました。PATH:「{0}」</Item>
+	<Item id="260" code="260">指定されたファイルまたはディレクトリは存在しません。PATH：「{0}：</Item>
+	<Item id="261" code="261">デフォルト日付のチェックに失敗しました。TARGET:「{0}」DEFAULT:「{1}」</Item>
+	<Item id="262" code="262">ファイル名またはディレクトリ名の変更に失敗しました。PATH:「{0}」⇒RENAME:「{1}」</Item>
+	<Item id="263" code="263">同名のファイル名またはディレクトリ名には変更できません。PATH:「{0}」⇒RENAME:「{1}」</Item>
+	<Item id="264" code="264">指定されたファイルまたはディレクトリは既に存在するため名称を変更できません。PATH:「{0}」⇒RENAME:「{1}」</Item>
+	<Item id="265" code="265">ＲＳＳの生成に失敗しました。</Item>
+	<Item id="266" code="266">このバージョンのＲＳＳには対応していません。VERSION:「{0}」</Item>
+	<Item id="267" code="267">不適切なリクエストデータが含まれています。QueryやPOSTデータが適切に設定されているか確認して下さい。</Item>
+	<Item id="268" code="268">ＵＲＬ変換に失敗しました。URL:「{0}」</Item>
+	<Item id="269" code="269">指定されたＵＲＬが正しくありません。URL:「{0}」</Item>
+	<Item id="270" code="270">ホスト名の算出に失敗しました。設定ファイルのＵＲＬ設定が正しくありません。</Item>
+	<Item id="271" code="271">「{0}」型と「{1}」型は比較できません。</Item>
+	<Item id="272" code="272">画像ファイルの編集に失敗しました。PATH:「{0}」</Item>
+	<Item id="273" code="273">画像ファイルの処理に失敗しました。PATH:「{0}」</Item>
+	<Item id="274" code="274">ＤＬＬからのインスタンス化に失敗しました。PATH:「{0}」CLASS:「{1}」</Item>
+	<Item id="275" code="275">外部モジュールのロードに失敗しました。ID:「{0}」</Item>
+	<Item id="276" code="276">メソッド名からメソッドの実行に失敗しました。METHOD:「{0}」</Item>
+	<Item id="277" code="277">メソッドインスタンスの作成に失敗しました。</Item>
+	<Item id="278" code="278">このタイプのストリームは扱えません。TYPE:「{0}」</Item>
+	<Item id="279" code="279">ＦＰキー"{0}" は既に登録されています。</Item>
+	<Item id="280" code="280">ＦＰキー"{0}"は登録されていません。</Item>
+	<Item id="281" code="281">ＦＰの解放に失敗しました。KEY:「{0}」</Item>
+	<Item id="282" code="282">クローズに失敗したＦＰがあります。KEY:「{0}」</Item>
+	<Item id="283" code="283">指定された型と登録されているオブジェクトの型が一致しません。KEY:「{0}」TYPE:「{1}」OBJECT:「{2}」</Item>
+	<Item id="284" code="284">ＦＰの登録に失敗しました。KEY:「{0}」</Item>
+	<Item id="285" code="285">年齢の算出に失敗しました。BIRTHDAY:「{0}」</Item>
+	<Item id="286" code="286">実行環境情報の取得に失敗しました。KEY:「{0}」</Item>
+	<Item id="287" code="287">ビジネスルール情報の取得に失敗しました。</Item>
+	<Item id="288" code="288">ビジネスルール情報の設定に失敗しました。</Item>
+	<Item id="289" code="289">{0}に機種依存文字が含まれています。</Item>
+	<Item id="290" code="290">{0}は記号のみの入力は許容されません。</Item>
+	<Item id="291" code="291">権限情報の取得に失敗しました。KEY:「{0}」</Item>
+	<Item id="292" code="292">表示設定情報の取得に失敗しました。KEY:「{0}」</Item>
+	<Item id="293" code="293">エンコードに失敗しました。TYPE:「{0}」VALUE：「{1}」</Item>
+	<Item id="294" code="294">デコードに失敗しました。TYPE:「{0}」VALUE：「{1}」</Item>
+	<Item id="295" code="295">入力データフォーマットが間違っています。VALUE:「{0}」</Item>
+	<Item id="296" code="296">システムエラーが発生しました。CODE:「{0}」</Item>
+	<Item id="297" code="297">Configへの情報セットに失敗しました。</Item>
+	<Item id="298" code="298">POP before SMTP 処理に失敗しました。SERVER:「{0}」PORT:「{1}」COMMAND:「{2}」</Item>
+	<Item id="299" code="299">{0}は空でなければなりません。</Item>
+	<Item id="300" code="300">RSSの作成に失敗しました。</Item>
+	<Item id="301" code="301">RSSのバージョン指定が不正です。</Item>
+	<Item id="302" code="302">{0}は半角でなければなりません。</Item>
+	<Item id="303" code="303">AUTOCMD処理に失敗しました。VALUE:「{0}」CMD：「{1}」</Item>
+	<Item id="304" code="304">桁数指定値が不正です。MIN「{0}」MAX「{1}」</Item>
+	<Item id="305" code="305">英字比率値が不正です。0～10の間で指定して下さい。RATE「{0}」</Item>
+	<Item id="306" code="306">大文字比率値が不正です。0～10の間で指定して下さい。RATE「{0}」</Item>
+	<Item id="307" code="307">ランダム英数字文字列の作成に失敗しました。</Item>
+	<Item id="308" code="308">店舗ＩＤが正しく設定されていません。「{0}」</Item>
+	<Item id="309" code="309">{0}が指定されていないためWebServiceを特定できません。</Item>
+	<Item id="310" code="310">存在しないWebServiceです。「{0}」</Item>
+	<Item id="311" code="311">指定された「{0}」は登録されていません。ID:「{1}」</Item>
+	<Item id="312" code="312">このConditionReferenceKey「{0}」はこのコンテナ・ルール内で既に使用されています。</Item>
+	<Item id="313" code="313">「{0}」の値が設定されていません。</Item>
+	<Item id="314" code="314">指定された{0}「{1}」に対応する{2}ノードが存在しません。</Item>
+	<Item id="315" code="315">「{0}」属性が未指定です。</Item>
+	<Item id="316" code="316">指定されたSQLスクリプトのパラメータが存在しません。「{0}」</Item>
+	<Item id="317" code="317">指定されたHashParameter値は存在しません。({0})</Item>
+	<Item id="318" code="318">指定された{0}「{1}」に対応する{2}ノードが存在しません。</Item>
+	<Item id="319" code="319">{0}ノードには{1}属性は必須です。</Item>
+	<Item id="320" code="320">ループ対象のリストが指定されていません。{0}</Item>
+	<Item id="321" code="321">ループ対象の形式が正しくありません。{0}</Item>
+	<Item id="322" code="322">UCFTCPCLIENTの接続に失敗しました。</Item>
+	<Item id="323" code="323">UCFTCPCLIENTの切断に失敗しました。</Item>
+	<Item id="324" code="324">アカウント認証に失敗しました。ＩＤ：「{0}」</Item>
+	<Item id="325" code="325">メール受信予定数よりも大きなカウント数が指定されました。CNT：「{0}」</Item>
+	<Item id="326" code="326">メール保存フォルダの作成に失敗しました。。DIR：「{0}」</Item>
+	<Item id="327" code="327">エラーコードが返りました。CMD：「{0}」MSG:「{1}」</Item>
+	<Item id="328" code="328">メールの保存に失敗しました。PATH:「{0}」MSG:「{1}」</Item>
+	<Item id="329" code="329">メールの削除に失敗しました。</Item>
+	<Item id="330" code="330">このキーは既に登録されています。KEY:「{0}」</Item>
+	<Item id="331" code="331">このキーは登録されていません。KEY:「{0}」</Item>
+	<Item id="332" code="332">サーバメールの削除に失敗しました。KEY：「{0}」MAILCOUNT:「{1}」</Item>
+	<Item id="333" code="333">Quoted-Printableコードのデコードに失敗しました。VALUE:「{0}」</Item>
+	<Item id="334" code="334">バイトへの変換に失敗しました。VALUE:「{0}」</Item>
+	<Item id="335" code="335">{0}の長さは半角換算で{1}文字以内でなければなりません。</Item>
+	<Item id="336" code="336">{0}の長さは半角換算で{1}文字でなければなりません。</Item>
+	<Item id="337" code="337">{0}の長さは半角換算で「{1} ～ {2}」の範囲でなければなりません。</Item>
+	<Item id="338" code="338">{0}の長さは半角換算で「{1}」以上でなければなりません。</Item>
+	<Item id="339" code="339">{0}に無効な文字が含まれています。</Item>
+	<Item id="340" code="340">シリアルマスタキーが設定されていません。</Item>
+	<Item id="341" code="341">開始値の設定が不正です。</Item>
+	<Item id="342" code="342">シリアルＮｏの作成に失敗しました。</Item>
+	<Item id="343" code="343">桁数指定が正しくありません。「{0}」</Item>
+	<Item id="344" code="344">粒度指定が正しくありません。「{0}」</Item>
+	<Item id="345" code="345">処理開始...</Item>
+	<Item id="346" code="346">処理完了...{0}(ms).</Item>
+	<Item id="347" code="347">コンテナ処理開始...</Item>
+	<Item id="348" code="348">コンテナ処理終了.</Item>
+	<Item id="349" code="349">オブジェクトが設定されていません。変数：「{0}」取得予定のXPATH：「{1}」</Item>
+	<Item id="350" code="350">帳票タイプの指定が適切ではありません。VALUE:「{0}」</Item>
+	<Item id="351" code="351">ＳＳＬ認証に失敗しました。</Item>
+	<Item id="352" code="352">メールアドレスが正しく設定されていません。KEY:「{0}」</Item>
+	<Item id="353" code="353">適切なリダイレクトＵＲＬが取得できませんでした。PAGE_ID「{0}」TARGET_CAREER「{1}」</Item>
+	<Item id="354" code="354">ストリームへの出力に失敗しました。FP：「{0}」</Item>
+	<Item id="355" code="355">処理に時間がかかっているため強制的に停止します。タイムアウト「{0}」(ms)</Item>
+
+
+
+	<Item id="CONTAINER_COMMON_ERROR" code="CONTAINER_COMMON_ERROR">コンテナ実行時にエラーが発生しました。</Item>
+	<Item id="FAILED_LOAD_REQUESTPARAMETER" code="FAILED_LOAD_REQUESTPARAMETER"><![CDATA[RequestParameterＸＭＬファイルの読み込みに失敗しました。以下のＸＭＬ形式でなければなりません。「<Ucf><Request>～～～</Request></Ucf>」]]></Item>
+	<Item id="FAILED_LOAD_REQUESTPARAMETER2" code="FAILED_LOAD_REQUESTPARAMETER2"><![CDATA[RequestParameterＸＭＬファイルの読み込みに失敗しました。BatchCommonParameter/Itemノードの内容が空です。]]></Item>
+	<Item id="FAILED_CALL_UCFWEBSERVICE" code="FAILED_CALL_UCFWEBSERVICE">ＵＣＦＷＥＢサービスのコールに失敗しました。コンテナフォルダ名：「{0}」コンテナファイル名：「{1}」</Item>
+
+	<Item id="UCFFRONT001" code="UCFFRONT001">処理中にエラーが発生しました。詳細は管理者にお問い合わせください。ERROR:「{0}」</Item>
+  <Item id="FAILED_DATA_BIND" code="FAILED_DATA_BIND">データバインドに失敗しました。KEY:「{0}」PROPERTY:「{1}」 TYPE：「{2}」</Item>
+	<Item id="UCFUICOMMON001" code="UCFUICOMMON001">ユーザコントロールの追加処理に失敗しました。</Item>
+	<Item id="DEPTID" code="DEPTID">店舗ID</Item>
+
+
+	<!-- 以下、スケジュールマネージャ関連のメッセージ（code値がそのままEventIDになるので注意） -->
+	<!-- Information -->
+	<Item id="SCHI001" code="1">サービスが開始されました。</Item>
+	<Item id="SCHI002" code="2">ポーリング開始. ＳＱＬ:「{0}」.</Item>
+	<Item id="SCHI003" code="3">ポーリング終了.</Item>
+	<Item id="SCHI004" code="4">スケジュールにステータスを設定. ID:「{0}」STATUS:「{1}」</Item>
+	<Item id="SCHI005" code="5">１スケジュールに対して配信処理開始. ID:「{0}」</Item>
+	<Item id="SCHI006" code="6">１スケジュールに対して配信処理完了. ID:「{0}」THREADCNT:「{1}」件</Item>
+	<Item id="SCHI007" code="7">１スケジュールに対して抽出処理開始. ID:「{0}」</Item>
+	<Item id="SCHI008" code="8">１スケジュールに対して抽出処理完了. ID:「{0}」</Item>
+	<Item id="SCHI009" code="9">１スケジュールに対してセンドキッカーをキック. ID:「{0}」</Item>
+
+	<!-- Warning -->
+	<Item id="SCHW001" code="201"></Item>
+
+	<!-- Error -->
+	<Item id="SCHE001" code="501">サービスの開始に失敗しました。ERR:「{0}」</Item>
+	<Item id="SCHE002" code="502">エラーが発生しました。ポーリングを終了します。「{0}」</Item>
+	<Item id="SCHE003" code="503">スケジュールステータスの更新に失敗しました。ID:「{0}」STATUS:「{1}」ERR:「{2}」</Item>
+	<Item id="SCHE004" code="504">スケジュール内のスレッドに対しての処理でエラーが発生しました。ID:「{0}」EXEID:「{1}」ERR:「{2}」</Item>
+	<Item id="SCHE005" code="505">スケジュール内のスレッドに対しての処理でエラーが発生しました。ID:「{0}」EXEID:「{1}」THREADID:「{2}」ERR:「{3}」</Item>
+	<Item id="SCHE006" code="506">有効なメール文書が取得できませんでした。ID:「{0}」</Item>
+	<Item id="SCHE007" code="507">ターゲットセレクタ実行処理でエラーが発生しました。ID:「{0}」ERR:「{1}」</Item>
+	<Item id="SCHE008" code="508">センドキッカーの実行処理でエラーが発生しました。ID:「{0}」ERR:「{1}」</Item>
+	<Item id="SCHE009" code="509">配信待ちのスレッドが１つ以上ありませんでした。ID:「{0}」</Item>
+
+	<Item id="SCH001" code="SCH001">配信中の有効なスケジュールとして取得できませんでした。ステータスや実行ＩＤが変更された可能性があります。ID:「{0}」</Item>
+	<Item id="SCH002" code="SCH002">配信待ちの有効なスレッドを配信中に更新または取得できませんでした。ステータスや実行ＩＤが変更された可能性があります。ID:「{0}」EXEID:「{1}」THREADID:「{2}」</Item>
+	<Item id="SCH003" code="SCH003">スレッドにステータスを設定。ID:「{0}」EXEID:「{1}」THREADID:「{2}」STATUS:「{3}」</Item>
+	<Item id="SCH004" code="SCH004">スレッドステータスの更新に失敗しました。ID:「{0}」EXEID:「{1}」THREADID:「{2}」STATUS:「{3}」ERR:「{4}」</Item>
+	<Item id="SCH005" code="SCH005">指定されたメール文書が見つかりませんでした。ID:「{0}」</Item>
+	<Item id="SCH006" code="SCH006">送信エラー発生.RECORD_CNT:「{0}」DATA:「{1}」ERR:「{2}」</Item>
+	<Item id="SCH007" code="SCH007">送信完了.RECORD_CNT:「{0}」</Item>
+	<Item id="SCH008" code="SCH008">キャンセルされました.RECORD_CNT:「{0}」</Item>
+	<Item id="SCH009" code="SCH009">抽出待ちの有効なスケジュールとして取得できませんでした。ステータスなどが変更された可能性があります。ID:「{0}」</Item>
+	<Item id="SCH010" code="SCH010">抽出中の有効なスケジュールとして取得できませんでした。ステータスなどが変更された可能性があります。ID:「{0}」</Item>
+	<Item id="SCH011" code="SCH011">抽出停止指示が出たため抽出を中止します。</Item>
+	<Item id="SCH012" code="SCH012">適切なステータスのスケジュールが取得できませんでした。ID:「{0}」</Item>
+	<Item id="SCH013" code="SCH013">配信停止指示が出たため配信を中止します。</Item>
+	<Item id="SCH014" code="SCH014">適切なステータスのスレッドが取得できませんでした。THREAD_ID:「{0}」EXECUTE_ID:「{1}」</Item>
+	<Item id="SCH015" code="SCH015">抽出開始日時になっていません。ID:「{0}」</Item>
+	<Item id="SCH016" code="SCH016">配信開始日時になっていません。ID:「{0}」</Item>
+	<Item id="SCH017" code="SCH017">配信待ちの有効なスケジュールとして取得できませんでした。ステータスや実行ＩＤが変更された可能性があります。ID:「{0}」</Item>
+	<Item id="SCH018" code="SCH018">配信間隔設定によりスリープします。「{0}」(ms)</Item>
+	<Item id="SCH019" code="SCH019">禁止時間帯設定によりスリープします。「{0}」(ms)</Item>
+	<Item id="SCH020" code="SCH020">顧客マスタのエラーカウントのカウントアップに失敗しました。CUSTOMERID:「{0}」DEPTID:「{1}」SQL:「{2}」ERR:「{3}」</Item>
+	<Item id="SCH021" code="SCH021">有効なメールアカウント情報が取得できませんでした。ID:「{0}」</Item>
+	<Item id="SCH022" code="SCH022">抽出処理開始...</Item>
+	<Item id="SCH023" code="SCH023">スケジュール取得成功.STATUS:「{0}」</Item>
+	<Item id="SCH024" code="SCH024">抽出開始日時チェック開始...</Item>
+	<Item id="SCH025" code="SCH025">抽出開始日時チェック完了.</Item>
+	<Item id="SCH026" code="SCH026">設定情報を初期化.</Item>
+	<Item id="SCH027" code="SCH027">抽出除外データ取得開始.</Item>
+	<Item id="SCH028" code="SCH028">抽出除外データ取得完了.</Item>
+	<Item id="SCH029" code="SCH029">抽出タイプを設定.TYPE:「{0}」</Item>
+	<Item id="SCH030" code="SCH030">リソースへ接続...</Item>
+	<Item id="SCH031" code="SCH031">抽出結果ＣＳＶのタイトル行定義を取得.</Item>
+	<Item id="SCH032" code="SCH032">スレッド（ID：{0}）毎の出力ＣＳＶをオープン.PATH:「{1}」</Item>
+	<Item id="SCH033" code="SCH033">スレッド（ID：{0}）毎の出力ＣＳＶをクローズ.</Item>
+	<Item id="SCH034" code="SCH034">抽出件数を更新.</Item>
+	<Item id="SCH035" code="SCH035">スケジュールのステータス更新.</Item>
+	<Item id="SCH036" code="SCH036">スケジュールのステータス更新に失敗しました。対象レコードがありませんでした。SQL：「{0}」</Item>
+	<Item id="SCH037" code="SCH037">スケジュールのステータス更新に失敗しました。</Item>
+	<Item id="SCH038" code="SCH038">抽出処理完了.</Item>
+	<Item id="SCH039" code="SCH039">センダーＥＸＥをキック. SCHEDULE_ID:「{0}」EXEID:「{1}」THREADID:「{2}」PATH:「{3}」</Item>
+	<Item id="SCH040" code="SCH040">配信処理開始...</Item>
+	<Item id="SCH041" code="SCH041">配信開始指定日時チェック完了.</Item>
+	<Item id="SCH042" code="SCH042">メールレイアウト取得...TEMPLATE_ID:「{0}」</Item>
+	<Item id="SCH043" code="SCH043">メールレイアウト取得成功.TEMPLATE_ID:「{0}」</Item>
+	<Item id="SCH044" code="SCH044">ビジネスコンテナコール... CONTAINER_NAME:「{0}」NAMESPACE:「{1}」</Item>
+	<Item id="SCH045" code="SCH045">ビジネスコンテナコール時にエラー発生... CONTAINER_NAME:「{0}」NAMESPACE:「{1}」</Item>
+	<Item id="SCH046" code="SCH046">ビジネスコンテナ完了. CONTAINER_NAME:「{0}」NAMESPACE:「{1}」</Item>
+	<Item id="SCH047" code="SCH047">メールレイアウト取得の取得に失敗しました。TEMPLATE_ID:「{0}」</Item>
+	<Item id="SCH048" code="SCH048">レイアウト内で使用されているパーツのＩＤ一覧を取得...</Item>
+	<Item id="SCH049" code="SCH049">レイアウト内で使用されているパーツのＩＤ一覧を取得完了.</Item>
+	<Item id="SCH050" code="SCH050">レイアウト内で使用されているパーツ一覧を取得（with ＣＭＳタグ変換）...</Item>
+	<Item id="SCH051" code="SCH051">レイアウト内で使用されているパーツ一覧を取得完了（with ＣＭＳタグ変換）.</Item>
+	<Item id="SCH052" code="SCH052">レイアウト内で使用されているパーツ一覧の取得に失敗しました.</Item>
+	<Item id="SCH053" code="SCH053">配信メールアカウント情報を取得...</Item>
+	<Item id="SCH054" code="SCH054">配信メールアカウント情報の取得に失敗しました。ID「{0}」SQL:「{1}」</Item>
+	<Item id="SCH055" code="SCH055">スケジュール情報を取得...</Item>
+	<Item id="SCH056" code="SCH056">スケジュール情報の取得に失敗しました。ID「{0}」SQL:「{1}」</Item>
+	<Item id="SCH057" code="SCH057">停止指示チェック...</Item>
+	<Item id="SCH058" code="SCH058">禁止時間帯チェック...</Item>
+	<Item id="SCH059" code="SCH059">エラーカウントをカウントアップ.CUSTOMERID:「{0}」DEPTID:「{1}」</Item>
+	<Item id="SCH060" code="SCH060">配信対象ＣＳＶの読み込み.PATH:「{0}」</Item>
+	<Item id="SCH061" code="SCH061">配信成功データ出力ファイルのオープン.PATH:「{0}」</Item>
+	<Item id="SCH062" code="SCH062">配信間隔設定によるスリープから復帰.</Item>
+	<Item id="SCH063" code="SCH063">メールパーツ埋め込み用ＣＭＳタグの変換処理でエラーが発生しました。</Item>
+	<Item id="SCH064" code="SCH064">ＣＭＳタグの変換処理でエラーが発生しました。</Item>
+	<Item id="SCH065" code="SCH065">レイアウト内で使用されているパーツのＩＤ一覧の取得失敗しました。</Item>
+	<Item id="SCH066" code="SCH066">配信コマンド送信開始...</Item>
+	<Item id="SCH067" code="SCH067">配信コマンド送信完了.「{0}」件</Item>
+	<Item id="SCH068" code="SCH068">全件に対してメールサーバからの応答を待ちます....</Item>
+	<Item id="SCH069" code="SCH069">メールサーバからの応答待ち完了.</Item>
+	<Item id="SCH070" code="SCH070">配信指示を出したものに対してキャンセル指令を発行...</Item>
+	<Item id="SCH071" code="SCH071">後処理開始...</Item>
+	<Item id="SCH072" code="SCH072">後処理でエラーが発生しました。</Item>
+	<Item id="SCH073" code="SCH073">配信件数の更新処理でエラーが発生しました。SQL:「{0}」</Item>
+	<Item id="SCH074" code="SCH074">コールバック処理でエラー発生. TOKEN:「{0}」 ERR:「{1}」</Item>
+	<Item id="SCH075" code="SCH075">後処理完了.</Item>
+	<Item id="SCH076" code="SCH076">スケジュールの配信数をカウントアップ。ID:「{0}」STATUS:「{1}」</Item>
+	<Item id="SCH077" code="SCH077">更新該当レコードがありませんでした。SQL：「{0}」</Item>
+	<Item id="SCH078" code="SCH078">スケジュールのステータスを更新試行... ID:「{0}」</Item>
+	<Item id="SCH079" code="SCH079">スケジュールのステータスを更新対象なし. ID:「{0}」STATUS:「{1}」</Item>
+	<Item id="SCH080" code="SCH080">スケジュールのステータスの更新完了. ID:「{0}」STATUS:「{1}」</Item>
+	<Item id="SCH081" code="SCH081">エラー発生.ERR:「{0}」</Item>
+	<Item id="SCH082" code="SCH082">ターゲットフィルタフィールド一覧のロードに失敗しました。PATH:「{0}」</Item>
+	<Item id="SCH083" code="SCH083">ターゲットフィルタ処理に失敗しました。</Item>
+	<Item id="SCH084" code="SCH084">メールサーバからのコールバック処理実行（このログは全件出力はされません）...RECORDCNT:「{0}」</Item>
+	<Item id="SCH085" code="SCH085">定期抽出の次回抽出予定日時を算出...</Item>
+	<Item id="SCH086" code="SCH086">定期配信の次回配信予定日時を算出...</Item>
+<!--
+	<Item id="SCH087" code="SCH087">定期抽出の次回抽出予定日時が現在の日時よりも前として算出されました。重複配信の恐れがあるため次回抽出日時を「{0}」に設定します。</Item>
+	<Item id="SCH087" code="SCH087">定期抽出の次回抽出予定日時として現在の日時よりも前の値「{0}」が算出されました。重複配信の恐れがあるためステータスを「停止」に設定しました。</Item>
+-->
+<!--
+	<Item id="SCH088" code="SCH088">定期配信の次回配信予定日時が現在の日時よりも前として算出されました。重複配信の恐れがあるため次回配信日時を「{0}」に設定します。</Item>
+	<Item id="SCH088" code="SCH088">定期配信の次回配信予定日時として現在の日時よりも前の「{0}」が算出されました。重複配信の恐れがあるためステータスを「停止」に設定しました。</Item>
+-->
+	<Item id="SCH089" code="SCH089">スレッド情報から各種設定を取得</Item>
+	<Item id="SCH090" code="SCH090">ＳＥＴファイルの出力に失敗しました。PATH:「{0}」</Item>
+	<Item id="SCH091" code="SCH091">抽出タイプ:「{0}」./</Item>
+	<Item id="SCH092" code="SCH092">対象件数がゼロ件だったためステータスを「抽出待ち」に設定しました（定期配信）。</Item>
+	<Item id="SCH093" code="SCH093">対象件数がゼロ件だったためステータスを「抽出完了」に設定しました（単配信）。</Item>
+	<Item id="SCH094" code="SCH094">定期抽出の次回抽出予定日時の算出完了「{0}」</Item>
+	<Item id="SCH095" code="SCH095">定期抽出の次回配信予定日時の算出完了「{0}」</Item>
+	<Item id="SCH096" code="SCH096">配信対象テーブルへの配信エラー時の処理に失敗しました。UNIQUEID:「{0}」DEPTID:「{1}」CONTAINER_FOLDER：「{2}」CONTAINER_NAME：「{3}」ERR:「{4}」</Item>
+	<Item id="SCH097" code="SCH097">配信対象テーブルへの配信成功時の処理に失敗しました。UNIQUEID:「{0}」DEPTID:「{1}」CONTAINER_FOLDER：「{2}」CONTAINER_NAME：「{3}」ERR:「{4}」</Item>
+
+	<!-- 以下、アラートマネージャ関連のメッセージ（code値がそのままEventIDになるものもあるので注意） -->
+	<!-- Information -->
+	<Item id="AMI001" code="AMI001">■処理開始... チェックタイプ：「{0}」</Item>
+	<Item id="AMI002" code="AMI002">■処理完了. </Item>
+	<Item id="AMI003" code="AMI003">■最終実行日時更新...</Item>
+	<Item id="AMI004" code="AMI004">■パラメータ.</Item>
+	<Item id="AMI005" code="AMI005">ＵＲＬ:{0}</Item>
+	<Item id="AMI006" code="AMI006">プロキシ:{0}（ポート：{1}）</Item>
+	<Item id="AMI007" code="AMI007">チェックタイプ:{0}</Item>
+	<Item id="AMI008" code="AMI008">■チェック処理開始....</Item>
+	<Item id="AMI009" code="AMI009">■結果.{0}</Item>
+	<Item id="AMI010" code="AMI010">■全処理結果.</Item>
+	<Item id="AMI011" code="AMI011">{0}</Item>
+	<Item id="AMI012" code="AMI012">■エラー情報クリア...</Item>
+	<Item id="AMI013" code="AMI013">■検知結果メール送信...</Item>
+	<Item id="AMI014" code="AMI014">■検知結果イベント出力...</Item>
+	<Item id="AMI015" code="AMI015">Reply from {0}:bytes={1} time={2}ms TTL={3}</Item>
+	<Item id="AMI016" code="AMI016">Host:{0}</Item>
+	<Item id="AMI017" code="AMI017">Ttl:{0}</Item>
+	<Item id="AMI018" code="AMI018">BufferSize:{0}</Item>
+	<Item id="AMI019" code="AMI019">Timeout:{0}</Item>
+
+	<!-- Warning -->
+	<Item id="AMW001" code="201"></Item>
+
+	<!-- Error -->
+	<Item id="AME001" code="999">サービスの開始に失敗しました。ERR:「{0}」</Item>
+<!--
+	<Item id="AME002" code="502">エラーが発生しました。終了します。「{0}」</Item>
+-->
+	<Item id="AME003" code="999">アラートチェッカーＥＸＥの起動に失敗しました。ID:「{0}」ERR:「{1}」</Item>
+	<Item id="AME004" code="AME004">設定タイプが不正です。TYPE:「{0}」</Item>
+	<Item id="AME005" code="AME005">チェックパターンタイプが不正です。TYPE:「{0}」</Item>
+	<Item id="AME006" code="AME006">基準値を超えるエラーが発生しました。</Item>
+	<Item id="AME007" code="AME007">エラー：(ステータス：{0}){1}</Item>
+	<Item id="AME008" code="AME008">パターンチェックエラー：チェック文字列 {0}</Item>
+	<Item id="AME009" code="AME009">検知規定数オーバー:{0}回：{1}</Item>
+	<Item id="AME010" code="AME010">検知規定数内:{0}回：{1}</Item>
+	<Item id="AME011" code="AME011">PINGエラー STATUS:{0}</Item>
+
+	<!-- 以下、メンテナンスマネージャ関連のメッセージ（code値がそのままEventIDになるものもあるので注意） -->
+	<!-- Information -->
+	<Item id="MMI001" code="MMI001">■処理開始... チェックタイプ：「{0}」</Item>
+	<Item id="MMI002" code="MMI002">■処理完了. </Item>
+	<Item id="MMI003" code="MMI003">■最終実行日時更新...</Item>
+	<Item id="MMI004" code="MMI004">■パラメータ.</Item>
+	<Item id="MMI007" code="MMI007">チェックタイプ:{0}</Item>
+	<Item id="MMI008" code="MMI008">■チェック処理開始....</Item>
+	<Item id="MMI009" code="MMI009">■結果.{0}</Item>
+	<Item id="MMI010" code="MMI010">■全処理結果.</Item>
+	<Item id="MMI011" code="MMI011">{0}</Item>
+	<Item id="MMI013" code="MMI013">■検知結果メール送信...</Item>
+	<Item id="MMI014" code="MMI014">■検知結果イベント出力...</Item>
+	<Item id="MMI015" code="MMI015">イベント通知.</Item>
+
+	<!-- Warning -->
+	<Item id="MMW001" code="201"></Item>
+
+	<!-- Error -->
+	<Item id="MME001" code="999">サービスの開始に失敗しました。ERR:「{0}」</Item>
+	<Item id="MME003" code="999">メンテナンスＥＸＥの起動に失敗しました。ID:「{0}」ERR:「{1}」</Item>
+	<Item id="MME004" code="MME004">設定タイプが不正です。TYPE:「{0}」</Item>
+	<Item id="MME007" code="MME007">エラー：(CODE:{0}){1}</Item>
+
+  <Item id="ERR_NOT_KEY_FOUND" code="ERR_NOT_KEY_FOUND">ハッシュキーが存在しませんでした。KEY [{0}]</Item>
+
+<!--
+  <Item id="ERR_INVALID_IPADDRESS" code="ERR_INVALID_IPADDRESS" >IPアドレスとして正しくありません。VALUE [{0}]</Item>
+  <Item id="ERR_INVALID_SUBNET" code="ERR_INVALID_SUBNET" >サブネットとして正しくありません。VALUE [{0}]</Item>
+-->
+	<!-- アクセスコントロール機能関連 2010/02/02 T.ASAO -->
+<!--
+	<Item id="ACS001" code="ACS001">アクセス制御ファイルの読み込みに失敗しました。PATH「{0}」</Item>
+	<Item id="ACS002" code="ACS002">アクセス制御XMLの読み込みに失敗しました。</Item>
+-->
+
+</Message>

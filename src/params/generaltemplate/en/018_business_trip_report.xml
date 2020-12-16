@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Business Trip Report]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Business Trip Report
+
+  @since 2013-12-29
+-->
+
+<table class="detail" width="80%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Business Trip Destination</td>
+		<td colspan="2" class="detail_value" width="30%"><input name="syuttyou_kaisya" style="width:100%"></td>
+		<td><font color="blue">&nbsp;i.e. Singapore</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Business Trip Destination (Location)</td>
+		<td colspan="2" class="detail_value" width="30%"><input name="syuttyou_basyo" style="width:100%"></td>
+		<td><font color="blue">&nbsp;i.e. Singapore　Singapore Headquarters</font></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">Period</td>
+		<td colspan="3" class="detail_value" width="30%">
+			<input name="kikan_start" class="date today_date">&nbsp;&nbsp;～&nbsp;&nbsp;
+			<input name="kikan_end" class="date today_date">
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Purpose</td>
+		<td class="detail_value" colspan="3"><textarea name="mokuteki" style="width:100%" rows="3"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Reporting Matters</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value" colspan="3"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_print><![CDATA[
+    [{"layout_id":"1","title":"Submission","body":"<style type=\"text/css\">\n<!--\n\n.style10 {\n\tfont-size: 10px;\n}\n\n.style11 {\n\tfont-size: 11px;\n}\n\n.style12 {\n\tfont-size: 12px;\n}\n\n.style13 {\n\tfont-size: 13px;\n}\n.style14 {\n\tfont-size: 14px;\n\tfont-weight:bold;\n}\n\n.style16 {\n\tfont-size: 16px;\n\tfont-weight:bold;\n}\n\n.style16b {\n\tfont-size: 16px;\n}\n.style18 {\n\tfont-size: 18px;\n}\n\n.style20 {\n\tfont-size: 20px;\n}\n\n.style28 {\n\tfont-size: 28px;\n}\n-->\n</style>\n\n<!-- Support A4 (The print form can support then delete。) -->\n\n<table width=\"700\" height=\"995\" cellspacing=\"0\" cellpadding=\"1\" border=\"0\">\n<tr><td bgcolor=\"#000000\">\n\n<table width=\"100%\" height=\"995\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n<tr><td bgcolor=\"#FFFFFF\" align=\"center\" valign=\"top\">\n\n<div style=\"margin : 30px 0px 20px 0px\">\n<table width=\"550\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n\t<tr>\n\t\t<td class=\"style28\" align=\"center\" colspan=\"4\"><div style=\"margin : 0px 0px 30px 0px\">Business Trip Report</div>\n\t</tr>\n\n\t<tr>\n\t\t<td>\n\t\t\t<table width=\"175\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<table width=\"100%\" height=\"70\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td width=\"26%\" height=\"18\" align=\"center\" class=\"style12\" bgcolor=\"#FFFFFF\">Submitted Date</td>\n\t\t\t\t\t\t\t\t<td width=\"74%\" bgcolor=\"#FFFFFF\">&nbsp;[$$ date $$]</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\"center\" height=\"50\" class=\"style12\" bgcolor=\"#FFFFFF\">Reporter</td>\n\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tr><td><span class=\"style14\" align=\"center\">&nbsp;[$$ author_name $$]</td><td width=\"22\"><span class=\"style10\">Stamp</span></td></tr></table></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t</td>\n\t\t<td align=\"right\">\n\t\t\t<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<table cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" height=\"18\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Manager</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Director</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Division</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Group</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Executive Officer</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">General Director</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Vice President</td>\n\t\t\t\t\t\t\t\t\t\t\t<td width=\"45\" align=\"center\" class=\"style11\" bgcolor=\"#FFFFFF\">Team Leader</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\" height=\"50\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t\t<td bgcolor=\"#FFFFFF\">&nbsp;</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t</td>\n\t</tr>\n</table>\n\n</div>\n<!-- Support A4 (The print form can support then delete。) -->\n\n<div style=\"margin : 0px 0px 20px 0px\">\n<table width=\"550\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">\n<tr>\n\t<td>\n\t\t<table width=\"100%\" height=\"60\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n\t\t\t<tr>\n\t\t\t\t<td width=\"11%\" align=\"center\" class=\"style14\" bgcolor=\"#FFFFFF\">Purpose</td>\n\t\t\t\t<td width=\"89%\" class=\"style20\" bgcolor=\"#FFFFFF\"><div style=\"margin : 10px 0px 10px 5px\">[$$ class_title $$]</div></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td width=\"11%\" align=\"center\" class=\"style14\" bgcolor=\"#FFFFFF\">Destination</td>\n\t\t\t\t<td width=\"89%\" class=\"style20\" bgcolor=\"#FFFFFF\"><div style=\"font-size: 15px; margin : 10px 0px 10px 5px\">[$$ syuttyousaki $$]</div></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td align=\"center\" class=\"style14\" bgcolor=\"#FFFFFF\" rowspan=\"2\">Route</td>\n\t\t\t\t<td bgcolor=\"#FFFFFF\"><div style=\"font-size: 11px; margin : 10px 0px 10px 5px\">Departure Time<div style=\"font-size: 14px; margin : 0px 0px 0px 20px; display: inline-block;\">[$$ s_date $$]　[$$ s_time $$]</div></div></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td bgcolor=\"#FFFFFF\"><div style=\"font-size: 11px; margin : 10px 0px 10px 5px\">Arrival Time<div style=\"font-size: 14px; margin : 0px 0px 0px 20px; display: inline-block;\">[$$ e_date $$]　[$$ e_time $$]</div></div></td>\n\t\t\t</tr>\n\t\t</table>\n\t</td>\n</tr>\n</table>\n</div>\n\n<div style=\"margin : 0px 0px 10px 0px\">\n<table width=\"550\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#000000\">\n<tr>\n\t<td>\n\t\t<table width=\"100%\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n\t\t\t<tr>\n\t\t\t\t<td width=\"100%\" class=\"style18\" bgcolor=\"#FFFFFF\"><div style=\"margin : 6px 0px 6px 5px\">　　　Report Items</div></td>\n\t\t\t</tr>\n\t\t</table>\n\t</td>\n</tr>\n</table>\n</div>\n\n<div style=\"margin : 0px 0px 0px 0px\">\n<table width=\"550\" cellspacing=\"1\" cellpadding=\"0\" border=\"0\">\n\t<tr>\n\t\t<td width=\"100%\" class=\"style14\" bgcolor=\"#FFFFFF\">[$$ class_reason $$]</td>\n\t</tr>\n</table>\n</div>\n\n</td></tr>\n</table>\n\n</td></tr></table>\n\n</td></tr></table>\n"},{"layout_id":"2","title":"","body":""},{"layout_id":"3","title":"","body":""},{"layout_id":"4","title":"","body":""},{"layout_id":"5","title":"","body":""}]]]></template_body_for_print>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140528070532zE67dWOVk2KVhahq\",\"name\":\"Business Trip Report\",\"sections\":[{\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\",\"secname\":\"Business Trip Report\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401235541519P7sNPyIkW12D8pMX\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent   \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401235541522L3nvx8nCjjkSJ4N1\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"},{\"control_id\":\"ctr_id-1401235541519da7sXCzogxHh8Kz0\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"},{\"control_id\":\"ctr_id-1401235541521stXsWMtn0IJWwSt4\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401235689715DpnXmY59ga7Jb5Rx\",\"controls\":[{\"control_id\":\"ctr_id-1401235700492UEsCsQxIJxnHe2Xx\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401235689715DpnXmY59ga7Jb5Rx\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401235715419YCF4qJASSjwKJemd\",\"controls\":[{\"control_id\":\"ctr_id-1401912579764c9eWahJwqY5Ov3DL\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"Business Trip Destination\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. Singapore\",\"name\":\"syuttyou_kaisya\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401235715419YCF4qJASSjwKJemd\"},{\"control_id\":\"ctr_id-1401912630476c8PubgBaLYASRbAk\",\"map_type_control\":\"text\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"Business Trip Destination (Location)\",\"showlblname\":\"true\",\"widthlbl\":\"100px\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" i.e. Singapore　Singapore Headquarters\",\"name\":\"syuttyou_basyo\",\"style\":\"width:70%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401235715419YCF4qJASSjwKJemd\"},{\"control_id\":\"ctr_id-1401235973048KqgnFMVu8apJNKbG\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"Period\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_kikan\",\"style\":\"width:35%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"kikan_start\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" \",\"name\":\"kikan_start\",\"style\":\"\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"Label\",\"config\":{\"attributes\":{\"lblname\":\"  ～   \",\"style\":\"\",\"class\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":false,\"beforecontent\":false,\"aftercontent\":false,\"name\":false,\"style\":true,\"class\":true,\"new_attrs\":false,\"value\":false,\"maxlength\":false,\"disabled\":false,\"readOnly\":false,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"label\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"kikan_end\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"kikan_end\",\"style\":\"\",\"class\":\"date today_date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401235715419YCF4qJASSjwKJemd\"},{\"control_id\":\"ctr_id-1401235541521NN9s0bi0CBXVgIGY\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Purpose\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"mokuteki\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"},{\"control_id\":\"ctr_id-1401235541522STaQLJJyVc3Ekk4M\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Reporting Matters\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401236060338CJnxxxkOkn8MioWG\",\"controls\":[{\"control_id\":\"ctr_id-1401236060338KSrE8MaIR5dQjjoU\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401236060338CJnxxxkOkn8MioWG\"}]},{\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14012361046018YCsLN4LbpQaAfvD\",\"controls\":[{\"control_id\":\"ctr_id-1401235541521tn0eVvfZOfQoNtBr\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-14012361046018YCsLN4LbpQaAfvD\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140528070532zE67dWOVk2KVhahq\",\"name\":\"Business Trip Report\",\"controls\":[{\"control_id\":\"ctr_id-1401235541521p7dfirO0gKvK1nPr\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"syuttyou_kaisya\",\"new_attrs\":\"\",\"style\":\"width:100%\",\"lblname\":\"syuttyou_kaisya\",\"class\":\"\"}},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401235541522JaOdbSVgw5ijnIPS\"},{\"control_id\":\"ctr_id-1401235541521Zoz8dmgnr98zMLQu\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"syuttyou_basyo\",\"new_attrs\":\"\",\"style\":\"width:100%\",\"lblname\":\"syuttyou_basyo\",\"class\":\"\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401235541521ZP9HYM7RMyIx2yoJ\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"kikan_end\",\"new_attrs\":\"\",\"lblname\":\"kikan_end\",\"class\":\"date today_date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401235541521a5DOXHTx26UqXF80\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"kikan_start\",\"new_attrs\":\"\",\"lblname\":\"kikan_start\",\"class\":\"date today_date\",\"style\":\"width:100%\"}},\"map_type_control\":\"text\",\"tag\":\"input\"}]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Business Trip Report
+
+  @since 2013-12-29
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Business Trip Destination</div>
+      <div class="detail_value"><input type="text" name="syuttyou_kaisya" style="width:100%"></div>
+      <div><font color="blue">&nbsp;i.e. Singapore</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Business Trip Destination (Location)</div>
+      <div class="detail_value"><input type="text" name="syuttyou_basyo" style="width:100%"></div>
+      <div><font color="blue">&nbsp;i.e. Singapore　Singapore Headquarters</font></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Period</div>
+      <div class="detail_value">
+        <input type="text" name="kikan_start" class="date today_date" style="width: 40%">&nbsp;&nbsp;～&nbsp;&nbsp;
+        <input type="text" name="kikan_end" class="date today_date" style="width: 40%">
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Purpose</div>
+      <div class="detail_value"><textarea name="mokuteki"  style="width:98%" rows="3"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Reporting Matters</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

@@ -1,0 +1,291 @@
+#application: sateraito-chatmagazine
+#version: 3
+runtime: python27
+api_version: 1
+threadsafe: true
+#threadsafe: false
+
+instance_class: F1
+#automatic_scaling:
+#  max_idle_instances: 4
+#  min_pending_latency: 250ms
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "2.6"
+- name: markupsafe
+  version: latest
+#- name: django
+#  version: "1.2"
+- name: pycrypto
+#  version: latest
+  version: "2.6"
+- name: ssl
+  version: "2.7.11"
+#  version: latest
+- name: lxml
+  version: "2.3"
+- name: PIL
+  version: latest
+- name: numpy
+  version: "1.6.1"
+
+builtins:
+- deferred: on
+
+inbound_services:
+- warmup
+# - channel_presence
+
+env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'anyvalue'
+
+handlers:
+
+# for google verify domain for other google project pub sub api to create subscrible push to current app domain
+- url: /google([^/]*).html$
+  static_files: templates/google\1.html
+  upload: templates/google\\1.html
+#- url: /google([^/]*).html$
+#  script: gmail_site_verification.app
+
+- url: /favicon.ico
+  static_files: images/favicon.ico
+  upload: images/favicon.ico
+
+- url: /apple-touch-icon(.*).png
+  static_files: images/apple-touch-icon.png
+  upload: images/apple-touch-icon.png
+
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt
+
+- url: /crossdomain.xml
+  static_files: crossdomain.xml
+  upload: crossdomain.xml
+
+- url: /images
+  static_dir: images
+  expiration: 7d
+
+- url: /css/images
+  static_dir: css/images
+  expiration: 7d
+
+- url: /static
+  static_dir: static
+
+- url: /css
+  static_dir: css
+  expiration: 7d
+
+- url: /script/debug
+  static_dir: script/debug
+  secure: optional
+  expiration: 1s
+- url: /script/debug/(.*)
+  static_files: script/debug/\1
+  upload: script/debug/(.*)
+  secure: optional
+  expiration: 1s
+
+- url: /script
+  static_dir: script
+  secure: optional
+  expiration: 1s
+- url: /script/(.*)
+  static_files: script/\1
+  upload: script/(.*)
+  secure: optional
+  expiration: 1s
+
+- url: /ext
+  static_dir: ext
+#  expiration: 7d
+
+- url: /htmlbuilder/js
+  static_dir: htmlbuilder/js
+  expiration: 10s
+
+- url: /htmlbuilder/css
+  static_dir: htmlbuilder/css
+  expiration: 10s
+
+- url: /htmlbuilder/images
+  static_dir: htmlbuilder/images
+  expiration: 1h
+
+- url: /js
+  static_dir: js
+  expiration: 10s
+
+- url: (/_ah/start|/_ah/stop)
+  script: backends_global.app
+
+- url: (/_ah/warmup)
+  script: warmup.app
+
+- url: (/api/contract/(.*))
+  script: api_contract.app
+
+# [cron job]delete_expired_sessions
+# [cron job]delete_login_history
+# [cron job]delete_operation_log
+# [cron job]update_tenant_entry
+#- url: (/cron/update_tenant_entry)|(/cron/delete_expired_sessions)|(/cron/delete_login_history)|(/tq/delete_login_history/([^/]*))|(/cron/delete_operation_log)|(/tq/delete_operation_log/([^/]*))|(/cron/delete_unused_emailattachment)|(/tq/delete_unused_emailattachment/([^/]*))|(/cron/sendschedulemail)|(/cron/sendschedulmessage)|(/cron/updatecontentqa)|(/tq/updatecontentqa/([^/]*))
+- url: (/cron/update_tenant_entry)|(/cron/delete_expired_sessions)|(/cron/delete_login_history)|(/tq/delete_login_history/([^/]*))|(/cron/delete_operation_log)|(/tq/delete_operation_log/([^/]*))
+  script: cron.app
+  login: admin
+
+# data cleansing
+- url: (/datacleansing$)
+  script: data_cleansing.app
+- url: (/tq/datacleansing$)
+  script: data_cleansing.app
+  login: admin
+
+- url: (/manager/)|(/manager/(.*))
+  script: manager.app
+  login: required
+  secure: always
+
+- url: (/manager/([^/]*)/queue_csv_export)
+  script: manager.app
+  login: required
+  secure: always
+
+- url: (/examin/)|(/examin/(.*))
+  script: examin.app
+  secure: always
+
+- url: (/([^/]*)/([^/]*)/contract/request)
+  script: contract_request.app
+  secure: always
+
+- url: (/([^/]*)/([^/]*)/contract/thanks)
+  script: contract_thanks.app
+  secure: always
+
+- url: /([^/]*)/contract/([^/]*)
+  script: contract_\2.app
+  secure: always
+
+- url: /webhook/(.*)
+  script: webhook.app
+  secure: always
+
+# faq web
+#- url: /([^/]*)/faq/([^/]+)
+#  script: tenant_faq_\2.app
+#  secure: always
+
+# task
+- url: (/a/([^/]*)/([^/]*)/queue_changeid)
+  script: tenant_queue_changeid.app
+
+- url: (/a/([^/]*)/openid/([^/]*)/regist_tenant_entry)|(/a/([^/]*)/openid/([^/]*)/next_regist_tenant_entry)
+  script: queue_regist_tenant_entry.app
+
+- url: /a/([^/]*)/openid/([^/]*)/regist_user_entry
+  script: queue_regist_user_entry.app
+  login: admin
+
+- url: (/a/([^/]*)/openid/([^/]*)/regist_federated_domain_entry)
+  script: queue_regist_federated_domain_entry.app
+
+- url: (/a/([^/]*)/openid/([^/]*)/insert_login_history|/a/([^/]*)/openid/([^/]*)/update_user_for_login)
+  script: queue_login_process.app
+
+- url: (/a/([^/]*)/([^/]*)/queue_csv_export)
+  script: tenant_queue_csv_export.app
+
+- url: (/a/([^/]*)/([^/]*)/queue_csv_import)
+  script: tenant_queue_csv_import.app
+
+- url: (/a/([^/]*)/([^/]*)/tq/uploadimage)|(/a/([^/]*)/([^/]*)/tq/viewphoto)
+  script: tenant_directcloudbox_tqprocess.app
+
+# api for tenant
+- url: /a/([^/]+)/api/([^/]+)
+  script: tenant_api_\2.app
+  secure: always
+
+# api for domain
+- url: /api/domain/([^/]+)/([^/]+)
+  script: api_domain_\2.app
+  secure: always
+
+# api for root
+- url: /api/([^/]+)
+  script: api_\1.app
+  secure: always
+
+# view image
+- url: /a/([^/]*)/image
+  script: tenant_image_view.app
+  secure: always
+
+# domainapp
+#  secure: never
+- url: (/a/([^/]*)/form/build/([^/]+)/previewattachedfile)
+  script: tenant_form_build_previewattachedfile.app
+  secure: always
+- url: (/a/([^/]*)/form/build/previewcommentfile)
+  script: tenant_form_build_previewcommentfile.app
+  secure: always
+- url: (/a/([^/]*)/form/build/([^/]+)/downloadattachedfile)
+  script: tenant_form_build_downloadattachedfile.app
+  secure: always
+- url: (/a/([^/]*)/form/build/downloadcommentfile)
+  script: tenant_form_build_downloadcommentfile.app
+  secure: always
+- url: (/a/([^/]*)/form/build/([^/]+)/attachfilelist)
+  script: tenant_form_build_attachfilelist.app
+  secure: always
+- url: (/a/([^/]*)/build/([^/]+))
+  script: tenant_form_build.app
+  secure: always
+- url: (/a/([^/]*)/picture/([^/]+))|(/a/([^/]*)/picture/([^/]+)/([^/]+))
+  script: tenant_picture.app
+  secure: optional
+- url: /a/([^/]*)/([^/].*)/([^/].*)/([^/]+)
+  script: tenant_\2_\3_\4.app
+  secure: always
+- url: /a/([^/]*)/([^/].*)/([^/].*)/
+  script: tenant_\2_\3_index.app
+  secure: always
+- url: /a/([^/]*)/([^/].*)/([^/]+)
+  script: tenant_\2_\3.app
+  secure: always
+- url: /a/([^/]*)/([^/].*)/
+  script: tenant_\2_index.app
+  secure: always
+- url: /a/([^/]*)/([^/]+)
+  script: tenant_\2.app
+  secure: always
+- url: /a/([^/]*)/
+  script: tenant_index.app
+  secure: always
+
+# siteroot
+- url: /
+  script: index.app
+  secure: optional
+
+- url: /([^/]*)
+  script: \1.app
+
+- url: /([^/]+)/
+  script: \1_index.app
+  secure: optional
+
+- url: /([^/]+)/([^/]+)
+  script: \1_\2.app
+  secure: optional
+
+- url: /.*
+  script: notfound.app
+  secure: optional

@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='utf-8'?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[Message Note]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  Message Note
+
+  @since 2014-01-27
+-->
+
+<table class="detail" width="99%">
+
+	<tr>
+		<td class="detail_name" style="width:20%">Name</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">Department</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">Priority</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">Urgent</label> <label><input type="radio" name="priority" value="normal" checked>Normal</label></td>
+		<td class="detail_name">Doc Type</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">To</td>
+		<td class="detail_value" colspan="3">
+			<input name="to_name" size="30">&nbsp;Dear&nbsp;Addressed To&nbsp;&nbsp;
+			<input name="to_date" class="date">&nbsp;
+			<input name="to_time" size="10">
+		</td>
+	</tr>
+	<tr>
+		<td>　</td>
+		<td class="detail_value" colspan="3"><font color="blue">i.e. Sateraito Group 　John Doe 　Dear Addressed To　　2014-1-27　　　10:00</td>
+	</tr>
+	<tr>
+		<td class="detail_name">From</td>
+		<td class="detail_value" colspan="3">
+			<input name="from_name" size="60">&nbsp;Dear&nbsp;from
+		</td>
+	</tr>
+	<tr>
+		<td>　</td>
+		<td class="detail_value" colspan="3"><font color="blue">i.e. Sateraito Corp.　　Finance Department　　John Doe 　　</font></td>
+	</tr>
+</table>
+
+<br>
+<div class="main_content_title2">Message Content</div>
+
+<table class="detail" width="99%">
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value" style="width:5%"><input type="checkbox" name="denngonn_1"></td>
+		<td class="detail_value" colspan="3">Please inform when there is a call。</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><input type="checkbox" name="denngonn_2"></td>
+		<td class="detail_value" style="width:45%">Please callback。</td>
+		<td class="detail_name" style="width:20%">Phone Number</td>
+		<td class="detail_value"><input name="tel_num"></td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><input type="checkbox" name="denngonn_3"></td>
+		<td class="detail_value">Will call again。</td>
+		<td class="detail_name">DateTime</td>
+		<td class="detail_value"><input name="dengon3_date" class="date">&nbsp<input name="dengon3_time" size="10"></td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><input type="checkbox" name="denngonn_4"></td>
+		<td class="detail_value">Visit the office。Please come to the office。</td>
+		<td class="detail_name">Location</td>
+		<td class="detail_value"><input name="dengon4_place" style="width:100%"></td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><input type="checkbox" name="denngonn_5"></td>
+		<td class="detail_value">Will visit again。</td>
+		<td class="detail_name">DateTime</td>
+		<td class="detail_value"><input name="dengon5_date" class="date">&nbsp<input name="dengon5_time" size="10"></td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+	<tr>
+		<td class="detail_value"><input type="checkbox" name="denngonn_5"></td>
+		<td class="detail_value" colspan="3">For the business below。</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border-bottom:solid 1px silver"></td>
+	</tr>
+</table>
+<br>
+<table class="detail" width="99%">
+	<tr>
+		<td class="detail_name" style="width:20%">Business</td>
+		<td class="detail_value" style="width:80%"><textarea name="taiou" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">Remarks</td>
+		<td class="detail_value"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140603093356yQEyU2yiqSk2Fbkb\",\"name\":\"Message Note1\",\"sections\":[{\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\",\"secname\":\"Message Note1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401762852345JvTvu3pN97AeL8rc\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Name\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"Radio Button Group\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Urgent \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"Radio Button\",\"config\":{\"attributes\":{\"lblname\":\"Normal\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"Priority\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401762852353NE7nGC08miN9cUiu\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401762852347GKoxuFHQKSOHafAg\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Department\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401762852351CjAgrLjsRoyoMoAf\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Doc Type\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401763099441EsHPmv00yzqcgTrJ\",\"controls\":[{\"control_id\":\"ctr_id-14017631124074cokrf776Bzpai09\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401763126616SQr5fchLP0MaeBr3\",\"controls\":[{\"control_id\":\"ctr_id-1401763218487PkHMGXRgZ9ea4yzx\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"To\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_to\",\"style\":\"width:80%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"to_name\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" Dear Addressed To  \",\"name\":\"to_name\",\"style\":\"width:80%\",\"class\":\"\",\"new_attrs\":\"size=30\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"to_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"to_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401763218487VjMFpiXNjMEr7Eo7\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401763126616SQr5fchLP0MaeBr3\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"to_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"to_time\",\"style\":\"margin-left:10px\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401763126616SQr5fchLP0MaeBr3\"},{\"control_id\":\"ctr_id-1401763295285Fxmozg8XXONbUo7A\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"i.e. Sateraito Group 　John Doe 　Dear Addressed To　　2014-1-27　　　10:00\",\"style\":\"color:blue;margin-left:65px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401763126616SQr5fchLP0MaeBr3\"},{\"control_id\":\"ctr_id-1401762852351RiEc2RnTowuPnm48\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"From\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" \",\"name\":\"from_name\",\"style\":\"width:90%\",\"class\":\"\",\"new_attrs\":\"size=60;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401763381061xx8esWBdTfoEosvI\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"i.e. Sateraito Corp.　　Finance Department　　John Doe 　　\",\"style\":\"color:blue;margin-left:65px\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401763389068UTonM3vQykZkpgBQ\",\"controls\":[{\"control_id\":\"ctr_id-1401763389069YIw6JzSSipNC9RMS\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401763389068UTonM3vQykZkpgBQ\"}]},{\"secname\":\"Message Content\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\",\"controls\":[{\"control_id\":\"ctr_id-1401762852351dvijeuMbNRyGsUOQ\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_1\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"Please inform when there is a call。\",\"name\":\"denngonn_1\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"control_id\":\"ctr_id-1401762852351vj0NQYNhGV6raxre\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"Please callback。\",\"name\":\"denngonn_2\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401762852351dEih7iJgCEa0aY6i\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_3\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"Will call again\",\"name\":\"denngonn_3\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-14017628523510x1oeWyE7qzqQJJR\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_4\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"Visit the office。Please come to the office。\",\"name\":\"denngonn_4\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401762852352IfAkosnni3wsZpAS\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_5\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"Will visit again。\",\"name\":\"denngonn_5\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"control_id\":\"ctr_id-1401762852352f7L1bxRpnVpG8zNV\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"denngonn_6\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"For the business below。\",\"name\":\"denngonn_6\",\"style\":\"width:10%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"checkbox\",\"tag\":\"input\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"control_id\":\"ctr_id-1401763869337dbwTkbmiIM4UqZZB\",\"map_type_control\":\"label\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"control_id\":\"ctr_id-1401762852351Mf9EmJpLRvXZIBEg\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Phone Number\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"tel_num\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401763958410W6df8BeQd8njmf3G\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"DateTime\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_dengon3\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"dengon3_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"dengon3_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401763958410QPLeGDDUm6bnN9d4\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"dengon3_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"dengon3_time\",\"style\":\"margin-left :10px ; width :90%\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"control_id\":\"ctr_id-1401762852351ixnugjzGcN0xac6b\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"Location\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"dengon4_place\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401764111546p6o4L9fxmmWiEc2x\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"DateTime\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_dengon5\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"dengon5_date\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"dengon5_date\",\"style\":\"\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-140176411154690Bgm2tqUwP2fSf7\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"Textbox\",\"config\":{\"attributes\":{\"lblname\":\"dengon5_time\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"dengon5_time\",\"style\":\"margin-left :10px; width :90%\",\"class\":\"\",\"new_attrs\":\"size=10\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401764111546K0MVzmc9G2ZtuQiH\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401763404638PAcCydzQ9X0iPpxc\"}]},{\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14017641387270zvfIp9rZvQS7qQY\",\"controls\":[{\"control_id\":\"ctr_id-1401764138727oqU7NWwUPQH1v2mq\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14017641387270zvfIp9rZvQS7qQY\"}]},{\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401764149998myk8cWIHLPJohGC9\",\"controls\":[{\"control_id\":\"ctr_id-1401762852352PK6VPnkBzj6APYfW\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Business\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"taiou\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"},{\"control_id\":\"ctr_id-1401762852352Xd3IXZImhJu5GcCw\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"Remarks\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401762852353XCj5qcyzo7MrqnPD\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140603093356yQEyU2yiqSk2Fbkb\",\"name\":\"Message Note1\",\"controls\":[]}","sateraito_script_content":"// Please define javascript code to controle the form here。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  Message Note
+
+  @since 2014-01-27
+-->
+<div class="container">
+  <ul class="detail">
+
+    <li class="row">
+      <div class="detail_name">Name</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Department</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Priority</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>Urgent</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>Normal</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">Doc Type</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">To</div>
+      <div class="detail_value">
+        <input type="text" name="to_name" style="width:100%">&nbsp;Dear&nbsp;Addressed To&nbsp;&nbsp;
+        <input type="text" name="to_date" class="date" style="width:100%">&nbsp;
+        <input type="text" name="to_time" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value"><font color="blue">i.e. Sateraito Group 　John Doe 　Dear Addressed To　　2014-1-27　　　10:00</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">From</div>
+      <div class="detail_value">
+        <input type="text" name="from_name" style="width:80%">&nbsp;Dear&nbsp;from
+      </div>
+    </li>
+    <li class="row">
+
+      <div class="detail_value"><font color="blue">i.e. Sateraito Corp.　　Finance Department　　John Doe 　　</font></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">Message Content</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_value"><input type="checkbox" name="denngonn_1"> &nbsp;&nbsp;
+        Please inform when there is a call。
+      </div>
+      <div class="detail_value"><input type="checkbox" name="denngonn_2"> &nbsp;&nbsp;Please callback。
+      </div>
+      <div class="detail_name">Phone Number><input type="text" name="tel_num" style="width: 100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value"><input type="checkbox" name="denngonn_3">Will call again。</div>
+      <div class="detail_name">DateTime</div>
+      <div class="detail_value ">
+        <input type="text" name="dengon3_date" class="date" style="width:100%"></div>
+      <div class="detail_value margin_top">
+        <input type="text" name="dengon3_time" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_value"><input type="checkbox" name="denngonn_4">Visit the office。Please come to the office。</div>
+      <div class="detail_name">Location</div>
+      <div class="detail_value"><input type="text" name="dengon4_place" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value"><input type="checkbox" name="denngonn_5">Will visit again。</div>
+      <div class="detail_name">DateTime</div>
+      <div class="detail_value"><input type="text" name="dengon5_date" class="date" style="width:100%"></div>
+      <div class="detail_value margin_top"><input type="text" name="dengon5_time" style="width:100%"></div>
+    </li>
+
+    <li class="row">
+      <div class="detail_value"><input type="checkbox" name="denngonn_5">For the business below。</div>
+    </li>
+  </ul>
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">Business</div>
+      <div class="detail_value"><textarea name="taiou" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">Remarks</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

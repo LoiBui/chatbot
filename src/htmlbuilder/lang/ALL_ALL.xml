@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+	<msg name="HTML_TEXT_BOX" js="on" ><![CDATA[Text Box]]></msg>
+	<msg name="HTML_TEXT_AREA" js="on" ><![CDATA[Text Area]]></msg>
+	<msg name="HTML_TEXT_LABEL" js="on" ><![CDATA[Label]]></msg>
+	<msg name="HTML_TEXT_SERIAL_LABEL" js="on" ><![CDATA[Serial Label]]></msg>
+	<msg name="HTML_INPUT_DATE" js="on" ><![CDATA[Date]]></msg>
+	<msg name="HTML_INPUT_TIME" js="on" ><![CDATA[Time]]></msg>
+	<msg name="HTML_INPUT_COLOR" js="on" ><![CDATA[Color]]></msg>
+	<msg name="HTML_INPUT_MAIL_ADDRESS" js="on" ><![CDATA[Mail Address]]></msg>
+	<msg name="HTML_INPUT_UPLOAD_FILE" js="on" ><![CDATA[Attachment File]]></msg>
+	<msg name="HTML_INPUT_BUTTON" js="on" ><![CDATA[Button]]></msg>
+	<msg name="HTML_INPUT_BUTTON_SUBMIT" js="on" ><![CDATA[Submit]]></msg>
+	<msg name="HTML_INPUT_PULLDOWN" js="on" ><![CDATA[Pull down]]></msg>
+	<msg name="HTML_INPUT_CHECKBOX" js="on" ><![CDATA[Check box]]></msg>
+	<msg name="HTML_INPUT_RADIO" js="on" ><![CDATA[Radio Button]]></msg>
+	<msg name="HTML_INPUT_RADIO_GROUP" js="on" ><![CDATA[Radio Button Group]]></msg>
+	<msg name="HTML_INPUT_GROUP" js="on" ><![CDATA[Item Group]]></msg>
+	<msg name="HTML_INPUT_BOX" js="on" ><![CDATA[HTML box]]></msg>
+	<msg name="HTML_INPUT_HIDDEN" js="on" ><![CDATA[Hidden Item]]></msg>
+	<msg name="HTML_GRID" js="on" ><![CDATA[Grid]]></msg>
+	<msg name="HTML_CANVAS" js="on" ><![CDATA[Canvas]]></msg>
+	<msg name="HTML_NOT_SUPPORT_TAG" js="on" ><![CDATA[Item not supported]]></msg>
+	<msg name="MSG_INPUT_JAVASCRIPT_SECTION" js="on" ><![CDATA[Define below to control form using JavaScript.]]></msg>
+	<msg name="MSG_DELETE_COMP" js="on" ><![CDATA[Do you wish to delete hidden item? (Can not recover later)]]></msg>
+	<msg name="MSG_MUST_CREATE_SECTION" js="on" ><![CDATA[Please create section first.]]></msg>
+	<msg name="MSG_COMP_COPY" js="on" ><![CDATA[ - Copy]]></msg>
+	<msg name="MSG_COMP_DROP_DRAG_ERR" js="on" ><![CDATA[Drag & Drop Error]]></msg>
+	<msg name="BTN_EDIT" js="on" ><![CDATA[Edit]]></msg>
+	<msg name="BTN_MULTI_COPY" js="on" ><![CDATA[Duplicate]]></msg>
+	<msg name="BTN_DELETE" js="on" ><![CDATA[Delete]]></msg>
+	<msg name="BTN_MOVE_UP" js="on" ><![CDATA[Up]]></msg>
+	<msg name="BTN_MOVE_DOWN" js="on" ><![CDATA[Down]]></msg>
+	<msg name="MSG_SELECT_TEMPLATE" js="on" ><![CDATA[Select Layout]]></msg>
+	<msg name="MSG_DELETE_SECTION" js="on" ><![CDATA[Deleting section.Are you sure?]]></msg>
+  <msg name="MSG_INPUT_JAVASCRIPT_SECTION_1" js="on" ><![CDATA[ //Define here if you need to control form by Java script.]]></msg>
+	<msg name="MSG_SAVE_HTML_EDITOR" js="on" ><![CDATA[Saving layout HTML to template and closing Form Layout Builder. Are you sure?]]></msg>
+	<msg name="MSG_SAVE_HTML_ERROR" js="on" ><![CDATA[Failed to save]]></msg>
+	<msg name="MSG_SAVE_UNDEFINED_ERROR" js="on" ><![CDATA[Unknown error]]></msg>
+	<msg name="MSG_SECTION_EDIT" js="on" ><![CDATA[Edit Section]]></msg>
+	<msg name="BTN_SAVE" js="on" ><![CDATA[Save]]></msg>
+	<msg name="BTN_SECTION_ADD_NEW" js="on" ><![CDATA[Add new Section]]></msg>
+	<msg name="BTN_ADD" js="on" ><![CDATA[Add]]></msg>
+	<msg name="BTN_CANCEL" js="on" ><![CDATA[Cancel]]></msg>
+	<msg name="LBL_HORIZONTAL_DISPLAY" js="on" ><![CDATA[Display title horizontally]]></msg>
+	<msg name="LBL_HEADER_EXP" js="on" ><![CDATA[Width(Ex.80px, 40%)]]></msg>
+	<msg name="LBL_HEADER_ARRANGE" js="on" ><![CDATA[Align]]></msg>
+	<msg name="LBL_COL_ALIGN_LEFT" js="on" ><![CDATA[Left]]></msg>
+	<msg name="LBL_COL_ALIGN_CENTER" js="on" ><![CDATA[Center]]></msg>
+	<msg name="LBL_COL_ALIGN_RIGHT" js="on" ><![CDATA[Right]]></msg>
+	<msg name="LBL_VERTICAL_DISPLAY" js="on" ><![CDATA[Display title vertically]]></msg>
+	<msg name="MSG_SECTION_NAME_REQUIRED" js="on" ><![CDATA[Section Name is required.]]></msg>
+	<msg name="LBL_SECTION_NAME" js="on" ><![CDATA[Section Name]]></msg>
+	<msg name="LBL_SECTION_DISPLAY_NAME" js="on" ><![CDATA[Show Section name]]></msg>
+  <msg name="LBL_SECTION_DISPLAY_TOGGLE" js="on" ><![CDATA[Show/Hide]]></msg>
+	<msg name="LBL_SECTION_COLUMN" js="on" ><![CDATA[Column Layout]]></msg>
+	<msg name="LBL_COLUMN" js="on" ><![CDATA[Column]]></msg>
+	<msg name="LBL_DISPLAY_COLUMN" js="on" ><![CDATA[Check to show column title.]]></msg>
+	<msg name="LBL_ITEM_EDIT" js="on" ><![CDATA[Edit item]]></msg>
+	<msg name="LBL_ITEM_ADD_NEW" js="on" ><![CDATA[Add new item]]></msg>
+	<msg name="MSG_ITEM_NAME" js="on" ><![CDATA[Field Name]]></msg>
+	<msg name="MSG_ITEM_NAME_REQUIRED" js="on" ><![CDATA[Field name is required.]]></msg>
+	<msg name="MSG_ITEM_ADD_REQUIRED" js="on" ><![CDATA[Select additional item.]]></msg>
+	<msg name="MSG_ITEM_DELETE" js="on" ><![CDATA[Are you sure you wish to delete?]]></msg>
+	<msg name="TITLE_ITEM_ADD" js="on" ><![CDATA[Add Item]]></msg>
+	<msg name="TITLE_ITEM_EDIT" js="on" ><![CDATA[Edit Item]]></msg>
+	<msg name="MSG_RAIDO_ITEM_SELECT" js="on" ><![CDATA[Select 1 Radio Button.]]></msg>
+	<msg name="LBL_LIST_ITEM_DISPLAY_VALUE" js="on" ><![CDATA[List Item Display Value]]></msg>
+	<msg name="LBL_LIST_ITEM_SUBMIT_VALUE" js="on" ><![CDATA[List Item Submit Value]]></msg>
+	<msg name="TITLE_LIST_ITEM" js="on" ><![CDATA[List Item]]></msg>
+	<msg name="LBL_TITLE" js="on" ><![CDATA[Title]]></msg>
+	<msg name="LBL_SERIAL_TITLE" js="on" ><![CDATA[Only show sequential numbers (1,2,3...) when left blank.]]></msg>
+	<msg name="LBL_DISPLAY_DIRECTION" js="on" ><![CDATA[Display DIrection]]></msg>
+	<msg name="LBL_HORIZONTAL_DIRECTION" js="on" ><![CDATA[Horizontal]]></msg>
+	<msg name="LBL_VERTICAL_DIRECTION" js="on" ><![CDATA[Vertical]]></msg>
+	<msg name="LBL_NUMBER_COPY" js="on" ><![CDATA[Number]]></msg>
+	<msg name="LBL_NUMBER_COPY_EXP" js="on" ><![CDATA[Horizontal:No. of Columns,Vertical:No. of Rows]]></msg>
+	<msg name="LBL_ITEM_STYLE" js="on" ><![CDATA[Field Style]]></msg>
+	<msg name="LBL_STYLE_SAMPLE_EXP" js="on" ><![CDATA[Ex:<br>width:100%; <br>height:300px;<br>margin: 5px 5px 5px 5px;<br>padding: 5px 5px 5px 5px;<br>background: #FFFFFF<br>text-align: right;<br>font-size: 12px;<br>border: 1px solid grey;<br>color: red;]]></msg>
+	<msg name="LBL_SATERAITO_CLASS" js="on" ><![CDATA[Nextset Class]]></msg>
+<msg name="LBL_SATERAITO_CLASS_EXP" js="on" >
+  <![CDATA[Ex:<br>Richtext field: richtext<br>Required field: mandatory<br>Date field：date<br>Number Field：number<br>Automatically set date：today_date<br>Calculate(Multiply)：multi<br>　>Tag attribute: fields="field1 field2"<br>Calculate(Add)：sum<br> >Tag attribute:fields="field1 field2"<br>Calculate(Subtract):diff<br>　>Tag attribute: fields="field1 field2"<br>Multiple Class: number mandatory]]></msg>
+  	<msg name="LBL_SATERAITO_CLASS_EXP_2" js="on" ><![CDATA[*For detailed manual, click<a target="_blank" href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/jie-shi-ban-hui-lan-ban-ji-nengmanyuaru#TOC--45">here</a>.]]></msg>
+	<msg name="LBL_ITEM_WIDTH" js="on" ><![CDATA[Width]]></msg>
+	<msg name="LBL_ITEM_NAME_DISPLAY" js="on" ><![CDATA[Show]]></msg>
+	<msg name="LBL_ITEM_SECTION" js="on" ><![CDATA[Section]]></msg>
+	<msg name="LBL_ITEM_SECTION_COLUMN" js="on" ><![CDATA[Column no.]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS" js="on" ><![CDATA[Tag Attribute]]></msg>
+	<msg name="LBL_SATERAITO_ATTRS_EXP" js="on" ><![CDATA[Ex:<br>Required Field: mandatory_msg="XXX is required field." <br>Calculation Field: fields="kingaku1 kingaku2"<br>Tax calculation:number=1.08<br>Multiple attribute:fields="kingaku1 kingaku2" number=1.08]]></msg>
+	<msg name="LBL_HTML_CODE" js="on" ><![CDATA[HTML source]]></msg>
+	<msg name="LBL_LIST_RADIO_BTN" js="on" ><![CDATA[List Radio Button]]></msg>
+	<msg name="LBL_GROUP_HTML_ITEM" js="on" ><![CDATA[Group Item]]></msg>
+	<msg name="LBL_ITEM_INIT_VALUE" js="on" ><![CDATA[Initial Value]]></msg>
+	<msg name="LBL_ITEM_LENGTH" js="on" ><![CDATA[Maximum no. of characters]]></msg>
+	<msg name="LBL_ITEM_LENGTH_EXP" js="on" ><![CDATA[Ex: 10]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS" js="on" ><![CDATA[No. of columns]]></msg>
+	<msg name="LBL_ITEM_NUMBER_CHARS_EXP" js="on" ><![CDATA[Ex: 50]]></msg>
+	<msg name="LBL_ITEM_NUMBER_LINES" js="on" ><![CDATA[No. of rows]]></msg>
+	<msg name="LBL_ITEM_READONLY" js="on" ><![CDATA[Read only]]></msg>
+	<msg name="LBL_ITEM_READONLY_EXP" js="on" ><![CDATA[*ReadOnly tag]]></msg>
+	<msg name="LBL_ITEM_DISABLE" js="on" ><![CDATA[Disabled]]></msg>
+	<msg name="LBL_ITEM_DISABLE_EXP" js="on" ><![CDATA[*Disabled tag]]></msg>
+	<msg name="LBL_ITEM_CHEKED_ON" js="on" ><![CDATA[Turn ON]]></msg>
+	<msg name="LBL_ITEM_MULTI_SELECT" js="on" ><![CDATA[Allow multiple selection]]></msg>
+	<msg name="LBL_ITEM_BEFORE_EXP" js="on" ><![CDATA[Display before field]]></msg>
+	<msg name="LBL_ITEM_AFFTER_EXP" js="on" ><![CDATA[Display after field]]></msg>
+	<msg name="LBL_ITEM_BOLDER_ON" js="on" ><![CDATA[Bold]]></msg>
+	<msg name="LBL_ITEM_MULTI_COPY" js="on" ><![CDATA[No. of duplication]]></msg>
+	<msg name="MSG_ITEM_SET_ATTRS" js="on" ><![CDATA[Configure item attribution.]]></msg>
+	<msg name="MSG_ITEM_TYPE_SELECT" js="on" ><![CDATA[Select item type.]]></msg>
+	<msg name="MSG_EDITOR_TAB_EXP" js="on" ><![CDATA[Sort columns and rows, change section and edit layout. Drag & drop section label to sort sections.<br>Drag & drop to move to hidden item list.]]></msg>
+	<msg name="MSG_EDITOR_NOT_DISPLAY_LIST" js="on" ><![CDATA[Hidden item last]]></msg>
+	<msg name="MSG_ITEM_DELETE_PERMANET" js="on" ><![CDATA[Delete]]></msg>
+	<msg name="BTN_EDITOR_COMPLETE" js="on" ><![CDATA[Done]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW" js="on" ><![CDATA[Preview]]></msg>
+	<msg name="BTN_EDITOR_HTML_CONFIRM" js="on" ><![CDATA[Check HTML source]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP" js="on" ><![CDATA[*Click "Done" to update form layout HTML.]]></msg>
+	<msg name="MSG_TEMPLATE_TITLE" js="on" ><![CDATA[Enter a title.]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP" js="on" ><![CDATA[Use the below HTML source code when creating templates for Bulletin/ Document Management/Workflow etc.]]></msg>
+  <msg name="MSG_HTML_EDITOR_TAB" js="on" ><![CDATA[Create/Edit Layout]]></msg>
+  	<msg name="MSG_HTML_PREVIEW_TAB" js="on" ><![CDATA[Layout Preview]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB" js="on" ><![CDATA[HTML Source Code]]></msg>
+	<msg name="MSG_HTML_EDITOR_TITLE" js="on" ><![CDATA[NextSet - Form Layout Builder]]></msg>
+	<msg name="BTN_EDITOR_BACK" js="on" ><![CDATA[Back to Layout Edit]]></msg>
+	<msg name="BTN_EDITOR_PRIVEW_BACK" js="on" ><![CDATA[Back to Preview]]></msg>
+	<msg name="USERINFO_BOSS_EMAIL" js="on" ><![CDATA[Approver]]></msg>
+	<msg name="USERINFO_EMAIL" js="on" ><![CDATA[Mail Address]]></msg>
+	<msg name="USERINFO_FAMILY_NAME" js="on" ><![CDATA[Name(Family)]]></msg>
+	<msg name="USERINFO_GIVEN_NAME" js="on" ><![CDATA[Name(First)]]></msg>
+	<msg name="USERINFO_DEPARTMENT_1" js="on" ><![CDATA[Department1（Office）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_2" js="on" ><![CDATA[Department2（Unit）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_3" js="on" ><![CDATA[Department3（Group）]]></msg>
+	<msg name="USERINFO_DEPARTMENT_4" js="on" ><![CDATA[Department 4]]></msg>
+	<msg name="USERINFO_DEPARTMENT_5" js="on" ><![CDATA[Department 5]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_1" js="on" ><![CDATA[Add. Attribute 1]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_2" js="on" ><![CDATA[Add. Attribute 2]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_3" js="on" ><![CDATA[Add. Attribute 3]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_4" js="on" ><![CDATA[Add. Attribute 4]]></msg>
+	<msg name="USERINFO_ATTRIBUTE_5" js="on" ><![CDATA[Add. Attribute 5]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_1" js="on" ><![CDATA[Approver of relating original doc's Approval step %1]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_2" js="on" ><![CDATA[Approver candidate of relating doc's Approval step %1]]></msg>
+	<msg name="USERINFO_RELATIVE_DOC_3" js="on" ><![CDATA[Approver of Relating original doc]]></msg>
+	<msg name="USERINFO_DOC_AUTHOR" js="on" ><![CDATA[Approver himself]]></msg>
+	<msg name="USERINFO_JOB_TITLE" js="on" ><![CDATA[Job title]]></msg>
+	<msg name="USERINFO_EMPLOYEE" js="on" ><![CDATA[Employee Number]]></msg>
+	<msg name="APPROVE_COND_EXP_1" js="on" ><![CDATA[Same]]></msg>
+	<msg name="APPROVE_COND_EXP_2" js="on" ><![CDATA[as author]]></msg>
+	<msg name="OR_CONDITION" js="on" ><![CDATA[or]]></msg>
+	<msg name="AND_CONDITION" js="on" ><![CDATA[and]]></msg>
+	<msg name="PROCESS_NUMBER" js="on" ><![CDATA[Process]]></msg>
+	<msg name="AUTHOR_NAME" js="on" ><![CDATA[Author]]></msg>
+	<msg name="APPROVER_ADD_BUTTON_EXP" js="on" ><![CDATA[Please select the process with which to show button]]></msg>
+	<msg name="APPROVER_ADD_EXP_1" js="on" ><![CDATA[Specify approver 1-20 member]]></msg>
+	<msg name="APPROVER_ADD_EXP_2" js="on" ><![CDATA[Specify approver 1 to 20 configured to user information. Use this function to change approver according to author, ex: "Ask approval of author's direct superior".]]></msg>
+	<msg name="APPROVER_ADD_EXP_3" js="on" ><![CDATA[Select member by department or job title]]></msg>
+	<msg name="APPROVER_ADD_EXP_6" js="on" ><![CDATA[Select member from the same department as author]]></msg>
+	<msg name="APPROVER_ADD_EXP_4" js="on" ><![CDATA[Select member by department or job title set to user info. Ex: "Job title = Administrative Manager".]]></msg>
+	<msg name="APPROVER_ADD_EXP_5" js="on" ><![CDATA[Select members from the same department as author.]]></msg>
+	<msg name="APPROVER_ADD_EXP_7" js="on" ><![CDATA[Members who share the preceding]]></msg>
+	<msg name="APPROVER_ADD_EXP_8" js="on" ><![CDATA[Select by Approver of Relating original doc, Approver candidate, Author]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_1" js="on" ><![CDATA[Approval step of Relating original doc]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_2" js="on" ><![CDATA[ approver]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_3" js="on" ><![CDATA[Approval step of Relating original document]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_4" js="on" ><![CDATA[ approver candidate]]></msg>
+	<msg name="APPROVER_ADD_EXP_8_5" js="on" ><![CDATA[Author of Relating original document]]></msg>
+	<msg name="APPROVER_ADD_EXP_9" js="on" ><![CDATA[Select author him/herself]]></msg>
+	<msg name="APPROVE_SINGLE" js="on" ><![CDATA[Singular Approval]]></msg>
+	<msg name="APPROVE_ALL_MEMBER" js="on" ><![CDATA[Approve All]]></msg>
+	<msg name="APPROVE_SKIP" js="on" ><![CDATA[Skip possible]]></msg>
+	<msg name="APPROVE_AUTO" js="on" ><![CDATA[Auto-approve]]></msg>
+	<msg name="DAY" js="on" ><![CDATA[day]]></msg>
+	<msg name="CHECK_SEND_MAIL" js="on" ><![CDATA[Do not alert]]></msg>
+	<msg name="APPROVE_SINGLE_OR_ALL" js="on" ><![CDATA[Singular approval/Approve All]]></msg>
+	<msg name="APPROVE_PROCESS_SINGLE" js="on" ><![CDATA[Move to next process when at least one person approved(viewed)]]></msg>
+	<msg name="APPROVE_PROCESS_ALL" js="on" ><![CDATA[Move to next step when everyone has approved(viewed)]]></msg>
+	<msg name="APPROVE_SKIP_SETTING" js="on" ><![CDATA[Skip Setting]]></msg>
+	<msg name="APPROVE_PROCESS_SKIP" js="on" ><![CDATA[Set as process that can be skipped]]></msg>
+	<msg name="APPROVE_AUTO_SETTING" js="on" ><![CDATA[Auto-approval setting]]></msg>
+	<msg name="APPROVE_AUTO_SETTING_EXP_1" js="on" ><![CDATA[ days without approval, and automatically move on to the next process]]></msg>
+	<msg name="APPROVE_AUTO_SETTING_EXP_2" js="on" ><![CDATA[*Auto-approval will be disabled when you enter 0]]></msg>
+	<msg name="CHECK_SEND_NOTIFY" js="on" ><![CDATA[Alert by email]]></msg>
+	<msg name="CHECK_SEND_NOTIFY_EXP_1" js="on" ><![CDATA[Do not alert this process by mail]]></msg>
+	<msg name="OPTION_APPROVE" js="on" ><![CDATA[Approve]]></msg>
+	<msg name="OPTION_APPROVE_FINAL" js="on" ><![CDATA[Settle(Final approval)]]></msg>
+	<msg name="OPTION_ROUTING" js="on" ><![CDATA[Circulate]]></msg>
+	<msg name="OPTION_NO_REJECTED" js="on" ><![CDATA[Can not be denied]]></msg>
+	<msg name="OPTION_NO_REVERTED" js="on" ><![CDATA[Can not be remanded]]></msg>
+	<msg name="OPTION_NO_AGENCY_APPROVE" js="on" ><![CDATA[Can not be delegate approved]]></msg>
+	<msg name="OPTION_APPROVE_PROCESS" js="on" ><![CDATA[Approval process]]></msg>
+	<msg name="OPTION_APPROVE_PROCESS_FINAL" js="on" ><![CDATA[Settlement(Final Approval)Process]]></msg>
+	<msg name="OPTION_ROUTING_PROCESS" js="on" ><![CDATA[Circulation Process]]></msg>
+	<msg name="BTN_ADD_USER" js="on" ><![CDATA[Add user]]></msg>
+	<msg name="BTN_ADD_DEPARTMENT" js="on" ><![CDATA[Add by department]]></msg>
+	<msg name="BTN_CLEAR" js="on" ><![CDATA[Clear]]></msg>
+	<msg name="PROCESS" js="on" ><![CDATA[Process]]></msg>
+	<msg name="MSG_ALERT_1" js="on" ><![CDATA[No query specified]]></msg>
+	<msg name="MSG_ALERT_2" js="on" ><![CDATA[Please enter numeric value for auto-approval]]></msg>
+	<msg name="SUCCESS_UPDATE" js="on" ><![CDATA[Updated]]></msg>
+	<msg name="CKPROCESS" js="on" ><![CDATA[Process]]></msg>
+	<msg name="CONDITIONS" js="on" ><![CDATA[Condition]]></msg>
+	<msg name="BTN_SIGN_UP" js="on" ><![CDATA[Sign up]]></msg>
+	<msg name="BTN_UPDATE" js="on" ><![CDATA[Update]]></msg>
+	<msg name="BTN_DISP_MEMBER" js="on" ><![CDATA[Display Audience]]></msg>
+	<msg name="NAME_WIDTH_VALUE" js="on" ><![CDATA[Process name width]]></msg>
+	<msg name="MEMBER_WIDTH_VALUE" js="on" ><![CDATA[Process approver width]]></msg>
+	<msg name="HTML_HEADER_VALUE" js="on" ><![CDATA[HTML Header]]></msg>
+	<msg name="HTML_DETAIL_VALUE" js="on" ><![CDATA[HTML detail]]></msg>
+	<msg name="HTML_FOOTER_VALUE" js="on" ><![CDATA[HTML Footer]]></msg>
+	<msg name="TITLE_WINDOW_ACTION" js="on" ><![CDATA[Approve/Circulate]]></msg>
+	<msg name="TITLE_WINDOW_STEP_PROCESS" js="on" ><![CDATA[Process proceeding]]></msg>
+	<msg name="TITLE_WINDOW_APPROVER" js="on" ><![CDATA[Select Approver/Circulate viewer]]></msg>
+	<msg name="TITLE_WINDOW_APPROVER_CONDITION" js="on" ><![CDATA[Specify condition]]></msg>
+	<msg name="TITLE_WINDOW_BUTTON_SETTING" js="on" ><![CDATA[Button Display Setting]]></msg>
+	<msg name="TITLE_WINDOW_TEMPLATE_SETTING" js="on" ><![CDATA[TITLE_WINDOW_TEMPLATE_SETTING]]></msg>
+	<msg name="PROCESS_NO" js="on" ><![CDATA[Process№<br><span style="color: #ff7b4e">*Direct entry<br>(Single byte numeric)</span>]]></msg>
+	<msg name="APPROVER_NAME" js="on" ><![CDATA[Process name<br><span style="color: #ff7b4e">*Direct entry</span>]]></msg>
+	<msg name="ACTION_TYPE" js="on" ><![CDATA[Approval/Circulate<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="STEP_PROCESS" js="on" ><![CDATA[Process<br>proceeding<span style="color: #ff7b4e"><br>*Enter from setting</span>]]></msg>
+	<msg name="CONDITION" js="on" ><![CDATA[Specify approver condition<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="SELECT_BUTTON" js="on" ><![CDATA[Add approver<br>Display Button<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="SELECT_DEP_BUTTON" js="on" ><![CDATA[Add approver<br>(Specify department)<br>Display Button<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="DEL_BUTTON" js="on" ><![CDATA[Delete approver<br>Display Button<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="UPDATE_CLASS" js="on" ><![CDATA[Edit possible<br>CLASS<br><span style="color: #ff7b4e">*Direct entry</span>]]></msg>
+	<msg name="MSG_HTML_APPROVER_TAB" js="on" ><![CDATA[Approval Route]]></msg>
+	<msg name="MSG_APPROVER_EDITOR_TAB_EXP" js="on" ><![CDATA[<span style="color: red">*Please double click on the field that you wish to edit.</span><br>After entry, click on "Complete" button to automatically create in template approval route.If you wish to check HTML, click "Check HTML source" button.]]></msg>
+	<msg name="MSG_HTML_SETTING_TAB" js="on" ><![CDATA[Setting]]></msg>
+	<msg name="BTN_EDITOR_SETTING" js="on" ><![CDATA[Show setting]]></msg>
+	<msg name="BTN_EDITOR_SETTING_BACK" js="on" ><![CDATA[Back to approval route]]></msg>
+	<msg name="MSG_HTML_ROUTER_APPROVER_EDITOR_TITLE" js="on" ><![CDATA[Approval Route Builder]]></msg>
+	<msg name="TITLE_EDIT_STYLESHEET_CELL" js="on" ><![CDATA[Cell style]]></msg>
+	<msg name="GO_EDIT_GRID" js="on" ><![CDATA[Edit grid]]></msg>
+	<msg name="GO_ADD_CTR_CELL" js="on" ><![CDATA[Add new item to cell]]></msg>
+	<msg name="GO_MERGE_CELL" js="on" ><![CDATA[Merge cells]]></msg>
+	<msg name="GO_SPLIT_HORIZONTALLY_CELL" js="on" ><![CDATA[Split cells horizontally]]></msg>
+	<msg name="GO_SPLIT_VERTICALLY_CELL" js="on" ><![CDATA[Split cells vertically]]></msg>
+	<msg name="GO_UNMERGE" js="on" ><![CDATA[Un-merge cells]]></msg>
+	<msg name="GO_STYLESHEET_CELL" js="on" ><![CDATA[Edit cell style]]></msg>
+	<msg name="GO_DELETE_CELL" js="on" ><![CDATA[Delete cell]]></msg>
+	<msg name="MSG_CAN_NOT_CREATE_GRID_IN_GRID" js="on" ><![CDATA[Unable to add child grid to grid]]></msg>
+	<msg name="LBL_ITEM_MAX_ROW" js="on" ><![CDATA[rows]]></msg>
+	<msg name="LBL_ITEM_MAX_COL" js="on" ><![CDATA[columns]]></msg>
+	<msg name="MSG_SAVE_HTML_ROUTER_EDITOR" js="on" ><![CDATA[Saving Approval route HTML to template approval route and closing approval route builder. Are you sure?]]></msg>
+	<msg name="BTN_EDITOR_ROUTER_COMPLETE" js="on" ><![CDATA[Complete]]></msg>
+	<msg name="MSG_EDITOR_COMPLETE_EXP_1" js="on" ><![CDATA[*Clicking the complete button will overwrite approval route HTML.]]></msg>
+	<msg name="MSG_HTML_SOURCE_TAB_EXP_1" js="on" ><![CDATA[When creating approval route templates for Document Management/Workflow etc., you can use the below HTML source code for the content of the approval route template.]]></msg>
+	<msg name="USERINFO_PRIORITY" js="on" ><![CDATA[Job title(NOT condition)]]></msg>
+	<msg name="ORDER_OF_PRIORITY_SPECIFIED" js="on" ><![CDATA[<Priority setting>]]></msg>
+	<msg name="LBL_CK_PRIORITY" js="on" ><![CDATA[Check for relevant users starting at the top and downwards, and do not set if there is relevant user(Priority setting)]]></msg>
+	<msg name="BUTTON_TYPE_OPEN_NOTIFICATION" js="on" ><![CDATA[Read notification<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="OTHER_SETTING" js="on" ><![CDATA[Other settings<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="EDITABLE_ITEM" js="on" ><![CDATA[Editable items<br><span style="color: #ff7b4e">*Enter from setting</span>]]></msg>
+	<msg name="TITLE_WINDOW_EDITABLE_ITEM" js="on" ><![CDATA[Display editable item setting]]></msg>
+	<msg name="TITLE_WINDOW_OTHER_SETTING" js="on" ><![CDATA[Display other setting]]></msg>
+	<msg name="BUTTON_TYPE_SELECT_COMMENT" js="on" ><![CDATA[ process for which user addition is possible.]]></msg>
+	<msg name="BUTTON_TYPE_SELECT_DEP_COMMENT" js="on" ><![CDATA[ process for which user addition (Specification by department) is possible.]]></msg>
+	<msg name="BUTTON_TYPE_DEL_COMMENT" js="on" ><![CDATA[ process for which user deletion is possible]]></msg>
+	<msg name="BUTTON_TYPE_OPEN_NOTIFICATION_COMMENT" js="on" ><![CDATA[ process for which read notification setting is possible.]]></msg>
+	<msg name="DISPLAY_OK_TO_ATTACH" js="on" ><![CDATA[Permit file attachment]]></msg>
+	<msg name="DISPLAY_UPDATE_CLASS" js="on" ><![CDATA[Specify by class]]></msg>
+	<msg name="DISPLAY_UPDATE_FIELD" js="on" ><![CDATA[Specify by item name]]></msg>
+	<msg name="LBL_UPDATE_CLASS" js="on" ><![CDATA[Specify by class<span style="color: #ff7b4e">(*Separate by blanks for multiple entry)</span>]]></msg>
+	<msg name="LBL_UPDATE_FIELD" js="on" ><![CDATA[Specify by item name<span style="color: #ff7b4e">(*Separate by blanks for multiple entry)</span>]]></msg>
+	<msg name="LBL_OK_TO_ATTACH" js="on" ><![CDATA[Allow file attachment addition and deletion]]></msg>
+	<msg name="LBL_OK_TO_OPEN_NOTIFICATION" js="on" ><![CDATA[Configure read notification]]></msg>
+	<msg name="DISPLAY_OK_TO_OPEN_NOTIFICATION" js="on" ><![CDATA[Read notification setting]]></msg>
+	<msg name="DISPLAY_ADDITIONAL_FILTER" js="on" ><![CDATA[User filter additional condition setting]]></msg>
+	<msg name="LBL_ADDITIONAL_FILTER" js="on" ><![CDATA[Configure additional conditions to filter User list with]]></msg>
+
+	<msg name="BTN_ADD_ROW" js="on" ><![CDATA[Add a row to the end]]></msg>
+	<msg name="BTN_ADD_BEFORE" js="on" ><![CDATA[Add a row above the selected]]></msg>
+	<msg name="BTN_ADD_AFTER" js="on" ><![CDATA[Add a row below selected]]></msg>
+	<msg name="BTN_ROW_DELETE" js="on" ><![CDATA[Delete a row]]></msg>
+	<msg name="MSG_ROW_DELETE" js="on" ><![CDATA[Do you wish to delete the selected row?]]></msg>
+	<msg name="LBL_SECTION_ATTR_NAME" js="on" ><![CDATA[Section Name]]></msg>
+	<msg name="LBL_SECTION_CLASS_EXP" js="on" ><![CDATA[Class: show_only_creating_doc<br>-> Only display when creating new application<br>Class: hide_if_not_final_approved<br>-> Specify the area displayed only after the final approval (settlement).<br>Class: hide_if_not_author<br>-> Specify the area visible only to the author him/herself.<br>Class: hide_if_not_author_or_ghost_writer<br>-> Specify the area visible only to the author or delegate author him/herself.<br>Class: hide_if_not_final_approver<br>-> Specify the area visible only to the approver.]]></msg>
+	<msg name="LBL_SECTION_ATTR" js="on" ><![CDATA[Section Attribute]]></msg>
+
+	<msg name="REMIND_APPROVE_SETTING" js="on" ><![CDATA[Approval Request Notification Setting]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_1" js="on" ><![CDATA[Set Approval Request Notification]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_2" js="on" ><![CDATA[Days until the first request message. Sent the next day when left blank.]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_3" js="on" ><![CDATA[Intervals for second and after notification message. Sent once a day when left blank.]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_4" js="on" ><![CDATA[Maximum notification count. Sent only once when left blank.]]></msg>
+	<msg name="SEND_REMIND_APPROVE" js="on" ><![CDATA[Approval Request Notification]]></msg>
+	<msg name="TIMES" js="on" ><![CDATA[count]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_5" js="on" ><![CDATA[Request Notification Duration]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_6" js="on" ><![CDATA[Request Notification Intervals]]></msg>
+	<msg name="REMIND_APPROVE_SETTING_EXP_7" js="on" ><![CDATA[Maximum Notification Count]]></msg>
+	<msg name="MSG_ALERT_3" js="on" ><![CDATA[Enter numeric values for the first request duration.]]></msg>
+	<msg name="MSG_ALERT_4" js="on" ><![CDATA[Enter numeric values for the notification intervals.]]></msg>
+	<msg name="MSG_ALERT_5" js="on" ><![CDATA[Enter numeric values for the maximum notification count.]]></msg>
+
+		<msg name="LBL_MANDATORY" js="on" ><![CDATA[Require approver specification]]></msg>
+	<msg name="LBL_MANDATORY_MSG" js="on" ><![CDATA[Display message:]]></msg>
+	<msg name="LBL_MANDATORY_MSG_EXP" js="on" ><![CDATA[(Ex. *You must specify approver/settler)]]></msg>
+	<msg name="DISPLAY_MANDATORY" js="on" ><![CDATA[Approver specification required]]></msg>
+    <!--add 2015/11/04-->
+	<msg name="EXCUSION_APPROVERS_SETTING" js="on" ><![CDATA[Duplicate Approver Deletion Setting]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_1" js="on" ><![CDATA[The specified process approver is exempt from the Duplicate Deletion Check]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_2" js="on" ><![CDATA[This process]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_3" js="on" ><![CDATA[Check duplication by groups]]></msg>
+	<msg name="EXCUSION_APPROVERS_SETTING_EXP_4" js="on" ><![CDATA[The specified process approver is exempt from deletion of approvers coinciding with author.]]></msg>
+	<msg name="NOT_EXCLUSION_DUPLICATE_SETTING_VAL" js="on" ><![CDATA[Exempt from duplicate deletion check]]></msg>
+	<msg name="EXCLUSION_APPROVERS_CATEGORY_VAL" js="on" ><![CDATA[Check duplication by groups]]></msg>
+	<msg name="NOT_EXCLUSION_SAME_AS_SUBMITTER_VAL" js="on" ><![CDATA[Exempt from deletion of coincidence with author]]></msg>
+
+    <!--add 2015/11/25-->
+	<msg name="APPROVE_COND_EXP_3" js="on" ><![CDATA[Of the author]]></msg>
+	<msg name="APPROVE_COND_EXP_4" js="on" ><![CDATA[is opponent]]></msg>
+	<msg name="APPROVE_COND_EXP_5" js="on" ><![CDATA['s department colleague]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE" js="on" ><![CDATA[Load existing template]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_CONFIRM" js="on" ><![CDATA[Load from selected template?]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_EMPTY_DATA" js="on" ><![CDATA[Builder content data does not exist in selected template!]]></msg>
+	<msg name="RUN_UPDATE_CURRENT_TEMPLATE_ERROR" js="on" ><![CDATA[An error occurred while loading data.]]></msg>
+	<msg name="LOADING" js="on" ><![CDATA[Loading... ]]></msg>
+	<msg name="UPDATING" js="on" ><![CDATA[Updating... ]]></msg>
+	<msg name="ROUTER" js="on" ><![CDATA[Approval Route]]></msg>
+	<msg name="NO_SUBJECT" js="on" ><![CDATA[No Title]]></msg>
+	<msg name="NO_SELECT_TEMAPLTE" js="on" ><![CDATA[Please select existing template!]]></msg>
+	<msg name="ERROR_TIMEOUT" js="on" ><![CDATA[Session timed out. Please reload browser.]]></msg>
+	<msg name="ALERT_GADGET_TIMEOUT" js="on" ><![CDATA[Session will expire in about 10 minutes. Please save your current data, and save template by clicking "Done" and reload browser.]]></msg>
+	<msg name="APPROVER_ADD_EXP_10" js="on" ><![CDATA[Specify the member of the department in which the author department matches that of the opponent]]></msg>
+	<msg name="APPROVER_ADD_EXP_10_1" js="on" ><![CDATA[of the author]]></msg>
+	<msg name="APPROVER_ADD_EXP_10_2" js="on" ><![CDATA[is same with]]></msg>
+	<msg name="APPROVER_ADD_EXP_10_3" js="on" ><![CDATA[member of the same department]]></msg>
+
+	<!--add 2016/01/04-->
+        <msg name="APPROVER_ADD_EXP_3_1" js="on" ><![CDATA[Specify from approver groups]]></msg>
+        <msg name="APPROVER_ADD_EXP_3_2" js="on" ><![CDATA[Specify approval group ID registered in "Approval group info" tab.]]></msg>
+        <msg name="LBL_DRAFT_WITH_APPROVERS" js="on" ><![CDATA[Exclude fom template option [Rebuild approval route using latest template setting when opening "Saved draft"]]]></msg>
+        <msg name="DISPLAY_DRAFT_WITH_APPROVERS" js="on" ><![CDATA[Use approval candidate saved in draft]]></msg>
+        <msg name="LBL_ADDITIONAL_FILTER_EXP" js="on" ><![CDATA[*Option for class "department_1_select_button" (additional_filter)]]></msg>
+        <msg name="APPROVE_COND_EXP_6" js="on" ><![CDATA[Approval group]]></msg>
+
+ <!--add 2016/06/01-->
+	<msg name="LBL_USER_ADDITIONAL_FILTER_EXP" js="on" ><![CDATA[*Option for class "user_select_button"(additional_filter)]]></msg>
+	<msg name="TITLE_WINDOW_USER_ADDITIONAL_SETTING" js="on" ><![CDATA[Additional Filtering Condition Setting]]></msg>
+	<msg name="BUTTON_USER_ADDINATIONAL_SETTING" js="on" ><![CDATA[Set additional conditions to filter with]]></msg>
+	<msg name="TITLE_WINDOW_DEPARTMENT_ADDITIONAL_SETTING" js="on" ><![CDATA[Additional Filtering Condition Setting]]></msg>
+	<msg name="BUTTON_DEPARTMENT_ADDINATIONAL_SETTING" js="on" ><![CDATA[Set additional conditions to filter with]]></msg>
+	<msg name="NAME_DESC" js="on" ><![CDATA[*Single byte alphanumerics and symbols(Begin with an alphabet. You may use hyphens(-) and underscores (_).]]></msg>
+	<msg name="APPROVER_ADD_EXP_10_4" js="on" ><![CDATA[Approver's]]></msg>
+
+  <!--add 2017/02/25-->
+  <msg name="HTML_INPUT_CHECKBOX_GROUP" js="on" ><![CDATA[Checkbox Group]]></msg>
+  <msg name="LBL_LIST_CHECKBOX_BTN" js="on" ><![CDATA[List Checkbox]]></msg>
+
+  <!--add 2017/03/06-->
+  <msg name="TITLE_SECTION_LIST" js="on" ><![CDATA[List of section]]></msg>
+  <msg name="MSG_TEMPLATE_BUILDER_DATA_IS_EMPTY" js="on" ><![CDATA[Selected template does not have layout builder.]]></msg>
+  <msg name="RUN_LOAD_SECTION_TEMPLATE" js="on" ><![CDATA[Add section from existing template]]></msg>
+
+</messagebundle>

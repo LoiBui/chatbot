@@ -1,0 +1,223 @@
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis" />
+-#}
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=UTF-8" />
+
+<title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body vlink="#800080" bgcolor="#FFFFFF" >
+<a name="top"></a>
+<img src="{{vurl}}picture/logo" height="44px" border="0" />
+<hr color="#0085ce">
+
+<form name="login" action="{{vurl}}login" method="post">
+<input type="hidden" name="st" value="v">
+<input type="hidden" name="RURL" value="{{voinfo.vo.RURL}}">
+<input type="hidden" name="{{config.REQUESTKEY_TEMP_LOGIN_CHECK_ACTION_KEY}}" value="{{ucfp.voinfo.vo.tc}}">
+<input type="hidden" name="{{config.REQUESTKEY_MATRIXAUTH_RANDOMKEY|safe}}" value="{{ucfp.data.current_matrixauth_key}}">
+<input type="hidden" name="rurl_key" value="{{ucfp.data.rurl_key}}">
+<table border="0" cellpadding="0" cellspacing="0" with="100%" >
+<tr>
+<td colspan="2" class="style1" height="20">
+{% if not ucfp.voinfo.vo.tc or ucfp.voinfo.vo.tc == '':%}
+{{lang.VMSG_LOGIN_INFO_INPUT_LOGINBOX|safe}}
+{% elif ucfp.voinfo.vo.tc == config.TEMPLOGIN_ACTIONKEY_ACS_APPLY :%}
+{{lang.VMSG_LOGIN_INFO_INPUT_LOGINBOX_FOR_ACS_REQUEST|safe}}
+{% endif%}
+</td>
+</tr>
+<tr>
+<td colspan="2">
+{% for v in header_msg %}
+<span class="text_validate"><br/><font color="red">{{v|safe}}</font></span>
+{% endfor %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="10" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>
+{{lang.VMSG_LOGIN_USERID}}
+</td>
+<td>
+{% if ucfp.data.single_federated_domain != '': %}
+<input name="login_id" type="text" value="{{voinfo.vo.login_id}}" size="20" istyle="3" mode="alphabet" >
+{% if not profile_vo: -%}
+<br/>@{{ucfp.data.single_federated_domain}}
+{%- elif profile_vo.login_type == 'OPE' or profile_vo.login_type == 'DCARD' or profile_vo.login_type == 'CERT' or profile_vo.login_type == '': -%}
+<br/>@{{ucfp.data.single_federated_domain}}
+{%- elif profile_vo.login_type == 'OPE1': -%}
+{%- endif -%}
+
+{% else:%}
+<input name="login_id" type="text" value="{{voinfo.vo.login_id}}" size="20" istyle="3" mode="alphabet" >
+{%- if ucfp.data.is_disp_domain_combobox:%}
+<br/>@
+<select name="login_domain" >
+{% for one_domain in domaincombobox_list:%}
+<option value="{{one_domain}}" {% if voinfo.vo.login_domain ==  one_domain:%}selected{%endif%}>{{one_domain}}</option>
+{% endfor %}
+</select>
+{% endif %}
+
+{% endif %}
+{% if vcmsg.login_id %}
+<br>
+{% for v in vcmsg.login_id %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="5" border="0" alt=""></td>
+</tr>
+
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_LOGIN_PASSWORD}}</td>
+<td nowrap>
+
+<input name="login_password" type="password" value="{{voinfo.vo.login_password}}" size="20" istyle="3" mode="alphabet" >
+{% if ucfp.data.is_disp_matrixauth: -%}
+<br/>
+<span class="style1">{{lang.VMSG_LOGIN_PASSWORD_MATRIXAUTH|safe}}</span>
+{% endif %}
+{% if vcmsg.login_password %}
+<br>
+{% for v in vcmsg.login_password %}
+<span class="text_validate"><font color="red">{{v}}</font></span>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% if login_result.error_code == 'CAPTCHA_REQUIRED' %}
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_LOGIN_CAPTCHA_REQUIRED}}</td>
+<td nowrap>
+<table border="0" >
+<tr>
+<td>
+<img src="{{login_result.captcha_url}}" border="0" />
+</td>
+</tr>
+<tr>
+<td>
+<input name="captcha" type="text" value="" size="20" maxlength="50" istyle="3" mode="alphabet" >
+</td>
+</tr>
+<tr>
+<td>
+{% if vcmsg.captcha %}
+<br>
+{% for v in vcmsg.captcha %}
+<span class="text_validate"><font color="red">{{v}}</font></span><br>
+{% endfor %}
+{% endif %}
+<span class="text_validate"><font color="red">{{lang.VMSG_LOGIN_INFO_CAPTCHA_REQUIRED}}</red></span>
+</td>
+</tr>
+</table>
+{% if login_result.captcha_token %}
+<input type="hidden" name="captcha_token" value="{{login_result.captcha_token}}" />
+{% endif %}
+</td>
+</tr>
+{% endif %}
+
+{% if ucfp.data.is_disp_two_factor_auth_code: %}
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>{{lang.VMSG_LOGIN_TWO_FACTOR_AUTH_REQUIRED}}</td>
+<td nowrap>
+<input id="two_factor_auth_code" name="two_factor_auth_code" type="password" value="{{voinfo.vo.two_factor_auth_code}}" size="10" maxlength="10" istyle="3" mode="alphabet" >
+{% if vcmsg.login_access_code %}
+<br>
+{% for v in vcmsg.two_factor_auth_code %}
+<span class="text_validate"><font color="red">{{v}}</font></span><br>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% endif %}
+
+{% if ucfp.data.is_disp_matrixauth: -%}
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" wrap></td>
+<td>
+{# // ワンタイム・ランダムパスワード認証マトリックス表示 #}
+<table width="80%" border="0" bgcolor="gray" cellspacing="2" cellpadding="0">
+{% for one_row in ucfp.data.current_matrixauth_matrix: -%}
+<tr>
+{% for one_item in one_row: -%}
+<td bgcolor="white" ><font size="2" >{{one_item}}</font></td>
+{%- endfor %}
+</tr>
+{%- endfor %}
+</table>
+</td>
+</tr>
+
+{% endif %}
+
+{% if ucfp.data.is_available_auto_login: -%}
+<tr>
+<td colspan="2"><img src="/images/m/space.gif" height="5" border="0" alt=""></td>
+</tr>
+<tr>
+<td class="style2" nowrap>&nbsp;</td>
+<td>
+<input type="checkbox" name="auto_login_flag" value="on" {% if voinfo.vo.auto_login_flag == 'on' %}checked{% endif %} /><span class="style2" >{{lang.VMSG_LOGIN_AUTOLOGIN_ON}}</span>
+{% if vcmsg.auto_login_flag %}
+<br>
+{% for v in vcmsg.auto_login_flag %}
+<span class="text_validate"><font color="red">{{v}}</font></span><br>
+{% endfor %}
+{% endif %}
+</td>
+</tr>
+{% endif %}
+<tr>
+<td colspan="2" align="center"><input type="image" src="/images/m/bt_login.png" width="104" height="41" border="0" alt="Login" /></td>
+</tr>
+</table>
+</form>
+<div></div>
+{% if ucfp.data.is_disp_password_reminder: -%}
+<p class="style2" ><a href="{{vurl}}reminder/" >{{lang.VMSG_LOGIN_LINK_REMINDER}}</a></p>
+{%- endif %}
+{% if ucfp.data.is_available_access_apply and dept.hide_access_apply_link_flag != 'HIDDEN': -%}
+<p class="style2" ><a href="{{vurl}}acs/apply?rurl_key={{ucfp.data.rurl_key}}" >{{lang.VMSG_LOGIN_LINK_ACS_CTRL_REQUEST}}</a></p>
+{%- endif %}
+</div>
+</td>
+</tr>
+</table>
+</div>
+<!-- LoginBox//end -->
+<hr color="#0085ce" />
+{#
+<div align="left">{{mini_pr|safe}}</div>
+{% if show_upgrade_link: %}
+<div align="left">
+<a href="http://goo.gl/A2fmz" target="_blank" style="color:red;text-decoration:none;font-weight:bold;font-size:12px;margin:2px;">{{lang.MSG_UPGRADE}}</a>
+</div>
+{% endif %}
+#}
+<div align="right"><font color="#0085ce">▲</font><a href="{{vurl}}personal/">{{lang.VMSG_TO_PERSONAL}}</a>&nbsp;<font color="#0085ce">▲</font><a href="{{vurl}}logout">{{lang.VMSG_LOGOUT}}</a></div>
+Copyright &copy; All rights reserved by Sateraito Office, Inc.
+
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<messagebundle>
+	<msg js="on" name="HTML_TEXT_BOX"><![CDATA[Text Box]]></msg>
+	<msg js="on" name="HTML_TEXT_AREA"><![CDATA[Text Area]]></msg>
+	<msg js="on" name="HTML_TEXT_LABEL"><![CDATA[Nhan4]]></msg>
+	<msg js="on" name="HTML_TEXT_SERIAL_LABEL"><![CDATA[Nhãn nối tiếp]]></msg>
+	<msg js="on" name="HTML_INPUT_DATE"><![CDATA[Ngày]]></msg>
+	<msg js="on" name="HTML_INPUT_TIME"><![CDATA[Thời gian]]></msg>
+	<msg js="on" name="HTML_INPUT_COLOR"><![CDATA[Màu]]></msg>
+	<msg js="on" name="HTML_INPUT_MAIL_ADDRESS"><![CDATA[Địa chỉ Hộp thư]]></msg>
+	<msg js="on" name="HTML_INPUT_UPLOAD_FILE"><![CDATA[Tập tin đính kèm]]></msg>
+	<msg js="on" name="HTML_INPUT_BUTTON"><![CDATA[Nút]]></msg>
+	<msg js="on" name="HTML_INPUT_BUTTON_SUBMIT"><![CDATA[Gửi]]></msg>
+	<msg js="on" name="HTML_INPUT_PULLDOWN"><![CDATA[Pulldown]]></msg>
+	<msg js="on" name="HTML_INPUT_CHECKBOX"><![CDATA[Checkbox]]></msg>
+	<msg js="on" name="HTML_INPUT_RADIO"><![CDATA[Radio Button]]></msg>
+	<msg js="on" name="HTML_INPUT_RADIO_GROUP"><![CDATA[Radio Button Group]]></msg>
+	<msg js="on" name="HTML_INPUT_GROUP"><![CDATA[Item Group]]></msg>
+	<msg js="on" name="HTML_INPUT_BOX"><![CDATA[HTML box]]></msg>
+	<msg js="on" name="HTML_INPUT_HIDDEN"><![CDATA[Hidden Item]]></msg>
+	<msg js="on" name="HTML_GRID"><![CDATA[Grid]]></msg>
+	<msg js="on" name="HTML_CANVAS"><![CDATA[Canvas]]></msg>
+	<msg js="on" name="HTML_NOT_SUPPORT_TAG"><![CDATA[Item not supported]]></msg>
+	<msg js="on" name="MSG_INPUT_JAVASCRIPT_SECTION"><![CDATA[Define below to control form using JavaScript.]]></msg>
+	<msg js="on" name="MSG_DELETE_COMP"><![CDATA[Bạn có muốn xoá phần tử ẩn? (Không thể phục hồi về sau)]]></msg>
+	<msg js="on" name="MSG_MUST_CREATE_SECTION"><![CDATA[Vui lòng tạo phân đoạn trước.]]></msg>
+	<msg js="on" name="MSG_COMP_COPY"><![CDATA[ - Copy]]></msg>
+	<msg js="on" name="MSG_COMP_DROP_DRAG_ERR"><![CDATA[Kéo &amp; Drop Error]]></msg>
+	<msg js="on" name="BTN_EDIT"><![CDATA[Biên tập]]></msg>
+	<msg js="on" name="BTN_MULTI_COPY"><![CDATA[Bản sao]]></msg>
+	<msg js="on" name="BTN_DELETE"><![CDATA[Xoá]]></msg>
+	<msg js="on" name="BTN_MOVE_UP"><![CDATA[Lên]]></msg>
+	<msg js="on" name="BTN_MOVE_DOWN"><![CDATA[Xuống]]></msg>
+	<msg js="on" name="MSG_SELECT_TEMPLATE"><![CDATA[Chọn Layout]]></msg>
+	<msg js="on" name="MSG_DELETE_SECTION"><![CDATA[Xoá phân đoạn.Bạn có chắc?]]></msg>
+  <msg js="on" name="MSG_INPUT_JAVASCRIPT_SECTION_1"><![CDATA[ //Định nghĩa ở đầy nếu bạn muốn kiểm soát form bằng javascript.]]></msg>
+	<msg js="on" name="MSG_SAVE_HTML_EDITOR"><![CDATA[Lưu layout HTML vào mẫu và đóng Form Layout Builder. Bạn có chắc?]]></msg>
+	<msg js="on" name="MSG_SAVE_HTML_ERROR"><![CDATA[Lưu thất bại]]></msg>
+	<msg js="on" name="MSG_SAVE_UNDEFINED_ERROR"><![CDATA[Lỗi không rõ]]></msg>
+	<msg js="on" name="MSG_SECTION_EDIT"><![CDATA[Biên tập phân đoạn]]></msg>
+	<msg js="on" name="BTN_SAVE"><![CDATA[Lưu]]></msg>
+	<msg js="on" name="BTN_SECTION_ADD_NEW"><![CDATA[Thêm phân đoạn]]></msg>
+	<msg js="on" name="BTN_ADD"><![CDATA[Thêm]]></msg>
+	<msg js="on" name="BTN_CANCEL"><![CDATA[Huỷ]]></msg>
+	<msg js="on" name="LBL_HORIZONTAL_DISPLAY"><![CDATA[Hiện thị tên theo chiều ngang]]></msg>
+	<msg js="on" name="LBL_HEADER_EXP"><![CDATA[Chiều ngang(Ví dụ.80px, 40%)]]></msg>
+	<msg js="on" name="LBL_HEADER_ARRANGE"><![CDATA[Sắp hàng]]></msg>
+	<msg js="on" name="LBL_COL_ALIGN_LEFT"><![CDATA[Trái]]></msg>
+	<msg js="on" name="LBL_COL_ALIGN_CENTER"><![CDATA[Giữa]]></msg>
+	<msg js="on" name="LBL_COL_ALIGN_RIGHT"><![CDATA[Phải]]></msg>
+	<msg js="on" name="LBL_VERTICAL_DISPLAY"><![CDATA[Hiện thị tên theo chiều dọc]]></msg>
+	<msg js="on" name="MSG_SECTION_NAME_REQUIRED"><![CDATA[Tên phân đoạn là bắt buộc.]]></msg>
+	<msg js="on" name="LBL_SECTION_NAME"><![CDATA[Tên phân đoạn]]></msg>
+	<msg js="on" name="LBL_SECTION_DISPLAY_NAME"><![CDATA[Hiện thị Tên phân đoạn]]></msg>
+  <msg js="on" name="LBL_SECTION_DISPLAY_TOGGLE"><![CDATA[Hiện thị/Ẩn]]></msg>
+	<msg js="on" name="LBL_SECTION_COLUMN"><![CDATA[Layout Cột]]></msg>
+	<msg js="on" name="LBL_COLUMN"><![CDATA[Cột]]></msg>
+	<msg js="on" name="LBL_DISPLAY_COLUMN"><![CDATA[Chọn để hiện thị tên cột.]]></msg>
+	<msg js="on" name="LBL_ITEM_EDIT"><![CDATA[Biên tập phần tử]]></msg>
+	<msg js="on" name="LBL_ITEM_ADD_NEW"><![CDATA[Thêm phần tử mới]]></msg>
+	<msg js="on" name="MSG_ITEM_NAME"><![CDATA[Tên trường]]></msg>
+	<msg js="on" name="MSG_ITEM_NAME_REQUIRED"><![CDATA[Tên trường là bắt buộc.]]></msg>
+	<msg js="on" name="MSG_ITEM_ADD_REQUIRED"><![CDATA[Chọn thêm phần tử.]]></msg>
+	<msg js="on" name="MSG_ITEM_DELETE"><![CDATA[Bạn có chắc là muốn xoá?]]></msg>
+	<msg js="on" name="TITLE_ITEM_ADD"><![CDATA[Thêm phần tử]]></msg>
+	<msg js="on" name="TITLE_ITEM_EDIT"><![CDATA[Biên tập phần tử]]></msg>
+	<msg js="on" name="MSG_RAIDO_ITEM_SELECT"><![CDATA[Chọn 1 Radio Button.]]></msg>
+	<msg js="on" name="LBL_LIST_ITEM_DISPLAY_VALUE"><![CDATA[Hiện thị giá trị danh sách phần tử]]></msg>
+	<msg js="on" name="LBL_LIST_ITEM_SUBMIT_VALUE"><![CDATA[Giá trị gửi danh sách phần tử]]></msg>
+	<msg js="on" name="TITLE_LIST_ITEM"><![CDATA[Danh sách phần tử]]></msg>
+	<msg js="on" name="LBL_TITLE"><![CDATA[Tên]]></msg>
+	<msg js="on" name="LBL_SERIAL_TITLE"><![CDATA[Chỉ hiện thị số liện tục(1,2,3...) khi để trống.]]></msg>
+	<msg js="on" name="LBL_DISPLAY_DIRECTION"><![CDATA[Hướng hiện thị]]></msg>
+	<msg js="on" name="LBL_HORIZONTAL_DIRECTION"><![CDATA[Chiều ngang]]></msg>
+	<msg js="on" name="LBL_VERTICAL_DIRECTION"><![CDATA[Chiều dọc]]></msg>
+	<msg js="on" name="LBL_NUMBER_COPY"><![CDATA[Số]]></msg>
+	<msg js="on" name="LBL_NUMBER_COPY_EXP"><![CDATA[Chiều ngang:Không. của cột,Chiều dọc:Không. của hàng]]></msg>
+	<msg js="on" name="LBL_ITEM_STYLE"><![CDATA[Kiểu trường]]></msg>
+	<msg js="on" name="LBL_STYLE_SAMPLE_EXP"><![CDATA[Ví dụ：<br>width:100%; <br>height:300px;<br>margin: 5px 5px 5px 5px;<br>padding: 5px 5px 5px 5px;<br>background: #FFFFFF<br>text-align: right;<br>font-size: 12px;<br>border: 1px solid grey;<br>color: red;]]></msg>
+	<msg js="on" name="LBL_SATERAITO_CLASS"><![CDATA[Sateraito Office]]></msg>
+<msg js="on" name="LBL_SATERAITO_CLASS_EXP"><![CDATA[
+  Ví dụ:<br>trường richtext: richtext<br>Trường bắt buộc: bắt buộc<br>Trường ngày：date<br>Trường số：số<br>Tự động thiết lập ngày：today_date<br>Tính toán(Nhân)：multi<br>　>Thuộc tính thẻ: mục="field1 field2"<br>Tính toán(Thêm)：sum<br> >Thuộc tính thẻ:mục="field1 field2"<br>Tính toán(Trừ):diff<br>　>Thuộc tính thẻ: mục="field1 field2"<br>Multiple Class: số bắt buộc]]></msg>
+	<msg js="on" name="LBL_SATERAITO_CLASS_EXP_2"><![CDATA[*Cho chi tiết hướng dẫn, click<a target="_blank" href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Nhà/jie-shi-ban-hui-lan-ban-ji-nengmanyuaru#TOC--45">tại đây</a>.]]></msg>
+	<msg js="on" name="LBL_ITEM_WIDTH"><![CDATA[Chiều ngang]]></msg>
+	<msg js="on" name="LBL_ITEM_NAME_DISPLAY"><![CDATA[Hiện thị]]></msg>
+	<msg js="on" name="LBL_ITEM_SECTION"><![CDATA[Phân đoạn]]></msg>
+	<msg js="on" name="LBL_ITEM_SECTION_COLUMN"><![CDATA[Số cột.]]></msg>
+	<msg js="on" name="LBL_SATERAITO_ATTRS"><![CDATA[Thuộc tính Thẻ]]></msg>
+	<msg js="on" name="LBL_SATERAITO_ATTRS_EXP"><![CDATA[Ví dụ:<br>Trường bắt buộc: bắt buộc_msg="XXX là trường bắt buộc." <br>Trường tính toán: mục="kingaku1 kingaku2"<br>Tính toán thuế:số=1.08<br>Multiple attribute:mục="kingaku1 kingaku2" số=1.08]]></msg>
+	<msg js="on" name="LBL_HTML_CODE"><![CDATA[HTML source]]></msg>
+	<msg js="on" name="LBL_LIST_RADIO_BTN"><![CDATA[List Radio Button]]></msg>
+	<msg js="on" name="LBL_GROUP_HTML_ITEM"><![CDATA[Group Item]]></msg>
+	<msg js="on" name="LBL_ITEM_INIT_VALUE"><![CDATA[Giá trị khởi tạo]]></msg>
+	<msg js="on" name="LBL_ITEM_LENGTH"><![CDATA[Tối đa số lượng. kí tự]]></msg>
+	<msg js="on" name="LBL_ITEM_LENGTH_EXP"><![CDATA[Ví dụ: 10]]></msg>
+	<msg js="on" name="LBL_ITEM_NUMBER_CHARS"><![CDATA[Không. của cột]]></msg>
+	<msg js="on" name="LBL_ITEM_NUMBER_CHARS_EXP"><![CDATA[Ví dụ: 50]]></msg>
+	<msg js="on" name="LBL_ITEM_NUMBER_LINES"><![CDATA[Không. của hàng]]></msg>
+	<msg js="on" name="LBL_ITEM_READONLY"><![CDATA[Chỉ đọc]]></msg>
+	<msg js="on" name="LBL_ITEM_READONLY_EXP"><![CDATA[*Thẻ Chỉ đọc]]></msg>
+	<msg js="on" name="LBL_ITEM_DISABLE"><![CDATA[Không cho phép]]></msg>
+	<msg js="on" name="LBL_ITEM_DISABLE_EXP"><![CDATA[*Thẻ vô hiệu hoá]]></msg>
+	<msg js="on" name="LBL_ITEM_CHEKED_ON"><![CDATA[Bật]]></msg>
+	<msg js="on" name="LBL_ITEM_MULTI_SELECT"><![CDATA[Cho phép nhiều lựa chọn]]></msg>
+	<msg js="on" name="LBL_ITEM_BEFORE_EXP"><![CDATA[Hiện thị trước trường]]></msg>
+	<msg js="on" name="LBL_ITEM_AFFTER_EXP"><![CDATA[Hiện thị sau trường]]></msg>
+	<msg js="on" name="LBL_ITEM_BOLDER_ON"><![CDATA[In đậm]]></msg>
+	<msg js="on" name="LBL_ITEM_MULTI_COPY"><![CDATA[Không. của bản sao]]></msg>
+	<msg js="on" name="MSG_ITEM_SET_ATTRS"><![CDATA[Cấu hình thuộc tính phần tử.]]></msg>
+	<msg js="on" name="MSG_ITEM_TYPE_SELECT"><![CDATA[Chọn kiểu phần tử.]]></msg>
+	<msg js="on" name="MSG_EDITOR_TAB_EXP"><![CDATA[Sắp xếp cột vào hàng, thay đổi phân đoạn và biên tập layout. Kéo &amp; thả nhãn phân đoạn vào phân đoạn sắp xếp.<br>Kéo &amp; thả để chuyển vào danh sách phần tử ẩn.]]></msg>
+	<msg js="on" name="MSG_EDITOR_NOT_DISPLAY_LIST"><![CDATA[Phần tử ẩn cuối]]></msg>
+	<msg js="on" name="MSG_ITEM_DELETE_PERMANET"><![CDATA[Xoá]]></msg>
+	<msg js="on" name="BTN_EDITOR_COMPLETE"><![CDATA[Xong]]></msg>
+	<msg js="on" name="BTN_EDITOR_PRIVEW"><![CDATA[Xem trước]]></msg>
+	<msg js="on" name="BTN_EDITOR_HTML_CONFIRM"><![CDATA[Kiểm tra HTML source]]></msg>
+	<msg js="on" name="MSG_EDITOR_COMPLETE_EXP"><![CDATA[*Click "Xong" để cập nhật form layout HTML.]]></msg>
+	<msg js="on" name="MSG_TEMPLATE_TITLE"><![CDATA[Nhập tên.]]></msg>
+	<msg js="on" name="MSG_HTML_SOURCE_TAB_EXP"><![CDATA[Sử dụng mã HTML source bên dưới khi tạo mẫu cho Bảng thông báo/ Quản lý Tài liệu/Workflow vân vân.]]></msg>
+  <msg js="on" name="MSG_HTML_EDITOR_TAB"><![CDATA[Tạo/Biên tập Layout]]></msg>
+	<msg js="on" name="MSG_HTML_PREVIEW_TAB"><![CDATA[Xem trước Layout]]></msg>
+	<msg js="on" name="MSG_HTML_SOURCE_TAB"><![CDATA[Mã HTML Source]]></msg>
+	<msg js="on" name="MSG_HTML_EDITOR_TITLE"><![CDATA[Sateraito Office - Form Layout Builder]]></msg>
+	<msg js="on" name="BTN_EDITOR_BACK"><![CDATA[Trở về Biên tập Layout]]></msg>
+	<msg js="on" name="BTN_EDITOR_PRIVEW_BACK"><![CDATA[Trở về Xem trước]]></msg>
+</messagebundle>

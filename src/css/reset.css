@@ -1,0 +1,87 @@
+
+/*
+
+		緑化隊 reset.css
+		Create by Futurebox.jp
+
+*/
+
+
+/* よく登場する要素のリセット */
+/* プログレスバー表示対策として、divを削除 */
+div {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 100%;
+        list-style-type: none;}
+
+body,/* div, */
+h1,h2,h3,h4,h5,h6,p,address,
+ul,ol,dl,dt,dd,
+table,th,td,img,form {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 100%;
+        //text-align: left;
+        list-style-type: none;}
+
+table{
+	border-collapse: collapse;
+	border-spacing:0;}
+
+em,strong {
+	font-weight:normal;
+	font-style:normal;}
+
+caption,th{
+	text-align:left;}
+
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;}
+
+/* テキストエリア内文字サイズのブラウザ間での差異をなくす */
+textarea { font-size: 100%; }
+
+/* 画像の下にできる隙間をなくす */
+img { vertical-align: bottom; }
+
+/* hr 要素は不可視で使う */
+hr { display: none; }
+
+
+/* Float クリア */
+.clear {
+	clear:both;
+	line-height:1%;
+	margin:0;
+	padding:0;
+	height:1px;
+	font-size:1px;}
+	
+.clearfix:after {
+  content: ".";  /* 新しい要素を作る */
+  display: block;  /* ブロックレベル要素に */
+  clear: both;
+  height: 0;
+  visibility: hidden;}
+
+.clearfix {
+  min-height: 1px;}
+
+* html .clearfix {
+  height: 1px;
+  /*\*//*/
+  height: auto;
+  overflow: hidden;
+  /**/}
+  
+ 
+/*-------- PNG画像の透明化 for IE6 ---------*/
+* html .iepngfix {
+	behavior: expression(IEPNGFIX.fix(this));}

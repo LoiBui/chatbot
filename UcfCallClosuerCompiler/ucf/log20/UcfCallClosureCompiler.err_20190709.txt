@@ -1,0 +1,180 @@
+﻿[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:34] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:35] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:25:36] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:47] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:39:48] Error: Unable to access jarfile C:\Program Files\closurecompiler\compiler.jar
+
+[2019/07/09 14:41:55] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ucfext_field.js:521: ERROR - Object literal contains illegal duplicate key "createTimeField", disallowed in strict mode
+    createTimeField: function(id, name, value, field_label, width, vc_delegate)
+    ^^^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2019/07/09 14:42:13] ERROR - Cannot read file C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/07/09 14:42:14] C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ext/ucf_element_selector.js:7: ERROR - Object literal contains illegal duplicate key "removeBtnText", disallowed in strict mode
+		,removeBtnText: input_params.removeBtnText || 'remove'
+		 ^^^^^^^^^^^^^
+
+1 error(s), 0 warning(s)
+
+[2019/07/09 14:46:30] ERROR - Cannot read file C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+
+[2019/07/09 14:48:07] ERROR - Cannot read file C:/Users/chun/PycharmProjects/sateraito-chatmagazine/src/script/debug/ext/SecurityKeyboard.js: Failed to read: C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\script\debug\ext\SecurityKeyboard.js, is this input UTF-8 encoded?
+
+1 error(s), 0 warning(s)
+

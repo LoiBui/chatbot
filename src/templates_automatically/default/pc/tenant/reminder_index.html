@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<!--
+<link rel="start" href="/" title="">
+<link rel="home" href="/home.html" title="">
+-->
+<link rel="shortcut icon" href="/images/oem/{{oem_company_code}}/favicon.ico">
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<!-- BASE -->
+{#
+<link rel="stylesheet" href="/css/common2.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base2.css?{{version}}" type="text/css" />
+
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}init_backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+
+	function btn_resize(){
+		var window_width = $(window).width();
+		var btn_right_right = 15;
+		var btn_left_left = 15;
+		if(window_width < 784){
+			if(15 + 675 - window_width > 110){
+				btn_right_right = 15 + 675 - window_width;
+			}else{
+				btn_right_right = 110;
+			}
+
+			if(635 - window_width > 0){
+				btn_left_left = 15 + 635 - window_width;
+			}else{
+				btn_left_left = 60;
+			}
+		}
+
+		$('#wrapper').find('a.btn_right').css({
+			'right' : btn_right_right + 'px'
+		});
+
+		$('#wrapper').find('a.btn_left').css({
+			'left' : btn_left_left + 'px'
+		});
+
+	}
+	$(window).resize(function(){
+		btn_resize();
+	});
+	$(window).load(function(){
+		btn_resize();
+	});
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+
+// 背景画像URL配列を作成
+var _bgpicary = [];
+{% if not BgIsExistCustom: %}
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('/images/bg/{{idx}}.jpg');
+{% endfor -%};
+{% else: %}
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('{{vurl}}picture/mainbg{{idx}}');
+{% endfor -%};
+{% endif %}
+//-->
+</script>
+
+
+<title>{{lang.VMSG_SITE_TITLE_REMINDER|safe}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext.strength.js?{{version|safe}}" ></script>
+{#
+<script type="text/javascript">
+</script>
+#}
+<script type="text/javascript">
+<!-- 
+{% if is_hide_backstretch: %}
+	_is_hide_blind = true;
+{% endif %}
+	_is_fullscreen = true;
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+function init()
+{
+{% if edit_step == 'reset': %}
+	initPasswordStrength();
+{% endif %}
+	focusInit();
+
+	$(document).find('input.btn_cancel').click(function(){
+		location.href = '{{vurl|safe}}';
+	});
+}
+function focusInit()
+{
+	var password = document.getElementById("password_new");
+	if(typeof(password) != 'undefined' && password != null){
+		password.value = '{{ucfp.voinfo.vo.Password1|escapejs}}';
+		if(password.value == '\t'){
+			password.value = '';
+		}
+	}
+	password = document.getElementById("password_re");
+	if(typeof(password) != 'undefined' && password != null){
+		password.value = '{{ucfp.voinfo.vo.PasswordConfirm|escapejs}}';
+		if(password.value == '\t'){
+			password.value = '';
+		}
+	}
+
+	// フォーカスを初期セットする対応
+	var focus_target;
+{% if edit_step == 'request': %}
+	focus_target = document.getElementById("user_id");
+{% elif edit_step == 'confirm': %}
+	focus_target = document.getElementById("sub_mail_address");
+{% elif edit_step == 'authcode': %}
+	focus_target = document.getElementById("authcode");
+{% elif edit_step == 'reset': %}
+	focus_target = document.getElementById("password_new");
+{% endif %}
+	if(focus_target)
+	{
+		focus_target.focus();
+	}
+};
+
+function initPasswordStrength()
+{
+	var password_strength = ucf_strength();
+	password_strength.createPasswordStrength("password_strength", "password_new", 'password_strength_label', true, 275, {disp_weak:'{{lang.WEAK|safe|escapejs}}',disp_good:'{{lang.NORMAL|safe|escapejs}}',disp_strong:'{{lang.STRONG|safe|escapejs}}'});
+}
+
+$(function() {
+	$('a[rel*=passwordAvailableCharList]').leanModal({
+		top: 40
+		,overlay : 0
+	});
+}); 
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+$(document).ready(function(){	
+
+	init();
+
+	$('#wrapper').css('cursor', 'auto');
+	$('#mypage_form').on('submit', function(){
+		$('#wrapper').css('cursor', 'progress');
+	});
+	$(document).find('a.for_mask').on('click', function(){
+		$('#wrapper').css('cursor', 'progress');
+	});
+});
+
+//-->
+</script>
+
+<style>
+
+#lean_overlay {
+	position: fixed;
+	z-index:100;
+	top: 0px;
+	left: 0px;
+	height:100%;
+	width:100%;
+	background: #000;
+	display: none;
+}
+
+#password_avilable_char_list_box {
+	background: none repeat scroll 0 0 #FFFFFF;
+/*	border-radius: 5px 5px 5px 5px;	*/
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+	display: none;
+	padding: 20px;
+	height: 200px;
+	width: 400px;
+}
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+
+{#
+<div id="loginbox">
+{% if not BgNoUse and not BgIsExistCustom and not BgIsDispCustomLogo: %}
+<h1><img src="/images/oem/{{oem_company_code}}/login_logo.png" ></h1>
+{% elif BgIsExistCustomLogo and BgIsDispCustomLogo: %}
+<h1><img src="{{vurl}}picture/logo" style="height:64px;" ></h1>
+{% endif %}
+</div><!-- /#loginbox end -->
+
+<div id="logoutbox">
+{% if login.mail_address != '': %}
+<p class="name" style="color:{% if dept.login_fontcolor and dept.login_fontcolor != '': %}#{{dept.login_fontcolor}};{%else:%}#FFFFFF;{%endif%}" >{{login.mail_address}}</p><a href="{{vurl}}logout" class="btn_logout">LOGOUT</a>
+{% endif %}
+</div>
+
+#}
+
+<div id="mypagebox" class="reminder">
+<h2><span class="img"><img src="/images/mypage/ic_changepassword.png" alt=""></span><em><span class="ttl">{{lang.VMSG_REMINDER|safe}}</span>
+<span class="info">
+
+{% if edit_step == 'request': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_REQUEST|safe}}
+{% elif edit_step == 'confirm': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_CONFIRM|safe}}{{ucfp.data.sub_mail_address_with_mask}}
+{% elif edit_step == 'authcode': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_AUTHCODE|safe}}
+{% elif edit_step == 'reset': %}
+{{lang.VMSG_DESCRIPTION_REMINDER_RESET|safe}}
+<br>
+<a rel="passwordAvailableCharList" href="#password_avilable_char_list_box" >{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_LIST|safe}}</a>
+{% endif %}
+
+
+</span></em></h2>
+
+<div id="password_avilable_char_list_box" >
+<p style="font-size: 124%;font-weight:bold;">{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_LIST|safe}}</p>
+<ul>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE1|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE2|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE3|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE4|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE5|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE6|safe}}</li>
+<li>{{lang.VMSG_INFO_PASSWORD_AVAILABLE_CHAR_TYPE7|safe}}</li>
+</ul>
+</div>
+
+<p class="attention">
+</p>
+
+<p class="validation_message">
+{% if vcmsg.user_id %}
+{% for v in vcmsg.user_id %}
+<br>
+※{{v}}
+{% endfor %}
+{% endif %}
+{% if vcmsg.sub_mail_address %}
+{% for v in vcmsg.sub_mail_address %}
+<br>
+※{{v}}
+{% endfor %}
+{% endif %}
+{% if vcmsg.authcode %}
+{% for v in vcmsg.authcode %}
+<br>
+※{{v}}
+{% endfor %}
+{% endif %}
+{% if vcmsg.Password1 %}
+{% for v in vcmsg.Password1 %}
+<br>
+※{{v}}
+{% endfor %}
+{% endif %}
+{% if vcmsg.PasswordConfirm %}
+{% for v in vcmsg.PasswordConfirm %}
+<br>※{{v}}
+{% endfor %}
+{% endif %}
+</p>
+
+<form name="frmEdit" action="{{vurl|safe}}reminder/" method="POST" id="mypage_form">
+<input type="hidden" name="token" value="{{ucfp.data.token}}">
+<input type="hidden" name="{{config.QSTRING_STATUS}}" value="{{config.VC_CHECK}}">
+<input type="hidden" name="edit_step" value="{{edit_step}}">
+<input type="hidden" name="RURL" value="{{ucfp.data.RURL}}">
+<fieldset>
+{% if edit_step == 'request': %}
+<label for="user_id">{{lang.VMSG_INPUT_REMINDER_USER_ID|safe}}※</label><input type="text" id="user_id" name="user_id" class="user_id" value="{{ucfp.voinfo.vo.user_id}}" maxlength="255" autocomplete="off">
+<br/>
+<input type="button" value="{{lang.VMSG_CANCEL|safe}}" class="btn_submit btn_cancel" >&nbsp;
+<input type="submit" value="{{lang.VMSG_REMINDER_SUBMIT_REQUEST|safe}}" class="btn_submit" >
+
+{% elif edit_step == 'confirm': %}
+<label for="user_id">{{lang.VMSG_INPUT_REMINDER_USER_ID|safe}}</label>
+<input type="text" value="{{ucfp.voinfo.vo.user_id}}" class="fix" disabled>
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+<label for="sub_mail_address">{{lang.VMSG_INPUT_REMINDER_SUBMAILADDRESS|safe}}※</label><input type="text" id="sub_mail_address" name="sub_mail_address" class="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" maxlength="255" autocomplete="off">
+<br/>
+<input type="button" value="{{lang.VMSG_CANCEL|safe}}" class="btn_submit btn_cancel" >&nbsp;
+<input type="submit" value="{{lang.VMSG_REMINDER_SUBMIT_CONFIRM|safe}}" class="btn_submit" >
+{% elif edit_step == 'authcode': %}
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+<input type="hidden" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" />
+
+<label for="authcode">{{lang.VMSG_INPUT_REMINDER_AUTHCODE|safe}}※</label><input type="text" id="authcode" name="authcode" class="authcode" value="{{ucfp.voinfo.vo.authcode}}" maxlength="10" autocomplete="off">
+<br/>
+<input type="button" value="{{lang.VMSG_CANCEL|safe}}" class="btn_submit btn_cancel" >&nbsp;
+<input type="submit" value="{{lang.VMSG_REMINDER_SUBMIT_AUTHCODE|safe}}" class="btn_submit" >
+{% elif edit_step == 'reset': %}
+<input type="hidden" name="user_id" value="{{ucfp.voinfo.vo.user_id}}" />
+<input type="hidden" name="sub_mail_address" value="{{ucfp.voinfo.vo.sub_mail_address}}" />
+<input type="hidden" name="authcode" value="{{ucfp.voinfo.vo.authcode}}" />
+
+<label for="password_new">{{lang.VMSG_INPUT_PASSWORD_CHANGE|safe}}※</label><input type="password" id="password_new" name="Password1" class="changepass_text" value="{{ucfp.voinfo.vo.Password1}}" maxlength="100" autocomplete="off">
+<div id="password_strength" class="strength01"><span>&nbsp;</span><em id="password_strength_label">{{lang.WEAK|safe}}</em></div>
+<label for="password_re">{{lang.VMSG_CONFIRM_PASSWORD_CHANGE|safe}}※</label><input type="password" id="password_re" name="PasswordConfirm" class="changepass_text" value="{{ucfp.voinfo.vo.PasswordConfirm}}" maxlength="100" autocomplete="off">
+<br/>
+<input type="button" value="{{lang.VMSG_CANCEL|safe}}" class="btn_submit btn_cancel" >&nbsp;
+<input type="submit" value="{{lang.VMSG_REMINDER_SUBMIT_RESET|safe}}" class="btn_submit" >
+{% endif %}
+</fieldset>
+</form>
+
+</div><!-- /#mypagebox end -->
+
+{% if not is_hide_backstretch: %}
+<div id="bottombox">
+<ul id="btn_list">
+<li><a href="#" id="toggle_fullscreen"><img src="/images/btn_fullscreen_enable.png" alt="full screen"></a></li>
+{% if not BgNoUse:%}
+<li><a href="#" id="arrow_prev"><img src="/images/btn_leftarrow.png" alt="prev"></a></li><li><a href="#" id="arrow_next"><img src="/images/btn_rightarrow.png" alt="next"></a></li>
+{% endif %}
+</ul>
+<div id="newsbox">
+<ul>
+{% if dept.login_message and dept.login_message != '' %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{dept.login_message|hyperlink_linebreaksbr}}</li>
+{% elif footer_message and footer_message != '': %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{footer_message|hyperlink_linebreaksbr}}</li>
+{% endif %}
+<li>&nbsp;</li>
+</ul>
+</div><!-- /#newsbox end -->
+</div><!-- /#bottombox end -->
+
+<div id="footer">
+<p id="copyright">Copyright&copy;All rights reserved by Sateraito Office, Inc.</p>
+
+
+</div>
+{% endif %}
+
+</div><!-- /#wrapper end -->
+</body>
+</html>

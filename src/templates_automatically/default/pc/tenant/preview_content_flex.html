@@ -1,0 +1,33 @@
+{% for item in contents %}
+
+        {% if item['type']=='text' and item['text'] %}
+            <!-- TEXT -->
+            <span>{{ item['text'] }}</span>
+        {% endif %}
+
+        {% if item['type']=='button' and item['action']['label'] %}
+            <!-- BUTTON -->
+            <span class="cfrm_btn">{{ item['action']['label'] }}</span>
+        {% endif %}
+
+        {% if item['type']=='image' and item['url'] %}
+            <!-- IMAGE -->
+           <img src="{{ item['url'] }}" class="item-image">
+        {% endif %}
+
+        {% if item['type']=='separator' %}
+           <!-- SEPARATOR -->
+           <span class="{{ separator_css }}"></span>
+        {% endif %}
+
+        {% if item['type']=='spacer' %}
+           <!-- SPACE -->
+           <span class="{{ spacer_css }}"></span>
+        {% endif %}
+
+        {% if item['type']=='icon' and item['url'] %}
+           <!-- ICON -->
+           <img src="{{ item['url'] }}" width="32" height="32">
+        {% endif %}
+
+{% endfor %}

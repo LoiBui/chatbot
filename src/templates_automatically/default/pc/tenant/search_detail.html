@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_search.js?{{version|safe}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_group.js?{{version|safe}}"></script>
+<title>{{lang.VMSG_SITE_TITLE_SEARCH_DETAIL|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+
+ <link rel="stylesheet" href="/css/businessrule.css?{{version}}" type="text/css" />
+ <script type="text/javascript" >
+<!--
+    var each_page_cnt = 20;
+    var store;
+    var _group_model_list = '{{groups_list|escapejs}}';
+    var search_config_str = '{{ucfp.voinfo.vo.search_config|escapejs}}';
+
+// 各フィールドを設定
+function createFields()
+{
+	// search_name
+	var field_search_name = Ext.ucf.field.createPlaneText('search_name', '{{ucfp.voinfo.vo.search_name|escapejs}}', Ext.ucf.search_list.viewHelper);
+	field_search_name.render('FIELD_search_name');
+
+    // field_group
+	var field_group = Ext.ucf.field.createPlaneText('group', '', Ext.ucf.search_list.viewHelper);
+	field_group.render('FIELD_group');
+
+    // user_id
+	var field_user_id = Ext.ucf.field.createPlaneText('user_id', '', Ext.ucf.search_list.viewHelper);
+	field_user_id.render('FIELD_user_id');
+
+    // mail_address
+	var field_mail_address = Ext.ucf.field.createPlaneText('mail_address','', Ext.ucf.search_list.viewHelper);
+	field_mail_address.render('FIELD_mail_address');
+
+    // last_name
+	var field_last_name = Ext.ucf.field.createPlaneText('last_name', '', Ext.ucf.search_list.viewHelper);
+	field_last_name.render('FIELD_last_name');
+
+    // first_name
+	var field_first_name = Ext.ucf.field.createPlaneText('group', '', Ext.ucf.search_list.viewHelper);
+	field_first_name.render('FIELD_first_name');
+
+    // last_name_kana
+	var field_last_name_kana = Ext.ucf.field.createPlaneText('last_name_kana', '', Ext.ucf.search_list.viewHelper);
+	field_last_name_kana.render('FIELD_last_name_kana');
+
+    // first_name_kana
+	var field_first_name_kana = Ext.ucf.field.createPlaneText('first_name_kana', '', Ext.ucf.search_list.viewHelper);
+	field_first_name_kana.render('FIELD_first_name_kana');
+
+    // contact_postal_country
+	var field_contact_postal_country = Ext.ucf.field.createPlaneText('contact_postal_country', '', Ext.ucf.search_list.viewHelper);
+	field_contact_postal_country.render('FIELD_contact_postal_country');
+
+    // contact_postal_code
+	var field_contact_postal_code = Ext.ucf.field.createPlaneText('contact_postal_code', '', Ext.ucf.search_list.viewHelper);
+	field_contact_postal_code.render('FIELD_contact_postal_code');
+
+    // contact_postal_prefecture
+	var field_contact_postal_prefecture = Ext.ucf.field.createPlaneText('contact_postal_prefecture', '', Ext.ucf.search_list.viewHelper);
+	field_contact_postal_prefecture.render('FIELD_contact_postal_prefecture');
+
+    // contact_postal_city
+	var field_contact_postal_city = Ext.ucf.field.createPlaneText('contact_postal_city', '', Ext.ucf.search_list.viewHelper);
+	field_contact_postal_city.render('FIELD_contact_postal_city');
+}
+
+function goEditPage()
+{
+	location.href = '{{vurl|safe}}search/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}'
+}
+
+function goCopyNewRegist()
+{
+	location.href = '{{vurl|safe}}search/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}&{{config.QSTRING_TYPE2|safe}}={{config.EDIT_TYPE_COPYNEWREGIST|safe}}'
+}
+
+function deleteData()
+{
+	Ext.Msg.show({
+		icon: Ext.MessageBox.QUESTION,
+		title: '{{lang.CONFIRM|safe|escapejs}}',
+		msg: '{{lang.VMSG_CONFIRM_DELETE_SEARCH|safe|escapejs}}',
+		buttons: Ext.Msg.YESNO,
+		fn:function(btn,text){
+	    if (btn == 'yes'){
+					location.href = '{{vurl|safe}}search/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_DELETE|safe}}&{{config.QSTRING_STATUS|safe}}={{config.VC_CHECK|safe}}&token={{ucfp.data.token}}'
+	    }
+		}
+	});
+}
+
+function setParamSearch(search_config)
+{
+     var group_name = '';
+     Ext.each(jQuery.parseJSON(_group_model_list), function(item){
+        if (search_config.group_id==item.unique_id){
+            group_name = item.group_name;
+        }
+    });
+
+    $('#group').text(group_name);
+    $('#user_id').text(search_config.user_id);
+    $('#mail_address').text(search_config.mail_address);
+    $('#last_name').text(search_config.last_name);
+    $('#first_name').text(search_config.first_name);
+    $('#first_name_kana').text(search_config.first_name_kana);
+    $('#last_name_kana').text(search_config.last_name_kana);
+    $('#contact_postal_country').text(search_config.contact_postal_country);
+    $('#contact_postal_code').text(search_config.contact_postal_code);
+    $('#contact_postal_prefecture').text(search_config.contact_postal_prefecture);
+    $('#contact_postal_city').text(search_config.contact_postal_city);
+}
+
+function getSearchBaseParam(scond)
+{
+    var start = 0;
+    var search_config = Ext.decode(search_config_str);
+
+    // 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+    if(scond)
+    {
+        start = parseInt(scond['start'], 0);
+        //document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+        //Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+    }
+
+    var user_ids='';
+    var group_id = search_config.group_id;
+    Ext.each(jQuery.parseJSON(_group_model_list), function(item){
+        if (group_id==item.unique_id){
+            user_ids = item.belong_members;
+        }
+    });
+
+    var record_count = $('#total_records').val();
+    if (record_count=='') record_count='0';
+
+    var params = {start:start, limit: each_page_cnt
+                    ,'record_count': record_count
+                    ,sk_search_type:'fulltext'
+					,sk_keyword:''
+                    ,sk_group_id: search_config.group_id
+                    ,sk_user_ids: user_ids
+                    ,sk_user_id:search_config.user_id
+                    ,sk_mail_address:search_config.mail_address
+                    ,sk_last_name:search_config.last_name
+                    ,sk_first_name:search_config.first_name
+                    ,sk_first_name_kana:search_config.first_name_kana
+                    ,sk_last_name_kana:search_config.last_name_kana
+                    ,sk_contact_postal_country:search_config.contact_postal_country
+                    ,sk_contact_postal_code:search_config.contact_postal_code
+                    ,sk_contact_postal_prefecture:search_config.contact_postal_prefecture
+                    ,sk_contact_postal_city:search_config.contact_postal_city
+                };
+
+    return params;
+}
+
+function search(psc)
+{
+    if(search_config_str == '') return;
+
+    Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_POSTMESSAGE_LIST}}');
+    //show Grid
+    Ext.ucf.showSection($('.grid-search-result'));
+}
+
+function vh_user_id(value, p, record)
+{
+    var html = '';
+    html += '<a href="{{vurl}}user/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
+    return html;
+}
+
+function vh_basic(value, p, record)
+{
+    var html = '';
+    html += Ext.ucf.htmlEscape(value);
+    return html;
+}
+function vh_access_authority(value, p, record)
+{
+    var html = '';
+    var result = Ext.ucf.user.viewHelper('access_authority', value);
+    if(result.is_html){
+        html = result.value;
+    }else{
+        html = Ext.ucf.htmlEscape(result.value);
+    }
+    return html;
+}
+
+function vh_account_stop_flag(value, p, record)
+{
+    var disp = '';
+    for(i = 0; i < Ext.ucf.user.DatAccountStopFlag.length; i++)
+    {
+        if(Ext.ucf.user.DatAccountStopFlag[i][0] == value){
+            disp = Ext.ucf.htmlEscape(Ext.ucf.user.DatAccountStopFlag[i][1]);
+            break;
+        }
+    }
+    var html = '';
+    html += disp;
+//			html += Ext.ucf.getHiddenHtml('invalid_flag', record.get('unique_id'), value);
+    return html;
+}
+
+function vh_login_lock_flag(value, p, record)
+{
+    var disp = '';
+    for(i = 0; i < Ext.ucf.user.DatLoginLockFlag.length; i++)
+    {
+        if(Ext.ucf.user.DatLoginLockFlag[i][0] == value){
+            disp = Ext.ucf.htmlEscape(Ext.ucf.user.DatLoginLockFlag[i][1]);
+            break;
+        }
+    }
+    var html = '';
+    html += disp;
+//			html += Ext.ucf.getHiddenHtml('invalid_flag', record.get('unique_id'), value);
+    return html;
+}
+
+function vhSave(value, p, record)
+{
+    return '<input type="button" value="" class="btnSave" onclick="JavaScript:saveAccountInfo(\'' + value + '\');" />';
+}
+
+function vhEdit(value, p, record)
+{
+    return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
+}
+
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+
+	Ext.QuickTips.init();
+	Ext.ucf.init();
+
+	createFields();
+
+	var btnEdit = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_EDIT|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goEditPage();
+		}
+	});
+	btnEdit.render(Ext.get('btnEdit'));
+
+	var btnCopyNewRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_COPY|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goCopyNewRegist();
+		}
+	});
+	btnCopyNewRegist.render(Ext.get('btnCopyNewRegist'));
+
+
+	var btnDelete = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH_DELETE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			deleteData();
+		}
+	});
+	btnDelete.render(Ext.get('btnDelete'));
+
+	var btnBackClose = new Ext.Button({
+		text:''
+	});
+
+	if(history.length > 1)
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			history.back(-1);
+		};
+	}
+	else
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			window.close();
+		};
+	}
+	btnBackClose.render(Ext.get('btnBackClose'));
+
+    var btnSearch = new Ext.Button({
+		text:'',
+        type:'submit',
+        handler:search
+	});
+    btnSearch.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+	btnSearch.render(Ext.get('btnSearch'));
+
+    //load action config
+    if(search_config_str != ''){
+        var search_config = Ext.decode(search_config_str);
+        setParamSearch(search_config);
+    }
+
+      //==============================================
+    //setup SEARCH USERS
+    var AccountInfo = Ext.data.Record.create([
+								{name: 'unique_id',  type: 'string', mapping: 'unique_id'}
+								,{name: 'user_id',  type: 'string'}
+								,{name: 'employee_id',  type: 'string'}
+								,{name: 'lineworks_id',  type: 'string'}
+								,{name: 'line_id',  type: 'string'}
+								,{name: 'facebookworkplace_id',  type: 'string'}
+								,{name: 'facebook_id',  type: 'string'}
+								,{name: 'mail_address',  type: 'string'}
+								,{name: 'display_name',  type: 'string'}
+                                ,{name: 'birthday',  type: 'string'}
+	]);
+  store = new Ext.data.Store({
+			reader: new Ext.data.JsonReader({
+						idProperty: 'unique_id'
+						,root: 'records'
+						,totalProperty: 'all_count'
+						}, AccountInfo),
+	    url: '{{vurl}}user/search',
+			autoDestroy:true
+  });
+	// Storeのロード後のイベントハンドラを追加
+	store.on('load', function(s, records, options) {
+		Ext.Ajax.request({url: '{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_POSTMESSAGE_LIST}}',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+
+        //update total record
+        if (s.reader.jsonData.start==0){
+            $('#total_records').val(s.reader.jsonData.all_count);
+        }
+	});
+
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+
+    var sLimitCB = new Ext.ucf.searchLimitComboBox(
+                [each_page_cnt,50,100]
+                ,{
+                    'select':function(cb, record, index){
+                        each_page_cnt = cb.value;
+                        pagingBar.pageSize = each_page_cnt;
+                        search();
+                        }
+                });
+    each_page_cnt = sLimitCB.value;
+
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: store,
+		displayInfo: true,
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+				'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+
+	var toolBar = new Ext.Toolbar({
+		items:[btnReflesh]
+		});
+
+		var cm = new Ext.grid.ColumnModel({
+        columns: [
+		{
+            header: '{{lang.FLD_USERID}}',
+            dataIndex: 'user_id',
+            width: 120,
+            sortable: false,
+			renderer: vh_user_id
+        },{
+            header: '{{lang.FLD_USERNAME}}',
+            dataIndex: 'display_name',
+            width: 150,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_BIRTHDAY}}',
+            dataIndex: 'birthday',
+            width: 120,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_EMPLOYEEID}}',
+            dataIndex: 'employee_id',
+            width: 80,
+            hidden:true,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_LINEWORKSID}}',
+            dataIndex: 'lineworks_id',
+            width: 120,
+            hidden:true,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_LINEID}}',
+            dataIndex: 'line_id',
+            width: 120,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_FACEBOOKWORKPLACEID}}',
+            dataIndex: 'facebookworkplace_id',
+            width: 120,
+            hidden:true,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        },{
+            header: '{{lang.FLD_FACEBOOKID}}',
+            dataIndex: 'facebook_id',
+            width: 120,
+            hidden:true,
+            //sortable: false,
+            sortable: false,
+			renderer: vh_basic
+        }
+			]
+		});
+		var grid = new Ext.grid.EditorGridPanel({
+      store: store,
+//      width: 600,
+      height: 400,
+      region:'center',
+			clicksToEdit: 1,
+			columnLines:true,
+			loadMask:true,
+			viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+            stripeRows: true,
+			bbar: pagingBar,
+			tbar: toolBar,
+			cm: cm
+    });
+		// パネルにユーザ一覧グリッドをセット
+    var layout = new Ext.Panel({
+      collapsible: true,
+      title: '{{lang.VMSG_USER_LIST}}',
+      layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+      layoutConfig: {
+          columns: 1
+      },
+      height: 400,
+      items: [grid]
+    });
+    layout.render(Ext.get('GridList'));
+
+    //========================================
+
+    Ext.ucf.initShowOrHideSections();
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_POSTMESSAGE_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'POSTMESSAGE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}postmessage/" >{{lang.VMSG_POSTMESSAGE_FUNC}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+{#{% if 'ADMIN' in login.access_authority: %}#}
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SEARCH_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'SEARCH' %}current open{% else %}close{% endif %}"><a href="{{vurl}}search/" >{{lang.VMSG_SEARCH_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'SEARCH' %}current open{% else %}close{% endif %}"><a href="{{vurl}}search/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_SEARCH_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_TEMPLATE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}template/" >{{lang.VMSG_TEMPLATE_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'TEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}template/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_TEMPLATE_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<!-- leftMenu menu02//start -->
+  <div class="menu02">
+    <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+    <!-- leftMenu innerArea//start -->
+    <div class="innerArea">
+      <p class="ttl">{{lang.VMSG_USER_CONFIG}}</p>
+      <div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+      <div class="folderMenu">
+        <ul>
+          <li class="close"><a href="{{vurl}}user/" >{{lang.VMSG_USER_LIST}}</a></li>
+          <li class="close"><a href="{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_USER_ADD}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- leftMenu innerArea//end -->
+    <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+  </div>
+<!-- leftMenu menu02//end -->
+{#{% endif %}#}
+
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/search.png"></span>
+<p class="ttl">{{lang.VMSG_SITE_TITLE_SEARCH_DETAIL|safe}}</p>
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+            <input type="hidden" value="0" id="total_records"/>
+			<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+			<tr>
+			<td>
+			<p class="style1">{{lang.EXP_SEARCH_DETAIL|safe}}</p>
+			<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
+			<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_SEARCH_NAME|safe}}&nbsp;<font color="red">*</font></td>
+			<td width="80%" align="left" class="style3" colspan="3">
+			<div id="FIELD_search_name" class="field" ></div>
+			</td>
+			</tr>
+
+            <tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.VMSG_CONDITION_LIST|safe}}</div>
+			</td>
+			</tr>
+
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_GROUPNAME}}</td>
+            <td width="80%" align="left" class="style3" colspan="3">
+                <div id="FIELD_group" class="field" ></div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_USERID}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_user_id" class="field" ></div>
+            </td>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_MAILADDRESS}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_mail_address" class="field" ></div>
+            </td>
+            </tr>
+
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_LASTNAME}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_last_name" class="field" ></div>
+            </td>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FIRSTNAME}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_first_name" class="field" ></div>
+            </td>
+            </tr>
+
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_LASTNAME_KANA}}&nbsp;</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_last_name_kana" class="field" ></div>
+            </td>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FIRSTNAME_KANA}}&nbsp;</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_first_name_kana" class="field" ></div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_COUNTRY}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_contact_postal_country" class="field" ></div>
+            </td>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CODE}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_contact_postal_code" class="field" ></div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+            </tr>
+            <tr>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_PREFECTURE}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_contact_postal_prefecture" class="field" ></div>
+            </td>
+            <td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CITY}}</td>
+            <td width="30%" align="left" class="style3">
+            <div id="FIELD_contact_postal_city" class="field" ></div>
+            </td>
+            </tr>
+
+            <!-- RESULT SEARCH -->
+             <tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+				<div class="section_area_title main_content_title2 grid-search-result" section_show_hide_area_id="AREA_search_result_config" style="cursor:pointer;"><a name="USER_SEARCH_RESULT">{{lang.USER_SEARCH_RESULT|safe}}</a><img class="section_arrow_img" /></div>
+				</td>
+			</tr>
+
+            <tr>
+				<td colspan="4" id="AREA_search_result_config">
+			        <div id="GridList"></div>
+				</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr align="center">
+			<td colspan="4" align="center">
+				<table  align="center">
+					<tr>
+                        <td>
+							<div id="btnSearch"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnEdit"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnCopyNewRegist"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnDelete"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnBackClose"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+			</td>
+			</tr>
+			</table>
+
+    </td>
+  </tr>
+
+</table>
+</div>
+
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

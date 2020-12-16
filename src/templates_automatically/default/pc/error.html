@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<!--
+<link rel="start" href="/" title="">
+<link rel="home" href="/home.html" title="">
+-->
+<link rel="shortcut icon" href="/images/oem/{{oem_company_code}}/favicon.ico">
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<!-- BASE -->
+{#
+<link rel="stylesheet" href="/css/common2.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style2.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base2.css?{{version}}" type="text/css" />
+
+<script type="text/javascript" src="{{vscripturl}}jquery.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.easing.js"></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}init_backstretch.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+	var _is_fullscreen = false;	// true…初期表示でページ下部のブラインドを非表示にする
+	var _is_hide_blind = false;	// true…そもそもブラインドを出さない（閉じるのではなく出さない）
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+
+// 背景画像URL配列を作成
+{% if not BgIsExistCustom: %}
+var _bgpicary = ['/images/bg/01.jpg', '/images/bg/06.jpg', '/images/bg/09.jpg', '/images/bg/07.jpg', '/images/bg/04.jpg'];
+{% else: %}
+var _bgpicary = [];
+{%- for idx in BgTypeIdxAry:-%}
+_bgpicary.push('{{vurl}}picture/mainbg{{idx}}');
+{% endfor -%};
+{% endif %}
+//-->
+</script>
+
+
+<!-- <title>{{lang.VMSG_SITE_TITLE_ERROR}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_ERROR}} - {{lang.FILEUP_HTML_TITLE}}</title>
+{#-
+<!--
+<script type="text/javascript">
+</script>
+-->
+-#}
+<script type="text/javascript" >
+$(document).ready(function(){	
+//	createLanguageSelectBox('languageselectbox', jQuery.parseJSON('{{language_list|escapejs}}'), '{{language|escape}}');
+});
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="loginbox">
+{% if not BgIsExistCustom: %}
+<h1><img src="/images/login_logo.png" alt="Sateraito Office"></h1>
+{% endif %}
+</div><!-- /#loginbox end -->
+
+<div id="mypagebox" >
+<h2><em><span class="ttl">{{lang.VMSG_MSG_ERROR}}</span>
+<span class="info"></span></em></h2>
+
+<p class="attention2">
+{% if error_info %}
+{{ error_info }}
+{% endif %}
+</p>
+
+<script type="text/javascript" >
+if(history.length > 1){
+	document.write('<a href="JavaScript:history.back(-1);" class="btn_left" >{{lang.VMSG_BACK}}</a>');
+}
+</script>
+</div><!-- /#mypagebox end -->
+
+{#
+<div id="righttopbar">
+<p class="title">{{lang.VMSG_LANGUAGE|safe}}：</p>
+<p class="languageboxarea" >
+<select name="language" id="languageselectbox" >
+</select>
+</p>
+</div><!-- /#miniprbox end -->
+
+
+#}
+<div id="bottombox">
+<ul id="btn_list">
+<li><a href="#" id="toggle_fullscreen"><img src="/images/btn_fullscreen_enable.png" alt="full screen"></a></li>
+{% if not BgNoUse:%}
+<li><a href="#" id="arrow_prev"><img src="/images/btn_leftarrow.png" alt="prev"></a></li><li><a href="#" id="arrow_next"><img src="/images/btn_rightarrow.png" alt="next"></a></li>
+{% endif %}
+</ul>
+<div id="newsbox">
+<ul>
+{% if footer_message and footer_message != '' %}
+<li>{{footer_message|hyperlink_linebreaksbr}}</li>
+{% endif %}
+<li>&nbsp;</li>
+</ul>
+</div><!-- /#newsbox end -->
+</div><!-- /#bottombox end -->
+
+<div id="footer">
+<p id="copyright">Copyright&copy;All rights reserved by Sateraito Office, Inc.</p>
+
+
+</div>
+
+</div><!-- /#wrapper end -->
+</body>
+</html>

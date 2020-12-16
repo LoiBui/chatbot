@@ -1,0 +1,54 @@
+<div class="mdRGT07MsgTlt3 w100pcent ha">
+    <!-- HEADER -->
+    {% if template['header'] and template['header']['contents'] %}
+        {% set layout_header_css = 'item-block' %}
+        {% set separator_css = 'separator-vertical' %}
+        {% set spacer_css = 'spacer-vertical' %}
+        {% if template['header']['layout'] and template['header']['layout']=='horizontal' %}
+            {% set layout_header_css = '' %}
+            {% set separator_css = 'separator-horizontal' %}
+            {% set spacer_css = 'spacer-horizontal' %}
+        {% endif %}
+
+        <div class="header {{ class_mess }} {{ layout_header_css }}">
+        <!-- CONTENT -->
+        {{ page_self.getTemplateRender('preview_content_flex.html', page_self._design_type, {'contents':template['header']['contents'],'separator_css':separator_css,'spacer_css':spacer_css})|safe }}
+        </div>
+    {% endif %}
+
+    <!-- BODY -->
+    {% if template['body'] and template['body']['contents'] %}
+        {% set layout_body_css = 'item-block' %}
+        {% set separator_css = 'separator-vertical' %}
+        {% set spacer_css = 'spacer-vertical' %}
+        {% if template['body']['layout'] and template['body']['layout']=='horizontal' %}
+            {% set layout_body_css = '' %}
+            {% set separator_css = 'separator-horizontal' %}
+            {% set spacer_css = 'spacer-horizontal' %}
+        {% endif %}
+        <div class="mdRGT07MsgTextInner {{ class_mess }} {{ layout_body_css }}">
+            <!-- HERO -->
+            {% if template['hero'] and template['hero']['type']=='image' and template['hero']['url']!='' %}
+                <img src="{{ template['hero']['url'] }}" class="item-image">
+            {% endif %}
+            <!-- CONTENT -->
+            {{ page_self.getTemplateRender('preview_content_flex.html', page_self._design_type, {'contents':template['body']['contents'],'separator_css':separator_css,'spacer_css':spacer_css})|safe }}
+        </div>
+    {% endif %}
+
+    <!-- FOOTER -->
+    {% if template['footer'] and template['header']['contents'] %}
+        {% set layout_footer_css = 'item-block' %}
+        {% set separator_css = 'separator-vertical' %}
+        {% set spacer_css = 'spacer-vertical' %}
+        {% if template['footer']['layout'] and template['footer']['layout']=='horizontal' %}
+            {% set layout_footer_css = '' %}
+            {% set separator_css = 'separator-horizontal' %}
+            {% set spacer_css = 'spacer-horizontal' %}
+        {% endif %}
+        <div class="footer {{ class_mess }} {{ layout_footer_css }}">
+            <!-- CONTENT -->
+            {{ page_self.getTemplateRender('preview_content_flex.html', page_self._design_type, {'contents':template['footer']['contents'],'separator_css':separator_css,'spacer_css':spacer_css})|safe }}
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,6 @@
+﻿[2020/01/30 18:49:02] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2020/01/30 18:49:02] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\sateraito_message.py
+[2020/01/30 18:49:02] Expand Jinja Templates include files...
+[2020/01/30 18:49:02] Src:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates
+[2020/01/30 18:49:02] Dst:C:\Users\chun\PycharmProjects\sateraito-chatmagazine\src\templates_automatically
+[2020/01/30 18:49:04] Expand Jinja Templates include files fin.

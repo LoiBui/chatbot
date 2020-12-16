@@ -1,0 +1,9 @@
+﻿[2020/08/07 14:27:31] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2020/08/07 14:27:32] Create message python file...:C:\Users\chun\PycharmProjects\sateraito-fileup\src\sateraito_message.py
+[2020/08/07 14:27:32] [Compile Start]lang\default.js
+[2020/08/07 14:27:34] [Compile Start]lang\ja.js
+[2020/08/07 14:27:36] [Compile Start]lang\en.js
+[2020/08/07 14:27:38] Expand Jinja Templates include files...
+[2020/08/07 14:27:38] Src:C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates
+[2020/08/07 14:27:38] Dst:C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates_automatically
+[2020/08/07 14:27:40] Expand Jinja Templates include files fin.

@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[商品情報管理]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+商品情報管理
+
+@version 2014-01-22
+
+-->
+
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">
+	商品情報管理
+</div>
+
+<table class="detail" style="width:99%">
+
+	<tr>
+		<td class="detail_name" width="20%">商品分類&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" >
+		<select name="item_type" class="mandatory">
+			<option value="">選択して下さい</option>
+			<optgroup label="衣料品">
+				<option value="紳士服・洋品">紳士服・洋品</option>
+				<option value="婦人服・洋品">婦人服・洋品</option>
+				<option value="子供服・洋品">子供服・洋品</option>
+				<option value="その他衣料品">その他衣料品</option>
+			</optgroup>
+			<optgroup label="雑貨">
+				<option value="化粧品">化粧品</option>
+				<option value="美術・宝飾・貴金属">美術・宝飾・貴金属</option>
+				<option value="スポーツ用品">スポーツ用品</option>
+				<option value="人形">人形</option>
+				<option value="その他雑貨">その他雑貨</option>
+			</optgroup>
+			<optgroup label="食品・飲料">
+				<option value="生鮮食品">生鮮食品</option>
+				<option value="菓子">菓子</option>
+				<option value="惣菜">惣菜</option>
+				<option value="その他食料品">その他食料品</option>
+			</optgroup>
+			<optgroup label="家電・AV機">
+				<option value="カメラ">カメラ</option>
+				<option value="テレビ・レコーダー">テレビ・レコーダー</option>
+				<option value="オーディオ">オーディオ</option>
+				<option value="携帯電話">携帯電話</option>
+				<option value="生活家電">生活家電</option>
+				<option value="キッチン・家事">キッチン・家事</option>
+				<option value="季節・照明">季節・照明</option>
+				<option value="理美容家電">理美容家電</option>
+			</optgroup>
+			<optgroup label="印刷・同関連品">
+				<option value="福岡県">福岡県</option>
+				<option value="鹿児島県">鹿児島県</option>
+				<option value="沖縄県">沖縄県</option>
+			</optgroup>
+			<optgroup label="工業用品">
+				<option value="化学工業製品">化学工業製品</option>
+				<option value="石油製品・石炭製品">石油製品・石炭製品</option>
+				<option value="プラスチック製品">プラスチック製品</option>
+				<option value="ゴム製品">ゴム製品</option>
+				<option value="鉄鋼">鉄鋼</option>
+				<option value="非鉄金属">非鉄金属</option>
+				<option value="金属製品">金属製品</option>
+				<option value="木材">木材</option>
+				<option value="その他工業製品">その他工業製品</option>
+			</optgroup>
+		</select></td>
+		<td class="detail_name" width="20%">商品管理番号&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%">
+		<input name="item_id" sequence="monthly" >
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">商品コード&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" maxlength="13" style="width:50%">
+		<input name="item_barcode" sequence="monthly" >
+		&nbsp;<font color="blue">13桁あるいは8桁のＪＡＮコート</font></td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">商品名&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" >
+			<input name="item_name" sequence="monthly" style="width:60%">&nbsp;<font color="blue">※漢字、全角カナ英数を入力ください</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">商品名（カナ）&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" style="width:60%">
+			<input name="item_name_kana" sequence="monthly" style="width:60%">&nbsp;<font color="blue">※全角カタカナを入力ください</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">型番</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_model_number" style="width:60%" class=""/>&nbsp;<font color="blue">例：G3-1234-W</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">サイズ</td>
+		<td class="detail_value" width="30%" colspan="3" style="width:60%">
+			<label>縦&nbsp;</label><input name="item_height" class="number" width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>横&nbsp;</label><input name="item_width" class="number"　width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>奥行き&nbsp;</label><input name="item_depth" class="number"　width="10%" style="width:10%">&nbsp;&nbsp;&nbsp;
+			<label>単位&nbsp;</label><select name="item_unit" width="10%" style="width:10%">
+				<option value="mm">mm</option>
+				<option value="cm">cm</option>
+				<option value="m">m</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">重量</td>
+		<td class="detail_value" width="30%">
+			<input name="item_weight" width="30%" class="number"/>&nbsp;グラム
+		</td>
+		<td class="detail_name" width="20%">産地</td>
+		<td class="detail_value" width="30%">
+			<select name="item_made_in" class="mandatory">
+			<option value="">選択して下さい</option>
+			<option value="日本">日本</option>
+			<option value="中国">中国</option>
+			<option value="韓国">韓国</option>
+			<option value="ベトナム">ベトナム</option>
+			<option value="スペイン">スペイン</option>
+			<option value="フランス">フランス</option>
+			<option value="イタリヤ">イタリヤ</option>
+			<option value="イギリス">イギリス</option>
+			<option value="アメリカ">アメリカ</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">ブランド</td>
+		<td class="detail_value" width="30%">
+			<input name="item_brand" style="width:60%" class=""/>
+		</td>
+		<td class="detail_name" width="20%">色</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_color" style="width:60%" class=""/>&nbsp;<font color="blue">例:ブラウン</font>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">メーカー</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_maker" style="width:60%" class=""/>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">仕入先</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<input name="item_supplier" style="width:60%" class=""/>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">原価</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_cost" class="number"/>&nbsp;円
+		</td>
+		<td class="detail_name" width="20%">基本売価</td>
+		<td class="detail_value" width="30%" >
+			<input name="item_price" class="number"/>&nbsp;円
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">商品説明</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<textarea name="item_comment" class="richtext" style="width:100%" rows="20"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_value" width="20%">&nbsp;</td>
+		<td class="detail_value" width="80%" colspan="3"><font color="blue">(商品に関する画像を添付ファイルでアップロードして、ここに埋め込むことができます。)</font></td>
+	</tr>
+</table>
+
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140603043902izuc2PDJDZRAYWtO\",\"name\":\"商品情報管理1\",\"sections\":[{\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\",\"secname\":\"商品情報管理1\",\"column_cof\":2,\"controls\":[{\"control_id\":\"ctr_id-1401750740549v0vhqG0Jhw9e6pnw\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急 \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401750740555bM0ax5sprJ8sydyi\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740550BOiqvfRjE3vETejL\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740553cStJe6g0yCh2CwwU\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}],\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}}},{\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401750863934Rd29istZTrQu27cq\",\"controls\":[{\"control_id\":\"ctr_id-14017508772148UtNx84O0178ByzP\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"secname\":\"商品情報管理\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-14017508897514YiPMyXQJQJo7VoZ\",\"controls\":[{\"control_id\":\"ctr_id-1401750740553Nko5h8sRNVnosY8h\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"商品分類\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_type\",\"style\":\"\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"選択して下さい\",\"value\":\"\"},{\"text\":\"紳士服・洋品\",\"value\":\"紳士服・洋品\"},{\"text\":\"婦人服・洋品\",\"value\":\"婦人服・洋品\"},{\"text\":\"子供服・洋品\",\"value\":\"子供服・洋品\"},{\"text\":\"その他衣料品\",\"value\":\"その他衣料品\"},{\"text\":\"化粧品\",\"value\":\"化粧品\"},{\"text\":\"美術・宝飾・貴金属\",\"value\":\"美術・宝飾・貴金属\"},{\"text\":\"スポーツ用品\",\"value\":\"スポーツ用品\"},{\"text\":\"人形\",\"value\":\"人形\"},{\"text\":\"その他雑貨\",\"value\":\"その他雑貨\"},{\"text\":\"生鮮食品\",\"value\":\"生鮮食品\"},{\"text\":\"菓子\",\"value\":\"菓子\"},{\"text\":\"惣菜\",\"value\":\"惣菜\"},{\"text\":\"その他食料品\",\"value\":\"その他食料品\"},{\"text\":\"カメラ\",\"value\":\"カメラ\"},{\"text\":\"テレビ・レコーダー\",\"value\":\"テレビ・レコーダー\"},{\"text\":\"オーディオ\",\"value\":\"オーディオ\"},{\"text\":\"携帯電話\",\"value\":\"携帯電話\"},{\"text\":\"生活家電\",\"value\":\"生活家電\"},{\"text\":\"キッチン・家事\",\"value\":\"キッチン・家事\"},{\"text\":\"季節・照明\",\"value\":\"季節・照明\"},{\"text\":\"理美容家電\",\"value\":\"理美容家電\"},{\"text\":\"福岡県\",\"value\":\"福岡県\"},{\"text\":\"鹿児島県\",\"value\":\"鹿児島県\"},{\"text\":\"沖縄県\",\"value\":\"沖縄県\"},{\"text\":\"化学工業製品\",\"value\":\"化学工業製品\"},{\"text\":\"石油製品・石炭製品\",\"value\":\"石油製品・石炭製品\"},{\"text\":\"プラスチック製品\",\"value\":\"プラスチック製品\"},{\"text\":\"ゴム製品\",\"value\":\"ゴム製品\"},{\"text\":\"鉄鋼\",\"value\":\"鉄鋼\"},{\"text\":\"非鉄金属\",\"value\":\"非鉄金属\"},{\"text\":\"金属製品\",\"value\":\"金属製品\"},{\"text\":\"木材\",\"value\":\"木材\"},{\"text\":\"その他工業製品\",\"value\":\"その他工業製品\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-14017508897514YiPMyXQJQJo7VoZ\"},{\"control_id\":\"ctr_id-1401750740553B0eXkbzsysIbCbNa\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"商品管理番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_id\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\",\"controls\":[{\"control_id\":\"ctr_id-1401750740553wIFXKyxa22fCvCwK\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"商品コード\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"  13桁あるいは8桁のＪＡＮコート\",\"name\":\"item_barcode\",\"style\":\"width:25%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553cuL2765u9wFcI66T\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"商品名\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" ※漢字、全角カナ英数を入力ください\",\"name\":\"item_name\",\"style\":\"width:60%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553Ca7Cmx5x6DOb9jfG\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"商品名（カナ）\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" ※全角カタカナを入力ください\",\"name\":\"item_name_kana\",\"style\":\"width:60%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-1401750740553OYXIZptIohnwHEnr\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"型番\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 例：G3-1234-W\",\"name\":\"item_model_number\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"},{\"control_id\":\"ctr_id-140175150205134wGCIf2Kny6OJAg\",\"map_type_control\":\"boxgroup\",\"pos_col\":1,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"サイズ\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_item\",\"style\":\"width:60%\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"縦\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_height\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"横\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_width\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"奥行き\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_depth\",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"プルダウン\",\"config\":{\"items\":[{\"text\":\"mm\",\"value\":\"mm\"},{\"text\":\"cm\",\"value\":\"cm\"},{\"text\":\"m\",\"value\":\"m\"}],\"attributes\":{\"lblname\":\"単位\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_unit\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"map_type_control\":\"select\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401750943598av4bCpK23fCx1AFL\"}]},{\"secname\":\"div2\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\",\"controls\":[{\"control_id\":\"ctr_id-14017507405542afHxBde0XFPdxhq\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"重量\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" グラム\",\"name\":\"item_weight\",\"style\":\"width:60%\",\"class\":\"number\",\"new_attrs\":\"width=30%;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\"},{\"control_id\":\"ctr_id-1401750740554IYGNiAvWItBtDnJQ\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"ブランド\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_brand\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740554K2aQ7a7vnv4XQvxI\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"産地\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_made_in\",\"style\":\"\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"選択して下さい\",\"value\":\"\"},{\"text\":\"日本\",\"value\":\"日本\"},{\"text\":\"中国\",\"value\":\"中国\"},{\"text\":\"韓国\",\"value\":\"韓国\"},{\"text\":\"ベトナム\",\"value\":\"ベトナム\"},{\"text\":\"スペイン\",\"value\":\"スペイン\"},{\"text\":\"フランス\",\"value\":\"フランス\"},{\"text\":\"イタリヤ\",\"value\":\"イタリヤ\"},{\"text\":\"イギリス\",\"value\":\"イギリス\"},{\"text\":\"アメリカ\",\"value\":\"アメリカ\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401751735960rFG66Jc4eHnGAXmg\"},{\"control_id\":\"ctr_id-14017507405541z396fOtaAsqUVIf\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"色\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#0000ff\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 例:ブラウン\",\"name\":\"item_color\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751883941QGVfL8NBPwSzv5re\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554hMfB16N4MFxCR6Lp\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"メーカー\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_maker\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"},{\"control_id\":\"ctr_id-1401750740554sHJtRz7L5dEQAWUc\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"仕入先\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_supplier\",\"style\":\"width:60%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]},{\"secname\":\"div5\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554Ha7Jen6m76J8q3Aw\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"原価\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 円\",\"name\":\"item_cost\",\"style\":\"width:85%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\"},{\"control_id\":\"ctr_id-1401750740554hvM4YEHEfVdWYVNH\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"基本売価\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 円\",\"name\":\"item_price\",\"style\":\"width:85%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401751933637OTvKtyxNRpLP8cOU\"}]},{\"secname\":\"div6\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"section_id\":\"sec_id-1401752040373oHMxxza8rB4d5iTE\",\"controls\":[{\"control_id\":\"ctr_id-1401750740555AyvmxcwjB55wxU0u\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"商品説明\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"item_comment\",\"style\":\"width:100%\",\"class\":\"richtext\",\"new_attrs\":\"rows=20;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"20\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401750740556uSV3dJyyIF3m98Jd\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140603043902izuc2PDJDZRAYWtO\",\"name\":\"商品情報管理1\",\"controls\":[{\"control_id\":\"ctr_id-1401750740554i8qDUOR9Go67YHfC\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"item_height\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_height\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401750740554yP1wgv0mUtgPKWAm\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"name\":\"item_depth\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_depth\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-1401750740554F4d4tyc2hebCicQt\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"item_width\",\"class\":\"number\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_width\"}},\"map_type_control\":\"text\",\"tag\":\"input\"},{\"control_id\":\"ctr_id-14017507405540G0Rh8y9uxxeJ04s\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"name\":\"item_unit\",\"width\":\"10%\",\"style\":\"width:10%\",\"new_attrs\":\"width=10%;\",\"lblname\":\"item_unit\",\"class\":\"\"},\"items\":[{\"value\":\"mm\",\"text\":\"mm\"},{\"value\":\"cm\",\"text\":\"cm\"},{\"value\":\"m\",\"text\":\"m\"}]},\"map_type_control\":\"select\",\"tag\":\"select\"}]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+商品情報管理
+
+@version 2014-01-22
+
+-->
+<div class="container">
+  <ul class="detail" style="width:99%">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="main_content_title2">
+  商品情報管理
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">商品分類&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <select name="item_type" class="mandatory" style="width:100%">
+          <option value="">選択して下さい</option>
+          <optgroup label="衣料品">
+            <option value="紳士服・洋品">紳士服・洋品</option>
+            <option value="婦人服・洋品">婦人服・洋品</option>
+            <option value="子供服・洋品">子供服・洋品</option>
+            <option value="その他衣料品">その他衣料品</option>
+          </optgroup>
+          <optgroup label="雑貨">
+            <option value="化粧品">化粧品</option>
+            <option value="美術・宝飾・貴金属">美術・宝飾・貴金属</option>
+            <option value="スポーツ用品">スポーツ用品</option>
+            <option value="人形">人形</option>
+            <option value="その他雑貨">その他雑貨</option>
+          </optgroup>
+          <optgroup label="食品・飲料">
+            <option value="生鮮食品">生鮮食品</option>
+            <option value="菓子">菓子</option>
+            <option value="惣菜">惣菜</option>
+            <option value="その他食料品">その他食料品</option>
+          </optgroup>
+          <optgroup label="家電・AV機">
+            <option value="カメラ">カメラ</option>
+            <option value="テレビ・レコーダー">テレビ・レコーダー</option>
+            <option value="オーディオ">オーディオ</option>
+            <option value="携帯電話">携帯電話</option>
+            <option value="生活家電">生活家電</option>
+            <option value="キッチン・家事">キッチン・家事</option>
+            <option value="季節・照明">季節・照明</option>
+            <option value="理美容家電">理美容家電</option>
+          </optgroup>
+          <optgroup label="印刷・同関連品">
+            <option value="福岡県">福岡県</option>
+            <option value="鹿児島県">鹿児島県</option>
+            <option value="沖縄県">沖縄県</option>
+          </optgroup>
+          <optgroup label="工業用品">
+            <option value="化学工業製品">化学工業製品</option>
+            <option value="石油製品・石炭製品">石油製品・石炭製品</option>
+            <option value="プラスチック製品">プラスチック製品</option>
+            <option value="ゴム製品">ゴム製品</option>
+            <option value="鉄鋼">鉄鋼</option>
+            <option value="非鉄金属">非鉄金属</option>
+            <option value="金属製品">金属製品</option>
+            <option value="木材">木材</option>
+            <option value="その他工業製品">その他工業製品</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="detail_name">商品管理番号&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_id" sequence="monthly" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">商品コード&nbsp;<font color="red">*</font></div>
+      <div class="detail_value" style="width:100%">
+        <input type="text" name="item_barcode" sequence="monthly" style="width:100%">
+      </div>
+      <div><font color="blue">13桁あるいは8桁のＪＡＮコート</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">商品名&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_name" sequence="monthly" style="width:100%">
+      </div>
+      <div><font color="blue">※漢字、全角カナ英数を入力ください</font></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">商品名（カナ）&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="item_name_kana" sequence="monthly" style="width:100%"></div>
+      <div>
+        <font color="blue">※全角カタカナを入力ください</font>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">型番</div>
+      <div class="detail_value">
+        <input type="text" name="item_model_number" style="width:100%"/></div>
+      <div>
+        <font color="blue">例：G3-1234-W</font>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">サイズ</div>
+      <div class="detail_value">
+        <label>縦</label><br><input type="text" name="item_height" class="number" style="width:100%"><br>
+        <label>横</label><br><input type="text" name="item_width" class="number" style="width:100%"><br>
+        <label>奥行き</label><br><input type="text" name="item_depth" class="number" style="width:100%"><br>
+        <label>単位</label>
+        <select name="item_unit" style="width:100%"><br>
+          <option value="mm">mm</option>
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重量</div>
+      <div class="detail_value">
+        <input type="text" name="item_weight" class="number" style="width:80%"/>&nbsp;グラム
+      </div>
+      <div class="detail_name">産地</div>
+      <div class="detail_value">
+        <select name="item_made_in" class="mandatory" style="width:100%">
+          <option value="">選択して下さい</option>
+          <option value="日本">日本</option>
+          <option value="中国">中国</option>
+          <option value="韓国">韓国</option>
+          <option value="ベトナム">ベトナム</option>
+          <option value="スペイン">スペイン</option>
+          <option value="フランス">フランス</option>
+          <option value="イタリヤ">イタリヤ</option>
+          <option value="イギリス">イギリス</option>
+          <option value="アメリカ">アメリカ</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">ブランド</div>
+      <div class="detail_value">
+        <input type="text" name="item_brand" style="width:100%"/>
+      </div>
+      <div class="detail_name">色</div>
+      <div class="detail_value">
+        <input type="text" name="item_color" style="width:100%"/>
+
+        <div>
+          <font color="blue">例:ブラウン</font>
+        </div>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">メーカー</div>
+      <div class="detail_value">
+        <input type="text" name="item_maker" style="width:100%" />
+      </div>
+    </li>
+    <li class="row">
+      <td class="detail_name">仕入先</td>
+      <td class="detail_value">
+        <input type="text" name="item_supplier" style="width:100%" />
+      </td>
+    </li>
+    <li class="row">
+      <div class="detail_name">原価</div>
+      <div class="detail_value">
+        <input type="text" name="item_cost" class="number" style="width:100%"/>&nbsp;円
+      </div>
+      <div class="detail_name">基本売価</div>
+      <div class="detail_value">
+        <input type="text" name="item_price" class="number" style="width:100%"/>&nbsp;円
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">商品説明</div>
+      <div class="detail_value">
+        <textarea name="item_comment" class="richtext" style="width:98%" rows="20"></textarea>
+      </div>
+    </li>
+    <li class="row">
+
+      <div><font color="blue">(商品に関する画像を添付ファイルでアップロードして、ここに埋め込むことができます。)</font>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

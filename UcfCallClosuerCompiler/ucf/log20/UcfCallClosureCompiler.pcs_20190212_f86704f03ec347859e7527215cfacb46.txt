@@ -1,0 +1,48 @@
+﻿[2019/02/12 15:06:31] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2019/02/12 15:06:31] Create message python file...:c:\Users\chun\PycharmProjects\sateraito-notification_20190206\src\sateraito_message.py
+[2019/02/12 15:06:31] [Compile Start]ajax.js
+[2019/02/12 15:06:33] [Compile Start]common.js
+[2019/02/12 15:06:36] [Compile Start]jkmegamenu.js
+[2019/02/12 15:06:38] [Compile Start]jquery.crossSelect.js
+[2019/02/12 15:06:41] [Compile Start]jquery.blockUI.js
+[2019/02/12 15:06:43] [Compile Start]json.js
+[2019/02/12 15:06:45] [Compile Start]ucfext.file.js
+[2019/02/12 15:06:47] [Compile Start]ucfext.js
+[2019/02/12 15:06:49] [Compile Start]ucfext_operator.js
+[2019/02/12 15:06:51] [Compile Start]ucfext_acs.js
+[2019/02/12 15:06:53] [Compile Start]ucfext_acslog.js
+[2019/02/12 15:06:54] [Compile Start]ucfext_operationlog.js
+[2019/02/12 15:06:56] [Compile Start]ucfext_config.js
+[2019/02/12 15:06:58] [Compile Start]ucfext_task.js
+[2019/02/12 15:07:00] [Compile Start]ucfext_field.js
+[2019/02/12 15:07:02] [Compile Start]ucfext_user.js
+[2019/02/12 15:07:03] [Compile Start]ucfext_group.js
+[2019/02/12 15:07:05] [Compile Start]ucfext_businessrule.js
+[2019/02/12 15:07:07] [Compile Start]ucfext_masterdata.js
+[2019/02/12 15:07:09] [Compile Start]ucfext_api.js
+[2019/02/12 15:07:11] [Compile Start]ucfext.strength.js
+[2019/02/12 15:07:13] [Compile Start]xmleditor.js
+[2019/02/12 15:07:15] [Compile Start]init_backstretch.js
+[2019/02/12 15:07:17] [Compile Start]ext\PasswordStrength.js
+[2019/02/12 15:07:19] [Compile Start]ext\PopupGroupList.js
+[2019/02/12 15:07:20] [Compile Start]ext\PopupOrgUnitList.js
+[2019/02/12 15:07:22] [Compile Start]ext\SecurityKeyboard.js
+[2019/02/12 15:07:24] [Compile Start]ext\ucf_element_selector.js
+[2019/02/12 15:07:26] [Compile Start]channels\basechannel.js
+[2019/02/12 15:07:28] [Compile Start]channels\lineworksbotchannel.js
+[2019/02/12 15:07:30] [Compile Start]channels\facebookworkplacebotchannel.js
+[2019/02/12 15:07:32] [Compile Start]channels\sateraitoaddonchannel.js
+[2019/02/12 15:07:34] [Compile Start]channels\nextsetaddonchannel.js
+[2019/02/12 15:07:36] [Compile Start]channels\restchannel.js
+[2019/02/12 15:07:38] [Compile Start]channels\facebookbotchannel.js
+[2019/02/12 15:07:40] [Compile Start]channels\gmailchannel.js
+[2019/02/12 15:07:42] [Compile Start]channels\linebotchannel.js
+[2019/02/12 15:07:44] [Compile Start]channels\mailchannel.js
+[2019/02/12 15:07:47] [Compile Start]channels\chatworkbotchannel.js
+[2019/02/12 15:07:49] [Compile Start]lang\default.js
+[2019/02/12 15:07:50] [Compile Start]lang\ja.js
+[2019/02/12 15:07:52] [Compile Start]lang\en.js
+[2019/02/12 15:07:54] Expand Jinja Templates include files...
+[2019/02/12 15:07:54] Src:c:\Users\chun\PycharmProjects\sateraito-notification_20190206\src\templates
+[2019/02/12 15:07:54] Dst:c:\Users\chun\PycharmProjects\sateraito-notification_20190206\src\templates_automatically
+[2019/02/12 15:07:54] Expand Jinja Templates include files fin.

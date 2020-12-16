@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[取引先管理]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+
+取引先管理
+
+@version 2014-01-22
+
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">
+	会社概要
+</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">社名&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3">
+		<input name="trade_partner_code" sequence="monthly" style="width:100%">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">代表者</td>
+		<td class="detail_value" width="30%" >
+		<input name="trade_partner_representative_name" style="width:80%" />
+		</td>
+		<td class="detail_name" width="20%">従業員数</td>
+		<td class="detail_value" width="30%" maxlength="13">
+		<input name="trade_partner_employee number" style="width:50%" >&nbsp;人
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">資本金</td>
+		<td class="detail_value" width="30%" >
+		<input name="trade_partner_capital" class="number" style="width:60%" />&nbsp;百万円
+		</td>
+		<td class="detail_name" width="20%">売上</td>
+		<td class="detail_value" width="30%" colspan="" >
+		<select name="trade_partner_sales_year_1" >
+		<option value="平成21年">平成21年</option>
+		<option value="平成22年" selected>平成22年</option>
+		<option value="平成23年">平成23年</option>
+		<option value="平成24年">平成24年</option>
+		<option value="平成25年">平成25年</option>
+		<option value="平成26年">平成26年</option>
+		</select>&nbsp;<input name="trade_partner_sales_account_1"  class="number" style="width:35%">&nbsp;万円<br/>
+		<select name="trade_partner_sales_year_2" >
+		<option value="平成21年">平成21年</option>
+		<option value="平成22年" >平成22年</option>
+		<option value="平成23年"selected>平成23年</option>
+		<option value="平成24年">平成24年</option>
+		<option value="平成25年">平成25年</option>
+		<option value="平成26年">平成26年</option>
+		</select>&nbsp;<input name="trade_partner_sales_account_2" class="number" style="width:35%">&nbsp;万円<br/>
+		<select name="trade_partner_sales_year_3" >
+		<option value="平成21年">平成21年</option>
+		<option value="平成22年" >平成22年</option>
+		<option value="平成23年">平成23年</option>
+		<option value="平成24年"selected>平成24年</option>
+		<option value="平成25年">平成25年</option>
+		<option value="平成26年">平成26年</option>
+		</select>&nbsp;<input name="trade_partner_sales_account_3"  class="number" style="width:35%">&nbsp;万円<br/>
+		</td>
+
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">電話番号&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" >
+			<input name="trade_partner_tel" style="width:90%">
+		</td>
+		<td class="detail_name" width="20%">FAX</td>
+		<td class="detail_value" width="30%" >
+			<input name="trade_partner_fax" style="width:90%">
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">区分&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" >
+		<select name="trade_partner_type" class="mandatory">
+			<option value="得意先">得意先</option>
+			<option value="仕入先">仕入先</option>
+			<option value="両方">両方</option>
+		</select>
+		</td>
+		<td class="detail_name" width="20%">評価</td>
+		<td class="detail_value" width="30%" >
+			<input name="trade_partner_estimate" class="" style="width:100%"></td>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%">所在地&nbsp;<font color="red">*</font></td>
+		<td class="detail_value" width="30%" colspan="3" >
+			<input name="trade_partner_address" class="mandatory" maxlength="50" style="width:100%"></td>
+		</td>
+	</tr>
+	<tr>
+	<td class="detail_value" width="20%"></td>
+	<td class="detail_value" width="80%" colspan="3"><font color="blue">(例：東京都XXX市2-33-1)</font></td>
+	</tr>
+	<tr>
+
+	<td colspan="3">
+		<input type="button" value="地図表示" onclick="
+
+		//// 地図表示ボタンクリック時の処理
+
+		var form = SateraitoWF.getForm(this);
+
+		var trade_partner_address = SateraitoWF.getFormValue(form, 'trade_partner_address');
+		var trade_partner_address_encoded = encodeURIComponent(trade_partner_address);
+
+		// 住所を取得し、iframeのソースURLを作成します
+
+		var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+		src += trade_partner_address_encoded;
+		src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+		// 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+		var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+		map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'trade_partner_address'));
+
+		// iframeとGoogleMapsリンクに作成したURLをセットします
+
+		$(form).find('.google_maps_frame_sateraito').attr('src', src);
+		$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+		$(form).find('.google_maps_frame_sateraito').attr('width','425');
+		$(form).find('.google_maps_frame_sateraito').attr('height','350');
+
+		// GoogleMapsリンクに住所をセットします
+
+		$(form).find('.google_maps_link_sateraito').text(trade_partner_address);
+
+		">
+
+		<br />
+		<br />
+
+		<iframe class="google_maps_frame_sateraito" width="0" height="0" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe><br />
+		<small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left" target="_blank"></a> を表示</small>
+
+		<br>
+	</td>
+	</tr>
+
+
+	<tr>
+		<td class="detail_name" width="20%">事業概要</td>
+		<td class="detail_value" width="30%" colspan="3" maxlength="13" style="width:50%">
+		<textarea name="trade_partner_business_outline" style="width:100%;height:90%" rows="3"></textarea>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="detail_name" width="20%">信用状況</td>
+		<td class="detail_value" width="30%" colspan="3">
+			<textarea name="trade_partner_situation" style="width:100%;height:100%" rows="5"></textarea>
+		</td>
+	</tr>
+</table>
+
+<br>
+<br>
+<div class="main_content_title2">
+	担当者情報
+</div>
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:5%;" rowspan="2">No</th>
+		<th class="detail_head" style="width:17%;">担当者</th>
+		<th class="detail_head" style="width:20%;">部署</th>
+		<th class="detail_head" style="width:25%;">電話番号</th>
+		<th class="detail_head" style="width:17%;">当社の担当者</th>
+		<th class="detail_head" style="width:20%;" rowspan="2">備考</th>
+	</tr>
+	<tr>
+		<th class="detail_head">フリガナ</th>
+		<th class="detail_head">役職</th>
+		<th class="detail_head">Email</th>
+		<th class="detail_head">フリガナ</th>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+	<tr>
+		<td class="detail_name" rowspan="2">1</td>
+		<td class="detail_value"><input name="trade_partner_contact_name_1" style="width:100%;"></td>
+		<td class="detail_value" ><input name="trade_partner_contact_dept_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_tel_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_name_1" style="width:100%;"></td>
+		<td class="detail_value" rowspan="2"><textarea name="trade_partner_contact_comment" rows="2" style="width:100%;height:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_value"><input name="trade_partner_contact_kana_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_position_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_email_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_kana_1" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _02行目 -->
+	<tr>
+		<td class="detail_name" rowspan="2">2</td>
+		<td class="detail_value"><input name="trade_partner_contact_name_2" style="width:100%;"></td>
+		<td class="detail_value" ><input name="trade_partner_contact_dept_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_tel_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_name_2" style="width:100%;"></td>
+		<td class="detail_value" rowspan="2"><textarea name="trade_partner_contact_comment" rows="2" style="width:100%;height:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_value"><input name="trade_partner_contact_kana_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_position_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_email_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_kana_2" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+
+<!-- _03行目 -->
+	<tr>
+		<td class="detail_name" rowspan="2">3</td>
+		<td class="detail_value"><input name="trade_partner_contact_name_3" style="width:100%;"></td>
+		<td class="detail_value" ><input name="trade_partner_contact_dept_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_tel_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_name_3" style="width:100%;"></td>
+		<td class="detail_value" rowspan="2"><textarea name="trade_partner_contact_comment" rows="2" style="width:100%;height:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_value"><input name="trade_partner_contact_kana_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_position_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_email_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_kana_3" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+<!-- _04行目 -->
+	<tr>
+		<td class="detail_name" rowspan="2">4</td>
+		<td class="detail_value"><input name="trade_partner_contact_name_4" style="width:100%;"></td>
+		<td class="detail_value" ><input name="trade_partner_contact_dept_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_tel_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_name_4" style="width:100%;"></td>
+		<td class="detail_value" rowspan="2"><textarea name="trade_partner_contact_comment" rows="2" style="width:100%;height:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td class="detail_value"><input name="trade_partner_contact_kana_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_position_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="trade_partner_contact_email_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="our_contact_kana_4" style="width:100%;"></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="border-bottom:solid 1px silver"></td>
+	</tr>
+</table>
+<br>
+<br>
+
+<div class="main_content_title2">
+	今後の課題と方針
+</div>
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%" >今後の課題と戦略</td>
+		<td class="detail_value" width="30%">
+			<textarea name="trade_partner_subject" rows="7" style="width:100%"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td class="detail_name" width="20%" >当社の取組みと方針</td>
+		<td class="detail_value" width="30%">
+			<textarea name="our_approach" rows="7" style="width:100%"></textarea>
+		</td>
+	</tr>
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140603065732u8u1zDQBpTsvbLS1\",\"name\":\"取引先管理1\",\"sections\":[{\"section_id\":\"sec_id-1401756142496wYIsgZgtRzzs5i9e\",\"secname\":\"取引先管理1\",\"column_cof\":2,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-14017534816039O8UnMxa6WecGTmE\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急  \",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentbold\":\"normal\",\"aftercontentbold\":\"normal\",\"class\":\"\",\"new_attrs\":\"\",\"checked\":\"checked\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgdirection\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401753481611dPEHU0zZaUO1CAiz\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401756142496wYIsgZgtRzzs5i9e\"},{\"control_id\":\"ctr_id-1401753481603vJTYU3jsAEt24PrQ\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-1401753481607ia9hrzwn04oskbnu\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"}]},{\"section_id\":\"sec_id-1401753625716ZASOYezHEtTK7OSN\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753637429ZEtPshXtsN5mqbid\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401753651211QphtiQ86u3635As7\",\"secname\":\"会社概要\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481607PfJjnpEjPDoNLP9h\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"社名 \",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_code\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"sequence=monthly;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753651211QphtiQ86u3635As7\"}]},{\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\",\"secname\":\"div1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481607qMBJdjRUw2PmwHzc\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"代表者\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_representative_name\",\"style\":\"width:80%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-1401753481607XeuwkC5Y4hzYi6Zj\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"従業員数\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 人\",\"name\":\"trade_partner_employee \",\"style\":\"width:50%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"}]},{\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\",\"secname\":\"div2\",\"column_cof\":3,\"show_header\":false,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"50%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"17%\",\"align\":\"left\"},\"3\":{\"title\":\"\",\"width\":\"33%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753782920q4KY4VR6Kam11XSc\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-1401753481607PI5avzTcw35bcCOb\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"資本金\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 百万円\",\"name\":\"trade_partner_capital\",\"style\":\"width:60%\",\"class\":\"number\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"control_id\":\"ctr_id-14017538092560bL6TDikfX0PjsbZ\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"control_id\":\"ctr_id-1401937776186Oz3zncuoMmMeatJg\",\"map_type_control\":\"label\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-140193775325354CS6D5CZd0vXQD3\",\"map_type_control\":\"label\",\"pos_col\":2,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"売上\",\"style\":\"width:105px\",\"class\":\"detail_name arrowRight\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-1401937786571tbTdfGivh0NbajE9\",\"map_type_control\":\"label\",\"pos_col\":2,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-1401753990320D7g1fbymZXtSHWvy\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_sales_year_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_sales_year_1\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"プルダウン\",\"config\":{\"items\":[{\"text\":\"平成21年\",\"value\":\"平成21年\",\"control_id\":\"ctr_id-1401753990320Ie0WfPzRU7G54hH1\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"text\":\"平成22年\",\"value\":\"平成22年\",\"control_id\":\"ctr_id-140175399032093DWpmhS6GPO4DZg\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"text\":\"平成23年\",\"value\":\"平成23年\",\"control_id\":\"ctr_id-1401753990321v2pQYZYxrRmxwOwT\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"text\":\"平成24年\",\"value\":\"平成24年\",\"control_id\":\"ctr_id-14017539903217VPQ4HZrxti6uUHb\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"text\":\"平成25年\",\"value\":\"平成25年\",\"control_id\":\"ctr_id-14017539903218ajMNKh8rD21t2G3\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"text\":\"平成26年\",\"value\":\"平成26年\",\"control_id\":\"ctr_id-1401753990321O5xPjB7wt0wfex1i\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"}],\"attributes\":{\"lblname\":\"trade_partner_sales_year_1\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_sales_year_1\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"control_id\":\"ctr_id-1401753990320HV9dGkFX2qouLYiQ\",\"map_type_control\":\"select\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_sales_account_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 万円\",\"name\":\"trade_partner_sales_account_1\",\"style\":\"width:35%\",\"class\":\" number\",\"new_attrs\":\"size=20\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-1401754075145zqnzrg7xEcRWN6ZE\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_sales_year_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_sales_year_2\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"プルダウン\",\"config\":{\"items\":[{\"text\":\"平成21年\",\"value\":\"平成21年\"},{\"text\":\"平成22年\",\"value\":\"平成22年\"},{\"text\":\"平成23年\",\"value\":\"平成23年\"},{\"text\":\"平成24年\",\"value\":\"平成24年\"},{\"text\":\"平成25年\",\"value\":\"平成25年\"},{\"text\":\"平成26年\",\"value\":\"平成26年\"}],\"attributes\":{\"lblname\":\"trade_partner_sales_year_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_sales_year_2\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"map_type_control\":\"select\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_sales_account_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 万円\",\"name\":\"trade_partner_sales_account_2\",\"style\":\"width:35%\",\"class\":\" number\",\"new_attrs\":\"size=20\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"},{\"control_id\":\"ctr_id-1401754133223FUfW9GjBoomDphHv\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_sales_year_3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_sales_year_3\",\"style\":\"\",\"bgdirection\":\"horizontal\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_combo_box_edit.png\",\"tag\":\"select\",\"type\":null,\"label\":\"プルダウン\",\"config\":{\"items\":[{\"text\":\"平成21年\",\"value\":\"平成21年\"},{\"text\":\"平成22年\",\"value\":\"平成22年\"},{\"text\":\"平成23年\",\"value\":\"平成23年\"},{\"text\":\"平成24年\",\"value\":\"平成24年\"},{\"text\":\"平成25年\",\"value\":\"平成25年\"},{\"text\":\"平成26年\",\"value\":\"平成26年\"}],\"attributes\":{\"lblname\":\"trade_partner_sales_year_3\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_sales_year_3\",\"style\":\"\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"multiple\":true,\"value\":true,\"selectedIndex\":true,\"items\":true,\"disabled\":true}},\"map_type_control\":\"select\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_sales_account_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\" 万円\",\"name\":\"trade_partner_sales_account_3\",\"style\":\"width:35%\",\"class\":\" number\",\"new_attrs\":\"size=20\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401937712847wN1v0a3CqZn4eEp2\"}]},{\"section_id\":\"sec_id-1401937962972fvoMZqiLGM1PUEQS\",\"secname\":\"div3\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481608MFOwdSWEKxgsoE7N\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"電話番号\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_tel\",\"style\":\"width:90%\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"control_id\":\"ctr_id-1401753481608wCEKJoKV36RBPm5m\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"区分\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_type\",\"style\":\"\",\"class\":\"mandatory\",\"new_attrs\":\"\",\"value\":\"\"},\"items\":[{\"text\":\"得意先\",\"value\":\"得意先\"},{\"text\":\"仕入先\",\"value\":\"仕入先\"},{\"text\":\"両方\",\"value\":\"両方\"}],\"html\":\"\"},\"map_type_control\":\"select\",\"tag\":\"select\",\"section_id\":\"sec_id-1401753696931fbjFTMmArx9PsWwd\"},{\"control_id\":\"ctr_id-1401753481608jsubMMQVgGvTwPkC\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"FAX\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_fax\",\"style\":\"width:90%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-1401753481608IpcIwXvfBxriV9aV\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"評価\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_estimate\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"}]},{\"section_id\":\"sec_id-14017544042609tNUWCfajzi4XfTm\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481608ppAwdpjD6bMKu0KS\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"所在地\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_address\",\"style\":\"width:100%\",\"class\":\"mandatory\",\"new_attrs\":\"maxlength=50;\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-1401754467947uWOpO09kDUCiwgnn\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"(例：東京都XXX市2-33-1)\",\"style\":\"color:blue; margin-left:65px\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-14017544042609tNUWCfajzi4XfTm\"}]},{\"section_id\":\"sec_id-14017545191502OmMrYAjNdpOsI8c\",\"secname\":\"div3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401754564407wHILXcHEVtXP6Z5x\",\"map_type_control\":\"box\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"btnMap\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"btnMap\"},\"items\":{},\"html\":\"%3Cinput%20type%3D%22button%22%20value%3D%22%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%22%20onclick%3D%22%0A%0A%09%09%2F%2F%2F%2F%20%E5%9C%B0%E5%9B%B3%E8%A1%A8%E7%A4%BA%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E6%99%82%E3%81%AE%E5%87%A6%E7%90%86%0A%0A%09%09var%20form%20%3D%20SateraitoWF.getForm(this)%3B%0A%0A%09%09var%20trade_partner_address%20%3D%20SateraitoWF.getFormValue(form%2C%20'trade_partner_address')%3B%0A%09%09var%20trade_partner_address_encoded%20%3D%20encodeURIComponent(trade_partner_address)%3B%0A%0A%09%09%2F%2F%20%E4%BD%8F%E6%89%80%E3%82%92%E5%8F%96%E5%BE%97%E3%81%97%E3%80%81iframe%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9URL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09var%20src%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Ds_q%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09src%20%2B%3D%20trade_partner_address_encoded%3B%0A%09%09src%20%2B%3D%20'%26amp%3Bt%3Dm%26amp%3Bz%3D14%26amp%3Boutput%3Dembed'%3B%0A%0A%09%09%2F%2F%20%E5%88%A5%E7%94%BB%E9%9D%A2%E3%81%A7GoogleMaps%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E3%83%AA%E3%83%B3%E3%82%AFURL%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09var%20map_link%20%3D%20'https%3A%2F%2Fmaps.google.co.jp%2Fmaps%3Ff%3Dq%26amp%3Bsource%3Dembed%26amp%3Bhl%3Dja%26amp%3Bgeocode%3D%26amp%3Bq%3D'%3B%0A%09%09map_link%20%2B%3D%20encodeURIComponent(SateraitoWF.getFormValue(form%2C%20'trade_partner_address'))%3B%0A%0A%09%09%2F%2F%20iframe%E3%81%A8GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9FURL%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%24(form).find('.google_maps_frame_sateraito').attr('src'%2C%20src)%3B%0A%09%09%24(form).find('.google_maps_link_sateraito').attr('href'%2C%20map_link)%3B%0A%09%09%24(form).find('.google_maps_frame_sateraito').attr('width'%2C'425')%3B%0A%09%09%24(form).find('.google_maps_frame_sateraito').attr('height'%2C'350')%3B%0A%0A%09%09%2F%2F%20GoogleMaps%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AB%E4%BD%8F%E6%89%80%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%81%97%E3%81%BE%E3%81%99%0A%0A%09%09%24(form).find('.google_maps_link_sateraito').text(trade_partner_address)%3B%0A%0A%09%09%22%3E%0A%0A%09%09%3Cbr%3E%0A%09%09%3Cbr%3E%0A%0A%09%09%3Ciframe%20class%3D%22google_maps_frame_sateraito%22%20width%3D%220%22%20height%3D%220%22%20frameborder%3D%220%22%20scrolling%3D%22no%22%20marginheight%3D%220%22%20marginwidth%3D%220%22%20src%3D%22%22%3E%3C%2Fiframe%3E%3Cbr%3E%0A%09%09%3Csmall%3E%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%AA%E5%9C%B0%E5%9B%B3%E3%81%A7%20%3Ca%20class%3D%22google_maps_link_sateraito%22%20href%3D%22%22%20style%3D%22color%3A%230000FF%3Btext-align%3Aleft%22%20target%3D%22_blank%22%3E%3C%2Fa%3E%20%E3%82%92%E8%A1%A8%E7%A4%BA%3C%2Fsmall%3E%0A%0A%09%09%3Cbr%3E\"}}]},{\"section_id\":\"sec_id-1401754600707yvQJcqrMJaA36SQw\",\"secname\":\"div4\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481609Hu92nkeWAKLUoOwO\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"事業概要\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_business_outline\",\"style\":\"width:100%;height:90%\",\"class\":\"\",\"new_attrs\":\"rows=3;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"3\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-1401753481609gQwVpG6Z4x03Ihjg\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"信用状況\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_situation\",\"style\":\"width:100%;height:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"}]},{\"section_id\":\"sec_id-1401754893233jF52ONBditx2o8Cu\",\"secname\":\"space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401754893233VOfOcb4MYM4xJMwo\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401754893233jF52ONBditx2o8Cu\"}]},{\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\",\"secname\":\"担当者情報\",\"column_cof\":6,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"5%\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"17%\",\"align\":\"left\"},\"3\":{\"title\":\"\",\"width\":\"20%\",\"align\":\"left\"},\"4\":{\"title\":\"\",\"width\":\"25%\",\"align\":\"left\"},\"5\":{\"title\":\"\",\"width\":\"17%\",\"align\":\"left\"},\"6\":{\"title\":\"備考\",\"width\":\"20%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":false,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401936537870MQt6VbdEZMgUa2vy\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"No\",\"style\":\"height:50px\",\"class\":\"detail_name\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"1\",\"style\":\"\",\"class\":\"detail_name arrowRight\"},\"settingfields\":{\"lblname\":true,\"style\":true,\"class\":true},\"items\":{},\"html\":\"\"},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401755125072D12tXeQ1dMZrBPMC\",\"pos_col\":1,\"pos_row\":2,\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"2\",\"style\":\"\",\"class\":\"detail_name arrowRight\"},\"settingfields\":{\"lblname\":true,\"style\":true,\"class\":true},\"items\":{},\"html\":\"\"},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401755125072dZoWZUu0q8zqR6ip\",\"pos_col\":1,\"pos_row\":3,\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"3\",\"class\":\"detail_name arrowRight\",\"style\":\"\"},\"settingfields\":{\"lblname\":true,\"style\":true,\"class\":true}},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401755125072sFcUPtjSHGbUEW6B\",\"pos_col\":1,\"pos_row\":4},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui_text_label.png\",\"tag\":\"label\",\"label\":\"ラベル\",\"config\":{\"attributes\":{\"lblname\":\"4\",\"style\":\"\",\"class\":\"detail_name arrowRight\"},\"settingfields\":{\"lblname\":true,\"style\":true,\"class\":true},\"items\":{},\"html\":\"\"},\"map_type_control\":\"label\",\"control_id\":\"ctr_id-1401755125072VdhPShqDW8gxW0Tj\",\"pos_col\":1,\"pos_row\":5,\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401936634598cR07LxftYfX1aAFL\",\"map_type_control\":\"box\",\"pos_col\":2,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header1\"},\"items\":{},\"html\":\"%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%3Bmargin-bottom%3A2px%22%3E%E6%8B%85%E5%BD%93%E8%80%85%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%22%3E%E3%83%95%E3%83%AA%E3%82%AC%E3%83%8A%3C%2Fdiv%3E\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755217976ejB8yhfGHip8T2M3\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_name_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_name_1\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_name_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_name_1\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_kana_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_kana_1\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401755217976BIqda7YICN5CsfP5\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755217976LrjdxoNJxcHUUdDU\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_name_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_name_2\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_name_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_name_2\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_kana_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_kana_2\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755217977v3CKeD71didBQsi1\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_name_3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_name_3\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_name_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_name_3\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_kana_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_kana_3\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755217977HeGvjT5B9d6mdAG9\",\"map_type_control\":\"boxgroup\",\"pos_col\":2,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_name_4\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_name_4\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_name_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_name_4\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_kana_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_kana_4\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401936702106FPm7fHdP3pRdWWyu\",\"map_type_control\":\"box\",\"pos_col\":3,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header2\"},\"items\":{},\"html\":\"%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%3Bmargin-bottom%3A2px%22%3E%E9%83%A8%E7%BD%B2%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%22%3E%E5%BD%B9%E8%81%B7%3C%2Fdiv%3E\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755521646woTLW52zv2nK0Q01\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_dept_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_dept_1\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_dept_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_dept_1\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_position_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_position_1\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401755521646QvVNe5p81zk4kaSp\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755521646dthn9I27zIGUtQ4p\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_dept_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_dept_2\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_dept_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_dept_2\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_position_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_position_2\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755521647nqOSFnIdmjeQdVZM\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_dept_3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_dept_3\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_dept_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_dept_3\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_position_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_position_3\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755521670TMBntgfjACAPsaIg\",\"map_type_control\":\"boxgroup\",\"pos_col\":3,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_dept_4\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_dept_4\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_dept_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_dept_4\",\"style\":\"width:95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_position_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_position_4\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401936739060jgtG4L9c38XMzGZY\",\"map_type_control\":\"box\",\"pos_col\":4,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header3\"},\"items\":{},\"html\":\"%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%3Bmargin-bottom%3A2px%22%3E%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%22%3EEmail%3C%2Fdiv%3E\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755716236M3Wcf8XOWiT2qnMg\",\"map_type_control\":\"boxgroup\",\"pos_col\":4,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_tel_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_tel_1\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_tel_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_tel_1\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_email_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_email_1\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401755716236KKZy8IyX4GNmVQeH\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755716236Zxncjbk6geo9BrZI\",\"map_type_control\":\"boxgroup\",\"pos_col\":4,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_tel_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_tel_2\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_tel_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_tel_2\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_email_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_email_2\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755716237JjnzSswyTw4Jzw9y\",\"map_type_control\":\"boxgroup\",\"pos_col\":4,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_tel_3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_tel_3\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_tel_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_tel_3\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_email_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_email_3\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755716237tZwsnI20WdHQO1N2\",\"map_type_control\":\"boxgroup\",\"pos_col\":4,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"group_trade_partner_contact_tel_4\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_trade_partner_contact_tel_4\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_tel_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_tel_4\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_email_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_email_4\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401936767747MX6WoigHQGcurmJ6\",\"map_type_control\":\"box\",\"pos_col\":5,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"lbl_header4\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"name\":\"lbl_header4\"},\"items\":{},\"html\":\"%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%3Bmargin-bottom%3A2px%22%3E%E5%BD%93%E7%A4%BE%E3%81%AE%E6%8B%85%E5%BD%93%E8%80%85%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22detail_name%22%20style%3D%22text-indent%3A5px%22%3E%E3%83%95%E3%83%AA%E3%82%AC%E3%83%8A%3C%2Fdiv%3E\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755864410Svf36ESjq65ue3LR\",\"map_type_control\":\"boxgroup\",\"pos_col\":5,\"pos_row\":2,\"config\":{\"attributes\":{\"lblname\":\"group_our_contact_name_1\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_our_contact_name_1\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_name_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_name_1\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_kana_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_kana_1\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"control_id\":\"ctr_id-1401755864411SmCFdWENZ8jXeuyH\",\"map_type_control\":\"text\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755864411KKhTviCUaHZzYWX2\",\"map_type_control\":\"boxgroup\",\"pos_col\":5,\"pos_row\":3,\"config\":{\"attributes\":{\"lblname\":\"group_our_contact_name_2\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_our_contact_name_2\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_name_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_name_2\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_kana_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_kana_2\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401755864411KP1MW1nCvXj7xTAU\",\"map_type_control\":\"boxgroup\",\"pos_col\":5,\"pos_row\":4,\"config\":{\"attributes\":{\"lblname\":\"group_our_contact_name_3\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_our_contact_name_3\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_name_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_name_3\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_kana_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_kana_3\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-14017558644111V2IJEUNHMO2TCk4\",\"map_type_control\":\"boxgroup\",\"pos_col\":5,\"pos_row\":5,\"config\":{\"attributes\":{\"lblname\":\"group_our_contact_name_4\",\"widthlbl\":\"100px\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"group_our_contact_name_4\",\"style\":\"\",\"bgdirection\":\"vertical\"},\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_name_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_name_4\",\"style\":\"width :95%;margin-bottom:5px\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/ui-text-input-icon.png\",\"tag\":\"input\",\"type\":\"text\",\"label\":\"テキストボックス\",\"config\":{\"attributes\":{\"lblname\":\"our_contact_kana_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_contact_kana_4\",\"style\":\"width:95%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"settingfields\":{\"lblname\":true,\"showlblname\":true,\"widthlbl\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"value\":true,\"maxlength\":true,\"disabled\":true,\"readOnly\":true,\"placeholder\":true},\"items\":{}},\"map_type_control\":\"text\"}],\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401936794300xVwzaBL8D6cvrPaI\",\"map_type_control\":\"label\",\"pos_col\":6,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"style\":\"height:50px\",\"class\":\"detail_name\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401753481609wiHBvjVGbMgcUWIQ\",\"pos_row\":2,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_comment_1\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_comment_1\",\"style\":\"width:95%;height:95%;margin-top:5px\",\"class\":\"\",\"new_attrs\":\"rows=2;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"2\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401756020882huC6kqnDvKTj2ipg\",\"pos_row\":3,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_comment_2\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_comment_2\",\"style\":\"width:95%;height:95%;margin-top:5px\",\"class\":\"\",\"new_attrs\":\"rows=2;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"2\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401756032297G9g110jD4mVaPF6E\",\"pos_row\":4,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_comment_3\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_comment_3\",\"style\":\"width:95%;height:95%;margin-top:5px\",\"class\":\"\",\"new_attrs\":\"rows=2;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"2\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"},{\"control_id\":\"ctr_id-1401756046787QbtorT9FJUXCQfTj\",\"pos_row\":5,\"pos_col\":6,\"config\":{\"attributes\":{\"lblname\":\"trade_partner_contact_comment_4\",\"widthlbl\":\"\",\"showlblname\":\"false\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_contact_comment_4\",\"style\":\"width:95%;height:95%;margin-top:5px\",\"class\":\"\",\"new_attrs\":\"rows=2;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"2\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401755085004sFEMCveU16zGBZq2\"}]},{\"section_id\":\"sec_id-1401756070336EGL3O0K0TwZcjZ6J\",\"secname\":\"space3\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401756070336uVtYOwnqh3JF1uP1\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"height:10px\",\"class\":\"\",\"name\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401756070336EGL3O0K0TwZcjZ6J\"}]},{\"section_id\":\"sec_id-1401756081953rHd4A2dKJRaVnnTM\",\"secname\":\"今後の課題と方針\",\"column_cof\":1,\"show_header\":true,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401753481610LnwYjLGAmzPd18NR\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"今後の課題と戦略\",\"widthlbl\":\"150px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"trade_partner_subject\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=7;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"7\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"},{\"control_id\":\"ctr_id-14017534816102QbZnjJSyKUYN9Ky\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"当社の取組みと方針\",\"widthlbl\":\"150px\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"our_approach\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=7;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"7\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401753481611aGASJb4tXXi36YCB\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140603065732u8u1zDQBpTsvbLS1\",\"name\":\"取引先管理1\",\"controls\":[]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+
+取引先管理
+
+@version 2014-01-22
+
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">
+  会社概要
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">社名&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_code" sequence="monthly" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">代表者</div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_representative_name" style="width:100%"/>
+      </div>
+      <div class="detail_name">従業員数</div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_employee number" style="width:90%">&nbsp;人
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">資本金</div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_capital" class="number" style="width:90%"/>&nbsp;百万円
+      </div>
+      <div class="detail_name">売上</div>
+      <div class="detail_value ">
+        <select name="trade_partner_sales_year_1" style="width:40%">
+          <option value="平成21年">平成21年</option>
+          <option value="平成22年" selected>平成22年</option>
+          <option value="平成23年">平成23年</option>
+          <option value="平成24年">平成24年</option>
+          <option value="平成25年">平成25年</option>
+          <option value="平成26年">平成26年</option>
+        </select>
+        <input type="text" name="trade_partner_sales_account_1" class="number" style="width:40%">&nbsp;万円
+      </div>
+      <div class="detail_value margin_top">
+        <select name="trade_partner_sales_year_2" style="width:40%">
+          <option value="平成21年">平成21年</option>
+          <option value="平成22年">平成22年</option>
+          <option value="平成23年" selected>平成23年</option>
+          <option value="平成24年">平成24年</option>
+          <option value="平成25年">平成25年</option>
+          <option value="平成26年">平成26年</option>
+        </select>
+        <input type="text" name="trade_partner_sales_account_2" class="number" style="width:40%">&nbsp;万円
+      </div>
+      <div class="detail_value margin_top">
+        <select name="trade_partner_sales_year_3" style="width:40%">
+          <option value="平成21年">平成21年</option>
+          <option value="平成22年">平成22年</option>
+          <option value="平成23年">平成23年</option>
+          <option value="平成24年" selected>平成24年</option>
+          <option value="平成25年">平成25年</option>
+          <option value="平成26年">平成26年</option>
+        </select>&nbsp;<input type="text" name="trade_partner_sales_account_3" class="number" style="width:40%">&nbsp;万円<br/>
+      </div>
+
+    </li>
+    <li class="row">
+      <div class="detail_name">電話番号&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_tel" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">FAX</div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_fax" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">区分&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <select name="trade_partner_type" class="mandatory" style="width:100%">
+          <option value="得意先">得意先</option>
+          <option value="仕入先">仕入先</option>
+          <option value="両方">両方</option>
+        </select>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">評価</div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_estimate" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">所在地&nbsp;<font color="red">*</font></div>
+      <div class="detail_value">
+        <input type="text" name="trade_partner_address" class="mandatory" style="width:100%">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_value"></div>
+      <div class="detail_value"><font color="blue">(例：東京都XXX市2-33-1)</font></div>
+    </li>
+    <li class="row">
+
+      <div class="detail_value">
+        <input type="button" style="width: 100%" value="地図表示" onclick="
+
+		//// 地図表示ボタンクリック時の処理
+
+		var form = SateraitoWF.getForm(this);
+
+		var trade_partner_address = SateraitoWF.getFormValue(form, 'trade_partner_address');
+		var trade_partner_address_encoded = encodeURIComponent(trade_partner_address);
+
+		// 住所を取得し、iframeのソースURLを作成します
+
+		var src = 'https://maps.google.co.jp/maps?f=q&amp;source=s_q&amp;hl=ja&amp;geocode=&amp;q=';
+		src += trade_partner_address_encoded;
+		src += '&amp;t=m&amp;z=14&amp;output=embed';
+
+		// 別画面でGoogleMapsを表示するためのリンクURLを作成します
+
+		var map_link = 'https://maps.google.co.jp/maps?f=q&amp;source=embed&amp;hl=ja&amp;geocode=&amp;q=';
+		map_link += encodeURIComponent(SateraitoWF.getFormValue(form, 'trade_partner_address'));
+
+		// iframeとGoogleMapsリンクに作成したURLをセットします
+
+		$(form).find('.google_maps_frame_sateraito').attr('src', src);
+		$(form).find('.google_maps_link_sateraito').attr('href', map_link);
+		$(form).find('.google_maps_frame_sateraito').attr('width','425');
+		$(form).find('.google_maps_frame_sateraito').attr('height','350');
+
+		// GoogleMapsリンクに住所をセットします
+
+		$(form).find('.google_maps_link_sateraito').text(trade_partner_address);
+
+		">
+
+        <iframe class="google_maps_frame_sateraito" width="0" height="0" frameborder="0" scrolling="no" marginheight="0"
+                marginwidth="0" src=""></iframe>
+        <br/>
+        <small>より大きな地図で <a class="google_maps_link_sateraito" href="" style="color:#0000FF;text-align:left"
+                           target="_blank"></a> を表示
+        </small>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">事業概要</div>
+      <div class="detail_value" style="width:100%">
+        <textarea name="trade_partner_business_outline" style="width:98%;" rows="3"></textarea>
+      </div>
+    </li>
+
+    <li class="row">
+      <div class="detail_name">信用状況</div>
+      <div class="detail_value">
+        <textarea name="trade_partner_situation"  style="width:98%;" rows="5"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">
+  担当者情報
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_head">No1</div>
+      <div class="detail_head">担当者</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_name_1" style="width:100%;">
+      </div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_kana_1" style="width:100%;">
+      </div>
+      <div class="detail_head">部署</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_dept_1" style="width:100%;">
+      </div>
+      <div class="detail_head">役職</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_position_1"
+                                       style="width:100%;"></div>
+      <div class="detail_head">電話番号</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_tel_1" style="width:100%;">
+      </div>
+      <div class="detail_head">Email</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_email_1" style="width:100%;">
+      </div>
+      <div class="detail_head">当社の担当者</div>
+      <div class="detail_value"><input type="text" name="our_contact_name_1" style="width:100%;"></div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="our_contact_kana_1" style="width:100%;"></div>
+      <div class="detail_head">備考</div>
+      <div class="detail_value"><textarea name="trade_partner_contact_comment" rows="2"
+                                          style="width:98%;height:100%"></textarea></div>
+    </li>
+
+    <!-- _02行目 -->
+    <li class="row">
+      <div class="detail_head">No2</div>
+      <div class="detail_head">担当者</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_name_2" style="width:100%;">
+      </div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_kana_2" style="width:100%;">
+      </div>
+      <div class="detail_head">部署</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_dept_2" style="width:100%;">
+      </div>
+      <div class="detail_head">役職</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_position_2"
+                                       style="width:100%;"></div>
+      <div class="detail_head">電話番号</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_tel_2" style="width:100%;">
+      </div>
+      <div class="detail_head">Email</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_email_2" style="width:100%;">
+      </div>
+      <div class="detail_head">当社の担当者</div>
+      <div class="detail_value"><input type="text" name="our_contact_name_2" style="width:100%;"></div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="our_contact_kana_2" style="width:100%;"></div>
+      <div class="detail_head">備考</div>
+      <div class="detail_value"><textarea name="trade_partner_contact_comment" rows="2"
+                                          style="width:98%;height:100%"></textarea></div>
+    </li>
+
+    <!-- _03行目 -->
+    <li class="row">
+      <div class="detail_head">No3</div>
+      <div class="detail_head">担当者</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_name_3" style="width:100%;">
+      </div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_kana_3" style="width:100%;">
+      </div>
+      <div class="detail_head">部署</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_dept_3" style="width:100%;">
+      </div>
+      <div class="detail_head">役職</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_position_3"
+                                       style="width:100%;"></div>
+      <div class="detail_head">電話番号</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_tel_3" style="width:100%;">
+      </div>
+      <div class="detail_head">Email</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_email_3" style="width:100%;">
+      </div>
+      <div class="detail_head">当社の担当者</div>
+      <div class="detail_value"><input type="text" name="our_contact_name_3" style="width:100%;"></div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="our_contact_kana_3" style="width:100%;"></div>
+      <div class="detail_head">備考</div>
+      <div class="detail_value"><textarea name="trade_partner_contact_comment"rows="2"
+                                          style="width:98%;height:100%"></textarea></div>
+    </li>
+    <!-- _04行目 -->
+    <li class="row">
+      <div class="detail_head">No4</div>
+      <div class="detail_head">担当者</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_name_4" style="width:100%;">
+      </div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_kana_4" style="width:100%;">
+      </div>
+      <div class="detail_head">部署</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_dept41" style="width:100%;">
+      </div>
+      <div class="detail_head">役職</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_position_4"
+                                       style="width:100%;"></div>
+      <div class="detail_head">電話番号</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_tel_4" style="width:100%;">
+      </div>
+      <div class="detail_head">Email</div>
+      <div class="detail_value"><input type="text" name="trade_partner_contact_email_4" style="width:100%;">
+      </div>
+      <div class="detail_head">当社の担当者</div>
+      <div class="detail_value"><input type="text" name="our_contact_name_4" style="width:100%;"></div>
+      <div class="detail_head">フリガナ</div>
+      <div class="detail_value"><input type="text" name="our_contact_kana_4" style="width:100%;"></div>
+      <div class="detail_head">備考</div>
+      <div class="detail_value"><textarea name="trade_partner_contact_comment" rows="2"
+                                          style="width:98%;height:100%"></textarea></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">
+  今後の課題と方針
+</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">今後の課題と戦略</div>
+      <div class="detail_value">
+        <textarea name="trade_partner_subject" rows="7" style="width:98%"></textarea>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">当社の取組みと方針</div>
+      <div class="detail_value">
+        <textarea name="our_approach" rows="7" style="width:98%"></textarea>
+      </div>
+    </li>
+  </ul>
+</div>
+]]></template_body_for_mobile>
+</entry>

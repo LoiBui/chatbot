@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+<!DOCTYPE Ucf[
+	<!ENTITY sys_path "..\..\sys">
+	<!ENTITY log_path "..\..\log20">
+	<!ENTITY param_path "..\..\BusinessParameter">
+	<!ENTITY ucfsystemerrorlog "..\..\log20\Common\System">
+]>
+<Ucf>
+	<SystemNowDateConfig>
+		<Year>0</Year>
+		<Month>0</Month>
+		<Date>0</Date>
+		<Hour>0</Hour>
+		<Minute>0</Minute>
+		<Second>0</Second>
+	</SystemNowDateConfig>
+	<LogFolderPath>&log_path;</LogFolderPath>
+	<MessageXmlPath>&sys_path;\UcfMessage.xml</MessageXmlPath>
+	<RuleMessageXmlPath>&sys_path;\UcfRuleMessageCallClosureCompiler.xml</RuleMessageXmlPath>
+	<UcfSystemErrorLogPath>&ucfsystemerrorlog;\UcfSystemErrorLog.txt</UcfSystemErrorLogPath>
+	<DefaultDateTime>1900/01/01 00:00:00</DefaultDateTime>
+
+</Ucf>

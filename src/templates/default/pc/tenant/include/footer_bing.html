@@ -1,0 +1,24 @@
+{% if not is_hide_backstretch: %}
+<div id="bottombox">
+<ul id="btn_list">
+<li><a href="#" id="toggle_fullscreen"><img src="/images/btn_fullscreen_enable.png" alt="full screen"></a></li>
+{% if not BgNoUse:%}
+<li><a href="#" id="arrow_prev"><img src="/images/btn_leftarrow.png" alt="prev"></a></li><li><a href="#" id="arrow_next"><img src="/images/btn_rightarrow.png" alt="next"></a></li>
+{% endif %}
+</ul>
+<div id="newsbox">
+<ul>
+{% if dept.login_message and dept.login_message != '' %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{dept.login_message|hyperlink_linebreaksbr}}</li>
+{% elif footer_message and footer_message != '': %}
+<li {% if dept.login_messagecolor and dept.login_messagecolor != '': %}style="color:#{{dept.login_messagecolor}};"{%endif%} class="footer_message" >{{footer_message|hyperlink_linebreaksbr}}</li>
+{% endif %}
+<li>&nbsp;</li>
+</ul>
+</div><!-- /#newsbox end -->
+</div><!-- /#bottombox end -->
+
+<div id="footer">
+{% include "./include/copyright.html" %}
+</div>
+{% endif %}

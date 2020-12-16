@@ -1,0 +1,1216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_operator.js?{{version|safe}}" ></script>
+<!-- <script type="text/javascript" src="{{vscripturl|safe}}ucfext_group.js?{{version|safe}}"></script> -->
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_acslog.js?{{version|safe}}" ></script>
+<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATOR_DETAIL|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_OPERATOR_DETAIL|safe}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<script type="text/javascript" >
+
+// 所属組織（グループ）ストア 2011/02/02
+// var createGroupIdStore = function(){
+// 	return new Ext.data.ArrayStore({
+//     storeId: 'storGroupId',
+//     idIndex: 0,
+//     fields: [
+//        {name: 'UniqueID'},
+//        {name: 'Name'},
+//        {name: 'MailAddress'},
+//        {name: 'MailGroupID'}
+//     ]
+// 	});
+// };
+
+// var storGroupId = createGroupIdStore();
+
+// // GroupIdDispBoxをレンダリング 2011/02/02
+// var refleshGroupIdDispBox = function()
+// {
+	
+// 	var disp_box = Ext.get('GroupIdDispBox');
+// 	if(!disp_box)
+// 	{
+// 		return;
+// 	}
+
+// 	disp_box.dom.innerHTML = '';
+
+
+// //	var group_ids = '';
+// 	var stor_length = storGroupId.getCount();
+// 	var datJson = [];
+	
+// 	for(var i = 0; i < stor_length; i++)
+// 	{
+// 		var rec = storGroupId.getAt(i);
+
+// 		if(Ext.ucf.decodeUnicode(rec.get('Name')) == ""){
+// 			datJson.push({UniqueID:rec.get('UniqueID'), Name:Ext.ucf.htmlEscape(rec.get('Name')), MailAddress:rec.get('MailAddress')});
+// 		}
+// 		else
+// 		{
+// 			datJson.push({UniqueID:rec.get('UniqueID'), Name:rec.get('Name'), MailAddress:rec.get('MailAddress')});
+// 		}
+// 	}
+
+// 	for(var i = 0; i < datJson.length; i++)
+// 	{
+// 		var datItem = datJson[i];
+
+// 		var ul = document.createElement('ul');
+// 		disp_box.dom.appendChild(ul);
+// 		var li = document.createElement('li');
+// 		ul.appendChild(li);
+// 		var sub_div = document.createElement('div');
+// 		Ext.get(sub_div).addClass('mem_rec');
+
+// 		li.appendChild(sub_div);
+// 		sub_ul = document.createElement('ul');
+// 		Ext.get(sub_ul).addClass('sub');
+// 		sub_div.appendChild(sub_ul);
+// 		sub_li = document.createElement('li');
+// 		Ext.get(sub_li).addClass('content');
+// 		sub_ul.appendChild(sub_li);
+
+// 		var innerHtml = '';
+
+// 		if(datItem.Name != '')
+// 		{
+// 			innerHtml = datItem.Name + '&nbsp;&lt;' + Ext.ucf.htmlEscape(datItem.MailAddress) + '&gt;';
+// 		}
+// 		else
+// 		{
+// 			innerHtml = Ext.ucf.htmlEscape(datItem.MailAddress);
+// 		}
+
+// 		if(datItem.UniqueID != ''){
+// 			innerHtml = '<a href="{{vurl|safe}}group/regist?unqid=' + escape(datItem.UniqueID) + '&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}" target="_blank" >' + innerHtml + '</a>';
+// 		}
+// 		sub_li.innerHTML = innerHtml;
+
+// 		sub_li = document.createElement('li');
+// 		Ext.get(sub_li).addClass('main');
+// 		sub_ul.appendChild(sub_li);
+// 		// メイン所属組織であるか判定
+// 		var main_group_address = '{{ucfp.voinfo.vo.main_group_id|escapejs}}';
+// 		if(datItem.MailAddress == main_group_address)
+// 		{
+// 			sub_li.innerHTML = '<span style="color: #ff0000">{{lang.MAIN_GROUP|safe}}&nbsp;&nbsp;</span>&nbsp;&nbsp;';
+// 		}
+// 		else
+// 		{
+// 			sub_li.innerHTML = '&nbsp;&nbsp;';
+// 		}
+
+// 	}
+
+// 	$('#ParentGroupInfo').val($.toJSON(datJson));
+	
+// 	// 表示内容のリセット
+// 	document.getElementById('GroupIdErrMessage').innerHTML = '';
+// 	// 空だったらメッセージ表示
+// 	if(datJson.length == 0)
+// 	{
+// 		document.getElementById('GroupIdErrMessage').innerHTML = '&nbsp;&nbsp;<span style="color: #ff0000" class="style3">{{lang.VMSG_MSG_NO_PARENT_GROUPS|safe}}</span>';
+// 		return;
+// 	}
+
+// };
+
+//////////////////////////////////////////////////
+// 所属グループ情報を取得し画面に反映 2011/02/02
+//////////////////////////////////////////////////
+// var refleshGroupIdInfo = function()
+// {
+// 	var rec;
+// 	{% if ucfp.voinfo.vo.ParentGroupInfo and ucfp.voinfo.vo.ParentGroupInfo != '' %}
+// 	var datJson = $.secureEvalJSON('{{ucfp.voinfo.vo.ParentGroupInfo|escapejs}}');
+// 	for(var i = 0; i < datJson.length; i++)
+// 	{
+// 		var datItem = datJson[i];
+// 		rec = new Ext.data.Record(datItem);
+// 		storGroupId.add([rec]);
+// //		groups.push({group_id:datItem.group_id, unique_id:datItem.unique_id, group_name:datItem.group_name});
+// 	}
+// 	{% endif %}
+// 	//addGroupIdItemAction(groups);
+// 	refleshGroupIdDispBox();
+// };
+
+// 各フィールドを設定
+function createFields()
+{
+	// ユーザID
+	var field_operator_id = Ext.ucf.field.createPlaneText('operator_id', '{{ucfp.voinfo.vo.operator_id|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_operator_id.render('FIELD_operator_id');
+	// メールアドレス
+	var field_mail_address = Ext.ucf.field.createPlaneText('mail_address', '{{ucfp.voinfo.vo.mail_address|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_mail_address.render('FIELD_mail_address');
+
+	// パスワード
+	{% if ucfp.voinfo.vo.password != '': %}
+	var field_password = Ext.ucf.field.createPlaneText('password', '******************', Ext.ucf.acnt.viewHelper);
+	{% else: %}
+	var field_password = Ext.ucf.field.createPlaneText('password', '', Ext.ucf.acnt.viewHelper);
+	{% endif %}
+	field_password.render('FIELD_password');
+	// 姓
+	var field_last_name = Ext.ucf.field.createPlaneText('last_name', '{{ucfp.voinfo.vo.last_name|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_last_name.render('FIELD_last_name');
+	// 名
+	var field_first_name = Ext.ucf.field.createPlaneText('first_name', '{{ucfp.voinfo.vo.first_name|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_first_name.render('FIELD_first_name');
+	// 姓カナ
+	var field_last_name_kana = Ext.ucf.field.createPlaneText('last_name_kana', '{{ucfp.voinfo.vo.last_name_kana|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_last_name_kana.render('FIELD_last_name_kana');
+	// 名カナ
+	var field_first_name_kana = Ext.ucf.field.createPlaneText('first_name_kana', '{{ucfp.voinfo.vo.first_name_kana|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_first_name_kana.render('FIELD_first_name_kana');
+	// 予備のメールアドレス
+	var field_sub_mail_address = Ext.ucf.field.createPlaneText('sub_mail_address', '{{ucfp.voinfo.vo.sub_mail_address|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_sub_mail_address.render('FIELD_sub_mail_address');
+	// 説明
+	var field_comment = Ext.ucf.field.createPlaneText('comment', '{{ucfp.voinfo.vo.comment|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_comment.render('FIELD_comment');
+	// 管理グループ
+	var field_management_group = Ext.ucf.field.createPlaneText('management_group', '{{ucfp.voinfo.vo.management_group|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_management_group.render('FIELD_management_group');
+	// ログインロック
+	var field_login_lock_flag = Ext.ucf.field.createPlaneText('login_lock_flag', '{{ucfp.voinfo.vo.login_lock_flag|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_login_lock_flag.render('FIELD_login_lock_flag');
+	// ログインロック期限
+	var field_login_lock_expire = Ext.ucf.field.createPlaneText('login_lock_expire', '{{ucfp.voinfo.vo.login_lock_expire|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_login_lock_expire.render('FIELD_login_lock_expire');
+	// アカウント停止フラグ
+	var field_account_stop_flag = Ext.ucf.field.createPlaneText('account_stop_flag', '{{ucfp.voinfo.vo.account_stop_flag|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_account_stop_flag.render('FIELD_account_stop_flag');
+	// パスワード次回変更フラグ
+	var field_next_password_change_flag = Ext.ucf.field.createPlaneText('next_password_change_flag', '{{ucfp.voinfo.vo.next_password_change_flag|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_next_password_change_flag.render('FIELD_next_password_change_flag');
+
+	// 権限
+	var field_access_authority = Ext.ucf.field.createPlaneText('access_authority', '{{ucfp.voinfo.vo.access_authority|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_access_authority.render('FIELD_access_authority');
+	// 委託管理メニュー
+	var field_delegate_function = Ext.ucf.field.createPlaneText('delegate_function', '{{ucfp.voinfo.vo.delegate_function|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_delegate_function.render('FIELD_delegate_function');
+	// 委託管理グループ
+	var field_delegate_management_groups = Ext.ucf.field.createPlaneText('delegate_management_groups', '{{ucfp.voinfo.vo.delegate_management_groups|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_delegate_management_groups.render('FIELD_delegate_management_groups');
+
+	// 言語
+	// サーバー側で管理するように変更 2015.02.02
+	//var field_language = Ext.ucf.field.createPlaneText('language', '{{ucfp.voinfo.vo.language|escapejs}}', Ext.ucf.acnt.viewHelper);
+	var field_language = Ext.ucf.field.createPlaneText('language', '{{ucfp.voinfo.voVH.language|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_language.render('FIELD_language');
+
+{#
+	// 連絡先：会社名
+	var field_contact_company = Ext.ucf.field.createPlaneText('contact_company', '{{ucfp.voinfo.vo.contact_company|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_company.render('FIELD_contact_company');
+	// 連絡先：事業所
+	var field_contact_company_office = Ext.ucf.field.createPlaneText('contact_company_office', '{{ucfp.voinfo.vo.contact_company_office|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_company_office.render('FIELD_contact_company_office');
+	// 連絡先：部署
+	var field_contact_company_department = Ext.ucf.field.createPlaneText('contact_company_department', '{{ucfp.voinfo.vo.contact_company_department|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_company_department.render('FIELD_contact_company_department');
+	// 連絡先：課・グループ
+	var field_contact_company_department2 = Ext.ucf.field.createPlaneText('contact_company_department2', '{{ucfp.voinfo.vo.contact_company_department2|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_company_department2.render('FIELD_contact_company_department2');
+	// 連絡先：役職
+	var field_contact_company_post = Ext.ucf.field.createPlaneText('contact_company_post', '{{ucfp.voinfo.vo.contact_company_post|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_company_post.render('FIELD_contact_company_post');
+	// 連絡先：メールアドレス1
+	var field_contact_email1 = Ext.ucf.field.createPlaneText('contact_email1', '{{ucfp.voinfo.vo.contact_email1|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_email1.render('FIELD_contact_email1');
+	// 連絡先：メールアドレス2
+	var field_contact_email2 = Ext.ucf.field.createPlaneText('contact_email2', '{{ucfp.voinfo.vo.contact_email2|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_email2.render('FIELD_contact_email2');
+	// 連絡先：電話番号1
+	var field_contact_tel_no1 = Ext.ucf.field.createPlaneText('contact_tel_no1', '{{ucfp.voinfo.vo.contact_tel_no1|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_tel_no1.render('FIELD_contact_tel_no1');
+	// 連絡先：電話番号2
+	var field_contact_tel_no2 = Ext.ucf.field.createPlaneText('contact_tel_no2', '{{ucfp.voinfo.vo.contact_tel_no2|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_tel_no2.render('FIELD_contact_tel_no2');
+	// 連絡先：電話番号3
+	var field_contact_tel_no3 = Ext.ucf.field.createPlaneText('contact_tel_no3', '{{ucfp.voinfo.vo.contact_tel_no3|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_tel_no3.render('FIELD_contact_tel_no3');
+	// 連絡先：電話番号4
+	var field_contact_tel_no4 = Ext.ucf.field.createPlaneText('contact_tel_no4', '{{ucfp.voinfo.vo.contact_tel_no4|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_tel_no4.render('FIELD_contact_tel_no4');
+	// 連絡先：電話番号5
+	var field_contact_tel_no5 = Ext.ucf.field.createPlaneText('contact_tel_no5', '{{ucfp.voinfo.vo.contact_tel_no5|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_tel_no5.render('FIELD_contact_tel_no5');
+	// 連絡先：国、地域
+	var field_contact_postal_country = Ext.ucf.field.createPlaneText('contact_postal_country', '{{ucfp.voinfo.vo.contact_postal_country|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_postal_country.render('FIELD_contact_postal_country');
+	// 連絡先：郵便番号
+	var field_contact_postal_code = Ext.ucf.field.createPlaneText('contact_postal_code', '{{ucfp.voinfo.vo.contact_postal_code|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_postal_code.render('FIELD_contact_postal_code');
+	// 連絡先：住所１（都道府県）
+	var field_contact_postal_prefecture = Ext.ucf.field.createPlaneText('contact_postal_prefecture', '{{ucfp.voinfo.vo.contact_postal_prefecture|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_postal_prefecture.render('FIELD_contact_postal_prefecture');
+	// 連絡先：住所２（市区町村）
+	var field_contact_postal_city = Ext.ucf.field.createPlaneText('contact_postal_city', '{{ucfp.voinfo.vo.contact_postal_city|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_postal_city.render('FIELD_contact_postal_city');
+	// 連絡先：住所３（番地）
+	var field_contact_postal_street_address = Ext.ucf.field.createPlaneText('contact_postal_street_address', '{{ucfp.voinfo.vo.contact_postal_street_address|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_contact_postal_street_address.render('FIELD_contact_postal_street_address');
+
+	// 追加属性1
+	var field_custom_attribute1 = Ext.ucf.field.createPlaneText('custom_attribute1', '{{ucfp.voinfo.vo.custom_attribute1|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute1.render('FIELD_custom_attribute1');
+	// 追加属性2
+	var field_custom_attribute2 = Ext.ucf.field.createPlaneText('custom_attribute2', '{{ucfp.voinfo.vo.custom_attribute2|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute2.render('FIELD_custom_attribute2');
+	// 追加属性3
+	var field_custom_attribute3 = Ext.ucf.field.createPlaneText('custom_attribute3', '{{ucfp.voinfo.vo.custom_attribute3|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute3.render('FIELD_custom_attribute3');
+	// 追加属性4
+	var field_custom_attribute4 = Ext.ucf.field.createPlaneText('custom_attribute4', '{{ucfp.voinfo.vo.custom_attribute4|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute4.render('FIELD_custom_attribute4');
+	// 追加属性5
+	var field_custom_attribute5 = Ext.ucf.field.createPlaneText('custom_attribute5', '{{ucfp.voinfo.vo.custom_attribute5|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute5.render('FIELD_custom_attribute5');
+	// 追加属性6
+	var field_custom_attribute6 = Ext.ucf.field.createPlaneText('custom_attribute6', '{{ucfp.voinfo.vo.custom_attribute6|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute6.render('FIELD_custom_attribute6');
+	// 追加属性7
+	var field_custom_attribute7 = Ext.ucf.field.createPlaneText('custom_attribute7', '{{ucfp.voinfo.vo.custom_attribute7|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute7.render('FIELD_custom_attribute7');
+	// 追加属性8
+	var field_custom_attribute8 = Ext.ucf.field.createPlaneText('custom_attribute8', '{{ucfp.voinfo.vo.custom_attribute8|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute8.render('FIELD_custom_attribute8');
+	// 追加属性9
+	var field_custom_attribute9 = Ext.ucf.field.createPlaneText('custom_attribute9', '{{ucfp.voinfo.vo.custom_attribute9|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute9.render('FIELD_custom_attribute9');
+	// 追加属性10
+	var field_custom_attribute10 = Ext.ucf.field.createPlaneText('custom_attribute10', '{{ucfp.voinfo.vo.custom_attribute10|escapejs}}', Ext.ucf.acnt.viewHelper);
+	field_custom_attribute10.render('FIELD_custom_attribute10');
+#}
+
+}
+
+function goEditPage()
+{
+	location.href = '{{vurl|safe}}operator/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_RENEW|safe}}'
+}
+
+function goCopyNewRegist()
+{
+	location.href = '{{vurl|safe}}operator/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_NEW|safe}}&{{config.QSTRING_TYPE2|safe}}={{config.EDIT_TYPE_COPYNEWREGIST|safe}}'
+}
+
+function goRenameUser()
+{
+	location.href = '{{vurl|safe}}operator/changeid?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}'
+}
+
+function deleteData()
+{
+	Ext.Msg.show({
+		icon: Ext.MessageBox.QUESTION,
+		title: '{{lang.CONFIRM|safe|escapejs}}',
+		msg: '{{lang.VMSG_CONFIRM_DELETE_OPERATOR|safe|escapejs}}',
+		buttons: Ext.Msg.YESNO,
+		fn:function(btn,text){
+	    if (btn == 'yes'){
+					location.href = '{{vurl|safe}}operator/regist?unqid={{ucfp.voinfo.vo.unique_id|escapejs}}&{{config.QSTRING_TYPE|safe}}={{config.EDIT_TYPE_DELETE|safe}}&{{config.QSTRING_STATUS|safe}}={{config.VC_CHECK|safe}}&token={{ucfp.data.token}}'
+	    }
+		}
+	});
+}
+
+// ログテキストの詳細を表示
+var acslog_store;
+var dispLogTextDetail = function(unique_id)
+{
+	var record = acslog_store.getById(unique_id);
+	Ext.ucf.acslog.dispLogTextDetail(record);
+};
+
+function initLoginHistory()
+{
+		var each_page_cnt = 10;
+
+		var vh_basic = function(value, p, record)
+		{
+			return Ext.ucf.htmlEscape(value);
+		};
+
+		var vh_login_result = function(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('login_result', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		};
+
+		var vh_log_code = function(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('log_code', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		};
+
+		var vh_log_text = function(value, p, record)
+		{
+			var html = '';
+			html += '<a href="JavaScript:dispLogTextDetail(\''+ escape(record.get('unique_id')) + '\')" >{{lang.DETAIL|safe}}</a>';
+			return html;
+		};
+
+		var vh_target_career = function(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('target_career', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		};
+
+		function vh_target_env(value, p, record)
+		{
+			var vh_result = Ext.ucf.acslog.viewHelper('target_env', value, null);
+			if(vh_result.is_html){
+				return vh_result.value;
+			}else{
+				return Ext.ucf.htmlEscape(vh_result.value);
+			}
+		}
+
+		var getSearchBaseParam = function()
+		{
+			var start = 0;
+			var params = {start:start, limit: each_page_cnt
+							,sk_operator_unique_id:'{{ucfp.voinfo.vo.unique_id|escapejs}}'
+						};
+			return params;
+		};
+		
+		var search_acslog = function()
+		{
+			Ext.ucf.search(false, acslog_store, getSearchBaseParam, '');
+		};
+
+    acslog_store = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+							idProperty: 'unique_id'
+							,root: 'records'
+							,totalProperty: 'all_count'
+							}, Ext.ucf.acslog.createLoginHistoryRecord()),
+		    url: '{{vurl|safe}}acs/xtloglist',
+				autoDestroy:true
+    });
+		// Storeのロード後のイベントハンドラを追加
+		acslog_store.on('load', function(s, records, options) {
+		});
+
+	
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search_acslog
+	});
+		
+	var sLimitCB = new Ext.ucf.searchLimitComboBox(
+				[each_page_cnt,50,100]
+				,{
+					'select':function(cb, record, index){
+						each_page_cnt = cb.value;
+						pagingBar.pageSize = each_page_cnt;
+						search_acslog();
+						}
+				});
+	each_page_cnt = sLimitCB.value;
+	
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: acslog_store,
+		displayInfo: true, 
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+				'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			,'-'
+			,{
+          text: '{{lang.LOGIN_HISTORY_EXPORT_EACH_OPERATOR|safe|escapejs}}',
+          handler: function(){
+						Ext.ucf.exportToCsv({data_kind:'exportacslogcsv', search_key:'{{ucfp.voinfo.vo.unique_id|escapejs}}'},'LoginHistoryGridList');
+          }
+      },'-',{
+          text: '{{lang.MSG_LINK_TO_LOGIN_HISTORY|safe|escapejs}}',
+          handler: function(){
+						location.href = '{{vurl|safe}}acs/log';
+          }
+			}
+			,'-']
+		});
+	
+	var cm = new Ext.grid.ColumnModel({
+      columns: [
+			{
+          header: '{{lang.VMSG_LOGIN_OPERATORID|safe|escapejs}}',
+          dataIndex: 'login_id',
+          width: 80,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_ACCESS_DATE|safe|escapejs}}',
+          dataIndex: 'access_date',
+          width: 100,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_CLIENT_IP|safe|escapejs}}',
+          dataIndex: 'client_ip',
+          width: 80,
+          sortable: false,
+					renderer: vh_basic
+      },{
+          header: '{{lang.FLD_LOGIN_RESULT|safe|escapejs}}',
+          dataIndex: 'login_result',
+          width: 40,
+          sortable: false,
+					renderer: vh_login_result
+      },{
+          header: '{{lang.FLD_LOG_CODE|safe|escapejs}}',
+          dataIndex: 'log_code',
+          width: 120,
+          sortable: false,
+					renderer: vh_log_code
+      },{
+          header: '{{lang.FLD_TARGET_CAREER|safe|escapejs}}',
+          dataIndex: 'target_career',
+          width: 70,
+          sortable: false,
+					renderer: vh_target_career
+      },{
+          header: '{{lang.FLD_TARGET_ENV|safe|escapejs}}',
+          dataIndex: 'target_env',
+          width: 70,
+          sortable: false,
+					renderer: vh_target_env
+      },{
+          header: '{{lang.DETAIL|safe|escapejs}}',
+          dataIndex: 'log_text',
+          width: 40,
+          sortable: false,
+					renderer: vh_log_text
+      }
+		]
+	});
+	var grid = new Ext.grid.EditorGridPanel({
+
+    store: acslog_store,
+//      width: 600,
+    region:'center',
+		clicksToEdit: 1,
+		columnLines:true,
+		loadMask:true,
+		viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+    stripeRows: true,
+		bbar: pagingBar,
+		tbar: toolBar,
+//			sm: sm,
+		cm: cm
+  });
+	// パネルにユーザ一覧グリッドをセット
+  var layout = new Ext.Panel({
+    collapsible: true,
+    title: '{{lang.VMSG_LOGINHISTORY|safe|escapejs}}',
+    layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+    layoutConfig: {
+        columns: 1
+    },
+    height: 320,
+    items: [grid]
+  });
+  layout.render(Ext.get('LoginHistoryGridList'));
+	
+	search_acslog();		
+	
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+
+}
+
+</script>
+<script type="text/javascript" >
+Ext.onReady(function(){
+
+	Ext.QuickTips.init();
+	Ext.ucf.init();
+
+	createFields();
+
+	var btnEdit = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_EDIT|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goEditPage();
+		}
+	});
+	btnEdit.render(Ext.get('btnEdit'));
+
+	var btnCopyNewRegist = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_COPY|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goCopyNewRegist();
+		}
+	});
+	btnCopyNewRegist.render(Ext.get('btnCopyNewRegist'));
+
+	var btnRename = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_RENAME_OPERATOR|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			goRenameUser();
+		}
+	});
+	btnRename.render(Ext.get('btnRename'));
+
+	var btnDelete = new Ext.Button({
+		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_OPERATOR_DELETE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;',
+		handler:function(){
+			deleteData();
+		}
+	});
+	btnDelete.render(Ext.get('btnDelete'));
+
+	var btnBackClose = new Ext.Button({
+		text:''
+	});
+
+	if(history.length > 1)
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_BACK|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			history.back(-1);
+		};
+	}
+	else
+	{
+		btnBackClose.text = '&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_CLOSE|safe}}&nbsp;&nbsp;&nbsp;&nbsp;';
+		btnBackClose.handler = function(){
+			window.close();
+		};
+	}
+	btnBackClose.render(Ext.get('btnBackClose'));
+
+	// 所属グループの表示処理を行う。
+	// refleshGroupIdInfo();
+
+
+	initLoginHistory();
+
+});
+</script>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+{% include "./include/operator_leftmenu.html" %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% include "./include/attention.html" %}
+{% include "./include/explain.html" %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/operator_32.png"></span>
+<p class="ttl">{{lang.VMSG_SITE_TITLE_OPERATOR_DETAIL|safe}}</p>
+<table class="detail_layout" >
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<table width="100%" border="0" cellpadding="2" cellspacing="2" class="detail" >
+			<tr>
+			<td>
+			<p class="style1">{{lang.EXP_OPERATOR_DETAIL|safe}}</p>
+			<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
+			<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.VMSG_BASIC_INFORMATION|safe}}</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_OPERATORID|safe}}&nbsp;<font color="red">*</font></td>
+			<td width="80%" align="left" class="style3" colspan="3">
+			<div id="FIELD_operator_id" class="field" ></div>
+			<p class="style1"><a href="{{vurl|safe}}operator/changeid?unqid={{ucfp.voinfo.vo.unique_id}}" >{{lang.MSG_LINK_TO_CHANGEOPERATORID|safe}}</a></p>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_PASSWORD|safe}}</td>
+			<td width="80%" align="left" class="style3" colspan="3" >
+			<div id="FIELD_password" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_MAILADDRESS}}</td>
+			<td width="80%" align="left" class="style3" colspan="3">
+			<div id="FIELD_mail_address" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_LASTNAME}}</td>
+			<td width="30%" align="left" class="style3">
+			<div id="FIELD_last_name" class="field" ></div>
+			</td>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FIRSTNAME}}</td>
+			<td width="30%" align="left" class="style3">
+			<div id="FIELD_first_name" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_LASTNAME_KANA|safe}}&nbsp;</td>
+			<td width="30%" align="left" class="style3">
+			<div id="FIELD_last_name_kana" class="field" ></div>
+			</td>
+			<td width="20%" valign="middle" class="style2" nowrap>{{lang.FLD_FIRSTNAME_KANA|safe}}&nbsp;</td>
+			<td width="30%" align="left" class="style3">
+			<div id="FIELD_first_name_kana" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_SUBMAILADDRESS|safe}}&nbsp;</td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_sub_mail_address" class="field" ></div>
+			<p class="style1">{{lang.EXP_SUBMAILADDRESS|safe}}</p>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.VMSG_LANGUAGE|safe}}</td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_language" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_STOPFLAG|safe}}</td>
+			<td align="left" class="style3">
+			<div id="FIELD_account_stop_flag" class="field" ></div>
+			</td>
+			<td valign="middle" class="" nowrap>&nbsp;</td>
+			<td align="left" class="">
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_PASSWORDNEXTCHANGEFLAG|safe}}</td>
+			<td align="left" class="style3">
+			<div id="FIELD_next_password_change_flag" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_PASSWORDEXPIRE|safe}}</td>
+			<td align="left" class="style3" >
+			{{lang.VMSG_NEXTEXPIRE|safe}}&nbsp;:{{ucfp.voinfo.voVH.password_expire}}&nbsp;
+			</td>
+			</tr>
+
+			<tr style="display: none">
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr style="display: none">
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_MANAGEMENT_GROUP|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_management_group" class="field" ></div>
+			<p class="style1">{{lang.VMSG_MANAGEMENT_GROUP_EXP|safe}}</p>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_COMMENT|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_comment" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4" >
+					<div class="main_content_title2">{{lang.VMSG_LOGIN_CONFIG|safe}}</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_LAST_LOGIN}}</td>
+			<td align="left" class="style3">{{ucfp.voinfo.voVH.last_login_date}}
+			<br/>（{{lang.MSG_LOGIN_PASSWORD_LENGTH|safe}}：&nbsp;{{ucfp.voinfo.voVH.login_password_length}}）
+			<input type="hidden" name="last_login_date" value="{{ucfp.voinfo.vo.last_login_date}}">
+			<input type="hidden" name="login_password_length" value="{{ucfp.voinfo.vo.login_password_length}}">
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_LOGIN_COUNT|safe}}</td>
+			<td align="left" class="style3">{{ucfp.voinfo.voVH.login_count}}
+			<input type="hidden" name="login_count" value="{{ucfp.voinfo.vo.login_count}}">
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_LOGIN_LOCK|safe}}</td>
+			<td align="left" class="style3" colspan="3" >
+			<table border="0" cellpadding="0" cellspacing="0" >
+			<tr>
+			<td>
+			<div id="FIELD_login_lock_flag" class="field" ></div>
+			</td>
+			<td>&nbsp;{{lang.FLD_LOGINLOCKEXPIRE|safe}}：
+			</td>
+			<td><div id="FIELD_login_lock_expire" class="field" ></div>
+			</td>
+			<td>&nbsp;
+			{{lang.FLD_LOGINFAILEDCOUNT|safe}}：&nbsp;{{ucfp.voinfo.voVH.login_failed_count}}
+			<input type="hidden" name="login_failed_count" value="{{ucfp.voinfo.vo.login_failed_count}}">
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4" >{{lang.EXP_LOGINFAILEDCOUNT|safe}}</td>
+			</tr>
+			</table>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.ACCESS_AUTHORITY_CONFIG|safe}}</div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap >{{lang.FLD_ACCESS_AUTHORITY|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_access_authority" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap >{{lang.FLD_DELEGATE_FUNCTION|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_delegate_function" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap >{{lang.FLD_DELEGATE_MANAGEMENT_GROUPS|safe}}</td>
+			<td align="left" class="style3" colspan="3">
+			<div id="FIELD_delegate_management_groups" class="field" ></div>
+			</td>
+			</tr>
+{#
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4">
+			<div class="main_content_title2">{{lang.PARENT_GROUP_CONFIG|safe}}</div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4">
+			<img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4">
+			<div id="AreaGroupId" >
+				<table class="info_table">
+					<tr>
+						<td><div id="GroupIdArea" >
+								<table border="0" cellpadding="0" cellspacing="0" >
+								<tr>
+								<td><div id="GroupIdErrMessage" class="DispBox" ></td>
+								</tr>
+							</table>
+							<div id="GroupIdDispBox" class="DispBox" >
+							</div> 
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr>
+				<td colspan="4" >
+					<div class="main_content_title2">{{lang.CONTACTINFO_CONFIG|safe}}</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<p>{{lang.EXP_CONTACTINFO_CONFIG|safe}}</p>
+				</td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY|safe}}</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_contact_company" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_OFFICE|safe}}</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_contact_company_office" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_DEPARTMENT|safe}}</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_contact_company_department" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_DEPARTMENT2|safe}}</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_contact_company_department2" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CONTACT_COMPANY_POST|safe}}</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_contact_company_post" class="field" ></div>
+			</td>
+			<td valign="middle" width="20%" nowrap></td>
+			<td align="left" class="style3" width="30%" >
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_EMAIL1|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_email1" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_EMAIL2|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_email2" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO1|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_tel_no1" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO2|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_tel_no2" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO3|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_tel_no3" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO4|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_tel_no4" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_TEL_NO5|safe}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_tel_no5" class="field" ></div>
+			</td>
+			<td valign="middle" nowrap></td>
+			<td align="left" class="style3" >
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_COUNTRY}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_postal_country" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CODE}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_postal_code" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_PREFECTURE}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_postal_prefecture" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_CITY}}</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_contact_postal_city" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CONTACT_POSTAL_STREET_ADDRESS|safe}}</td>
+			<td align="left" class="style3" colspan="3" >
+			<div id="FIELD_contact_postal_street_address" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr>
+				<td colspan="4" >
+					<div class="main_content_title2">{{lang.CUSTOM_ATTRIBUTE}}</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<p>{{lang.EXP_CUSTOM_ATTRIBUTE|safe}}</p>
+				</td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}1</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_custom_attribute1" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" width="20%" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}2</td>
+			<td align="left" class="style3" width="30%" >
+			<div id="FIELD_custom_attribute2" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}3</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute3" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}4</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute4" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}5</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute5" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}6</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute6" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}7</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute7" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}8</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute8" class="field" ></div>
+			</td>
+			</tr>
+			<tr>
+				<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}9</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute9" class="field" ></div>
+			</td>
+			<td valign="middle" class="style2" nowrap>{{lang.FLD_CUSTOM_ATTRIBUTE|safe}}10</td>
+			<td align="left" class="style3" >
+			<div id="FIELD_custom_attribute10" class="field" ></div>
+			</td>
+			</tr>
+#}
+			<tr>
+			<td colspan="4"><img src="/images/share/space.gif" width="10" height="1" border="0" alt=""></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr>
+			<td colspan="4"><div><img src="/images/share/space.gif" width="10" height="10" border="0"></div></td>
+			</tr>
+			<tr align="center">
+			<td colspan="4" align="center">
+				<table  align="center">
+					<tr>
+						<td>
+							<div id="btnEdit"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnCopyNewRegist"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnRename"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnDelete"></div>
+						</td>
+						<td>
+							&nbsp;&nbsp;
+						</td>
+						<td>
+							<div id="btnBackClose"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+			</td>
+			</tr>
+
+			</table>
+
+    </td>
+  </tr>
+
+</table>
+</div>
+<div class="innerArea01">
+<p class="ttl">{{lang.VMSG_LOGINHISTORY|safe}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="LoginHistoryGridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<entry>
+  <template_id><![CDATA[]]></template_id>
+  <template_name><![CDATA[営業週報]]></template_name>
+  <template_disabled><![CDATA[false]]></template_disabled>
+  <show_as_max_window><![CDATA[true]]></show_as_max_window>
+  <doc_info_place><![CDATA[middle]]></doc_info_place>
+  <show_doc_in_contextual_gadget><![CDATA[false]]></show_doc_in_contextual_gadget>
+  <created_date><![CDATA[]]></created_date>
+  <updated_date><![CDATA[]]></updated_date>
+  <template_body><![CDATA[<!--
+  営業週報
+
+  @since 2014-01-03
+-->
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" style="width:20%">名前</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="author_name"></td>
+		<td class="detail_name" style="width:20%">部署</td>
+		<td class="detail_value" style="width:30%"><input type="text" name="department"></td>
+		</tr>
+	<tr>
+		<td class="detail_name">重要度</td>
+		<td class="detail_value"><label><input type="radio" name="priority" value="urgent">緊急</label> <label><input type="radio" name="priority" value="normal" checked>普通</label></td>
+		<td class="detail_name">文書種別</td>
+		<td class="detail_value"><input type="text" name="document_type"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<div class="main_content_title2">今週の実績</div>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<th class="detail_head" style="width:15%;">月日</th>
+		<th class="detail_head" style="width:60%;">業務内容</th>
+		<th class="detail_head" style="width:25%;">備考</th>
+	</tr>
+
+<!-- _01行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_1" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_1" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_1" style="width:100%;"></td>
+	</tr>
+
+<!-- _02行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_2" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_2" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_2" style="width:100%;"></td>
+	</tr>
+
+<!-- _03行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_3" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_3" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_3" style="width:100%;"></td>
+	</tr>
+
+<!-- _04行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_4" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_4" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_4" style="width:100%;"></td>
+	</tr>
+
+<!-- _05行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_5" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_5" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_5" style="width:100%;"></td>
+	</tr>
+
+<!-- _06行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_6" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_6" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_6" style="width:100%;"></td>
+	</tr>
+
+<!-- _07行目 -->
+	<tr>
+		<td class="detail_value"><input name="tsuki_hi_7" class="date"></td>
+		<td class="detail_value"><input name="gyomunaiyo_7" style="width:100%;"></td>
+		<td class="detail_value"><input name="bikou_7" style="width:100%;"></td>
+	</tr>
+
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+</table>
+
+<table class="detail" style="width:99%">
+	<tr>
+		<td class="detail_name" width="20%">来週の目標<br>営業計画</td>
+		<td class="detail_value" width="80%"><textarea name="nextweek_target" style="width:100%" rows="5"></textarea></td>
+	</tr>
+
+	<tr>
+		<td class="detail_name">備考</td>
+		<td class="detail_value"><textarea name="comment" style="width:100%" rows="10"></textarea></td>
+	</tr>
+
+</table>
+
+]]></template_body>
+  <template_body_for_html_builder><![CDATA[{"template_list_json_string":"{\"id\":\"template-20140526032944weTFCL68K4NWdDvj\",\"name\":\"営業週報1\",\"sections\":[{\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\",\"secname\":\"営業週報1\",\"column_cof\":2,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"},\"2\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049795767GroaOuOkVDJdJk2n\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"名前\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"author_name\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/group_input_radio.png\",\"tag\":\"div\",\"label\":\"ラジオボタングループ\",\"config\":{\"items\":[{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"緊急\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=urgent;\",\"value\":\"urgent\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"},{\"show\":true,\"iconUrl\":\"https://vn-sateraito-apps-kejiban.appspot.com/htmlbuilder/images/icon_ctr/radio-button-on-icon.png\",\"tag\":\"input\",\"type\":\"radio\",\"label\":\"ラジオボタン\",\"config\":{\"attributes\":{\"lblname\":\"普通\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"class\":\"\",\"new_attrs\":\"value=normal;checked=checked;\",\"value\":\"normal\",\"name\":\"priority\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"class\":true,\"new_attrs\":true,\"checked\":true,\"disabled\":true,\"value\":true},\"items\":{}},\"map_type_control\":\"radio\"}],\"attributes\":{\"lblname\":\"重要度\",\"widthlbl\":\"100px\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"priority\",\"style\":\"\",\"rbgdirection\":\"horizontal\"},\"settingfields\":{\"lblname\":true,\"widthlbl\":true,\"showlblname\":true,\"beforecontent\":true,\"aftercontent\":true,\"name\":true,\"style\":true,\"rbgitems\":true},\"html\":\"\"},\"control_id\":\"ctr_id-1401049795774ou55o3UHZ1E3Cwqh\",\"map_type_control\":\"radiogroup\",\"pos_row\":2,\"pos_col\":1,\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-140104979576784gE3YKuzUH0r5Hd\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"部署\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"department\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795770HM8xVmBNNgSPBUfI\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"文書種別\",\"showlblname\":\"true\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"document_type\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"}]},{\"section_id\":\"sec_id-1401051274968Ao0qsRYGyudTYkfq\",\"secname\":\"space1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401051323822dZH4rmmZ7HvhvXN1\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"width:100%;height:10px;\",\"class\":\"\"},\"items\":{},\"html\":\"\"},\"section_id\":\"sec_id-1401051274968Ao0qsRYGyudTYkfq\"}]},{\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\",\"secname\":\"今週の実績\",\"column_cof\":3,\"show_header\":true,\"show_inner_header\":true,\"setting_inner_header\":{\"1\":{\"title\":\"月日\",\"width\":\"15%\",\"align\":\"left\"},\"2\":{\"title\":\"業務内容\",\"width\":\"60%\",\"align\":\"left\"},\"3\":{\"title\":\"備考\",\"width\":\"25%\",\"align\":\"left\"},\"v_cfg\":{\"inner_header_show_title1\":true,\"inner_header_show_title2\":false,\"title\":\"\",\"width\":\"\",\"align\":\"\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049795770qTnahCtJk80JBrtQ\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_1\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795771fmQIMNa7YBLD2cHi\",\"pos_row\":2,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_2\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771LB0hIWdcavh4pA0g\",\"pos_row\":3,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_3\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771IuuGwM8iztfnMeaD\",\"pos_row\":4,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_4\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771bf43z0aEo0NfuJwU\",\"pos_row\":5,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_5\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771o8eiz7d8VNOtZcr0\",\"pos_row\":6,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_6\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-14010497957721TTw7F63NIncIF4z\",\"pos_row\":7,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"tsuki_hi_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"tsuki_hi_7\",\"style\":\"width:100%\",\"class\":\"date\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-14010497957707mH0CQy3JvTRyEpU\",\"pos_row\":1,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_1\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795771LfLfwJxVzamg397S\",\"pos_row\":2,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_2\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795771KNGqkP7eZw5DGsIT\",\"pos_row\":3,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_3\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795771mdUcTYdDNIr9nDw5\",\"pos_row\":4,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_4\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-14010497957717aIs4ha6FOhE8Cfh\",\"pos_row\":5,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_5\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795772dJ9V0tzqLWjYGPYm\",\"pos_row\":6,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_6\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795772BFZWBRGhX0O71Gsz\",\"pos_row\":7,\"pos_col\":2,\"config\":{\"attributes\":{\"lblname\":\"gyomunaiyo_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"gyomunaiyo_7\",\"style\":\"width:99%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401050452192KSopHs0WBOZ98I1D\"},{\"control_id\":\"ctr_id-1401049795771O70ZTNb9rbhE9VfJ\",\"pos_row\":1,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_1\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_1\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771uSbI6Qi3DGBGELDe\",\"pos_row\":2,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_2\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_2\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-140104979577178xMbu9B26r5RC3O\",\"pos_row\":3,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_3\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_3\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-14010497957712cIAVopVI604ghLt\",\"pos_row\":4,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_4\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_4\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795771ducN7U1ZSKXfwMIs\",\"pos_row\":5,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_5\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_5\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795772YL1ZAk57V8mI5DFv\",\"pos_row\":6,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_6\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_6\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"},{\"control_id\":\"ctr_id-1401049795772kfp9uTxpjz7MKZr8\",\"pos_row\":7,\"pos_col\":3,\"config\":{\"attributes\":{\"lblname\":\"bikou_7\",\"showlblname\":\"false\",\"widthlbl\":\"\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"bikou_7\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"\",\"value\":\"\",\"maxlength\":\"\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"text\",\"tag\":\"input\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"}]},{\"section_id\":\"sec_id-14010513826247jHknKTE2d1fPwTt\",\"secname\":\"Space2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401051401998OezEqgxvc9gTX2qd\",\"map_type_control\":\"label\",\"pos_col\":1,\"pos_row\":1,\"config\":{\"attributes\":{\"lblname\":\"\",\"style\":\"width:100%;height:10px;\",\"class\":\"\"},\"items\":{},\"html\":\"\"}}]},{\"section_id\":\"sec_id-1401050832795NbKXc0q8vn53T8CI\",\"secname\":\"div1\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049795772HNmVfUvnXzAoomsS\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"来週の目標　　　営業計画\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontentcolor\":\"#000000\",\"beforecontentbold\":\"normal\",\"beforecontent\":\"\",\"aftercontentcolor\":\"#000000\",\"aftercontentbold\":\"normal\",\"aftercontent\":\"\",\"name\":\"nextweek_target\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=5;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"5\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401050832795NbKXc0q8vn53T8CI\"}]},{\"section_id\":\"sec_id-1401050929216bgbFJMqyNLvRuwv9\",\"secname\":\"div2\",\"column_cof\":1,\"show_header\":false,\"show_inner_header\":false,\"setting_inner_header\":{\"1\":{\"title\":\"\",\"width\":\"\",\"align\":\"left\"}},\"controls\":[{\"control_id\":\"ctr_id-1401049795772diAZ0HIHXEe4w2qn\",\"pos_row\":1,\"pos_col\":1,\"config\":{\"attributes\":{\"lblname\":\"備考\",\"widthlbl\":\"\",\"showlblname\":\"true\",\"beforecontent\":\"\",\"aftercontent\":\"\",\"name\":\"comment\",\"style\":\"width:100%\",\"class\":\"\",\"new_attrs\":\"rows=10;\",\"value\":\"\",\"cols\":\"\",\"rows\":\"10\"},\"items\":{},\"html\":\"\"},\"map_type_control\":\"textarea\",\"tag\":\"textarea\",\"section_id\":\"sec_id-1401049795774n793cYubh9OPcQtx\"}]}]}","trash_template_list_json_string":"{\"id\":\"template-20140526032944weTFCL68K4NWdDvj\",\"name\":\"営業週報1\",\"controls\":[]}","sateraito_script_content":"// javascriptでフォームの制御が必要な場合はここで定義してください。"}
+]]></template_body_for_html_builder>
+  <template_body_for_mobile><![CDATA[<!--
+  営業週報
+
+  @since 2014-01-03
+-->
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">名前</div>
+      <div class="detail_value"><input type="text" name="author_name" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">部署</div>
+      <div class="detail_value"><input type="text" name="department" style="width:100%"></div>
+    </li>
+    <li class="row">
+      <div class="detail_name">重要度</div>
+      <div class="detail_value">
+        <input type="radio" name="priority" value="urgent"><label>緊急</label>
+        <input type="radio" name="priority" value="normal" checked="checked"> <label>普通</label>
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">文書種別</div>
+      <div class="detail_value"><input type="text" name="document_type" style="width:100%"></div>
+    </li>
+  </ul>
+</div>
+<div class="main_content_title2">今週の実績</div>
+<div class="container">
+  <ul class="detail">
+    <li class="row">
+      <div class="detail_name">1.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">2.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">3.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">4.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">5.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">6.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li class="row">
+      <div class="detail_name">7.</div>
+      <div class="detail_value">
+        月日
+        <input type="text" name="tsuki_hi_1" class="date" style="width: 100%">
+        業務内容
+        <input type="text" name="gyomunaiyo_1" style="width:100%;">
+        備考
+        <input type="text" name="bikou_1" style="width:100%;">
+      </div>
+    </li>
+    <li>
+      <div class="detail_name">来週の目標 営業計画</div>
+      <div class="detail_value"><textarea name="nextweek_target" style="width:98%" rows="5"></textarea></div>
+    </li>
+
+    <li>
+      <div class="detail_name">備考</div>
+      <div class="detail_value"><textarea name="comment" style="width:98%" rows="10"></textarea>
+      </div>
+    </li>
+
+  </ul>
+</div>
+</div>
+]]></template_body_for_mobile>
+</entry>

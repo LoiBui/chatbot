@@ -1,0 +1,1029 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+<!-- 
+	var _vurl = '{{vurl|escapejs}}';
+//-->
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+
+
+<script type="text/javascript">
+<!--
+//-->
+</script>
+
+<script type="text/javascript" src="{{vscripturl}}ucfext_emailmagazine.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_emailtemplate.js?{{version}}" ></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<title>{{lang.VMSG_SITE_TITLE_EMAILTEMPLATE}} - {% if sp_code == 'worksmobile'%}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+<script type="text/javascript" >
+<!--
+		var each_page_cnt = 20;
+		var store;
+		function goEditPage(unique_id)
+		{
+//			window.location.href = '{{vurl}}emailtemplate/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
+
+        }
+		
+		function getSearchBaseParam(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+			}
+		
+			var params = {start:start, limit: each_page_cnt
+							,sk_keyword:Ext.ucf.getElementValue('sk_keyword')
+						};
+			
+			return params;
+		}
+		
+		function search(psc)
+		{
+			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_TEMPLATE_LIST}}');
+		}
+		
+
+		function vh_template_id(value, p, record)
+		{
+			var html = '';
+			html += '<a href="{{vurl}}emailtemplate/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
+			return html;
+		}
+		
+		function vh_basic(value, p, record)
+		{
+			var html = '';
+			html += Ext.ucf.htmlEscape(value);
+			return html;
+		}
+
+		function vhSave(value, p, record)
+		{
+			return '<input type="button" value="" class="btnSave" onclick="JavaScript:saveAccountInfo(\'' + value + '\');" />';
+		}
+		
+		function vhEdit(value, p, record)
+		{
+            console.log(record);
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:createUpdateSenderForm(\'' + value + '\',\'' + record.data.email + '\',\'' + record.data.first_name + '\',\'' + record.data.last_name + '\',\'' + record.data.reply_email + '\',\'' + record.data.reply_name + '\');" />';
+		}
+		
+
+
+function createSearchCondFields()
+{
+	var field_sk_keyword = Ext.ucf.field.createTextField('sk_keyword', 'sk_keyword', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
+	field_sk_keyword.render('FIELD_sk_keyword');
+}
+
+function createNewSender() {
+    var show_window = function () {
+
+        var vHtml = '';
+        vHtml += '<div style="px;padding:10px;">';
+        vHtml += '<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER_FIRSTNAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_first_name" name="preview_new_first_name" class="x-form-text x-form-field" style="width: 242px;">';
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER_LASTNAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_last_name" name="preview_new_last_name" class="x-form-text x-form-field" style="width: 242px;">';
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_sender" name="preview_new_sender" class="x-form-text x-form-field" style="width: 242px;">';
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}</td>'.format(_msg.FLD_REPLYTO_EMAIL);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_replyto_email" name="preview_new_replyto_email" class="x-form-text x-form-field" style="width: 242px;">';
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}</td>'.format(_msg.FLD_REPLYTO_NAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_replyto_name" name="preview_new_replyto_name" class="x-form-text x-form-field" style="width: 242px;">';
+        vHtml += '</td>';
+        vHtml += '</tr>';
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+
+        vHtml += '</table>';
+        vHtml += '</div>';
+
+        var logform = new Ext.FormPanel({
+            labelWidth: 30,
+            frame: false,
+            width: 450,
+            layout: 'fit',
+            html: vHtml,
+            buttons: [
+                {
+                    text: _msg.VMSG_SAVE,
+                    handler: function () {
+                        saveTemplate();
+                    }
+                }
+                ,
+                {
+                    text: _msg.VMSG_CLOSE,
+                    handler: function () {
+                        detailwindow.close();
+                    }
+                }
+            ]
+        });
+
+        var handleAfterProcessTemplate = function (response) {
+            if (response.responseText != undefined && response.responseText != '') {
+                var result = $.parseJSON(response.responseText);
+                var code = result.code;
+                if (code == 0) {
+                    console.log(result);
+
+                    search();
+
+                    Ext.ucf.flowMsg(_msg.VMSG_TEMPLATE_ADD, _msg.PROCESS_RESULT_SUCCESS, '');
+                    detailwindow.close();
+                } else {
+                    Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, _msg.PROCESS_RESULT_FAILED, '');
+                }
+            }
+        };
+
+        var saveTemplate = function () {
+
+            var preview_new_sender = $('#preview_new_sender').val().trim();
+            var preview_new_first = $('#preview_new_first_name').val().trim();
+            var preview_new_last = $('#preview_new_last_name').val().trim();
+
+            var vc_msgs='';
+            if (preview_new_sender == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER + '] ' + _msg.VC_NEED;
+
+            }
+            if (preview_new_first == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER_FIRSTNAME + ' ' + _msg.VC_NEED;
+            }
+            if (preview_new_last == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER_LASTNAME + '] ' + _msg.VC_NEED;
+            }
+
+            var preview_new_replyto_email = $('#preview_new_replyto_email').val().trim();
+            var preview_new_replyto_name = $('#preview_new_replyto_name').val().trim();
+
+            if (preview_new_replyto_email == '' || preview_new_replyto_name == ''){
+
+                if (preview_new_replyto_email == '' && preview_new_replyto_name != '') {
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_REPLYTO_EMAIL + '] ' + _msg.VC_NEED;
+                }
+
+                if (preview_new_replyto_email != '' && preview_new_replyto_name == '') {
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_REPLYTO_NAME + '] ' + _msg.VC_NEED;
+                }
+            }
+
+            if (vc_msgs.length > 0){
+                Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, vc_msgs, '');
+                return;
+            }
+            else {
+                if (!Ext.ucf.emailmagazine.checkValidateEmail(preview_new_sender)) {
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_NEW_SENDER + '] ' + _msg.VC_INVALID_EMAIL;
+                }
+
+                if (preview_new_replyto_email != '' && preview_new_replyto_name != ''){
+                    if (!Ext.ucf.emailmagazine.checkValidateEmail(preview_new_replyto_email)){
+                        if (vc_msgs.length >0) vc_msgs += '<br>';
+                        vc_msgs += '[' + _msg.FLD_REPLYTO_EMAIL + '] ' + _msg.VC_INVALID_EMAIL;
+                    }
+                }
+                if (vc_msgs.length > 0){
+                    Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, vc_msgs, '');
+                    return;
+                }
+
+                var params = {
+                    first_name: preview_new_first,
+                    last_name: preview_new_last,
+                    email: preview_new_sender,
+                    reply_email: preview_new_replyto_email,
+                    reply_name: preview_new_replyto_name
+                };
+                Ext.Ajax.request({
+                    url: _vurl + 'senderemail/create',
+                    method: 'POST',
+                    params: params,
+                    success: handleAfterProcessTemplate,
+                    failure: handleAfterProcessTemplate
+                });
+            }
+        };
+
+        var detailwindow
+        {
+            var window_title = _msg.VMSG_SENDEREMAIL_ADD;
+            detailwindow = new Ext.Window({
+                title: window_title,
+                layout: 'fit',
+                modal: true,
+                width: 450,
+                height: 280,
+                plain: true,
+                autoDestory: true,
+                items: logform
+            });
+        }
+        ;
+        detailwindow.show();
+        detailwindow.dd.constrainTo(Ext.getBody());
+    };
+
+    var handleAfterProcess = function () {
+
+        show_window();
+    };
+    handleAfterProcess();
+}
+
+function createUpdateSenderForm(unique_id,email,first_name,last_name,reply_email,reply_name) {
+    var show_window = function () {
+
+        var vHtml = '';
+        vHtml += '<div style="px;padding:10px;">';
+        vHtml += '<table border="0" width="100%" cellpadding="2" cellspacing="2" class="detail2" >';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER_FIRSTNAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_first_name" name="preview_new_first_name" value="{0}" class="x-form-text x-form-field" style="width: 242px;">'.format(first_name);
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER_LASTNAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_last_name" name="preview_new_last_name" value="{0}" class="x-form-text x-form-field" style="width: 242px;">'.format(last_name);
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}&nbsp;<font color="red">*</font></td>'.format(_msg.FLD_NEW_SENDER);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_sender" name="preview_new_sender" value="{0}" class="x-form-text x-form-field" style="width: 242px;">'.format(email);
+
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}</td>'.format(_msg.FLD_REPLYTO_EMAIL);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_replyto_email" name="preview_new_replyto_email" value="{0}" class="x-form-text x-form-field" style="width: 242px;">'.format(reply_email);
+        vHtml += '</td>';
+        vHtml += '</tr>';
+
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+        vHtml += '<tr>';
+        vHtml += '<td valign="middle" class="style2" nowrap>{0}</td>'.format(_msg.FLD_REPLYTO_NAME);
+        ;
+        vHtml += '<td align="left" class="style3" colspan="3">';
+        vHtml += '<input type="text" size="20" autocomplete="off" id="preview_new_replyto_name" name="preview_new_replyto_name" value="{0}" class="x-form-text x-form-field" style="width: 242px;">'.format(reply_name);
+        vHtml += '</td>';
+        vHtml += '</tr>';
+        vHtml += '<tr><td colspan="4"><img src="/images/share/space.gif" width="10" height="10" border="0" alt=""></td></tr>';
+
+        vHtml += '</table>';
+        vHtml += '</div>';
+
+        var logform = new Ext.FormPanel({
+            labelWidth: 30,
+            frame: false,
+            width: 450,
+            layout: 'fit',
+            html: vHtml,
+            buttons: [
+                {
+                    text: _msg.UPDATE,
+                    handler: function () {
+                        updateSender();
+                    }
+                }
+                ,
+                {
+                    text: _msg.DELETE,
+                    handler: function () {
+                        deleteSender();
+                    }
+                }
+                ,
+                {
+                    text: _msg.VMSG_CLOSE,
+                    handler: function () {
+                        detailwindow.close();
+                    }
+                }
+            ]
+        });
+
+        var handleAfterProcessTemplate = function (response) {
+            if (response.responseText != undefined && response.responseText != '') {
+                var result = $.parseJSON(response.responseText);
+                var code = result.code;
+                if (code == 0) {
+                    console.log(result);
+
+                    search();
+
+                    if (result.tp == "{{config.EDIT_TYPE_RENEW}}")
+                        Ext.ucf.flowMsg(_msg.VMSG_SENDEREMAIL_UPDATE, _msg.PROCESS_RESULT_SUCCESS, '');
+                    else Ext.ucf.flowMsg(_msg.VMSG_SENDEREMAIL_DELETE, _msg.PROCESS_RESULT_SUCCESS, '');
+                    detailwindow.close();
+                } else {
+                    Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, _msg.PROCESS_RESULT_FAILED, '');
+                }
+            }
+        };
+
+        var updateSender = function () {
+
+            var preview_new_sender = $('#preview_new_sender').val().trim();
+            var preview_new_first = $('#preview_new_first_name').val().trim();
+            var preview_new_last = $('#preview_new_last_name').val().trim();
+
+            var vc_msgs='';
+            if (preview_new_sender == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER + '] ' + _msg.VC_NEED;
+            }
+            if (preview_new_first == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER_FIRSTNAME + '] ' + _msg.VC_NEED;
+            }
+            if (preview_new_last == '') {
+                if (vc_msgs.length >0) vc_msgs += '<br>';
+                vc_msgs += '[' + _msg.FLD_NEW_SENDER_LASTNAME + '] ' + _msg.VC_NEED;
+            }
+
+            var preview_new_replyto_email = $('#preview_new_replyto_email').val().trim();
+            var preview_new_replyto_name = $('#preview_new_replyto_name').val().trim();
+
+            if (preview_new_replyto_email == '' || preview_new_replyto_name == ''){
+
+                if (preview_new_replyto_email == '' && preview_new_replyto_name != '') {
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_REPLYTO_EMAIL + '] ' + _msg.VC_NEED;
+                }
+
+                if (preview_new_replyto_email != '' && preview_new_replyto_name == '') {
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_REPLYTO_NAME + '] ' + _msg.VC_NEED;
+                }
+            }
+
+            if (vc_msgs.length > 0){
+                Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, vc_msgs, '');
+                return;
+            }
+            else {
+                if (!Ext.ucf.emailmagazine.checkValidateEmail(preview_new_sender)){
+                    if (vc_msgs.length >0) vc_msgs += '<br>';
+                    vc_msgs += '[' + _msg.FLD_NEW_SENDER + '] ' + _msg.VC_INVALID_EMAIL;
+                }
+                if (preview_new_replyto_email != '' && preview_new_replyto_name != ''){
+                    if (!Ext.ucf.emailmagazine.checkValidateEmail(preview_new_replyto_email)){
+                        if (vc_msgs.length >0) vc_msgs += '<br>';
+                        vc_msgs += '[' + _msg.FLD_REPLYTO_EMAIL + '] ' + _msg.VC_INVALID_EMAIL;
+                    }
+                }
+
+                if (vc_msgs.length > 0){
+                    Ext.ucf.flowMsg(_msg.VMSG_MSG_ERROR, vc_msgs, '');
+                    return;
+                }
+
+                var params = {
+                    sender: preview_new_sender,
+                    unique_id: unique_id,
+                    first_name: preview_new_first,
+                    last_name: preview_new_last,
+                    reply_email: preview_new_replyto_email,
+                    reply_name: preview_new_replyto_name,
+                    "{{config.QSTRING_TYPE}}": "{{config.EDIT_TYPE_RENEW}}"
+                };
+                Ext.Ajax.request({
+                    url: _vurl + 'senderemail/regist',
+                    method: 'POST',
+                    params: params,
+                    success: handleAfterProcessTemplate,
+                    failure: handleAfterProcessTemplate
+                });
+            }
+        };
+
+        var deleteSender = function () {
+            Ext.Msg.show({
+                icon: Ext.MessageBox.QUESTION,
+                title: '{{lang.CONFIRM|safe|escapejs}}',
+                msg: '{{lang.VMSG_CONFIRM_DELETE_SENDEREMAIL|safe|escapejs}}',
+                buttons: Ext.Msg.YESNO,
+                fn:function(btn,text){
+                    if (btn == 'yes'){
+                        var params = {
+                            unique_id: unique_id,
+                            "{{config.QSTRING_TYPE}}": "{{config.EDIT_TYPE_DELETE}}"
+                        };
+            Ext.Ajax.request({
+                url: _vurl + 'senderemail/regist',
+                method: 'POST',
+                params: params,
+                success: handleAfterProcessTemplate,
+                failure: handleAfterProcessTemplate
+            });
+                    }
+                }
+            });
+
+
+        };
+
+        var detailwindow
+        {
+            var window_title = _msg.VMSG_SENDEREMAIL_ADD;
+            detailwindow = new Ext.Window({
+                title: window_title,
+                layout: 'fit',
+                modal: true,
+                width: 450,
+                height: 280,
+                plain: true,
+                autoDestory: true,
+                items: logform
+            });
+        }
+        ;
+        detailwindow.show();
+        detailwindow.dd.constrainTo(Ext.getBody());
+    };
+
+    var handleAfterProcess = function () {
+
+        show_window();
+    };
+    handleAfterProcess();
+}
+//-->
+</script>
+<script type="text/javascript" >
+<!--
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  Ext.ucf.init();
+
+  createSearchCondFields();
+
+  var AccountInfo = Ext.data.Record.create([
+								{name: 'unique_id',  type: 'string', mapping: 'unique_id'}
+                                ,{name: 'full_name',  type: 'string'}
+                                ,{name: 'first_name',  type: 'string'}
+                                ,{name: 'last_name',  type: 'string'}
+								,{name: 'email',  type: 'string'}
+                                ,{name: 'reply_display',  type: 'string'}
+                                ,{name: 'reply_name',  type: 'string'}
+                                ,{name: 'reply_email',  type: 'string'}
+                                ,{name: 'date_changed',  type: 'string'}
+                                ,{name: 'date_created',  type: 'string'}
+	]);
+  store = new Ext.data.Store({
+			reader: new Ext.data.JsonReader({
+						idProperty: 'unique_id'
+						,root: 'records'
+						,totalProperty: 'all_count'
+						}, AccountInfo),
+	    url: '{{vurl}}senderemail/xtlist',
+			autoDestroy:true
+  });
+	// Storeのロード後のイベントハンドラを追加
+	store.on('load', function(s, records, options) {
+		Ext.Ajax.request({url: '{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_TEMPLATE_LIST}}',	method: 'POST', params: options.params, failure: function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+	});
+	
+	var btnReflesh = new Ext.Button({
+		iconCls:'reflesh',
+		handler:search
+	});
+		
+		var sLimitCB = new Ext.ucf.searchLimitComboBox(
+					[each_page_cnt,50,100]
+					,{
+						'select':function(cb, record, index){
+							each_page_cnt = cb.value;
+							pagingBar.pageSize = each_page_cnt;
+							search();
+							}
+					});
+		each_page_cnt = sLimitCB.value;
+
+	var pagingBar = new Ext.PagingToolbar({
+		pageSize: each_page_cnt,
+		store: store,
+		displayInfo: true, 
+		displayMsg: _msg.PAGING_BAR,
+		emptyMsg: _msg.NO_DISP_DATA,
+		items:[
+				'->','-',_msg.DISP_COUNT,sLimitCB
+		]
+	});
+	
+	var toolBar = new Ext.Toolbar({
+		items:[
+			btnReflesh
+			,'-'
+			,{
+      text: '{{lang.VMSG_SENDEREMAIL_ADD}}',
+      handler: function(){
+//					(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
+					createNewSender();
+          }
+      },'-']
+		});
+		
+		var sm = new Ext.grid.CheckboxSelectionModel({
+		});		
+		
+		var cm = new Ext.grid.ColumnModel({
+        columns: [
+		sm,
+                {
+            header: '{{lang.FLD_EMAIL_SENDER_NAME}}',
+            dataIndex: 'full_name',
+            width: 120,
+            sortable: false,
+			renderer: vh_basic
+        },
+		{
+            header: '{{lang.FLD_EMAIL_SENDER}}',
+            dataIndex: 'email',
+            width: 120,
+            sortable: false,
+			renderer: vh_basic
+        },
+        {
+            header: '{{lang.FLD_REPLYTO}}',
+            dataIndex: 'reply_display',
+            width: 140,
+            sortable: false,
+			renderer: vh_basic
+        },{
+                header: '{{lang.FLD_UPDATE_DATE}}',
+                dataIndex: 'date_changed',
+                width: 80,
+                //sortable: false,
+                sortable: false,
+                renderer: vh_basic
+        }, {
+                header: '{{lang.FLD_CREATE_DATE}}',
+                dataIndex: 'date_created',
+                width: 80,
+                //sortable: false,
+                sortable: false,
+                renderer: vh_basic
+        },{
+            header: '',
+            dataIndex: 'unique_id',
+						hidden: false,
+            width: 20,
+            sortable: false,
+			renderer: vhEdit
+        }
+			]
+		});
+		var grid = new Ext.grid.EditorGridPanel({
+      store: store,
+//      width: 600,
+      region:'center',
+			clicksToEdit: 1,
+			columnLines:true,
+			loadMask:true,
+			viewConfig: {forceFit: true},
+//	        margins: '20 20 20 20',
+      stripeRows: true,
+			bbar: pagingBar,
+			tbar: toolBar,
+			sm: sm,
+			cm: cm
+    });
+		// パネルにユーザ一覧グリッドをセット
+    var layout = new Ext.Panel({
+      collapsible: true,
+      title: '{{lang.VMSG_SENDEREMAIL_LIST}}',
+      layout: 'border',
+		waitMsgTarget: true,
+		monitorResize:true,
+      layoutConfig: {
+          columns: 1
+      },
+      height: 600,
+      items: [grid]
+    });
+    layout.render(Ext.get('GridList'));
+	// 検索（ページ遷移初回は前回の条件を使用して検索）
+	search(true);		
+	
+	// 検索ボタンのレイアウト修正
+	//検索ボタン	
+	var btnSearch = new Ext.Button({
+	text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+	type:'submit',
+	handler:search
+	});
+	btnSearch.render(Ext.get('btnSearch'))
+	
+	// GridPanelリサイズ処理を追加
+	Ext.ucf.appendLeftMenuChangeDelagate(function()
+	{
+		grid.setWidth(layout.getWidth() - 2);
+	});
+});
+//-->
+</script>
+{#
+<script type="text/javascript">
+</script>
+#}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/faq" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+	{% if 'USER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'USER' %}current{% endif %} " ><a href="{{vurl}}user/" >{{lang.VMSG_USER_CONFIG}}</a></li>
+	{% endif %}
+    {% if 'CATEGORYMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'CATEGORYMASTER' %}current{% endif %} " ><a href="{{vurl}}categorymaster/" >{{lang.VMSG_CATEGORYMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'FAQMASTER' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'FAQMASTER' %}current{% endif %} " ><a href="{{vurl}}faqmaster/" >{{lang.VMSG_FAQMASTER_CONFIG}}</a></li>
+    {% endif %}
+    {% if 'DICTIONARY' in login.delegate_function: %}
+        <li class="panelOff {% if ucfp.data.gnaviid == 'DICTIONARY' %}current{% endif %} " ><a href="{{vurl}}dictionary/" >{{lang.VMSG_DICTIONARY_CONFIG}}</a></li>
+    {% endif %}
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+<!-- leftMenu//start -->
+<div id="leftMenu">
+<!-- leftMenu menu01//start -->
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_EMAILMAGAZINE_CONFIG}}</p>
+<div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'EMAILMAGAZINE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}emailmagazine/" >{{lang.VMSG_EMAILMAGAZINE_FUNC}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu01//end -->
+
+{% if 'ADMIN' in login.access_authority: %}
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_RECEIVER_SEARCH_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'EMAILRECEIVER' %}current open{% else %}close{% endif %}"><a href="{{vurl}}emailreceiver/" >{{lang.VMSG_RECEIVER_SEARCH_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'EMAILRECEIVER' %}current open{% else %}close{% endif %}"><a href="{{vurl}}emailreceiver/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_RECEIVER_SEARCH_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_EMAILTEMPLATE_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'EMAILTEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}emailtemplate/" >{{lang.VMSG_EMAILTEMPLATE_LIST}}</a></li>
+<li class="{% if ucfp.data.leftmenuid == 'REGIST' and ucfp.data.gnaviid == 'EMAILTEMPLATE' %}current open{% else %}close{% endif %}"><a href="{{vurl}}emailtemplate/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_EMAILTEMPLATE_ADD}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<div class="menu02">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- leftMenu innerArea//start -->
+<div class="innerArea">
+<p class="ttl">{{lang.VMSG_SENDEREMAIL_CONFIG}}</p>
+<div class="folderMenu">
+<ul>
+<li class="{% if ucfp.data.leftmenuid == 'INDEX' and ucfp.data.gnaviid == 'SENDEREMAIL' %}current open{% else %}close{% endif %}"><a href="{{vurl}}senderemail/" >{{lang.VMSG_SENDEREMAIL_LIST}}</a></li>
+</ul>
+</div>
+</div>
+<!-- leftMenu innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- leftMenu menu02//start -->
+  <div class="menu02">
+    <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+    <!-- leftMenu innerArea//start -->
+    <div class="innerArea">
+      <p class="ttl">{{lang.VMSG_USER_CONFIG}}</p>
+      <div class="openbtnBox"><a href="JavaScript:Ext.ucf.changeLeftMenu();"><span class="arrowBtn"><img src="/images/spacer.gif" alt="" /></span></a></div>
+      <div class="folderMenu">
+        <ul>
+          <li class="close"><a href="{{vurl}}user/" >{{lang.VMSG_USER_LIST}}</a></li>
+          <li class="close"><a href="{{vurl}}user/regist?{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_NEW}}" >{{lang.VMSG_USER_ADD}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- leftMenu innerArea//end -->
+    <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+    <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+  </div>
+<!-- leftMenu menu02//end -->
+{% endif %}
+
+
+</div>
+<!-- leftMenu//end -->
+
+<!-- rightArea//start -->
+<div id="rightArea">
+{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<!-- rightArea innerArea//start -->
+<div class="innerArea01">
+<span class="span_icon"><img src="/images/icons/template.png"></span>
+<p class="ttl">{{lang.VMSG_TITLE_SENDEREMAIL}}</p>
+<table class="acs_layout">
+  <tr>
+    <td class="layout_td layout_td_all2" >
+      <div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+	  <form onsubmit="JavaScript:search();return false;" >
+          <div class="search_table">
+            <div class="filter-cmp">
+              <div class="text-feild item-filter">
+                <div class="form-group act-filter mgt-0">
+                  <label for="">{{lang.FLD_EMAIL_SENDER}} </label>
+                  <div id="FIELD_sk_keyword" class="input-cmp"></div>
+                   <div id="btnSearch"></div>
+                </div>
+               </div>
+            </div>
+          </div>
+	  </form>
+    </td>
+  </tr>
+	<tr class="space" >
+		<td><img src="/images/spacer.gif" alt="" /></td>
+	</tr>
+  <tr>
+    <td class="layout_td layout_td_all" >
+			<div id="GridList"></div>
+    </td>
+  </tr>
+</table>
+</div>
+
+<!-- rightArea innerArea//end -->
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FAQ_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

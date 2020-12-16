@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* reset.css */
+
+
+/* elements' property reset */
+body,
+div,
+dl,dt,dd,
+ul,ol,
+li,
+h1,h2,h3,h4,h5,h6,
+pre,
+code,
+form,
+p,
+blockquote,
+table,th,td,
+img {
+border: none;
+font-size: 100%;
+font-style: normal;
+font-weight: normal;
+margin: 0;
+padding: 0;
+text-align: left;
+text-decoration: none;
+}
+
+ul,ol {
+list-style-type: none;
+}
+
+fieldset,legend,
+input,textarea,select {
+font-size: 100%;
+font-style: normal;
+font-weight: normal;
+margin: 0 5px;
+padding: 2px 5px;
+
+text-decoration: none;
+vertical-align: middle;
+}
+
+
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+em,strong {
+font-style: normal;
+font-weight: normal;
+}
+caption,th{
+text-align: left;
+}
+
+sup {
+vertical-align: text-top;
+}
+sub {
+vertical-align: text-bottom;
+}
+
+/* hr */
+hr {
+display: none;
+}
+
+
+/* clear float */
+.clear{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	font-size: 1px;
+	height: 1px;
+	line-height: 1%;
+	margin: 0;
+	padding: 0;
+	visibility: hidden; 
+}
+
+/* clearfix */
+.clearfix {
+	min-height: 1px;
+	zoom: 1;
+}
+.clearfix:after {
+	clear: both;
+	content: ".";  /* new element */
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+/* clearfix for IE */
+* html .clearfix {
+	height: 1px;
+	/*¥*//*/
+	height: auto;
+	overflow: hidden;
+	/**/
+}
+  
+ 
+/*-------- PNG alpha channel fix for IE6 ---------*/
+* html .iepngfix {
+	behavior: expression(IEPNGFIX.fix(this));
+}

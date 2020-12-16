@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<title>{{lang.VMSG_SITE_TITLE_LOGIN}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title>
+</head>
+<body onLoad="JavaScript:location.href='{{url}}';" >
+{% include "./include/header.html" %}
+<!-- LoginBox//start -->
+<div class="LoginBox">
+<form name="frmSendSamlResponse" action="{{url}}" method="POST" >
+<table border="0" cellpadding="0" cellspacing="0" width="320" height="356">
+<tr>
+<td width="320" height="356">
+<div class="area01">
+<table border="0" cellpadding="0" cellspacing="0" width="310">
+<tr>
+<td colspan="2" align="center"><input type="image" src="/images/sp/bt_login.png" width="104" height="41" border="0" alt="Login" /></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<!-- LoginBox//end -->
+{% include "./include/footer.html" %}
+</body>
+</html>
