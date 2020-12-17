@@ -5,10 +5,12 @@
 # debug_mode = True
 # http_mode = False
 # developer_mode = False
+_env = 'dev'
+# _env = 'prod'
 
 # dev
 debug_mode = True
-http_mode = True		# True is only http for local env
+http_mode = True if _env == 'dev' else False 		# True is only http for local env
 developer_mode = True
 
 # ログ出力レベル
@@ -40,7 +42,11 @@ version = '2020061801'
 MAIL_MERGE_FORMAT = '[$${0}$$]'
 
 # Google App Engine setting
-site_fqdn = 'localhost:8080'
+if _env == 'dev':
+    site_fqdn = 'localhost:8080'
+else: 
+    site_fqdn = 'sateraito-makedocschat-dev.an.r.appspot.com'
+
 if not http_mode:
     my_site_url = 'https://' + site_fqdn
 else:
