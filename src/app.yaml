@@ -289,3 +289,9 @@ handlers:
 - url: /.*
   script: notfound.app
   secure: optional
+
+
+#setup template
+- url: (/a/([^/]*)/add_template)
+  script: tenant_add_template.app
+  secure: always

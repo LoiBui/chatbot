@@ -648,6 +648,115 @@ function createFields()
 			{
 				grid.setWidth(layout.getWidth() - 2);
 			});
+			
+
+			//Setup Template
+
+			var pagingBarTemplate = new Ext.PagingToolbar({
+				pageSize: each_page_cnt,
+				store: store,
+				displayInfo: true, 
+				displayMsg: _msg.PAGING_BAR,
+				emptyMsg: _msg.NO_DISP_DATA,
+				items:[
+					'->','-',_msg.DISP_COUNT,sLimitCB
+				]
+			});
+			
+			var toolBarTemplate = new Ext.Toolbar({
+				items:[
+					btnReflesh
+					,'-'
+					,{
+						text: 'Add Template',
+						handler: function(){
+							(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
+							window.location.href = '{{vurl}}template/add';
+						}
+					},'-']
+			});
+
+			var smTemplate = new Ext.grid.CheckboxSelectionModel({
+			});		
+			
+			var cmTemplate = new Ext.grid.ColumnModel({
+			columns: [
+					smTemplate,
+					{
+				header: '{{lang.FLD_OPERATORID}}',
+				dataIndex: 'operator_id',
+				width: 180,
+				sortable: false,
+							renderer: vh_operator_id
+			},{
+				header: '{{lang.FLD_USERNAME}}',
+				dataIndex: 'display_name',
+				width: 110,
+				//sortable: false,
+				sortable: false,
+							renderer: vh_basic
+			},{
+				header: '{{lang.FLD_ACCESS_AUTHORITY}}',
+				dataIndex: 'access_authority',
+				width: 45,
+				sortable: false,
+							renderer: vh_access_authority
+			},{
+				header: '{{lang.FLD_ACCOUNTSTOPFLAG}}',
+				dataIndex: 'account_stop_flag',
+				align: 'center',            
+				width: 35,
+				// sortable: false,
+				sortable: false,
+				renderer: vh_account_stop_flag
+				// editor: Ext.ucf.acnt.CbxActiveFlag
+			},{
+				header: '{{lang.FLD_LOGINLOCKFLAG}}',
+				dataIndex: 'login_lock_flag',
+				align: 'center',
+				width: 35,
+				sortable: false,
+				renderer: vh_login_lock_flag
+			},{
+				header: '',
+				dataIndex: 'unique_id',
+				hidden: false,
+				width: 20,
+				sortable: false,
+				align: 'center',
+				renderer: vhEdit
+			}
+			]
+			});
+			var gridTemplate = new Ext.grid.EditorGridPanel({
+				store: store,
+				// width: 600,
+				region:'center',
+				clicksToEdit: 1,
+				columnLines:true,
+				loadMask:true,
+				viewConfig: {forceFit: true},
+				// margins: '20 20 20 20',
+				stripeRows: true,
+				bbar: pagingBarTemplate,
+				tbar: toolBarTemplate,
+				sm: smTemplate,
+				cm: cmTemplate
+			});
+
+			var setupTemplate = new Ext.Panel({
+				collapsible: true,
+				title: 'Template',
+				layout: 'border',
+				waitMsgTarget: true,
+				monitorResize:true,
+				layoutConfig: {
+					columns: 1
+				},
+				height: 300,
+				items: [gridTemplate]
+		    });
+		    setupTemplate.render(Ext.get('SetupTemplateGridList'));
 		}
 </script>
 
@@ -1373,9 +1482,63 @@ Ext.onReady(function(){
 </div>
 <!-- rightArea innerArea//end -->
 
+<div class="innerArea01">
+<br/><br/>
+
+<a name="OPERATOR"></a>
+<span class="span_icon"><img src="/images/icons/setting_32.png"></span>
+<p class="ttl">Setup Template</p>
+<table class="detail_layout">
+	<tr>
+		<td>
+			<p style="padding-left:15px;"><font color="#696969">{{lang.EXP_OPERATOR_CONFIG|safe}}</font></p>
+			<div>
+			<div>
+			<table class="acs_layout">
+			<!-- <tr>
+				<td class="layout_td layout_td_all2" >
+				<div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+				<form onsubmit="JavaScript:search();return false;" >
+					<div class="search_table">
+					<div class="filter-cmp">
+						<div class="text-feild item-filter mrg-0">
+						<div class="form-group mh31px">
+							<label for="">{{lang.SEARCH_CONDITION}} </label>
+							<div id="FIELD_sk_search_type" class="select-cmp input-cmp small-input"></div>
+						</div>
+						</div>
+
+						<div class="text-feild item-filter">
+						<div class="form-group act-filter mgt-0" style="margin-top: 5px !important;">
+							<div id="FIELD_sk_keyword" class="input-cmp"></div>
+							<div id="btnSearch"></div>
+						</div>
+						</div>
+					</div>
+					</div>
+				</form>
+				</td>
+			</tr>
+				<tr class="space" >
+					<td><img src="/images/spacer.gif" alt="" /></td>
+				</tr> -->
+			<tr>
+				<td class="layout_td layout_td_all" >
+						<div id="SetupTemplateGridList"></div>
+				</td>
+			</tr>
+			</table>
+			</div>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+
 <!-- rightArea innerArea//start -->
 <div class="innerArea01">
 <br/><br/>
+
 <a name="OPERATOR"></a>
 <span class="span_icon"><img src="/images/icons/operator_32.png"></span>
 <p class="ttl">{{lang.VMSG_OPERATOR_CONFIG}}</p>
