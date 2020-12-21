@@ -36,7 +36,7 @@
 		}
 	</script>
 	<script type="text/javascript">
-		var currentSheet = 0;
+		var currentSheet = null;
 		var tryChooseFile = false;
 		function createSelectSheetComboBox(){
 			// if(tryChooseFile){
@@ -47,7 +47,9 @@
 			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 150, null);
 			field_sk_search_type.render('select_sheet');
 			field_sk_search_type.addListener('change', function(){
-				initChangeTypeProductSlack();
+				currentSheet = Ext.getCmp('select_sheet1').value;
+				$(".tbcus").addClass("d-none");
+				$("#table_question"+currentSheet).removeClass("d-none")
 			});
 			
 		}
@@ -62,6 +64,9 @@
 			new Ext.Button({
 				text: 'Add More',
 				handler: function(){
+					if(currentSheet == null){
+						Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					}
 					$("#table_question"+currentSheet).append(`<tr class="tcus">
 											<th class="tcus">
 												<input type="text" placeholder="あなたの性別は？" class="inputtextcs">
@@ -130,6 +135,7 @@
 		}
 
 		function renderTable(sheets){
+			currentSheet = 0;
 			$("#table_sheet").html(``);
 			sheets.forEach((element, index) => {
 				$("#table_sheet").append(`<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
