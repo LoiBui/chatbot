@@ -45,3 +45,10 @@
 .d-none{
     display: none;
 }
+
+.csselect{
+    width: 100%;
+    height: 25px;
+    border: none;
+    background: transparent;
+}

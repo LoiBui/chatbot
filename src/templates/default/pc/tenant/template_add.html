@@ -38,6 +38,8 @@
 	<script type="text/javascript">
 		var currentSheet = null;
 		var tryChooseFile = false;
+		var gSheets = [];
+
 		function createSelectSheetComboBox(){
 			// if(tryChooseFile){
 			// 	Ext.getCmp('select_sheet1').destroy();
@@ -46,20 +48,103 @@
 			
 			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 150, null);
 			field_sk_search_type.render('select_sheet');
-			field_sk_search_type.addListener('change', function(){
+			field_sk_search_type.addListener('select', function(){
 				currentSheet = Ext.getCmp('select_sheet1').value;
 				$(".tbcus").addClass("d-none");
+				$(".label-tbl").addClass("d-none");
 				$("#table_question"+currentSheet).removeClass("d-none")
+				$("#label_question"+currentSheet).removeClass("d-none")
 			});
-			
 		}
+		
 
 		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
 
-			
+		var btnReset = new Ext.Button({
+			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
+			handler:function(){
+				var dataTable = [];
+				var file = document.getElementById('file_template').files[0];
+				if(typeof file == 'undefined'){
+					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					return;
+				}
+				var reduceData = [];
+				gSheets.forEach(element => {
+					if(!(element[0] in dataTable)){
+						dataTable[element[0]] = [];
+					}
+
+					$(`#table_question${element[0]} input[name^="question"]`).each(function() {
+						if(!('question' in dataTable[element[0]])){
+							dataTable[element[0]]['question'] = [];
+						}
+						dataTable[element[0]]['question'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="location"]`).each(function() {
+						if(!('location' in dataTable[element[0]])){
+							dataTable[element[0]]['location'] = [];
+						}
+						dataTable[element[0]]['location'].push($(this).val());
+					});
+					$(`#table_question${element[0]} select[name^="require"]`).each(function() {
+						if(!('require' in dataTable[element[0]])){
+							dataTable[element[0]]['require'] = [];
+						}
+						dataTable[element[0]]['require'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="value"]`).each(function() {
+						if(!('value' in dataTable[element[0]])){
+							dataTable[element[0]]['value'] = [];
+						}
+						dataTable[element[0]]['value'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="default"]`).each(function() {
+						if(!('default' in dataTable[element[0]])){
+							dataTable[element[0]]['default'] = [];
+						}
+						dataTable[element[0]]['default'].push($(this).val());
+					});
+
+					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value})
+				});
+				
+				var frmData = new FormData();
+				frmData.append("sheet", JSON.stringify(reduceData));
+				frmData.append("file", file);
+				frmData.append("filename", file.name);
+
+				loading.hide();
+				fetch('{{vurl|safe}}submit_template', {
+					method: "post",
+					body: frmData
+				})
+				.then(resp => {
+					loading.hide();
+					return resp.json();
+				}).then(res=>{
+					loading.hide();
+					if(res.status){
+						Ext.Msg.alert("Notice", "Sucessfully", function(btn, text){
+							if (btn == 'ok'){
+								window.location.href = '{{vurl|safe}}#SETUPTEMPLATE'
+							}
+						});
+					}else{
+						Ext.Msg.alert("Notice", "Something went wrong !");
+					}
+				}).catch(function(e){
+					loading.hide();
+					Ext.Msg.alert("Notice", "Something went wrong !");
+				})
+			}
+		});
+		
+		btnReset.render(Ext.get('btnReset'));
+
 			createSelectSheetComboBox()
 			new Ext.Button({
 				text: 'Add More',
@@ -67,23 +152,7 @@
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
 					}
-					$("#table_question"+currentSheet).append(`<tr class="tcus">
-											<th class="tcus">
-												<input type="text" placeholder="あなたの性別は？" class="inputtextcs">
-											</th>
-											<th class="tcus">
-												<input type="text" class="inputtextcs" placeholder="C7">
-											</th>
-											<th class="tcus">
-												<input type="text" class="inputtextcs" placeholder="必須">
-											</th>
-											<th class="tcus">
-												<input type="text" class="inputtextcs">
-											</th>
-											<th class="tcus">
-												<input type="text" class="inputtextcs">
-											</th>
-										</tr>`);
+					$("#table_question"+currentSheet).append(`{% include "./template_table_tr.html" %}`);
 				}
 			}).render('button-add-more');// where you want to render
 		})
@@ -123,6 +192,7 @@
 				res.data.forEach((element, index) => {
 					sheets.push([index, element]);
 				});
+				gSheets = sheets;
 				Ext.getCmp('select_sheet1').store.loadData(sheets);
 				Ext.getCmp('select_sheet1').setValue(0)
 				currentSheet = 0;
@@ -138,13 +208,17 @@
 			currentSheet = 0;
 			$("#table_sheet").html(``);
 			sheets.forEach((element, index) => {
-				$("#table_sheet").append(`<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+				$("#table_sheet").append(`	
+											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
+											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
 											{% include "./template_table.html" %}
 											</table>`);
 			});
 		}
+		
 	</script>
 	{% include "./include/external_analysis_head.html" %}
+	
 </head>
 
 <body>
@@ -188,12 +262,11 @@
 											</label>
 										</div>
 										<p id="file-info"></p>
-										<input onchange="onchangefile()" style="display: none;" type="file" name="file_template" id="file_template" accept=".xlsx, .xls, .csv">
+										<input onchange="onchangefile()" style="display: none;" type="file" name="file_template" id="file_template" accept=".xlsx, .xls">
 									</div>
 									<!-- <div id="select_sheet"></div> -->
 									<label for=""></label>
-									<div id="select_sheet" style="margin-left: 10px;"></div>
-									<!-- <p><font color="#696969">{{lang.VMSG_MSG_CONFIG_ABOUT_TIMEZONE|safe}}</font></p> -->
+									<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
 								</td>
 							</tr>
 							<tr class="space">
@@ -205,6 +278,11 @@
 										
 									</div>
 									  <div id="button-add-more"></div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-center">
+									<div id="btnReset" style="width: 70px;margin: 0 auto;"></div>
 								</td>
 							</tr>
 						</table>

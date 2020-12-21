@@ -299,3 +299,11 @@ handlers:
 - url: (/a/([^/]*)/get_template)
   script: tenant_get_template.app
   secure: always
+
+- url: (/a/([^/]*)/submit_template)
+  script: tenant_submit_template.app
+  secure: always
+
+- url: (/a/([^/]*)/xlist_template)
+  script: tenant_xlist_template.app
+  secure: always

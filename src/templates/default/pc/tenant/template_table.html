@@ -4,55 +4,66 @@
 	<th class="tcus str thcus">必須？</th>
 	<th class="tcus str thcus">選択肢</th>
 	<th class="tcus str thcus">初期値</th>
-  </tr>
-  <tr class="tcus">
-	  <th class="tcus">
-		  <input type="text" placeholder="あなたの年齢は？" class="inputtextcs">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="C7">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="必須">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="30,40,50">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs">
-	  </th>
-  </tr>
-  <tr class="tcus">
-	  <th class="tcus">
-		  <input type="text" placeholder="あなたの名前は？" class="inputtextcs">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="C7">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" >
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="サテライト">
-	  </th>
-  </tr>
-  <tr class="tcus">
-	  <th class="tcus">
-		  <input type="text" placeholder="あなたの性別は？" class="inputtextcs">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="C7">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs" placeholder="必須">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs">
-	  </th>
-	  <th class="tcus">
-		  <input type="text" class="inputtextcs">
-	  </th>
-  </tr>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの名前は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの性別は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs">
+	</th>
+</tr>
+{% include "./template_table_tr.html" %}
+{% include "./template_table_tr.html" %}

@@ -332,6 +332,7 @@ function createFields()
 <script type="text/javascript" >
 		var each_page_cnt = 20;
 		var store;
+		var storeTemplate;
 		function goEditPage(unique_id)
 		{
 			window.location.href = '{{vurl}}operator/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
@@ -360,6 +361,10 @@ function createFields()
 		{
 			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
 		}
+		function searchTemplate(psc)
+		{
+			Ext.ucf.search(psc, storeTemplate, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
+		}
 		
 
 		function vh_operator_id(value, p, record)
@@ -367,6 +372,14 @@ function createFields()
 			var html = '';
 			html += '<a href="{{vurl}}operator/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
 			return html;
+		}
+		function vh_filename(value, p, record)
+		{
+			return record.json.filename;
+		}
+		function vh_url(value, p, record)
+		{
+			return record.json.url;
 		}
 		
 		function vh_basic(value, p, record)
@@ -425,6 +438,11 @@ function createFields()
 		}
 		
 		function vhEdit(value, p, record)
+		{
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
+		}
+
+		function vhEditTemplate(value, p, record)
 		{
 			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
 		}
@@ -648,13 +666,31 @@ function createFields()
 			{
 				grid.setWidth(layout.getWidth() - 2);
 			});
+
+			var btnRefleshTemplate = new Ext.Button({
+				iconCls:'reflesh',
+				handler:searchTemplate
+			});
 			
 
 			//Setup Template
+			storeTemplate = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+					idProperty: 'unique_id'
+					,root: 'records'
+					,totalProperty: 'all_count'
+					}, AccountInfo),
+				url: '{{vurl}}xlist_template',
+				autoDestroy:true
+			});
+			// Storeのロード後のイベントハンドラを追加
+			storeTemplate.on('load', function(s, records, options) {
+				Ext.Ajax.request({url:'{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}', method:'POST', params:options.params, failure:function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+			});
 
 			var pagingBarTemplate = new Ext.PagingToolbar({
 				pageSize: each_page_cnt,
-				store: store,
+				store: storeTemplate,
 				displayInfo: true, 
 				displayMsg: _msg.PAGING_BAR,
 				emptyMsg: _msg.NO_DISP_DATA,
@@ -665,7 +701,7 @@ function createFields()
 			
 			var toolBarTemplate = new Ext.Toolbar({
 				items:[
-					btnReflesh
+					btnRefleshTemplate
 					,'-'
 					,{
 						text: 'Add Template',
@@ -683,53 +719,32 @@ function createFields()
 			columns: [
 					smTemplate,
 					{
-				header: '{{lang.FLD_OPERATORID}}',
-				dataIndex: 'operator_id',
+				header: 'FileName',
+				dataIndex: 'filename',
 				width: 180,
 				sortable: false,
-							renderer: vh_operator_id
-			},{
-				header: '{{lang.FLD_USERNAME}}',
-				dataIndex: 'display_name',
-				width: 110,
-				//sortable: false,
+				renderer: vh_filename 
+			},
+			{
+				header: 'URL',
+				dataIndex: 'url',
+				width: 180,
 				sortable: false,
-							renderer: vh_basic
-			},{
-				header: '{{lang.FLD_ACCESS_AUTHORITY}}',
-				dataIndex: 'access_authority',
-				width: 45,
-				sortable: false,
-							renderer: vh_access_authority
-			},{
-				header: '{{lang.FLD_ACCOUNTSTOPFLAG}}',
-				dataIndex: 'account_stop_flag',
-				align: 'center',            
-				width: 35,
-				// sortable: false,
-				sortable: false,
-				renderer: vh_account_stop_flag
-				// editor: Ext.ucf.acnt.CbxActiveFlag
-			},{
-				header: '{{lang.FLD_LOGINLOCKFLAG}}',
-				dataIndex: 'login_lock_flag',
-				align: 'center',
-				width: 35,
-				sortable: false,
-				renderer: vh_login_lock_flag
-			},{
+				renderer: vh_url 
+			},
+			{
 				header: '',
 				dataIndex: 'unique_id',
 				hidden: false,
 				width: 20,
 				sortable: false,
 				align: 'center',
-				renderer: vhEdit
+				renderer: vhEditTemplate
 			}
 			]
 			});
 			var gridTemplate = new Ext.grid.EditorGridPanel({
-				store: store,
+				store: storeTemplate,
 				// width: 600,
 				region:'center',
 				clicksToEdit: 1,
@@ -756,7 +771,8 @@ function createFields()
 				height: 300,
 				items: [gridTemplate]
 		    });
-		    setupTemplate.render(Ext.get('SetupTemplateGridList'));
+			setupTemplate.render(Ext.get('SetupTemplateGridList'));
+			searchTemplate(true);
 		}
 </script>
 
@@ -1485,7 +1501,7 @@ Ext.onReady(function(){
 <div class="innerArea01">
 <br/><br/>
 
-<a name="OPERATOR"></a>
+<a name="SETUPTEMPLATE"></a>
 <span class="span_icon"><img src="/images/icons/setting_32.png"></span>
 <p class="ttl">Setup Template</p>
 <table class="detail_layout">

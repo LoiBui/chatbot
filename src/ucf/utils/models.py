@@ -1414,3 +1414,46 @@ class FileStorage(UCFModel2):
 			return row.blob_key
 		return None
 
+
+class ExcelTemplateFile(UCFModel2):
+	unique_id = ndb.StringProperty(required=True)
+	url = ndb.StringProperty()
+	filename = ndb.StringProperty()
+	tenant = ndb.StringProperty()
+	created_date = ndb.DateTimeProperty(auto_now_add=True)
+	updated_date = ndb.DateTimeProperty(auto_now=True)
+	
+	@classmethod
+	def save(cls, tenant, url, filename):
+		uid = UcfUtil.guid()
+		unique_id = uid
+		entry = cls(unique_id=unique_id, id=unique_id)
+		entry.url = url
+		entry.tenant = tenant
+		entry.filename = filename
+		entry.put()
+		return uid
+
+class ExcelTemplateValue(UCFModel2):
+	unique_id = ndb.StringProperty(required=True)
+	file_id = ndb.StringProperty()
+	question = ndb.StringProperty()
+	location = ndb.StringProperty()
+	require = ndb.StringProperty()
+	value = ndb.StringProperty()
+	default = ndb.StringProperty()
+	created_date = ndb.DateTimeProperty(auto_now_add=True)
+	updated_date = ndb.DateTimeProperty(auto_now=True)
+	
+	@classmethod
+	def save(cls, file_id, question, location, require, value, default):
+		unique_id = UcfUtil.guid()
+		entry = cls(unique_id=unique_id, id=unique_id)
+		entry.file_id = file_id
+		entry.question = question
+		entry.location = location
+		entry.require = require
+		entry.value = value
+		entry.default = default
+		entry.put()
+	
