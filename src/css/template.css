@@ -1,0 +1,47 @@
+.tcus{
+    border: 1px solid #bbbbbb;
+    overflow: hidden;
+}
+
+.tbcus{
+    width: 100% !important; 
+    border-collapse: collapse;
+    border: 1px solid #bbbbbb;
+}
+
+.str{
+    font-weight: bold;
+}
+
+.thcus{
+    padding: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.inputtextcs{
+    width: 98%;
+    height: 28px;
+    font-size: 16px;
+    border: none;
+    display: block;
+    padding: 0 6px;
+    padding-right: 0;
+    overflow: hidden;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.d-none{
+    display: none;
+}

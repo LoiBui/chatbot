@@ -295,3 +295,7 @@ handlers:
 - url: (/a/([^/]*)/add_template)
   script: tenant_add_template.app
   secure: always
+
+- url: (/a/([^/]*)/get_template)
+  script: tenant_get_template.app
+  secure: always

@@ -36,77 +36,107 @@
 		}
 	</script>
 	<script type="text/javascript">
+		var currentSheet = 0;
+		var tryChooseFile = false;
+		function createSelectSheetComboBox(){
+			// if(tryChooseFile){
+			// 	Ext.getCmp('select_sheet1').destroy();
+			// }
+			var type_msteams_proudct_bot = [];      
+			
+			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 150, null);
+			field_sk_search_type.render('select_sheet');
+			field_sk_search_type.addListener('change', function(){
+				initChangeTypeProductSlack();
+			});
+			
+		}
+
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
 
-
-			store = new Ext.data.Store({
-				reader: new Ext.data.JsonReader({
-					idProperty: 'unique_id'
-					, root: 'records'
-					, totalProperty: 'all_count'
-				}, Ext.ucf.operationlog.createOperationLogRecord()),
-				url: '{{vurl|safe}}operationlog/xtlist',
-				autoDestroy: true
-			});
-			// Storeのロード後のイベントハンドラを追加
-			store.on('load', function (s, records, options) {
-				Ext.Ajax.request({ url: '{{vurl|safe}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID|safe}}={{config.SESSIONKEY_SCOND_OPERATIONLOG|safe|escapejs}}', method: 'POST', params: options.params, failure: function (response) { Ext.ucf.dispSysErrMsg(); } }); 	// 検索条件をセット
-			});
 			
+			createSelectSheetComboBox()
+			new Ext.Button({
+				text: 'Add More',
+				handler: function(){
+					$("#table_question"+currentSheet).append(`<tr class="tcus">
+											<th class="tcus">
+												<input type="text" placeholder="あなたの性別は？" class="inputtextcs">
+											</th>
+											<th class="tcus">
+												<input type="text" class="inputtextcs" placeholder="C7">
+											</th>
+											<th class="tcus">
+												<input type="text" class="inputtextcs" placeholder="必須">
+											</th>
+											<th class="tcus">
+												<input type="text" class="inputtextcs">
+											</th>
+											<th class="tcus">
+												<input type="text" class="inputtextcs">
+											</th>
+										</tr>`);
+				}
+			}).render('button-add-more');// where you want to render
+		})
+		
+		function errFile(){
+			loading.hide();
+			document.getElementById("file-info").innerText = "";
+			Ext.Msg.alert("Notice", "File error or is not supported. Please choose a valid file and try again !");
+			Ext.getCmp('select_sheet1').store.loadData([]);
+			Ext.getCmp('select_sheet1').reset()
+		}
+		function onchangefile(){
+			if(!tryChooseFile){
+				tryChooseFile = true;
+			}
+			loading.show();
 
-			var cm = new Ext.grid.ColumnModel({
-				columns: [
-					{
-						header: '{{lang.FLD_OPERATIONLOG_OPERATION_DATE|safe|escapejs}}',
-						width: 80,
-					}, {
-						header: '{{lang.FLD_OPERATIONLOG_OPERATION|safe|escapejs}}',
-						width: 80,
-					}, {
-						header: '{{lang.FLD_OPERATIONLOG_TARGET_DATA|safe|escapejs}}',
-						width: 100,
-					}, {
-						header: '{{lang.FLD_OPERATIONLOG_OPERATORID|safe|escapejs}}',
-						width: 100,
-					}, {
-						header: '{{lang.FLD_OPERATIONLOG_CLIENT_IP|safe|escapejs}}',
-						width: 70,
-					}, {
-						header: '{{lang.FLD_OPERATIONLOG_DETAIL|safe|escapejs}}',
-						width: 25,
-					}
-				]
+			var file = document.getElementById('file_template').files[0];
+			if(typeof file == 'undefined') return;
+
+			var formExcel = new FormData();
+			formExcel.append("file", file);
+
+			fetch('{{vurl|safe}}get_template', {
+				method: "post",
+				body: formExcel
+			})
+			.then(resp => {
+				loading.hide();
+				return resp.json();
+			}).then(res => {
+				if(!res.status){
+					errFile();
+					return;
+				}
+				var sheets = [];
+				res.data.forEach((element, index) => {
+					sheets.push([index, element]);
+				});
+				Ext.getCmp('select_sheet1').store.loadData(sheets);
+				Ext.getCmp('select_sheet1').setValue(0)
+				currentSheet = 0;
+				document.getElementById("file-info").innerText = file.name + " - " + file.size/1000 + "kB";
+
+				renderTable(sheets);
+			}).catch(function(){
+				errFile();
+			})
+		}
+
+		function renderTable(sheets){
+			$("#table_sheet").html(``);
+			sheets.forEach((element, index) => {
+				$("#table_sheet").append(`<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+											{% include "./template_table.html" %}
+											</table>`);
 			});
-			var grid = new Ext.grid.EditorGridPanel({
-
-				store: store,
-				//      width: 600,
-				region: 'center',
-				clicksToEdit: 1,
-				columnLines: true,
-				loadMask: true,
-				viewConfig: { forceFit: true },
-				//	        margins: '20 20 20 20',
-				stripeRows: true,
-				//			sm: sm,
-				cm: cm
-			});
-			// パネルにユーザ一覧グリッドをセット
-			var layout = new Ext.Panel({
-				title: '{{lang.VMSG_OPERATIONLOG|safe|escapejs}}',
-				layout: 'border',
-				layoutConfig: {
-					columns: 1
-				},
-				height: 600,
-				items: [grid]
-			});
-			layout.render(Ext.get('GridList'));
-
-		});
-
+		}
 	</script>
 	{% include "./include/external_analysis_head.html" %}
 </head>
@@ -129,36 +159,46 @@
 					<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
 					<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
 					<!-- rightArea innerArea//start -->
-					<div class="innerArea01">
+					<div class="innerArea01" style="min-height: 70vh;">
 						<p class="ttl">Add Template</p>
 						<table class="acs_layout">
-							<!-- <tr>
+							<tr>
 								<td class="layout_td layout_td_all2">
-									<div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH|safe}}
-									</div>
-									<form onsubmit="JavaScript:search();return false;">
-										<div class="search_table">
-											<div class="filter-cmp">
-												<div class="text-feild item-filter">
-													<div class="form-group act-filter">
-														<label for="">{{lang.FLD_OPERATIONLOG_OPERATION}} </label>
-														<div id="FIELD_sk_operation" class="select-cmp input-cmp"></div>
-														<div id="btnSearch"></div>
-													</div>
+									<p style="text-align: left;"><b>テンプレートファイルアップロード</b></p>
+									<div style="text-align: left;">
+										<div style="width: 100px;">
+											<label for="file_template">
+												<div style="width: 100px;
+												height: 100px;
+												display: flex;
+												align-items: center;
+												justify-content: center;
+												border-radius: 5px;
+												border: 1px solid #bbbbbb;
+												cursor: pointer;
+												margin-left: 8px;">
+													<img src="/images/microsoft-excel.png" alt="">
 												</div>
-											</div>
+											</label>
 										</div>
-
-									</form>
-
+										<p id="file-info"></p>
+										<input onchange="onchangefile()" style="display: none;" type="file" name="file_template" id="file_template" accept=".xlsx, .xls, .csv">
+									</div>
+									<!-- <div id="select_sheet"></div> -->
+									<label for=""></label>
+									<div id="select_sheet" style="margin-left: 10px;"></div>
+									<!-- <p><font color="#696969">{{lang.VMSG_MSG_CONFIG_ABOUT_TIMEZONE|safe}}</font></p> -->
 								</td>
-							</tr> -->
+							</tr>
 							<tr class="space">
 								<td><img src="/images/spacer.gif" alt="" /></td>
 							</tr>
 							<tr>
 								<td class="layout_td layout_td_all">
-									<div id="GridList"></div>
+									<div id="table_sheet">
+										
+									</div>
+									  <div id="button-add-more"></div>
 								</td>
 							</tr>
 						</table>
