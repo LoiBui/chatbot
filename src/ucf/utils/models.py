@@ -1417,18 +1417,18 @@ class FileStorage(UCFModel2):
 
 class ExcelTemplateFile(UCFModel2):
 	unique_id = ndb.StringProperty(required=True)
-	url = ndb.StringProperty()
+	blob_store = ndb.StringProperty()
 	filename = ndb.StringProperty()
 	tenant = ndb.StringProperty()
 	created_date = ndb.DateTimeProperty(auto_now_add=True)
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
 	@classmethod
-	def save(cls, tenant, url, filename):
+	def save(cls, tenant, blob_store, filename):
 		uid = UcfUtil.guid()
 		unique_id = uid
 		entry = cls(unique_id=unique_id, id=unique_id)
-		entry.url = url
+		entry.blob_store = blob_store
 		entry.tenant = tenant
 		entry.filename = filename
 		entry.put()

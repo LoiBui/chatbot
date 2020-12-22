@@ -383,7 +383,7 @@ function createFields()
 		}
 		function vh_url(value, p, record)
 		{
-			return record.json.url;
+			return record.json.blob_store;
 		}
 		
 		function vh_basic(value, p, record)
@@ -764,8 +764,8 @@ function createFields()
 				renderer: vh_filename 
 			},
 			{
-				header: 'URL',
-				dataIndex: 'url',
+				header: 'Blob Store',
+				dataIndex: 'blob_store',
 				width: 180,
 				sortable: false,
 				renderer: vh_url 

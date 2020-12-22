@@ -37,7 +37,7 @@ MAX_SORT_LIMIT_FULLTEXT = 10000
 # session time out seconds.
 session_timeout = 1440 * 60
 
-version = '2020061801'
+version = '2020061802'
 
 MAIL_MERGE_FORMAT = '[$${0}$$]'
 

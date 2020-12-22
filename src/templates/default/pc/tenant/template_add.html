@@ -39,6 +39,7 @@
 		var currentSheet = null;
 		var tryChooseFile = false;
 		var gSheets = [];
+		var fileBlobKey = null;
 
 		function createSelectSheetComboBox(){
 			// if(tryChooseFile){
@@ -68,7 +69,7 @@
 			handler:function(){
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];
-				if(typeof file == 'undefined'){
+				if(fileBlobKey === null){
 					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
 					return;
 				}
@@ -114,7 +115,7 @@
 				
 				var frmData = new FormData();
 				frmData.append("sheet", JSON.stringify(reduceData));
-				frmData.append("file", file);
+				frmData.append("file", fileBlobKey);
 				frmData.append("filename", file.name);
 				frmData.append("sheetName", JSON.stringify(gSheets))
 				console.log(gSheets)
@@ -165,6 +166,30 @@
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}
+		// setTimeout(()=>{
+		// 		var xxx = new FormData();
+		// 		xxx.append("blob_store", 'cz8h1npFuITslmxD-yDHWQ==')
+		// 		xxx.append("type", 2)
+		// 		fetch('{{url}}', {
+		// 			method: "post",
+		// 			body: xxx
+		// 		})
+		// 		.then(resp => {
+		// 			return resp.blob();
+		// 		})
+		// 		.then(blob => {
+		// 			// const url = window.URL.createObjectURL(blob);
+		// 			// const a = document.createElement('a');
+		// 			// a.style.display = 'none';
+		// 			// a.href = url;
+		// 			// // the filename you want
+		// 			// a.download = 'todo-1.xlsx';
+		// 			// document.body.appendChild(a);
+		// 			// a.click();
+		// 			// window.URL.revokeObjectURL(url);
+		// 		})
+		// 		.catch(() => alert('oh no!'));
+		// 	}, 2000)
 		function onchangefile(){
 			if(!tryChooseFile){
 				tryChooseFile = true;
@@ -172,13 +197,30 @@
 			loading.show();
 
 			var file = document.getElementById('file_template').files[0];
-			if(typeof file == 'undefined') return;
+			if(typeof file == 'undefined') {
+				fileBlobKey = null;
+				return;
+			}
 
 			// const objectURL = URL.createObjectURL(file)
-			$("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
+			// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
+
+
+			
 
 			var formExcel = new FormData();
 			formExcel.append("file", file);
+
+			fetch('{{url}}', {
+				method: "post",
+				body: formExcel
+			}).then(resp => {
+				return resp.text();
+			}).then(res=>{
+				loading.hide();
+				fileBlobKey = res;
+			})
+
 
 			fetch('{{vurl|safe}}get_template', {
 				method: "post",

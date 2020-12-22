@@ -68,8 +68,9 @@
 				optimizeData.push(t);
 			});
 			function init() {
+				console.log(fileOptimize)
 				$("#file-info").html(fileOptimize.filename);
-				$("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
+				// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
 				$.each(optimizeData, (index, value)=>{
 					gSheets.push([index, value[0].sheet_name]);
 				});

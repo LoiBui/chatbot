@@ -10,7 +10,7 @@ from ucf.pages.file import *
 import sateraito_inc
 import sateraito_func
 
-# BlobStore‚©‚çƒtƒ@ƒCƒ‹ƒ_ƒEƒ“ƒ[ƒh
+# BlobStoreï¿½ï¿½ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½_ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
 class Page(blobstore_handlers.BlobstoreDownloadHandler, TenantAppHelper):
 	def processOfRequest(self, tenant):
 
@@ -22,13 +22,13 @@ class Page(blobstore_handlers.BlobstoreDownloadHandler, TenantAppHelper):
 			if loginfunc.checkLogin(self) == False:
 				return
 
-			# Œ ŒÀƒ`ƒFƒbƒN
+			# ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 			if self.isAdmin() == False and self.isOperator() == False:
 				self.redirectError(UcfMessage.getMessage(self.getMsg('MSG_INVALID_ACCESS_AUTHORITY')))
 				return
 
-			# ƒƒOƒCƒ“‚ÌŠeíî•ñ‚ğæ“¾•ƒ`ƒFƒbƒN
-			is_select_ok, user_vo, profile_vo, error_msg = loginfunc.checkLoginInfo(self, not_check_target_env=True)		# not_check_target_env=TruecBlobstoreUploadHandler‚Ì‰e‹¿‚©AƒNƒ‰ƒCƒAƒ“ƒgIP‚ª•ÏX‚³‚ê‚Ä‚µ‚Ü‚¤‚½‚ßƒlƒbƒgƒ[ƒN‚âŠÂ‹«‚Ìƒ`ƒFƒbƒN‚Í‚µ‚È‚¢
+			# ï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ÌŠeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+			is_select_ok, user_vo, profile_vo, error_msg = loginfunc.checkLoginInfo(self, not_check_target_env=True)		# not_check_target_env=Trueï¿½cBlobstoreUploadHandlerï¿½Ì‰eï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gIPï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ßƒlï¿½bï¿½gï¿½ï¿½ï¿½[ï¿½Nï¿½ï¿½Â‹ï¿½ï¿½Ìƒ`ï¿½Fï¿½bï¿½Nï¿½Í‚ï¿½ï¿½È‚ï¿½
 			if is_select_ok == False:
 				return
 
@@ -36,14 +36,14 @@ class Page(blobstore_handlers.BlobstoreDownloadHandler, TenantAppHelper):
 
 			blob_key = str(urllib.unquote(blob_key)) 
 
-			# BlobKey‚ğw’è‚µ‚Äƒtƒ@ƒCƒ‹‚ğæ“¾
+			# BlobKeyï¿½ï¿½ï¿½wï¿½è‚µï¿½Äƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
 			blob_info = blobstore.BlobInfo.get(blob_key)
 
 			if blob_info.content_type == 'application/vnd.ms-excel':
 				self.response.charset = UcfConfig.DL_ENCODING
 				self.setResponseHeaderForDownload('test.csv', UcfConfig.DL_ENCODING)
 
-			# Œ‹‰Ê‚ğƒNƒ‰ƒCƒAƒ“ƒg‚É•Ô‚·
+			# ï¿½ï¿½ï¿½Ê‚ï¿½ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½É•Ô‚ï¿½
 			self.send_blob(blob_info)
 
 		except BaseException, e:

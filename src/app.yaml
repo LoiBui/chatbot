@@ -169,6 +169,10 @@ handlers:
 - url: (/a/([^/]*)/delete_template)
   script: tenant_delete_template.app
   secure: always
+
+- url: (/tenant/blobstore/get)
+  script: tenant_get_file_blob.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)
