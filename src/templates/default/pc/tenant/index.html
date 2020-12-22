@@ -383,6 +383,8 @@ function createFields()
 		}
 
 		function downloadFileWithBlobStore(filename='file.xlsx', blob_store){
+			var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+			loading.show();
 			var frmBlob = new FormData();
 			frmBlob.append("blob_store", blob_store)
 			fetch('{{vurl|safe}}get_file_blob', {
@@ -393,6 +395,7 @@ function createFields()
 				return resp.blob();
 			})
 			.then(blob => {
+				loading.hide();
 				const url = window.URL.createObjectURL(blob);
 				const a = document.createElement('a');
 				a.style.display = 'none';
@@ -402,7 +405,9 @@ function createFields()
 				a.click();
 				window.URL.revokeObjectURL(url);
 			})
-			.catch(() => alert('oh no!'));
+			.catch(() => {
+				loading.hide();alert('oh no!')
+			});
 		}
 		function vh_url(value, p, record)
 		{
