@@ -341,7 +341,7 @@ function createFields()
 		function goEditPageTemplate(unique_id){
 			window.location.href = '{{vurl}}edit_template?unqid=' + escape(unique_id);
 		}
-		
+
 		function getSearchBaseParam(scond)
 		{
 			var start = 0;
@@ -445,11 +445,43 @@ function createFields()
 		{
 			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
 		}
+		function btnTrashTemplate(unique_id){
+			Ext.MessageBox.show({
+				title: 'Notice',
+				msg: 'Are you sure to delete this item ?',
+				buttons: Ext.MessageBox.OKCANCEL,
+				icon: Ext.MessageBox.WARNING,
+				fn: function(btn){
+					if(btn == 'ok'){
+						var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+						loading.show();
+						var frm = new FormData();
+						frm.append("unique_id", unique_id);
 
+						fetch('{{vurl|safe}}delete_template', {
+							method: "post",
+							body: frm
+						})
+						.then(resp => {
+							return resp.json();
+						}).then(res=>{
+							if(res.status){
+								$("#ext-gen143").click();
+							}else{
+								Ext.Msg.alert("Notice", "Something went wrong");
+							}
+							loading.hide();
+						}).catch(e=>{
+							loading.hide();
+							Ext.Msg.alert("Notice", "Something went wrong");
+						})
+					}
+				}
+			});
+		}
 		function vhEditTemplate(value, p, record)
 		{
-			console.log(record.json.unique_id)
-			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" />';
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
 		}
 
 		function createSearchCondFields()

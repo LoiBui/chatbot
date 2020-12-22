@@ -1434,6 +1434,13 @@ class ExcelTemplateFile(UCFModel2):
 		entry.put()
 		return uid
 
+	@classmethod
+	def deleteByUniqueId(cls, unique_id):
+		query_all = cls.query()
+		query_filter = query_all.filter(cls.unique_id == unique_id)
+		for entry_key in query_filter.iter(keys_only=True):
+			entry_key.delete()
+
 class ExcelTemplateValue(UCFModel2):
 	unique_id = ndb.StringProperty(required=True)
 	file_id = ndb.StringProperty()
@@ -1460,4 +1467,11 @@ class ExcelTemplateValue(UCFModel2):
 		entry.sheet = sheet
 		entry.sheet_name = sheet_name
 		entry.put()
+
+	@classmethod
+	def deleteByFileId(cls, file_id):
+		query_all = cls.query()
+		query_filter = query_all.filter(cls.file_id == file_id)
+		for entry_key in query_filter.iter(keys_only=True):
+			entry_key.delete()
 	
