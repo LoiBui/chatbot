@@ -58,6 +58,7 @@ class Page(TenantAjaxHelper):
 
 			q = ExcelTemplateFile.query()
 			# q = q.filter(UCFMDLOperator.operator_id_lower >= sk_keyword.lower())
+			q = q.order(-ExcelTemplateFile.created_date)
 			
 			for entry in q.iter(limit=limit, offset=start):
 				vo = entry.exchangeVo(self._timezone)
