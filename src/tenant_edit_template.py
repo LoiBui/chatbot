@@ -47,7 +47,9 @@ class Page(TenantAppHelper):
 						list_vo[k] = v
 				file = list_vo
 
-			
+			if len(file) == 0:
+				raise e
+
 
 			ucfp = UcfTenantParameter(self)
 			ucfp.data['gnaviid'] = _gnaviid
