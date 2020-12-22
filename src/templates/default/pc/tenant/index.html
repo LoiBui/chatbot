@@ -465,9 +465,10 @@ function createFields()
 						.then(resp => {
 							return resp.json();
 						}).then(res=>{
-							if(res.status){
+							setTimeout(()=>{
 								$("#ext-gen143").click();
-							}else{
+							}, 200);
+							if(!res.status){
 								Ext.Msg.alert("Notice", "Something went wrong");
 							}
 							loading.hide();
