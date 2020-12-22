@@ -381,9 +381,32 @@ function createFields()
 		{
 			return record.json.filename;
 		}
+
+		function downloadFileWithBlobStore(filename='file.xlsx', blob_store){
+			var frmBlob = new FormData();
+			frmBlob.append("blob_store", blob_store)
+			fetch('{{vurl|safe}}get_file_blob', {
+				method: "post",
+				body: frmBlob
+			})
+			.then(resp => {
+				return resp.blob();
+			})
+			.then(blob => {
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.style.display = 'none';
+				a.href = url;
+				a.download = filename;
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
+			})
+			.catch(() => alert('oh no!'));
+		}
 		function vh_url(value, p, record)
 		{
-			return record.json.blob_store;
+			return `<a onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
 		}
 		
 		function vh_basic(value, p, record)
