@@ -64,7 +64,7 @@ class Page(TenantAjaxHelper):
 				# OperatorUtils.editVoForList(self, vo)
 				list_vo = {}
 				for k,v in vo.iteritems():
-					if k in ['url', 'tenant', 'filename']:
+					if k in ['url', 'tenant', 'filename', 'unique_id']:
 						list_vo[k] = v
 				users_list.append(list_vo)
 			logging.info(users_list)

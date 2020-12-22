@@ -337,6 +337,10 @@ function createFields()
 		{
 			window.location.href = '{{vurl}}operator/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
 		}
+
+		function goEditPageTemplate(unique_id){
+			window.location.href = '{{vurl}}edit_template?unqid=' + escape(unique_id);
+		}
 		
 		function getSearchBaseParam(scond)
 		{
@@ -444,7 +448,8 @@ function createFields()
 
 		function vhEditTemplate(value, p, record)
 		{
-			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
+			console.log(record.json.unique_id)
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" />';
 		}
 
 		function createSearchCondFields()

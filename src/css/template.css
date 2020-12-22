@@ -46,6 +46,10 @@
     display: none;
 }
 
+.d-flex{
+    display: flex;
+}
+
 .csselect{
     width: 100%;
     height: 25px;

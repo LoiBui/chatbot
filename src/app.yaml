@@ -140,6 +140,32 @@ handlers:
   script: cron.app
   login: admin
 
+
+  #setup template
+- url: (/a/([^/]*)/add_template)
+  script: tenant_add_template.app
+  secure: always
+
+- url: (/a/([^/]*)/get_template)
+  script: tenant_get_template.app
+  secure: always
+
+- url: (/a/([^/]*)/submit_template)
+  script: tenant_submit_template.app
+  secure: always
+
+- url: (/a/([^/]*)/xlist_template)
+  script: tenant_xlist_template.app
+  secure: always
+
+- url: (/tenant/blobstore/save)
+  script: tenant_blobstore_save.app
+  secure: always
+
+- url: (/a/([^/]*)/edit_template)
+  script: tenant_edit_template.app
+  secure: always
+  
 # data cleansing
 - url: (/datacleansing$)
   script: data_cleansing.app
@@ -291,19 +317,3 @@ handlers:
   secure: optional
 
 
-#setup template
-- url: (/a/([^/]*)/add_template)
-  script: tenant_add_template.app
-  secure: always
-
-- url: (/a/([^/]*)/get_template)
-  script: tenant_get_template.app
-  secure: always
-
-- url: (/a/([^/]*)/submit_template)
-  script: tenant_submit_template.app
-  secure: always
-
-- url: (/a/([^/]*)/xlist_template)
-  script: tenant_xlist_template.app
-  secure: always
