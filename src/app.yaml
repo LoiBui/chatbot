@@ -177,6 +177,10 @@ handlers:
 - url: (/a/([^/]*)/get_blob_link)
   script: tenant_get_blob_link.app
   secure: always
+
+- url: (/a/([^/]*)/submit_edit_template)
+  script: tenant_submit_edit_template.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)

@@ -1441,6 +1441,17 @@ class ExcelTemplateFile(UCFModel2):
 		for entry_key in query_filter.iter(keys_only=True):
 			entry_key.delete()
 
+	@classmethod
+	def update(cls, unique_id, blob_store, filename):
+		q = cls.query()
+		q = q.filter(cls.unique_id == unique_id)
+		row = q.get(use_cache=False, use_memcache=False)
+		if row:
+			row.blob_store = blob_store
+			row.filename = filename
+			row.put()
+			return unique_id
+
 class ExcelTemplateValue(UCFModel2):
 	unique_id = ndb.StringProperty(required=True)
 	file_id = ndb.StringProperty()

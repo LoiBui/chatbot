@@ -44,6 +44,8 @@
 		var gSheets = [];
 		var optimizeData = [];
 		var fileOptimize = JSON.parse(`{{file|safe}}`);
+		var fileBlobKey = fileOptimize.blob_store;
+		var filename = fileOptimize.filename;
 
 		function reduce(data){
 			return data.reduce(function (r, a) {
@@ -68,7 +70,6 @@
 				optimizeData.push(t);
 			});
 			function init() {
-				console.log(fileOptimize)
 				$("#file-info").html(fileOptimize.filename);
 				// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
 				$.each(optimizeData, (index, value)=>{
@@ -156,8 +157,7 @@
 			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
 			handler:function(){
 				var dataTable = [];
-				var file = document.getElementById('file_template').files[0];
-				if(typeof file == 'undefined'){
+				if(fileBlobKey == null){
 					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
 					return;
 				}
@@ -203,11 +203,13 @@
 				
 				var frmData = new FormData();
 				frmData.append("sheet", JSON.stringify(reduceData));
-				frmData.append("file", file);
-				frmData.append("filename", file.name);
+				frmData.append("file", fileBlobKey);
+				frmData.append("filename", filename);
+				frmData.append("sheetName", JSON.stringify(gSheets))
+				frmData.append("unique_id", '{{unique_id}}')
 
 				loading.show();
-				fetch('{{vurl|safe}}submit_template', {
+				fetch('{{vurl|safe}}submit_edit_template', {
 					method: "post",
 					body: frmData
 				})
@@ -253,48 +255,81 @@
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}
-		function onchangefile(){
+		
+		function getBlobLink(){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_blob_link', {
+					method: "get"
+				}).then(resp => {
+					return resp.json();
+				}).then(res=>{
+					resolve(res);
+				}).catch(e=>reject(e));
+			})
+		}
+
+		function getSheets(formExcel, fileInfo){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_template', {
+					method: "post",
+					body: formExcel
+				})
+				.then(resp => {
+					return resp.json();
+				}).then(res => {
+					if(!res.status){
+						errFile();
+						reject();
+						return;
+					}
+					var sheets = [];
+					res.data.forEach((element, index) => {
+						sheets.push([index, element]);
+					});
+					gSheets = sheets;
+					Ext.getCmp('select_sheet1').store.loadData(sheets);
+					Ext.getCmp('select_sheet1').setValue(0);
+					currentSheet = 0;
+					$("#file-info").html(fileInfo);
+					filename = fileInfo;
+					renderTable(sheets);
+					resolve();
+				}).catch(function(e){
+					console.log(e);
+					errFile();
+					reject();
+				})
+			})
+		}
+		
+		async function onchangefile(){
 			if(!tryChooseFile){
 				tryChooseFile = true;
 			}
 			loading.show();
 
 			var file = document.getElementById('file_template').files[0];
-			if(typeof file == 'undefined') return;
-
-			// const objectURL = URL.createObjectURL(file)
-			$("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
-
+			if(typeof file == 'undefined') {
+				fileBlobKey = null;
+				return;
+			}
+			const fileInfo = file.name + " - " + file.size/1000 + "kB";
 
 			var formExcel = new FormData();
 			formExcel.append("file", file);
 
-			fetch('{{vurl|safe}}get_template', {
-				method: "post",
-				body: formExcel
-			})
-			.then(resp => {
-				loading.hide();
-				return resp.json();
-			}).then(res => {
-				if(!res.status){
-					errFile();
-					return;
-				}
-				var sheets = [];
-				res.data.forEach((element, index) => {
-					sheets.push([index, element]);
-				});
-				gSheets = sheets;
-				Ext.getCmp('select_sheet1').store.loadData(sheets);
-				Ext.getCmp('select_sheet1').setValue(0)
-				currentSheet = 0;
-				document.getElementById("file-info").innerText = file.name + " - " + file.size/1000 + "kB";
-
-				renderTable(sheets);
-			}).catch(function(){
-				errFile();
-			})
+			await getBlobLink().then(res=>{
+				fetch(res.url, {
+					method: "post",
+					body: formExcel
+				}).then(resp => {
+					return resp.text();
+				}).then(res=>{
+					fileBlobKey = res;
+				})
+			});
+			await getSheets(formExcel, fileInfo);
+			loading.hide();
 		}
 
 		function renderTable(sheets){

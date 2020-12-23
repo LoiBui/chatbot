@@ -40,6 +40,7 @@
 		var tryChooseFile = false;
 		var gSheets = [];
 		var fileBlobKey = null;
+		var filename = null;
 
 		function createSelectSheetComboBox(){
 			// if(tryChooseFile){
@@ -116,7 +117,7 @@
 				var frmData = new FormData();
 				frmData.append("sheet", JSON.stringify(reduceData));
 				frmData.append("file", fileBlobKey);
-				frmData.append("filename", file.name);
+				frmData.append("filename", filename);
 				frmData.append("sheetName", JSON.stringify(gSheets))
 				console.log(gSheets)
 				loading.show();
@@ -225,7 +226,7 @@
 				return;
 			}
 			const fileInfo = file.name + " - " + file.size/1000 + "kB";
-
+			filename = fileInfo;
 			var formExcel = new FormData();
 			formExcel.append("file", file);
 

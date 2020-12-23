@@ -59,7 +59,8 @@ class Page(TenantAppHelper):
 			template_vals = {
 				'ucfp' : ucfp,
 				'fileValue': json.JSONEncoder().encode(fileValue),
-				'file': json.JSONEncoder().encode(file)
+				'file': json.JSONEncoder().encode(file),
+				'unique_id': unique_id
 			}
 			print(fileValue)
 			self.appendBasicInfoToTemplateVals(template_vals)
