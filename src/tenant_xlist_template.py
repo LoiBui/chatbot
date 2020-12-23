@@ -38,48 +38,39 @@ class Page(TenantAjaxHelper):
 				self.responseAjaxResult()
 				return
 
-			# Request����vo�ɃZ�b�g
 			req = UcfVoInfo.setRequestToVo(self)
 
 			start = int(req['start'])
 			limit = int(req['limit'])
-
-			# ��������
-			sk_keyword = UcfUtil.getHashStr(req, 'sk_keyword').strip()
-			# �����^�C�v�i���[���A�h���X�A�Ј��ԍ��A�L�[���[�h�j
-			sk_search_type = UcfUtil.getHashStr(req, 'sk_search_type')
-
-			# ���[�U�[����
-			users_list = []
-			count = 0
-
-			# q = ExcelTemplateFile()
-			# q = q.order(-ExcelTemplateFile.created_datetime)
-
-			q = ExcelTemplateFile.query()
-			# q = q.filter(UCFMDLOperator.operator_id_lower >= sk_keyword.lower())
-			q = q.order(-ExcelTemplateFile.created_date)
 			
-			for entry in q.iter(limit=limit, offset=start):
-				vo = entry.exchangeVo(self._timezone)
-				# OperatorUtils.editVoForList(self, vo)
-				list_vo = {}
-				for k,v in vo.iteritems():
-					if k in ['blob_store', 'tenant', 'filename', 'unique_id']:
-						list_vo[k] = v
-				users_list.append(list_vo)
-			logging.info(users_list)
+			sk_keyword = UcfUtil.getHashStr(req, 'filename').strip()
+			template_list = []
+
+			if sk_keyword != '':
+				template_list = ExcelTemplateFile.searchDocsByFullText(self, sk_keyword, limit, offset=start)
+
+			else:
+				q = ExcelTemplateFile.query()
+				q = q.order(-ExcelTemplateFile.created_date)
+				
+				for entry in q.iter(limit=limit, offset=start):
+					vo = entry.exchangeVo(self._timezone)
+					# OperatorUtils.editVoForList(self, vo)
+					list_vo = {}
+					for k,v in vo.iteritems():
+						if k in ['blob_store', 'tenant', 'filename', 'unique_id']:
+							list_vo[k] = v
+					template_list.append(list_vo)
 			ret_value = {
 				 #'all_count': str(count),
 				'all_count': str(1000),
-				'records': users_list,
+				'records': template_list,
 			}
 
 			self._code = 0
 			self.responseAjaxResult(ret_value)
 
 		except BaseException, e:
-			print(e)
 			self.outputErrorLog(e)
 			self._code = 999
 			self.responseAjaxResult()

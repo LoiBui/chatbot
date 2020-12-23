@@ -19,6 +19,10 @@ class Page(TenantAppHelper):
 
 		try:
 			uidFile = ExcelTemplateFile.save(tenant, self.request.get('file'), self.request.get('filename'))
+			vo = {}
+			vo['filename'] = self.request.get('filename')
+			vo['unique_id'] = uidFile
+			ExcelTemplateFile.addBueinssFileToTextSearchIndex(vo)
 
 			sheet = json.loads(self.request.get('sheet'))
 			sheetName = json.loads(self.request.get('sheetName'))
@@ -38,6 +42,7 @@ class Page(TenantAppHelper):
 			self.response.out.write(jsondata_str)
 
 		except BaseException as e:
+			print(123454)
 			print(e)
 			jsondata = {
 				'status': False

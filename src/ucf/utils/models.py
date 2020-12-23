@@ -1452,6 +1452,59 @@ class ExcelTemplateFile(UCFModel2):
 			row.put()
 			return unique_id
 
+	@classmethod
+	def addBueinssFileToTextSearchIndex(cls, vo):
+		record_updated_date = datetime.datetime.utcnow()
+		keyword = ''
+		keyword += ' ' + vo.get('filename', '')
+		
+		try:
+			search_document = search.Document(
+								doc_id = vo.get('unique_id', ''),
+								fields=[
+									search.TextField(name='unique_id', value=vo.get('unique_id', '')),		
+									search.TextField(name='filename', value=keyword),	
+									search.NumberField(name='updated_date', value=(record_updated_date - datetime.datetime(1970,1,1)).total_seconds()),
+									search.DateField(name='created_date', value=UcfUtil.getNow())								# 検索
+								])
+			index = search.Index(name='businessfile_index')
+			index.put(search_document)
+		except search.PutError, e:
+			result = e.results[0]
+			if result.code == search.OperationResult.TRANSIENT_ERROR:
+				logging.info("error" + result.code)
+
+	@classmethod
+	def removeBusinessFileFromTextSearchIndex(cls, unique_id):
+		index = search.Index(name='businessfile_index')
+		index.delete(unique_id)
+
+	@classmethod
+	def searchDocsByFullText(cls, helper, search_keyword, max_search_count, offset=0):
+		MAX_SORT_LIMIT_FULLTEXT = 10000
+		index = search.Index(name='businessfile_index')
+		query_string = ''
+		if search_keyword != '':
+			search_keyword = re.sub(r"[\"`~]", "", search_keyword)
+			query_string += '(filename = ~"' + search_keyword + '")'
+		# sort option
+		sort_expression = search.SortExpression(
+	          expression='updated_date',
+	          direction=search.SortExpression.DESCENDING,
+	          default_value=None)
+		sort = search.SortOptions(expressions=[sort_expression], limit=MAX_SORT_LIMIT_FULLTEXT)
+		returned_fields = ['blob_store', 'tenant', 'filename', 'unique_id']
+		q_ft = search.Query(query_string=query_string, options=search.QueryOptions(sort_options=sort, limit=max_search_count, offset=offset, returned_fields=returned_fields))
+		results = index.search(q_ft)
+		ret_results = []
+		for result in results:
+			dict = {}
+			for field in result.fields:
+				if field.name in returned_fields:
+					dict[field.name] = field.value.strip('#')
+			ret_results.append(dict)
+		return ret_results
+		
 class ExcelTemplateValue(UCFModel2):
 	unique_id = ndb.StringProperty(required=True)
 	file_id = ndb.StringProperty()

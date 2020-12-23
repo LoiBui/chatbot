@@ -13,9 +13,6 @@ from google.appengine.api import urlfetch, app_identity
 from ucf.utils.ucfutil import UcfUtil
 from google.appengine.ext import blobstore
 
-
-_gnaviid = 'DASHBOARD'
-_leftmenuid = 'INDEX'
 class Page(TenantAppHelper):
 
 	def post(self, tenant):
@@ -27,6 +24,7 @@ class Page(TenantAppHelper):
 			unique_id = self.request.get('unique_id')
 			print(unique_id)
 			ExcelTemplateFile.deleteByUniqueId(unique_id)
+			ExcelTemplateFile.removeBusinessFileFromTextSearchIndex(unique_id)
 			ExcelTemplateValue.deleteByFileId(unique_id)
 
 			jsondata = {

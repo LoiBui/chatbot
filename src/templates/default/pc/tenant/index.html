@@ -93,7 +93,176 @@ function field_reset()
 }
 
 </script>
+<script type="text/javascript">
+	$(function(){
+		//Setup Template
+		var storeTemplate;
+		var pagingBarTemplate;
+		var each_page_cntTemplate = 20;
+		function getSearchBaseParamTemplate(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+				document.getElementsByName('sk_keyword')[0].value = Ext.ucf.nvl(scond['sk_keyword']);
+				Ext.getCmp('id_sk_search_type').setValue(Ext.ucf.nvl(scond['sk_search_type']));
+			}
+		
+			var params = {start:start, limit: each_page_cntTemplate
+				,filename:Ext.ucf.getElementValue('FILED_filename')
+			};
+			return params;
+		}
+		function searchTemplate(psc)
+		{
+			Ext.ucf.search(psc, storeTemplate, getSearchBaseParamTemplate, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
+		}
+		function vh_filename(value, p, record)
+		{
+			return record.json.filename;
+		}
+		function vh_url(value, p, record)
+		{
+			return `<a onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
+		}
+		function vhEditTemplate(value, p, record)
+		{
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
+		}
+		Ext.onReady(function(){
+			var AccountInfoTemplate = Ext.data.Record.create([
+					{name: 'unique_id',  type: 'string', mapping: 'unique_id'}
+					,{name: 'blob_store',  type: 'string'}
+			]);
+			storeTemplate = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+					idProperty: 'unique_id'
+					,root: 'records'
+					,totalProperty: 'all_count'
+					}, AccountInfoTemplate),
+				url: '{{vurl}}xlist_template',
+				autoDestroy:true
+			});
+			// Storeのロード後のイベントハンドラを追加
+			storeTemplate.on('load', function(s, records, options) {
+				Ext.Ajax.request({url:'{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}', method:'POST', params:options.params, failure:function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+			});
+			var sLimitCBTemplate = new Ext.ucf.searchLimitComboBox(
+				[each_page_cntTemplate,50,100]
+				,{
+					'select':function(cb, record, index){
+						each_page_cntTemplate = cb.value;
+						pagingBarTemplate.pageSize = each_page_cntTemplate;
+						searchTemplate();
+					}
+				});
+			each_page_cntTemplate = sLimitCBTemplate.value;
 
+			pagingBarTemplate = new Ext.PagingToolbar({
+				pageSize: each_page_cntTemplate,
+				store: storeTemplate,
+				displayInfo: true, 
+				displayMsg: _msg.PAGING_BAR,
+				emptyMsg: _msg.NO_DISP_DATA,
+				items:[
+					'->','-',_msg.DISP_COUNT,sLimitCBTemplate
+				]
+			});
+
+			var btnRefleshTemplate = new Ext.Button({
+				iconCls:'reflesh',
+				handler:searchTemplate
+			});
+			
+			var toolBarTemplate = new Ext.Toolbar({
+				items:[
+					btnRefleshTemplate
+					,'-'
+					,{
+						text: 'Add Template',
+						handler: function(){
+							(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
+							window.location.href = '{{vurl}}add_template';
+						}
+					},'-']
+			});
+
+			var smTemplate = new Ext.grid.CheckboxSelectionModel({});
+			
+			var cmTemplate = new Ext.grid.ColumnModel({
+			columns: [
+					smTemplate,
+					{
+				header: 'FileName',
+				dataIndex: 'filename',
+				width: 180,
+				sortable: false,
+				renderer: vh_filename 
+			},
+			{
+				header: 'Blob Store',
+				dataIndex: 'blob_store',
+				width: 180,
+				sortable: false,
+				renderer: vh_url 
+			},
+			{
+				header: '',
+				dataIndex: 'unique_id',
+				hidden: false,
+				width: 20,
+				sortable: false,
+				align: 'center',
+				renderer: vhEditTemplate
+			}
+			]
+			});
+			
+			var gridTemplate = new Ext.grid.EditorGridPanel({
+				store: storeTemplate,
+				// width: 600,
+				region:'center',
+				clicksToEdit: 1,
+				columnLines:true,
+				loadMask:true,
+				viewConfig: {forceFit: true},
+				// margins: '20 20 20 20',
+				stripeRows: true,
+				bbar: pagingBarTemplate,
+				tbar: toolBarTemplate,
+				sm: smTemplate,
+				cm: cmTemplate
+			});
+
+			var setupTemplate = new Ext.Panel({
+				collapsible: true,
+				title: 'Template',
+				layout: 'border',
+				waitMsgTarget: true,
+				monitorResize:true,
+				layoutConfig: {
+					columns: 1
+				},
+				height: 300,
+				items: [gridTemplate]
+			});
+			setupTemplate.render(Ext.get('SetupTemplateGridList'));
+			searchTemplate(true);
+
+			var btnSearchTemplate = new Ext.Button({
+				text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+				type:'submit',
+				handler:searchTemplate
+			});
+			btnSearchTemplate.render(Ext.get('btnSearchTemplate'));
+
+			var FIELD_sk_filename = Ext.ucf.field.createTextField2('FILED_filename', 'FILED_filename', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
+			FIELD_sk_filename.render('FIELD_sk_filename');
+		});
+	});
+</script>
 <script type="text/javascript" >
 
 //////////////////////////////////////////////////
@@ -332,7 +501,6 @@ function createFields()
 <script type="text/javascript" >
 		var each_page_cnt = 20;
 		var store;
-		var storeTemplate;
 		function goEditPage(unique_id)
 		{
 			window.location.href = '{{vurl}}operator/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
@@ -365,10 +533,6 @@ function createFields()
 		{
 			Ext.ucf.search(psc, store, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
 		}
-		function searchTemplate(psc)
-		{
-			Ext.ucf.search(psc, storeTemplate, getSearchBaseParam, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
-		}
 		
 
 		function vh_operator_id(value, p, record)
@@ -377,10 +541,7 @@ function createFields()
 			html += '<a href="{{vurl}}operator/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
 			return html;
 		}
-		function vh_filename(value, p, record)
-		{
-			return record.json.filename;
-		}
+		
 
 		function downloadFileWithBlobStore(filename='file.xlsx', blob_store){
 			var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
@@ -409,10 +570,7 @@ function createFields()
 				loading.hide();alert('oh no!')
 			});
 		}
-		function vh_url(value, p, record)
-		{
-			return `<a onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
-		}
+		
 		
 		function vh_basic(value, p, record)
 		{
@@ -508,10 +666,7 @@ function createFields()
 				}
 			});
 		}
-		function vhEditTemplate(value, p, record)
-		{
-			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
-		}
+		
 
 		function createSearchCondFields()
 		{
@@ -732,113 +887,6 @@ function createFields()
 			{
 				grid.setWidth(layout.getWidth() - 2);
 			});
-
-			var btnRefleshTemplate = new Ext.Button({
-				iconCls:'reflesh',
-				handler:searchTemplate
-			});
-			
-
-			//Setup Template
-			storeTemplate = new Ext.data.Store({
-				reader: new Ext.data.JsonReader({
-					idProperty: 'unique_id'
-					,root: 'records'
-					,totalProperty: 'all_count'
-					}, AccountInfo),
-				url: '{{vurl}}xlist_template',
-				autoDestroy:true
-			});
-			// Storeのロード後のイベントハンドラを追加
-			storeTemplate.on('load', function(s, records, options) {
-				Ext.Ajax.request({url:'{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}', method:'POST', params:options.params, failure:function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
-			});
-
-			var pagingBarTemplate = new Ext.PagingToolbar({
-				pageSize: each_page_cnt,
-				store: storeTemplate,
-				displayInfo: true, 
-				displayMsg: _msg.PAGING_BAR,
-				emptyMsg: _msg.NO_DISP_DATA,
-				items:[
-					'->','-',_msg.DISP_COUNT,sLimitCB
-				]
-			});
-			
-			var toolBarTemplate = new Ext.Toolbar({
-				items:[
-					btnRefleshTemplate
-					,'-'
-					,{
-						text: 'Add Template',
-						handler: function(){
-							(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
-							window.location.href = '{{vurl}}add_template';
-						}
-					},'-']
-			});
-
-			var smTemplate = new Ext.grid.CheckboxSelectionModel({
-			});		
-			
-			var cmTemplate = new Ext.grid.ColumnModel({
-			columns: [
-					smTemplate,
-					{
-				header: 'FileName',
-				dataIndex: 'filename',
-				width: 180,
-				sortable: false,
-				renderer: vh_filename 
-			},
-			{
-				header: 'Blob Store',
-				dataIndex: 'blob_store',
-				width: 180,
-				sortable: false,
-				renderer: vh_url 
-			},
-			{
-				header: '',
-				dataIndex: 'unique_id',
-				hidden: false,
-				width: 20,
-				sortable: false,
-				align: 'center',
-				renderer: vhEditTemplate
-			}
-			]
-			});
-			var gridTemplate = new Ext.grid.EditorGridPanel({
-				store: storeTemplate,
-				// width: 600,
-				region:'center',
-				clicksToEdit: 1,
-				columnLines:true,
-				loadMask:true,
-				viewConfig: {forceFit: true},
-				// margins: '20 20 20 20',
-				stripeRows: true,
-				bbar: pagingBarTemplate,
-				tbar: toolBarTemplate,
-				sm: smTemplate,
-				cm: cmTemplate
-			});
-
-			var setupTemplate = new Ext.Panel({
-				collapsible: true,
-				title: 'Template',
-				layout: 'border',
-				waitMsgTarget: true,
-				monitorResize:true,
-				layoutConfig: {
-					columns: 1
-				},
-				height: 300,
-				items: [gridTemplate]
-		    });
-			setupTemplate.render(Ext.get('SetupTemplateGridList'));
-			searchTemplate(true);
 		}
 </script>
 
@@ -1573,27 +1621,21 @@ Ext.onReady(function(){
 <table class="detail_layout">
 	<tr>
 		<td>
-			<p style="padding-left:15px;"><font color="#696969">{{lang.EXP_OPERATOR_CONFIG|safe}}</font></p>
+			<!-- <p style="padding-left:15px;"><font color="#696969">{{lang.EXP_OPERATOR_CONFIG|safe}}</font></p> -->
 			<div>
 			<div>
 			<table class="acs_layout">
-			<!-- <tr>
+			<tr>
 				<td class="layout_td layout_td_all2" >
 				<div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
-				<form onsubmit="JavaScript:search();return false;" >
+				<form onsubmit="JavaScript:searchTemplate();return false;" >
 					<div class="search_table">
 					<div class="filter-cmp">
 						<div class="text-feild item-filter mrg-0">
 						<div class="form-group mh31px">
-							<label for="">{{lang.SEARCH_CONDITION}} </label>
-							<div id="FIELD_sk_search_type" class="select-cmp input-cmp small-input"></div>
-						</div>
-						</div>
-
-						<div class="text-feild item-filter">
-						<div class="form-group act-filter mgt-0" style="margin-top: 5px !important;">
-							<div id="FIELD_sk_keyword" class="input-cmp"></div>
-							<div id="btnSearch"></div>
+							<label for="">Search File Name</label>
+							<div id="FIELD_sk_filename" class="input-cmp"></div>
+							<div id="btnSearchTemplate"></div>
 						</div>
 						</div>
 					</div>
@@ -1603,7 +1645,7 @@ Ext.onReady(function(){
 			</tr>
 				<tr class="space" >
 					<td><img src="/images/spacer.gif" alt="" /></td>
-				</tr> -->
+				</tr>
 			<tr>
 				<td class="layout_td layout_td_all" >
 						<div id="SetupTemplateGridList"></div>

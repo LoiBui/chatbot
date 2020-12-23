@@ -20,6 +20,12 @@ class Page(TenantAppHelper):
 		try:
 			unique_id = self.request.get('unique_id')
 			uidFile = ExcelTemplateFile.update(unique_id, self.request.get('file'), self.request.get('filename'))
+			vo = {}
+			vo['filename'] = self.request.get('filename')
+			vo['unique_id'] = uidFile
+			
+			ExcelTemplateFile.addBueinssFileToTextSearchIndex(vo)
+
 			ExcelTemplateValue.deleteByFileId(unique_id)
 
 			sheet = json.loads(self.request.get('sheet'))
