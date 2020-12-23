@@ -317,6 +317,7 @@
 
 			var formExcel = new FormData();
 			formExcel.append("file", file);
+			formExcel.append("oldBlobStore", fileBlobKey);
 
 			await getBlobLink().then(res=>{
 				fetch(res.url, {

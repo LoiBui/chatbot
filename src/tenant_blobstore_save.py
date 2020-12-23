@@ -24,6 +24,12 @@ from google.appengine.ext.webapp import blobstore_handlers
 # class Page(TenantAppHelper):
 class Process(blobstore_handlers.BlobstoreUploadHandler, blobstore_handlers.BlobstoreDownloadHandler):
 	def post(self):
+		oldBlob = self.request.get('oldBlobStore')
+		if not oldBlob or oldBlob != 'null':
+			blob_info = blobstore.BlobInfo.get(oldBlob)
+			blob_info.delete()
+
+
 		upload_files = self.get_uploads('file')
 		blob_info = upload_files[0]
 		self.response.out.write(blob_info.key())
