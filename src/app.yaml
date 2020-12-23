@@ -173,6 +173,10 @@ handlers:
 - url: (/a/([^/]*)/get_file_blob)
   script: tenant_get_file_blob.app
   secure: always
+
+- url: (/a/([^/]*)/get_blob_link)
+  script: tenant_get_blob_link.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)

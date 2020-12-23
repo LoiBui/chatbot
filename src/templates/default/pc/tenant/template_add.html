@@ -166,8 +166,54 @@
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}
+
+		function getBlobLink(){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_blob_link', {
+					method: "get"
+				}).then(resp => {
+					return resp.json();
+				}).then(res=>{
+					resolve(res);
+				}).catch(e=>reject(e));
+			})
+		}
+
+		function getSheets(formExcel, fileInfo){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_template', {
+					method: "post",
+					body: formExcel
+				})
+				.then(resp => {
+					return resp.json();
+				}).then(res => {
+					if(!res.status){
+						errFile();
+						reject();
+						return;
+					}
+					var sheets = [];
+					res.data.forEach((element, index) => {
+						sheets.push([index, element]);
+					});
+					gSheets = sheets;
+					Ext.getCmp('select_sheet1').store.loadData(sheets);
+					Ext.getCmp('select_sheet1').setValue(0);
+					currentSheet = 0;
+					$("#file-info").html(fileInfo);
+
+					renderTable(sheets);
+					resolve();
+				}).catch(function(e){
+					console.log(e);
+					errFile();
+					reject();
+				})
+			})
+		}
 		
-		function onchangefile(){
+		async function onchangefile(){
 			if(!tryChooseFile){
 				tryChooseFile = true;
 			}
@@ -178,53 +224,24 @@
 				fileBlobKey = null;
 				return;
 			}
-
-			// const objectURL = URL.createObjectURL(file)
-			// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
-
-
-			
+			const fileInfo = file.name + " - " + file.size/1000 + "kB";
 
 			var formExcel = new FormData();
 			formExcel.append("file", file);
 
-			fetch('{{url}}', {
-				method: "post",
-				body: formExcel
-			}).then(resp => {
-				return resp.text();
-			}).then(res=>{
-				loading.hide();
-				fileBlobKey = res;
-			})
-
-
-			fetch('{{vurl|safe}}get_template', {
-				method: "post",
-				body: formExcel
-			})
-			.then(resp => {
-				loading.hide();
-				return resp.json();
-			}).then(res => {
-				if(!res.status){
-					errFile();
-					return;
-				}
-				var sheets = [];
-				res.data.forEach((element, index) => {
-					sheets.push([index, element]);
-				});
-				gSheets = sheets;
-				Ext.getCmp('select_sheet1').store.loadData(sheets);
-				Ext.getCmp('select_sheet1').setValue(0)
-				currentSheet = 0;
-				document.getElementById("file-info").innerText = file.name + " - " + file.size/1000 + "kB";
-
-				renderTable(sheets);
-			}).catch(function(){
-				errFile();
-			})
+			await getBlobLink().then(res=>{
+				fetch(res.url, {
+					method: "post",
+					body: formExcel
+				}).then(resp => {
+					return resp.text();
+				}).then(res=>{
+					
+					fileBlobKey = res;
+				})
+			});
+			await getSheets(formExcel, fileInfo);
+			loading.hide();
 		}
 
 		function renderTable(sheets){
