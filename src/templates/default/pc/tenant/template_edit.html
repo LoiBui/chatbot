@@ -136,7 +136,7 @@
 			// }
 			var type_msteams_proudct_bot = [];      
 			
-			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 150, null);
+			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 200, null);
 			field_sk_search_type.render('select_sheet');
 			field_sk_search_type.addListener('select', function(){
 				currentSheet = Ext.getCmp('select_sheet1').value;
@@ -374,12 +374,12 @@
 							<tr>
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
-										<div style="width: 20%;">
+										<div style="width: 40%;">
 											<p style="text-align: left;"><b>テンプレートファイルアップロード</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
 													<label for="file_template">
-														<div style="width: 100px;
+														<div style="width: 200px;
 														height: 100px;
 														display: flex;
 														align-items: center;
@@ -400,7 +400,7 @@
 											<label for=""></label>
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
 										</div>
-										<div style="width: 80%;" id="iframe">
+										<div style="width: 60%;" id="iframe">
 											
 										</div>
 									</div>
