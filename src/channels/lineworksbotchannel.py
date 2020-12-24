@@ -168,7 +168,9 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			
 			sheets = lineworks_func.getSheetsByUniqueId(fileInfo['unique_id'])
 			if len(sheets) == 1:
-				self.step2(contents, tenant, lineworks_id)
+				logging.info("SKIP STEP 111111111111111111111111111111")
+				logging.info(sheets[0])
+				self.step2(contents, tenant, lineworks_id, sheets[0])
 				return
 
 			actions = []
@@ -186,14 +188,19 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			}
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		elif step == 2:
-			self.step2(contents, tenant, lineworks_id)
+			self.step2(contents, tenant, lineworks_id, contents['content']['text'])
 
-	def step2(self, contents, tenant, lineworks_id):
+	def step2(self, contents, tenant, lineworks_id, sheet_name):
 		postback = contents['content']['postback']
 		postback = postback.split("_@")[0]
 		fileInfo = lineworks_func.getFileByAlias(postback)
-		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], contents['content']['text'])
+		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], sheet_name)
 
+		logging.info(fileInfo)
+		logging.info(fileInfo['unique_id'])
+		logging.info(contents['content']['text'])
+		logging.info("step 22222222222222222222222222222222")
+		logging.info(questions)
 		for item in questions:
 			if item['question'] != '':
 				logging.info(item)
