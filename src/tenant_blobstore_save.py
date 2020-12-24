@@ -27,7 +27,7 @@ class Process(blobstore_handlers.BlobstoreUploadHandler, blobstore_handlers.Blob
 		oldBlob = self.request.get('oldBlobStore')
 		if not oldBlob or oldBlob != 'null':
 			blob_info = blobstore.BlobInfo.get(oldBlob)
-			if blob_info is not None
+			if blob_info is not None:
 				blob_info.delete()
 
 
