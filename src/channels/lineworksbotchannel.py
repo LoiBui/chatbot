@@ -167,8 +167,9 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			fileInfo = lineworks_func.getFileByAlias(postback)
 			
 			sheets = lineworks_func.getSheetsByUniqueId(fileInfo['unique_id'])
-			logging.info(contents)
-			logging.info(sheets)
+			if len(sheets) == 1:
+				self.step2(contents, tenant, lineworks_id)
+				return
 
 			actions = []
 			for item in sheets:
@@ -185,23 +186,26 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			}
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		elif step == 2:
-			logging.info("zooooooooooooooooooooooooooooooooooojhasgdjusagdsadsasg")
-			postback = postback.split("_@")[0]
-			fileInfo = lineworks_func.getFileByAlias(postback)
-			questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], contents['content']['text'])
+			self.step2(contents, tenant, lineworks_id)
 
-			for item in questions:
-				if item['question'] != '':
-					logging.info(item)
-					payload = {
-						"type": "text",
-    					"text": item['question']
-					}
-					self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-					logging.info("sendddddddddddddddddddddddd")
-					return
+	def step2(self, contents, tenant, lineworks_id):
+		postback = contents['content']['postback']
+		postback = postback.split("_@")[0]
+		fileInfo = lineworks_func.getFileByAlias(postback)
+		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], contents['content']['text'])
 
+		for item in questions:
+			if item['question'] != '':
+				logging.info(item)
+				payload = {
+					"type": "text",
+					"text": item['question']
+				}
+				self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+				logging.info("sendddddddddddddddddddddddd")
+				return
 
+				
 	# [ACTION]アクションの実処理
 	def executeAction(self, tenant, lineworks_id, payload, channel_config, next_data=None, node='', upload=False,
 					  access_token='', blob_key=None, rule_id='', file_seq=''):
@@ -279,108 +283,3 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session_id = 'lineworks__{}__{}__{}__{}__{}'.format(tenant, source_id, rule_id, language, oem_company_code)
 		
 		chat_session_db.ChatSessionLineworks.clear_session(chat_session_id)
-
-	def processSubFolder(self, tenant, rule_id, lineworks_id, node):
-		response_content = ''
-		count = 0
-		
-		logging.debug('process check access token')
-		access_token = directcloudbox_func.getAccessToken()
-		if access_token in [0, 1, 2]:
-			if access_token == 0:
-				response_content = self.getMsg('MSG_REQUIRE_INPUT_DIRECT_CLOUD_BOX_ACCOUNT')
-			elif access_token == 1:
-				response_content = self.getMsg('MSG_DIRECT_CLOUD_BOX_ACCOUNT_INVALID')
-			else:
-				logging.error('Has problem when get access token')
-				return
-			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
-			return -1, response_content
-		
-		get_list_sub_folder = directcloudbox_func.callDirectCloudBoxAdminAPI(access_token, 'sharedboxes', 'lists', node=node)
-		if 'success' in get_list_sub_folder and get_list_sub_folder['success'] is True:
-			count = len(get_list_sub_folder['lists'])
-			response_content = get_list_sub_folder['lists']
-		
-		return count, response_content
-	
-	###############################################
-	# Create task upload image to direct cloud box
-	###############################################
-	def kickUploadImage(self, tenant, rule_id, lineworks_id, chat_session, node='', none_permission=0):
-		chat_session['phase'] = 4
-		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
-		
-		params = {
-			'user_id': lineworks_id,
-			'chat_session': json.JSONEncoder().encode(chat_session),
-			'node': node,
-			'none_permission': none_permission
-		}
-		
-		# task queue
-		task_url = '/a/' + tenant + '/' + rule_id + '/tq/uploadimage'
-		import_q = taskqueue.Queue('uploadimage-queue')
-		import_t = taskqueue.Task(
-			url=task_url,
-			params=params,
-			target=sateraito_func.getBackEndsModuleName(tenant),
-			countdown=2
-		)
-		logging.info('run task')
-		logging.info(task_url)
-		import_q.add(import_t)
-	
-	###############################################
-	# Create Image Url
-	###############################################
-	def createImageUrl(self, access_token, node, file_seq, tenant):
-		
-		storage_platform = 'directcloudbox'
-		
-		blob_key = FileStorage.getBlobKey(file_seq, storage_platform)
-		logging.debug('blob_key=' + str(blob_key))
-		
-		if not blob_key:
-			logging.debug('create blob_key')
-			result = directcloudbox_func.callShareBoxDownloadFileManagementApi(access_token, node=node, file_seq=file_seq)
-			
-			width, height = sateraito_func.getImageInfo(result)
-			logging.debug(str(width) + ' ------ ' + str(height))
-			
-			resize_image = sateraito_func.resizeImage(result, width, height)
-			
-			bucket = app_identity.get_default_gcs_bucket_name()
-			filename = '/{0}/{1}/chat_files/{2}'.format(bucket, tenant, UcfUtil.guid())
-			with cloudstorage.open(filename, 'w') as filehandle:
-				filehandle.write(resize_image)
-			
-			# /gs/bucket/object
-			blobstore_filename = '/gs{}'.format(filename)
-			blob_key = blobstore.create_gs_key(blobstore_filename)
-			FileStorage.saveFile(file_seq, blob_key, storage_platform)
-			
-		image_url = oem_func.getMySiteUrl(self._oem_company_code) + '/a/' + tenant + '/image?key=' + blob_key
-		
-		return image_url, blob_key
-	
-	def getFileAndFolder(self, access_token, node=''):
-		page = 0
-		list_file = []
-		list_comment = []
-		while True:
-			get_list_file = directcloudbox_func.callDirectCloudBoxUserAPI(access_token, 'files', 'index', node=node, page=page)
-			if 'success' in get_list_file and get_list_file['success'] is True:
-				for temp_file in get_list_file['lists']:
-					if temp_file['extension'] in ['jpg', 'jpeg', 'png', 'gif']:
-						list_file.append(temp_file)
-					if temp_file['extension'] == 'txt':
-						list_comment.append(temp_file)
-					
-				if get_list_file['lastpage']:
-					break
-				page += 1
-			else:
-				break
-		
-		return list_file, list_comment

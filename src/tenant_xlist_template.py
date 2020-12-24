@@ -13,9 +13,9 @@ import lineworks_func
 class Page(TenantAjaxHelper):
 	def processOfRequest(self, tenant):
 		try:
-			print(3245678)
-			fileValue = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName('1b89dcaa286f68d4cde6ff7d614839c8', 'Sateraito Sheet 1')
-			print((fileValue))
+			# print(3245678)
+			# fileValue = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName('1b89dcaa286f68d4cde6ff7d614839c8', 'Sateraito Sheet 1')
+			# print((fileValue))
 
 
 			if self.isValidTenant(not_redirect=True) == False:
