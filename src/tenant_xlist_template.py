@@ -8,10 +8,16 @@ import sateraito_inc
 import sateraito_func
 from ucf.utils import ucffunc,loginfunc
 from ucf.pages.operator import *
+import lineworks_func
 
 class Page(TenantAjaxHelper):
 	def processOfRequest(self, tenant):
 		try:
+			print(3245678)
+			fileValue = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName('1b89dcaa286f68d4cde6ff7d614839c8', 'Sateraito Sheet 1')
+			print((fileValue))
+
+
 			if self.isValidTenant(not_redirect=True) == False:
 				self._code = 400
 				self._msg = self.getMsg('MSG_NOT_INSTALLED', (self._tenant))
@@ -43,7 +49,7 @@ class Page(TenantAjaxHelper):
 			start = int(req['start'])
 			limit = int(req['limit'])
 			
-			sk_keyword = UcfUtil.getHashStr(req, 'filename').strip()
+			sk_keyword = UcfUtil.getHashStr(req, 'display_name').strip()
 			template_list = []
 
 			if sk_keyword != '':
@@ -58,7 +64,7 @@ class Page(TenantAjaxHelper):
 					# OperatorUtils.editVoForList(self, vo)
 					list_vo = {}
 					for k,v in vo.iteritems():
-						if k in ['blob_store', 'tenant', 'filename', 'unique_id']:
+						if k in ['blob_store', 'tenant', 'filename', 'unique_id', 'display_name']:
 							list_vo[k] = v
 					template_list.append(list_vo)
 			ret_value = {

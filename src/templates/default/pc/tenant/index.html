@@ -111,13 +111,17 @@ function field_reset()
 			}
 		
 			var params = {start:start, limit: each_page_cntTemplate
-				,filename:Ext.ucf.getElementValue('FILED_filename')
+				,display_name:Ext.ucf.getElementValue('FILED_display_name')
 			};
 			return params;
 		}
 		function searchTemplate(psc)
 		{
 			Ext.ucf.search(psc, storeTemplate, getSearchBaseParamTemplate, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
+		}
+		function vh_dispaly_name(value, p, record)
+		{
+			return record.json.display_name;
 		}
 		function vh_filename(value, p, record)
 		{
@@ -194,9 +198,16 @@ function field_reset()
 			var cmTemplate = new Ext.grid.ColumnModel({
 			columns: [
 					smTemplate,
-					{
-				header: 'FileName',
-				dataIndex: 'filename',
+			{
+				header: 'Display Name',
+				dataIndex: 'Display_name',
+				width: 180,
+				sortable: false,
+				renderer: vh_dispaly_name 
+			},
+			{
+				header: 'File Name',
+				dataIndex: 'file_name',
 				width: 180,
 				sortable: false,
 				renderer: vh_filename 
@@ -258,8 +269,8 @@ function field_reset()
 			});
 			btnSearchTemplate.render(Ext.get('btnSearchTemplate'));
 
-			var FIELD_sk_filename = Ext.ucf.field.createTextField2('FILED_filename', 'FILED_filename', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
-			FIELD_sk_filename.render('FIELD_sk_filename');
+			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
+			FIELD_sk_display_name.render('FIELD_sk_display_name');
 		});
 	});
 </script>
@@ -1633,8 +1644,8 @@ Ext.onReady(function(){
 					<div class="filter-cmp">
 						<div class="text-feild item-filter mrg-0">
 						<div class="form-group mh31px">
-							<label for="">Search File Name</label>
-							<div id="FIELD_sk_filename" class="input-cmp"></div>
+							<label for="">Search Display Name</label>
+							<div id="FIELD_sk_display_name" class="input-cmp"></div>
 							<div id="btnSearchTemplate"></div>
 						</div>
 						</div>

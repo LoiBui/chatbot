@@ -51,3 +51,9 @@ indexes:
   properties:
   - name: csv_download_id
   - name: created_date
+  
+- kind: ExcelTemplateValue
+  properties:
+  - name: file_id
+  - name: sheet_name
+  - name: created_date

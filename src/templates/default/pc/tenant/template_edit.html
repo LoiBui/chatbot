@@ -47,6 +47,7 @@
 		var fileBlobKey = fileOptimize.blob_store;
 		var filename = fileOptimize.filename;
 
+		
 		function reduce(data){
 			return data.reduce(function (r, a) {
                 r[a.sheet] = r[a.sheet] || [];
@@ -145,6 +146,10 @@
 				$("#table_question"+currentSheet).removeClass("d-none")
 				$("#label_question"+currentSheet).removeClass("d-none")
 			});
+
+
+			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', fileOptimize.display_name, '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
+			FIELD_sk_display_name.render('display_name');
 		}
 		
 
@@ -159,6 +164,10 @@
 				var dataTable = [];
 				if(fileBlobKey == null){
 					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					return;
+				}
+				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
+					Ext.Msg.alert("Notice", "Display name is required");
 					return;
 				}
 				var reduceData = [];
@@ -207,6 +216,7 @@
 				frmData.append("filename", filename);
 				frmData.append("sheetName", JSON.stringify(gSheets))
 				frmData.append("unique_id", '{{unique_id}}')
+				frmData.append("display_name", Ext.ucf.getElementValue('FILED_display_name'))
 
 				loading.show();
 				fetch('{{vurl|safe}}submit_edit_template', {
@@ -397,8 +407,9 @@
 											</div>
 											
 											<!-- <div id="select_sheet"></div> -->
-											<label for=""></label>
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
+											<p class="text-left">Display Name:</p>
+											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
 										</div>
 										<div style="width: 60%;" id="iframe">
 											

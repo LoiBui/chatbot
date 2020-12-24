@@ -1,1 +1,1 @@
-dev_appserver.py ./src/app.yaml --log_level=debug --require_indexes --show_mail_body --enable_sendmail --smtp_host=smtp.gmail.com --smtp_port=587 --smtp_user=admin@satelaito.jp --smtp_password=satebaytech2000 --smtp_allow_tls 
+dev_appserver.py ./src/app.yaml --log_level=debug --require_indexes --show_mail_body --enable_sendmail --smtp_host=smtp.gmail.com --smtp_port=587 --smtp_user=admin@satelaito.jp --smtp_password=satebaytech2000 --smtp_allow_tls --enable_host_checking=false

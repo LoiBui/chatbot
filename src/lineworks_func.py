@@ -17,6 +17,7 @@ from Crypto.Signature import PKCS1_v1_5
 from Crypto.Hash import SHA256
 import sateraito_inc
 import sateraito_func
+from ucf.utils.models import *
 
 
 #####################################################
@@ -326,6 +327,76 @@ def callLineWorksSetRichMenuAPI(apiurlpart, open_api_id, consumer_key, server_id
 			process_cnt += 1
 
 
+def getExcelTemplate():
+	template_list = []
+	q = ExcelTemplateFile.query()
+	q = q.order(-ExcelTemplateFile.created_date)
+	
+	for entry in q.iter():
+		vo = entry.exchangeVo('Asia/Tokyo')
+		# OperatorUtils.editVoForList(self, vo)
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['alias', 'filename', 'display_name']:
+				list_vo[k] = v
+		template_list.append(list_vo)
+	return template_list
+
+def getFileByAlias(alias):
+	q = ExcelTemplateFile.query()
+	q = q.filter(ExcelTemplateFile.alias == alias)
+
+	file = []
+
+	for entry in q.iter(limit=20, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['blob_store', 'filename', 'display_name', 'unique_id', 'alias']:
+				list_vo[k] = v
+		file = list_vo
+	return file
+
+def getFileValueByUniqueId(unique_id):
+	q = ExcelTemplateValue.query()
+	q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
+
+	fileValue = []
+
+	for entry in q.iter(limit=20, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['unique_id', 'default', 'file_id', 'location', 'question', 'require', 'sheet', 'value', 'created_date', 'sheet_name', 'alias']:
+				list_vo[k] = v
+		fileValue.append(list_vo)
+	return fileValue
+
+def getSheetsByUniqueId(unique_id):
+	sheets = []
+	fileValue = getFileValueByUniqueId(unique_id)
+	for item in fileValue:
+		if item['sheet_name'] not in sheets:
+			sheets.append(item['sheet_name'])
+	return sheets
+
+def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
+	q = ExcelTemplateValue.query()
+	q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
+	q = q.filter(ExcelTemplateValue.sheet_name == sheet_name)
+	q = q.order(ExcelTemplateValue.created_date)
+
+	fileValue = []
+
+	for entry in q.iter(limit=20, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['question', 'alias']:
+				list_vo[k] = v
+		fileValue.append(list_vo)
+	return fileValue
+
 #####################################################
 # LINE WORKS API コール　Rich Menu作成
 #####################################################
@@ -334,6 +405,7 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 	
 	resourceCid = callLineWorksUploadContentAPI(open_api_id, consumer_key, server_id, priv_key)
 	
+
 	payload = {
 		"size": {
 			"width": 2500,
@@ -350,21 +422,8 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": helper.getMsg('MSG_UPLOAD_IMAGE2'),
-					"text": helper.getMsg('MSG_UPLOAD_IMAGE2')
-				}
-			},
-			{
-				"bounds": {
-					"x": 1250,
-					"y": 0,
-					"width": 1250,
-					"height": 843
-				},
-				"action": {
-					"type": "message",
-					"label": helper.getMsg('MSG_REFERENCE_IMAGE'),
-					"text": helper.getMsg('MSG_REFERENCE_IMAGE')
+					"label": 'Start',
+					"text": 'Start'
 				}
 			},
 			{
@@ -376,8 +435,8 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": helper.getMsg('VMSG_HELP'),
-					"text": helper.getMsg('VMSG_HELP')
+					"label": 'Help',
+					"text": 'Help'
 				}
 			}
 		]

@@ -18,9 +18,9 @@ class Page(TenantAppHelper):
 		self.setTenant(tenant)
 
 		try:
-			uidFile = ExcelTemplateFile.save(tenant, self.request.get('file'), self.request.get('filename'))
+			uidFile = ExcelTemplateFile.save(tenant, self.request.get('file'), self.request.get('filename'), self.request.get('display_name'))
 			vo = {}
-			vo['filename'] = self.request.get('filename')
+			vo['display_name'] = self.request.get('display_name')
 			vo['unique_id'] = uidFile
 			ExcelTemplateFile.addBueinssFileToTextSearchIndex(vo)
 

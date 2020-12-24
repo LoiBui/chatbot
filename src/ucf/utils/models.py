@@ -8,7 +8,8 @@ from google.appengine.api import namespace_manager
 from google.appengine.api import memcache
 from ucf.config.ucfconfig import *
 from ucf.utils.ucfutil import *
-
+import string
+import random
 import sateraito_inc
 
 ############################################################
@@ -1420,17 +1421,21 @@ class ExcelTemplateFile(UCFModel2):
 	blob_store = ndb.StringProperty()
 	filename = ndb.StringProperty()
 	tenant = ndb.StringProperty()
+	alias = ndb.StringProperty()
+	display_name = ndb.StringProperty()
 	created_date = ndb.DateTimeProperty(auto_now_add=True)
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
 	@classmethod
-	def save(cls, tenant, blob_store, filename):
+	def save(cls, tenant, blob_store, filename, display_name):
 		uid = UcfUtil.guid()
 		unique_id = uid
 		entry = cls(unique_id=unique_id, id=unique_id)
 		entry.blob_store = blob_store
 		entry.tenant = tenant
 		entry.filename = filename
+		entry.display_name = display_name
+		entry.alias = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 		entry.put()
 		return uid
 
@@ -1442,13 +1447,14 @@ class ExcelTemplateFile(UCFModel2):
 			entry_key.delete()
 
 	@classmethod
-	def update(cls, unique_id, blob_store, filename):
+	def update(cls, unique_id, blob_store, filename, display_name):
 		q = cls.query()
 		q = q.filter(cls.unique_id == unique_id)
 		row = q.get(use_cache=False, use_memcache=False)
 		if row:
 			row.blob_store = blob_store
 			row.filename = filename
+			row.display_name = display_name
 			row.put()
 			return unique_id
 
@@ -1456,14 +1462,14 @@ class ExcelTemplateFile(UCFModel2):
 	def addBueinssFileToTextSearchIndex(cls, vo):
 		record_updated_date = datetime.datetime.utcnow()
 		keyword = ''
-		keyword += ' ' + vo.get('filename', '')
+		keyword += ' ' + vo.get('display_name', '')
 		
 		try:
 			search_document = search.Document(
 								doc_id = vo.get('unique_id', ''),
 								fields=[
 									search.TextField(name='unique_id', value=vo.get('unique_id', '')),		
-									search.TextField(name='filename', value=keyword),	
+									search.TextField(name='display_name', value=keyword),	
 									search.NumberField(name='updated_date', value=(record_updated_date - datetime.datetime(1970,1,1)).total_seconds()),
 									search.DateField(name='created_date', value=UcfUtil.getNow())								# 検索
 								])
@@ -1486,14 +1492,14 @@ class ExcelTemplateFile(UCFModel2):
 		query_string = ''
 		if search_keyword != '':
 			search_keyword = re.sub(r"[\"`~]", "", search_keyword)
-			query_string += '(filename = ~"' + search_keyword + '")'
+			query_string += '(display_name = ~"' + search_keyword + '")'
 		# sort option
 		sort_expression = search.SortExpression(
 	          expression='updated_date',
 	          direction=search.SortExpression.DESCENDING,
 	          default_value=None)
 		sort = search.SortOptions(expressions=[sort_expression], limit=MAX_SORT_LIMIT_FULLTEXT)
-		returned_fields = ['blob_store', 'tenant', 'filename', 'unique_id']
+		returned_fields = ['blob_store', 'tenant', 'filename', 'unique_id', 'display_name']
 		q_ft = search.Query(query_string=query_string, options=search.QueryOptions(sort_options=sort, limit=max_search_count, offset=offset, returned_fields=returned_fields))
 		results = index.search(q_ft)
 		ret_results = []
@@ -1515,6 +1521,7 @@ class ExcelTemplateValue(UCFModel2):
 	sheet_name = ndb.StringProperty()
 	default = ndb.StringProperty()
 	sheet = ndb.StringProperty()
+	alias = ndb.StringProperty()
 	created_date = ndb.DateTimeProperty(auto_now_add=True)
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
@@ -1530,6 +1537,7 @@ class ExcelTemplateValue(UCFModel2):
 		entry.default = default
 		entry.sheet = sheet
 		entry.sheet_name = sheet_name
+		entry.alias = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
 		entry.put()
 
 	@classmethod
