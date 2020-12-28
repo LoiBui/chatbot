@@ -34,7 +34,7 @@ class Page(TenantAppHelper):
 			vo = entry.exchangeVo('Asia/Tokyo')
 			list_vo = {}
 			for k,v in vo.iteritems():
-				if k in ['excel_blob', 'file_id', 'lineworks_id', 'pdf_blob', 'rule_id', 'value']:
+				if k in ['excel_blob', 'file_id', 'lineworks_id', 'pdf_blob', 'rule_id', 'value', 'sheet']:
 					list_vo[k] = v
 			answer = list_vo
 
@@ -53,19 +53,22 @@ class Page(TenantAppHelper):
 			file = list_vo
 
 		
+		data = urllib2.urlopen(sateraito_inc.my_site_url + "/tenant/template/download?blob_key=qfNpPCvyiFF2Jz3gOlWTJw==")
+		xlsx = data.read()
+		wb = load_workbook(StringIO.StringIO(xlsx))
+		wb.active = int(answer['sheet'])
+		ws = wb.active
+
+		val = json.loads(answer['value'])
+		for item in val:
+			ques = lineworks_func.findQuestionByAlias(item)
+			if ques['location'].strip() != '':
+				ws[ques['location']] = val['item']
 		
 		
-		logging.warning("zooooooooooooooooooooooooo")
-		logging.warning(json.loads(answer['value']))
-		logging.warning(file['blob_store'])
-
-		# data = urllib2.urlopen(sateraito_inc.my_site_url + "/tenant/template/download?blob_key=qfNpPCvyiFF2Jz3gOlWTJw==")
-		# xlsx = data.read()
-		# wb = load_workbook(StringIO.StringIO(xlsx))
-
-		# self.response.headers['content-type'] = 'application/pdf'
-		# self.response.headers['Content-Disposition'] = 'attachment; filename=file.xlsx'
-		# self.response.out.write(save_virtual_workbook(wb))
+		self.response.headers['content-type'] = 'application/pdf'
+		self.response.headers['Content-Disposition'] = 'attachment; filename=file.xlsx'
+		self.response.out.write(save_virtual_workbook(wb))
 		
 
 app = ndb.toplevel(webapp2.WSGIApplication([('/tenant/template/download_excel', Page)], debug=sateraito_inc.debug_mode, config=sateraito_func.wsgi_config))
