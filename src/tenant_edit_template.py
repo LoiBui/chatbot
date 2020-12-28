@@ -62,12 +62,10 @@ class Page(TenantAppHelper):
 				'file': json.JSONEncoder().encode(file),
 				'unique_id': unique_id
 			}
-			print(fileValue)
 			self.appendBasicInfoToTemplateVals(template_vals)
 
 			self.render('template_edit.html', self._design_type, template_vals)
 		except BaseException as e:
-			print(e)
 			self.outputErrorLog(e)
 			self.redirectError(UcfMessage.getMessage(self.getMsg('MSG_SYSTEM_ERROR'), ()))
 			return

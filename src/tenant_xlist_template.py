@@ -11,12 +11,20 @@ from ucf.pages.operator import *
 import lineworks_func
 
 class Page(TenantAjaxHelper):
+	def findNextEl(self):
+		print(3245678)
+		fileValue = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName('daffec43722235fce336eae5284efec6', 'Sateraito Sheet 1')
+		print(fileValue)
+		for index, item in enumerate(fileValue):
+			if item['alias'] == '1SM6Q8':
+				if index + 1 >= len(fileValue):
+					return None 
+				else:
+					return fileValue[index+1]
+
 	def processOfRequest(self, tenant):
 		try:
-			# print(3245678)
-			# fileValue = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName('1b89dcaa286f68d4cde6ff7d614839c8', 'Sateraito Sheet 1')
-			# print((fileValue))
-
+			print(self.findNextEl())
 
 			if self.isValidTenant(not_redirect=True) == False:
 				self._code = 400

@@ -7,7 +7,7 @@ import json
 import hmac
 import datetime
 import re
-
+import time
 from ucf.utils.models import *
 from google.appengine.api import urlfetch, app_identity
 from ucf.utils.helpers import TenantWebHookAPIHelper
@@ -135,10 +135,14 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		room_id = contents['source']['roomId'] if 'roomId' in source else ''
 		# ......................................................................
 
+		logging.warning("CONTENT WEB HOOK")
+		logging.warning(contents)
+
 		if room_id != '':
 			return
 			
 		if contents is not None and contents['content']['type'] == 'text' and contents['content']['text'] == 'Start':
+			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			template = lineworks_func.getExcelTemplate()
 			actions = []
 			for item in template:
@@ -156,21 +160,27 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 			return
 
-		elif contents is not None and contents['content']['type'] == 'text' and contents['content']['postback'] is not None:
-			self.responsiveFileValue(contents, tenant, lineworks_id)
+		elif contents is not None and contents['content']['type'] == 'text' and 'postback' in contents['content'] and contents['content']['postback'] is not None:
+			self.responsiveFileValue(contents, tenant, lineworks_id, rule_id)
+		else:
+			chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+			logging.warning("ZOOOOOOOOOOOOOO HERE")
+			logging.warning(chat_session)
+			if chat_session and 'alias' in chat_session and 'phase' in chat_session and 'postback' in chat_session and 'sheet_name' in chat_session:
+				self.step3(chat_session['postback'], tenant, lineworks_id, chat_session['sheet_name'], rule_id, contents['content']['text'])
 
-	def responsiveFileValue(self, contents, tenant, lineworks_id):
+	def responsiveFileValue(self, contents, tenant, lineworks_id, rule_id):
 		postback = contents['content']['postback']
 		
 		step = len(postback.split("_@"))
 		if step == 1:
 			fileInfo = lineworks_func.getFileByAlias(postback)
-			
 			sheets = lineworks_func.getSheetsByUniqueId(fileInfo['unique_id'])
+
+			# show question if template have 1 sheets
 			if len(sheets) == 1:
 				logging.info("SKIP STEP 111111111111111111111111111111")
-				logging.info(sheets[0])
-				self.step2(contents, tenant, lineworks_id, sheets[0])
+				self.step3(postback, tenant, lineworks_id, sheets[0], rule_id, contents['content']['text'])
 				return
 
 			actions = []
@@ -186,33 +196,182 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				"contentText": "Please choose a sheet of template file?",
 				"actions": actions
 			}
+			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		elif step == 2:
-			self.step2(contents, tenant, lineworks_id, contents['content']['text'])
+			logging.warning("zoooooooooo step2")
+			self.step3(postback, tenant, lineworks_id, contents['content']['text'], rule_id, contents['content']['text'])
+		elif step == 3:
+			logging.warning("zoooooooooo step3")
+			chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+			self.step3(postback, tenant, lineworks_id, chat_session['sheet_name'], rule_id, contents['content']['text'])
+		elif step == 4 and contents['content']['text'].lower() == 'yes':
+			logging.warning("zoooooooooo step4")
+			self.chooseExcelPdf(postback, tenant, lineworks_id, rule_id)
+		elif step == 4 and contents['content']['text'].lower() == 'no':
+			logging.warning("zoooooooooo step4")
+			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+    			"text": "Please start over."
+			}, self.channel_config)
 
-	def step2(self, contents, tenant, lineworks_id, sheet_name):
-		postback = contents['content']['postback']
+	def step3(self, postback, tenant, lineworks_id, sheet_name, rule_id, answer):
 		postback = postback.split("_@")[0]
 		fileInfo = lineworks_func.getFileByAlias(postback)
 		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], sheet_name)
+		logging.warning("SEND QUESTION")
+		self.sendQuestion(questions, answer, tenant, lineworks_id, rule_id, postback, sheet_name)
 
-		logging.info(fileInfo)
-		logging.info(fileInfo['unique_id'])
-		logging.info(contents['content']['text'])
-		logging.info("step 22222222222222222222222222222222")
-		logging.info(questions)
+	def findNextEl(self, alias, questions):
+		for index, item in enumerate(questions):
+			if alias is None and len(questions) > 0:
+				return questions[0]
+			if item['alias'] == alias:
+				if index + 1 >= len(questions):
+					return None 
+				else:
+					return questions[index+1]
+		return None
+
+	def removeEmptyField(self, questions):
+		newQuestion = []
 		for item in questions:
 			if item['question'] != '':
-				logging.info(item)
+				newQuestion.append(item)
+		return newQuestion
+
+	def sendQuestion(self, questions, answer, tenant, lineworks_id, rule_id, postback, sheet_name):
+		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		questions = self.removeEmptyField(questions)
+		question = None
+
+		if chat_session and 'alias' in chat_session:
+			question = self.findNextEl(chat_session['alias'], questions)
+		else:
+			question = self.findNextEl(None, questions)
+
+		if question is None:
+			data_answer = chat_session['data_answer']
+			for i in data_answer:
+				if data_answer[i] is None:
+					data_answer[i] = answer
+
+			logging.warning("FINISH ANSWER")
+			logging.warning(data_answer)
+			txt = ''
+			for item in data_answer:
+				question = lineworks_func.findQuestionByAlias(item)
+				txt += question['question'] + " => " + data_answer[item] + "\n"
+
+			payload = {
+				"type": "button_template",
+				"contentText": 'You are finish. Please confirm your answer. \n' + txt,
+				"actions": [
+					{
+						"type": "message",
+						"label": 'Yes',
+						"postback": postback + "_@1_@2_@3"
+					},
+					{
+						"type": "message",
+						"label": 'No',
+						"postback": postback + "_@1_@2_@3"
+					}
+				]
+			}
+			
+			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+			# self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		else:
+			data_answer = {}
+			if 'data_answer' not in chat_session:
+				data_answer[question['alias']] = None
+			else:
+				data_answer = chat_session['data_answer']
+				for i in data_answer:
+					if data_answer[i] is None:
+						data_answer[i] = answer
+				data_answer[question['alias']] = None
+			
+			chat_session = {
+				'phase': 'question',
+				'alias': question['alias'],
+				'postback': postback,
+				'sheet_name': sheet_name,
+				'data_answer': data_answer
+			}
+
+			payload = None
+			if int(question['require']) == 1 and question['require'].strip() == '':
 				payload = {
 					"type": "text",
-					"text": item['question']
+					"text": question['question']
 				}
-				self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-				logging.info("sendddddddddddddddddddddddd")
-				return
+			else:
+				actions = []
 
-				
+				if int(question['require']) == 0:
+					actions.append({
+						"type": "message",
+						"label": 'Skip',
+						"postback": postback + "_@1_@2"
+					})
+				if question['value'].strip() != '':
+					arr = question['value'].strip().split(",")
+					logging.warning(arr)
+					for item in arr:
+						logging.warning(item)
+						actions.append({
+							"type": "message",
+							"label": item,
+							"postback": postback + "_@1_@2"
+						})
+				payload = {
+					"type": "button_template",
+					"contentText": question['question'],
+					"actions": actions
+				}
+
+
+			time.sleep(3)
+			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
+			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+		
+
+	def chooseExcelPdf(self, postback, tenant, lineworks_id, rule_id):
+		postback = postback.split("_@")[0]
+		payload = {
+			"type": "button_template",
+			"contentText": 'You are want to download ?',
+			"actions": [
+				{
+					"type": "uri",
+					"label": 'Excel',
+					"uri": 'https://developers.worksmobile.com/jp/document/100500804?lang=en'
+				},
+				{
+					"type": "uri",
+					"label": 'Pdf',
+					"uri": 'https://developers.worksmobile.com/jp/document/100500804?lang=en'
+				}
+			]
+		}
+		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+		self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+
+
+
+
+
+
+
+
+
+
+
+
+
 	# [ACTION]アクションの実処理
 	def executeAction(self, tenant, lineworks_id, payload, channel_config, next_data=None, node='', upload=False,
 					  access_token='', blob_key=None, rule_id='', file_seq=''):

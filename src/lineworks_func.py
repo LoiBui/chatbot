@@ -360,6 +360,7 @@ def getFileByAlias(alias):
 def getFileValueByUniqueId(unique_id):
 	q = ExcelTemplateValue.query()
 	q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
+	q = q.order(ExcelTemplateValue.created_date)
 
 	fileValue = []
 
@@ -380,6 +381,21 @@ def getSheetsByUniqueId(unique_id):
 			sheets.append(item['sheet_name'])
 	return sheets
 
+def findQuestionByAlias(alias):
+	q = ExcelTemplateValue.query()
+	q = q.filter(ExcelTemplateValue.alias == alias)
+
+	fileValue = None
+
+	for entry in q.iter(limit=20, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['question', 'alias', 'default', 'location', 'require', 'sheet', 'value']:
+				list_vo[k] = v
+		fileValue = list_vo
+	return fileValue
+	
 def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
 	q = ExcelTemplateValue.query()
 	q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
@@ -392,7 +408,7 @@ def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
-			if k in ['question', 'alias']:
+			if k in ['question', 'alias', 'default', 'location', 'require', 'sheet', 'value']:
 				list_vo[k] = v
 		fileValue.append(list_vo)
 	return fileValue

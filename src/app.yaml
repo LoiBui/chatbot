@@ -181,6 +181,10 @@ handlers:
 - url: (/a/([^/]*)/submit_edit_template)
   script: tenant_submit_edit_template.app
   secure: always
+
+- url: (/tenant/template/download)
+  script: tenant_download_template.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)
