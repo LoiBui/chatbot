@@ -391,11 +391,11 @@ def findQuestionByAlias(alias):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
-			if k in ['question', 'alias', 'default', 'location', 'require', 'sheet', 'value']:
+			if k in ['question', 'alias', 'default', 'location', 'require', 'sheet', 'value', 'file_id']:
 				list_vo[k] = v
 		fileValue = list_vo
 	return fileValue
-	
+
 def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
 	q = ExcelTemplateValue.query()
 	q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
@@ -413,6 +413,20 @@ def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
 		fileValue.append(list_vo)
 	return fileValue
 
+def getAnswerByUniqueId(unique_id):
+	q = AnswerUser.query()
+	q = q.filter(AnswerUser.unique_id == unique_id)
+
+	fileValue = None
+
+	for entry in q.iter(limit=20, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['excel_blob', 'file_id', 'lineworks_id', 'pdf_blob', 'rule_id', 'value']:
+				list_vo[k] = v
+		fileValue = list_vo
+	return fileValue
 #####################################################
 # LINE WORKS API コール　Rich Menu作成
 #####################################################

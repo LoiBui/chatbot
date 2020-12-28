@@ -185,6 +185,10 @@ handlers:
 - url: (/tenant/template/download)
   script: tenant_download_template.app
   secure: always
+
+- url: (/tenant/template/download_excel)
+  script: tenant_download_excel_template.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)

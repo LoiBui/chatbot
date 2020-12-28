@@ -140,7 +140,28 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 
 		if room_id != '':
 			return
-			
+		
+
+
+		# payload = {
+		# 	"type": "button_template",
+		# 	"contentText": 'You are want to download ?',
+		# 	"actions": [
+		# 		{
+		# 			"type": "uri",
+		# 			"label": 'Excel',
+		# 			"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=e20c63c7cc0ab6eaf28568baff2ce692&type=excel"
+		# 		},
+		# 		{
+		# 			"type": "uri",
+		# 			"label": 'Pdf',
+		# 			"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=e20c63c7cc0ab6eaf28568baff2ce692&type=pdf"
+		# 		}
+		# 	]
+		# }
+		
+		# self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+		# return 
 		if contents is not None and contents['content']['type'] == 'text' and contents['content']['text'] == 'Start':
 			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			template = lineworks_func.getExcelTemplate()
@@ -257,8 +278,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				if data_answer[i] is None:
 					data_answer[i] = answer
 
-			logging.warning("FINISH ANSWER")
-			logging.warning(data_answer)
 			txt = ''
 			for item in data_answer:
 				question = lineworks_func.findQuestionByAlias(item)
@@ -282,7 +301,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			}
 			
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-			# self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 		else:
 			data_answer = {}
 			if 'data_answer' not in chat_session:
@@ -293,7 +312,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					if data_answer[i] is None:
 						data_answer[i] = answer
 				data_answer[question['alias']] = None
-			
+
 			chat_session = {
 				'phase': 'question',
 				'alias': question['alias'],
@@ -319,9 +338,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					})
 				if question['value'].strip() != '':
 					arr = question['value'].strip().split(",")
-					logging.warning(arr)
 					for item in arr:
-						logging.warning(item)
 						actions.append({
 							"type": "message",
 							"label": item,
@@ -332,14 +349,21 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					"contentText": question['question'],
 					"actions": actions
 				}
-
-
-			time.sleep(3)
 			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		
 
 	def chooseExcelPdf(self, postback, tenant, lineworks_id, rule_id):
+
+		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		
+		data = chat_session['data_answer']
+		question = lineworks_func.findQuestionByAlias(data.keys()[-1])
+
+		dataAnswer = json.dumps(chat_session['data_answer'])
+		unique_id = AnswerUser.save(lineworks_id, rule_id, question['file_id'], dataAnswer, question['sheet'])
+		
+
 		postback = postback.split("_@")[0]
 		payload = {
 			"type": "button_template",
@@ -348,15 +372,16 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				{
 					"type": "uri",
 					"label": 'Excel',
-					"uri": 'https://developers.worksmobile.com/jp/document/100500804?lang=en'
+					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel"
 				},
 				{
 					"type": "uri",
 					"label": 'Pdf',
-					"uri": 'https://developers.worksmobile.com/jp/document/100500804?lang=en'
+					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=pdf"
 				}
 			]
 		}
+		
 		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 
