@@ -372,12 +372,12 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				{
 					"type": "uri",
 					"label": 'Excel',
-					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel"
+					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel&tenant="+tenant
 				},
 				{
 					"type": "uri",
 					"label": 'Pdf',
-					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=pdf"
+					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=pdf&tenant="+tenant
 				}
 			]
 		}
