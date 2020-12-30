@@ -26,6 +26,7 @@ import chat_session_db
 import directcloudbox_func
 import cloudstorage
 from google.appengine.ext import blobstore
+import base64
 
 
 ############################################################
@@ -377,7 +378,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				{
 					"type": "uri",
 					"label": 'Pdf',
-					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=pdf&tenant="+tenant
+					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?type=pdf&url="+base64.b64encode(sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel&tenant="+tenant)
 				}
 			]
 		}

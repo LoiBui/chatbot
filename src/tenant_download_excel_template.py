@@ -20,6 +20,18 @@ class Page(TenantAppHelper):
 	def get(self):
 		try:
 			type = self.request.get("type").strip()
+			if type == 'pdf':
+				url = 'https://788260b5cb47.ngrok.io/?url='+base64.b64decode(self.request.get("url"))
+				response = urllib2.urlopen(url)
+				html = response.read()
+				response = urllib2.urlopen(html)
+				html = response.read()
+
+				self.response.headers['content-type'] = 'application/pdf'
+				self.response.headers['Content-Disposition'] = 'attachment; filename=file.pdf'
+				self.response.out.write(html)
+				return 1
+
 			tenant = self.request.get("tenant")
 			self._tenant = tenant
 			namespace_manager.set_namespace(tenant.lower())
@@ -74,7 +86,8 @@ class Page(TenantAppHelper):
 				self.response.out.write(save_virtual_workbook(wb))
 			elif type == 'pdf':
 				self.response.out.write('<h1 style="text-align: center;">Pending !!!</h1>')
-		except:
+		except BaseException as e:
+			print(e)
 			self.response.out.write('<h1 style="text-align: center;">Something went wrong !!!</h1>')	
 		
 
