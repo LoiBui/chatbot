@@ -18,6 +18,8 @@ import urlfetch
 from google.appengine.ext import blobstore
 import cloudstorage
 from google.appengine.api import app_identity
+import string
+import random
 
 class Page(TenantAppHelper):
 
@@ -85,7 +87,7 @@ class Page(TenantAppHelper):
 			
 			
 			bucket = app_identity.get_default_gcs_bucket_name()
-			filename = '/{0}/{1}'.format(bucket, 'test222222')
+			filename = '/{0}/{1}'.format(bucket, ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(30)))
 			with cloudstorage.open(filename, 'w') as filehandle:
 				filehandle.write(save_virtual_workbook(wb))
 
