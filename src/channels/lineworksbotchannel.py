@@ -267,6 +267,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		questions = self.removeEmptyField(questions)
 		question = None
 
+		
 		if chat_session and 'alias' in chat_session:
 			question = self.findNextEl(chat_session['alias'], questions)
 		else:
@@ -320,7 +321,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				'sheet_name': sheet_name,
 				'data_answer': data_answer
 			}
-
 			payload = None
 			if int(question['require']) == 1 and question['require'].strip() == '':
 				payload = {
@@ -349,6 +349,11 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					"contentText": question['question'],
 					"actions": actions
 				}
+				if len(actions) == 0:
+    					payload = {
+							"type": "text",
+    						"text": question['question']
+						}
 			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		
