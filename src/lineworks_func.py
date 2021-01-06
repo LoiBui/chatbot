@@ -384,6 +384,7 @@ def getSheetsByUniqueId(unique_id):
 def findQuestionByAlias(alias):
 	q = ExcelTemplateValue.query()
 	q = q.filter(ExcelTemplateValue.alias == alias)
+	q = q.order(ExcelTemplateValue.created_date)
 
 	fileValue = None
 

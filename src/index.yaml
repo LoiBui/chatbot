@@ -62,3 +62,8 @@ indexes:
   properties:
   - name: file_id
   - name: created_date
+
+- kind: ExcelTemplateValue
+  properties:
+  - name: alias
+  - name: created_date

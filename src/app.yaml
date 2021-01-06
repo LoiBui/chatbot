@@ -189,6 +189,10 @@ handlers:
 - url: (/tenant/template/download_excel)
   script: tenant_download_excel_template.app
   secure: always
+
+- url: (/tenant/template/download_cloudstorage/([^/]*)/([^/]*))
+  script: download_file_from_cloudstorage.app
+  secure: always
   
 # data cleansing
 - url: (/datacleansing$)

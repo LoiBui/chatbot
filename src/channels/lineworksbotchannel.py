@@ -7,7 +7,6 @@ import json
 import hmac
 import datetime
 import re
-import time
 from ucf.utils.models import *
 from google.appengine.api import urlfetch, app_identity
 from ucf.utils.helpers import TenantWebHookAPIHelper
@@ -19,7 +18,7 @@ import oem_func
 import lineworks_func
 from google.appengine.api import taskqueue
 from google.appengine.api import memcache
-
+import urllib2
 # import channels
 from channels.basechannel import *
 import chat_session_db
@@ -365,26 +364,41 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		unique_id = AnswerUser.save(lineworks_id, rule_id, question['file_id'], dataAnswer, question['sheet'])
 		
 
-		postback = postback.split("_@")[0]
-		payload = {
-			"type": "button_template",
-			"contentText": 'You are want to download ?',
-			"actions": [
-				{
-					"type": "uri",
-					"label": 'Excel',
-					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel&tenant="+tenant
-				},
-				{
-					"type": "uri",
-					"label": 'Pdf',
-					"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?type=pdf&url="+base64.b64encode(sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&type=excel&tenant="+tenant)
-				}
-			]
-		}
-		
-		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+		self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+    			"text": "Please wait while we create the file for you."
+		}, self.channel_config)
 		self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+
+		url = sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&tenant="+tenant
+		response = urllib2.urlopen(url)
+		data = json.loads(response.read())
+		logging.warning(data)
+		if data['status']:
+			payload = {
+				"type": "button_template",
+				"contentText": 'You are want to download ?',
+				"actions": [
+					{
+						"type": "uri",
+						"label": 'Excel',
+						"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
+					},
+					{
+						"type": "uri",
+						"label": 'Pdf',
+						"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
+					}
+				]
+			}
+			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+		else: 
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+    			"text": "ERROR"
+			}, self.channel_config)
+    			
+		
 
 
 

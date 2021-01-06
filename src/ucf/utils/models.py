@@ -1547,26 +1547,56 @@ class ExcelTemplateValue(UCFModel2):
 		for entry_key in query_filter.iter(keys_only=True):
 			entry_key.delete()
 	
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+
 class AnswerUser(UCFModel2):
-	unique_id = ndb.StringProperty(required=True)
-	lineworks_id = ndb.StringProperty()
-	rule_id = ndb.StringProperty()
-	file_id = ndb.StringProperty()
-	value = ndb.StringProperty()
-	excel_blob = ndb.StringProperty()
-	pdf_blob = ndb.StringProperty()
-	sheet = ndb.StringProperty()
-	created_date = ndb.DateTimeProperty(auto_now_add=True)
-	updated_date = ndb.DateTimeProperty(auto_now=True)
-	
-	@classmethod
-	def save(cls, lineworks_id, rule_id, file_id, value, sheet):
-		unique_id = UcfUtil.guid()
-		entry = cls(unique_id=unique_id, id=unique_id)
-		entry.lineworks_id = lineworks_id
-		entry.rule_id = rule_id
-		entry.file_id = file_id
-		entry.value = value
-		entry.sheet = sheet
-		entry.put()
-		return unique_id
+
+    unique_id = ndb.StringProperty(required=True)
+    lineworks_id = ndb.StringProperty()
+    rule_id = ndb.StringProperty()
+    file_id = ndb.StringProperty()
+    value = ndb.StringProperty()
+    excel_blob = ndb.StringProperty()
+    pdf_blob = ndb.StringProperty()
+    sheet = ndb.StringProperty()
+    created_date = ndb.DateTimeProperty(auto_now_add=True)
+    updated_date = ndb.DateTimeProperty(auto_now=True)
+
+    @classmethod
+    def save(
+        cls,
+        lineworks_id,
+        rule_id,
+        file_id,
+        value,
+        sheet,
+        ):
+        unique_id = UcfUtil.guid()
+        entry = cls(unique_id=unique_id, id=unique_id)
+        entry.lineworks_id = lineworks_id
+        entry.rule_id = rule_id
+        entry.file_id = file_id
+        entry.value = value
+        entry.sheet = sheet
+        entry.put()
+        return unique_id
+
+    @classmethod
+    def update(
+        cls,
+        unique_id,
+        pdf_blob,
+        excel_blob,
+        ):
+        q = cls.query()
+        q = q.filter(cls.unique_id == unique_id)
+        row = q.get(use_cache=False, use_memcache=False)
+        if row:
+            if pdf_blob is not None:
+                row.pdf_blob = str(pdf_blob)
+            if excel_blob is not None:
+                row.excel_blob = str(excel_blob)
+            row.put()
+            return unique_id
