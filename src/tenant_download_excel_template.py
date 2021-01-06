@@ -78,14 +78,17 @@ class Page(TenantAppHelper):
 			wb = load_workbook(StringIO.StringIO(xlsx))
 			wb.active = int(answer['sheet'])
 			ws = wb.active
-
 			val = json.loads(answer['value'])
 			for item in val:
 				ques = lineworks_func.findQuestionByAlias(item)
 				if ques['location'].strip() != '':
 					ws[ques['location']] = val[item]
 			
-			
+			n = wb.sheetnames
+			for i, val in enumerate(n):
+				if i != int(answer['sheet']):
+					del wb[val]
+
 			bucket = app_identity.get_default_gcs_bucket_name()
 			filename = '/{0}/{1}'.format(bucket, ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(30)))
 			with cloudstorage.open(filename, 'w') as filehandle:
