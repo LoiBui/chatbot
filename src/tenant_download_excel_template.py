@@ -14,12 +14,13 @@ from openpyxl.writer.excel import save_virtual_workbook
 import lineworks_func
 from google.appengine.api import namespace_manager
 import json
-import urlfetch
 from google.appengine.ext import blobstore
 import cloudstorage
 from google.appengine.api import app_identity
 import string
 import random
+import urllib
+from google.appengine.api import urlfetch
 
 class Page(TenantAppHelper):
 
@@ -95,16 +96,45 @@ class Page(TenantAppHelper):
 				filehandle.write(save_virtual_workbook(wb))
 
 			# /gs/bucket/object
-			blobstore_filename = '/gs{}'.format(filename)
-			blob_key = blobstore.BlobKey(blobstore.create_gs_key(blobstore_filename))
+			blobstore_filename_excel = '/gs{}'.format(filename)
+			blob_key_excel = blobstore.BlobKey(blobstore.create_gs_key(blobstore_filename_excel))
 
-			AnswerUser.update(answer['unique_id'], None, blob_key)
+
+			# convert excel to pdf via other service 
+			form_fields = {}
+			form_fields['api_key'] = "sateraito_pdffaade815c82b459d9dbfd00e21a6d0cc"
+			form_fields['file'] = sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + str(blob_key_excel) + "/xlsx"
+			form_fields['file_type'] = "url"
+			form_fields['nonce'] = '324534534543'
+
+			form_data = urllib.urlencode(form_fields)
+			request_url = "https://mlapi-dev.sateraito.jp/api/pdf/convert"
+
+			deadline = 600
+			headers = {
+				'Accept': 'application/json;odata=verbose',
+			}
+			result = urlfetch.fetch(url=request_url, method="POST", payload=form_data, follow_redirects=True,
+								deadline=deadline, headers=headers)
+			res = json.loads(result.content);
+			data = urllib2.urlopen(res['file_url'])
+			pdf = data.read()
+
+			filename_pdf = '/{0}/{1}'.format(bucket, ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(30)))
+			with cloudstorage.open(filename_pdf, 'w') as filehandle:
+				filehandle.write(pdf)
+
+			# /gs/bucket/object
+			blobstore_filename_pdf = '/gs{}'.format(filename_pdf)
+			blob_key_pdf = blobstore.BlobKey(blobstore.create_gs_key(blobstore_filename_pdf))
+
+			AnswerUser.update(answer['unique_id'], blob_key_pdf, blob_key_excel)
 
 			self.response.headers['Content-Type'] = 'application/json'   
 			obj = {
 				'status': True, 
-				'excel': str(blob_key),
-				'pdf': None
+				'excel': str(blob_key_excel),
+				'pdf': str(blob_key_pdf)
 			} 
 			self.response.out.write(json.dumps(obj))
 		# except BaseException as e:

@@ -375,33 +375,39 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		}, self.channel_config)
 		self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 
-		url = sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&tenant="+tenant
-		response = urllib2.urlopen(url)
-		data = json.loads(response.read())
-		logging.warning(data)
-		if data['status']:
-			payload = {
-				"type": "button_template",
-				"contentText": 'You are want to download ?',
-				"actions": [
-					{
-						"type": "uri",
-						"label": 'Excel',
-						"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
-					},
-					{
-						"type": "uri",
-						"label": 'Pdf',
-						"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
-					}
-				]
-			}
-			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-		else: 
+		try:
+			url = sateraito_inc.my_site_url + "/tenant/template/download_excel?session=" + unique_id +"&tenant="+tenant
+			response = urllib2.urlopen(url)
+			data = json.loads(response.read())
+			logging.warning(data)
+			if data['status']:
+				payload = {
+					"type": "button_template",
+					"contentText": 'You are want to download ?',
+					"actions": [
+						{
+							"type": "uri",
+							"label": 'Excel',
+							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
+						},
+						{
+							"type": "uri",
+							"label": 'Pdf',
+							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['pdf'] + "/pdf"
+						}
+					]
+				}
+				self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+			else: 
+				self.executeAction(tenant, lineworks_id, {
+					"type": "text",
+					"text": "ERROR"
+				}, self.channel_config)
+		except:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-    			"text": "ERROR"
-			}, self.channel_config)
+    			"text": "An error occurred. Please try again !!!"
+			}, self.channel_config)	
     			
 		
 
