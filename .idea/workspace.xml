@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2360b51c-0875-471d-a0b4-34f90dbbb892" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/channels/lineworksbotchannel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/channels/lineworksbotchannel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lineworks_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lineworks_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tenant_xlist_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tenant_xlist_template.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +264,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530088424230</updated>
-      <workItem from="1610599800674" duration="631000" />
+      <workItem from="1610599800674" duration="5671000" />
     </task>
     <servers />
   </component>

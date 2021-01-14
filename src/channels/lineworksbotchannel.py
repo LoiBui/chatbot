@@ -351,6 +351,17 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		questions = self.removeEmptyField(questions)
 		question = None
 
+		# check answer valid
+		for item in questions:
+			if 'alias' in chat_session and 'value' in item and item['alias'].strip() == chat_session['alias'].strip() and item['value'].strip() != '':
+				arrCheck = item['value'].strip().split(",")
+				if answer not in arrCheck:
+					self.executeAction(tenant, lineworks_id, {
+						"type": "text",
+						"text": "Your answer is invalid. Please choose a action above."
+					}, self.channel_config)
+					return
+
 		if len(questions) == 0:
     			self.executeAction(tenant, lineworks_id, {
 					"type": "text",
