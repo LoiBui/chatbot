@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+{% include "./include/headparts.html" %}
+{% include "./include/headparts2.html" %}
+<script type="text/javascript" src="{{vscripturl}}ucfext_config.js?{{version}}"  charset="utf-8"></script>
+<script type="text/javascript" src="/ext/ux/fileuploadfield/FileUploadField.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/ux/fileuploadfield/css/FileUploadField.css" />
+<script type="text/javascript" src="{{vscripturl}}ucfext.file.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_operator.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl|safe}}ucfext_lineworks.js?{{version|safe}}" ></script>
+
+<!-- <title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<style>
+	.channel_panel p {
+		font-size: 100%;
+	}
+
+	.channel_panel table td {
+		font-size: 100%;
+		padding: 2px;
+	}
+
+	.DispBox2 ul{
+		font-size: 100%;
+	}
+
+	.DispBox2 ul.sub li.content{
+		min-width: 305px;
+		font-size: 14px;
+	}
+
+	.DispBox2 ul.sub li.link{
+		margin-left: 10px;
+		font-size: 13px;
+	}
+
+	.sub_main_title{
+		cursor: pointer;
+		color: rgb(0, 92, 156);
+		font-weight: bold;
+	}
+
+	#operator_is_allow_offline{
+		margin-bottom: 5px;
+	}
+
+	.th_title{
+		font-size: 13px !important;
+		padding-left: 15px !important;
+		text-align: left !important;
+		width: 190px;
+	}
+
+	.x-form-text, textarea.x-form-field{
+		background-image: none !important;
+	}
+
+	#FIELD_operator_mode .x-form-cb-label{
+		top: 4px !important;
+		font-size: 12px !important;
+	}
+
+    .x-grid3-cell{
+        vertical-align: middle !important;
+		padding: 3px 0px !important;
+	}
+
+</style>
+
+<script type="text/javascript">
+	function goEditPageTemplate(unique_id){
+		window.location.href = '{{vurl}}edit_template?unqid=' + escape(unique_id);
+	}
+	function btnTrashTemplate(unique_id){
+			Ext.MessageBox.show({
+				title: 'Notice',
+				msg: 'Are you sure to delete this item ?',
+				buttons: Ext.MessageBox.OKCANCEL,
+				icon: Ext.MessageBox.WARNING,
+				fn: function(btn){
+					if(btn == 'ok'){
+						var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+						loading.show();
+						var frm = new FormData();
+						frm.append("unique_id", unique_id);
+
+						fetch('{{vurl|safe}}delete_template', {
+							method: "post",
+							body: frm
+						})
+						.then(resp => {
+							return resp.json();
+						}).then(res=>{
+							setTimeout(()=>{
+								$("#ext-gen143").click();
+							}, 200);
+							if(!res.status){
+								Ext.Msg.alert("Notice", "Something went wrong");
+							}
+							loading.hide();
+						}).catch(e=>{
+							loading.hide();
+							Ext.Msg.alert("Notice", "Something went wrong");
+						})
+					}
+				}
+			});
+		}
+		
+	$(function(){
+		//Setup Template
+		var storeTemplate;
+		var pagingBarTemplate;
+		var each_page_cntTemplate = 20;
+		function getSearchBaseParamTemplate(scond)
+		{
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if(scond)
+			{
+				start = parseInt(scond['start'], 0);
+			}
+		
+			var params = {start:start, limit: each_page_cntTemplate
+				,display_name:Ext.ucf.getElementValue('FILED_display_name')
+			};
+			return params;
+		}
+		
+		function searchTemplate(psc)
+		{
+			Ext.ucf.search(psc, storeTemplate, getSearchBaseParamTemplate, '{{vurl}}xtgetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}');
+		}
+		function vh_dispaly_name(value, p, record)
+		{
+			return record.json.display_name;
+		}
+		function vh_filename(value, p, record)
+		{
+			return record.json.filename;
+		}
+		function vh_url(value, p, record)
+		{
+			return `<a onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
+		}
+		function vhEditTemplate(value, p, record)
+		{
+			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
+		}
+		Ext.onReady(function(){
+			var AccountInfoTemplate = Ext.data.Record.create([
+					{name: 'unique_id',  type: 'string', mapping: 'unique_id'}
+					,{name: 'blob_store',  type: 'string'}
+			]);
+			storeTemplate = new Ext.data.Store({
+				reader: new Ext.data.JsonReader({
+					idProperty: 'unique_id'
+					,root: 'records'
+					,totalProperty: 'all_count'
+					}, AccountInfoTemplate),
+				url: '{{vurl}}xlist_template',
+				autoDestroy:true
+			});
+			// Storeのロード後のイベントハンドラを追加
+			storeTemplate.on('load', function(s, records, options) {
+				Ext.Ajax.request({url:'{{vurl}}xtsetscond?{{config.REQUESTKEY_SESSION_SCID}}={{config.SESSIONKEY_SCOND_OPERATOR_LIST}}', method:'POST', params:options.params, failure:function(response){Ext.ucf.dispSysErrMsg();}}); 	// 検索条件をセット
+			});
+			var sLimitCBTemplate = new Ext.ucf.searchLimitComboBox(
+				[each_page_cntTemplate,50,100]
+				,{
+					'select':function(cb, record, index){
+						each_page_cntTemplate = cb.value;
+						pagingBarTemplate.pageSize = each_page_cntTemplate;
+						searchTemplate();
+					}
+				});
+			each_page_cntTemplate = sLimitCBTemplate.value;
+
+			pagingBarTemplate = new Ext.PagingToolbar({
+				pageSize: each_page_cntTemplate,
+				store: storeTemplate,
+				displayInfo: true, 
+				displayMsg: _msg.PAGING_BAR,
+				emptyMsg: _msg.NO_DISP_DATA,
+				items:[
+					'->','-',_msg.DISP_COUNT,sLimitCBTemplate
+				]
+			});
+
+			var btnRefleshTemplate = new Ext.Button({
+				iconCls:'reflesh',
+				handler:searchTemplate
+			});
+			
+			var toolBarTemplate = new Ext.Toolbar({
+				items:[
+					btnRefleshTemplate
+					,'-'
+					,{
+						text: 'Add Template',
+						handler: function(){
+							(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
+							window.location.href = '{{vurl}}template';
+						}
+					},'-']
+			});
+
+			var smTemplate = new Ext.grid.CheckboxSelectionModel({});
+			
+			var cmTemplate = new Ext.grid.ColumnModel({
+			columns: [
+					smTemplate,
+			{
+				header: 'Display Name',
+				dataIndex: 'Display_name',
+				width: 180,
+				sortable: false,
+				renderer: vh_dispaly_name 
+			},
+			{
+				header: 'File Name',
+				dataIndex: 'file_name',
+				width: 180,
+				sortable: false,
+				renderer: vh_filename 
+			},
+			{
+				header: 'Blob Store',
+				dataIndex: 'blob_store',
+				width: 180,
+				sortable: false,
+				renderer: vh_url 
+			},
+			{
+				header: '',
+				dataIndex: 'unique_id',
+				hidden: false,
+				width: 20,
+				sortable: false,
+				align: 'center',
+				renderer: vhEditTemplate
+			}
+			]
+			});
+			
+			var gridTemplate = new Ext.grid.EditorGridPanel({
+				store: storeTemplate,
+				// width: 600,
+				region:'center',
+				clicksToEdit: 1,
+				columnLines:true,
+				loadMask:true,
+				viewConfig: {forceFit: true},
+				// margins: '20 20 20 20',
+				stripeRows: true,
+				bbar: pagingBarTemplate,
+				tbar: toolBarTemplate,
+				sm: smTemplate,
+				cm: cmTemplate
+			});
+
+			var setupTemplate = new Ext.Panel({
+				collapsible: true,
+				title: 'Template',
+				layout: 'border',
+				waitMsgTarget: true,
+				monitorResize:true,
+				layoutConfig: {
+					columns: 1
+				},
+				height: 300,
+				items: [gridTemplate]
+			});
+			setupTemplate.render(Ext.get('SetupTemplateGridList'));
+			searchTemplate(true);
+
+			var btnSearchTemplate = new Ext.Button({
+				text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.VMSG_SEARCH}}&nbsp;&nbsp;&nbsp;&nbsp;',
+				type:'submit',
+				handler:searchTemplate
+			});
+			btnSearchTemplate.render(Ext.get('btnSearchTemplate'));
+
+			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 180, null);
+			FIELD_sk_display_name.render('FIELD_sk_display_name');
+		});
+	});
+</script>
+{% include "./include/external_analysis_head.html" %}
+</head>
+<body>
+<!-- contentsArea//start -->
+<div id="contentsArea">
+{% include "./include/header.html" %}
+<!-- mainArea//start -->
+<div id="mainArea" class="{{leftmenu_class}}">
+{% include "./include/index_leftmenu_template.html" %}
+<!-- rightArea//start -->
+<div id="rightArea">
+{% include "./include/attention.html" %}
+{% include "./include/explain.html" %}
+
+<!-- rightArea contentsL//start -->
+<div class="contentsL">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+
+
+<!-- rightArea innerArea//end -->
+
+<div class="innerArea01">
+<a name="SETUPTEMPLATE"></a>
+<span class="span_icon"><img src="/images/icons/setting_32.png"></span>
+<p class="ttl">Setup Template</p>
+<table class="detail_layout">
+	<tr>
+		<td>
+			<!-- <p style="padding-left:15px;"><font color="#696969">{{lang.EXP_OPERATOR_CONFIG|safe}}</font></p> -->
+			<div>
+			<div>
+			<table class="acs_layout">
+			<tr>
+				<td class="layout_td layout_td_all2" >
+				<div class="main_content_title2" style="text-align:left">{{lang.VMSG_SEARCH}}</div>
+				<form onsubmit="JavaScript:searchTemplate();return false;" >
+					<div class="search_table">
+					<div class="filter-cmp">
+						<div class="text-feild item-filter mrg-0">
+						<div class="form-group mh31px">
+							<label for="">Search Display Name</label>
+							<div id="FIELD_sk_display_name" class="input-cmp"></div>
+							<div id="btnSearchTemplate"></div>
+						</div>
+						</div>
+					</div>
+					</div>
+				</form>
+				</td>
+			</tr>
+				<tr class="space" >
+					<td><img src="/images/spacer.gif" alt="" /></td>
+				</tr>
+			<tr>
+				<td class="layout_td layout_td_all" >
+						<div id="SetupTemplateGridList"></div>
+				</td>
+			</tr>
+			</table>
+			</div>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+
+
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+
+<!-- rightArea contentsL//start -->
+</div>
+<!-- rightArea//end -->
+{% include "./include/footer.html" %}
+<div class="clear"></div>
+</div>
+<!-- mainArea//end -->
+</div>
+<!-- contentsArea//end -->
+</body>
+</html>

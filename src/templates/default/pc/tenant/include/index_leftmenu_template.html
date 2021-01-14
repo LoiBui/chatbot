@@ -1,0 +1,27 @@
+<!-- leftMenu//start -->
+<div id="leftMenu">
+    {% if 'ADMIN' in login.access_authority: %}
+    <!-- leftMenu menu01//start -->
+    <div class="menu01">
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <!-- leftMenu innerArea//start -->
+        <div class="innerArea">
+            <p class="ttl">Template Setting</p>
+            <div class="folderMenu">
+                <ul>
+                    <li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a
+                            href="{{vurl}}template">List Template</a></li>
+                    <li class="{% if ucfp.data.leftmenuid == 'ADD' %}current open{% else %}close{% endif %}"><a href="{{vurl}}add_template">Add Template</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- leftMenu innerArea//end -->
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+    </div>
+    <!-- leftMenu menu01//end -->
+    {% endif %}
+</div>

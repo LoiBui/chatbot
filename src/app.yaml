@@ -142,6 +142,10 @@ handlers:
 
 
   #setup template
+- url: (/a/([^/]*)/template)
+  script: tenant_index_template.app
+  secure: always
+  
 - url: (/a/([^/]*)/add_template)
   script: tenant_add_template.app
   secure: always

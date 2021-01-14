@@ -231,7 +231,7 @@
 					if(res.status){
 						Ext.Msg.alert("Notice", "Sucessfully", function(btn, text){
 							if (btn == 'ok'){
-								window.location.href = '{{vurl|safe}}#SETUPTEMPLATE'
+								window.location.href = '{{vurl|safe}}template'
 							}
 						});
 					}else{
@@ -366,7 +366,7 @@
 		{% include "./include/header.html" %}
 		<!-- mainArea//start -->
 		<div id="mainArea" class="{{leftmenu_class}}">
-			{% include "./include/index_leftmenu.html" %}
+			{% include "./include/index_leftmenu_template.html" %}
 			<!-- rightArea//start -->
 			<div id="rightArea">
 				{% include "./include/attention.html" %}
