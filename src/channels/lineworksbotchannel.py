@@ -378,28 +378,55 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				if data_answer[i] is None:
 					data_answer[i] = answer
 
-			txt = ''
+			txt = []
 			for item in data_answer:
 				question = lineworks_func.findQuestionByAlias(item)
-				txt += question['question'] + " => " + data_answer[item] + "\n"
-
-			payload = {
-				"type": "button_template",
-				"contentText": 'You are finish. Please confirm your answer. \n' + txt,
-				"actions": [
-					{
-						"type": "message",
-						"label": 'Yes',
-						"postback": postback + "_@1_@2_@3"
-					},
-					{
-						"type": "message",
-						"label": 'No',
-						"postback": postback + "_@1_@2_@3"
-					}
-				]
-			}
-			
+				txt.append(question['question'] + " => " + data_answer[item] + "\n")
+			if len("".join(txt)) < 300:
+				payload = {
+					"type": "button_template",
+					"contentText": 'You are finish. Please confirm your answer. \n' + "".join(txt),
+					"actions": [
+						{
+							"type": "message",
+							"label": 'Yes',
+							"postback": postback + "_@1_@2_@3"
+						},
+						{
+							"type": "message",
+							"label": 'No',
+							"postback": postback + "_@1_@2_@3"
+						}
+					]
+				}
+			else:
+				self.executeAction(tenant, lineworks_id, {
+					"type": "text",
+					"text": "You are finish."
+				}, self.channel_config)
+				for qs in txt:
+					if len(qs) > 300:
+						qs = qs[:296]+"..."
+					self.executeAction(tenant, lineworks_id, {
+						"type": "text",
+						"text": qs
+					}, self.channel_config)
+				payload = {
+					"type": "button_template",
+					"contentText": 'Please confirm your answer above.',
+					"actions": [
+						{
+							"type": "message",
+							"label": 'Yes',
+							"postback": postback + "_@1_@2_@3"
+						},
+						{
+							"type": "message",
+							"label": 'No',
+							"postback": postback + "_@1_@2_@3"
+						}
+					]
+				}
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 		else:
