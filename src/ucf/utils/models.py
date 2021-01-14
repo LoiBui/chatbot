@@ -1427,6 +1427,12 @@ class ExcelTemplateFile(UCFModel2):
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
 	@classmethod
+	def getById(cls, unique_id):
+		q = cls.query()
+		q = q.filter(cls.unique_id == unique_id)
+		return q.get()
+
+	@classmethod
 	def save(cls, tenant, blob_store, filename, display_name):
 		uid = UcfUtil.guid()
 		unique_id = uid
@@ -1506,8 +1512,8 @@ class ExcelTemplateFile(UCFModel2):
 		for result in results:
 			dict = {}
 			for field in result.fields:
-				if field.name in returned_fields:
-					dict[field.name] = field.value.strip('#')
+				# if field.name in returned_fields:
+				dict[field.name] = field.value.strip('#')
 			ret_results.append(dict)
 		return ret_results
 		

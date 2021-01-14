@@ -48,7 +48,23 @@ class Page(TenantAjaxHelper):
 			template_list = []
 
 			if sk_keyword != '':
-				template_list = ExcelTemplateFile.searchDocsByFullText(self, sk_keyword, limit, offset=start)
+				search_results = ExcelTemplateFile.searchDocsByFullText(self, sk_keyword, limit, offset=start)
+				if search_results is not None:
+					for results in search_results:
+						unique_id = results['unique_id']
+						row = ExcelTemplateFile.getById(unique_id)
+						# logging.info(row)
+						if row is not None:
+							# row = BusinessRuleUtils.editVoForList(self, rs)
+							vo = {
+								"unique_id": row.unique_id,
+								"blob_store": row.blob_store,
+								"tenant": row.tenant,
+								"filename": row.filename,
+								"display_name": row.display_name,
+							}
+							template_list.append(vo)
+								
 
 			else:
 				q = ExcelTemplateFile.query()
