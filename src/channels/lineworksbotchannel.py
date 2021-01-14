@@ -141,55 +141,129 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		if room_id != '':
 			return
 		
-
-
-		# payload = {
-		# 	"type": "button_template",
-		# 	"contentText": 'You are want to download ?',
-		# 	"actions": [
-		# 		{
-		# 			"type": "uri",
-		# 			"label": 'Excel',
-		# 			"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=e20c63c7cc0ab6eaf28568baff2ce692&type=excel"
-		# 		},
-		# 		{
-		# 			"type": "uri",
-		# 			"label": 'Pdf',
-		# 			"uri": sateraito_inc.my_site_url + "/tenant/template/download_excel?session=e20c63c7cc0ab6eaf28568baff2ce692&type=pdf"
-		# 		}
-		# 	]
-		# }
-		
-		# self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-		# return 
 		if contents is not None and contents['content']['type'] == 'text' and contents['content']['text'] == 'Start':
 			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			template = lineworks_func.getExcelTemplate()
 			actions = []
-			for item in template:
-				actions.append({
-					"type": "message",
-					"label": item['display_name'],
-					"postback": item['alias']
-				})
-				
-			payload = {
-				"type": "button_template",
-				"contentText": "Please choose a template?",
-				"actions": actions
-			}
+			payload = None
+			if len(template) == 0:
+    				payload = {
+							"type": "text",
+							"text": "Not yet setup file, please contact the administrator."
+					};
+			else:
+				for idx, item in enumerate(template):
+					actions.append({
+						"type": "message",
+						"label": item['display_name'],
+						"postback": item['alias']
+					})
+					if idx == 8 and len(template) > 10:
+    						actions.append({
+								"type": "message",
+								"label": 'Load More',
+								"postback": '-------PAGINATE-------START-------1'
+							});
+						logging.warning("zooooooooooooooooo more")
+						break
+							
+					
+				payload = {
+					"type": "button_template",
+					"contentText": "Please choose a template?",
+					"actions": actions
+				}
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, {'isStart': True});
 			return
-
+		elif contents is not None and contents['content']['type'] == 'text' and 'postback' in contents['content'] and contents['content']['postback'] is not None and 'PAGINATE' in contents['content']['postback']:
+    			postback = contents['content']['postback']
+			if 'START' in postback:
+    				print('PAGINATOR-----------------------')
+    				page = postback.split("-------")
+				self.paginatorFile(page[-1], tenant, lineworks_id)
+			if 'SHEETS' in postback:
+    				data = postback.split("-------")
+    				self.paginatorSheet(data[-1], tenant, lineworks_id) 
+    			
 		elif contents is not None and contents['content']['type'] == 'text' and 'postback' in contents['content'] and contents['content']['postback'] is not None:
+    			logging.warning("ZOOOOOOOOOOOOOO responsiveFileValue")
 			self.responsiveFileValue(contents, tenant, lineworks_id, rule_id)
 		else:
 			chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			logging.warning("ZOOOOOOOOOOOOOO HERE")
 			logging.warning(chat_session)
-			if chat_session and 'alias' in chat_session and 'phase' in chat_session and 'postback' in chat_session and 'sheet_name' in chat_session:
+			if len(chat_session) == 0:
+    				self.executeAction(tenant, lineworks_id, {
+							"type": "text",
+							"text": "Please Press the start button to execute the actions."
+					}, self.channel_config)
+			elif chat_session and 'isStart' in chat_session and chat_session['isStart']:
+    				self.executeAction(tenant, lineworks_id, {
+							"type": "text",
+							"text": "Please choose a actions."
+					}, self.channel_config)
+			elif chat_session and 'alias' in chat_session and 'phase' in chat_session and 'postback' in chat_session and 'sheet_name' in chat_session:
 				self.step3(chat_session['postback'], tenant, lineworks_id, chat_session['sheet_name'], rule_id, contents['content']['text'])
 
+
+	def paginatorSheet(self, postback, tenant, lineworks_id):
+    		print('ZOOOOOOOOOO SHEETS')
+		print(postback)
+		arr = postback.split("_");
+		step = int(arr[0])
+		alias = arr[1]
+		actions = []
+		fileInfo = lineworks_func.getFileByAlias(alias)
+		sheets = lineworks_func.getSheetsByUniqueId(fileInfo['unique_id'])
+		for (idx, item) in enumerate(sheets):
+			if idx >= step * 9:
+				actions.append({
+					"type": "message",
+					"label": item,
+					"postback": postback + "_@1"
+				})
+			if idx == (step + 1)*9 - 1 and len(sheets) > 10*(step + 1):
+				actions.append({
+					"type": "message",
+					"label": 'Load More',
+					"postback": '-------PAGINATE-------SHEETS-------'+str(step+1)+'_' + str(alias)
+				});
+				break
+		payload = {
+			"type": "button_template",
+			"contentText": "Please choose a sheet of template file?",
+			"actions": actions
+		}
+		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+    					
+	
+	def paginatorFile(self, step, tenant, lineworks_id):
+		logging.warning('PAGINATOR-----------------------START')
+		actions = []
+		step = int(step)
+		# 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+		# 1 2 3 4 5 6 7 8 9
+		# 10 11 12 13 14 15 16 17 18
+		template = lineworks_func.getExcelTemplate()
+		for (idx, item) in enumerate(template):
+			if idx >= step * 9:
+				actions.append({'type': 'message', 'label': item['display_name'
+						], 'postback': item['alias']})
+			if idx == (step + 1)*9 - 1 and len(template) > 10*(step + 1):
+				actions.append({'type': 'message', 'label': 'Load More',
+							'postback': '-------PAGINATE-------START-------'+str(step+1)
+							})
+				break
+		logging.warning(len(actions))
+		logging.warning(actions)
+		payload = {
+			"type": "button_template",
+			"contentText": "Please choose a template?",
+			"actions": actions
+		}
+		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
+    	
 	def responsiveFileValue(self, contents, tenant, lineworks_id, rule_id):
 		postback = contents['content']['postback']
 		
@@ -197,7 +271,9 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		if step == 1:
 			fileInfo = lineworks_func.getFileByAlias(postback)
 			sheets = lineworks_func.getSheetsByUniqueId(fileInfo['unique_id'])
-
+			logging.warning("UINIQUE ID FILE _______________________")
+			logging.warning(fileInfo['unique_id'])
+			logging.warning(sheets)
 			# show question if template have 1 sheets
 			if len(sheets) == 1:
 				logging.info("SKIP STEP 111111111111111111111111111111")
@@ -205,12 +281,20 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				return
 
 			actions = []
-			for item in sheets:
+			for idx, item in enumerate(sheets):
 				actions.append({
 					"type": "message",
 					"label": item,
 					"postback": postback + "_@1"
 				})
+				if idx == 8 and len(sheets) > 10:
+					actions.append({
+							"type": "message",
+							"label": 'Load More',
+							"postback": '-------PAGINATE-------SHEETS-------1_'+str(postback)
+						});
+					logging.warning("zooooooooooooooooo more")
+					break
 			
 			payload = {
 				"type": "button_template",
@@ -267,8 +351,12 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		questions = self.removeEmptyField(questions)
 		question = None
 
-		
-		if chat_session and 'alias' in chat_session:
+		if len(questions) == 0:
+    			self.executeAction(tenant, lineworks_id, {
+					"type": "text",
+					"text": "Sheets was not allowed to set up the question. Please select another sheet."
+			}, self.channel_config)
+		elif chat_session and 'alias' in chat_session:
 			question = self.findNextEl(chat_session['alias'], questions)
 		else:
 			question = self.findNextEl(None, questions)

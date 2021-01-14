@@ -348,7 +348,7 @@ def getFileByAlias(alias):
 
 	file = []
 
-	for entry in q.iter(limit=20, offset=0):
+	for entry in q.iter(limit=1000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
@@ -364,7 +364,7 @@ def getFileValueByUniqueId(unique_id):
 
 	fileValue = []
 
-	for entry in q.iter(limit=20, offset=0):
+	for entry in q.iter(limit=1000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
