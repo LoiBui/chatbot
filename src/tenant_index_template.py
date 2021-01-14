@@ -8,7 +8,7 @@ import sateraito_inc
 import sateraito_func
 from google.appengine.ext import blobstore
 
-_gnaviid = 'DASHBOARD'
+_gnaviid = 'TEMPLATE'
 _leftmenuid = 'INDEX'
 class Page(TenantAppHelper):
 

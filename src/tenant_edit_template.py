@@ -9,7 +9,7 @@ import sateraito_func
 from ucf.utils.models import *
 from google.appengine.api import namespace_manager
 import json
-_gnaviid = 'DASHBOARD'
+_gnaviid = 'TEMPLATE'
 _leftmenuid = 'INDEX'
 class Page(TenantAppHelper):
 
