@@ -135,7 +135,7 @@
 		}
 		function vh_dispaly_name(value, p, record)
 		{
-			return record.json.display_name;
+			return `<a style="cursor: pointer !important;" href="{{vurl}}edit_template?unqid=${escape(record.data.unique_id)}">${record.json.display_name}</a>`;
 		}
 		function vh_filename(value, p, record)
 		{
@@ -143,11 +143,11 @@
 		}
 		function vh_url(value, p, record)
 		{
-			return `<a onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
+			return `<a style="cursor: pointer !important;" onclick="downloadFileWithBlobStore('${record.json.filename}', '${record.json.blob_store}')" style="color: blue;cursor: pointer;">${record.json.blob_store}</a>`;
 		}
 		function vhEditTemplate(value, p, record)
 		{
-			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
+			return '<input style="cursor: pointer !important;" type="button" value="" class="btnEdit" onclick="JavaScript:goEditPageTemplate(\'' + value + '\');" /><input type="button" value="" class="btnTrash" onclick="btnTrashTemplate(\'' + value + '\')"/>';
 		}
 		Ext.onReady(function(){
 			var AccountInfoTemplate = Ext.data.Record.create([
@@ -271,7 +271,8 @@
 					columns: 1
 				},
 				height: 300,
-				items: [gridTemplate]
+				items: [gridTemplate],
+				
 			});
 			setupTemplate.render(Ext.get('SetupTemplateGridList'));
 			searchTemplate(true);
