@@ -348,7 +348,7 @@ def getFileByAlias(alias):
 
 	file = []
 
-	for entry in q.iter(limit=1000, offset=0):
+	for entry in q.iter(limit=2000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
@@ -364,7 +364,7 @@ def getFileValueByUniqueId(unique_id):
 
 	fileValue = []
 
-	for entry in q.iter(limit=1000, offset=0):
+	for entry in q.iter(limit=2000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
@@ -388,7 +388,7 @@ def findQuestionByAlias(alias):
 
 	fileValue = None
 
-	for entry in q.iter(limit=20, offset=0):
+	for entry in q.iter(limit=2000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
@@ -405,7 +405,7 @@ def getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name):
 
 	fileValue = []
 
-	for entry in q.iter(limit=20, offset=0):
+	for entry in q.iter(limit=2000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
@@ -420,7 +420,7 @@ def getAnswerByUniqueId(unique_id):
 
 	fileValue = None
 
-	for entry in q.iter(limit=20, offset=0):
+	for entry in q.iter(limit=2000, offset=0):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
