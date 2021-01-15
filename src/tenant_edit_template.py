@@ -24,16 +24,15 @@ class Page(TenantAppHelper):
 			q = q.filter(ExcelTemplateValue.file_id == unique_id.lower())
 
 			fileValue = []
-
-			for entry in q.iter(limit=20, offset=0):
+			i = 0
+			for entry in q.iter(limit=2000, offset=0):
 				vo = entry.exchangeVo(self._timezone)
 				list_vo = {}
+				i += 1
 				for k,v in vo.iteritems():
 					if k in ['unique_id', 'default', 'file_id', 'location', 'question', 'require', 'sheet', 'value', 'created_date', 'sheet_name']:
 						list_vo[k] = v
 				fileValue.append(list_vo)
-
-			
 			q = ExcelTemplateFile.query()
 			q = q.filter(ExcelTemplateFile.unique_id == unique_id.lower())
 
