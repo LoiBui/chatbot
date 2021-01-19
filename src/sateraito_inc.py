@@ -6,7 +6,7 @@
 # http_mode = False
 # developer_mode = False
 _env = 'dev'
-# _env = 'prod'
+_env = 'prod'
 
 # dev
 debug_mode = True
