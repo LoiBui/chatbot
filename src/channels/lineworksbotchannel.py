@@ -350,7 +350,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		questions = self.removeEmptyField(questions)
 		question = None
-
+		
 		# check answer valid
 		for item in questions:
 			if 'alias' in chat_session and 'value' in item and item['alias'].strip() == chat_session['alias'].strip() and item['value'].strip() != '':
@@ -367,10 +367,16 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					"type": "text",
 					"text": "Sheets was not allowed to set up the question. Please select another sheet."
 			}, self.channel_config)
+			return;
+		elif chat_session and 'alias' in chat_session and chat_session['alias'] not in str(questions):
+			question = self.findNextEl(None, questions)
+			del chat_session['data_answer']
 		elif chat_session and 'alias' in chat_session:
 			question = self.findNextEl(chat_session['alias'], questions)
 		else:
 			question = self.findNextEl(None, questions)
+
+		logging.warning(question)
 
 		if question is None:
 			data_answer = chat_session['data_answer']
@@ -472,7 +478,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						})
 				payload = {
 					"type": "button_template",
-					"contentText": question['question'],
+					"contentText": question['question'] + (" (You can skip this question)" if int(question['require']) == 0 else "" ),
 					"actions": actions
 				}
 				if len(actions) == 0:

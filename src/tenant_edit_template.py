@@ -25,7 +25,7 @@ class Page(TenantAppHelper):
 
 			fileValue = []
 			i = 0
-			for entry in q.iter(limit=2000, offset=0):
+			for entry in q.iter(limit=20000, offset=0):
 				vo = entry.exchangeVo(self._timezone)
 				list_vo = {}
 				i += 1
