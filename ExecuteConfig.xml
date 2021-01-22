@@ -4,11 +4,11 @@
 -->
 <Ucf>
 
-	<CompilerPath><![CDATA[/var/www/html/sateraito-fileup/compiler/compiler.jar]]></CompilerPath>
+	<CompilerPath><![CDATA[D:\loi\chatbot\compiler\compiler.jar]]></CompilerPath>
 	<!-- WHITESPACE_ONLY,SIMPLE_OPTIMIZATIONS -->
 	<CompilationLevel><![CDATA[SIMPLE_OPTIMIZATIONS]]></CompilationLevel>
-	<ScriptSourceFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/debug/]]></ScriptSourceFolderPath>
-	<ScriptOutputFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/]]></ScriptOutputFolderPath>
+	<ScriptSourceFolderPath><![CDATA[D:\loi\chatbot\src\script\debug/]]></ScriptSourceFolderPath>
+	<ScriptOutputFolderPath><![CDATA[D:\loi\chatbot\src\script\]]></ScriptOutputFolderPath>
 
 	<DatFolderPath><![CDATA[dat_sateraitochatmagazine]]></DatFolderPath>
 	<UpdateTimeCheckOption><![CDATA[CHECK]]></UpdateTimeCheckOption>
@@ -47,8 +47,8 @@
 
 	<!-- ��ǉ��ɐ悾���ă��b�Z�[�W��`�t�@�C������JavaScript�t�@�C�����쐬 -->
 	<CreateLanguageJsFiles active="on" >
-		<LangDefineFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/lang]]></LangDefineFolderPath>
-		<JsOutputFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/debug/lang]]></JsOutputFolderPath>
+		<LangDefineFolderPath><![CDATA[D:\loi\chatbot\src\lang]]></LangDefineFolderPath>
+		<JsOutputFolderPath><![CDATA[D:\loi\chatbot\src\script\debug\lang]]></JsOutputFolderPath>
 		<DefaultLanguage>ALL_ALL</DefaultLanguage>
 		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
 		<TargetLanguages>
@@ -60,8 +60,8 @@
 
 	<!-- ���b�Z�[�W��`�t�@�C�����烁�b�Z�[�W��`py�t�@�C�����쐬 -->
 	<CreateLanguagePyFile active="on" >
-		<LangDefineFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/lang]]></LangDefineFolderPath>
-		<PyOutputFilePath><![CDATA[/var/www/html/sateraito-fileup/src/sateraito_message.py]]></PyOutputFilePath>
+		<LangDefineFolderPath><![CDATA[D:\loi\chatbot\src\lang]]></LangDefineFolderPath>
+		<PyOutputFilePath><![CDATA[D:\loi\chatbot\src\sateraito_message.py]]></PyOutputFilePath>
 		<DefaultLanguage>ALL_ALL</DefaultLanguage>
 		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
 		<TargetLanguages>
@@ -89,8 +89,8 @@ sateraito_message.py
 
 	<!-- Jinja�e���v���[�g�́uinclude�v��W�J���ăR�s�[ -->
 	<ExpandJinjaTemplateIncludes active="on" >
-		<SrcTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates]]></SrcTemplatesFolderPath>
-		<DstTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates_automatically]]></DstTemplatesFolderPath>
+		<SrcTemplatesFolderPath><![CDATA[D:\loi\chatbot\src\templates]]></SrcTemplatesFolderPath>
+		<DstTemplatesFolderPath><![CDATA[D:\loi\chatbot\src\templates_automatically]]></DstTemplatesFolderPath>
 	</ExpandJinjaTemplateIncludes>
 
 	<!-- ������̒u���ݒ� -->

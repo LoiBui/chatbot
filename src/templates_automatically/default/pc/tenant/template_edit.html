@@ -1,0 +1,756 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+
+<head>
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/template.css?{{version}}" type="text/css" />
+	<script type="text/javascript">
+<!--
+//-->
+</script>
+
+	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_task.js?{{version|safe}}"></script>
+	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_operationlog.js?{{version|safe}}"></script>
+	<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATIONLOG|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
+	<title>{{lang.EDIT_TEMPLATE}}</title>
+	<script type="text/javascript">
+		var each_page_cnt = 20;
+		var store;
+		// ログテキストの詳細を表示
+		function dispLogTextDetail(unique_id) {
+			var record = store.getById(unique_id);
+			Ext.ucf.operationlog.dispLogTextDetail(record);
+		}
+
+		
+		function getSearchBaseParam(scond) {
+			var start = 0;
+			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
+			if (scond) {
+				start = parseInt(scond['start'], 0);
+				Ext.getCmp('id_sk_operation').setValue(Ext.ucf.nvl(scond['sk_operation']));
+			}
+
+			var params = {
+				start: start, limit: each_page_cnt
+				, sk_operation: Ext.ucf.getElementValue('sk_operation')
+			};
+
+			return params;
+		}
+		
+		
+		
+	</script>
+	<script type="text/javascript">
+		var currentSheet = null;
+		var tryChooseFile = false;
+		var gSheets = [];
+		var optimizeData = [];
+		var fileOptimize = JSON.parse(`{{file|safe}}`);
+		var fileBlobKey = fileOptimize.blob_store;
+		var filename = fileOptimize.filename;
+
+		
+		function reduce(data){
+			return data.reduce(function (r, a) {
+                r[a.sheet] = r[a.sheet] || [];
+                r[a.sheet].push(a);
+                return r;
+            }, Object.create(null));
+		}
+		$(function(){
+			function compare( a, b ) {
+				if ( a.created_date < b.created_date ){
+					return -1;
+				}
+				if ( a.created_date > b.created_date ){
+					return 1;
+				}
+				return 0;
+			}
+			const data = reduce(JSON.parse(`{{fileValue|safe}}`));
+			$.each(data, function( index, value ) {
+				var t = value.sort(compare);
+				optimizeData.push(t);
+			});
+			function init() {
+				$("#file-info").html(fileOptimize.filename);
+				// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
+				$.each(optimizeData, (index, value)=>{
+					gSheets.push([index, value[0].sheet_name]);
+				});
+
+				setTimeout(()=>{
+					Ext.getCmp('select_sheet1').store.loadData(gSheets);
+					Ext.getCmp('select_sheet1').setValue(0);
+					currentSheet = 0;
+				}, 20);
+				initTable();
+			}
+			init();
+
+
+			function initTable(){
+				
+				var xhtml = ``;
+				$.each(optimizeData, function(index, value){
+					xhtml += `<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${gSheets[index][1]}</p>
+											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+												<tr class="tcus">
+													<th class="tcus str thcus">チャットボット質問</th>
+													<th class="tcus str thcus">挿入セル</th>
+													<th class="tcus str thcus">必須？</th>
+													<th class="tcus str thcus">選択肢</th>
+													<th class="tcus str thcus">初期値</th>
+												</tr>`
+					$.each(value, function(i, item){
+						xhtml += `	<tr class="tcus">
+										<th class="tcus">
+											<input type="text" value="${item.question}" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+										</th>
+										<th class="tcus">
+											<input type="text" value="${item.location}" name="location[]" class="inputtextcs" placeholder="例:C7">
+										</th>
+										<th class="tcus">
+											<select class="csselect" name="require[]">
+												<option ${item.require == 0 ? 'selected' : ''} value="0">No</option>
+												<option ${item.require == 1 ? 'selected' : ''} value="1">Yes</option>
+											</select>
+										</th>
+										<th class="tcus">
+											<input type="text" value="${item.value}" name="value[]" class="inputtextcs" placeholder="30,40,50">
+										</th>
+										<th class="tcus">
+											<input type="text" value="${item.default}" name="default[]" class="inputtextcs">
+										</th>
+									</tr>`;
+					});
+
+					xhtml += `</table>`;
+											
+											
+				});
+				$("#table_sheet").append(xhtml);
+			}
+		})
+
+		function createSelectSheetComboBox(){
+			// if(tryChooseFile){
+			// 	Ext.getCmp('select_sheet1').destroy();
+			// }
+			var type_msteams_proudct_bot = [];      
+			
+			var field_sk_search_type = Ext.ucf.field.createComboBox('select_sheet1', 'sheet', type_msteams_proudct_bot, 'シート選択', 'Select a sheet', 200, null);
+			field_sk_search_type.render('select_sheet');
+			field_sk_search_type.addListener('select', function(){
+				currentSheet = Ext.getCmp('select_sheet1').value;
+				$(".tbcus").addClass("d-none");
+				$(".label-tbl").addClass("d-none");
+				$("#table_question"+currentSheet).removeClass("d-none")
+				$("#label_question"+currentSheet).removeClass("d-none")
+			});
+
+
+			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', fileOptimize.display_name, '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
+			FIELD_sk_display_name.render('display_name');
+		}
+		
+
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+		Ext.onReady(function () {
+			Ext.QuickTips.init();
+			Ext.ucf.init();
+
+		var btnReset = new Ext.Button({
+			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
+			handler:function(){
+				var dataTable = [];
+				if(fileBlobKey == null){
+					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					return;
+				}
+				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
+					Ext.Msg.alert("Notice", "Display name is required");
+					return;
+				}
+				var reduceData = [];
+				gSheets.forEach(element => {
+					if(!(element[0] in dataTable)){
+						dataTable[element[0]] = [];
+					}
+
+					$(`#table_question${element[0]} input[name^="question"]`).each(function() {
+						if(!('question' in dataTable[element[0]])){
+							dataTable[element[0]]['question'] = [];
+						}
+						dataTable[element[0]]['question'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="location"]`).each(function() {
+						if(!('location' in dataTable[element[0]])){
+							dataTable[element[0]]['location'] = [];
+						}
+						dataTable[element[0]]['location'].push($(this).val());
+					});
+					$(`#table_question${element[0]} select[name^="require"]`).each(function() {
+						if(!('require' in dataTable[element[0]])){
+							dataTable[element[0]]['require'] = [];
+						}
+						dataTable[element[0]]['require'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="value"]`).each(function() {
+						if(!('value' in dataTable[element[0]])){
+							dataTable[element[0]]['value'] = [];
+						}
+						dataTable[element[0]]['value'].push($(this).val());
+					});
+					$(`#table_question${element[0]} input[name^="default"]`).each(function() {
+						if(!('default' in dataTable[element[0]])){
+							dataTable[element[0]]['default'] = [];
+						}
+						dataTable[element[0]]['default'].push($(this).val());
+					});
+
+					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value})
+				});
+				
+				var frmData = new FormData();
+				frmData.append("sheet", JSON.stringify(reduceData));
+				frmData.append("file", fileBlobKey);
+				frmData.append("filename", filename);
+				frmData.append("sheetName", JSON.stringify(gSheets))
+				frmData.append("unique_id", '{{unique_id}}')
+				frmData.append("display_name", Ext.ucf.getElementValue('FILED_display_name'))
+
+				loading.show();
+				fetch('{{vurl|safe}}submit_edit_template', {
+					method: "post",
+					body: frmData
+				})
+				.then(resp => {
+					loading.hide();
+					return resp.json();
+				}).then(res=>{
+					loading.hide();
+					if(res.status){
+						Ext.Msg.alert("Notice", "Sucessfully", function(btn, text){
+							if (btn == 'ok'){
+								window.location.href = '{{vurl|safe}}template'
+							}
+						});
+					}else{
+						Ext.Msg.alert("Notice", "Something went wrong !");
+					}
+				}).catch(function(e){
+					loading.hide();
+					Ext.Msg.alert("Notice", "Something went wrong !");
+				})
+			}
+		});
+		
+		btnReset.render(Ext.get('btnReset'));
+
+			createSelectSheetComboBox()
+			new Ext.Button({
+				text: 'Add More',
+				handler: function(){
+					if(currentSheet == null){
+						Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					}
+					$("#table_question"+currentSheet).append(`<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question" placeholder="例:あなたの性別は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option> 
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs">
+	</th>
+</tr>`);
+				}
+			}).render('button-add-more');// where you want to render
+		})
+		
+		function errFile(){
+			loading.hide();
+			document.getElementById("file-info").innerText = "";
+			Ext.Msg.alert("Notice", "File error or is not supported. Please choose a valid file and try again !");
+			Ext.getCmp('select_sheet1').store.loadData([]);
+			Ext.getCmp('select_sheet1').reset()
+		}
+		
+		function getBlobLink(){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_blob_link', {
+					method: "get"
+				}).then(resp => {
+					return resp.json();
+				}).then(res=>{
+					resolve(res);
+				}).catch(e=>reject(e));
+			})
+		}
+
+		function getSheets(formExcel, fileInfo){
+			return new Promise((resolve, reject)=>{
+				fetch('{{vurl|safe}}get_template', {
+					method: "post",
+					body: formExcel
+				})
+				.then(resp => {
+					return resp.json();
+				}).then(res => {
+					if(!res.status){
+						errFile();
+						reject();
+						return;
+					}
+					var sheets = [];
+					res.data.forEach((element, index) => {
+						sheets.push([index, element]);
+					});
+					gSheets = sheets;
+					Ext.getCmp('select_sheet1').store.loadData(sheets);
+					Ext.getCmp('select_sheet1').setValue(0);
+					currentSheet = 0;
+					$("#file-info").html(fileInfo);
+					filename = fileInfo;
+					renderTable(sheets);
+					resolve();
+				}).catch(function(e){
+					console.log(e);
+					errFile();
+					reject();
+				})
+			})
+		}
+		
+		async function onchangefile(){
+			if(!tryChooseFile){
+				tryChooseFile = true;
+			}
+			loading.show();
+
+			var file = document.getElementById('file_template').files[0];
+			if(typeof file == 'undefined') {
+				fileBlobKey = null;
+				return;
+			}
+			const fileInfo = file.name + " - " + file.size/1000 + "kB";
+
+			var formExcel = new FormData();
+			formExcel.append("file", file);
+			formExcel.append("oldBlobStore", fileBlobKey);
+
+			await getBlobLink().then(res=>{
+				fetch(res.url, {
+					method: "post",
+					body: formExcel
+				}).then(resp => {
+					return resp.text();
+				}).then(res=>{
+					fileBlobKey = res;
+				})
+			});
+			await getSheets(formExcel, fileInfo);
+			loading.hide();
+		}
+
+		function renderTable(sheets){
+			currentSheet = 0;
+			$("#table_sheet").html(``);
+			sheets.forEach((element, index) => {
+				$("#table_sheet").append(`	
+											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
+											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+											<tr class="tcus">
+	<th class="tcus str thcus">チャットボット質問</th>
+	<th class="tcus str thcus">挿入セル</th>
+	<th class="tcus str thcus">必須？</th>
+	<th class="tcus str thcus">選択肢</th>
+	<th class="tcus str thcus">初期値</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+</tr>
+											</table>`);
+			});
+		}
+		
+	</script>
+	{#
+<script type="text/javascript">
+</script>
+#}
+	
+</head>
+
+<body>
+	<!-- contentsArea//start -->
+	<div id="contentsArea">
+		<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template">{{lang.TEMPLATE}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
+		<!-- mainArea//start -->
+		<div id="mainArea" class="{{leftmenu_class}}">
+			<!-- leftMenu//start -->
+<div id="leftMenu">
+    {% if 'ADMIN' in login.access_authority: %}
+    <!-- leftMenu menu01//start -->
+    <div class="menu01">
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <!-- leftMenu innerArea//start -->
+        <div class="innerArea">
+            <p class="ttl">{{lang.TEMPLATE_SETTING}}</p>
+            <div class="folderMenu">
+                <ul>
+                    <li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a
+                            href="{{vurl}}template">{{lang.LIST_TEMPLATE}}</a></li>
+                    <li class="{% if ucfp.data.leftmenuid == 'ADD' %}current open{% else %}close{% endif %}"><a href="{{vurl}}add_template">{{lang.ADD_TEMPLATE}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- leftMenu innerArea//end -->
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+    </div>
+    <!-- leftMenu menu01//end -->
+    {% endif %}
+</div>
+			<!-- rightArea//start -->
+			<div id="rightArea">
+				{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+				{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
+
+				<!-- rightArea contentsL//start -->
+				<div class="contentsL">
+					<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+					<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+					<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+					<!-- rightArea innerArea//start -->
+					<div class="innerArea01" style="min-height: 70vh;">
+						<p class="ttl">{{lang.EDIT_TEMPLATE}}</p>
+						<table class="acs_layout">
+							<tr>
+								<td class="layout_td layout_td_all2">
+									<div class="d-flex">
+										<div style="width: 40%;">
+											<p style="text-align: left;"><b>テンプレートファイルアップロード</b></p>
+											<div style="text-align: left;">
+												<div style="width: 100px;">
+													<label for="file_template">
+														<div style="width: 200px;
+														height: 100px;
+														display: flex;
+														align-items: center;
+														justify-content: center;
+														border-radius: 5px;
+														border: 1px solid #bbbbbb;
+														cursor: pointer;
+														margin-left: 8px;">
+															<img src="/images/microsoft-excel.png" alt="">
+														</div>
+													</label>
+												</div>
+												<p id="file-info"></p>
+												<input onchange="onchangefile()" style="display: none;" type="file" name="file_template" id="file_template" accept=".xlsx, .xls, .csv">
+											</div>
+											
+											<!-- <div id="select_sheet"></div> -->
+											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
+											<p class="text-left">Display Name:</p>
+											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
+										</div>
+										<div style="width: 60%;" id="iframe">
+											
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr class="space">
+								<td><img src="/images/spacer.gif" alt="" /></td>
+							</tr>
+							<tr>
+								<td class="layout_td layout_td_all">
+									<div id="table_sheet">
+										
+									</div>
+									  <div id="button-add-more"></div>
+								</td>
+							</tr>
+							<tr>
+								<td class="text-center">
+									<div id="btnReset" style="width: 70px;margin: 0 auto;"></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- rightArea innerArea//end -->
+					<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+					<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+					<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+				</div>
+				<!-- rightArea contentsL//start -->
+			</div>
+			<!-- rightArea//end -->
+			<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FILEUP_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li style="margin-top:2px;"><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
+			<div class="clear"></div>
+		</div>
+		<!-- mainArea//end -->
+	</div>
+	<!-- contentsArea//end -->
+</body>
+
+</html>

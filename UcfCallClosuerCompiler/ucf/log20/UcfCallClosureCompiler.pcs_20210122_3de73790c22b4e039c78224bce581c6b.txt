@@ -1,0 +1,6 @@
+﻿[2021/01/22 11:54:47] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2021/01/22 11:54:47] Create message python file...:D:\loi\chatbot\src\sateraito_message.py
+[2021/01/22 11:54:47] Expand Jinja Templates include files...
+[2021/01/22 11:54:47] Src:D:\loi\chatbot\src\templates
+[2021/01/22 11:54:47] Dst:D:\loi\chatbot\src\templates_automatically
+[2021/01/22 11:54:47] Expand Jinja Templates include files fin.

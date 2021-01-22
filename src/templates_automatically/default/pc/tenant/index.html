@@ -47,6 +47,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 <link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
 <link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
 <link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/template.css?{{version}}" type="text/css" />
 <script type="text/javascript">
 <!--
 //-->
@@ -142,7 +143,6 @@ function field_reset()
 }
 
 </script>
-
 <script type="text/javascript" >
 
 //////////////////////////////////////////////////
@@ -364,16 +364,6 @@ function createFields()
 			};
 		});
 	}
-
-	// direct cloud box code
-	var field_directcloudbox_code = Ext.ucf.field.createTextField2('directcloudbox_code', 'directcloudbox_code', directcloudbox_config?directcloudbox_config.code:'', '', 300, Ext.ucf.delegateCheckValidation);
-	field_directcloudbox_code.render('FIELD_directcloudbox_code');
-	// direct cloud box id
-	var field_directcloudbox_id = Ext.ucf.field.createTextField2('directcloudbox_id', 'directcloudbox_id', directcloudbox_config?directcloudbox_config.uid:'', '', 300, Ext.ucf.delegateCheckValidation);
-	field_directcloudbox_id.render('FIELD_directcloudbox_id');
-	// direct cloud box password
-	var field_directcloudbox_password = Ext.ucf.field.createPasswordField('directcloudbox_password', 'directcloudbox_password', directcloudbox_config?directcloudbox_config.password:'', '', 300, Ext.ucf.delegateCheckValidation);
-	field_directcloudbox_password.render('FIELD_directcloudbox_password');
 }
 </script>
 
@@ -385,7 +375,11 @@ function createFields()
 		{
 			window.location.href = '{{vurl}}operator/regist?unqid=' + escape(unique_id) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_RENEW}}';
 		}
-		
+
+		function goEditPageTemplate(unique_id){
+			window.location.href = '{{vurl}}edit_template?unqid=' + escape(unique_id);
+		}
+
 		function getSearchBaseParam(scond)
 		{
 			var start = 0;
@@ -417,6 +411,36 @@ function createFields()
 			html += '<a href="{{vurl}}operator/detail?unqid=' + escape(record.get('unique_id')) + '&{{config.QSTRING_TYPE}}={{config.EDIT_TYPE_REFER}}" >' + Ext.ucf.htmlEscape(value) + '</a>';
 			return html;
 		}
+		
+
+		function downloadFileWithBlobStore(filename='file.xlsx', blob_store){
+			var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+			loading.show();
+			var frmBlob = new FormData();
+			frmBlob.append("blob_store", blob_store)
+			fetch('{{vurl|safe}}get_file_blob', {
+				method: "post",
+				body: frmBlob
+			})
+			.then(resp => {
+				return resp.blob();
+			})
+			.then(blob => {
+				loading.hide();
+				const url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.style.display = 'none';
+				a.href = url;
+				a.download = filename;
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
+			})
+			.catch(() => {
+				loading.hide();alert('oh no!')
+			});
+		}
+		
 		
 		function vh_basic(value, p, record)
 		{
@@ -477,6 +501,42 @@ function createFields()
 		{
 			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
 		}
+		function btnTrashTemplate(unique_id){
+			Ext.MessageBox.show({
+				title: 'Notice',
+				msg: 'Are you sure to delete this item ?',
+				buttons: Ext.MessageBox.OKCANCEL,
+				icon: Ext.MessageBox.WARNING,
+				fn: function(btn){
+					if(btn == 'ok'){
+						var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+						loading.show();
+						var frm = new FormData();
+						frm.append("unique_id", unique_id);
+
+						fetch('{{vurl|safe}}delete_template', {
+							method: "post",
+							body: frm
+						})
+						.then(resp => {
+							return resp.json();
+						}).then(res=>{
+							setTimeout(()=>{
+								$("#ext-gen143").click();
+							}, 200);
+							if(!res.status){
+								Ext.Msg.alert("Notice", "Something went wrong");
+							}
+							loading.hide();
+						}).catch(e=>{
+							loading.hide();
+							Ext.Msg.alert("Notice", "Something went wrong");
+						})
+					}
+				}
+			});
+		}
+		
 
 		function createSearchCondFields()
 		{
@@ -891,115 +951,6 @@ function registLineWorksAPI()
     });
 }
 
-function saveDirectCloudBox()
-{
-
-	var code = $('#directcloudbox_code').val();
-	var uid = $('#directcloudbox_id').val();
-	var password = $('#directcloudbox_password').val();
-
-	// 入力チェック
-	if(code == ''){
-		Ext.Msg.show({
-			icon: Ext.MessageBox.WARNING,
-			title: _msg.WARNING,
-			msg: _msg.VC_INVALID_DIRECTCLOUDBOX_CODE,
-			buttons: Ext.Msg.OK
-		});
-		return;
-	}
-	if(uid == ''){
-		Ext.Msg.show({
-			icon: Ext.MessageBox.WARNING,
-			title: _msg.WARNING,
-			msg: _msg.VC_INVALID_DIRECTCLOUDBOX_ID,
-			buttons: Ext.Msg.OK
-		});
-		return;
-	}
-	if(password == ''){
-		Ext.Msg.show({
-			icon: Ext.MessageBox.WARNING,
-			title: _msg.WARNING,
-			msg: _msg.VC_INVALID_DIRECTCLOUDBOX_PASSWORD,
-			buttons: Ext.Msg.OK
-		});
-		return;
-	}
-	
-	var postData = {
-		code: code
-		,uid: uid
-		,password: password
-		,platform: 'directcloudbox'
-	};
-	postData['unique_id'] = $('#frmDirectCloudBoxEdit').find('input#directcloudbox_unique_id').val();
-
-	if($('input[name=file_server]:checked').val() == 'directcloudbox'){
-		postData['is_saved'] = '1';
-	}
-	else{
-		postData['is_saved'] = '0';
-	}
-
-	var mask;
-	var handleAfterProcess = function(response){
-		if (response.responseText != undefined && response.responseText != '') {
-			var jsondata = eval('(' + response.responseText + ')');
-			var code = jsondata.code;
-			if (code == 0) {
-				$('#frmDirectCloudBoxEdit').find('input#directcloudbox_unique_id').val(jsondata.unique_id);
-
-				// 正常時処理
-				Ext.ucf.dispUpdateMsgByReturnCode(code, jsondata.msg);
-				// VCメッセージクリア
-				Ext.each(lstCmpFrmEdit, function(ele){ele.clearInvalid();});
-			}
-			else if(code == 100) {
-				var message = '';
-				for (data in jsondata.vcmsg)
-				{
-					message += jsondata.vcmsg[data] + '<br/>';
-					var ele = Ext.getCmp(data);
-					if(ele != undefined){
-						ele.preVCMessage = jsondata.vcmsg[data];
-						ele.markInvalid(jsondata.vcmsg[data]);
-					}
-				}
-				Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', message);
-			}
-			else {
-				if (jsondata.msg == '')
-				{
-					Ext.ucf.dispSysErrMsg();
-				}
-				else{
-					Ext.ucf.flowMsg('{{lang.VMSG_MSG_ERROR}}', jsondata.msg);
-				}
-				mask.hide();
-				return;
-			}
-		}
-		else
-		{
-			Ext.ucf.dispSysErrMsg();
-		}
-		mask.hide();
-		return;
-	}
-
-	mask = new Ext.LoadMask(Ext.get('contentsArea'), {msg:'{{lang.VMSG_MSG_UPDATING}}'});	
-	mask.show();
-
-    Ext.Ajax.request({
-        url: '{{vurl|safe}}fileserver/xtregist',
-        method: "POST",
-        params: postData,
-		success: handleAfterProcess, 
-		failure: handleAfterProcess
-    });
-}
-
 </script>
 
 <script type="text/javascript" >
@@ -1040,14 +991,7 @@ Ext.onReady(function(){
 	});
 	btnLineWorksUpdate.render(Ext.get('btnLineWorksUpdate'));
 
-	// direct cloud box
-	var btnDirectCloudBox = new Ext.Button({
-		text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.BTN_DIRECTCLOUDBOX_UPDATE}}&nbsp;&nbsp;&nbsp;&nbsp;',
-		handler:function(){
-			saveDirectCloudBox();
-		}
-	});
-	btnDirectCloudBox.render(Ext.get('btnDirectCloudBox'));
+	
 
 	onReadyForSupervisor();// 管理者関連処理
 
@@ -1103,6 +1047,7 @@ Ext.onReady(function(){
 <ul>
 {% if 'ADMIN' in login.access_authority:%}
     <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template">{{lang.TEMPLATE}}</a></li>
 {% elif 'OPERATOR' in login.access_authority: %}
 
 {% endif %}
@@ -1494,82 +1439,11 @@ Ext.onReady(function(){
 </div>
 <!-- rightArea innerArea//end -->
 
-<!-- rightArea innerArea//start -->
-<div class="innerArea01">
-	<span class="span_icon"><img src="/images/icons/setting_32.png"></span>
-	<p class="ttl"><a name="FILESERVERCONFIG">{{lang.VMSG_FILE_SERVER_CONFIG}}</a></p>
-	<table class="acs_layout">
-
-<!-- START DIRECT CLOUD BOX API -->
-	<tr>
-		<td class="layout_td layout_td_all" >
-			<input type="radio" name="file_server" value="directcloudbox" style="margin-left: -10px;">
-			<div style="display: inline-block !important;" class="section_area_title main_content_title2" section_show_hide_area_id="AREA_DirectCloudBox_config" style="cursor:pointer;" init_display="show">
-				DirectCloudBox<img class="section_arrow_img" />
-			</div><br>
-			<span class="section_description" style="font-size:13px; padding-left:10px;">{{lang.EXP_DIRECTCLOUDBOX_CONFIG|safe}}</span>
-			<table class="detail">
-				<tr>
-					<td>
-						<div><img src="/images/share/space.gif" width="10" height="1" border="0"></div>
-						<form id="frmDirectCloudBoxEdit" name="frmDirectCloudBoxEdit" method="POST"  action="#" >
-							<input type="hidden" id="directcloudbox_unique_id" value="{{directcloudbox_config.unique_id}}">
-							<table class="info_table" id="AREA_DirectCloudBox_config">
-								<tr>
-									<th class="th_title">{{lang.FLD_DIRECTCLOUDBOX_CODE|safe}}:</th>
-									<td>
-									<div id="FIELD_directcloudbox_code" class="field" ></div>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="4">
-										<div><img src="/images/share/space.gif" width="10"height="5" border="0"></div>
-									</td>
-								</tr>
-								<tr>
-									<th class="th_title">{{lang.FLD_DIRECTCLOUDBOX_ID|safe}}:</th>
-									<td>
-									<div id="FIELD_directcloudbox_id" class="field" ></div>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="4">
-										<div><img src="/images/share/space.gif" width="10"height="5" border="0"></div>
-									</td>
-								</tr>
-								<tr>
-									<th class="th_title">{{lang.FLD_DIRECTCLOUDBOX_PASSWORD|safe}}:</th>
-									<td>
-									<div id="FIELD_directcloudbox_password" class="field" ></div>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="4">
-										<div><img src="/images/share/space.gif" width="10"height="5" border="0"></div>
-									</td>
-								</tr>
-								<tr>
-									<th class="th_title"></th>
-									<td>
-									<div id="btnDirectCloudBox"></div>
-									</td>
-								</tr>
-							</table>
-						</form>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-<!-- END DIRECT CLOUD BOX API -->
-
-	</table>
-</div>
-<!-- rightArea innerArea//end -->
 
 <!-- rightArea innerArea//start -->
 <div class="innerArea01">
 <br/><br/>
+
 <a name="OPERATOR"></a>
 <span class="span_icon"><img src="/images/icons/operator_32.png"></span>
 <p class="ttl">{{lang.VMSG_OPERATOR_CONFIG}}</p>

@@ -47,6 +47,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 <link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
 <link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
 <link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/template.css?{{version}}" type="text/css" />
 <script type="text/javascript">
 <!--
 //-->
@@ -451,6 +452,7 @@ Ext.onReady(function(){
 <ul>
 {% if 'ADMIN' in login.access_authority:%}
     <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template">{{lang.TEMPLATE}}</a></li>
 {% elif 'OPERATOR' in login.access_authority: %}
 
 {% endif %}
