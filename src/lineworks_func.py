@@ -453,7 +453,7 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": 'Start',
+					"label": helper.getMsg('START'),
 					"text": 'Start'
 				}
 			},
@@ -466,7 +466,7 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": 'Help',
+					"label": helper.getMsg('HELP'),
 					"text": 'Help'
 				}
 			}

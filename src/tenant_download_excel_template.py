@@ -81,7 +81,7 @@ class Page(TenantAppHelper):
         val = json.loads(answer['value'])
         for item in val:
             ques = lineworks_func.findQuestionByAlias(item)
-            if ques['location'].strip() != '' and val[item] == 'Skip' and ques['default'].strip() != '':
+            if ques['location'].strip() != '' and val[item] == self.getMsg('SKIP') and ques['default'].strip() != '':
                 ws[ques['location']] = ques['default']
             elif ques['location'].strip() != '':
                 ws[ques['location']] = val[item]

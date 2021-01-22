@@ -8,12 +8,12 @@
         <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
         <!-- leftMenu innerArea//start -->
         <div class="innerArea">
-            <p class="ttl">Template Setting</p>
+            <p class="ttl">{{lang.TEMPLATE_SETTING}}</p>
             <div class="folderMenu">
                 <ul>
                     <li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a
-                            href="{{vurl}}template">List Template</a></li>
-                    <li class="{% if ucfp.data.leftmenuid == 'ADD' %}current open{% else %}close{% endif %}"><a href="{{vurl}}add_template">Add Template</a></li>
+                            href="{{vurl}}template">{{lang.LIST_TEMPLATE}}</a></li>
+                    <li class="{% if ucfp.data.leftmenuid == 'ADD' %}current open{% else %}close{% endif %}"><a href="{{vurl}}add_template">{{lang.ADD_TEMPLATE}}</a></li>
                 </ul>
             </div>
         </div>

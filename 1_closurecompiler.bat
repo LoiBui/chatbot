@@ -1,2 +1,2 @@
-CALL C:\Users\chun\PycharmProjects\sateraito-fileup\UcfCallClosuerCompiler\ucf\bin20\common\UcfCallClosureCompiler.exe C:\Users\chun\PycharmProjects\sateraito-fileup\ExecuteConfig.xml
+CALL /var/www/html/sateraito-fileup/UcfCallClosuerCompiler/ucf/bin20/common/UcfCallClosureCompiler.exe /var/www/html/sateraito-fileup/ExecuteConfig.xml
 pause

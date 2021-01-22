@@ -53,7 +53,7 @@ import base64
 #
 ############################################################
 
-
+# self.getMsg('CHANNEL_TITLE_LINEWORKSBOT')
 class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 	CHANNEL_KIND = 'lineworksbot'
 	
@@ -149,7 +149,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if len(template) == 0:
     				payload = {
 							"type": "text",
-							"text": "Not yet setup file, please contact the administrator."
+							"text": self.getMsg('NOT_YET_SETUP_FILE')
 					};
 			else:
 				for idx, item in enumerate(template):
@@ -161,7 +161,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					if idx == 8 and len(template) > 10:
     						actions.append({
 								"type": "message",
-								"label": 'Load More',
+								"label": self.getMsg('LOAD_MORE'),
 								"postback": '-------PAGINATE-------START-------1'
 							});
 						logging.warning("zooooooooooooooooo more")
@@ -170,7 +170,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					
 				payload = {
 					"type": "button_template",
-					"contentText": "Please choose a template?",
+					"contentText": self.getMsg('CHOOSE_A_TEMPLATE'),
 					"actions": actions
 				}
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
@@ -196,12 +196,12 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if len(chat_session) == 0:
     				self.executeAction(tenant, lineworks_id, {
 							"type": "text",
-							"text": "Please Press the start button to execute the actions."
+							"text": self.getMsg('PRESS_START_BUTTON'),
 					}, self.channel_config)
 			elif chat_session and 'isStart' in chat_session and chat_session['isStart']:
     				self.executeAction(tenant, lineworks_id, {
 							"type": "text",
-							"text": "Please choose a actions."
+							"text": self.getMsg('PLEASE_CHOOSE_A_ACTION')
 					}, self.channel_config)
 			elif chat_session and 'alias' in chat_session and 'phase' in chat_session and 'postback' in chat_session and 'sheet_name' in chat_session:
 				self.step3(chat_session['postback'], tenant, lineworks_id, chat_session['sheet_name'], rule_id, contents['content']['text'])
@@ -226,13 +226,13 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if idx == (step + 1)*9 - 1 and len(sheets) > 10*(step + 1):
 				actions.append({
 					"type": "message",
-					"label": 'Load More',
+					"label": self.getMsg('LOAD_MORE'),
 					"postback": '-------PAGINATE-------SHEETS-------'+str(step+1)+'_' + str(alias)
 				});
 				break
 		payload = {
 			"type": "button_template",
-			"contentText": "Please choose a sheet of template file?",
+			"contentText": self.getMsg('PLEASE_CHOOSE_A_SHEET'),
 			"actions": actions
 		}
 		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
@@ -251,7 +251,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				actions.append({'type': 'message', 'label': item['display_name'
 						], 'postback': item['alias']})
 			if idx == (step + 1)*9 - 1 and len(template) > 10*(step + 1):
-				actions.append({'type': 'message', 'label': 'Load More',
+				actions.append({'type': 'message', 'label': self.getMsg('LOAD_MORE'),
 							'postback': '-------PAGINATE-------START-------'+str(step+1)
 							})
 				break
@@ -259,7 +259,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		logging.warning(actions)
 		payload = {
 			"type": "button_template",
-			"contentText": "Please choose a template?",
+			"contentText": self.getMsg('CHOOSE_A_TEMPLATE'),
 			"actions": actions
 		}
 		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
@@ -290,7 +290,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				if idx == 8 and len(sheets) > 10:
 					actions.append({
 							"type": "message",
-							"label": 'Load More',
+							"label": self.getMsg('LOAD_MORE'),
 							"postback": '-------PAGINATE-------SHEETS-------1_'+str(postback)
 						});
 					logging.warning("zooooooooooooooooo more")
@@ -298,7 +298,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			
 			payload = {
 				"type": "button_template",
-				"contentText": "Please choose a sheet of template file?",
+				"contentText": self.getMsg('PLEASE_CHOOSE_A_SHEET'),
 				"actions": actions
 			}
 			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
@@ -318,7 +318,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-    			"text": "Please start over."
+    			"text": self.getMsg('PLEASE_START_OVER')
 			}, self.channel_config)
 
 	def step3(self, postback, tenant, lineworks_id, sheet_name, rule_id, answer):
@@ -358,14 +358,14 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				if answer not in arrCheck:
 					self.executeAction(tenant, lineworks_id, {
 						"type": "text",
-						"text": "Your answer is invalid. Please choose a action above."
+						"text": self.getMsg('YOUR_ANSWER_IS_INVALID')
 					}, self.channel_config)
 					return
 
 		if len(questions) == 0:
     			self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": "Sheets was not allowed to set up the question. Please select another sheet."
+					"text": self.getMsg('SHEETS_WAS_NOT_ALLOWED_SETUP')
 			}, self.channel_config)
 			return;
 		elif chat_session and 'alias' in chat_session and chat_session['alias'] not in str(questions):
@@ -391,7 +391,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if len("".join(txt)) < 300:
 				payload = {
 					"type": "button_template",
-					"contentText": 'You are finish. Please confirm your answer. \n' + "".join(txt),
+					"contentText": self.getMsg('YOU_ARE_FINISH_PCYA') + '\n' + "".join(txt),
 					"actions": [
 						{
 							"type": "message",
@@ -408,7 +408,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			else:
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": "You are finish."
+					"text": self.getMsg('YOU_ARE_FINISH')
 				}, self.channel_config)
 				for qs in txt:
 					if len(qs) > 300:
@@ -419,7 +419,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					}, self.channel_config)
 				payload = {
 					"type": "button_template",
-					"contentText": 'Please confirm your answer above.',
+					"contentText": self.getMsg('PLEASE_CONFIRM_YOU_ANSWER'),
 					"actions": [
 						{
 							"type": "message",
@@ -465,7 +465,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				if int(question['require']) == 0:
 					actions.append({
 						"type": "message",
-						"label": 'Skip',
+						"label": self.getMsg('SKIP'),
 						"postback": postback + "_@1_@2"
 					})
 				if question['value'].strip() != '':
@@ -478,7 +478,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						})
 				payload = {
 					"type": "button_template",
-					"contentText": question['question'] + (" (You can skip this question)" if int(question['require']) == 0 else "" ),
+					"contentText": question['question'] + (self.getMsg('YOU_CAN_SKIP') if int(question['require']) == 0 else "" ),
 					"actions": actions
 				}
 				if len(actions) == 0:
@@ -503,7 +503,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 
 		self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-    			"text": "Please wait while we create the file for you."
+    			"text": self.getMsg('PLEASE_WAIT_WHILE_WE_CREATE')
 		}, self.channel_config)
 		self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 
@@ -515,7 +515,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if data['status']:
 				payload = {
 					"type": "button_template",
-					"contentText": 'You are want to download ?',
+					"contentText": self.getMsg('YOU_ARE_WANT_TO_DOWNLOAD'),
 					"actions": [
 						{
 							"type": "uri",
@@ -538,7 +538,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		except:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-    			"text": "An error occurred. Please try again !!!"
+    			"text": self.getMsg('AN_ERROR_ACCURRED')
 			}, self.channel_config)	
     			
 		

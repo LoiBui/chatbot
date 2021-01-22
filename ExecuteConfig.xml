@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="Shift_JIS" ?>
 <!--
-’Ê’mƒT[ƒo[—p“ï“Ç‰»Ý’è
+ï¿½Ê’mï¿½Tï¿½[ï¿½oï¿½[ï¿½pï¿½ï¿½Ç‰ï¿½ï¿½Ý’ï¿½
 -->
 <Ucf>
 
-	<CompilerPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\compiler\compiler.jar]]></CompilerPath>
+	<CompilerPath><![CDATA[/var/www/html/sateraito-fileup/compiler/compiler.jar]]></CompilerPath>
 	<!-- WHITESPACE_ONLY,SIMPLE_OPTIMIZATIONS -->
 	<CompilationLevel><![CDATA[SIMPLE_OPTIMIZATIONS]]></CompilationLevel>
-	<ScriptSourceFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\debug\]]></ScriptSourceFolderPath>
-	<ScriptOutputFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\]]></ScriptOutputFolderPath>
+	<ScriptSourceFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/debug/]]></ScriptSourceFolderPath>
+	<ScriptOutputFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/]]></ScriptOutputFolderPath>
 
 	<DatFolderPath><![CDATA[dat_sateraitochatmagazine]]></DatFolderPath>
 	<UpdateTimeCheckOption><![CDATA[CHECK]]></UpdateTimeCheckOption>
@@ -45,10 +45,10 @@
 		<FilePath><![CDATA[ucfext_lineworks.js]]></FilePath>
 	</TargetFiles>
 
-	<!-- “ï“Ç‰»‚Éæ‚¾‚Á‚ÄƒƒbƒZ[ƒW’è‹`ƒtƒ@ƒCƒ‹‚©‚çJavaScriptƒtƒ@ƒCƒ‹‚ðì¬ -->
+	<!-- ï¿½ï¿½Ç‰ï¿½ï¿½Éæ‚¾ï¿½ï¿½ï¿½Äƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JavaScriptï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ì¬ -->
 	<CreateLanguageJsFiles active="on" >
-		<LangDefineFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\lang]]></LangDefineFolderPath>
-		<JsOutputFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\script\debug\lang]]></JsOutputFolderPath>
+		<LangDefineFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/lang]]></LangDefineFolderPath>
+		<JsOutputFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/script/debug/lang]]></JsOutputFolderPath>
 		<DefaultLanguage>ALL_ALL</DefaultLanguage>
 		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
 		<TargetLanguages>
@@ -58,10 +58,10 @@
 		</TargetLanguages>
 	</CreateLanguageJsFiles>
 
-	<!-- ƒƒbƒZ[ƒW’è‹`ƒtƒ@ƒCƒ‹‚©‚çƒƒbƒZ[ƒW’è‹`pyƒtƒ@ƒCƒ‹‚ðì¬ -->
+	<!-- ï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½çƒï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½`pyï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ì¬ -->
 	<CreateLanguagePyFile active="on" >
-		<LangDefineFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\lang]]></LangDefineFolderPath>
-		<PyOutputFilePath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\sateraito_message.py]]></PyOutputFilePath>
+		<LangDefineFolderPath><![CDATA[/var/www/html/sateraito-fileup/src/lang]]></LangDefineFolderPath>
+		<PyOutputFilePath><![CDATA[/var/www/html/sateraito-fileup/src/sateraito_message.py]]></PyOutputFilePath>
 		<DefaultLanguage>ALL_ALL</DefaultLanguage>
 		<SemiDefaultLanguage>ja_ALL</SemiDefaultLanguage>
 		<TargetLanguages>
@@ -87,20 +87,20 @@ sateraito_message.py
 		</PyFooter>		
 	</CreateLanguagePyFile>
 
-	<!-- Jinjaƒeƒ“ƒvƒŒ[ƒg‚Ìuincludev‚ð“WŠJ‚µ‚ÄƒRƒs[ -->
+	<!-- Jinjaï¿½eï¿½ï¿½ï¿½vï¿½ï¿½ï¿½[ï¿½gï¿½Ìuincludeï¿½vï¿½ï¿½Wï¿½Jï¿½ï¿½ï¿½ÄƒRï¿½sï¿½[ -->
 	<ExpandJinjaTemplateIncludes active="on" >
 		<SrcTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates]]></SrcTemplatesFolderPath>
 		<DstTemplatesFolderPath><![CDATA[C:\Users\chun\PycharmProjects\sateraito-fileup\src\templates_automatically]]></DstTemplatesFolderPath>
 	</ExpandJinjaTemplateIncludes>
 
-	<!-- •¶Žš—ñ‚Ì’uŠ·Ý’è -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì’uï¿½ï¿½ï¿½Ý’ï¿½ -->
 	<ExchangeMessages>
-		<!-- Šm”F‚­‚ñ -->
+		<!-- ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½ -->
 		<Item except_lang="ja,ja_ALL" >
 			<Src><![CDATA[http://www.ugtop.com/spill.shtml]]></Src>
 			<Dst><![CDATA[http://www.ugtop.com/spill.shtml]]></Dst>
 		</Item>
-		<!-- ƒz[ƒ€ƒy[ƒW -->
+		<!-- ï¿½zï¿½[ï¿½ï¿½ï¿½yï¿½[ï¿½W -->
 		<Item except_lang="ja,ja_ALL" >
 			<Src><![CDATA[http://www.sateraito.jp]]></Src>
 			<Dst><![CDATA[http://www.sateraito-global.com]]></Dst>
@@ -111,13 +111,13 @@ sateraito_message.py
 		</Item>
 	</ExchangeMessages>
 
-	<!-- ŠeŽíƒ[ƒ‹‘—MÝ’è -->
+	<!-- ï¿½eï¿½íƒï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Mï¿½Ý’ï¿½ -->
 	<MailInfo>
-		<!-- “¯ŠúŠ®—¹ŽžŠÇ—ŽÒƒ[ƒ‹ -->
+		<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½ï¿½Òƒï¿½ï¿½[ï¿½ï¿½ -->
 		<SyncManageMail active="off" template_path="" />
 	</MailInfo>
 
-	<!-- ŠeŽíƒIƒvƒVƒ‡ƒ“Ý’è -->
+	<!-- ï¿½eï¿½ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ý’ï¿½ -->
 	<Options>
 
 	</Options>

@@ -3043,4 +3043,30 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="SHOW_DETAIL"><![CDATA[詳細を表示]]></msg>
 	<msg name="NO_MORE_DETAIL"><![CDATA[詳細情報はありません。]]></msg>
 
+	<msg name="ADD_TEMPLATE"><![CDATA[Add Template ]]></msg>
+	<msg name="SEARCH_DISPLAY_NAME"><![CDATA[Search Display Name ]]></msg>
+	<msg name="EDIT_TEMPLATE"><![CDATA[Edit Template ]]></msg>
+	<msg name="TEMPLATE"><![CDATA[Template ]]></msg>
+	<msg name="TEMPLATE_SETTING"><![CDATA[Template Setting ]]></msg>
+	<msg name="LIST_TEMPLATE"><![CDATA[List Template ]]></msg>
+	<msg name="NOT_YET_SETUP_FILE"><![CDATA[Not yet setup file, please contact the administrator. ]]></msg>
+	<msg name="LOAD_MORE"><![CDATA[Load More ]]></msg>
+	<msg name="CHOOSE_A_TEMPLATE"><![CDATA[Please choose a template? ]]></msg>
+	<msg name="PRESS_START_BUTTON"><![CDATA[Please Press the start button to execute the actions. ]]></msg>
+	<msg name="PLEASE_CHOOSE_A_ACTION"><![CDATA[Please choose a action. ]]></msg>
+	<msg name="PLEASE_CHOOSE_A_SHEET"><![CDATA[Please choose a sheet of template file ?]]></msg>
+	<msg name="PLEASE_START_OVER"><![CDATA[Please start over.]]></msg>
+	<msg name="YOUR_ANSWER_IS_INVALID"><![CDATA[Your answer is invalid. Please choose a action above. ]]></msg>
+	<msg name="SHEETS_WAS_NOT_ALLOWED_SETUP"><![CDATA[Sheets was not allowed to set up the question. Please select another sheet. ]]></msg>
+	<msg name="YOU_ARE_FINISH_PCYA"><![CDATA[You are finish. Please confirm your answer. ]]></msg>
+	<msg name="YOU_ARE_FINISH"><![CDATA[You are finish. ]]></msg>
+	<msg name="PLEASE_CONFIRM_YOU_ANSWER"><![CDATA[Please confirm your answer above. ]]></msg>
+	<msg name="YOU_CAN_SKIP"><![CDATA[ (You can skip this question)]]></msg>
+	<msg name="PLEASE_WAIT_WHILE_WE_CREATE"><![CDATA[Please wait while we create the file for you.]]></msg>
+	<msg name="YOU_ARE_WANT_TO_DOWNLOAD"><![CDATA[You are want to download ?]]></msg>
+	<msg name="AN_ERROR_ACCURRED"><![CDATA[An error occurred. Please try again !!!]]></msg>
+	<msg name="START"><![CDATA[Start]]></msg>
+	<msg name="HELP"><![CDATA[Help]]></msg>
+	<msg name="SKIP"><![CDATA[Skip]]></msg>
+
 </messagebundle>

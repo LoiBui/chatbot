@@ -199,7 +199,7 @@
 					btnRefleshTemplate
 					,'-'
 					,{
-						text: 'Add Template',
+						text: '{{lang.ADD_TEMPLATE}}',
 						handler: function(){
 							(new Ext.LoadMask(Ext.get('contentsArea'),{msg:"{{lang.VMSG_MSG_ACCESSING}}"})).show();
 							window.location.href = '{{vurl}}add_template';
@@ -263,7 +263,7 @@
 
 			var setupTemplate = new Ext.Panel({
 				collapsible: true,
-				title: 'Template',
+				title: '{{lang.TEMPLATE}}',
 				layout: 'border',
 				waitMsgTarget: true,
 				monitorResize:true,
@@ -315,7 +315,7 @@
 <div class="innerArea01">
 <a name="SETUPTEMPLATE"></a>
 <span class="span_icon"><img src="/images/icons/setting_32.png"></span>
-<p class="ttl">Setup Template</p>
+<p class="ttl">{{lang.ADD_TEMPLATE}}</p>
 <table class="detail_layout">
 	<tr>
 		<td>
@@ -331,7 +331,7 @@
 					<div class="filter-cmp">
 						<div class="text-feild item-filter mrg-0">
 						<div class="form-group mh31px">
-							<label for="">Search Display Name</label>
+							<label for="">{{lang.SEARCH_DISPLAY_NAME}}</label>
 							<div id="FIELD_sk_display_name" class="input-cmp"></div>
 							<div id="btnSearchTemplate"></div>
 						</div>
