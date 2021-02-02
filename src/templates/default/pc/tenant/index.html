@@ -10,8 +10,7 @@
 <script type="text/javascript" src="{{vscripturl}}ucfext_operator.js?{{version}}" ></script>
 <script type="text/javascript" src="{{vscripturl|safe}}ucfext_lineworks.js?{{version|safe}}" ></script>
 
-<!-- <title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
-<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {{lang.EXCEL_PDF_CREATION_HTML_TITLE|safe}}</title>
 <style>
 	.channel_panel p {
 		font-size: 100%;
@@ -451,42 +450,6 @@ function createFields()
 		{
 			return '<input type="button" value="" class="btnEdit" onclick="JavaScript:goEditPage(\'' + value + '\');" />';
 		}
-		function btnTrashTemplate(unique_id){
-			Ext.MessageBox.show({
-				title: 'Notice',
-				msg: 'Are you sure to delete this item ?',
-				buttons: Ext.MessageBox.OKCANCEL,
-				icon: Ext.MessageBox.WARNING,
-				fn: function(btn){
-					if(btn == 'ok'){
-						var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
-						loading.show();
-						var frm = new FormData();
-						frm.append("unique_id", unique_id);
-
-						fetch('{{vurl|safe}}delete_template', {
-							method: "post",
-							body: frm
-						})
-						.then(resp => {
-							return resp.json();
-						}).then(res=>{
-							setTimeout(()=>{
-								$("#ext-gen143").click();
-							}, 200);
-							if(!res.status){
-								Ext.Msg.alert("Notice", "Something went wrong");
-							}
-							loading.hide();
-						}).catch(e=>{
-							loading.hide();
-							Ext.Msg.alert("Notice", "Something went wrong");
-						})
-					}
-				}
-			});
-		}
-		
 
 		function createSearchCondFields()
 		{

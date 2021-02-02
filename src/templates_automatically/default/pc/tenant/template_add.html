@@ -111,9 +111,8 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
 			FIELD_sk_display_name.render('display_name');
 		}
-		
 
-		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg: _msg.VMSG_MSG_PROCESSING});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
@@ -124,11 +123,11 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];
 				if(fileBlobKey === null){
-					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					return;
 				}
 				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
-					Ext.Msg.alert("Notice", "Display name is required");
+					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_DISPLAY_NAME);
 					return;
 				}
 				var reduceData = [];
@@ -188,17 +187,17 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				}).then(res=>{
 					loading.hide();
 					if(res.status){
-						Ext.Msg.alert("Notice", "Sucessfully", function(btn, text){
+						Ext.Msg.alert("Notice", _msg.SUCCESS, function(btn, text){
 							if (btn == 'ok'){
 								window.location.href = '{{vurl|safe}}template'
 							}
 						});
 					}else{
-						Ext.Msg.alert("Notice", "Something went wrong !");
+						Ext.Msg.alert("Notice", _msg.FAILED);
 					}
 				}).catch(function(e){
 					loading.hide();
-					Ext.Msg.alert("Notice", "Something went wrong !");
+					Ext.Msg.alert("Notice", _msg.FAILED);
 				})
 			}
 		});
@@ -210,7 +209,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				text: 'Add More',
 				handler: function(){
 					if(currentSheet == null){
-						Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					}
 					$("#table_question"+currentSheet).append(`<tr class="tcus">
 	<th class="tcus">
@@ -327,9 +326,9 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 			$("#table_sheet").html(``);
 			sheets.forEach((element, index) => {
 				$("#table_sheet").append(`	
-											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
-											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
-											<tr class="tcus">
+				<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
+				<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+				<tr class="tcus">
 	<th class="tcus str thcus">チャットボット質問</th>
 	<th class="tcus str thcus">挿入セル</th>
 	<th class="tcus str thcus">必須？</th>
@@ -436,7 +435,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 </tr>
-											</table>`);
+				</table>`);
 			});
 		}
 		
@@ -581,7 +580,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
 										<div style="width: 40%;">
-											<p style="text-align: left;"><b>テンプレートファイルアップロード</b></p>
+											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE}}</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
 													<label for="file_template">
@@ -604,7 +603,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 											
 											<!-- <div id="select_sheet"></div> -->
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
-											<p class="text-left">Display Name:</p>
+											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
 											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
 										</div>
 										<div style="width: 60%;" id="iframe">

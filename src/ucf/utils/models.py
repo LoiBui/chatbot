@@ -1423,6 +1423,7 @@ class ExcelTemplateFile(UCFModel2):
 	tenant = ndb.StringProperty()
 	alias = ndb.StringProperty()
 	display_name = ndb.StringProperty()
+	download_method = ndb.StringProperty()
 	created_date = ndb.DateTimeProperty(auto_now_add=True)
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
@@ -1433,7 +1434,7 @@ class ExcelTemplateFile(UCFModel2):
 		return q.get()
 
 	@classmethod
-	def save(cls, tenant, blob_store, filename, display_name):
+	def save(cls, tenant, blob_store, filename, display_name, download_method):
 		uid = UcfUtil.guid()
 		unique_id = uid
 		entry = cls(unique_id=unique_id, id=unique_id)
@@ -1442,6 +1443,7 @@ class ExcelTemplateFile(UCFModel2):
 		entry.filename = filename
 		entry.display_name = display_name
 		entry.alias = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+		entry.download_method = download_method
 		entry.put()
 		return uid
 
@@ -1453,7 +1455,7 @@ class ExcelTemplateFile(UCFModel2):
 			entry_key.delete()
 
 	@classmethod
-	def update(cls, unique_id, blob_store, filename, display_name):
+	def update(cls, unique_id, blob_store, filename, display_name, download_method):
 		q = cls.query()
 		q = q.filter(cls.unique_id == unique_id)
 		row = q.get(use_cache=False, use_memcache=False)
@@ -1461,11 +1463,12 @@ class ExcelTemplateFile(UCFModel2):
 			row.blob_store = blob_store
 			row.filename = filename
 			row.display_name = display_name
+			row.download_method = download_method
 			row.put()
 			return unique_id
 
 	@classmethod
-	def addBueinssFileToTextSearchIndex(cls, vo):
+	def addBusinessFileToTextSearchIndex(cls, vo):
 		record_updated_date = datetime.datetime.utcnow()
 		keyword = ''
 		keyword += ' ' + vo.get('display_name', '')

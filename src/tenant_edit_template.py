@@ -42,7 +42,7 @@ class Page(TenantAppHelper):
 				vo = entry.exchangeVo(self._timezone)
 				list_vo = {}
 				for k,v in vo.iteritems():
-					if k in ['blob_store', 'filename', 'display_name']:
+					if k in ['blob_store', 'filename', 'display_name', 'download_method']:
 						list_vo[k] = v
 				file = list_vo
 

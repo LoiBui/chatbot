@@ -18,11 +18,11 @@ class Page(TenantAppHelper):
 		self.setTenant(tenant)
 
 		try:
-			uidFile = ExcelTemplateFile.save(tenant, self.request.get('file'), self.request.get('filename'), self.request.get('display_name'))
+			uidFile = ExcelTemplateFile.save(tenant, self.request.get('file'), self.request.get('filename'), self.request.get('display_name'), self.request.get('download_method'))
 			vo = {}
 			vo['display_name'] = self.request.get('display_name')
 			vo['unique_id'] = uidFile
-			ExcelTemplateFile.addBueinssFileToTextSearchIndex(vo)
+			ExcelTemplateFile.addBusinessFileToTextSearchIndex(vo)
 
 			sheet = json.loads(self.request.get('sheet'))
 			sheetName = json.loads(self.request.get('sheetName'))

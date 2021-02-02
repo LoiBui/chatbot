@@ -61,9 +61,8 @@
 			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
 			FIELD_sk_display_name.render('display_name');
 		}
-		
 
-		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg: _msg.VMSG_MSG_PROCESSING});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
@@ -74,11 +73,11 @@
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];
 				if(fileBlobKey === null){
-					Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					return;
 				}
 				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
-					Ext.Msg.alert("Notice", "Display name is required");
+					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_DISPLAY_NAME);
 					return;
 				}
 				var reduceData = [];
@@ -127,6 +126,7 @@
 				frmData.append("filename", filename);
 				frmData.append("sheetName", JSON.stringify(gSheets))
 				frmData.append("display_name", Ext.ucf.getElementValue('FILED_display_name'))
+				frmData.append("download_method", parseInt($("input[type='radio'][name='download_method']:checked").val()));
 				loading.show();
 				fetch('{{vurl|safe}}submit_template', {
 					method: "post",
@@ -138,17 +138,17 @@
 				}).then(res=>{
 					loading.hide();
 					if(res.status){
-						Ext.Msg.alert("Notice", "Sucessfully", function(btn, text){
+						Ext.Msg.alert("Notice", _msg.SUCCESS, function(btn, text){
 							if (btn == 'ok'){
 								window.location.href = '{{vurl|safe}}template'
 							}
 						});
 					}else{
-						Ext.Msg.alert("Notice", "Something went wrong !");
+						Ext.Msg.alert("Notice", _msg.FAILED);
 					}
 				}).catch(function(e){
 					loading.hide();
-					Ext.Msg.alert("Notice", "Something went wrong !");
+					Ext.Msg.alert("Notice", _msg.FAILED);
 				})
 			}
 		});
@@ -160,7 +160,7 @@
 				text: 'Add More',
 				handler: function(){
 					if(currentSheet == null){
-						Ext.Msg.alert("Notice", "テンプレートファイルアップロード");
+						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					}
 					$("#table_question"+currentSheet).append(`{% include "./template_table_tr.html" %}`);
 				}
@@ -258,13 +258,21 @@
 			$("#table_sheet").html(``);
 			sheets.forEach((element, index) => {
 				$("#table_sheet").append(`	
-											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
-											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
-											{% include "./template_table.html" %}
-											</table>`);
+				<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
+				<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+				{% include "./template_table.html" %}
+				</table>`);
 			});
 		}
-		
+		$(function(){
+			$("body").on("click", ".btn-del", function(){
+				if($(".btn-del").length == 1){
+					Ext.Msg.alert("Notice", "Table can't empty.");
+					return;
+				}
+				$(this).closest('tr').remove();
+			});
+		});
 	</script>
 	{% include "./include/external_analysis_head.html" %}
 	
@@ -295,7 +303,9 @@
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
 										<div style="width: 40%;">
-											<p style="text-align: left;"><b>テンプレートファイルアップロード</b></p>
+											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
+											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
+											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE}}</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
 													<label for="file_template">
@@ -305,10 +315,10 @@
 														align-items: center;
 														justify-content: center;
 														border-radius: 5px;
-														border: 1px solid #bbbbbb;
+														border: 1px solid #1e6f43;
 														cursor: pointer;
 														margin-left: 8px;">
-															<img src="/images/microsoft-excel.png" alt="">
+															<img width="80" src="/images/microsoft-excel.png" alt="">
 														</div>
 													</label>
 												</div>
@@ -318,8 +328,15 @@
 											
 											<!-- <div id="select_sheet"></div> -->
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
-											<p class="text-left">Display Name:</p>
-											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
+											<p class="text-left">Download method:</p>
+											<div style="margin-left: 8px; margin-bottom: 5px;text-align: left;">
+												<input type="radio" id="pdf" name="download_method" value="1">
+												<label for="pdf" style="font-size: 80%;">PDF</label><br>
+												<input type="radio" id="excel" name="download_method" value="2">
+												<label for="excel" style="font-size: 80%;">Excel</label><br>
+												<input type="radio" id="other" name="download_method" checked value="0">
+												<label for="other" style="font-size: 80%;">ユーザーに選択</label>
+											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">
 											

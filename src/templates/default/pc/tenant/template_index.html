@@ -10,8 +10,7 @@
 <script type="text/javascript" src="{{vscripturl}}ucfext_operator.js?{{version}}" ></script>
 <script type="text/javascript" src="{{vscripturl|safe}}ucfext_lineworks.js?{{version|safe}}" ></script>
 
-<!-- <title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
-<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {{lang.FILEUP_HTML_TITLE|safe}}</title>
+<title>{{lang.VMSG_SITE_TITLE_DASHBOARD}} - {{lang.EXCEL_PDF_CREATION_HTML_TITLE|safe}}</title>
 <style>
 	.channel_panel p {
 		font-size: 100%;
@@ -76,7 +75,7 @@
 	function btnTrashTemplate(unique_id){
 			Ext.MessageBox.show({
 				title: 'Notice',
-				msg: 'Are you sure to delete this item ?',
+				msg: _msg.VMSG_TEMPLATE_CONFIRM_DELETE, 
 				buttons: Ext.MessageBox.OKCANCEL,
 				icon: Ext.MessageBox.WARNING,
 				fn: function(btn){
@@ -213,26 +212,26 @@
 			columns: [
 					smTemplate,
 			{
-				header: 'Display Name',
+				header: '{{lang.VMSG_DISPLAY_NAME}}',
 				dataIndex: 'Display_name',
 				width: 180,
 				sortable: false,
 				renderer: vh_dispaly_name 
 			},
 			{
-				header: 'File Name',
+				header: '{{lang.VMSG_FILE_NAME}}',
 				dataIndex: 'file_name',
 				width: 180,
 				sortable: false,
 				renderer: vh_filename 
 			},
-			{
-				header: 'Blob Store',
-				dataIndex: 'blob_store',
-				width: 180,
-				sortable: false,
-				renderer: vh_url 
-			},
+			// {
+			// 	header: 'Blob Store',
+			// 	dataIndex: 'blob_store',
+			// 	width: 180,
+			// 	sortable: false,
+			// 	renderer: vh_url 
+			// },
 			{
 				header: '',
 				dataIndex: 'unique_id',

@@ -9,10 +9,11 @@ class DownloadFile(blobstore_handlers.BlobstoreDownloadHandler):
         if not blob_key:
             self.error(404)
         else:
-            content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             if extension == "pdf":
                 content_type = "application/pdf"
             self.send_blob(blob_key, save_as='file.{}'.format(extension), content_type=content_type)
+
 
 app = webapp2.WSGIApplication([
   ('/tenant/template/download_cloudstorage/([^/]*)/([^/]*)', DownloadFile),

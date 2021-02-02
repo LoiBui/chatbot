@@ -1980,4 +1980,7 @@ var _msg = {
 	,MSG_REGISTER_COMMENT:'コメント登録'
 	,MSG_PERFORM_UPLOAD:'アップロード完了'
 	,MSG_CANCEL_UPLOAD:'画像アップロードの過程を解除しました。'
+	,VMSG_TEMPLATE_CONFIRM_DELETE:'このテンプレートを削除しますか？'
+	,MSG_REQUIRE_FILE_TEMPLATE:'ファイルテンプレートは必須です。'
+	,MSG_REQUIRE_DISPLAY_NAME:'表示名は必須です。'
 };

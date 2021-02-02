@@ -385,7 +385,22 @@ def findQuestionByAlias(alias):
 	q = ExcelTemplateValue.query()
 	q = q.filter(ExcelTemplateValue.alias == alias)
 	
+	fileValue = None
 
+	for entry in q.iter(limit=2000, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['question', 'alias', 'default', 'location', 'require', 'sheet', 'value', 'file_id']:
+				list_vo[k] = v
+		fileValue = list_vo
+	return fileValue
+
+def findQuestionByAliasAndFileId(alias, file_id):
+	q = ExcelTemplateValue.query()
+	q = q.filter(ExcelTemplateValue.alias == alias)
+	q = q.filter(ExcelTemplateValue.file_id == file_id)
+	
 	fileValue = None
 
 	for entry in q.iter(limit=2000, offset=0):
@@ -435,7 +450,6 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 	richmenu_id = ''
 	
 	resourceCid = callLineWorksUploadContentAPI(open_api_id, consumer_key, server_id, priv_key)
-	
 
 	payload = {
 		"size": {
@@ -453,8 +467,8 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": helper.getMsg('START'),
-					"text": 'Start'
+					"label": helper.getMsg('CHOOSE_TEMPLATE'),
+					"text": helper.getMsg('CHOOSE_TEMPLATE')
 				}
 			},
 			{
@@ -466,8 +480,8 @@ def createRichMenu(helper, open_api_id, consumer_key, server_id, priv_key, bot_n
 				},
 				"action": {
 					"type": "message",
-					"label": helper.getMsg('HELP'),
-					"text": 'Help'
+					"label": helper.getMsg('VMSG_HELP'),
+					"text": helper.getMsg('VMSG_HELP'),
 				}
 			}
 		]
