@@ -801,6 +801,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		if 'is_confirm' in chat_session and chat_session['is_confirm']:
 			try:
+				logging.warning(chat_session)
 				data = chat_session['data_answer']
 				question = lineworks_func.findQuestionByAlias(data.keys()[-1])
 		
@@ -818,21 +819,24 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				data = json.loads(response.read())
 				logging.warning(data)
 				if data['status']:
+					actions = []
+					file = lineworks_func.getFileValueByUniqueId(chat_session['file_unique_id'])
+					if int(file['download_method']) == 0 or int(file['download_method']) == 1:
+						actions.append({
+							"type": "uri",
+							"label": 'Pdf',
+							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['pdf'] + "/pdf"
+						})
+					if int(file['download_method']) == 0 or int(file['download_method']) == 2:
+						actions.append({
+							"type": "uri",
+							"label": 'Excel',
+							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
+						})
 					payload = {
 						"type": "button_template",
 						"contentText": self.getMsg('MSG_CHOOSE_FILE_FORMAT_TO_DOWNLOAD'),
-						"actions": [
-							{
-								"type": "uri",
-								"label": 'Excel',
-								"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
-							},
-							{
-								"type": "uri",
-								"label": 'Pdf',
-								"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['pdf'] + "/pdf"
-							}
-						]
+						"actions": actions
 					}
 					self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 				else:
