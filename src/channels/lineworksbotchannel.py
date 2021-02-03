@@ -291,39 +291,44 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		sheet_name = data[1]
 		unique_id = data[2]
 		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(unique_id, sheet_name)
-		questions = self.removeEmptyField(tenant, lineworks_id, rule_id, questions)
+		questions = self.removeEmptyField(questions)
 		actions = []
 		# 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
 		# step1: 1->8 
 		#
-		for (idx, item) in enumerate(questions):
+		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		arr_question = chat_session['arr_question']
+
+		for (idx, item) in enumerate(arr_question):
+			question = self.findIndexQuestion(item, questions)
 			if idx >= step * 8:
 				actions.append({
 					'type': 'message', 
-					'label': 'Question ' + str(idx + 1), 
-					'text': item['question'],
-					'postback': item['alias']
+					'label': 'Question ' + str(int(question['index']) + 1), 
+					'text': question['data']['question'],
+					'postback': 'CHOOSE_QUESTION_____'+question['data']['alias']
 				})
-			if idx == (step + 1)*8 - 1 and len(questions) > 9*(step + 1):
+			if idx == (step + 1)*8 - 1 and len(arr_question) > 9*(step + 1):
 				break
-		payload = {
-			"type": "button_template",
-			"contentText": 'Please choose question below',
-			"actions": actions
-		}
+		
 		actions.append({
 			"type": "message",
 			"label": 'Cancel',
 			"postback": '-------CANCEL-------'
 		})
-		if len(questions) > 9*(step + 1):
+		if len(arr_question) > 9*(step + 1):
 			actions.append({
 				'type': 'message',
 				'label': self.getMsg('LOAD_MORE'),
 				'postback': '-------PAGINATE-------QUESTIONS-------'+str(step+1) + "_" +sheet_name+'_'+ unique_id
 			})
-
- 		logging.warning(step)
+		payload = {
+			"type": "button_template",
+			"contentText": 'Please choose question below',
+			"actions": actions
+		}
+		
+ 		logging.warning(len(actions))
 		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		
 	def responsiveFileValue(self, contents, tenant, lineworks_id, rule_id):
@@ -398,7 +403,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		fileInfo = lineworks_func.getFileByAlias(postback)
 		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(fileInfo['unique_id'], sheet_name)
 		logging.warning("SEND QUESTION")
-		questions = self.removeEmptyField(tenant, lineworks_id, rule_id, questions)
+		questions = self.removeEmptyField(questions)
 		self.sendQuestion(questions, tenant, lineworks_id, rule_id, sheet_name, fileInfo['unique_id'])
 
 	def findNextEl(self, alias, questions):
@@ -412,17 +417,23 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					return questions[index+1]
 		return None
 
-	def removeEmptyField(self, tenant, lineworks_id, rule_id, questions):
-		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
-		arr_question = []
-		if 'arr_question' in chat_session:
-			arr_question = chat_session['arr_question']
-
+	def removeEmptyField(self, questions):
 		newQuestion = []
 		for item in questions:
-			if item['question'] != '' and item['alias'] not in arr_question:
+			if item['question'] != '':
 				newQuestion.append(item)
 		return newQuestion
+	def findIndexQuestion(self, alias, questions):
+		question = {}
+		for idx, item in enumerate(questions):
+			if item['alias'] == alias:
+				question['index'] = idx
+				question['data'] = item
+				break
+		return question
+    				
+
+
 
 	def sendQuestion(self, questions, tenant, lineworks_id, rule_id, sheet_name, file_unique_id):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
@@ -433,23 +444,32 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			"text": self.getMsg('SHEETS_WAS_NOT_ALLOWED_SETUP')
 		}, self.channel_config)
 
+		# init arr question 
+		if 'arr_question' not in chat_session:
+			chat_session['arr_question'] = []
+			for item in questions:
+				chat_session['arr_question'].append(item['alias'])
+    				
+
 		actions = []
-		for idx, item in enumerate(questions):
-			logging.warning(item)
+		logging.warning("check rm------------------------------")
+		for idx, item in enumerate(chat_session['arr_question']):
+			question = self.findIndexQuestion(item, questions)
 			actions.append({
 				"type": "message",
-				"label": 'Question ' + str(idx+1),
-				"text": item['question'],
-				"postback": 'CHOOSE_QUESTION_____'+item['alias']
+				"label": 'Question ' + str(question['index']+1),
+				"text": question['data']['question'],
+				"postback": 'CHOOSE_QUESTION_____'+question['data']['alias']
 			})
-			if idx == 7 and len(questions) > 9:
+			if idx == 7 and len(chat_session['arr_question']) > 9:
 				break
+		
 		actions.append({
 			"type": "message",
 			"label": 'Cancel',
 			"postback": '-------CANCEL-------'
 		})
-		if len(questions) > 9:
+		if len(chat_session['arr_question']) > 9:
 			actions.append({
 				"type": "message",
 				"label": self.getMsg('LOAD_MORE'),
@@ -625,10 +645,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		alias_question = postback.strip().split("CHOOSE_QUESTION_____")[-1]
 		question = lineworks_func.findQuestionByAliasAndFileId(alias_question, chat_session['file_unique_id'])
 		
-		if 'arr_question' not in chat_session:
-			chat_session['arr_question'] = []
-		chat_session['arr_question'].append(alias_question)
-		logging.warning(chat_session)
+		
 		if question is None:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
@@ -668,7 +685,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						"type": "text",
 						"text": question['question']
 					}
-			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 
 	def proccessAnswer(self, tenant, lineworks_id, rule_id, postback, data):
@@ -678,9 +694,15 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			chat_session['data_answer'] = {}
 		chat_session['data_answer'][alias_question] = data['text']
 
-		
+		logging.warning(alias_question)
+		chat_session['arr_question'].remove(alias_question)
+		logging.warning(chat_session)
+
 		questions = lineworks_func.getQuestionFromFileByUniqueIdAndSheetName(chat_session['file_unique_id'], chat_session['sheet_name'])
-		questions = self.removeEmptyField(tenant, lineworks_id, rule_id, questions)
+		questions = self.removeEmptyField(questions)
+
+		
+		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 		self.sendQuestion(questions, tenant, lineworks_id, rule_id, chat_session['sheet_name'], chat_session['file_unique_id'])
     				
 	
