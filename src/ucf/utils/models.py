@@ -1609,3 +1609,11 @@ class AnswerUser(UCFModel2):
                 row.excel_blob = str(excel_blob)
             row.put()
             return unique_id
+
+	
+    @classmethod
+    def deleteByFileId(cls, pdf_blob):
+        query_all = cls.query()
+        query_filter = query_all.filter(cls.pdf_blob == pdf_blob)
+        for entry_key in query_filter.iter(keys_only=True):
+            entry_key.delete()

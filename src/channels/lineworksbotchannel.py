@@ -146,6 +146,9 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		
 		if contents is not None and contents['content']['type'] == 'text':
 			if 'postback' in contents['content'] and '-------CANCEL-------' in contents['content']['postback']:
+				check = contents['content']['postback'].split('@@@')
+				if len(check) == 2:
+					lineworks_func.removeAnswer(check[-1])
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
 					"text": 'Has canceled your responses'
@@ -307,15 +310,29 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		# step1: 1->8 
 		#
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		logging.warning("z00000000000000000 paginator question")
+		if 'arr_question' not in chat_session:
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+    			"text": 'Your choices are not appropriate'	
+			}, self.channel_config)
+			return
+    			
 		arr_question = chat_session['arr_question']
 
 		for (idx, item) in enumerate(arr_question):
 			question = self.findIndexQuestion(item, questions)
+			if 'index' not in question:
+    				self.executeAction(tenant, lineworks_id, {
+					"type": "text",
+					"text": 'Your choices are not appropriate'
+				}, self.channel_config)
+				return
 			if idx >= step * 8:
 				actions.append({
 					'type': 'message', 
 					'label': 'Question ' + str(int(question['index']) + 1), 
-					'text': question['data']['question'],
+					'text': 'Question ' + str(int(question['index']) + 1), 
 					'postback': 'CHOOSE_QUESTION_____'+question['data']['alias']
 				})
 			if idx == (step + 1)*8 - 1 and len(arr_question) > 8*(step + 1):
@@ -326,12 +343,14 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			"label": 'Cancel',
 			"postback": '-------CANCEL-------'
 		})
+
 		if len(arr_question) > 9*(step + 1):
 			actions.append({
 				'type': 'message',
 				'label': self.getMsg('LOAD_MORE'),
 				'postback': '-------PAGINATE-------QUESTIONS-------'+str(step+1) + "_" +sheet_name+'_'+ unique_id
 			})
+		
 		payload = {
 			"type": "button_template",
 			"contentText": 'Please choose question below',
@@ -380,6 +399,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		elif step == 2:
 			logging.warning("zoooooooooo step2")
+			logging.warning(postback)
 			postback = postback.split("_@")[0]
 			self.step3(postback, tenant, lineworks_id, contents['content']['text'], rule_id, contents['content']['text'])
 		elif step == 3:
@@ -393,7 +413,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				}, self.channel_config)
 		elif step == 4 and contents['content']['text'] == self.getMsg('YES'):
 			logging.warning("zoooooooooo step4")
-			self.chooseExcelPdf(postback, tenant, lineworks_id, rule_id)
+			self.chooseExcelPdf(tenant, lineworks_id, rule_id)
 		elif step == 4 and contents['content']['text'] == self.getMsg('NO'):
 			logging.warning("zoooooooooo step4")
 			if chat_session:
@@ -445,6 +465,11 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
     				
 
 	def showFinish(self, tenant, lineworks_id, rule_id, chat_session):
+		chat_session['is_confirm'] = True
+		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
+		self.chooseExcelPdf(tenant, lineworks_id, rule_id);
+		return;
+
 		data_answer = chat_session['data_answer']
 		postback = '4932742'
 		txt = []
@@ -505,10 +530,11 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		# check sheet was setup question 
 		if len(questions) == 0:
-				self.executeAction(tenant, lineworks_id, {
-			"type": "text",
-			"text": self.getMsg('SHEETS_WAS_NOT_ALLOWED_SETUP')
-		}, self.channel_config)
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+				"text": self.getMsg('SHEETS_WAS_NOT_ALLOWED_SETUP')
+			}, self.channel_config)
+			return
 
 		# init arr question 
 		if 'arr_question' not in chat_session:
@@ -524,12 +550,19 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 
 		actions = []
 		logging.warning("check rm------------------------------")
+		logging.warning(chat_session)
 		for idx, item in enumerate(chat_session['arr_question']):
 			question = self.findIndexQuestion(item, questions)
+			if 'index' not in question:
+				self.executeAction(tenant, lineworks_id, {
+					"type": "text",
+					"text": 'Click cancel in the question list to select another sheet.'
+				}, self.channel_config)
+				return
 			actions.append({
 				"type": "message",
 				"label": 'Question ' + str(question['index']+1),
-				"text": question['data']['question'],
+				"text": 'Question ' + str(question['index']+1),
 				"postback": 'CHOOSE_QUESTION_____'+question['data']['alias']
 			})
 			if idx == 7 and len(chat_session['arr_question']) > 9:
@@ -562,18 +595,18 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 
 	def generalQuestion(self, tenant, lineworks_id, rule_id, postback):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
+		if len(chat_session) == 0:
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+				"text": self.getMsg('MSG_PREVIOUS_SESSION_FINISHED')
+			}, self.channel_config)
+			return
+    			
 		alias_question = postback.strip().split("CHOOSE_QUESTION_____")[-1]
 		question = lineworks_func.findQuestionByAliasAndFileId(alias_question, chat_session['file_unique_id'])
 		chat_session['current_question'] = alias_question
 
-		if alias_question not in chat_session['arr_question']:
-			self.executeAction(tenant, lineworks_id, {
-				"type": "text",
-				"text": 'This question you answered, please complete another question'
-			}, self.channel_config)
-			return
-		
-		if question is None:
+		if question is None or alias_question not in chat_session['arr_question']:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
 				"text": 'Your choices are not appropriate'
@@ -645,7 +678,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		self.sendQuestion(questions, tenant, lineworks_id, rule_id, chat_session['sheet_name'], chat_session['file_unique_id'])
     				
 	
-	def chooseExcelPdf(self, postback, tenant, lineworks_id, rule_id):
+	def chooseExcelPdf(self, tenant, lineworks_id, rule_id):
 
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		if 'is_confirm' in chat_session and chat_session['is_confirm']:
@@ -685,6 +718,11 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 							"label": 'Excel',
 							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
 						})
+					actions.append({
+						"type": "message",
+						"label": 'Cancel',
+						"postback": '-------CANCEL-------@@@'+data['pdf']
+					})
 					payload = {
 						"type": "button_template",
 						"contentText": self.getMsg('MSG_CHOOSE_FILE_FORMAT_TO_DOWNLOAD'),

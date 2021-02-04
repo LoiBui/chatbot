@@ -458,6 +458,9 @@ def getAnswerByUniqueId(unique_id):
 				list_vo[k] = v
 		fileValue = list_vo
 	return fileValue
+def removeAnswer(pdf_blob):
+	AnswerUser.deleteByFileId(pdf_blob)
+    	
 #####################################################
 # LINE WORKS API コール　Rich Menu作成
 #####################################################
