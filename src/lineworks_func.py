@@ -352,7 +352,22 @@ def getFileByAlias(alias):
 		vo = entry.exchangeVo('Asia/Tokyo')
 		list_vo = {}
 		for k,v in vo.iteritems():
-			if k in ['blob_store', 'filename', 'display_name', 'unique_id', 'alias']:
+			if k in ['blob_store', 'filename', 'display_name', 'unique_id', 'alias', 'download_method']:
+				list_vo[k] = v
+		file = list_vo
+	return file
+
+def getFileByUniqueId(unique_id):
+	q = ExcelTemplateFile.query()
+	q = q.filter(ExcelTemplateFile.unique_id == unique_id)
+
+	file = []
+
+	for entry in q.iter(limit=2000, offset=0):
+		vo = entry.exchangeVo('Asia/Tokyo')
+		list_vo = {}
+		for k,v in vo.iteritems():
+			if k in ['blob_store', 'filename', 'display_name', 'unique_id', 'alias', 'download_method']:
 				list_vo[k] = v
 		file = list_vo
 	return file

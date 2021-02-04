@@ -318,7 +318,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					'text': question['data']['question'],
 					'postback': 'CHOOSE_QUESTION_____'+question['data']['alias']
 				})
-			if idx == (step + 1)*8 - 1 and len(arr_question) > 9*(step + 1):
+			if idx == (step + 1)*8 - 1 and len(arr_question) > 8*(step + 1):
 				break
 		
 		actions.append({
@@ -558,158 +558,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			chat_session['file_unique_id'] = file_unique_id
 		
 		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
-    		
-		return
-		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
-		logging.warning("SHOW LIST QUESTIONS ------------------------------------------------------")
-		logging.warning(questions)
-		logging.warning(answer)
-		logging.warning(chat_session)
 
-		return
-		
-		questions = self.removeEmptyField(questions)
-		question = None
-		
-		# check answer valid
-		for item in questions:
-			if 'alias' in chat_session and 'value' in item and item['alias'].strip() == chat_session['alias'].strip() and item['value'].strip() != '':
-				arrCheck = item['value'].strip().split(",")
-				if answer not in arrCheck:
-					self.executeAction(tenant, lineworks_id, {
-						"type": "text",
-						"text": self.getMsg('YOUR_ANSWER_IS_INVALID')
-					}, self.channel_config)
-					return
-
-		if len(questions) == 0:
-    			self.executeAction(tenant, lineworks_id, {
-				"type": "text",
-				"text": self.getMsg('SHEETS_WAS_NOT_ALLOWED_SETUP')
-			}, self.channel_config)
-			return
-		elif chat_session and 'alias' in chat_session and chat_session['alias'] not in str(questions):
-			question = self.findNextEl(None, questions)
-			del chat_session['data_answer']
-		elif chat_session and 'alias' in chat_session:
-			question = self.findNextEl(chat_session['alias'], questions)
-		else:
-			question = self.findNextEl(None, questions)
-
-		logging.warning(question)
-
-		if question is None:
-			data_answer = chat_session['data_answer']
-			for i in data_answer:
-				if data_answer[i] is None:
-					data_answer[i] = answer
-
-			txt = []
-			for item in data_answer:
-				question = lineworks_func.findQuestionByAlias(item)
-				txt.append(question['question'] + " => " + data_answer[item] + "\n")
-			if len("".join(txt)) < 300:
-				payload = {
-					"type": "button_template",
-					"contentText": self.getMsg('YOU_ARE_FINISH_PCYA') + '\n' + "".join(txt),
-					"actions": [
-						{
-							"type": "message",
-							"label": self.getMsg('YES'),
-							"postback": postback + "_@1_@2_@3"
-						},
-						{
-							"type": "message",
-							"label": self.getMsg('NO'),
-							"postback": postback + "_@1_@2_@3"
-						}
-					]
-				}
-			else:
-				self.executeAction(tenant, lineworks_id, {
-					"type": "text",
-					"text": self.getMsg('YOU_ARE_FINISH')
-				}, self.channel_config)
-				for qs in txt:
-					if len(qs) > 300:
-						qs = qs[:296]+"..."
-					self.executeAction(tenant, lineworks_id, {
-						"type": "text",
-						"text": qs
-					}, self.channel_config)
-				payload = {
-					"type": "button_template",
-					"contentText": self.getMsg('PLEASE_CONFIRM_YOUR_ANSWER'),
-					"actions": [
-						{
-							"type": "message",
-							"label": self.getMsg('YES'),
-							"postback": postback + "_@1_@2_@3"
-						},
-						{
-							"type": "message",
-							"label": self.getMsg('NO'),
-							"postback": postback + "_@1_@2_@3"
-						}
-					]
-				}
-			chat_session['is_confirm'] = True
-				
-			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
-		else:
-			data_answer = {}
-			if 'data_answer' not in chat_session:
-				data_answer[question['alias']] = None
-			else:
-				data_answer = chat_session['data_answer']
-				for i in data_answer:
-					if data_answer[i] is None:
-						data_answer[i] = answer
-				data_answer[question['alias']] = None
-
-			chat_session = {
-				'phase': 'question',
-				'alias': question['alias'],
-				'postback': postback,
-				'sheet_name': sheet_name,
-				'data_answer': data_answer
-			}
-			payload = None
-			if int(question['require']) == 1 and question['require'].strip() == '':
-				payload = {
-					"type": "text",
-					"text": question['question']
-				}
-			else:
-				actions = []
-
-				if int(question['require']) == 0:
-					actions.append({
-						"type": "message",
-						"label": self.getMsg('SKIP'),
-						"postback": postback + "_@1_@2"
-					})
-				if question['value'].strip() != '':
-					arr = question['value'].strip().split(",")
-					for item in arr:
-						actions.append({
-							"type": "message",
-							"label": item,
-							"postback": postback + "_@1_@2"
-						})
-				payload = {
-					"type": "button_template",
-					"contentText": question['question'] + (self.getMsg('YOU_CAN_SKIP') if int(question['require']) == 0 else "" ),
-					"actions": actions
-				}
-				if len(actions) == 0:
-					payload = {
-						"type": "text",
-						"text": question['question']
-					}
-			self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
-			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 
 	def generalQuestion(self, tenant, lineworks_id, rule_id, postback):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
@@ -804,7 +653,8 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				logging.warning(chat_session)
 				data = chat_session['data_answer']
 				question = lineworks_func.findQuestionByAlias(data.keys()[-1])
-		
+				
+				file_unique_id = chat_session['file_unique_id']
 				dataAnswer = json.dumps(chat_session['data_answer'])
 				unique_id = AnswerUser.save(lineworks_id, rule_id, question['file_id'], dataAnswer, question['sheet'])
 				
@@ -820,7 +670,9 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				logging.warning(data)
 				if data['status']:
 					actions = []
-					file = lineworks_func.getFileValueByUniqueId(chat_session['file_unique_id'])
+					logging.warning(file_unique_id)
+					file = lineworks_func.getFileByUniqueId(file_unique_id)
+					logging.warning(file)
 					if int(file['download_method']) == 0 or int(file['download_method']) == 1:
 						actions.append({
 							"type": "uri",
@@ -845,6 +697,8 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						"text": "ERROR"
 					}, self.channel_config)
 			except Exception, e:
+				logging.warning(111111111)
+				logging.warning(e)
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
 	    			"text": self.getMsg('MSG_PREVIOUS_SESSION_FINISHED')
