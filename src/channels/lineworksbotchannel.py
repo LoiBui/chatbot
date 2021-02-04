@@ -556,7 +556,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if 'index' not in question:
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": 'Click cancel in the question list to select another sheet.'
+					"text": 'Click cancel in the question list to select another sheet or file.'
 				}, self.channel_config)
 				return
 			actions.append({
