@@ -198,6 +198,10 @@ handlers:
   script: download_file_from_cloudstorage.app
   secure: always
   
+- url: (/tenant/template/lineworks_download/([^/]*)/([^/]*)/([^/]*))
+  script: lineworks_download_file_.app
+  secure: always
+
 # data cleansing
 - url: (/datacleansing$)
   script: data_cleansing.app

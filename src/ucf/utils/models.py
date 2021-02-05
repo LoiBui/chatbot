@@ -1432,6 +1432,7 @@ class ExcelTemplateFile(UCFModel2):
 		q = cls.query()
 		q = q.filter(cls.unique_id == unique_id)
 		return q.get()
+		
 
 	@classmethod
 	def save(cls, tenant, blob_store, filename, display_name, download_method):
@@ -1617,3 +1618,9 @@ class AnswerUser(UCFModel2):
         query_filter = query_all.filter(cls.pdf_blob == pdf_blob)
         for entry_key in query_filter.iter(keys_only=True):
             entry_key.delete()
+
+    @classmethod
+    def getById(cls, unique_id):
+        q = cls.query()
+        q = q.filter(cls.unique_id == unique_id)
+        return q.get()

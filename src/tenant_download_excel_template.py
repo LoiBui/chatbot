@@ -137,7 +137,8 @@ class Page(TenantAppHelper):
         obj = {
             'status': True,
             'excel': str(blob_key_excel),
-            'pdf': str(blob_key_pdf)
+            'pdf': str(blob_key_pdf),
+            'unique_id': answer['unique_id']
         }
         self.response.out.write(json.dumps(obj))
 # except BaseException as e:

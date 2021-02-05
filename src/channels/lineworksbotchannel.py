@@ -710,13 +710,13 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						actions.append({
 							"type": "uri",
 							"label": 'Pdf',
-							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['pdf'] + "/pdf"
+							"uri": sateraito_inc.my_site_url + "/tenant/template/lineworks_download/" + data['unique_id'] + "/pdf/"+tenant
 						})
 					if int(file['download_method']) == 0 or int(file['download_method']) == 2:
 						actions.append({
 							"type": "uri",
 							"label": 'Excel',
-							"uri": sateraito_inc.my_site_url + "/tenant/template/download_cloudstorage/" + data['excel'] + "/xlsx"
+							"uri": sateraito_inc.my_site_url + "/tenant/template/lineworks_download/" + data['unique_id'] + "/xlsx/"+tenant
 						})
 					actions.append({
 						"type": "message",
