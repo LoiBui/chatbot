@@ -3082,5 +3082,12 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="MSG_FILE_TEMPLATE"><![CDATA[ファイルテンプレート]]></msg>
 	<msg name="MSG_REQUIRE_FILE_TEMPLATE" js="on"><![CDATA[ファイルテンプレートは必須です。]]></msg>
 	<msg name="MSG_REQUIRE_DISPLAY_NAME" js="on"><![CDATA[表示名は必須です。]]></msg>
-
+	<msg name="YOUR_CHOICES_ARE_NOT_APPROPRIATE"><![CDATA[Your choices are not appropriate]]></msg>
+	<msg name="HAS_CANNCED_YOUR_RESPONSIVE"><![CDATA[Has canceled your responses]]></msg>
+	<msg name="YOUR_CHOICES_ARE_NOT_APPROPRIATE"><![CDATA[Your choices are not appropriate]]></msg>
+	<msg name="QUESTION"><![CDATA[Question]]></msg>
+	<msg name="PLEASE_CHOOSE_QUESTION_BELOW"><![CDATA[Please choose question below]]></msg>
+	<msg name="CLICK_CANCEL_IN_THE_QUESTION"><![CDATA[Click cancel in the question list to select another sheet or file.]]></msg>
+	<msg name="ADD_MORE" js="on"><![CDATA[Add More]]></msg>
+	<msg name="FILE_IS_NOT_SUPPORTED" js="on"><![CDATA[File error or is not supported. Please choose a valid file and try again !]]></msg>
 </messagebundle>

@@ -124,7 +124,7 @@
 											<input type="text" value="${item.default}" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 										</th>
 										<th class="tcus">
-											<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)">Delete Row</a>
+											<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
 										</th>
 									</tr>`;
 					});
@@ -254,7 +254,7 @@
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: 'Add More',
+				text: _msg.ADD_MORE,
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
@@ -267,7 +267,7 @@
 		function errFile(){
 			loading.hide();
 			document.getElementById("file-info").innerText = "";
-			Ext.Msg.alert("Notice", "File error or is not supported. Please choose a valid file and try again !");
+			Ext.Msg.alert("Notice", _msg.FILE_IS_NOT_SUPPORTED);
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}

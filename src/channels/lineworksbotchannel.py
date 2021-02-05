@@ -151,7 +151,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					lineworks_func.removeAnswer(check[-1])
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": 'Has canceled your responses'
+					"text": self.getMsg('HAS_CANNCED_YOUR_RESPONSIVE')
 				}, self.channel_config)
 				self.clearChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 			elif 'postback' in contents['content'] and 'CHOOSE_QUESTION_____' in contents['content']['postback']:
@@ -314,7 +314,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		if 'arr_question' not in chat_session:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-    			"text": 'Your choices are not appropriate'	
+    			"text": self.getMsg('YOUR_ANSWER_IS_INVALID')	
 			}, self.channel_config)
 			return
     			
@@ -325,14 +325,14 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if 'index' not in question:
     				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": 'Your choices are not appropriate'
+					"text": self.getMsg('YOUR_ANSWER_IS_INVALID')
 				}, self.channel_config)
 				return
 			if idx >= step * 8:
 				actions.append({
 					'type': 'message', 
-					'label': 'Question ' + str(int(question['index']) + 1), 
-					'text': 'Question ' + str(int(question['index']) + 1), 
+					'label': self.getMsg('QUESTION') + ' ' + str(int(question['index']) + 1), 
+					'text': self.getMsg('QUESTION')  + ' ' +  str(int(question['index']) + 1), 
 					'postback': 'CHOOSE_QUESTION_____'+question['data']['alias']
 				})
 			if idx == (step + 1)*8 - 1 and len(arr_question) > 8*(step + 1):
@@ -340,7 +340,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		
 		actions.append({
 			"type": "message",
-			"label": 'Cancel',
+			"label": self.getMsg('CANCEL'),
 			"postback": '-------CANCEL-------'
 		})
 
@@ -353,7 +353,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		
 		payload = {
 			"type": "button_template",
-			"contentText": 'Please choose question below',
+			"contentText": self.getMsg('PLEASE_CHOOSE_QUESTION_BELOW'),
 			"actions": actions
 		}
 		
@@ -468,63 +468,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session['is_confirm'] = True
 		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 		self.chooseExcelPdf(tenant, lineworks_id, rule_id);
-		return;
-
-		data_answer = chat_session['data_answer']
-		postback = '4932742'
-		txt = []
-		for item in data_answer:
-			question = lineworks_func.findQuestionByAlias(item)
-			txt.append(question['question'] + " => " + data_answer[item] + "\n")
-		if len("".join(txt)) < 300:
-			payload = {
-				"type": "button_template",
-				"contentText": self.getMsg('YOU_ARE_FINISH_PCYA') + '\n' + "".join(txt),
-				"actions": [
-					{
-						"type": "message",
-						"label": self.getMsg('YES'),
-						"postback": postback + "_@1_@2_@3"
-					},
-					{
-						"type": "message",
-						"label": self.getMsg('NO'),
-						"postback": postback + "_@1_@2_@3"
-					}
-				]
-			}
-		else:
-			self.executeAction(tenant, lineworks_id, {
-				"type": "text",
-				"text": self.getMsg('YOU_ARE_FINISH')
-			}, self.channel_config)
-			for qs in txt:
-				if len(qs) > 300:
-					qs = qs[:296]+"..."
-				self.executeAction(tenant, lineworks_id, {
-					"type": "text",
-					"text": qs
-				}, self.channel_config)
-			payload = {
-				"type": "button_template",
-				"contentText": self.getMsg('PLEASE_CONFIRM_YOUR_ANSWER'),
-				"actions": [
-					{
-						"type": "message",
-						"label": self.getMsg('YES'),
-						"postback": postback + "_@1_@2_@3"
-					},
-					{
-						"type": "message",
-						"label": self.getMsg('NO'),
-						"postback": postback + "_@1_@2_@3"
-					}
-				]
-			}
-		chat_session['is_confirm'] = True
-			
-		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
-		self.saveChatSession(tenant, lineworks_id, rule_id, self._language, self._oem_company_code, chat_session)
 
 	def sendQuestion(self, questions, tenant, lineworks_id, rule_id, sheet_name, file_unique_id):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
@@ -556,13 +499,13 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if 'index' not in question:
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
-					"text": 'Click cancel in the question list to select another sheet or file.'
+					"text": self.getMsg('CLICK_CANCEL_IN_THE_QUESTION')
 				}, self.channel_config)
 				return
 			actions.append({
 				"type": "message",
-				"label": 'Question ' + str(question['index']+1),
-				"text": 'Question ' + str(question['index']+1),
+				"label": self.getMsg('QUESTION') + ' ' + str(question['index']+1),
+				"text": self.getMsg('QUESTION') + ' ' + str(question['index']+1),
 				"postback": 'CHOOSE_QUESTION_____'+question['data']['alias']
 			})
 			if idx == 7 and len(chat_session['arr_question']) > 9:
@@ -570,7 +513,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		
 		actions.append({
 			"type": "message",
-			"label": 'Cancel',
+			"label": self.getMsg('CANCEL'),
 			"postback": '-------CANCEL-------'
 		})
 		if len(chat_session['arr_question']) > 9:
@@ -582,7 +525,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
     			
 		payload = {
 			"type": "button_template",
-			"contentText": 'Please choose question below',
+			"contentText": self.getMsg('PLEASE_CHOOSE_QUESTION_BELOW'),
 			"actions": actions
 		}
 		self.executeAction(tenant, lineworks_id, payload, self.channel_config)
@@ -609,7 +552,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		if question is None or alias_question not in chat_session['arr_question']:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
-				"text": 'Your choices are not appropriate'
+				"text": self.getMsg('YOUR_ANSWER_IS_INVALID')
 			}, self.channel_config)	
 		else:
 			payload = None
@@ -651,8 +594,13 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 	def proccessAnswer(self, tenant, lineworks_id, rule_id, postback, data):
 		alias_question = postback.strip().split("ANSWER_QUESTION______")[-1]
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
-
 		question = lineworks_func.findQuestionByAlias(alias_question)
+		if not chat_session or 'value' not in question:
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+				"text": self.getMsg('YOUR_CHOICES_ARE_NOT_APPROPRIATE')
+			}, self.channel_config)	
+			return 
 		if question['value'].strip() != '':
 			arrCheck = question['value'].strip().split(",")
 			if data['text'] not in arrCheck:
@@ -709,7 +657,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 					if int(file['download_method']) == 0 or int(file['download_method']) == 1:
 						actions.append({
 							"type": "uri",
-							"label": 'Pdf',
+							"label": 'PDF',
 							"uri": sateraito_inc.my_site_url + "/tenant/template/lineworks_download/" + data['unique_id'] + "/pdf/"+tenant
 						})
 					if int(file['download_method']) == 0 or int(file['download_method']) == 2:
@@ -720,7 +668,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						})
 					actions.append({
 						"type": "message",
-						"label": 'Cancel',
+						"label": self.getMsg('CANCEL'),
 						"postback": '-------CANCEL-------@@@'+data['pdf']
 					})
 					payload = {

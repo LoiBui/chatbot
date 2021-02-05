@@ -157,7 +157,7 @@
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: 'Add More',
+				text: _msg.ADD_MORE,
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
@@ -170,7 +170,7 @@
 		function errFile(){
 			loading.hide();
 			document.getElementById("file-info").innerText = "";
-			Ext.Msg.alert("Notice", "File error or is not supported. Please choose a valid file and try again !");
+			Ext.Msg.alert("Notice", _msg.FILE_IS_NOT_SUPPORTED);
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}

@@ -707,7 +707,7 @@ class Worksheet(_WorkbookChild):
 
     def delete_rows(self, idx, amount=1):
         """
-        Delete row or rows from row==idx
+        <input type="button" value="" class="btnTrash"/> or rows from row==idx
         """
 
         remainder = _gutter(idx, amount, self.max_row)
