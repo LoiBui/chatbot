@@ -68,7 +68,7 @@
 			Ext.ucf.init();
 
 		var btnReset = new Ext.Button({
-			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
+			text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.SUBMIT|safe|escapejs}}&nbsp;&nbsp;&nbsp;&nbsp;',
 			handler:function(){
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];

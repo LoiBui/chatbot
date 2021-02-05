@@ -101,7 +101,7 @@
 													<th class="tcus str thcus">必須？</th>
 													<th class="tcus str thcus">選択肢</th>
 													<th class="tcus str thcus">初期値</th>
-													<th class="tcus str thcus" style="width: 100px;" >Actions</th>
+													<th class="tcus str thcus" style="width: 100px;" >{{lang.ACTIONS|safe|escapejs}}</th>
 												</tr>`
 					$.each(value, function(i, item){
 						xhtml += `	<tr class="tcus">
@@ -165,7 +165,7 @@
 			Ext.ucf.init();
 
 		var btnReset = new Ext.Button({
-			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
+			text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.SUBMIT|safe|escapejs}}&nbsp;&nbsp;&nbsp;&nbsp;',
 			handler:function(){
 				var dataTable = [];
 				if(fileBlobKey == null){
