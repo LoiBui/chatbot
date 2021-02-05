@@ -1,4 +1,4 @@
-﻿# ※本ソースは自動生成されたものです 2/1/2021 3:34:18 PM
+﻿# ※本ソースは自動生成されたものです 2/5/2021 10:44:08 AM
 
 #!/usr/bin/python
 # coding: utf-8
@@ -2656,6 +2656,16 @@ LANGUAGES = {
 	,'MSG_FILE_TEMPLATE': u'ファイルテンプレート'
 	,'MSG_REQUIRE_FILE_TEMPLATE': u'ファイルテンプレートは必須です。'
 	,'MSG_REQUIRE_DISPLAY_NAME': u'表示名は必須です。'
+	,'YOUR_CHOICES_ARE_NOT_APPROPRIATE': u'Your choices are not appropriate'
+	,'HAS_CANNCED_YOUR_RESPONSIVE': u'Has canceled your responses'
+	,'QUESTION': u'Question'
+	,'PLEASE_CHOOSE_QUESTION_BELOW': u'Please choose question below'
+	,'CLICK_CANCEL_IN_THE_QUESTION': u'Click cancel in the question list to select another sheet or file.'
+	,'ADD_MORE': u'Add More'
+	,'FILE_IS_NOT_SUPPORTED': u'File error or is not supported. Please choose a valid file and try again !'
+	,'SUBMIT': u'Submit'
+	,'ACTIONS': u'Actions'
+	,'DOWNLOAD_METHOD': u'Download method'
 },
 
 'ja':{
@@ -5294,6 +5304,16 @@ LANGUAGES = {
 	,'MSG_FILE_TEMPLATE': u'ファイルテンプレート'
 	,'MSG_REQUIRE_FILE_TEMPLATE': u'ファイルテンプレートは必須です。'
 	,'MSG_REQUIRE_DISPLAY_NAME': u'表示名は必須です。'
+	,'YOUR_CHOICES_ARE_NOT_APPROPRIATE': u'Your choices are not appropriate'
+	,'HAS_CANNCED_YOUR_RESPONSIVE': u'Has canceled your responses'
+	,'QUESTION': u'Question'
+	,'PLEASE_CHOOSE_QUESTION_BELOW': u'Please choose question below'
+	,'CLICK_CANCEL_IN_THE_QUESTION': u'Click cancel in the question list to select another sheet or file.'
+	,'ADD_MORE': u'Add More'
+	,'FILE_IS_NOT_SUPPORTED': u'File error or is not supported. Please choose a valid file and try again !'
+	,'SUBMIT': u'Submit'
+	,'ACTIONS': u'Actions'
+	,'DOWNLOAD_METHOD': u'Download method'
 	,'EXP_LINEWORKSAPI_CONFIG': u'*Configure several keys for access to LINE WORKS Talk BOT API.<br/>Set the key generated on <a href="https://developers.worksmobile.com/console/openapi/main" target="_blank">LINE WORKS Developer Console</a> API Setting page. See more details<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/chatmagazine#LINEWORKSCHANNEL" target="_blank">here</a>'
 	,'VMSG_MASTERDATA_CONTROL': u'Master Data Control'
 	,'EXP_MASTERDATA_DEFINITION_FIELD': u'※All Master Data properties are defined here.'

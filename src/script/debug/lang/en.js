@@ -1983,4 +1983,7 @@ var _msg = {
 	,VMSG_TEMPLATE_CONFIRM_DELETE:'このテンプレートを削除しますか？'
 	,MSG_REQUIRE_FILE_TEMPLATE:'ファイルテンプレートは必須です。'
 	,MSG_REQUIRE_DISPLAY_NAME:'表示名は必須です。'
+	,ADD_MORE:'Add More'
+	,FILE_IS_NOT_SUPPORTED:'File error or is not supported. Please choose a valid file and try again !'
+	,SUBMIT:'Submit'
 };
