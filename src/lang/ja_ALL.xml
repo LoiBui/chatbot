@@ -3092,4 +3092,5 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="FILE_IS_NOT_SUPPORTED" js="on"><![CDATA[File error or is not supported. Please choose a valid file and try again !]]></msg>
 	<msg name="SUBMIT" js="on"><![CDATA[Submit]]></msg>
 	<msg name="ACTIONS"><![CDATA[Actions]]></msg>
+	<msg name="DOWNLOAD_METHOD"><![CDATA[Download method]]></msg>
 </messagebundle>
