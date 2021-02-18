@@ -311,6 +311,13 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		#
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		logging.warning("z00000000000000000 paginator question")
+		if not chat_session:
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+				"text": self.getMsg('MSG_PREVIOUS_SESSION_FINISHED')	
+			}, self.channel_config)
+			return
+    			
 		if 'arr_question' not in chat_session:
 			self.executeAction(tenant, lineworks_id, {
 				"type": "text",
