@@ -80,7 +80,7 @@
 				icon: Ext.MessageBox.WARNING,
 				fn: function(btn){
 					if(btn == 'ok'){
-						var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+						var loading = new Ext.LoadMask(Ext.getBody(), {msg:_msg.PLEASE_WAIT});
 						loading.show();
 						var frm = new FormData();
 						frm.append("unique_id", unique_id);
@@ -96,12 +96,12 @@
 								$("#ext-gen32").click();
 							}, 200);
 							if(!res.status){
-								Ext.Msg.alert("Notice", "Something went wrong");
+								Ext.Msg.alert("Notice", _msg.SOMETHING_WENT_WRONG);
 							}
 							loading.hide();
 						}).catch(e=>{
 							loading.hide();
-							Ext.Msg.alert("Notice", "Something went wrong");
+							Ext.Msg.alert("Notice", _msg.SOMETHING_WENT_WRONG);
 						})
 					}
 				}

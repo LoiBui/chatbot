@@ -1,0 +1,35 @@
+﻿[2021/02/18 09:57:26] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2021/02/18 09:57:26] Create message python file...:D:\loi\chatbot\src\sateraito_message.py
+[2021/02/18 09:57:26] [Compile Start]ajax.js
+[2021/02/18 09:57:28] [Compile Start]common.js
+[2021/02/18 09:57:29] [Compile Start]jkmegamenu.js
+[2021/02/18 09:57:30] [Compile Start]jquery.crossSelect.js
+[2021/02/18 09:57:31] [Compile Start]jquery.blockUI.js
+[2021/02/18 09:57:33] [Compile Start]json.js
+[2021/02/18 09:57:34] [Compile Start]ucfext.file.js
+[2021/02/18 09:57:35] [Compile Start]ucfext.js
+[2021/02/18 09:57:37] [Compile Start]ucfext_operator.js
+[2021/02/18 09:57:38] [Compile Start]ucfext_acs.js
+[2021/02/18 09:57:39] [Compile Start]ucfext_acslog.js
+[2021/02/18 09:57:40] [Compile Start]ucfext_operationlog.js
+[2021/02/18 09:57:42] [Compile Start]ucfext_config.js
+[2021/02/18 09:57:43] [Compile Start]ucfext_task.js
+[2021/02/18 09:57:44] [Compile Start]ucfext_field.js
+[2021/02/18 09:57:45] [Compile Start]ucfext_user.js
+[2021/02/18 09:57:46] [Compile Start]ucfext_group.js
+[2021/02/18 09:57:48] [Compile Start]ucfext.strength.js
+[2021/02/18 09:57:49] [Compile Start]xmleditor.js
+[2021/02/18 09:57:50] [Compile Start]init_backstretch.js
+[2021/02/18 09:57:52] [Compile Start]ext\PasswordStrength.js
+[2021/02/18 09:57:53] [Compile Start]ext\PopupGroupList.js
+[2021/02/18 09:57:54] [Compile Start]ext\PopupOrgUnitList.js
+[2021/02/18 09:57:56] [Compile Start]ext\SecurityKeyboard.js
+[2021/02/18 09:57:57] [Compile Start]ext\ucf_element_selector.js
+[2021/02/18 09:57:58] [Compile Start]lang\default.js
+[2021/02/18 09:57:59] [Compile Start]lang\ja.js
+[2021/02/18 09:58:01] [Compile Start]lang\en.js
+[2021/02/18 09:58:02] [Compile Start]ucfext_lineworks.js
+[2021/02/18 09:58:03] Expand Jinja Templates include files...
+[2021/02/18 09:58:03] Src:D:\loi\chatbot\src\templates
+[2021/02/18 09:58:03] Dst:D:\loi\chatbot\src\templates_automatically
+[2021/02/18 09:58:04] Expand Jinja Templates include files fin.

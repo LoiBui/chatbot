@@ -58,17 +58,17 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_task.js?{{version|safe}}"></script>
 	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_operationlog.js?{{version|safe}}"></script>
 	<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATIONLOG|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
-	<title>{{lang.EDIT_TEMPLATE}}</title>
+	<title>{{lang.ADD_TEMPLATE}}</title>
 	<script type="text/javascript">
 		var each_page_cnt = 20;
 		var store;
+
 		// ログテキストの詳細を表示
 		function dispLogTextDetail(unique_id) {
 			var record = store.getById(unique_id);
 			Ext.ucf.operationlog.dispLogTextDetail(record);
 		}
 
-		
 		function getSearchBaseParam(scond) {
 			var start = 0;
 			// 検索条件を上書き（画面に反映するためparamsではなく画面項目を上書き）
@@ -84,108 +84,13 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 
 			return params;
 		}
-		
-		
-		
 	</script>
 	<script type="text/javascript">
 		var currentSheet = null;
 		var tryChooseFile = false;
 		var gSheets = [];
-		var optimizeData = [];
-		var fileOptimize = JSON.parse(`{{file|safe}}`);
-		var fileBlobKey = fileOptimize.blob_store;
-		var filename = fileOptimize.filename;
-
-		
-		function reduce(data){
-			return data.reduce(function (r, a) {
-                r[a.sheet] = r[a.sheet] || [];
-                r[a.sheet].push(a);
-                return r;
-            }, Object.create(null));
-		}
-		$(function(){
-			function compare( a, b ) {
-				if ( a.created_date < b.created_date ){
-					return -1;
-				}
-				if ( a.created_date > b.created_date ){
-					return 1;
-				}
-				return 0;
-			}
-			const data = reduce(JSON.parse(`{{fileValue|safe}}`));
-			$.each(data, function( index, value ) {
-				var t = value.sort(compare);
-				optimizeData.push(t);
-			});
-			function init() {
-				console.log(fileOptimize)
-				$(`input[name=download_method][value='${fileOptimize['download_method']}']`).prop("checked",true);
-				$("#file-info").html(fileOptimize.filename);
-				// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
-				$.each(optimizeData, (index, value)=>{
-					gSheets.push([index, value[0].sheet_name]);
-				});
-
-				setTimeout(()=>{
-					Ext.getCmp('select_sheet1').store.loadData(gSheets);
-					Ext.getCmp('select_sheet1').setValue(0);
-					currentSheet = 0;
-				}, 20);
-				initTable();
-			}
-			init();
-
-
-			function initTable(){
-				
-				var xhtml = ``;
-				$.each(optimizeData, function(index, value){
-					xhtml += `<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${gSheets[index][1]}</p>
-											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
-												<tr class="tcus">
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_QUETION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_POSITION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_REQUIRE|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_OPTION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_DEAFULT|safe}}</th>
-													<th class="tcus str thcus" style="width: 100px;" >{{lang.ACTIONS|safe}}</th>
-												</tr>`
-					$.each(value, function(i, item){
-						xhtml += `	<tr class="tcus">
-										<th class="tcus">
-											<input type="text" value="${item.question}" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
-										</th>
-										<th class="tcus">
-											<input type="text" value="${item.location}" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
-										</th>
-										<th class="tcus">
-											<select class="csselect" name="require[]">
-												<option ${item.require == 0 ? 'selected' : ''} value="0">{{lang.NO|safe}}</option>
-												<option ${item.require == 1 ? 'selected' : ''} value="1">{{lang.YES|safe}}</option>
-											</select>
-										</th>
-										<th class="tcus">
-											<input type="text" value="${item.value}" name="value[]" class="inputtextcs" placeholder="30,40,50">
-										</th>
-										<th class="tcus">
-											<input type="text" value="${item.default}" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
-										</th>
-										<th class="tcus">
-											<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
-										</th>
-									</tr>`;
-					});
-
-					xhtml += `</table>`;
-											
-											
-				});
-				$("#table_sheet").append(xhtml);
-			}
-		})
+		var fileBlobKey = null;
+		var filename = null;
 
 		function createSelectSheetComboBox(){
 			// if(tryChooseFile){
@@ -203,22 +108,21 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				$("#label_question"+currentSheet).removeClass("d-none")
 			});
 
-
-			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', fileOptimize.display_name, '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
+			var FIELD_sk_display_name = Ext.ucf.field.createTextField2('FILED_display_name', 'FILED_display_name', '', '{{lang.FULLTEXT_SEARCH|safe|escapejs}}', 200, null);
 			FIELD_sk_display_name.render('display_name');
 		}
-		
 
-		var loading = new Ext.LoadMask(Ext.getBody(), {msg:_msg.PLEASE_WAIT});
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg: _msg.VMSG_MSG_PROCESSING});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
 
 		var btnReset = new Ext.Button({
-			text:'&nbsp;&nbsp;&nbsp;&nbsp;{{lang.SUBMIT|safe|escapejs}}&nbsp;&nbsp;&nbsp;&nbsp;',
+			text:'&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;',
 			handler:function(){
 				var dataTable = [];
-				if(fileBlobKey == null){
+				var file = document.getElementById('file_template').files[0];
+				if(fileBlobKey === null){
 					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					return;
 				}
@@ -271,11 +175,9 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				frmData.append("file", fileBlobKey);
 				frmData.append("filename", filename);
 				frmData.append("sheetName", JSON.stringify(gSheets))
-				frmData.append("unique_id", '{{unique_id}}')
 				frmData.append("display_name", Ext.ucf.getElementValue('FILED_display_name'))
-				frmData.append("download_method", parseInt($("input[type='radio'][name='download_method']:checked").val()));
 				loading.show();
-				fetch('{{vurl|safe}}submit_edit_template', {
+				fetch('{{vurl|safe}}submit_template', {
 					method: "post",
 					body: frmData
 				})
@@ -304,7 +206,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: _msg.BUTTON_ACTION_ADD,
+				text: 'Add More',
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
@@ -314,19 +216,19 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 		<input type="text" name="question" placeholder="例:あなたの性別は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option> 
+			<option value="0">No</option>
+			<option value="1">Yes</option> 
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -339,11 +241,11 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 		function errFile(){
 			loading.hide();
 			document.getElementById("file-info").innerText = "";
-			Ext.Msg.alert("Notice", _msg.FILE_IS_NOT_SUPPORTED);
+			Ext.Msg.alert("Notice", "File error or is not supported. Please choose a valid file and try again !");
 			Ext.getCmp('select_sheet1').store.loadData([]);
 			Ext.getCmp('select_sheet1').reset()
 		}
-		
+
 		function getBlobLink(){
 			return new Promise((resolve, reject)=>{
 				fetch('{{vurl|safe}}get_blob_link', {
@@ -379,7 +281,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 					Ext.getCmp('select_sheet1').setValue(0);
 					currentSheet = 0;
 					$("#file-info").html(fileInfo);
-					filename = fileInfo;
+
 					renderTable(sheets);
 					resolve();
 				}).catch(function(e){
@@ -402,7 +304,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				return;
 			}
 			const fileInfo = file.name + " - " + file.size/1000 + "kB";
-
+			filename = fileInfo;
 			var formExcel = new FormData();
 			formExcel.append("file", file);
 			formExcel.append("oldBlobStore", fileBlobKey);
@@ -414,6 +316,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				}).then(resp => {
 					return resp.text();
 				}).then(res=>{
+					
 					fileBlobKey = res;
 				})
 			});
@@ -426,34 +329,34 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 			$("#table_sheet").html(``);
 			sheets.forEach((element, index) => {
 				$("#table_sheet").append(`	
-											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
-											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
-											<tr class="tcus">
-	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_QUETION|safe}}</th>
-	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_POSITION|safe}}</th>
-	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_REQUIRE|safe}}</th>
-	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_OPTION|safe}}</th>
-	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_DEAFULT|safe}}</th>
+				<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
+				<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+				<tr class="tcus">
+	<th class="tcus str thcus">チャットボット質問</th>
+	<th class="tcus str thcus">挿入セル</th>
+	<th class="tcus str thcus">必須？</th>
+	<th class="tcus str thcus">選択肢</th>
+	<th class="tcus str thcus">初期値</th>
 	<th class="tcus str thcus" style="width: 110px;"></th>
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option>
+			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -461,22 +364,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option>
+			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -484,22 +387,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option>
+			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -507,22 +410,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option>
+			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -530,39 +433,30 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">{{lang.NO|safe}}</option>
-			<option value="1">{{lang.YES|safe}}</option>
+			<option value="0">No</option>
+			<option value="1">Yes</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
 	</th>
 </tr>
-											</table>`);
+				</table>`);
 			});
 		}
-		$(function(){
-			$("body").on("click", ".btn-del", function(){
-				if($(".btn-del").length == 1){
-					Ext.Msg.alert("Notice", _msg.TABLE_CAN_NOT_EMPTY);
-					return;
-				}
-				$(this).closest('tr').remove();
-			});
-		});
 		
 	</script>
 	{#
@@ -699,14 +593,12 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 					<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
 					<!-- rightArea innerArea//start -->
 					<div class="innerArea01" style="min-height: 70vh;">
-						<p class="ttl">{{lang.EDIT_TEMPLATE}}</p>
+						<p class="ttl">{{lang.ADD_TEMPLATE}}</p>
 						<table class="acs_layout">
 							<tr>
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
 										<div style="width: 40%;">
-											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
-											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
 											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE}}</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
@@ -720,7 +612,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 														border: 1px solid #bbbbbb;
 														cursor: pointer;
 														margin-left: 8px;">
-															<img width="80" src="/images/microsoft-excel.png?{{version|safe}}" alt="">
+															<img src="/images/microsoft-excel.png" alt="">
 														</div>
 													</label>
 												</div>
@@ -730,15 +622,8 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 											
 											<!-- <div id="select_sheet"></div> -->
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
-											<p class="text-left">{{lang.DOWNLOAD_METHOD|safe}}:</p>
-											<div style="margin-left: 8px; margin-bottom: 5px;text-align: left;">
-												<input type="radio" id="pdf" name="download_method" value="1">
-												<label for="pdf" style="font-size: 80%;">PDF</label><br>
-												<input type="radio" id="excel" name="download_method" value="2">
-												<label for="excel" style="font-size: 80%;">Excel</label><br>
-												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
-											</div>
+											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
+											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
 										</div>
 										<div style="width: 60%;" id="iframe">
 											

@@ -3,8 +3,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 
 <head>
-	{% include "./include/headparts.html" %}
-	{% include "./include/headparts2.html" %}
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+{#
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+#}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="copyright" content="Copyright (c) All rights reserved by Sateraito Office, Inc." />
+<LINK href="/images/oem/{{oem_company_code}}/favicon.ico" rel="SHORTCUT ICON" />
+<LINK href="/images/oem/{{oem_company_code}}/apple-touch-icon.png" rel="apple-touch-icon" />
+<script type="text/javascript" src="{{vscripturl}}lang/{{language}}.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.json.js" ></script>
+<script type="text/javascript" src="{{vscripturl}}jquery.timer.js" ></script>
+<link rel="stylesheet" type="text/css" href="/ext/resources/css/ext-all.css" />
+<script type="text/javascript" src="/ext/adapter/jquery/ext-jquery-adapter.js" ></script>
+<script type="text/javascript" src="/ext/ext-all.js" ></script>
+<script type="text/javascript" src="/ext/ext-chrome-grid-hack.js" ></script>
+<script type="text/javascript" src="/ext/src/locale/{{ extjs_locale_file }}" charset="utf-8"></script>
+<script type="text/javascript" src="/static/jquery.autosize-min.js"></script>
+<script type="text/javascript" src="{{vscripturl}}common.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext.js?{{version}}" ></script>
+<script type="text/javascript" src="{{vscripturl}}ucfext_field.js?{{version}}" ></script>
+<script type="text/javascript" >
+<!-- 
+Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
+//-->
+</script>
+{#- // 動的な変数作成 -#}
+<script type="text/javascript" >
+	var _vurl = '{{vurl|escapejs}}';
+	var _my_site_url = '{{my_site_url|escapejs}}';
+</script>
+{#
+<link rel="stylesheet" href="/css/common.css" type="text/css" />
+#}
+<link rel="stylesheet" href="/css/reset.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/base.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/style.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/uc-ext-all.css?{{version}}" type="text/css" />
+<link rel="stylesheet" href="/css/template.css?{{version}}" type="text/css" />
+	<script type="text/javascript">
+<!--
+//-->
+</script>
+
 	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_task.js?{{version|safe}}"></script>
 	<script type="text/javascript" src="{{vscripturl|safe}}ucfext_operationlog.js?{{version|safe}}"></script>
 	<!-- <title>{{lang.VMSG_SITE_TITLE_OPERATIONLOG|safe}} - {% if sp_code == 'worksmobile': %}{{lang.HTML_TITLE_WORKSMOBILE}}{%else:%}{{lang.HTML_TITLE}}{%endif%}</title> -->
@@ -96,32 +146,32 @@
 					xhtml += `<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${gSheets[index][1]}</p>
 											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
 												<tr class="tcus">
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_QUETION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_POSITION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_REQUIRE|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_OPTION|safe}}</th>
-													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_DEAFULT|safe}}</th>
+													<th class="tcus str thcus">チャットボット質問</th>
+													<th class="tcus str thcus">挿入セル</th>
+													<th class="tcus str thcus">必須？</th>
+													<th class="tcus str thcus">選択肢</th>
+													<th class="tcus str thcus">初期値</th>
 													<th class="tcus str thcus" style="width: 100px;" >{{lang.ACTIONS|safe}}</th>
 												</tr>`
 					$.each(value, function(i, item){
 						xhtml += `	<tr class="tcus">
 										<th class="tcus">
-											<input type="text" value="${item.question}" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
+											<input type="text" value="${item.question}" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
 										</th>
 										<th class="tcus">
-											<input type="text" value="${item.location}" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
+											<input type="text" value="${item.location}" name="location[]" class="inputtextcs" placeholder="例:C7">
 										</th>
 										<th class="tcus">
 											<select class="csselect" name="require[]">
-												<option ${item.require == 0 ? 'selected' : ''} value="0">{{lang.NO|safe}}</option>
-												<option ${item.require == 1 ? 'selected' : ''} value="1">{{lang.YES|safe}}</option>
+												<option ${item.require == 0 ? 'selected' : ''} value="0">No</option>
+												<option ${item.require == 1 ? 'selected' : ''} value="1">Yes</option>
 											</select>
 										</th>
 										<th class="tcus">
 											<input type="text" value="${item.value}" name="value[]" class="inputtextcs" placeholder="30,40,50">
 										</th>
 										<th class="tcus">
-											<input type="text" value="${item.default}" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
+											<input type="text" value="${item.default}" name="default[]" class="inputtextcs" placeholder="例:サテライト">
 										</th>
 										<th class="tcus">
 											<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -159,7 +209,7 @@
 		}
 		
 
-		var loading = new Ext.LoadMask(Ext.getBody(), {msg:_msg.PLEASE_WAIT});
+		var loading = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
 		Ext.onReady(function () {
 			Ext.QuickTips.init();
 			Ext.ucf.init();
@@ -254,12 +304,34 @@
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: _msg.BUTTON_ACTION_ADD,
+				text: 'Add More',
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					}
-					$("#table_question"+currentSheet).append(`{% include "./template_table_tr.html" %}`);
+					$("#table_question"+currentSheet).append(`<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question" placeholder="例:あなたの性別は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option> 
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>`);
 				}
 			}).render('button-add-more');// where you want to render
 		})
@@ -356,14 +428,136 @@
 				$("#table_sheet").append(`	
 											<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
 											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
-											{% include "./template_table.html" %}
+											<tr class="tcus">
+	<th class="tcus str thcus">チャットボット質問</th>
+	<th class="tcus str thcus">挿入セル</th>
+	<th class="tcus str thcus">必須？</th>
+	<th class="tcus str thcus">選択肢</th>
+	<th class="tcus str thcus">初期値</th>
+	<th class="tcus str thcus" style="width: 110px;"></th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>
+<tr class="tcus">
+	<th class="tcus">
+		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+	</th>
+	<th class="tcus">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+	</th>
+	<th class="tcus">
+		<select class="csselect" name="require[]">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+	</th>
+	<th class="tcus">
+		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
+	</th>
+	<th class="tcus">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+	</th>
+	<th class="tcus">
+		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
+	</th>
+</tr>
 											</table>`);
 			});
 		}
 		$(function(){
 			$("body").on("click", ".btn-del", function(){
 				if($(".btn-del").length == 1){
-					Ext.Msg.alert("Notice", _msg.TABLE_CAN_NOT_EMPTY);
+					Ext.Msg.alert("Notice", "Table can't empty.");
 					return;
 				}
 				$(this).closest('tr').remove();
@@ -371,21 +565,132 @@
 		});
 		
 	</script>
-	{% include "./include/external_analysis_head.html" %}
+	{#
+<script type="text/javascript">
+</script>
+#}
 	
 </head>
 
 <body>
 	<!-- contentsArea//start -->
 	<div id="contentsArea">
-		{% include "./include/header.html" %}
+		<!-- header//start -->
+<link rel="stylesheet" type="text/css" href="/css/jkheadmenu.css" />
+<!--<script type="text/javascript" src="{{vscripturl}}jkmegamenu.js" > -->
+<!--/***********************************************-->
+<!--* jQuery Mega Menu- by JavaScript Kit (www.javascriptkit.com)-->
+<!--* This notice must stay intact for usage-->
+<!--* Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code-->
+<!--***********************************************/-->
+<!--</script> -->
+<!--<script type="text/javascript"> -->
+<!--jkmegamenu.definemenu("headmenu_service", "submenu_service", "mouseover");-->
+<!--</script> -->
+<div id="header">
+<div id="headerArea">
+<img src="{{vurl}}picture/logo" height="44px" alt="Sateraito Office Project" border="0" />
+<div class="hRnavi">
+<p class="mail">
+{{login.mail_address}}
+</p>
+<ul>
+<li><a href="{{vurl}}personal/">{{lang.VMSG_PERSONAL}}</a></li>
+<li>
+{% if language == 'ja': %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% else: %}
+<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/fileup" target="_blank" >{{lang.VMSG_HELP}}</a>
+{% endif %}
+</li>
+<li><a href="JavaScript:location.href='{{vurl}}logout';">{{lang.VMSG_LOGOUT}}</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+<!-- headerGnavi//start -->
+<div id="headerGnavi">
+<ul>
+{% if 'ADMIN' in login.access_authority:%}
+    <li class="panelOff {% if ucfp.data.gnaviid == 'DASHBOARD' %}current{% endif %} " ><a href="{{vurl}}">{{lang.VMSG_DASHBOARD}}</a></li>
+    <li class="panelOff {% if ucfp.data.gnaviid == 'TEMPLATE' %}current{% endif %} " ><a href="{{vurl}}template">{{lang.TEMPLATE}}</a></li>
+{% elif 'OPERATOR' in login.access_authority: %}
+
+{% endif %}
+</ul>
+<div class="clear"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- headerGnavi//end -->
+</div>
+<!-- header//end -->
+
 		<!-- mainArea//start -->
 		<div id="mainArea" class="{{leftmenu_class}}">
-			{% include "./include/index_leftmenu_template.html" %}
+			<!-- leftMenu//start -->
+<div id="leftMenu">
+    {% if 'ADMIN' in login.access_authority: %}
+    <!-- leftMenu menu01//start -->
+    <div class="menu01">
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <!-- leftMenu innerArea//start -->
+        <div class="innerArea">
+            <p class="ttl">{{lang.TEMPLATE_SETTING}}</p>
+            <div class="folderMenu">
+                <ul>
+                    <li class="{% if ucfp.data.leftmenuid == 'INDEX' %}current open{% else %}close{% endif %}"><a
+                            href="{{vurl}}template">{{lang.LIST_TEMPLATE}}</a></li>
+                    <li class="{% if ucfp.data.leftmenuid == 'ADD' %}current open{% else %}close{% endif %}"><a href="{{vurl}}add_template">{{lang.ADD_TEMPLATE}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- leftMenu innerArea//end -->
+        <div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+        <div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+    </div>
+    <!-- leftMenu menu01//end -->
+    {% endif %}
+</div>
 			<!-- rightArea//start -->
 			<div id="rightArea">
-				{% include "./include/attention.html" %}
-				{% include "./include/explain.html" %}
+				{% if ucfp.data.attentions %}
+<!-- rightArea attention//start -->
+<div class="attention">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.attentions %}
+<p>{{exp|safe}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea attentions//end -->
+{% endif %}
+
+				{% if ucfp.data.explains %}
+<!-- rightArea explain//start -->
+<div class="explain">
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="innerArea">
+{% for exp in ucfp.data.explains %}
+<p>{{exp}}</p>
+{% endfor %}
+</div>
+<div class="boxRound2"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound1"><img src="/images/spacer.gif" alt="" /></div>
+<div class="boxRound0"><img src="/images/spacer.gif" alt="" /></div>
+</div>
+<!-- rightArea explain//end -->
+{% endif %}
+
 
 				<!-- rightArea contentsL//start -->
 				<div class="contentsL">
@@ -415,7 +720,7 @@
 														border: 1px solid #bbbbbb;
 														cursor: pointer;
 														margin-left: 8px;">
-															<img width="80" src="/images/microsoft-excel.png?{{version|safe}}" alt="">
+															<img width="80" src="/images/microsoft-excel.png" alt="">
 														</div>
 													</label>
 												</div>
@@ -432,7 +737,7 @@
 												<input type="radio" id="excel" name="download_method" value="2">
 												<label for="excel" style="font-size: 80%;">Excel</label><br>
 												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
+												<label for="other" style="font-size: 80%;">ユーザーに選択</label>
 											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">
@@ -467,7 +772,23 @@
 				<!-- rightArea contentsL//start -->
 			</div>
 			<!-- rightArea//end -->
-			{% include "./include/footer.html" %}
+			<!-- footerArea//start -->
+<div id="footerArea">
+<iframe id="dummy_frame" style="width:0px;height:0px;display:none;"></iframe>
+<div class="footTxt">
+<p>
+{{lang.FILEUP_EXPLAIN_COMMON_FOOTER|safe}}
+</p>
+</div>
+<address class="copyright">Copyright &copy; All rights reserved by Sateraito Office, Inc.</address>
+<ul>
+<li style="margin-top:2px;"><a href="{{vurl}}">{{lang.VMSG_TOPPAGE}}</a></li>
+<li>
+</li>
+</ul>
+</div>
+<!-- footerArea//end -->
+
 			<div class="clear"></div>
 		</div>
 		<!-- mainArea//end -->

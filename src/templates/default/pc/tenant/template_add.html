@@ -73,7 +73,7 @@
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];
 				if(fileBlobKey === null){
-					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
+					Ext.Msg.alert(_msg.NOTICE, _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					return;
 				}
 				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
@@ -157,7 +157,7 @@
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: _msg.ADD_MORE,
+				text: _msg.BUTTON_ACTION_ADD,
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
@@ -303,9 +303,9 @@
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
 										<div style="width: 40%;">
-											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
+											<p class="text-left">{{lang.VMSG_DISPLAY_NAME|safe}}:</p>
 											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
-											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE}}</b></p>
+											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE|safe}}</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
 													<label for="file_template">
@@ -315,7 +315,7 @@
 														align-items: center;
 														justify-content: center;
 														border-radius: 5px;
-														border: 1px solid #1e6f43;
+														border: 1px solid #bbbbbb;
 														cursor: pointer;
 														margin-left: 8px;">
 															<img width="80" src="/images/microsoft-excel.png" alt="">
@@ -335,7 +335,7 @@
 												<input type="radio" id="excel" name="download_method" value="2">
 												<label for="excel" style="font-size: 80%;">Excel</label><br>
 												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">ユーザーに選択</label>
+												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
 											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">

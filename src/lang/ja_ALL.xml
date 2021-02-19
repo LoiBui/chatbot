@@ -2900,7 +2900,7 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="EXP_OPERATOR_CONFIG"><![CDATA[ダッシュボードにログインしてダイレクトクラウドボックスのAPIやチャットボットの設定などを行う管理ユーザーを登録します。]]></msg>
 
 	<!--	For FileUp 2020-06-19	-->
-	<msg name="YES"><![CDATA[はい]]></msg>
+	<msg name="YES" js="on"><![CDATA[はい]]></msg>
 	<msg name="LINEWORKSAPI_DOMAIN_ID" js="on"><![CDATA[ドメインID]]></msg>
 	<msg name="LINEWORKSAPI_TENANT_ID" js="on"><![CDATA[テナントID]]></msg>
 	<msg name="EXP_LINEWORKSAPI_CONFIG1" js="on"><![CDATA[LINE WORKS のAPI設定を行うと、LINE WORKS チャットからファイルサーバー保存機能をご利用いただけるようになります。]]></msg>
@@ -3071,7 +3071,7 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="CHOOSE_TEMPLATE"><![CDATA[テンプレート選択]]></msg>
 	<msg name="HELP_MESSAGE"><![CDATA[リッチメニューからテンプレートを選択できます。]]></msg>
 	<msg name="VMSG_TEMPLATE_CONFIRM_DELETE" js="on"><![CDATA[このテンプレートを削除しますか？]]></msg>
-	<msg name="NO"><![CDATA[いいえ]]></msg>
+	<msg name="NO" js="on"><![CDATA[いいえ]]></msg>
 
 	<msg name="MSG_PREVIOUS_SESSION_FINISHED"><![CDATA[前のセッションは終了しました。]]></msg>
 	<msg name="MSG_FOLLOW_CURRENT_PROCESS"><![CDATA[前のセッションは終了しました。現在のプロセスに沿って続けてください。]]></msg>
@@ -3082,15 +3082,26 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="MSG_FILE_TEMPLATE"><![CDATA[ファイルテンプレート]]></msg>
 	<msg name="MSG_REQUIRE_FILE_TEMPLATE" js="on"><![CDATA[ファイルテンプレートは必須です。]]></msg>
 	<msg name="MSG_REQUIRE_DISPLAY_NAME" js="on"><![CDATA[表示名は必須です。]]></msg>
-	<msg name="YOUR_CHOICES_ARE_NOT_APPROPRIATE"><![CDATA[Your choices are not appropriate]]></msg>
-	<msg name="HAS_CANNCED_YOUR_RESPONSIVE"><![CDATA[Has canceled your responses]]></msg>
-	<msg name="YOUR_CHOICES_ARE_NOT_APPROPRIATE"><![CDATA[Your choices are not appropriate]]></msg>
-	<msg name="QUESTION"><![CDATA[Question]]></msg>
-	<msg name="PLEASE_CHOOSE_QUESTION_BELOW"><![CDATA[Please choose question below]]></msg>
-	<msg name="CLICK_CANCEL_IN_THE_QUESTION"><![CDATA[Click cancel in the question list to select another sheet or file.]]></msg>
-	<msg name="ADD_MORE" js="on"><![CDATA[Add More]]></msg>
-	<msg name="FILE_IS_NOT_SUPPORTED" js="on"><![CDATA[File error or is not supported. Please choose a valid file and try again !]]></msg>
-	<msg name="SUBMIT" js="on"><![CDATA[Submit]]></msg>
-	<msg name="ACTIONS"><![CDATA[Actions]]></msg>
-	<msg name="DOWNLOAD_METHOD"><![CDATA[Download method]]></msg>
+	<msg name="YOUR_CHOICES_ARE_NOT_APPROPRIATE"><![CDATA[あなたの選択は適切ではありません。]]></msg>
+	<msg name="HAS_CANNCED_YOUR_RESPONSIVE"><![CDATA[回答をキャンセルしました。]]></msg>
+	<msg name="QUESTION"><![CDATA[質問]]></msg>
+	<msg name="PLEASE_CHOOSE_QUESTION_BELOW"><![CDATA[以下の質問を選択してください]]></msg>
+	<msg name="CLICK_CANCEL_IN_THE_QUESTION"><![CDATA[質問リストで「キャンセル」をクリックして、別のシートまたはファイルを選択します。]]></msg>
+	<msg name="FILE_IS_NOT_SUPPORTED" js="on"><![CDATA[このファイルはエラーであるか、サポートされていません。 有効なファイルを選択して、再試行してください。]]></msg>
+	<msg name="SUBMIT" js="on"><![CDATA[登録]]></msg>
+	<msg name="DOWNLOAD_METHOD"><![CDATA[ダウンロード形式]]></msg>
+	
+	<msg name="CHATBOT_QUESTION"><![CDATA[例:あなたの年齢は？]]></msg>
+	<msg name="CHATBOT_POSITION"><![CDATA[例:C7]]></msg>
+	<msg name="CHATBOT_DEFAULT"><![CDATA[例:サテライト]]></msg>
+
+	<msg name="CHATBOT_HEADER_QUETION"><![CDATA[チャットボット質問]]></msg>
+	<msg name="CHATBOT_HEADER_POSITION"><![CDATA[挿入セル]]></msg>
+	<msg name="CHATBOT_HEADER_REQUIRE"><![CDATA[必須？]]></msg>
+	<msg name="CHATBOT_HEADER_OPTION"><![CDATA[選択肢]]></msg>
+	<msg name="CHATBOT_HEADER_DEAFULT"><![CDATA[初期値]]></msg>
+	<msg name="PLEASE_WAIT" js="on"><![CDATA[処理中...]]></msg>
+	<msg name="SOMETHING_WENT_WRONG" js="on"><![CDATA[失敗]]></msg>
+	<msg name="TABLE_CAN_NOT_EMPTY" js="on"><![CDATA[Table can't empty.]]></msg>
+	<msg name="DOWNLOAD_BOTH" ><![CDATA[ユーザーに選択]]></msg>
 </messagebundle>

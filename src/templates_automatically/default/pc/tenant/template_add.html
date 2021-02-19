@@ -123,7 +123,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				var dataTable = [];
 				var file = document.getElementById('file_template').files[0];
 				if(fileBlobKey === null){
-					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
+					Ext.Msg.alert(_msg.NOTICE, _msg.MSG_REQUIRE_FILE_TEMPLATE);
 					return;
 				}
 				if(Ext.ucf.getElementValue('FILED_display_name').trim() == ""){
@@ -207,7 +207,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 
 			createSelectSheetComboBox()
 			new Ext.Button({
-				text: _msg.ADD_MORE,
+				text: _msg.BUTTON_ACTION_ADD,
 				handler: function(){
 					if(currentSheet == null){
 						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
@@ -217,19 +217,19 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 		<input type="text" name="question" placeholder="例:あなたの性別は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option> 
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option> 
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -333,31 +333,31 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 				<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${element[1]}</p>
 				<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
 				<tr class="tcus">
-	<th class="tcus str thcus">チャットボット質問</th>
-	<th class="tcus str thcus">挿入セル</th>
-	<th class="tcus str thcus">必須？</th>
-	<th class="tcus str thcus">選択肢</th>
-	<th class="tcus str thcus">初期値</th>
-	<th class="tcus str thcus" style="width: 110px;">{{lang.ACTIONS|safe|escapejs}}</th>
+	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_QUETION|safe}}</th>
+	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_POSITION|safe}}</th>
+	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_REQUIRE|safe}}</th>
+	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_OPTION|safe}}</th>
+	<th class="tcus str thcus">{{lang.CHATBOT_HEADER_DEAFULT|safe}}</th>
+	<th class="tcus str thcus" style="width: 110px;"></th>
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -365,22 +365,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -388,22 +388,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -411,22 +411,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -434,22 +434,22 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 </tr>
 <tr class="tcus">
 	<th class="tcus">
-		<input type="text" name="question[]" placeholder="例:あなたの年齢は？" class="inputtextcs">
+		<input type="text" name="question[]" placeholder="{{lang.CHATBOT_QUESTION|safe}}" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option>
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option>
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
@@ -608,9 +608,9 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 								<td class="layout_td layout_td_all2">
 									<div class="d-flex">
 										<div style="width: 40%;">
-											<p class="text-left">{{lang.VMSG_DISPLAY_NAME}}:</p>
+											<p class="text-left">{{lang.VMSG_DISPLAY_NAME|safe}}:</p>
 											<div id="display_name" style="margin-left: 8px; margin-bottom: 5px;text-align: left;"></div>
-											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE}}</b></p>
+											<p style="text-align: left;"><b>{{lang.MSG_FILE_TEMPLATE|safe}}</b></p>
 											<div style="text-align: left;">
 												<div style="width: 100px;">
 													<label for="file_template">
@@ -620,7 +620,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 														align-items: center;
 														justify-content: center;
 														border-radius: 5px;
-														border: 1px solid #1e6f43;
+														border: 1px solid #bbbbbb;
 														cursor: pointer;
 														margin-left: 8px;">
 															<img width="80" src="/images/microsoft-excel.png" alt="">
@@ -633,14 +633,14 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 											
 											<!-- <div id="select_sheet"></div> -->
 											<div id="select_sheet" style="margin-left: 8px; margin-bottom: 5px;"></div>
-											<p class="text-left">{{lang.DOWNLOAD_METHOD|safe|escapejs}}:</p>
+											<p class="text-left">{{lang.DOWNLOAD_METHOD|safe}}:</p>
 											<div style="margin-left: 8px; margin-bottom: 5px;text-align: left;">
 												<input type="radio" id="pdf" name="download_method" value="1">
 												<label for="pdf" style="font-size: 80%;">PDF</label><br>
 												<input type="radio" id="excel" name="download_method" value="2">
 												<label for="excel" style="font-size: 80%;">Excel</label><br>
 												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">ユーザーに選択</label>
+												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
 											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">

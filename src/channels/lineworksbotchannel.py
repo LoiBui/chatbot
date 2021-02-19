@@ -406,7 +406,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			self.executeAction(tenant, lineworks_id, payload, self.channel_config)
 		elif step == 2:
 			logging.warning("zoooooooooo step2")
-			logging.warning(postback)
 			postback = postback.split("_@")[0]
 			self.step3(postback, tenant, lineworks_id, contents['content']['text'], rule_id, contents['content']['text'])
 		elif step == 3:
@@ -461,6 +460,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 			if item['question'] != '':
 				newQuestion.append(item)
 		return newQuestion
+	
 	def findIndexQuestion(self, alias, questions):
 		question = {}
 		for idx, item in enumerate(questions):
@@ -469,7 +469,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				question['data'] = item
 				break
 		return question
-    				
 
 	def showFinish(self, tenant, lineworks_id, rule_id, chat_session):
 		chat_session['is_confirm'] = True
@@ -564,7 +563,7 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		else:
 			payload = None
 			if int(question['require']) == 1 and question['require'].strip() == '':
-    				payload = {
+				payload = {
 					"type": "text",
 					"text": question['question']
 				}
@@ -638,7 +637,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 		chat_session = self.getChatSessionId(tenant, lineworks_id, rule_id, self._language, self._oem_company_code)
 		if 'is_confirm' in chat_session and chat_session['is_confirm']:
 			try:
-				logging.warning(chat_session)
 				data = chat_session['data_answer']
 				question = lineworks_func.findQuestionByAlias(data.keys()[-1])
 				
@@ -690,8 +688,6 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 						"text": "ERROR"
 					}, self.channel_config)
 			except Exception, e:
-				logging.warning(111111111)
-				logging.warning(e)
 				self.executeAction(tenant, lineworks_id, {
 					"type": "text",
 	    			"text": self.getMsg('MSG_PREVIOUS_SESSION_FINISHED')

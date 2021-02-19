@@ -3,19 +3,19 @@
 		<input type="text" name="question" placeholder="例:あなたの性別は？" class="inputtextcs">
 	</th>
 	<th class="tcus">
-		<input type="text" name="location[]" class="inputtextcs" placeholder="例:C7">
+		<input type="text" name="location[]" class="inputtextcs" placeholder="{{lang.CHATBOT_POSITION|safe}}">
 	</th>
 	<th class="tcus">
 		<select class="csselect" name="require[]">
-			<option value="0">No</option>
-			<option value="1">Yes</option> 
+			<option value="0">{{lang.NO|safe}}</option>
+			<option value="1">{{lang.YES|safe}}</option> 
 		</select>
 	</th>
 	<th class="tcus">
 		<input type="text" name="value[]" class="inputtextcs" placeholder="30,40,50">
 	</th>
 	<th class="tcus">
-		<input type="text" name="default[]" class="inputtextcs" placeholder="例:サテライト">
+		<input type="text" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
 	</th>
 	<th class="tcus">
 		<a class="btn-del" style="text-align: center; display: block;" href="javascript:void(0)"><input type="button" value="" class="btnTrash"/></a>
