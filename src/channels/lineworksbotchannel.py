@@ -607,7 +607,18 @@ class ChannelLineWorksBOT(ChannelBase, TenantWebHookAPIHelper):
 				"text": self.getMsg('YOUR_CHOICES_ARE_NOT_APPROPRIATE')
 			}, self.channel_config)	
 			return 
-		if question['value'].strip() != '':
+		logging.warning(question)
+		logging.warning(data)
+		logging.warning(chat_session)
+
+		if ('current_question' in chat_session and alias_question != chat_session['current_question']):
+			self.executeAction(tenant, lineworks_id, {
+				"type": "text",
+				"text": self.getMsg('YOUR_ANSWER_IS_INVALID')
+			}, self.channel_config)
+			return
+		logging.warning(((question['require'] != 0 and data['text'] != self.getMsg('SKIP'))))
+		if (question['require'] != 0 and data['text'] != self.getMsg('SKIP')) and question['value'].strip() != '':
 			arrCheck = question['value'].strip().split(",")
 			if data['text'] not in arrCheck:
 				self.executeAction(tenant, lineworks_id, {

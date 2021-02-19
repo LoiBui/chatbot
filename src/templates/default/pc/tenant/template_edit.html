@@ -326,7 +326,7 @@
 
 			var file = document.getElementById('file_template').files[0];
 			if(typeof file == 'undefined') {
-				fileBlobKey = null;
+				loading.hide();
 				return;
 			}
 			const fileInfo = file.name + " - " + file.size/1000 + "kB";
