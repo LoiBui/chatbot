@@ -1,0 +1,9 @@
+﻿[2021/03/10 14:45:34] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+[2021/03/10 14:45:34] Create message python file...:D:\loi\chatbot\src\sateraito_message.py
+[2021/03/10 14:45:34] [Compile Start]lang\default.js
+[2021/03/10 14:45:36] [Compile Start]lang\ja.js
+[2021/03/10 14:45:37] [Compile Start]lang\en.js
+[2021/03/10 14:45:39] Expand Jinja Templates include files...
+[2021/03/10 14:45:39] Src:D:\loi\chatbot\src\templates
+[2021/03/10 14:45:39] Dst:D:\loi\chatbot\src\templates_automatically
+[2021/03/10 14:45:40] Expand Jinja Templates include files fin.

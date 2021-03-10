@@ -1981,7 +1981,7 @@ var _msg = {
 	,SUBMIT:'登録'
 	,PLEASE_WAIT:'処理中...'
 	,SOMETHING_WENT_WRONG:'失敗'
-	,TABLE_CAN_NOT_EMPTY:'Table can\'t empty.'
+	,TABLE_CAN_NOT_EMPTY:'テーブルにデータがありません'
 	,DELETE:'Delete'
 	,EXP_LINEWORKSAPI_CONFIG:'*Configure several keys for access to LINE WORKS Talk BOT API.<br/>Set the key generated on <a href="https://developers.worksmobile.com/console/openapi/main" target="_blank">LINE WORKS Developer Console</a> API Setting page. See more details<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/chatmagazine#LINEWORKSCHANNEL" target="_blank">here</a>'
 	,MSG_VC_INCLUDE_INVALID_CHAR2:'You may not use charactor in "%s".'

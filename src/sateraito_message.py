@@ -1,4 +1,4 @@
-﻿# ※本ソースは自動生成されたものです 2/18/2021 7:38:19 PM
+﻿# ※本ソースは自動生成されたものです 3/10/2021 2:47:24 PM
 
 #!/usr/bin/python
 # coding: utf-8
@@ -2674,7 +2674,7 @@ LANGUAGES = {
 	,'CHATBOT_HEADER_DEAFULT': u'初期値'
 	,'PLEASE_WAIT': u'処理中...'
 	,'SOMETHING_WENT_WRONG': u'失敗'
-	,'TABLE_CAN_NOT_EMPTY': u'Table can\'t empty.'
+	,'TABLE_CAN_NOT_EMPTY': u'テーブルにデータがありません'
 	,'DOWNLOAD_BOTH': u'ユーザーに選択'
 },
 
@@ -5332,7 +5332,7 @@ LANGUAGES = {
 	,'CHATBOT_HEADER_DEAFULT': u'初期値'
 	,'PLEASE_WAIT': u'処理中...'
 	,'SOMETHING_WENT_WRONG': u'失敗'
-	,'TABLE_CAN_NOT_EMPTY': u'Table can\'t empty.'
+	,'TABLE_CAN_NOT_EMPTY': u'テーブルにデータがありません'
 	,'DOWNLOAD_BOTH': u'ユーザーに選択'
 	,'EXP_LINEWORKSAPI_CONFIG': u'*Configure several keys for access to LINE WORKS Talk BOT API.<br/>Set the key generated on <a href="https://developers.worksmobile.com/console/openapi/main" target="_blank">LINE WORKS Developer Console</a> API Setting page. See more details<a href="https://sites.google.com/a/sateraito.jp/sateraito-dounyuu/Home/chatmagazine#LINEWORKSCHANNEL" target="_blank">here</a>'
 	,'VMSG_MASTERDATA_CONTROL': u'Master Data Control'

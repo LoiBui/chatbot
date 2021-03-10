@@ -1989,5 +1989,5 @@ var _msg = {
 	,SUBMIT:'登録'
 	,PLEASE_WAIT:'処理中...'
 	,SOMETHING_WENT_WRONG:'失敗'
-	,TABLE_CAN_NOT_EMPTY:'Table can\'t empty.'
+	,TABLE_CAN_NOT_EMPTY:'テーブルにデータがありません'
 };
