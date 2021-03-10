@@ -267,7 +267,7 @@
 		$(function(){
 			$("body").on("click", ".btn-del", function(){
 				if($(`#table_question${currentSheet} .btn-del`).length == 1){
-					Ext.Msg.alert("Notice", "Table can't empty.");
+					Ext.Msg.alert("Notice", _msg.TABLE_CAN_NOT_EMPTY);
 					return;
 				}
 				$(this).closest('tr').remove();

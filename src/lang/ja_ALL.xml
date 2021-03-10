@@ -3102,6 +3102,6 @@ Powered by サテライトオフィス 　http://www.sateraito.jp/
 	<msg name="CHATBOT_HEADER_DEAFULT"><![CDATA[初期値]]></msg>
 	<msg name="PLEASE_WAIT" js="on"><![CDATA[処理中...]]></msg>
 	<msg name="SOMETHING_WENT_WRONG" js="on"><![CDATA[失敗]]></msg>
-	<msg name="TABLE_CAN_NOT_EMPTY" js="on"><![CDATA[Table can't empty.]]></msg>
+	<msg name="TABLE_CAN_NOT_EMPTY" js="on"><![CDATA[テーブルにデータがありません]]></msg>
 	<msg name="DOWNLOAD_BOTH" ><![CDATA[ユーザーに選択]]></msg>
 </messagebundle>

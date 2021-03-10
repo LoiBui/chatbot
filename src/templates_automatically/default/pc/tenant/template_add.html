@@ -461,7 +461,7 @@ Ext.BLANK_IMAGE_URL = "/ext/resources/images/default/s.gif";
 		$(function(){
 			$("body").on("click", ".btn-del", function(){
 				if($(".btn-del").length == 1){
-					Ext.Msg.alert("Notice", "Table can't empty.");
+					Ext.Msg.alert("Notice", _msg.TABLE_CAN_NOT_EMPTY);
 					return;
 				}
 				$(this).closest('tr').remove();
