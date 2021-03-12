@@ -56,3 +56,6 @@
     border: none;
     background: transparent;
 }
+.inputtextcs:disabled {
+    background: #8c8c8c40;
+}

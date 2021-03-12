@@ -1532,11 +1532,12 @@ class ExcelTemplateValue(UCFModel2):
 	default = ndb.StringProperty()
 	sheet = ndb.StringProperty()
 	alias = ndb.StringProperty()
+	select = ndb.StringProperty()
 	created_date = ndb.DateTimeProperty(auto_now_add=True)
 	updated_date = ndb.DateTimeProperty(auto_now=True)
 	
 	@classmethod
-	def save(cls, file_id, question, location, require, value, default, sheet, sheet_name):
+	def save(cls, file_id, question, location, require, value, default, sheet, sheet_name, select):
 		unique_id = UcfUtil.guid()
 		entry = cls(unique_id=unique_id, id=unique_id)
 		entry.file_id = file_id
@@ -1548,6 +1549,7 @@ class ExcelTemplateValue(UCFModel2):
 		entry.sheet = sheet
 		entry.sheet_name = sheet_name
 		entry.alias = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+		entry.select = select
 		entry.put()
 
 	@classmethod

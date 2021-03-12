@@ -71,7 +71,6 @@
 				optimizeData.push(t);
 			});
 			function init() {
-				console.log(fileOptimize)
 				$(`input[name=download_method][value='${fileOptimize['download_method']}']`).prop("checked",true);
 				$("#file-info").html(fileOptimize.filename);
 				// $("#iframe").html(`<iframe style="height: 100%; width: 100%;" class="attachment-viewer-frame-preview-iframe js-stop" src="https://view.officeapps.live.com/op/embed.aspx?src=${'https://go.microsoft.com/fwlink/?LinkID=521962'}"></iframe>`);
@@ -88,17 +87,35 @@
 			}
 			init();
 
-
+			function findActiveSheet(){
+				console.log(gSheets)
+				var SheetName = '';
+				$.each(optimizeData, function(index, value){
+					value.forEach(element => {
+						if(parseInt(element.select) == 1){
+							SheetName = element.sheet_name;
+							return;
+						}
+					});
+				});
+				$.each(gSheets, function(index, value){
+					if(SheetName.trim() == value[1].trim()){
+						currentSheet = parseInt(value[0]);
+						return;
+					}
+				});
+			}
 			function initTable(){
-				
+				findActiveSheet();
 				var xhtml = ``;
 				$.each(optimizeData, function(index, value){
-					xhtml += `<p style="font-weight: bold;" class="label-tbl ${index == 0 ? '': 'd-none'}" id="label_question${index}">${gSheets[index][1]}</p>
-											<table class="tbcus ${index == 0 ? '': 'd-none'}" id="table_question${index}">
+					xhtml += `<p style="font-weight: bold;" class="label-tbl ${index == currentSheet ? '': 'd-none'}" id="label_question${index}">${gSheets[index][1]}</p>
+											<table class="tbcus ${index == currentSheet ? '': 'd-none'}" id="table_question${index}">
 												<tr class="tcus">
 													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_QUETION|safe}}</th>
 													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_POSITION|safe}}</th>
 													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_REQUIRE|safe}}</th>
+													<th class="tcus str thcus">Input Type</th>
 													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_OPTION|safe}}</th>
 													<th class="tcus str thcus">{{lang.CHATBOT_HEADER_DEAFULT|safe}}</th>
 													<th class="tcus str thcus" style="width: 100px;" >{{lang.ACTIONS|safe}}</th>
@@ -118,7 +135,15 @@
 											</select>
 										</th>
 										<th class="tcus">
-											<input type="text" value="${item.value}" name="value[]" class="inputtextcs" placeholder="30,40,50">
+											<select class="input-type csselect" name="input_type[]">
+												<option ${item.input_type == 1 ? 'selected' : ''} value="1">テキスト型</option>
+												<option ${item.input_type == 2 ? 'selected' : ''} value="2">選択型</option>
+												<option ${item.input_type == 3 ? 'selected' : ''} value="3">数字型</option>
+												<option ${item.input_type == 4 ? 'selected' : ''} value="4">日付型</option>
+											</select>
+										</th>
+										<th class="tcus">
+											<input type="text" ${item.input_type != 2 ? 'disabled' : ''} value="${item.value}" name="value[]" class="value-option inputtextcs" placeholder="30,40,50">
 										</th>
 										<th class="tcus">
 											<input type="text" value="${item.default}" name="default[]" class="inputtextcs" placeholder="{{lang.CHATBOT_DEFAULT|safe}}">
@@ -176,7 +201,21 @@
 					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_DISPLAY_NAME);
 					return;
 				}
+
+				let isValid = true;
+				//validate input type
+				$(`#table_question${currentSheet} .input-type`).map(function(){
+					let inputValue = $(this).parent().next().children()[0].value;
+					if(($(this).val() == 2 && inputValue.trim() == '')){
+						Ext.Msg.alert("Notice", "Value is required");
+						isValid = false;
+						return;
+					}
+				});
+				if(!isValid) return;
+
 				var reduceData = [];
+				let indexSheet = 0;
 				gSheets.forEach(element => {
 					if(!(element[0] in dataTable)){
 						dataTable[element[0]] = [];
@@ -209,11 +248,13 @@
 					$(`#table_question${element[0]} input[name^="default"]`).each(function() {
 						if(!('default' in dataTable[element[0]])){
 							dataTable[element[0]]['default'] = [];
+							dataTable[element[0]]['select'] = [];
 						}
 						dataTable[element[0]]['default'].push($(this).val());
+						dataTable[element[0]]['select'].push(currentSheet == indexSheet ? 1 : 0);
 					});
-
-					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value})
+					indexSheet++;
+					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value, select: dataTable[element[0]].select})
 				});
 				
 				var frmData = new FormData();
@@ -362,11 +403,15 @@
 		}
 		$(function(){
 			$("body").on("click", ".btn-del", function(){
-				if($(".btn-del").length == 1){
+				if($(`#table_question${currentSheet} .btn-del`).length == 1){
 					Ext.Msg.alert("Notice", _msg.TABLE_CAN_NOT_EMPTY);
 					return;
 				}
 				$(this).closest('tr').remove();
+			});
+
+			$("body").on("change", ".input-type", function(){
+				$(this).parent().next().children().attr("disabled", $(this).val() == 2 ? false : true)
 			});
 		});
 		
@@ -429,10 +474,8 @@
 											<div style="margin-left: 8px; margin-bottom: 5px;text-align: left;">
 												<input type="radio" id="pdf" name="download_method" value="1">
 												<label for="pdf" style="font-size: 80%;">PDF</label><br>
-												<input type="radio" id="excel" name="download_method" value="2">
+												<input type="radio" id="excel" name="download_method" checked value="2">
 												<label for="excel" style="font-size: 80%;">Excel</label><br>
-												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
 											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">

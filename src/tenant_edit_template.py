@@ -30,7 +30,7 @@ class Page(TenantAppHelper):
 				list_vo = {}
 				i += 1
 				for k,v in vo.iteritems():
-					if k in ['unique_id', 'default', 'file_id', 'location', 'question', 'require', 'sheet', 'value', 'created_date', 'sheet_name']:
+					if k in ['unique_id', 'default', 'file_id', 'location', 'question', 'require', 'sheet', 'value', 'created_date', 'sheet_name', 'select']:
 						list_vo[k] = v
 				fileValue.append(list_vo)
 			q = ExcelTemplateFile.query()

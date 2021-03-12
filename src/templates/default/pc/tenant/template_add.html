@@ -80,6 +80,20 @@
 					Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_DISPLAY_NAME);
 					return;
 				}
+
+				let isValid = true;
+				//validate input type
+				$(`#table_question${currentSheet} .input-type`).map(function(){
+					let inputValue = $(this).parent().next().children()[0].value;
+					if(($(this).val() == 2 && inputValue.trim() == '')){
+						Ext.Msg.alert("Notice", "Value is required");
+						isValid = false;
+						return;
+					}
+				});
+				if(!isValid) return;
+
+				let indexSheet = 0;
 				var reduceData = [];
 				gSheets.forEach(element => {
 					if(!(element[0] in dataTable)){
@@ -113,13 +127,14 @@
 					$(`#table_question${element[0]} input[name^="default"]`).each(function() {
 						if(!('default' in dataTable[element[0]])){
 							dataTable[element[0]]['default'] = [];
+							dataTable[element[0]]['select'] = [];
 						}
 						dataTable[element[0]]['default'].push($(this).val());
+						dataTable[element[0]]['select'].push(currentSheet == indexSheet ? 1 : 0);
 					});
 
-					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value})
+					reduceData.push({question: dataTable[element[0]].question, location: dataTable[element[0]].location, default: dataTable[element[0]].default, require: dataTable[element[0]].require, value: dataTable[element[0]].value, select: dataTable[element[0]].select})
 				});
-				
 				var frmData = new FormData();
 				frmData.append("sheet", JSON.stringify(reduceData));
 				frmData.append("file", fileBlobKey);
@@ -155,16 +170,7 @@
 		
 		btnReset.render(Ext.get('btnReset'));
 
-			createSelectSheetComboBox()
-			new Ext.Button({
-				text: _msg.BUTTON_ACTION_ADD,
-				handler: function(){
-					if(currentSheet == null){
-						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
-					}
-					$("#table_question"+currentSheet).append(`{% include "./template_table_tr.html" %}`);
-				}
-			}).render('button-add-more');// where you want to render
+			createSelectSheetComboBox();
 		})
 		
 		function errFile(){
@@ -251,6 +257,15 @@
 			});
 			await getSheets(formExcel, fileInfo);
 			loading.hide();
+			new Ext.Button({
+				text: _msg.BUTTON_ACTION_ADD,
+				handler: function(){
+					if(currentSheet == null){
+						Ext.Msg.alert("Notice", _msg.MSG_REQUIRE_FILE_TEMPLATE);
+					}
+					$("#table_question"+currentSheet).append(`{% include "./template_table_tr.html" %}`);
+				}
+			}).render('button-add-more');// where you want to render
 		}
 
 		function renderTable(sheets){
@@ -271,6 +286,10 @@
 					return;
 				}
 				$(this).closest('tr').remove();
+			});
+
+			$("body").on("change", ".input-type", function(){
+				$(this).parent().next().children().attr("disabled", $(this).val() == 2 ? false : true)
 			});
 		});
 	</script>
@@ -332,10 +351,8 @@
 											<div style="margin-left: 8px; margin-bottom: 5px;text-align: left;">
 												<input type="radio" id="pdf" name="download_method" value="1">
 												<label for="pdf" style="font-size: 80%;">PDF</label><br>
-												<input type="radio" id="excel" name="download_method" value="2">
+												<input type="radio" id="excel" name="download_method" checked value="2">
 												<label for="excel" style="font-size: 80%;">Excel</label><br>
-												<input type="radio" id="other" name="download_method" checked value="0">
-												<label for="other" style="font-size: 80%;">{{lang.DOWNLOAD_BOTH|safe}}</label>
 											</div>
 										</div>
 										<div style="width: 60%;" id="iframe">

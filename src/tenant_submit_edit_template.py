@@ -38,7 +38,7 @@ class Page(TenantAppHelper):
 				for item in sheet:
 					index = 0
 					for i in item['question']:
-						ExcelTemplateValue.save(uidFile, item['question'][index], item['location'][index], item['require'][index], item['value'][index], item['default'][index], str(indexParent), sheetName[indexParent][1])
+						ExcelTemplateValue.save(uidFile, item['question'][index], item['location'][index], item['require'][index], item['value'][index], item['default'][index], str(indexParent), sheetName[indexParent][1], str(item['select'][index]))
 						index += 1
 					indexParent += 1
 
